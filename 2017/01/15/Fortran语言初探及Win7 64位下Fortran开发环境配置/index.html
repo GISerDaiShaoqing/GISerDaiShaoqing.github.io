@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Fortran语言初探及Win7 64位下Fortran开发环境配置 | GISerDaiShaoqing&#39;s Blog</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。好了，扯淡完毕，首先先来简介下Fortran语言。Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
+<meta property="og:url" content="http://yoursite.com/2017/01/15/Fortran语言初探及Win7 64位下Fortran开发环境配置/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。好了，扯淡完毕，首先先来简介下Fortran语言。Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界">
+<meta property="og:image" content="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-24T11:12:11.537Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
+<meta name="twitter:description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。好了，扯淡完毕，首先先来简介下Fortran语言。Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="GISerDaiShaoqing&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Dai Shaoqing</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran/" style="font-size: 10px;">Fortran</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Dai Shaoqing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Dai Shaoqing</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Fortran语言初探及Win7 64位下Fortran开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/15/Fortran语言初探及Win7 64位下Fortran开发环境配置/" class="article-date">
+  	<time datetime="2017-01-14T16:00:00.000Z" itemprop="datePublished">2017-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Fortran语言初探及Win7 64位下Fortran开发环境配置
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fortran/">Fortran</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Fortran语言/">Fortran语言</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。<br><img src="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，扯淡完毕，首先先来简介下Fortran语言。<br>Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界上最早出现的计算机高级程序设计语言，广泛应用于科学和工程计算领域。FORTRAN语言以其特有的功能在数值、科学和工程计算领域发挥着重要作用。Fortran 90之前的版本是人们所知晓的FORTRAN（全部字母大写），从Fortran 90以及以后的版本都写成Fortran（仅有第一个字母大写）（ps，来自度娘百科）。<br>可以说Fortran是属于计算机编程语言中的老古董了，但是另一个重要特点就是在科学和工程计算领域应用广泛，主要是其编程语言本身在数组计算上的一些优点决定的。从TIOBE 2017年1月的编程语言排行榜来看<br>Fortran排在第28位，仍居前30之列，说明该语言仍旧具有广泛适用人群。<br><img src="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>那么Fortran在地理学、生态学与遥感方面的应用典型有哪些呢？<br>事实上，在地理学、生态学与遥感领域，Fortran可以说有大量的学者使用并建立开发了大量的模型。比如遥感方面，大气辐射传输6S模型、MODTRAN辐射传输模型；生态学方面，WOFOST作物生长模型、DSSAT作物生长模型、景观中性模型模拟软件RULE等。<br>同时Fortran对数组处理的优势使得它能在遥感数据的处理方面担当举足轻重的角色（类比语言IDL、Matlab、Python的numpy），这也是笔者学习的初衷。<br>当然，正如前面提到了，Fortran是个典型的老古董语言，应用广泛的相关模型基于的Fortran版本的编译器在Win 7及以上系统中基本无法正常安装，故Win 7 64位系统如何配置Fortran开发环境是Fortran语言学习的第一步。<br>由于传统的Visual Fortran 6.6.0及以下版本在Win 7 64位无法兼容，网上虽有帖子提出了相关解决法方法，但笔者亲自尝试的结果是hello world无法运行，故这边介绍其他方法。<br>这里有两种配置方法是可以的：<br>第一种，安装Visual Studio。作为微软主推的IDE，VS在诸多IDE中确实功能突出，优点颇多，作为商业软件，简单的开发环境配置方法也是一大优势。只需勾选Fortran相关编译器安装，即可配置成功。<br>第二种，安装其他IDE，由于VS的简便性导致将其分为一类，其他IDE只需有Fortran编译器即可。VS在简便性上确实很优秀，但是相对而言，VS是个典型的重量级IDE。相对而言，笔者最近喜欢轻量级IDE，故搜索了其他IDE，以Code::Blocks为例，偏爱它的另一个原因就是因为它是免费开源软件（开源大法好）。<br>1.首先下载带有Fortran编译器的Code::Blocks软件。</p>
+<blockquote>
+<p><a href="http://www.codeblocks.org/" target="_blank" rel="external">http://www.codeblocks.org/</a></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择最后一个<br>2.直接安装即可，确认安装所有部分<br><img src="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.安装完毕后，打开IDE<br>在菜单栏中找到“Setting”→“Compiler”<br><img src="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>复制一个编译器，自定义名字<br>接着点“Toolchain executables”<br>将画框部分的文件全部改成gfortran.exe<br><img src="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击ok即可。<br>4.Hello World 编写<br>在菜单栏找到”File”→”New”→”Project”，建立一个Fortran工程文件。<br><img src="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>工程命名<br><img src="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择自定义的编译器<br><img src="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>添加hello world项目的Fortran文件<br><img src="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编写如下的hello world进行测试。</p>
+<pre><code>program helloworld
+    implicit none
+    write(*,*) &apos;Hello world&apos;
+end program
+</code></pre><p><img src="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>5.生成exe文件无法打开的处理方法<br>某些时候生成的exe文件打开会报错。类似“找不到<em>*</em>.dll”“这个应用程序安装/配置不正确，重新安装…”这样的错误。<br>这样的情况下，只需在系统变量里面PATH加上对应的路径即可。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/R语言读取Excel的神器——openxlsx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          R语言读取Excel的神奇——openxlsx
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/11/如何做出相关系数矩阵可视化图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何做出相关系数矩阵可视化图</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="Fortran语言初探及Win7 64位下Fortran开发环境配置" data-title="Fortran语言初探及Win7 64位下Fortran开发环境配置" data-url="http://yoursite.com/2017/01/15/Fortran语言初探及Win7 64位下Fortran开发环境配置/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Dai Shaoqing
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
