@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a>
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 10px;">WRF</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,174 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-WRF-DA代码编译与安装(一）——依赖库的编译与安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" class="article-date">
+  	<time datetime="2017-04-01T16:00:00.000Z" itemprop="datePublished">2017-04-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">
+        WRF-DA代码编译与安装（一）——依赖库的编译与安装
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。</p>
+<p>WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。</p>
+<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。<br>具体的可以见官网：</p>
+<blockquote>
+<p><a href="http://www2.mmm.ucar.edu/wrf/users/" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/</a></p>
+</blockquote>
+<p>WRF模拟系统主要包含WPS和WRF两部分模块： WPS模块全称为WRF Pre-processing System，即WRF预处理系统，用来为WRF模型准备输入数据；如果只是做理想实验(idealized modeling)，就不需要用WPS处理真实数据。但是理想实验不在本文介绍范围内，本文介绍的是进行真实数据模拟的操作。 WRF模块就是数值求解的模块，它有两个版本：ARW(Advanced Research WRF) 和 NMM(Nonhydrostatic Mesoscale Model)。大多数研究者主要用的都是ARW版本，本文所有的介绍也都基于ARW版本。 除了WPS与WRF两大核心模块外，WRF系统还有很多附加模块：比如用于数据同化的WRF-DA，用于化学传输的WRF-chem，用于林火模拟的WRF-fire（该段文字引自xg1990的博客，具体地址文末贴出，感谢该位大神的分享）。<br>安装运行WRF模拟系统必须在Linux系统。而笔者又无法放弃windows系统，同时目前工作还处于前期测试阶段，故决定选择用VMware虚拟机搭建一个Linux系统来测试。<br>选用的VMware版本：12.5.2。<br>Linux系统：Ubuntu 16.04<br>具体安装过程不是本文重点。详情可见</p>
+<blockquote>
+<p><a href="https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html" target="_blank" rel="external">https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html</a></p>
+</blockquote>
+<p>此外附上Ubuntu官网链接</p>
+<blockquote>
+<p><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="external">https://www.ubuntu.com/download/desktop</a></p>
+</blockquote>
+<p>WRF-DA编译与安装主要参照官方提供的ppt和文档（地址文末会贴出）。<br><img src="http://img.blog.csdn.net/20170401003926187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>首先看下WRF-DA编译与安装的需求。<br><img src="http://img.blog.csdn.net/20170401004121444?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170401004203600?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170401004212178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>上面提到了需求如下：<br>1.Linux/Mac系统，基于Unix或Linux的系统<br>2.（3DVAR）三维变分的案例内存占用不大，大的（4DVAR）四维变分内存消耗较大。<br>3.支持C和Fortran的编译器（ifort/icc, gfortran/gcc,pgf90/pgcc）<br>4..需要的一些库，类似于WRF。包括：Zlib，netCDF C/Fortran，MPI（MPICH），BUFR，CRTM，RTTOV，HDF5。<br>系统已经安装完毕，而内存部分目前暂时不考虑。接下来看C和Fortran的编译器。<br>Ubuntu内置了gcc的编译器。可以通过命令来查看。</p>
+<pre><code>~$ gcc -v
+</code></pre><p>结果如下：<br><img src="http://img.blog.csdn.net/20170401004956776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>接下来安装gfortran，也是通过命令进行安装。</p>
+<pre><code>~$ sudo apt-get install gfortran
+</code></pre><p>通过命令查看是否安装成功。</p>
+<pre><code>~$ gfortran -v
+</code></pre><p><img src="http://img.blog.csdn.net/20170401005315027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是几个库的下载与安装。<br>zlib：</p>
+<blockquote>
+<p><a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a></p>
+</blockquote>
+<p>netCDF C/Fortran：</p>
+<blockquote>
+<p><a href="http://www.unidata.ucar.edu/downloads/netcdf/index.jsp" target="_blank" rel="external">http://www.unidata.ucar.edu/downloads/netcdf/index.jsp</a></p>
+</blockquote>
+<p>MPI（MPICH）：</p>
+<blockquote>
+<p><a href="http://www.mpich.org/downloads/" target="_blank" rel="external">http://www.mpich.org/downloads/</a></p>
+</blockquote>
+<p>BUFR：包含在WRF源代码中</p>
+<p>CRTM：包含在WRF源代码中</p>
+<p>RTTOV：</p>
+<blockquote>
+<p><a href="https://nwpsaf.eu/site/software/rttov/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/</a></p>
+</blockquote>
+<p>需注册，最好自备梯子。</p>
+<p>HDF5：</p>
+<blockquote>
+<p><a href="https://support.hdfgroup.org/HDF5/" target="_blank" rel="external">https://support.hdfgroup.org/HDF5/</a></p>
+</blockquote>
+<p>将如上的几个库的安装包通过共享文件夹放入虚拟机中（mnt/hgfs/Share)。</p>
+<p>zlib和hdf5和netCDF 4相关。具体安装步骤和教程借鉴了官方文档</p>
+<blockquote>
+<p><a href="http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source" target="_blank" rel="external">http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source</a></p>
+</blockquote>
+<p>1.zlib的安装：解压到当前</p>
+<pre><code>$ tar zvf zlib-1.2.11.tar.gz
+</code></pre><p>然后进入解压文件夹，并安装</p>
+<pre><code>$ ./configure --prefix=/usr/local
+$ make check
+$ make install
+</code></pre><p>2.HDF5的安装：解压到当前</p>
+<pre><code>$ tar -xvf hdf5-1.8.18.tar
+</code></pre><p>然后进入解压文件夹，并安装</p>
+<pre><code>$ ./configure --with-zlib=/usr/local --prefix=/usr/local/hdf5
+$ make check
+$ make install
+</code></pre><p>HDF5的安装和检验参照：</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
+</blockquote>
+<p>HDF5还需配置一个环境变量，避免下面的netCDF C安装报错。</p>
+<pre><code>$ gedit ~/.bashrc
+#for hd5
+export CPPFLAGS=-I$PRO_PATH/usr/local/HDF5/include 
+export LDFLAGS=-L$PRO_PATH/usr/local/HDF5/lib 
+export LD_LIBRARY_PATH=$PRO_PATH/usr/local/HDF5/lib
+$ source ~/.bashrc
+</code></pre><p>3.netCDF C/Fortran安装<br>先装netCDF C：</p>
+<pre><code>$ sudo mkdir /usr/local/netcdf
+$ ./configure --prefix=/usr/local/netcdf --enable-netcdf-4 LDFLAGS=&quot;-L/usr/local/lib&quot; CPPFLAGS=&quot;-I/usr/local/hdf5/include&quot;
+$ make check
+$ make install
+</code></pre><p>接着装netCDF Fortran：<br>先声明环境变量：</p>
+<pre><code>$ export CPPFLAGS=-I/usr/local/NETCDF/include
+$ export LDFLAGS=-L/usr/local/NETCDF/lib
+</code></pre><p>然后进行下一步编译。</p>
+<pre><code>$ ./configure --prefix=/usr/local/netcdf --enable-netcdf-4 LDFLAGS=&quot;-L/usr/local/lib&quot; CPPFLAGS=&quot;-I/usr/local/hdf5/include&quot; FC=gfortran
+</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，可以在home下面创建一个目录/home/mpi/，并放置两个文件夹，一个是src（源码），一个是mpich（安装路径）。<br>解压到指定路径。</p>
+<pre><code>$ tar zxf mpich-3.2.tar.gz -C /home/mpi/src
+$ ./configure -prefix=/home/mpi/mpich
+</code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，建议新建个path来存放。</p>
+<pre><code>$ tar zxf rttov121.tar.gz 
+$ cd src
+$ ../build/rttov_compile.sh
+</code></pre><p>打完收工。目前应该就完成了WRF-DA编译安装前所有需要的依赖库的编译及安装。下一篇更新WRF-DA具体的编译与安装。由于对Linux系统不熟悉，加上坑爹的rttov，博客写了两三天。从内心坚持要提醒大家的一点，Linux编译环境一定要注意环境变量！！！</p>
+<p>最后重点鸣谢几位主要参考大神的博客以及相关文档：</p>
+<blockquote>
+<p><a href="https://wenku.baidu.com/view/58851bc269eae009591bec0a.html" target="_blank" rel="external">https://wenku.baidu.com/view/58851bc269eae009591bec0a.html</a><br><a href="https://nwpsaf.eu/site/software/rttov/rttov-v12/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/rttov-v12/</a><br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html</a><br><a href="https://xg1990.com/blog/archives/190" target="_blank" rel="external">https://xg1990.com/blog/archives/190</a><br> <a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WRF/">WRF</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-一行代码更新R语言" class="article article-type-post" itemscope itemprop="blogPost">
   
