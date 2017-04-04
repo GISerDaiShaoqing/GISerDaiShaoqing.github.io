@@ -25,7 +25,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 <meta property="og:image" content="http://img.blog.csdn.net/20170401004212178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170401004956776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170401005315027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-02T15:21:08.348Z">
+<meta property="og:updated_time" content="2017-04-04T08:46:03.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
 <meta name="twitter:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。
@@ -285,43 +285,54 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 <blockquote>
 <p><a href="http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source" target="_blank" rel="external">http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source</a></p>
 </blockquote>
-<p>1.zlib的安装：解压到当前</p>
-<pre><code>$ tar zvf zlib-1.2.11.tar.gz
+<p>1.zlib的安装：解压到/usr/下</p>
+<pre><code>$ cp -r zlib-1.2.11.tar.gz /usr/
+$ tar zvf zlib-1.2.11.tar.gz
 </code></pre><p>然后进入解压文件夹，并安装</p>
-<pre><code>$ ./configure --prefix=/usr/local
+<pre><code>$ ./configure --prefix=/usr/local/zlib
 $ make check
 $ make install
-</code></pre><p>2.HDF5的安装：解压到当前</p>
+</code></pre><p>修改环境变量。</p>
+<pre><code>gedit ~/.bashrc
+# for zlib  
+export ZLIB_HOME=/usr/local/zlib  export
+LD_LIBRARY_PATH=$ZLIB_HOME/lib:$LD_LIBRARY_PATH
+</code></pre><p>2.HDF5的安装：解压到/usr/下</p>
 <pre><code>$ tar -xvf hdf5-1.8.18.tar
 </code></pre><p>然后进入解压文件夹，并安装</p>
 <pre><code>$ ./configure --with-zlib=/usr/local --prefix=/usr/local/hdf5
+$ make 
 $ make check
 $ make install
 </code></pre><p>HDF5的安装和检验参照：</p>
-<blockquote>
+<pre><code>./configure --prefix=/usr/local/HDF5 --with-zlib=/usr/local/zlib 
+</code></pre><blockquote>
 <p><a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
 </blockquote>
 <p>HDF5还需配置一个环境变量，避免下面的netCDF C安装报错。</p>
 <pre><code>$ gedit ~/.bashrc
 #for hd5
-export CPPFLAGS=-I$PRO_PATH/usr/local/HDF5/include 
-export LDFLAGS=-L$PRO_PATH/usr/local/HDF5/lib 
-export LD_LIBRARY_PATH=$PRO_PATH/usr/local/HDF5/lib
+export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
+export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
+export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
 $ source ~/.bashrc
 </code></pre><p>3.netCDF C/Fortran安装<br>先装netCDF C：</p>
-<pre><code>$ sudo mkdir /usr/local/netcdf
-$ ./configure --prefix=/usr/local/netcdf --enable-netcdf-4 LDFLAGS=&quot;-L/usr/local/lib&quot; CPPFLAGS=&quot;-I/usr/local/hdf5/include&quot;
+<pre><code>$ export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
+$ export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
+$ export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
+$ ./configure --prefix=/usr/local/netcdf --enable-netcdf-4
+$ make 
 $ make check
 $ make install
 </code></pre><p>接着装netCDF Fortran：<br>先声明环境变量：</p>
 <pre><code>$ export CPPFLAGS=-I/usr/local/NETCDF/include
 $ export LDFLAGS=-L/usr/local/NETCDF/lib
 </code></pre><p>然后进行下一步编译。</p>
-<pre><code>$ ./configure --prefix=/usr/local/netcdf --enable-netcdf-4 LDFLAGS=&quot;-L/usr/local/lib&quot; CPPFLAGS=&quot;-I/usr/local/hdf5/include&quot; FC=gfortran
+<pre><code>$ ./configure --prefix=/usr/local/netcdf FC=gfortran
 </code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，可以在home下面创建一个目录/home/mpi/，并放置两个文件夹，一个是src（源码），一个是mpich（安装路径）。<br>解压到指定路径。</p>
 <pre><code>$ tar zxf mpich-3.2.tar.gz -C /home/mpi/src
 $ ./configure -prefix=/home/mpi/mpich
-</code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，建议新建个path来存放。</p>
+</code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，同样新建个path来存放。</p>
 <pre><code>$ tar zxf rttov121.tar.gz 
 $ cd src
 $ ../build/rttov_compile.sh
