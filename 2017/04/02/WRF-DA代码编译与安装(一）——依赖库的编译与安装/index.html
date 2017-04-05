@@ -25,7 +25,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 <meta property="og:image" content="http://img.blog.csdn.net/20170401004212178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170401004956776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170401005315027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-04T10:18:01.880Z">
+<meta property="og:updated_time" content="2017-04-05T07:40:19.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
 <meta name="twitter:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。
@@ -305,7 +305,7 @@ $ make
 $ make check
 $ make install
 </code></pre><p>HDF5的安装和检验参照：</p>
-<pre><code>./configure --prefix=/usr/local/HDF5 --with-zlib=/usr/local/zlib 
+<pre><code>./configure --prefix=/usr/local/hdf5 --with-zlib=/usr/local/zlib 
 </code></pre><blockquote>
 <p><a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
 </blockquote>
@@ -329,9 +329,9 @@ $ make install
 $ export LDFLAGS=-L/usr/local/NETCDF/lib
 </code></pre><p>然后进行下一步编译。</p>
 <pre><code>$ ./configure --prefix=/usr/local/NETCDF FC=gfortran
-</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，可以在home下面创建一个目录/home/mpi/，并放置两个文件夹，一个是src（源码），一个是mpich（安装路径）。<br>解压到指定路径。</p>
-<pre><code>$ tar zxf mpich-3.2.tar.gz -C /home/mpi/src
-$ ./configure -prefix=/home/mpi/mpich
+</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，同样放到usr下面。<br>解压到指定路径。</p>
+<pre><code>$ tar zxf mpich-3.2.tar.gz 
+$ ./configure -prefix=/usr/local/mpi/
 </code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，同样新建个path来存放。</p>
 <pre><code>$ tar zxf rttov121.tar.gz 
 $ cd src

@@ -269,7 +269,7 @@ $ make
 $ make check
 $ make install
 </code></pre><p>HDF5的安装和检验参照：</p>
-<pre><code>./configure --prefix=/usr/local/HDF5 --with-zlib=/usr/local/zlib 
+<pre><code>./configure --prefix=/usr/local/hdf5 --with-zlib=/usr/local/zlib 
 </code></pre><blockquote>
 <p><a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
 </blockquote>
@@ -293,9 +293,9 @@ $ make install
 $ export LDFLAGS=-L/usr/local/NETCDF/lib
 </code></pre><p>然后进行下一步编译。</p>
 <pre><code>$ ./configure --prefix=/usr/local/NETCDF FC=gfortran
-</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，可以在home下面创建一个目录/home/mpi/，并放置两个文件夹，一个是src（源码），一个是mpich（安装路径）。<br>解压到指定路径。</p>
-<pre><code>$ tar zxf mpich-3.2.tar.gz -C /home/mpi/src
-$ ./configure -prefix=/home/mpi/mpich
+</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，同样放到usr下面。<br>解压到指定路径。</p>
+<pre><code>$ tar zxf mpich-3.2.tar.gz 
+$ ./configure -prefix=/usr/local/mpi/
 </code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，同样新建个path来存放。</p>
 <pre><code>$ tar zxf rttov121.tar.gz 
 $ cd src
