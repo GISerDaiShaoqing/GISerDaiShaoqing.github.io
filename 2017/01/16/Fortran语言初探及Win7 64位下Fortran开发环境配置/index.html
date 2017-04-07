@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
+  <meta charset="utf-8">
+  
+  <title>Fortran语言初探及Win7 64位下Fortran开发环境配置 | GISerDaiShaoqing&#39;s Blog</title>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
+  <!-- keywords -->
+  
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="Dai Shaoqing" />
-
-
-
-<meta name="description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。好了，扯淡完毕，首先先来简介下Fortran语言。Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。好了，扯淡完毕，首先先来简介下Fortran语言。Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
 <meta property="og:url" content="http://yoursite.com/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/index.html">
@@ -37,245 +31,161 @@
 <meta name="twitter:title" content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
 <meta name="twitter:description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。好了，扯淡完毕，首先先来简介下Fortran语言。Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="GISerDaiShaoqing&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
-
-    <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing&#39;s Blog" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/favicon.png">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>Fortran语言初探及Win7 64位下Fortran开发环境配置 | GISerDaiShaoqing&#39;s Blog</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
-    }
-</script>
-
-
-    <script> yiliaConfig.jquery_ui = [false]; </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
-
-
-
-
-
-
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+<script src="/js/Counter.js"></script>
+  
 </head>
 <body>
   <div id="container">
+    <div id="particles-js"></div>
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">Dai Shaoqing</a></h1>
-        </hgroup>
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/avatar.jpg" class="js-avatar">
+			
+		</a>
 
-        
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Dai Shaoqing</a></h1>
+		</hgroup>
 
-        
+		
 
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
-                        
-                        <li>友情鏈接</li>
-                        
-                        
-                        <li>關於我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 15px;">WRF</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran语言/">Fortran语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R语言/">R语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+				
+			</div>
+		</div>
+	</header>				
 </div>
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Dai Shaoqing</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">Dai Shaoqing</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Dai Shaoqing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/images/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Dai Shaoqing</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
       <div class="body-wrap"><article id="post-Fortran语言初探及Win7 64位下Fortran开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" class="article-date">
-      <time datetime="2017-01-15T16:00:00.000Z" itemprop="datePublished">2017-01-16</time>
+  	<time datetime="2017-01-15T16:00:00.000Z" itemprop="datePublished">2017-01-16</time>
 </a>
-
-
     </div>
   
   <div class="article-inner">
@@ -288,6 +198,7 @@
   
     <h1 class="article-title" itemprop="name">
       Fortran语言初探及Win7 64位下Fortran开发环境配置
+      
     </h1>
   
 
@@ -295,23 +206,33 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/编程/">编程</a>
-    </div>
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fortran语言/">Fortran语言</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
 
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fortran语言/">Fortran语言</a></li></ul>
-    </div>
+          
+<div class="counter-tag counter">
+    <span id="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="Fortran语言初探及Win7 64位下Fortran开发环境配置">
+         &nbsp;
+        view
+    </span>
+</div>
 
+        
         <div class="clearfix"></div>
       </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。<br><img src="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，扯淡完毕，首先先来简介下Fortran语言。<br>Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界上最早出现的计算机高级程序设计语言，广泛应用于科学和工程计算领域。FORTRAN语言以其特有的功能在数值、科学和工程计算领域发挥着重要作用。Fortran 90之前的版本是人们所知晓的FORTRAN（全部字母大写），从Fortran 90以及以后的版本都写成Fortran（仅有第一个字母大写）（ps，来自度娘百科）。<br>可以说Fortran是属于计算机编程语言中的老古董了，但是另一个重要特点就是在科学和工程计算领域应用广泛，主要是其编程语言本身在数组计算上的一些优点决定的。从TIOBE 2017年1月的编程语言排行榜来看<br>Fortran排在第28位，仍居前30之列，说明该语言仍旧具有广泛适用人群。<br><img src="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>那么Fortran在地理学、生态学与遥感方面的应用典型有哪些呢？<br>事实上，在地理学、生态学与遥感领域，Fortran可以说有大量的学者使用并建立开发了大量的模型。比如遥感方面，大气辐射传输6S模型、MODTRAN辐射传输模型；生态学方面，WOFOST作物生长模型、DSSAT作物生长模型、景观中性模型模拟软件RULE等。<br>同时Fortran对数组处理的优势使得它能在遥感数据的处理方面担当举足轻重的角色（类比语言IDL、Matlab、Python的numpy），这也是笔者学习的初衷。<br>当然，正如前面提到了，Fortran是个典型的老古董语言，应用广泛的相关模型基于的Fortran版本的编译器在Win 7及以上系统中基本无法正常安装，故Win 7 64位系统如何配置Fortran开发环境是Fortran语言学习的第一步。<br>由于传统的Visual Fortran 6.6.0及以下版本在Win 7 64位无法兼容，网上虽有帖子提出了相关解决法方法，但笔者亲自尝试的结果是hello world无法运行，故这边介绍其他方法。<br>这里有两种配置方法是可以的：<br>第一种，安装Visual Studio。作为微软主推的IDE，VS在诸多IDE中确实功能突出，优点颇多，作为商业软件，简单的开发环境配置方法也是一大优势。只需勾选Fortran相关编译器安装，即可配置成功。<br>第二种，安装其他IDE，由于VS的简便性导致将其分为一类，其他IDE只需有Fortran编译器即可。VS在简便性上确实很优秀，但是相对而言，VS是个典型的重量级IDE。相对而言，笔者最近喜欢轻量级IDE，故搜索了其他IDE，以Code::Blocks为例，偏爱它的另一个原因就是因为它是免费开源软件（开源大法好）。<br>1.首先下载带有Fortran编译器的Code::Blocks软件。</p>
 <blockquote>
 <p><a href="http://www.codeblocks.org/" target="_blank" rel="external">http://www.codeblocks.org/</a></p>
@@ -330,210 +251,103 @@ end program
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文標題:</span><a href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/">Fortran语言初探及Win7 64位下Fortran开发环境配置</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主頁">Dai Shaoqing</a></p>
-        <p><span>發布時間:</span>2017-01-16, 00:00:00</p>
-        <p><span>最後更新:</span>2017-04-06, 10:36:55</p>
-        <p>
-            <span>原始鏈接:</span><a class="post-url" href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" title="Fortran语言初探及Win7 64位下Fortran开发环境配置">http://yoursite.com/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/　　作者: Dai Shaoqing" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/R语言读取Excel的神器——openxlsx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/22/R语言读取Excel的神器——openxlsx/">
-                    R语言读取Excel的神器——openxlsx
-                </a>
-            </div>
+          R语言读取Excel的神器——openxlsx
         
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/12/11/如何做出相关系数矩阵可视化图/">
-                    如何做出相关系数矩阵可视化图
-                </a>
-            </div>
-        
-    </nav>
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/11/如何做出相关系数矩阵可视化图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何做出相关系数矩阵可视化图</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
 
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目錄</strong>
-        
-            
-        
+
+<div class="ds-share share" data-thread-key="Fortran语言初探及Win7 64位下Fortran开发环境配置" data-title="Fortran语言初探及Win7 64位下Fortran开发环境配置" data-url="http://yoursite.com/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/"  data-images="/images/avatar.jpg" data-content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
     </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
-
-    <script>
-        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Fortran语言初探及Win7 64位下Fortran开发环境配置　| GISerDaiShaoqing's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
+ </div>
+ 
 
 
 
 
 
-
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/03/22/R语言读取Excel的神器——openxlsx/" title="上一篇: R语言读取Excel的神器——openxlsx">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/12/11/如何做出相关系数矩阵可视化图/" title="下一篇: 如何做出相关系数矩阵可视化图">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/">WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">WRF-DA代码编译与安装（一）——依赖库的编译与安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/一行代码更新R语言/">一行代码更新R语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/R语言读取Excel的神器——openxlsx/">R语言读取Excel的神器——openxlsx</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/">Fortran语言初探及Win7 64位下Fortran开发环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/11/如何做出相关系数矩阵可视化图/">如何做出相关系数矩阵可视化图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/arcgispro/">基于ArcGIS Pro的二三维一体化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/14/桌面GIS连接Postgresql总结/">桌面GIS连接Postgresql总结</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016-2017 Dai Shaoqing
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡潔且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄博客主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Dai Shaoqing
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
         </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
     </div>
+  </div>
 </footer>
     </div>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
 <script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
   </div>
 </body>
 </html>
