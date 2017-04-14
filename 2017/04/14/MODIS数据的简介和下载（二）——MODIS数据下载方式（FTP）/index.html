@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP） | GISerDaiShaoqing&#39;s Blog</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍三种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
+<meta property="og:url" content="http://yoursite.com/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍三种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414144325927?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414144443755?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414144655022?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414145237611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414145600710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414145624476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414145828527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414151039201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414151556333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414151806117?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414191646367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414191637789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414191833908?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414203351993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170414203654198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-04-14T12:47:48.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
+<meta name="twitter:description" content="前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍三种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="GISerDaiShaoqing&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+<script src="/js/Counter.js"></script>
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Dai Shaoqing</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Urban·Ecology·GIS</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/MODIS/" style="font-size: 15px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 15px;">WRF</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/GISerDaiShaoqing">my github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.researchgate.net/profile/Shaoqing_Dai">contact me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Dai Shaoqing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/images/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Dai Shaoqing</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Urban·Ecology·GIS</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" class="article-date">
+  	<time datetime="2017-04-13T16:00:00.000Z" itemprop="datePublished">2017-04-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MODIS/">MODIS</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/RS/">RS</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍三种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R）。<br>FTP下载工具以及完整影像下载的方法<br>笔者最早也是参照网上某篇博客学习的下载方式，老规矩，文末贴链接，这里先感谢这位写博客的同学。同时NASA官网最近刚刚改版了网站，新版网站的下载方式暂时没有看到其他人整理，故稍作些整理。<br>NASA官方遥感影像数据下载网址（里面不止有MODIS，还有ENVISAT，NPP-VIIRS等）：</p>
+<blockquote>
+<p><a href="https://ladsweb.modaps.eosdis.nasa.gov/" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/</a></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择DATA DISCOVERY的Search&amp;Order：<br><img src="http://img.blog.csdn.net/20170414144325927?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>进入这个页面：<br><img src="http://img.blog.csdn.net/20170414144443755?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>找到你要下载的卫星传感器（这里以Terra星做例子）：<br><img src="http://img.blog.csdn.net/20170414144655022?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择我们需要的产品（这里选了1 km、500 m的二级产品，以及经纬度校正的产品，具体产品介绍看上一篇博客的表格以及列出的链接）：<br><img src="http://img.blog.csdn.net/20170414145237611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>结束后直接点击<br><img src="http://img.blog.csdn.net/20170414145600710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>“TIME”，根据需要选择数据的时间跨度。<br><img src="http://img.blog.csdn.net/20170414145624476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接着点击下一步，“LOCATION”。<br>有不同选择需要影像范围的方法。<br><img src="http://img.blog.csdn.net/20170414145828527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>Country→按国家的行政边界来选择数据<br>Tiles→按瓦片选择，或者说按照MODIS数据全球逐行逐列划分的格网（也可以说是MODIS观测时的行列号）来选择数据<br>Validation Sites→按全球分布的验证的观测站点或者生态网络观测站点选择（可以结合观测站点数据做研究）<br>Draw Custom Box（Classic）→按照用户自定义画出来的框选选择数据（用过老版网站下载的同学会对这个功能比较熟悉）<br>Enter Coordinates→用经纬度坐标来选择数据（这个也是类似于老版网站的下载功能），其实就是研究区的四至坐标。<br>这里选择了按瓦片选择的方式，点击箭头。下一步，“FILES”。这一步会把符合要求的所有数据列出来，但是由于前面搜索的时间跨度太长，web端无法完全显示，所以我们重新修改下相关的需求数据（仅选择2010年的数据，而且选择下载合成产品）。<br><img src="http://img.blog.csdn.net/20170414151039201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是新版网站的一个比较不同的地方，这里的”FILES“，可以直接下载数据。老版网站一般需要Order，提交订单之后才能下载。这样使用比原来更自由些。<br><img src="http://img.blog.csdn.net/20170414151556333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在选择所有数据，提交订单即可。<br><img src="http://img.blog.csdn.net/20170414151806117?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>不过新版网站现在要求要注册账户。所以在下载数据前，记得先申请一个Earthdata的账户（这也就是比较麻烦的点了，目前笔者测试了163和qq邮箱，都没有办法收到激活邮件。目前只有谷歌邮箱能激活，所以必须去注册一个gmail的邮箱）。<br>注意，需要在自己的账户中的“My Application”下面启动“LAADS Web”，最后才能提交订单。<br><img src="http://img.blog.csdn.net/20170414191646367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191637789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191833908?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>FTP的下载必须等到订单出现availlable，才能下载。官方给出的等待时间是5min到10天左右。一般很快就OK了。<br>FTP下载方式的话，需要用FlashFXP这类软件来下载，有需要这个软件的可以在评论区留邮箱。</p>
+<p><img src="http://img.blog.csdn.net/20170414203351993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>地址根据你的订单来决定。<br>ftp: ladsweb.modaps.eosdis.nasa.gov<br>username:anoymous<br>password:你账户申请用的邮箱（gmail邮箱）<br>anoymous意为FTP里的匿名传输。接下来只需要简单地拖拽就可以将上面的数据拷贝到本地文件夹了。<br><img src="http://img.blog.csdn.net/20170414203654198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这就是关于MODIS数据下载方式(FTP)的内容。<br>最后附上旧版网站下载方式教程博客网址：</p>
+<blockquote>
+<p><a href="http://blog.sina.com.cn/s/blog_8684880b010149ue.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_8684880b010149ue.html</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/13/MODIS数据的简介和下载（一）——MODIS数据简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MODIS数据的简介和下载（一）——MODIS数据简介</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）" data-title="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）" data-url="http://yoursite.com/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/"  data-images="/images/avatar.jpg" data-content="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Dai Shaoqing
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
