@@ -235,7 +235,7 @@
 <p>在前面的基础上加上时间范围即可用客户端下载对应的MODIS数据。数据的下载格式是一个多元结构体。包括了数据、转换因子、对应时间序列和单位等等。这样我们就用Matlab下载到了对应的MODIS数据。</p>
 <pre><code>YC_LAI2009=modisClient(&apos;MOD15A2&apos;,&apos;Lai_1km&apos;,36.833,116.567,2009000,2009365)
 </code></pre><p><img src="http://img.blog.csdn.net/20170414231115151?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414231505866?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接下来我们讲的是R语言的客户端及其下载方式。R语言的客户端有两种配制方法，一个是基础设置（基于SSOAP来进行），一个是高级设置（MODISTools包）。<br>笔者个人使用的是高级设置，基础设置没有配置过。只是对官方给出的例子做了下翻译，具体的demo如下：</p>
+<p>接下来我们讲的是R语言的客户端及其下载方式。R语言的客户端有两种配置方法，一个是基础设置（基于SSOAP来进行），一个是高级设置（MODISTools包）。<br>笔者个人使用的是高级设置，基础设置没有配置过。只是对官方给出的例子做了下翻译，具体的demo如下：</p>
 <pre><code>##确定你安装了SSOAP包，否则先安装SSOAP，用install.packages(&quot;SSOAP&quot;）
 ##接着你就可以尝试用命令行的方式来下载裁切你想要的MODIS影像数据了
 
@@ -362,7 +362,7 @@ plot(lai,type=&quot;l&quot;,pch=16,col=&quot;blue&quot;,xlab=&quot;day of year&q
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍三种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R）。<br>FTP下载工具以及完整影像下载的方法<br>笔者最早也是参照网上某篇博客学习的下载方式，老规矩，文末贴链接，这里先感谢这位写博客的同学。同时NASA官网最近刚刚改版了网站，新版网站的下载方式暂时没有看到其他人整理，故稍作些整理。<br>NASA官方遥感影像数据下载网址（里面不止有MODIS，还有ENVISAT，NPP-VIIRS等）：</p>
+        <p>前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍两种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R）。<br>FTP下载工具以及完整影像下载的方法<br>笔者最早也是参照网上某篇博客学习的下载方式，老规矩，文末贴链接，这里先感谢这位写博客的同学。同时NASA官网最近刚刚改版了网站，新版网站的下载方式暂时没有看到其他人整理，故稍作些整理。<br>NASA官方遥感影像数据下载网址（里面不止有MODIS，还有ENVISAT，NPP-VIIRS等）：</p>
 <blockquote>
 <p><a href="https://ladsweb.modaps.eosdis.nasa.gov/" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/</a></p>
 </blockquote>

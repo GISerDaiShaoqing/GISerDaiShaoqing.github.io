@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170414235407095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170415022056073?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170415022122059?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-14T18:38:31.266Z">
+<meta property="og:updated_time" content="2017-04-15T11:51:43.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）">
 <meta name="twitter:description" content="这是MODIS数据的简介和下载的最后一篇，下载方式的进阶版——基于MODIS Web Service的下载方式。这篇是笔者课程上机实习内容之一，做些简要总结和整理。事实上MODIS产品系列就如前面提到的，由于搭载在Terra星和Aqua星上，所以产品就包括了Terra星、Aqua星以及二者集成的产品。分别以MOD（Terra星）、MYD（Aqua星）、MCD（二者集成）作区分。具体的产品查询网站除">
@@ -277,7 +277,7 @@
 <p>在前面的基础上加上时间范围即可用客户端下载对应的MODIS数据。数据的下载格式是一个多元结构体。包括了数据、转换因子、对应时间序列和单位等等。这样我们就用Matlab下载到了对应的MODIS数据。</p>
 <pre><code>YC_LAI2009=modisClient(&apos;MOD15A2&apos;,&apos;Lai_1km&apos;,36.833,116.567,2009000,2009365)
 </code></pre><p><img src="http://img.blog.csdn.net/20170414231115151?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414231505866?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接下来我们讲的是R语言的客户端及其下载方式。R语言的客户端有两种配制方法，一个是基础设置（基于SSOAP来进行），一个是高级设置（MODISTools包）。<br>笔者个人使用的是高级设置，基础设置没有配置过。只是对官方给出的例子做了下翻译，具体的demo如下：</p>
+<p>接下来我们讲的是R语言的客户端及其下载方式。R语言的客户端有两种配置方法，一个是基础设置（基于SSOAP来进行），一个是高级设置（MODISTools包）。<br>笔者个人使用的是高级设置，基础设置没有配置过。只是对官方给出的例子做了下翻译，具体的demo如下：</p>
 <pre><code>##确定你安装了SSOAP包，否则先安装SSOAP，用install.packages(&quot;SSOAP&quot;）
 ##接着你就可以尝试用命令行的方式来下载裁切你想要的MODIS影像数据了
 
