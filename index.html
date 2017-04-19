@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a>
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a> <a href="/tags/三维GIS/" style="font-size: 10px;">三维GIS</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,113 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Google Earth网页版初探" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/19/Google Earth网页版初探/" class="article-date">
+  	<time datetime="2017-04-18T16:00:00.000Z" itemprop="datePublished">2017-04-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/19/Google Earth网页版初探/">
+        Google Earth网页初探
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近三维GIS界有个比较爆炸性的消息，嗯，没错，Google Earth Enterprise（谷歌地球企业版）宣告开源，47万行代码的大项目就此开放。（深深感觉谷歌就是要搞事情）。<br>概括下GEE开源可以提供些啥。官方github的Readme文档如是写道：<br><img src="http://img.blog.csdn.net/20170419223326199?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>1.Fusion（融合）——影像、矢量与地形（或者可以说集成）的多源数据融合，导入三维地球（可以漫游飞行）或者集成的二维地图。<br>2.Server（服务器）——可以通过融合用户自定义的多源数据定制一个私人三维地球服务器（基于Apache或者Tornado）。<br>3.Client（客户端）——谷歌地球企业版客户端和谷歌地图Javascript API V3版用来浏览三维地球和二维地图。<br>可以说这个开源项目强大异常，感觉GEE开源对于GIS和Web三维开发者是个很大的福利。<br>GEE开源地址：</p>
+<blockquote>
+<p><a href="https://github.com/google/earthenterprise" target="_blank" rel="external">https://github.com/google/earthenterprise</a></p>
+</blockquote>
+<p>接着近日，早前预告过会在世界地球日（4 月 22 日）前发布新版 Google Earth的 Google，今天公布了新消息，各位期待已久的网页版 Google Earth终于来了。现在 Google Earth在电脑端不再是只以应用形式存在，Google 为桌面浏览器推出了专门版本，不过目前只支持 Chrome，未来会增加对其它主流浏览器的支持。移动端方面，则是 Android 版先行，而 iOS 版会在未来得到更新（该段文字引自《Google 地球网页版上线，点击探索者按钮开启环球旅程吧》，文末贴链接）。<br>嗯，终于进入了本篇的正题，虽然跑题的篇幅略长（其实我觉得也不算跑题）。<br>首先贴主页面，感觉整个页面很舒服。<br><img src="http://img.blog.csdn.net/20170419230511695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>接下来介绍下功能。</p>
+<p><img src="http://img.blog.csdn.net/20170419231650611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>主菜单其实包括了下面的几个功能，也可以登录你的谷歌账户。</p>
+<p><img src="http://img.blog.csdn.net/20170419231848839?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>定义地图样式。</p>
+<p><img src="http://img.blog.csdn.net/20170419231931535?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>而网页版最主要的两个功能（探索者和知识卡片，貌似官方把知识卡片称之为运气不错）。<br>探索者是实现了在世界知名景点的虚拟旅游，包括嵌入了360°全景、VR以及谷歌街景。<br>ps，给我一个谷歌地球，我能在跑步机上走遍世界。</p>
+<p><img src="http://img.blog.csdn.net/20170419232357035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>这里尝试了下BBC的纪录片的这个虚拟旅游（在Youtube上，请自备梯子），这里只放了简单的gif图，后面有详细视频的链接。</p>
+<p><img src="http://img.blog.csdn.net/20170420005328330?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>知识卡片功能显示（随机到达2万个地点，都有知识卡片和简介）</p>
+<p><img src="http://img.blog.csdn.net/20170420003105627?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20170419234258453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>Google Earth在2005年推出之后，引起了全球对GIS、空间科学的新一轮思考与认知。是Google Earth真真正正让GIS、VGI（Volunteer Geographical information，志愿者地理信息）和空间科学的理念普及到了千家万户。而这一次Google Earth网页版的推出，又将驱动VR（Vitrual Reality，虚拟现实技术）与三维GIS的进一步发展。对于地理教学方面，Gooogle Earth真正提供了一个0门槛，高质量的集成。可以期待的是，随着GEE开源，接下来GEE的发展将再次焕发生机。</p>
+<p>分享的链接：</p>
+<blockquote>
+<p><a href="https://earth.google.com/web/@39.9388838,116.3974589,54.08506769a,142593.39805527d,35y,0h,0t,0r/data=CkwaShJECiUweDM1ZjA1Mjk2ZTcxNDJjYjk6MHhiOTYyNTYyMGFmMGZhOThhGXvXoC-980NAIXNjesISGl1AKgnljJfkuqzluIIYAiAB" target="_blank" rel="external">https://earth.google.com/web/@39.9388838,116.3974589,54.08506769a,142593.39805527d,35y,0h,0t,0r/data=CkwaShJECiUweDM1ZjA1Mjk2ZTcxNDJjYjk6MHhiOTYyNTYyMGFmMGZhOThhGXvXoC-980NAIXNjesISGl1AKgnljJfkuqzluIIYAiAB</a></p>
+</blockquote>
+<p>谷歌地球网页版：</p>
+<blockquote>
+<p><a href="https://earth.google.com/web/" target="_blank" rel="external">https://earth.google.com/web/</a></p>
+</blockquote>
+<p>《Google 地球网页版上线，点击探索者按钮开启环球旅程吧》：</p>
+<blockquote>
+<p><a href="http://cn.technode.com/post/2017-04-19/google-earth-voyager/" target="_blank" rel="external">http://cn.technode.com/post/2017-04-19/google-earth-voyager/</a></p>
+</blockquote>
+<p>体验视频链接：</p>
+<iframe height="498" width="510" src="http://player.youku.com/embed/XMjcxNzgyODYzMg==" frameborder="0" 'allowfullscreen'=""></iframe>
+
+<iframe height="498" width="510" src="http://player.youku.com/embed/XMjcxNzgyNjIzMg==" frameborder="0" 'allowfullscreen'=""></iframe>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/三维GIS/">三维GIS</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/GIS/">GIS</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2017/04/19/Google Earth网页版初探/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="Google Earth网页初探">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1145,111 +1252,6 @@ end program
 <div class="counter-tag counter">
     <span id="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" class="leancloud_visitors post-title-link"
           style="font-size: 12px" data-flag-title="Fortran语言初探及Win7 64位下Fortran开发环境配置">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-如何做出相关系数矩阵可视化图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/11/如何做出相关系数矩阵可视化图/" class="article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished">2016-12-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/如何做出相关系数矩阵可视化图/">
-        如何做出相关系数矩阵可视化图
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如何做出相关系数矩阵可视化图</p>
-<pre><code>install.packages(&quot;psych&quot;)
-install.packages(&quot;corrplot&quot;)#安装包，如果已安装，请略过
-library(psych)
-library(corrplot)#载入两个包
-data(iris)#机器学习常用神奇数据集——鸢尾花数据集
-head(iris)#查看下数据集前五行
-irisnew&lt;-iris[,-5]#去除第五列种类变量
-cormat&lt;-corr.test(irisnew)#相关系数分析及显著性检验
-#最简单的相关系数矩阵可视化
-corrplot(cormat$r)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;number&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170051203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170105390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170119297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170133453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170145922?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#含显著性检验的相关系数矩阵可视化
-cormatp&lt;-cormat$p#单独取出p值矩阵
-cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
-corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170247486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170259064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170308127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2016/12/11/如何做出相关系数矩阵可视化图/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="如何做出相关系数矩阵可视化图">
          &nbsp;
         view
     </span>

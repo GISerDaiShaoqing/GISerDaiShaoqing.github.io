@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a>
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a> <a href="/tags/三维GIS/" style="font-size: 10px;">三维GIS</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,111 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-如何做出相关系数矩阵可视化图" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/11/如何做出相关系数矩阵可视化图/" class="article-date">
+  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished">2016-12-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/如何做出相关系数矩阵可视化图/">
+        如何做出相关系数矩阵可视化图
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何做出相关系数矩阵可视化图</p>
+<pre><code>install.packages(&quot;psych&quot;)
+install.packages(&quot;corrplot&quot;)#安装包，如果已安装，请略过
+library(psych)
+library(corrplot)#载入两个包
+data(iris)#机器学习常用神奇数据集——鸢尾花数据集
+head(iris)#查看下数据集前五行
+irisnew&lt;-iris[,-5]#去除第五列种类变量
+cormat&lt;-corr.test(irisnew)#相关系数分析及显著性检验
+#最简单的相关系数矩阵可视化
+corrplot(cormat$r)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;square&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method = &quot;number&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170051203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170105390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170119297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170133453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170145922?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>#含显著性检验的相关系数矩阵可视化
+cormatp&lt;-cormat$p#单独取出p值矩阵
+cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
+corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170247486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170259064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170308127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2016/12/11/如何做出相关系数矩阵可视化图/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="如何做出相关系数矩阵可视化图">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-arcgispro" class="article article-type-post" itemscope itemprop="blogPost">
   
