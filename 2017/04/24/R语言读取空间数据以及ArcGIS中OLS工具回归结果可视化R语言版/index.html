@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-25T09:40:55.623Z">
+<meta property="og:updated_time" content="2017-04-25T09:46:02.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
 <meta name="twitter:description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
@@ -240,7 +240,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，提到了Python版（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。</p>
-<p>###1.矢量数据<br>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
+<p>#1.矢量数据<br>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
 <pre><code>install.packages(&apos;maptools&apos;)
 library(maptools)
 </code></pre><p>接着定位到我们所需读取数据的工作路径上，然后就可以开始读取对应的数据了。</p>
@@ -254,7 +254,7 @@ province&lt;-readShapePoly(&quot;province.shp&quot;)
 </code></pre><p>此外还有shapefiles包也可以进行读取。读取方式（可以读取shp和shx，shx读取结果为空间索引）如下：</p>
 <pre><code>fujian&lt;-read.shp(&quot;fujian.shp&quot;)
 </code></pre><p>矢量数据读取主要通过以上几种方式就可以实现。</p>
-<p>###2.栅格数据<br>栅格数据的话，格式还是多种多样的。这边主要提供几种不同格式的读取方法（.img文件，.tif文件，ASCII码文件和.asc文件）。栅格数据读取主要是基于rgdal包，读取方式如下，img和tif都可以通过readGDAL直接读取。</p>
+<p>#2.栅格数据<br>栅格数据的话，格式还是多种多样的。这边主要提供几种不同格式的读取方法（.img文件，.tif文件，ASCII码文件和.asc文件）。栅格数据读取主要是基于rgdal包，读取方式如下，img和tif都可以通过readGDAL直接读取。</p>
 <pre><code>co2&lt;-readGDAL(&quot;CO22008.img&quot;)
 co2&lt;-readGDAL(&quot;CO22008.tif&quot;)
 </code></pre><p>这里面的参数我就不详细介绍了，主要解释几个个人认为比较重要的参数。有兴趣的同学可以去查询官方文档。<br>band——波段数，单纯栅格无所谓。做遥感影像数据处理时就会遇到需要几个波段的问题，如果缺省的话，是全部导入。<br>p4s——等同于上面的proj4string<br>type——像素深度：8bit，16bit等<br>除了rgdal之外，也可以通过raster包进行读取.img文件和.tif文件，这个更方便些。读取方式如下</p>
@@ -263,7 +263,7 @@ co2&lt;-raster(&quot;CO22008.tif&quot;)
 </code></pre><p>当然栅格数据还有较为普遍的以ASCII码文件存储的方式。这里也提供下如何读取ASCII码文件，这个方法是基于sp包的，所以需要先安装和载入sp包，这个包是R语言空间数据的基础包，指定了空间数据库的方法和对象。</p>
 <pre><code>co2&lt;-read.asciigrid(&quot;co22008.txt&quot;)
 </code></pre><p>当然ASCII码文件可能是以.asc文件存储的，只需把后缀名改成.asc即可读取。<br>栅格的读取大概就如上。</p>
-<p>###3.地理数据库（Geodatabase）数据读取<br>Geodatabase是Esri在ArcInfo8之后引入的一种全新的面向对象的空间数据模型。具体简介可以自己搜索。也就是说Geodatabase是Esri官方提出的一种数据库，没有ArcGIS是无法创建Geodatabase的。读取的话其实也相对麻烦些。目前看到的只有Esri官方给出的一个R包可以读取Geodatabase数据。R语言与ArcGIS的结合在未来将很有潜力。目前Esri已经在github上开源了部分工具，2015年全球用户大会上也秀出了R-ArcGIS的Sample工具。<br>具体开源地址：</p>
+<p>#3.地理数据库（Geodatabase）数据读取<br>Geodatabase是Esri在ArcInfo8之后引入的一种全新的面向对象的空间数据模型。具体简介可以自己搜索。也就是说Geodatabase是Esri官方提出的一种数据库，没有ArcGIS是无法创建Geodatabase的。读取的话其实也相对麻烦些。目前看到的只有Esri官方给出的一个R包可以读取Geodatabase数据。R语言与ArcGIS的结合在未来将很有潜力。目前Esri已经在github上开源了部分工具，2015年全球用户大会上也秀出了R-ArcGIS的Sample工具。<br>具体开源地址：</p>
 <blockquote>
 <p><a href="https://r-arcgis.github.io/" target="_blank" rel="external">https://r-arcgis.github.io/</a></p>
 </blockquote>
@@ -287,7 +287,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 <p><img src="http://img.blog.csdn.net/20170424231148007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><img src="http://img.blog.csdn.net/20170424231216987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><img src="http://img.blog.csdn.net/20170424231227096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>###4.ArcGIS中OLS工具回归结果可视化（R语言版）<br>最后的最后。对应虾神文章的Python版本ArcGIS中OLS工具回归结果可视化，写个R语言版本。</p>
+<p>#4.ArcGIS中OLS工具回归结果可视化（R语言版）<br>最后的最后。对应虾神文章的Python版本ArcGIS中OLS工具回归结果可视化，写个R语言版本。</p>
 <pre><code>#载入包
 #如果没安装，请先安装，如果已安装，请注释
 #install.packages(&quot;.../arcgisbinding_1.0.0.125.zip&quot;, repos = NULL, type = &quot;win.binary&quot;)…表示arcgisbinding离线包的路径
