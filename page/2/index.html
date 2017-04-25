@@ -174,6 +174,111 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-R语言读取Excel的神器——openxlsx" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/22/R语言读取Excel的神器——openxlsx/" class="article-date">
+  	<time datetime="2017-03-21T16:00:00.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/R语言读取Excel的神器——openxlsx/">
+        R语言读取Excel的神器——openxlsx
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为非程序猿的各位同志们，可能最擅长的数据整理软件或者统计软件就是——嗯，没有错，它就是集万千宠爱于一身的E<del>~~X</del>~~O。<br><img src="http://img.blog.csdn.net/20170322221532741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>咳咳咳，好了。隆重推出我们的主角——Excel<br><img src="http://img.blog.csdn.net/20170322221737039?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，Excel是个super强大的软件。基本上用它已经能完成大量的统计分析了。<br>For example<br>各类数理统计<br><img src="http://img.blog.csdn.net/20170322221945038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>线性规划（LINGO表示欲哭无泪，你丫的抢我饭碗）。<br><img src="http://img.blog.csdn.net/20170322221959695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>当然，很久很久之前有这门本神书：<br>陈彦光. 基于Excel的地理数据分析[M]. 科学出版社, 2010.<br><img src="http://img.blog.csdn.net/20170322223734874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>当然，作为新时代的研究生，我们怎么能仅用Excel来完成一切的科研任务呢？用老师的话说，你们用Excel做的图，人家审稿都嫌low。这个时候R就登场了。<br>关于R的简介我就不提了。欢迎各种度娘，扯了这么久的淡。终于要进入正题了。<br>今天讲的是R语言的第一步，读数据——读Excel的数据。<br>以下有三种方法:<br>1.将Excel转存为csv格式文件，读csv文件。</p>
+<pre><code>a&lt;-read.csv(&quot;exercise1.csv&quot;,header = T)
+</code></pre><p>2.用RODBC包读取Excel。</p>
+<pre><code>ab&lt;-odbcConnectExcel2007(&quot;exercise1.xls&quot;)#连接excel，32位系统使用odbcConnectExcel函数
+sqlTables(ab)
+</code></pre><p><img src="http://img.blog.csdn.net/20170322224605035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>根据需求读取对应的sheet1</p>
+<pre><code>a&lt;-sqlFetch(ab,&quot;Sheet1$&quot;)
+odbcClose(ab)#关闭句柄，此句是必须。
+</code></pre><p>3.用openxlsx包读取Excel</p>
+<pre><code>a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
+</code></pre><p>综合来看，openxlsx的方法简单粗暴，而且经多名骨灰级玩家证明，罕有bug出现。乃R语言和Excel读取的绝对神器。不过笔者也发现，openxlsx包仅适用于.xlsx格式文件。前期的xls格式文件可能还需要前两种方法来读取。除了以上三种方法，还有类似的包如xlsx、readxl。此处依旧强推神器openxlsx。首先，.xlsx文件存储行数大大提升，从65536行数据提升到了104万条数据。其次，它十分便捷，函数所需参数较少。当然最后的最后，它可能需要的R的版本比较的新，下一篇的预告：如何通过一行代码升级R。<br>最后贴出全文的代码。</p>
+<pre><code>#设置工作路径
+setwd(&quot;F:/R/applicationstatics&quot;)
+
+#第一种方法：读取csv
+a&lt;-read.csv(&quot;exercise1.csv&quot;,header = T)
+
+#第二种方法：RODBC包
+#安装载入RODBC包，如果已安装，请跳过第一句语句
+install.packages(RODBC)
+library(RODBC)
+
+ab&lt;-odbcConnectExcel2007(&quot;exercise1.xls&quot;)#连接excel，32位系统使用odbcConnectExcel函数
+sqlTables(ab)
+a&lt;-sqlFetch(ab,&quot;Sheet1$&quot;)
+odbcClose(ab)#关闭句柄，此句是必须。
+
+#第三种方法：openxlsx
+install.packages(openxlsx)
+library(openxlsx)
+a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
+</code></pre><p>当然文末小福利：《基于Excel的地理数据分析》的电子版。需要的童鞋可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2017/03/22/R语言读取Excel的神器——openxlsx/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="R语言读取Excel的神器——openxlsx">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Fortran语言初探及Win7 64位下Fortran开发环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
