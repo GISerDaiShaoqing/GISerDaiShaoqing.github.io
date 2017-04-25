@@ -203,7 +203,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，提到了Python版（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。</p>
+        <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。</p>
 <h3 id="1-矢量数据"><a href="#1-矢量数据" class="headerlink" title="1.矢量数据"></a>1.矢量数据</h3><p>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
 <pre><code>install.packages(&apos;maptools&apos;)
 library(maptools)
@@ -292,13 +292,13 @@ a
 opar&lt;-par(no.readonly = T)
 
 par(fig=c(0,0.8,0,0.8))
-plot(olsdataframe$gdp,olsdataframe$StdResid,col=&quot;blue&quot;,pch=16)
+plot(olsdataframe$gdp,olsdataframe$StdResid,col=&quot;grey&quot;,pch=16)
 
 par(fig=c(0,0.8,0.7,1),new=T)
-hist(olsdataframe$gdp,col=&quot;blue&quot;)
+hist(olsdataframe$gdp,col=&quot;grey&quot;)
 
 par(fig=c(0.75,1,0,0.8),new=T)
-hist(olsdataframe$StdResid,col=&quot;blue&quot;)
+hist(olsdataframe$StdResid,col=&quot;grey&quot;)
 </code></pre><p><img src="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是为了和虾神最后的效果类似，事实上，在读取完数据框之后，纯属散点图矩阵可视化方面的内容。<br>最后贴出虾神的公众号和博客。</p>
 <p>微信公众号：虾神daxialu——以推广空间分析和空间数据挖掘为己任，致力于在GIS界传递分析价值。<br><img src="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>虾神博客原文地址：《白话空间统计二十三：回归分析番外-ArcGIS中的OLS（三）》</p>
 <blockquote>
