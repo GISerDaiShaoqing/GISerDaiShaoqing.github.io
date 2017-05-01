@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>应用统计学与R语言实现学习笔记（一）——简介 | GISerDaiShaoqing&#39;s Blog</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。
+[TOC]
+1.从问题说起常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现学习笔记（一）——简介">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。
+[TOC]
+1.从问题说起常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和">
+<meta property="og:image" content="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-05-01T15:13:08.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="应用统计学与R语言实现学习笔记（一）——简介">
+<meta name="twitter:description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。
+[TOC]
+1.从问题说起常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="GISerDaiShaoqing&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+<script src="/js/Counter.js"></script>
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Dai Shaoqing</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Urban·Ecology·GIS</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Google-Earth/" style="font-size: 10px;">Google Earth</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a> <a href="/tags/地学思索/" style="font-size: 10px;">地学思索</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/GISerDaiShaoqing">my github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.researchgate.net/profile/Shaoqing_Dai">contact me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Dai Shaoqing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/images/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Dai Shaoqing</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Urban·Ecology·GIS</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-应用统计学与R语言实现学习笔记（一）——简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" class="article-date">
+  	<time datetime="2017-05-01T16:00:00.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      应用统计学与R语言实现学习笔记（一）——简介
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="应用统计学与R语言实现学习笔记（一）——简介">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。</p>
+<p>[TOC]</p>
+<h3 id="1-从问题说起"><a href="#1-从问题说起" class="headerlink" title="1.从问题说起"></a>1.从问题说起</h3><p>常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和问题离不开。老生常谈的就是像牛顿被苹果砸了之后，就想到一个问题，为啥苹果不飞上天和太阳肩并肩呢？<br>我答：因为会被烤焦。<br>。。。<br>嗯，幽默一下。<br>总结下来说，科研中有很多问题跟统计学相关（笔者是地学和生态学背景，就提点接地气的问题）。<br>譬如：<br>（1)人口研究当中，我们希望了解65岁以上老年人所占的比例，以便于我们更好地研究老龄化的问题。<br>（2)从几个监测站点的汽车尾气监测推断今天北京市的汽车尾气排放是否达到大气污染物排放标准。<br>（3）影响植物光合作用的因素是什么，各个因素的影响有多大？<br>以及等等等。<br>总结来说，可以分为以下的几类：<br>（1）比例问题；（2）推断统计问题；（3）归因问题。</p>
+<h3 id="2-统计学及其研究过程"><a href="#2-统计学及其研究过程" class="headerlink" title="2.统计学及其研究过程"></a>2.统计学及其研究过程</h3><p>那么统计学又是什么呢？</p>
+<blockquote>
+<p>statistics: the science of collecting,analyzing, presenting, and interpreting data.<br>Copyright 1994-2000 Encyclopaedia Britannica, In</p>
+</blockquote>
+<p>翻译过来就是</p>
+<blockquote>
+<p>统计学是收集、分析、表述和解释数据的科学（ 不列颠百科全书）</p>
+</blockquote>
+<p>所以统计学包括了：</p>
+<blockquote>
+<ul>
+<li>数据收集：取得数据</li>
+<li>数据处理：整理与图表展示</li>
+<li>数据分析：利用统计分析方法分析数据</li>
+<li>数据解释：结果的说明</li>
+<li>得到结论：从数据分析中得出客观结论。</li>
+</ul>
+</blockquote>
+<p>同时跟统计学密切相关的就是概率论。这二者都是研究随机现象数量规律的学科。而二者的区别可以用一张图来形象体现：</p>
+<p><img src="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>也就是说，概率论是——我知道箱子里面是什么样的，我想知道我拿在手里的球是什么样的可能性分别有多大。统计学则是——我不知道箱子里面是什么样的，但是我已经知道我拿在手里的球是什么样的，我想靠我手里的球的样子去推断箱子是什么样的。<br>有兴趣的也可以查看知乎上的回答。</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
+</blockquote>
+<p>总结起来，统计学的研究过程就像下面的流程图。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 实际问题</div><div class="line">op1=&gt;operation: 收集数据（取得数据）</div><div class="line">op2=&gt;operation: 整理数据（处理数据）</div><div class="line">op3=&gt;operation: 分析数据（研究数据）</div><div class="line">op4=&gt;operation: 解释数据（结果说明）</div><div class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4</div></pre></td></tr></table></figure>
+<p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
+<h3 id="3-统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 统计方法</div><div class="line">e=&gt;end: 结论</div><div class="line">sub=&gt;subroutine: 描述统计</div><div class="line">cond1=&gt;condition: 样本=总体？</div><div class="line">cond2=&gt;condition: 分布已知？</div><div class="line">op1=&gt;operation: 推断统计</div><div class="line">op2=&gt;operation: 参数估计</div><div class="line">op3=&gt;operation: 假设检验</div><div class="line">st-&gt;cond1(no)-&gt;op1-&gt;cond2(no)-&gt;op2-&gt;e</div><div class="line">cond1(yes)-&gt;sub-&gt;e</div><div class="line">cond2(yes)-&gt;op3-&gt;e</div></pre></td></tr></table></figure>
+<p>统计学应用领域十分广泛，这里就不细谈了。</p>
+<h3 id="4-统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
+<blockquote>
+<ul>
+<li>分类数据</li>
+<li>顺序数据</li>
+<li>数值数据</li>
+</ul>
+</blockquote>
+<p>（2）按收集方法划分</p>
+<blockquote>
+<ul>
+<li>调查观察数据</li>
+<li>试验数据</li>
+</ul>
+</blockquote>
+<p>（3）按时间状况划分</p>
+<blockquote>
+<ul>
+<li>截面数据</li>
+<li>时序数据</li>
+</ul>
+</blockquote>
+<h3 id="5-统计学中的几个基本概念"><a href="#5-统计学中的几个基本概念" class="headerlink" title="5.统计学中的几个基本概念"></a>5.统计学中的几个基本概念</h3><p>统计学中的基本概念分别是：</p>
+<blockquote>
+<ul>
+<li>总体（population）</li>
+<li>样本（sample)</li>
+<li>参数（parameter)</li>
+<li>统计量（statistic)</li>
+<li>变量（variable)</li>
+</ul>
+</blockquote>
+<p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 总体（参数）</div><div class="line">op=&gt;operation: 样本（统计量）</div><div class="line">st(right)-&gt;op</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/01/关于Git使用的一些心得/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于Git使用的一些心得</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="应用统计学与R语言实现学习笔记（一）——简介" data-title="应用统计学与R语言实现学习笔记（一）——简介" data-url="http://yoursite.com/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/"  data-images="/images/avatar.jpg" data-content="应用统计学与R语言实现学习笔记（一）——简介">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Dai Shaoqing
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

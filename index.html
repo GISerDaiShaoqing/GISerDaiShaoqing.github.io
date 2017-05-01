@@ -174,6 +174,144 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-应用统计学与R语言实现学习笔记（一）——简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" class="article-date">
+  	<time datetime="2017-05-01T16:00:00.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/">
+        应用统计学与R语言实现学习笔记（一）——简介
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。</p>
+<p>[TOC]</p>
+<h3 id="1-从问题说起"><a href="#1-从问题说起" class="headerlink" title="1.从问题说起"></a>1.从问题说起</h3><p>常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和问题离不开。老生常谈的就是像牛顿被苹果砸了之后，就想到一个问题，为啥苹果不飞上天和太阳肩并肩呢？<br>我答：因为会被烤焦。<br>。。。<br>嗯，幽默一下。<br>总结下来说，科研中有很多问题跟统计学相关（笔者是地学和生态学背景，就提点接地气的问题）。<br>譬如：<br>（1)人口研究当中，我们希望了解65岁以上老年人所占的比例，以便于我们更好地研究老龄化的问题。<br>（2)从几个监测站点的汽车尾气监测推断今天北京市的汽车尾气排放是否达到大气污染物排放标准。<br>（3）影响植物光合作用的因素是什么，各个因素的影响有多大？<br>以及等等等。<br>总结来说，可以分为以下的几类：<br>（1）比例问题；（2）推断统计问题；（3）归因问题。</p>
+<h3 id="2-统计学及其研究过程"><a href="#2-统计学及其研究过程" class="headerlink" title="2.统计学及其研究过程"></a>2.统计学及其研究过程</h3><p>那么统计学又是什么呢？</p>
+<blockquote>
+<p>statistics: the science of collecting,analyzing, presenting, and interpreting data.<br>Copyright 1994-2000 Encyclopaedia Britannica, In</p>
+</blockquote>
+<p>翻译过来就是</p>
+<blockquote>
+<p>统计学是收集、分析、表述和解释数据的科学（ 不列颠百科全书）</p>
+</blockquote>
+<p>所以统计学包括了：</p>
+<blockquote>
+<ul>
+<li>数据收集：取得数据</li>
+<li>数据处理：整理与图表展示</li>
+<li>数据分析：利用统计分析方法分析数据</li>
+<li>数据解释：结果的说明</li>
+<li>得到结论：从数据分析中得出客观结论。</li>
+</ul>
+</blockquote>
+<p>同时跟统计学密切相关的就是概率论。这二者都是研究随机现象数量规律的学科。而二者的区别可以用一张图来形象体现：</p>
+<p><img src="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>也就是说，概率论是——我知道箱子里面是什么样的，我想知道我拿在手里的球是什么样的可能性分别有多大。统计学则是——我不知道箱子里面是什么样的，但是我已经知道我拿在手里的球是什么样的，我想靠我手里的球的样子去推断箱子是什么样的。<br>有兴趣的也可以查看知乎上的回答。</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
+</blockquote>
+<p>总结起来，统计学的研究过程就像下面的流程图。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 实际问题</div><div class="line">op1=&gt;operation: 收集数据（取得数据）</div><div class="line">op2=&gt;operation: 整理数据（处理数据）</div><div class="line">op3=&gt;operation: 分析数据（研究数据）</div><div class="line">op4=&gt;operation: 解释数据（结果说明）</div><div class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4</div></pre></td></tr></table></figure>
+<p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
+<h3 id="3-统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 统计方法</div><div class="line">e=&gt;end: 结论</div><div class="line">sub=&gt;subroutine: 描述统计</div><div class="line">cond1=&gt;condition: 样本=总体？</div><div class="line">cond2=&gt;condition: 分布已知？</div><div class="line">op1=&gt;operation: 推断统计</div><div class="line">op2=&gt;operation: 参数估计</div><div class="line">op3=&gt;operation: 假设检验</div><div class="line">st-&gt;cond1(no)-&gt;op1-&gt;cond2(no)-&gt;op2-&gt;e</div><div class="line">cond1(yes)-&gt;sub-&gt;e</div><div class="line">cond2(yes)-&gt;op3-&gt;e</div></pre></td></tr></table></figure>
+<p>统计学应用领域十分广泛，这里就不细谈了。</p>
+<h3 id="4-统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
+<blockquote>
+<ul>
+<li>分类数据</li>
+<li>顺序数据</li>
+<li>数值数据</li>
+</ul>
+</blockquote>
+<p>（2）按收集方法划分</p>
+<blockquote>
+<ul>
+<li>调查观察数据</li>
+<li>试验数据</li>
+</ul>
+</blockquote>
+<p>（3）按时间状况划分</p>
+<blockquote>
+<ul>
+<li>截面数据</li>
+<li>时序数据</li>
+</ul>
+</blockquote>
+<h3 id="5-统计学中的几个基本概念"><a href="#5-统计学中的几个基本概念" class="headerlink" title="5.统计学中的几个基本概念"></a>5.统计学中的几个基本概念</h3><p>统计学中的基本概念分别是：</p>
+<blockquote>
+<ul>
+<li>总体（population）</li>
+<li>样本（sample)</li>
+<li>参数（parameter)</li>
+<li>统计量（statistic)</li>
+<li>变量（variable)</li>
+</ul>
+</blockquote>
+<p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 总体（参数）</div><div class="line">op=&gt;operation: 样本（统计量）</div><div class="line">st(right)-&gt;op</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="应用统计学与R语言实现学习笔记（一）——简介">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-关于Git使用的一些心得" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1189,185 +1327,6 @@ export rttov=/usr/rttov/
 <div class="counter-tag counter">
     <span id="/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/" class="leancloud_visitors post-title-link"
           style="font-size: 12px" data-flag-title="WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-WRF-DA代码编译与安装(一）——依赖库的编译与安装" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" class="article-date">
-  	<time datetime="2017-04-01T16:00:00.000Z" itemprop="datePublished">2017-04-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">
-        WRF-DA代码编译与安装（一）——依赖库的编译与安装
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。</p>
-<p>WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。</p>
-<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。<br>具体的可以见官网：</p>
-<blockquote>
-<p><a href="http://www2.mmm.ucar.edu/wrf/users/" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/</a></p>
-</blockquote>
-<p>WRF模拟系统主要包含WPS和WRF两部分模块： WPS模块全称为WRF Pre-processing System，即WRF预处理系统，用来为WRF模型准备输入数据；如果只是做理想实验(idealized modeling)，就不需要用WPS处理真实数据。但是理想实验不在本文介绍范围内，本文介绍的是进行真实数据模拟的操作。 WRF模块就是数值求解的模块，它有两个版本：ARW(Advanced Research WRF) 和 NMM(Nonhydrostatic Mesoscale Model)。大多数研究者主要用的都是ARW版本，本文所有的介绍也都基于ARW版本。 除了WPS与WRF两大核心模块外，WRF系统还有很多附加模块：比如用于数据同化的WRF-DA，用于化学传输的WRF-chem，用于林火模拟的WRF-fire（该段文字引自xg1990的博客，具体地址文末贴出，感谢该位大神的分享）。<br>安装运行WRF模拟系统必须在Linux系统。而笔者又无法放弃windows系统，同时目前工作还处于前期测试阶段，故决定选择用VMware虚拟机搭建一个Linux系统来测试。<br>选用的VMware版本：12.5.2。<br>Linux系统：Ubuntu 16.04<br>具体安装过程不是本文重点。详情可见</p>
-<blockquote>
-<p><a href="https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html" target="_blank" rel="external">https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html</a></p>
-</blockquote>
-<p>此外附上Ubuntu官网链接</p>
-<blockquote>
-<p><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="external">https://www.ubuntu.com/download/desktop</a></p>
-</blockquote>
-<p>WRF-DA编译与安装主要参照官方提供的ppt和文档（地址文末会贴出）。<br><img src="http://img.blog.csdn.net/20170401003926187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>首先看下WRF-DA编译与安装的需求。<br><img src="http://img.blog.csdn.net/20170401004121444?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170401004203600?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170401004212178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>上面提到了需求如下：<br>1.Linux/Mac系统，基于Unix或Linux的系统<br>2.（3DVAR）三维变分的案例内存占用不大，大的（4DVAR）四维变分内存消耗较大。<br>3.支持C和Fortran的编译器（ifort/icc, gfortran/gcc,pgf90/pgcc）<br>4..需要的一些库，类似于WRF。包括：Zlib，netCDF C/Fortran，MPI（MPICH），BUFR，CRTM，RTTOV，HDF5。<br>系统已经安装完毕，而内存部分目前暂时不考虑。接下来看C和Fortran的编译器。<br>Ubuntu内置了gcc的编译器。可以通过命令来查看。</p>
-<pre><code>~$ gcc -v
-</code></pre><p>结果如下：<br><img src="http://img.blog.csdn.net/20170401004956776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接下来安装gfortran，也是通过命令进行安装。</p>
-<pre><code>~$ sudo apt-get install gfortran
-</code></pre><p>通过命令查看是否安装成功。</p>
-<pre><code>~$ gfortran -v
-</code></pre><p><img src="http://img.blog.csdn.net/20170401005315027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是几个库的下载与安装。<br>zlib：</p>
-<blockquote>
-<p><a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a></p>
-</blockquote>
-<p>netCDF C/Fortran：</p>
-<blockquote>
-<p><a href="http://www.unidata.ucar.edu/downloads/netcdf/index.jsp" target="_blank" rel="external">http://www.unidata.ucar.edu/downloads/netcdf/index.jsp</a></p>
-</blockquote>
-<p>MPI（MPICH）：</p>
-<blockquote>
-<p><a href="http://www.mpich.org/downloads/" target="_blank" rel="external">http://www.mpich.org/downloads/</a></p>
-</blockquote>
-<p>BUFR：包含在WRF源代码中</p>
-<p>CRTM：包含在WRF源代码中</p>
-<p>RTTOV：</p>
-<blockquote>
-<p><a href="https://nwpsaf.eu/site/software/rttov/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/</a></p>
-</blockquote>
-<p>需注册，最好自备梯子。</p>
-<p>HDF5：</p>
-<blockquote>
-<p><a href="https://support.hdfgroup.org/HDF5/" target="_blank" rel="external">https://support.hdfgroup.org/HDF5/</a></p>
-</blockquote>
-<p>将如上的几个库的安装包通过共享文件夹放入虚拟机中（mnt/hgfs/Share)。</p>
-<p>zlib和hdf5和netCDF 4相关。具体安装步骤和教程借鉴了官方文档</p>
-<blockquote>
-<p><a href="http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source" target="_blank" rel="external">http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source</a></p>
-</blockquote>
-<p>1.zlib的安装：解压到/usr/下</p>
-<pre><code>$ cp -r zlib-1.2.11.tar.gz /usr/
-$ tar zvf zlib-1.2.11.tar.gz
-</code></pre><p>然后进入解压文件夹，并安装</p>
-<pre><code>$ ./configure --prefix=/usr/local/zlib
-$ make check
-$ make install
-</code></pre><p>修改环境变量。</p>
-<pre><code>gedit ~/.bashrc
-# for zlib  
-export ZLIB_HOME=/usr/local/zlib  export
-LD_LIBRARY_PATH=$ZLIB_HOME/lib:$LD_LIBRARY_PATH
-</code></pre><p>2.HDF5的安装：解压到/usr/下</p>
-<pre><code>$ tar -xvf hdf5-1.8.18.tar
-</code></pre><p>然后进入解压文件夹，并安装</p>
-<pre><code>$ ./configure --with-zlib=/usr/local --prefix=/usr/local/hdf5
-$ make 
-$ make check
-$ make install
-</code></pre><p>HDF5的安装和检验参照：</p>
-<pre><code>./configure --prefix=/usr/local/hdf5 --with-zlib=/usr/local/zlib 
-</code></pre><blockquote>
-<p><a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
-</blockquote>
-<p>HDF5还需配置一个环境变量，避免下面的netCDF C安装报错。</p>
-<pre><code>$ gedit ~/.bashrc
-#for hd5
-export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
-export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
-export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
-$ source ~/.bashrc
-</code></pre><p>3.netCDF C/Fortran安装<br>先装netCDF C：</p>
-<pre><code>$ export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
-$ export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
-$ export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
-$ ./configure --prefix=/usr/local/NETCDF --enable-netcdf-4
-$ make 
-$ make check
-$ make install
-</code></pre><p>接着装netCDF Fortran：<br>先声明环境变量：</p>
-<pre><code>$ export CPPFLAGS=-I/usr/local/NETCDF/include
-$ export LDFLAGS=-L/usr/local/NETCDF/lib
-</code></pre><p>然后进行下一步编译。</p>
-<pre><code>$ ./configure --prefix=/usr/local/NETCDF FC=gfortran
-</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，同样放到usr下面。<br>解压到指定路径。</p>
-<pre><code>$ tar zxf mpich-3.2.tar.gz 
-$ ./configure -prefix=/usr/local/mpi/
-</code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，同样新建个path来存放。</p>
-<pre><code>$ tar zxf rttov121.tar.gz 
-$ cd src
-$ ../build/rttov_compile.sh
-</code></pre><p>打完收工。目前应该就完成了WRF-DA编译安装前所有需要的依赖库的编译及安装。下一篇更新WRF-DA具体的编译与安装。由于对Linux系统不熟悉，加上坑爹的rttov，博客写了两三天。从内心坚持要提醒大家的一点，Linux编译环境一定要注意环境变量！！！</p>
-<p>最后重点鸣谢几位主要参考大神的博客以及相关文档：</p>
-<blockquote>
-<p><a href="https://wenku.baidu.com/view/58851bc269eae009591bec0a.html" target="_blank" rel="external">https://wenku.baidu.com/view/58851bc269eae009591bec0a.html</a><br><a href="https://nwpsaf.eu/site/software/rttov/rttov-v12/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/rttov-v12/</a><br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html</a><br><a href="https://xg1990.com/blog/archives/190" target="_blank" rel="external">https://xg1990.com/blog/archives/190</a><br> <a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WRF/">WRF</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/linux/">linux</a>
-	</div>
-
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
          &nbsp;
         view
     </span>
