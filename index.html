@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/Google-Earth/" style="font-size: 10px;">Google Earth</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a> <a href="/tags/地学思索/" style="font-size: 10px;">地学思索</a>
+						<a href="/tags/ArcGIS-Pro/" style="font-size: 10px;">ArcGIS Pro</a> <a href="/tags/Fortran语言/" style="font-size: 10px;">Fortran语言</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Google-Earth/" style="font-size: 10px;">Google Earth</a> <a href="/tags/MODIS/" style="font-size: 16.67px;">MODIS</a> <a href="/tags/PostGIS/" style="font-size: 10px;">PostGIS</a> <a href="/tags/R语言/" style="font-size: 20px;">R语言</a> <a href="/tags/WRF/" style="font-size: 13.33px;">WRF</a> <a href="/tags/地学思索/" style="font-size: 10px;">地学思索</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,126 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-关于Git使用的一些心得" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/01/关于Git使用的一些心得/" class="article-date">
+  	<time datetime="2017-04-30T16:00:00.000Z" itemprop="datePublished">2017-05-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/01/关于Git使用的一些心得/">
+        关于Git使用的一些心得
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本篇稍微记录下Git使用的一些心得。<br>对Git的使用，应该是从搭建自己的博客开始的。当时看到开源中国推荐的一篇基于码云+hexo搭建自己博客的文章。所以就花了一天时间鼓捣了下博客。<br>顺带整理下目前能看到我写的博客文章的几个地址：<br>自己搭建的博客（Hexo）：</p>
+<blockquote>
+<p><a href="https://giserdaishaoqing.github.io/" target="_blank" rel="external">https://giserdaishaoqing.github.io/</a></p>
+</blockquote>
+<p>CSDN博客（本站地址）：</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/esa_dsq" target="_blank" rel="external">http://blog.csdn.net/esa_dsq</a></p>
+</blockquote>
+<p>简书（相比而言，简书少了一篇关于桌面GIS连接Postgresql的文章）：</p>
+<blockquote>
+<p><a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" rel="external">http://www.jianshu.com/u/8bfccfb12c0d</a></p>
+</blockquote>
+<p>开源中国：</p>
+<blockquote>
+<p><a href="https://my.oschina.net/u/2424163、" target="_blank" rel="external">https://my.oschina.net/u/2424163、</a></p>
+</blockquote>
+<p>以上地址均可看到我的博客文章。<br>回到Git上，关于如何搭建hexo的静态博客。这里就不详述了。网上教程太多。我最早看得是下面的博客，当然后面参考了很多简书和各种平台的。</p>
+<blockquote>
+<p><a href="https://my.oschina.net/z707z/blog/824830" target="_blank" rel="external">https://my.oschina.net/z707z/blog/824830</a></p>
+</blockquote>
+<p>尽管最早是想在OSChina上搭建，不过老是出bug，最后还是选择了github。bug总结起来就是，https连接靠不住，git大法好。用github生成ssh秘钥，然后连接，更为方便。具体的过程下面这篇文章讲得已经很详细了。</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/wfdtxz/article/details/8678982" target="_blank" rel="external">http://blog.csdn.net/wfdtxz/article/details/8678982</a></p>
+</blockquote>
+<p>关键的几个命令就是。</p>
+<pre><code>#查看是否有秘钥
+cd ~/.ssh
+ls
+
+#没有的话就生成一下，引号里填你github账户的邮箱。
+ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;
+</code></pre><p>后面就去本地文件夹搜索下你的秘钥文件id_rsa.pub。复制内容，并打开github，从settings里面找到如下的选项。</p>
+<p><img src="http://img.blog.csdn.net/20170501103623647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>接着点几个新的，然后把秘钥文件里的内容复制过去。启用即可。<br>可以用下面的命令测试下是否成功。</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>这个就是之前搭建博客时，提交博客老出错的解决方案。顺带记录下hexo博客的典型命令。</p>
+<pre><code>hexo clean
+hexo generate
+hexo deploy
+</code></pre><p>同时，最近刚好完成了ArcGIS中OLS回归工具结果可视化的R语言版本代码（见上一篇博客），顺带就托管到github上，就尝试了下如何push。在需要托管的本地文件夹右击Git Bash，接着输入如下的命令。这里就每次都输下自己的账户密码吧。比较安全。</p>
+<pre><code>#添加需要更新上传的文件
+git add .
+
+#commit一下
+git commit -a -m &quot;备注信息&quot;
+
+#最后push上传
+git push
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2017/05/01/关于Git使用的一些心得/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="关于Git使用的一些心得">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1248,96 +1368,6 @@ $ ../build/rttov_compile.sh
 <div class="counter-tag counter">
     <span id="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" class="leancloud_visitors post-title-link"
           style="font-size: 12px" data-flag-title="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
-         &nbsp;
-        view
-    </span>
-</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-一行代码更新R语言" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/23/一行代码更新R语言/" class="article-date">
-  	<time datetime="2017-03-22T16:00:00.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/一行代码更新R语言/">
-        一行代码更新R语言
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>博客中已经陆续更新了两篇关于R语言的文章（相关系数矩阵可视化和读取Excel），按照上一篇挖的坑，这一期讲的是如何只用一行代码更新R语言。<br>这里还是重新认真介绍下R语言（我真的只是凑个字数）<br><img src="http://img.blog.csdn.net/20170323193718540?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，这里安利大家一本书。<br>卡巴科弗. R语言实战[M]. 人民邮电出版社, 2016.<br><img src="http://img.blog.csdn.net/20170323193903285?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，我放的截图是2013年第一版，2016年有再版，建议大家可以购买纸质版。在第一版的时候，附录里提到了这么一件事。<br><img src="http://img.blog.csdn.net/20170323194150828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到当时的2.13.0的版本R仍然没有什么可以自动更新R的方法。不过时至今日，R的版本已经到了3.3.3，在这三年间，R在编程语言排行榜上不断前行。已经有了长久的进步，当然，也出现了可以自动更新R的方法啦。<br>这里介绍的就是R的一个包：installr。</p>
-<blockquote>
-<p>installr {installr}    R Documentation<br>                                                            Installing software from R<br>Description<br>Gives the user the option to download software from within R.</p>
-</blockquote>
-<p>上面是installr的官方文档介绍。<br>接下来来讲所谓的一行代码更新R语言。<br>这里有两个注意点：<br>1.你的installr必须跟你的R版本对应，因为R语言默认安装的包都是适配最新的R语言版本。<br>2.使用installr更新R语言必须在原生R里面，Rstudio里面无法进行（笔者没有尝试过其他R的IDE，有童鞋若有尝试也可以进行指正）。<br>这里第一步先改下默认R的镜像（相信有很多童鞋应该改过了）。<br>原生R更改设定为：程序包→设定CRAN镜像<br>无论Python或者R，镜像统统选清华！。<br><img src="http://img.blog.csdn.net/20170323195226796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#安装installr
-install.packages（installr)
-library(installr)
-updater()#就是这句。真得劲。一键更新
-</code></pre><p><img src="http://img.blog.csdn.net/20170323195705637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195722928?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195839716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195927326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>后面只要一路确定就好了。<br>这个方法的好处在于，你可以不用重新安装你已经有的包。可以完整保留。<br>注意的是这个包还依赖于stringr,stringi,magrittr。<br>最后贴下这个包的官方文档航和新增的函数（super强大，还可以一键安装Python，RStudio等)。<br><img src="http://img.blog.csdn.net/20170323201813663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<blockquote>
-<p>NEW FUNCTIONS:</p>
-<ul>
-<li>install.python - Downloads and installs python 2 or 3<br>UPDATED FUNCTIONS:</li>
-<li>install.URL now gives warning if there is suspicion that the user is not connected to the internet.</li>
-<li>updateR  - added cran_mirror option </li>
-</ul>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/编程/">编程</a>
-	</div>
-
-
-      
-        
-<div class="counter-tag counter">
-    <span id="/2017/03/23/一行代码更新R语言/" class="leancloud_visitors post-title-link"
-          style="font-size: 12px" data-flag-title="一行代码更新R语言">
          &nbsp;
         view
     </span>
