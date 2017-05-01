@@ -231,10 +231,12 @@
 <p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
 </blockquote>
 <p>总结起来，统计学的研究过程就像下面的流程图。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 实际问题</div><div class="line">op1=&gt;operation: 收集数据（取得数据）</div><div class="line">op2=&gt;operation: 整理数据（处理数据）</div><div class="line">op3=&gt;operation: 分析数据（研究数据）</div><div class="line">op4=&gt;operation: 解释数据（结果说明）</div><div class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4</div></pre></td></tr></table></figure>
+<div id="flowchart-0" class="flow-chart"></div>
+
 <p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
 <h3 id="3-统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 统计方法</div><div class="line">e=&gt;end: 结论</div><div class="line">sub=&gt;subroutine: 描述统计</div><div class="line">cond1=&gt;condition: 样本=总体？</div><div class="line">cond2=&gt;condition: 分布已知？</div><div class="line">op1=&gt;operation: 推断统计</div><div class="line">op2=&gt;operation: 参数估计</div><div class="line">op3=&gt;operation: 假设检验</div><div class="line">st-&gt;cond1(no)-&gt;op1-&gt;cond2(no)-&gt;op2-&gt;e</div><div class="line">cond1(yes)-&gt;sub-&gt;e</div><div class="line">cond2(yes)-&gt;op3-&gt;e</div></pre></td></tr></table></figure>
+<div id="flowchart-1" class="flow-chart"></div>
+
 <p>统计学应用领域十分广泛，这里就不细谈了。</p>
 <h3 id="4-统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
 <blockquote>
@@ -269,7 +271,7 @@
 </ul>
 </blockquote>
 <p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 总体（参数）</div><div class="line">op=&gt;operation: 样本（统计量）</div><div class="line">st(right)-&gt;op</div></pre></td></tr></table></figure>
+<div id="flowchart-2" class="flow-chart"></div>
       
     </div>
     
