@@ -28,7 +28,7 @@ CSDN博客：
 
 http://blog.csdn.net/esa_d">
 <meta property="og:image" content="http://img.blog.csdn.net/20170501103623647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-01T02:52:39.714Z">
+<meta property="og:updated_time" content="2017-05-02T12:30:54.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Git使用的一些心得">
 <meta name="twitter:description" content="本篇稍微记录下Git使用的一些心得。对Git的使用，应该是从搭建自己的博客开始的。当时看到开源中国推荐的一篇基于码云+hexo搭建自己博客的文章。所以就花了一天时间鼓捣了下博客。顺带整理下目前能看到我写的博客文章的几个地址：自己搭建的博客（Hexo）：
@@ -282,12 +282,13 @@ ls
 ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;
 </code></pre><p>后面就去本地文件夹搜索下你的秘钥文件id_rsa.pub。复制内容，并打开github，从settings里面找到如下的选项。</p>
 <p><img src="http://img.blog.csdn.net/20170501103623647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接着点几个新的，然后把秘钥文件里的内容复制过去。启用即可。<br>可以用下面的命令测试下是否成功。</p>
+<p>接着点击New Key，然后把秘钥文件里的内容复制过去。启用即可。<br>可以用下面的命令测试下是否成功。</p>
 <pre><code>ssh -T git@github.com
-</code></pre><p>这个就是之前搭建博客时，提交博客老出错的解决方案。顺带记录下hexo博客的典型命令。</p>
+</code></pre><p>这个就是之前搭建博客时提交博客老出错的解决方案。顺带记录下hexo博客的典型命令。</p>
 <pre><code>hexo clean
 hexo generate
 hexo deploy
+hexo server -p 5000
 </code></pre><p>同时，最近刚好完成了ArcGIS中OLS回归工具结果可视化的R语言版本代码（见上一篇博客），顺带就托管到github上，就尝试了下如何push。在需要托管的本地文件夹右击Git Bash，接着输入如下的命令。这里就每次都输下自己的账户密码吧。比较安全。</p>
 <pre><code>#添加需要更新上传的文件
 git add .
