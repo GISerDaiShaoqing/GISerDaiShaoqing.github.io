@@ -174,6 +174,118 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-在Ubuntu中安装R的几种方式总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/09/在Ubuntu中安装R的几种方式总结/" class="article-date">
+  	<time datetime="2017-04-08T16:00:00.000Z" itemprop="datePublished">2017-04-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/在Ubuntu中安装R的几种方式总结/">
+        在Ubuntu中安装R的几种方式总结
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。因缘际会（主要是自己开始入坑Github）发现之前在Windows下安装失败的一个R包bignmf无法安装原因。<br><img src="http://img.blog.csdn.net/20170409153441789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这个包只能在Ubuntu上测试运行。所以之前在windows上根本无法编译和安装。所以笔者打算在Ubuntu上安装R并安装这个包进行使用。<br>这里简单解释下bignmf包的用处，它是基于Rcpp和RcppEigen两个包，通过底层C++代码调用实现的一个R包，实现的算法是NMF（Nonnegative Matrix Factorization，非负矩阵分解)，作者是爱荷华州立大学的潘岚峰大神。当然R本身自带也有NMF包，不过语法不是很友好的感觉，此外最近笔者也发现了另外的可以在windows上运行的NMF的R包，NMF的理论和应用方面，包括bignmf的编译安装，后面有时间会更新（先挖坑），这里不做详细介绍。<br>回到本篇的主要目的，如何在Ubuntu中安装R。<br>这里提供三个方法：1.Linux安装软件的普遍方法——命令行；2.新立得软件包；3.从官网下载R语言环境源码，自行编译安装。<br>1.基于命令行的方法<br>首先改变先进入/etc/apt/sources.list，变换软件源，同时进入管理员权限</p>
+<pre><code>cd /etc/apt/
+gedit sources.list
+</code></pre><p>在最下面添加一行，deb后面的网址是镜像，根据你的喜好选一个（反正我推荐清华的，速度快，不过之前用厦大的也不错），具体的镜像地址见后面的网址。</p>
+<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/linux/ubuntu xenial/
+</code></pre><blockquote>
+<p><a href="https://cran.r-project.org/mirrors.html" target="_blank" rel="external">https://cran.r-project.org/mirrors.html</a></p>
+</blockquote>
+<p>而ubuntu xenial则是根据ubuntu版本确定的。我的是16.04，所以是xenial。具体的看官方说明，文末贴链接。<br><img src="http://img.blog.csdn.net/20170409155857833?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>完了之后先更新下软件源。就可以开始安装R了。如果我们需要自行编译R包并且安装的话，就需要在安装r-base-dev。不过笔者测试过，3.3.3版本的r-base自带了r-base-dev。所以不需要进行额外安装。</p>
+<pre><code>apt-get update
+apt-get install r-base
+apt-get install r-base-dev
+</code></pre><p>完了之后，官方推荐还可以再加个软件源，是关于R的拓展包的。这里贴出命令的通用格式，可以根据需求替换&lt;&gt;的内容。<br>也可以添加下载的公共秘钥。</p>
+<pre><code>apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+deb https://&lt;my.favorite.ubuntu.mirror&gt;/ trusty-backports main restricted universe
+</code></pre><p>完了之后，在命令行里敲入r，出现下面的页面说明安装成功。<br><img src="http://img.blog.csdn.net/20170409161555888?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>2.基于新立得软件管理包<br>新立得软件管理抱是Linux下的神器，可以很方便的管理各类软件和依赖库等（上篇提到的WRF-DA模块编译依赖库有些是用这个安装的，具体过程等介绍WRF安装时补充）。当然一开始我没在我的Ubuntu软件里找到新立得。后面仔细翻了下软件列表。发现了这个软件——Synaptic Package Manager，这个就是新立得软件管理包了。启动它，搜索r-base，如图，右击标记安装，然后应用。<br><img src="http://img.blog.csdn.net/20170409163614665?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.基于自行编译的方法<br>自行编译的方法，笔者没有具体尝试。但是看了下官方文档。大致的流程如下：<br>官方推荐是组织一个文件夹进行安装，一级文件夹为R_Home，然后把源码解压到R_Home下面，并在下面建立src, doc等多个二级文件夹。<br>然后回到R_Home文件夹。以管理员身份进入。</p>
+<pre><code>./configure
+make
+make check
+make check-all
+</code></pre><p>make check-all是针对全部的编译的（可选），最后在安装即可。</p>
+<pre><code>make install
+</code></pre><p>可以改变安装路径</p>
+<pre><code>./configure --prefix=/where/you/want/R/to/go
+make prefix=/path/to/here install
+</code></pre><p>具体可以见官方文档（链接见文末）<br>在R装好的情况下，为了写代码方便，推荐安装R最好的IDE，Rstudio。<br>这边Rstudio的安装就不展开讲了。下载好deb安装文件，直接加命令行安装即可。</p>
+<pre><code>dpkg -i rstudio-1.0.136-amd64.deb
+</code></pre><p>在Linux中用Rstudio简单画个散点图。<br><img src="http://img.blog.csdn.net/20170409203103084?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>R语言linux安装官方文档：</p>
+<blockquote>
+<p><a href="https://cran.r-project.org/bin/linux/ubuntu/README" target="_blank" rel="external">https://cran.r-project.org/bin/linux/ubuntu/README</a></p>
+</blockquote>
+<p>R语言镜像地址：</p>
+<blockquote>
+<p><a href="https://cran.r-project.org/mirrors.html" target="_blank" rel="external">https://cran.r-project.org/mirrors.html</a></p>
+</blockquote>
+<p>R语言linux编译安装官方文档：</p>
+<blockquote>
+<p><a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installation" target="_blank" rel="external">https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installation</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R语言/">R语言</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+      
+        
+<div class="counter-tag counter">
+    <span id="/2017/04/09/在Ubuntu中安装R的几种方式总结/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="在Ubuntu中安装R的几种方式总结">
+         &nbsp;
+        view
+    </span>
+</div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
