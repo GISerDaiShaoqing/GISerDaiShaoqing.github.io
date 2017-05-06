@@ -250,7 +250,7 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>正态随机变量在特定区间上的取值概率由正态曲线下的面积给出，而且其曲线下的总面积等于1</li>
 </ul>
 </blockquote>
-<p>下图给出了两个图（一个是用核密度生成的曲线，一个是正态分布概率密度函数）来说明以上的部分性质（具体实现的R语言代码在附录文件夹中的src里面）。</p>
+<p>下图给出了两个图（一个是用核密度生成的曲线，一个是正态分布概率密度函数）来说明以上的部分性质（具体实现的R语言代码会在笔记写完后给出）。</p>
 <p><img src="http://img.blog.csdn.net/20170506153724595?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p><img src="http://img.blog.csdn.net/20170506153700996?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>标准正态分布就是指均值为0，标准差为1的正态分布。通过标准正态分布可以很方便地求算各种概率，所以实际应用中，往往将正态分布数据通过标准化的方式转化为标准正态分布求解具体概率。<br>即令</p>
@@ -268,7 +268,7 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>拟合优度检验</li>
 </ul>
 </blockquote>
-<p>一般可以通过画这个图来进行检验（代码同在附录文件夹src中这一章的代码文件里面）。</p>
+<p>一般可以通过画这个图来进行检验（代码同在笔记写完后给出）。</p>
 <p><img src="http://img.blog.csdn.net/20170506153739704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>或者计算四分位差和标准差比值。<br>这里给出这个方法的R语言实现(用户自编函数）。</p>
 <pre><code>Normaltestindex&lt;-function(x) { 
@@ -306,7 +306,7 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>抽样分布——样本统计量的概率分布， 是一种理论分布，又称为诱导分布，在重复选取容量为n 的样本时，由该统计量的所有可能取值形成的相对频数分布，随机变量是样本统计量（样本函数，如样本均值，样本比例，样本方差等），结果来自容量相同的所有可能样本，提供了样本统计量长远而稳定的信息，是进行推断的理论基础，也是抽样推断科学性的重要依据（ 点估计、 置信区间、假设推断等）。</li>
 </ul>
 </blockquote>
-<p>用一个简单的例子来说明三者的区别。<br>假设总体N=4，随机变量X=年龄。<br>总体分布如下，均值为21，方差为2.236。这里提醒用R语言做统计的同学，R语言默认的var和sd都是求样本的标准差（分母是n-1和n的差别），当你的数据是总体时，建议另外计算，或者可以使用我下面的自编函数（给了个标准差的样例，方差的可以在附录文件夹src中这一章的代码文件里面找）。</p>
+<p>用一个简单的例子来说明三者的区别。<br>假设总体N=4，随机变量X=年龄。<br>总体分布如下，均值为21，方差为2.236。这里提醒用R语言做统计的同学，R语言默认的var和sd都是求样本的标准差（分母是n-1和n的差别），当你的数据是总体时，建议另外计算，或者可以使用我下面的自编函数（给了个标准差的样例，方差的会在笔记写完后给出）。</p>
 <pre><code>Populationsd&lt;-function(x){
     n=length(x)
     m=mean(x)
