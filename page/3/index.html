@@ -311,6 +311,168 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" itemprop="url">
+                  MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-14T00:00:00+08:00">
+                2017-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RS/" itemprop="url" rel="index">
+                    <span itemprop="name">RS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" class="leancloud_visitors" data-flag-title="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍两种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R）。<br>FTP下载工具以及完整影像下载的方法<br>笔者最早也是参照网上某篇博客学习的下载方式，老规矩，文末贴链接，这里先感谢这位写博客的同学。同时NASA官网最近刚刚改版了网站，新版网站的下载方式暂时没有看到其他人整理，故稍作些整理。<br>NASA官方遥感影像数据下载网址（里面不止有MODIS，还有ENVISAT，NPP-VIIRS等）：</p>
+<blockquote>
+<p><a href="https://ladsweb.modaps.eosdis.nasa.gov/" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/</a></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择DATA DISCOVERY的Search&amp;Order：<br><img src="http://img.blog.csdn.net/20170414144325927?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>进入这个页面：<br><img src="http://img.blog.csdn.net/20170414144443755?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>找到你要下载的卫星传感器（这里以Terra星做例子）：<br><img src="http://img.blog.csdn.net/20170414144655022?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择我们需要的产品（这里选了1 km、500 m的二级产品，以及经纬度校正的产品，具体产品介绍看上一篇博客的表格以及列出的链接）：<br><img src="http://img.blog.csdn.net/20170414145237611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>结束后直接点击<br><img src="http://img.blog.csdn.net/20170414145600710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>“TIME”，根据需要选择数据的时间跨度。<br><img src="http://img.blog.csdn.net/20170414145624476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接着点击下一步，“LOCATION”。<br>有不同选择需要影像范围的方法。<br><img src="http://img.blog.csdn.net/20170414145828527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>Country→按国家的行政边界来选择数据<br>Tiles→按瓦片选择，或者说按照MODIS数据全球逐行逐列划分的格网（也可以说是MODIS观测时的行列号）来选择数据<br>Validation Sites→按全球分布的验证的观测站点或者生态网络观测站点选择（可以结合观测站点数据做研究）<br>Draw Custom Box（Classic）→按照用户自定义画出来的框选选择数据（用过老版网站下载的同学会对这个功能比较熟悉）<br>Enter Coordinates→用经纬度坐标来选择数据（这个也是类似于老版网站的下载功能），其实就是研究区的四至坐标。<br>这里选择了按瓦片选择的方式，点击箭头。下一步，“FILES”。这一步会把符合要求的所有数据列出来，但是由于前面搜索的时间跨度太长，web端无法完全显示，所以我们重新修改下相关的需求数据（仅选择2010年的数据，而且选择下载合成产品）。<br><img src="http://img.blog.csdn.net/20170414151039201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是新版网站的一个比较不同的地方，这里的”FILES“，可以直接下载数据。老版网站一般需要Order，提交订单之后才能下载。这样使用比原来更自由些。<br><img src="http://img.blog.csdn.net/20170414151556333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在选择所有数据，提交订单即可。<br><img src="http://img.blog.csdn.net/20170414151806117?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>不过新版网站现在要求要注册账户。所以在下载数据前，记得先申请一个Earthdata的账户（这也就是比较麻烦的点了，目前笔者测试了163和qq邮箱，都没有办法收到激活邮件。目前只有谷歌邮箱能激活，所以必须去注册一个gmail的邮箱）。<br>注意，需要在自己的账户中的“My Application”下面启动“LAADS Web”，最后才能提交订单。<br><img src="http://img.blog.csdn.net/20170414191646367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191637789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191833908?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>FTP的下载必须等到订单出现availlable，才能下载。官方给出的等待时间是5min到10天左右。一般很快就OK了。<br>FTP下载方式的话，需要用FlashFXP这类软件来下载，有需要这个软件的可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。</p>
+<p><img src="http://img.blog.csdn.net/20170414203351993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>地址根据你的订单来决定。<br>ftp: ladsweb.modaps.eosdis.nasa.gov<br>username:anoymous<br>password:你账户申请用的邮箱（gmail邮箱）<br>anoymous意为FTP里的匿名传输。接下来只需要简单地拖拽就可以将上面的数据拷贝到本地文件夹了。<br><img src="http://img.blog.csdn.net/20170414203654198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这就是关于MODIS数据下载方式(FTP)的内容。<br>最后附上旧版网站下载方式教程博客网址：</p>
+<blockquote>
+<p><a href="http://blog.sina.com.cn/s/blog_8684880b010149ue.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_8684880b010149ue.html</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/MODIS数据的简介和下载（一）——MODIS数据简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1100,182 +1262,11 @@ $ ../build/rttov_compile.sh
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/23/一行代码更新R语言/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/23/一行代码更新R语言/" itemprop="url">
-                  一行代码更新R语言
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-23T00:00:00+08:00">
-                2017-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/23/一行代码更新R语言/" class="leancloud_visitors" data-flag-title="一行代码更新R语言">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>博客中已经陆续更新了两篇关于R语言的文章（相关系数矩阵可视化和读取Excel），按照上一篇挖的坑，这一期讲的是如何只用一行代码更新R语言。<br>这里还是重新认真介绍下R语言（我真的只是凑个字数）<br><img src="http://img.blog.csdn.net/20170323193718540?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，这里安利大家一本书。<br>卡巴科弗. R语言实战[M]. 人民邮电出版社, 2016.<br><img src="http://img.blog.csdn.net/20170323193903285?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，我放的截图是2013年第一版，2016年有再版，建议大家可以购买纸质版。在第一版的时候，附录里提到了这么一件事。<br><img src="http://img.blog.csdn.net/20170323194150828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到当时的2.13.0的版本R仍然没有什么可以自动更新R的方法。不过时至今日，R的版本已经到了3.3.3，在这三年间，R在编程语言排行榜上不断前行。已经有了长久的进步，当然，也出现了可以自动更新R的方法啦。<br>这里介绍的就是R的一个包：installr。</p>
-<blockquote>
-<p>installr {installr}    R Documentation<br>                                                            Installing software from R<br>Description<br>Gives the user the option to download software from within R.</p>
-</blockquote>
-<p>上面是installr的官方文档介绍。<br>接下来来讲所谓的一行代码更新R语言。<br>这里有两个注意点：<br>1.你的installr必须跟你的R版本对应，因为R语言默认安装的包都是适配最新的R语言版本。<br>2.使用installr更新R语言必须在原生R里面，Rstudio里面无法进行（笔者没有尝试过其他R的IDE，有童鞋若有尝试也可以进行指正）。<br>这里第一步先改下默认R的镜像（相信有很多童鞋应该改过了）。<br>原生R更改设定为：程序包→设定CRAN镜像<br>无论Python或者R，镜像统统选清华！。<br><img src="http://img.blog.csdn.net/20170323195226796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#安装installr
-install.packages（installr)
-library(installr)
-updater()#就是这句。真得劲。一键更新
-</code></pre><p><img src="http://img.blog.csdn.net/20170323195705637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195722928?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195839716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195927326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>后面只要一路确定就好了。<br>这个方法的好处在于，你可以不用重新安装你已经有的包。可以完整保留。<br>注意的是这个包还依赖于stringr,stringi,magrittr。<br>最后贴下这个包的官方文档航和新增的函数（super强大，还可以一键安装Python，RStudio等)。<br><img src="http://img.blog.csdn.net/20170323201813663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<blockquote>
-<p>NEW FUNCTIONS:</p>
-<ul>
-<li>install.python - Downloads and installs python 2 or 3<br>UPDATED FUNCTIONS:</li>
-<li>install.URL now gives warning if there is suspicion that the user is not connected to the internet.</li>
-<li>updateR  - added cran_mirror option</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1320,7 +1311,7 @@ updater()#就是这句。真得劲。一键更新
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
