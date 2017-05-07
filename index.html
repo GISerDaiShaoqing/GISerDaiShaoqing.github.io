@@ -528,7 +528,10 @@ n&lt;-sample(N,n,replace = FALSE)
 </blockquote>
 <p>用一张图来说明这个定理（摘自参考书目1：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.）。</p>
 <p><img src="http://img.blog.csdn.net/20170506154006095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：<br>$$ \sigma<em>{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$<br>$$ \sigma</em>{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$<br>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
+<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$</p>
+<p>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
 <p>除了均值之外，实际生活中比例也是一个很重要的参数。<br>比例——总体（或样本）中具有某种属性的单位与全部单位总数之比（如不同性别的人与全部人数之比，合格品(或不合格品) 与全部产品总数之比）<br>总体比例可表示为<br>$$ p=\frac{N_0}{N},1-p=\frac{N_1}{N} $$<br>样本比例可表示为<br>$$ p=\frac{n_0}{n},1-p=\frac{n_1}{n} $$<br>样本比例的抽样分布——在重复选取容量为n的样本时，由样本比例的所有可能取值形成的相对频数分布。</p>
 <blockquote>
 <ul>
@@ -537,7 +540,9 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>推断总体比例p的理论基础。</li>
 </ul>
 </blockquote>
-<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：<br>$$ \sigma<em>{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$<br>$$ \sigma</em>{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
+<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
 <p>接下来介绍一个重要的分布——卡方分布。<br>$$ 若随机变量\xi_1,\xi_2,\cdots,\xi_n是n个相互独立的标准正态变量（独立同分布于标准正态分布），$$ $$ 则这n个随机变量的平方和Y=\Sigma\xi_i^2构成的随机变量的分布称为自由度为n的\chi^2分布（chi-square distribution），$$ $$ 记为\chi^2(n)分布 $$<br>卡方分布的性质和特点如下：</p>
 <blockquote>
 <ul>
@@ -589,7 +594,18 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>两个样本方差比的抽样分布， 服从分子自由度$(n_1-1)$， 分母自由度为$(n_2-1)$的F分布， 即<br>$$ \frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2}\sim F(n_1-1,n_2-1) $$</li>
 </ul>
 </blockquote>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X<em>i} $$<br>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum</em>{i=1}^n(X<em>i-\bar X)^2 $$<br>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum</em>{i=1}^n(X_i-\bar X)^2} $$<br>样本k阶原点矩：<br>$$ A<em>k=\frac{1}{n} \sum</em>{i=1}^nX_i^k(k=1,2,\cdots)$$<br>样本k阶中心矩：<br>$$ B<em>k=\frac{1}{n} \sum</em>{i=1}^n(X<em>i-\bar X)^k(k=1,2,\cdots)$$<br>各统计量的观察值：<br>$$ \bar x=\frac{1}{n} \sum</em>{i=1}^n{x<em>i} $$<br>$$ s^2=\frac{1}{n-1} \sum</em>{i=1}^n(x_i-\bar x)^2 $$<br>$$ a<em>k=\frac{1}{n} \sum</em>{i=1}^nx_i^k(k=1,2,\cdots)$$<br>$$ b<em>k=\frac{1}{n} \sum</em>{i=1}^n(x_i-\bar x)^k(k=1,2,\cdots)$$</p>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X_i} $$</p>
+<p>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2 $$</p>
+<p>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2} $$</p>
+<p>样本k阶原点矩：</p>
+<p>$$ A_k=\frac{1}{n} \sum_{i=1}^nX_i^k (k=1,2,\cdots) $$</p>
+<p>样本k阶中心矩：</p>
+<p>$$ B_k=\frac{1}{n} \sum_{i=1}^n(X_i-\bar X)^k (k=1,2,\cdots) $$</p>
+<p>各统计量的观察值：</p>
+<p>$$ \bar x=\frac{1}{n} \sum_{i=1}^n{x_i} $$</p>
+<p>$$ s^2=\frac{1}{n-1} \sum_{i=1}^n(x_i-\bar x)^2 $$</p>
+<p>$$ a_k=\frac{1}{n}\sum_{i=1}^nx_i^k (k=1,2,\cdots) $$</p>
+<p>$$ b_k=\frac{1}{n} \sum_{i=1}^n(x_i-\bar x)^k (k=1,2,\cdots) $$</p>
 
           
         
@@ -811,7 +827,49 @@ y&lt;-na.omit(x)
 </ul>
 </blockquote>
 <p>集中趋势的几个指标想必大家较为清楚，就不展开详述了。而离散程度中极差、方差和标准差也是如此，同上，不过单独解释下自由度的概念（一组数据中可以自由取值的数据的个数，与附加给独立观测值的约束或限制的个数<br>有关，比如三个数据的均值已经知道，知道其中两个数据，第三个数据是固定的，也就是说在添加了均值这个约束之后，观测数据自由取值的个数是n-1=2个）。这里重点解释异众比率，四分位差、离散系数、偏态系数和峰态系数。<br>异众比率——从字面理解即可，非众数的比率。也就是——不是众数的组的频数占总频数的比率。<br>四分位差——上四分位数减去下四分位数。<br>离散系数——也就是标准差系数，即用标准差除以平均值。<br>偏态系数——用来描述数据分布特征（分布偏斜程度）的系数，该系数&gt;0为右偏分布，<0为左偏分布，=0为对称分布。 峰态系数——用来描述数据分布特征（分布扁平程度）的系数，该系数="">0为尖峰分布，&lt;0为扁平分布，=0为扁平峰度适中。<br>最后单列出以上部分指标的公式（有数学恐惧症的同学请跳过）：</0为左偏分布，=0为对称分布。></p>
-<p>中位数：$$ x<em>{((n+1)/2)} （n为奇数）$$或$$ (x</em>{(n/2)}+x<em>{(n/2)+1})/2 （n为偶数）$$<br>四分位数：$$ Q</em>{L位置}=\frac{n}{4},Q<em>{U位置}=\frac{3n}{4} $$<br>$$ Q</em>{L位置}=\frac{n+1}{4},Q<em>{U位置}=\frac{3（n+1）}{4} $$<br>$$ Q</em>{位置}=\frac{[\frac{n+1}{2}]+1}{2} $$<br>$$ Q<em>{L位置}=\frac{n+3}{4},Q</em>{U位置}=\frac{3n+1}{4} $$<br>平均数： $$ \bar{x}=\frac{\sum<em>{i=1}^n x</em>{i}}{n}(简单平均数), \bar{x}=\frac{\sum<em>{i=1}^k M</em>{i}f<em>{i}}{n}(加权平均数)$$<br>$$ G</em>{m}=\sqrt[n] {\prod<em>{i=1}^n {(1+x</em>{i})}}-1(几何平均数)$$<br>异众比率：$$ v_r=1-\frac{f_m}{\sum f_i}  $$<br>极差： $$ R=max(x_i)-min(x_i) $$<br>四分位差： $$ Q_d=Q_U-Q_L $$<br>平均差： $$ M<em>d=\frac{\sum</em>{i=1}^n \left|{x_i-\bar {x}}\right|}{n} $$或 $$ M<em>d=\frac{\sum</em>{i=1}^k \left|{M_i-\bar {x}}\right|f<em>i}{n} $$<br>总体方差： $$ \sigma^2=\frac{\sum</em>{i=1}^N (x<em>i-\mu)^2}{n} $$ 或 $$ \sigma^2=\frac{\sum</em>{i=1}^k (M_i-\mu)^2f<em>i}{n} $$<br>总体标准差：  $$ \sigma=\sqrt {\frac{\sum</em>{i=1}^N (x<em>i-\mu)^2}{n}} $$ 或 $$ \sigma=\sqrt{\frac{\sum</em>{i=1}^k (M_i-\mu)^2f<em>i}{n}} $$<br>样本方差： $$ s^2=\frac{\sum</em>{i=1}^N (x<em>i-\mu)^2}{n-1} $$ 或 $$ s^2=\frac{\sum</em>{i=1}^k (M_i-\mu)^2f<em>i}{n-1} $$<br>样本标准差：  $$ s=\sqrt {\frac{\sum</em>{i=1}^N (x<em>i-\mu)^2}{n-1}} $$ 或 $$ s=\sqrt{\frac{\sum</em>{i=1}^k (M_i-\mu)^2f_i}{n-1}} $$<br>标准分数： $$ z_i=\frac{x_i-\bar{x}}{s} $$<br>标准差系数： $$ v_s=\frac{s}{\bar{x}} $$<br>偏态系数： $$ SK=\frac{n\sum(x<em>i-\bar{x})^3}{(n-1)(n-2)s^3} $$或$$ SK=\frac{\sum</em>{i=1}^k(M_i-\bar{x})^3f_i}{ns^3} $$<br>峰态系数： $$ K=\frac{n(n+1)\sum{(x_i-\bar{x})^4}-3[\sum{(x<em>i-\bar{x})^2}]^2(n-1)}{(n-1)(n-2)(n-3)s^4} $$或$$ K=\frac{\sum</em>{i=1}^k{(M_i-\bar{x})^4f_i}}{ns^4}-3 $$</p>
+<p>中位数：</p>
+<p>$$ x_{((n+1)/2)} （n为奇数）$$</p>
+<p>或</p>
+<p>$$ (x_ {(n/2)}+x_{(n/2)+1})/2 （n为偶数）$$</p>
+<p>四分位数：<br>$$ Q_ {L位置}=\frac{n}{4},Q_{U位置}=\frac{3n}{4} $$</p>
+<p>$$ Q_ {L位置}=\frac{n+1}{4},Q_{U位置}=\frac{3（n+1）}{4} $$</p>
+<p>$$ Q_ {位置}=\frac{[\frac{n+1}{2}]+1}{2} $$</p>
+<p>$$ Q_ {L位置}=\frac{n+3}{4},Q_{U位置}=\frac{3n+1}{4} $$</p>
+<p>平均数： </p>
+<p>$$ \bar{x}=\frac{\sum_ {i=1}^n x_{i}}{n}(简单平均数), \bar{x}=\frac{\sum_{i=1}^k M_{i}f_{i}}{n}(加权平均数)$$</p>
+<p>$$ G_{m}=\sqrt[n] {\prod_{i=1}^n {(1+x_{i})}}-1(几何平均数)$$</p>
+<p>异众比率：$$ v_r=1-\frac{f_m}{\sum f_i}  $$</p>
+<p>极差： $$ R=max(x_i)-min(x_i) $$</p>
+<p>四分位差： $$ Q_d=Q_U-Q_L $$</p>
+<p>平均差：<br>$$ M_d=\frac{\sum_{i=1}^n \left|{x_i-\bar {x}}\right|}{n} $$</p>
+<p>或</p>
+<p>$$ M_d=\frac{\sum_{i=1}^k \left|{M_i-\bar {x}}\right|f_i}{n} $$</p>
+<p>总体方差： </p>
+<p>$$ \sigma^2=\frac{\sum_{i=1}^N (x_i-\mu)^2}{n} $$ </p>
+<p>或 </p>
+<p>$$ \sigma^2=\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n} $$</p>
+<p>总体标准差： </p>
+<p>$$ \sigma=\sqrt {\frac{\sum_{i=1}^N (x_i-\mu)^2}{n}} $$ </p>
+<p>或 </p>
+<p>$$ \sigma=\sqrt{\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n}} $$</p>
+<p>样本方差：</p>
+<p>$$ s^2=\frac{\sum_{i=1}^N (x_i-\mu)^2}{n-1} $$ </p>
+<p>或 </p>
+<p>$$ s^2=\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n-1} $$</p>
+<p>样本标准差：<br>$$ s=\sqrt {\frac{\sum_{i=1}^N (x_i-\mu)^2}{n-1}} $$ </p>
+<p>或 $$ s=\sqrt{\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n-1}} $$</p>
+<p>标准分数： </p>
+<p>$$ z_i=\frac{x_i-\bar{x}}{s} $$</p>
+<p>标准差系数： </p>
+<p>$$ v_s=\frac{s}{\bar{x}} $$</p>
+<p>偏态系数： </p>
+<p>$$ SK=\frac{n\sum(x_i-\bar{x})^3}{(n-1)(n-2)s^3} $$</p>
+<p>或</p>
+<p>$$ SK=\frac{\sum_{i=1}^k(M_i-\bar{x})^3f_i}{ns^3} $$</p>
+<p>峰态系数：</p>
+<p>$$ K=\frac{n(n+1)\sum{(x_i-\bar{x})^4}-3[\sum{(x_i-\bar{x})^2}]^2(n-1)}{(n-1)(n-2)(n-3)s^4} $$</p>
+<p>或</p>
+<p>$$ K=\frac{\sum_{i=1}^k{(M_i-\bar{x})^4f_i}}{ns^4}-3 $$</p>
 
           
         
@@ -2804,10 +2862,6 @@ plot(lai,type=&quot;l&quot;,pch=16,col=&quot;blue&quot;,xlab=&quot;day of year&q
 
 
 
-  
-    
-
-    
   
 
 

@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170506163624562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170506165455196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170506194529874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-07T09:55:18.575Z">
+<meta property="og:updated_time" content="2017-05-07T10:24:48.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布">
 <meta name="twitter:description" content="Chapter 4 Sampling And Sample Distribution本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。
@@ -538,7 +538,10 @@ n&lt;-sample(N,n,replace = FALSE)
 </blockquote>
 <p>用一张图来说明这个定理（摘自参考书目1：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.）。</p>
 <p><img src="http://img.blog.csdn.net/20170506154006095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：<br>$$ \sigma<em>{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$<br>$$ \sigma</em>{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$<br>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
+<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$</p>
+<p>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
 <p>除了均值之外，实际生活中比例也是一个很重要的参数。<br>比例——总体（或样本）中具有某种属性的单位与全部单位总数之比（如不同性别的人与全部人数之比，合格品(或不合格品) 与全部产品总数之比）<br>总体比例可表示为<br>$$ p=\frac{N_0}{N},1-p=\frac{N_1}{N} $$<br>样本比例可表示为<br>$$ p=\frac{n_0}{n},1-p=\frac{n_1}{n} $$<br>样本比例的抽样分布——在重复选取容量为n的样本时，由样本比例的所有可能取值形成的相对频数分布。</p>
 <blockquote>
 <ul>
@@ -547,7 +550,9 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>推断总体比例p的理论基础。</li>
 </ul>
 </blockquote>
-<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：<br>$$ \sigma<em>{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$<br>$$ \sigma</em>{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
+<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
 <p>接下来介绍一个重要的分布——卡方分布。<br>$$ 若随机变量\xi_1,\xi_2,\cdots,\xi_n是n个相互独立的标准正态变量（独立同分布于标准正态分布），$$ $$ 则这n个随机变量的平方和Y=\Sigma\xi_i^2构成的随机变量的分布称为自由度为n的\chi^2分布（chi-square distribution），$$ $$ 记为\chi^2(n)分布 $$<br>卡方分布的性质和特点如下：</p>
 <blockquote>
 <ul>
@@ -599,7 +604,18 @@ n&lt;-sample(N,n,replace = FALSE)
 <li>两个样本方差比的抽样分布， 服从分子自由度$(n_1-1)$， 分母自由度为$(n_2-1)$的F分布， 即<br>$$ \frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2}\sim F(n_1-1,n_2-1) $$</li>
 </ul>
 </blockquote>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X<em>i} $$<br>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum</em>{i=1}^n(X<em>i-\bar X)^2 $$<br>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum</em>{i=1}^n(X_i-\bar X)^2} $$<br>样本k阶原点矩：<br>$$ A<em>k=\frac{1}{n} \sum</em>{i=1}^nX_i^k(k=1,2,\cdots)$$<br>样本k阶中心矩：<br>$$ B<em>k=\frac{1}{n} \sum</em>{i=1}^n(X<em>i-\bar X)^k(k=1,2,\cdots)$$<br>各统计量的观察值：<br>$$ \bar x=\frac{1}{n} \sum</em>{i=1}^n{x<em>i} $$<br>$$ s^2=\frac{1}{n-1} \sum</em>{i=1}^n(x_i-\bar x)^2 $$<br>$$ a<em>k=\frac{1}{n} \sum</em>{i=1}^nx_i^k(k=1,2,\cdots)$$<br>$$ b<em>k=\frac{1}{n} \sum</em>{i=1}^n(x_i-\bar x)^k(k=1,2,\cdots)$$</p>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X_i} $$</p>
+<p>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2 $$</p>
+<p>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2} $$</p>
+<p>样本k阶原点矩：</p>
+<p>$$ A_k=\frac{1}{n} \sum_{i=1}^nX_i^k (k=1,2,\cdots) $$</p>
+<p>样本k阶中心矩：</p>
+<p>$$ B_k=\frac{1}{n} \sum_{i=1}^n(X_i-\bar X)^k (k=1,2,\cdots) $$</p>
+<p>各统计量的观察值：</p>
+<p>$$ \bar x=\frac{1}{n} \sum_{i=1}^n{x_i} $$</p>
+<p>$$ s^2=\frac{1}{n-1} \sum_{i=1}^n(x_i-\bar x)^2 $$</p>
+<p>$$ a_k=\frac{1}{n}\sum_{i=1}^nx_i^k (k=1,2,\cdots) $$</p>
+<p>$$ b_k=\frac{1}{n} \sum_{i=1}^n(x_i-\bar x)^k (k=1,2,\cdots) $$</p>
 
       
     </div>
@@ -665,12 +681,6 @@ n&lt;-sample(N,n,replace = FALSE)
 
     <div class="post-spread">
       
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-      
     </div>
   </div>
 
@@ -681,8 +691,6 @@ n&lt;-sample(N,n,replace = FALSE)
 
           
   <div class="comments" id="comments">
-    
-      <div id="uyan_frame"></div>
     
   </div>
 
@@ -966,14 +974,6 @@ n&lt;-sample(N,n,replace = FALSE)
 
 
 
-  
-    
-
-    
-      <!-- UY BEGIN -->
-      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2130284"></script>
-      <!-- UY END -->
-    
   
 
 
