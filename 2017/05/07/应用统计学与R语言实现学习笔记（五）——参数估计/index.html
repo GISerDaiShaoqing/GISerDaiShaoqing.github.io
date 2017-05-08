@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="#Chapter 5 Estimation本篇是第五章，内容是参数估计。
-1.参数估计的一般问题正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方">
+<meta name="description" content="Chapter 5 Estimation本篇是第五章，内容是参数估计。
+1.参数估计的一般问题正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方差">
 <meta property="og:type" content="article">
 <meta property="og:title" content="应用统计学与R语言实现学习笔记（五）——参数估计">
 <meta property="og:url" content="http://yoursite.com/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="#Chapter 5 Estimation本篇是第五章，内容是参数估计。
-1.参数估计的一般问题正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方">
+<meta property="og:description" content="Chapter 5 Estimation本篇是第五章，内容是参数估计。
+1.参数估计的一般问题正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方差">
 <meta property="og:image" content="http://img.blog.csdn.net/20170507151431021?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-08T01:04:01.956Z">
+<meta property="og:updated_time" content="2017-05-08T03:35:21.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（五）——参数估计">
-<meta name="twitter:description" content="#Chapter 5 Estimation本篇是第五章，内容是参数估计。
-1.参数估计的一般问题正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方">
+<meta name="twitter:description" content="Chapter 5 Estimation本篇是第五章，内容是参数估计。
+1.参数估计的一般问题正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方差">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170507151431021?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -242,16 +242,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -423,7 +413,7 @@
       
 
       
-        <p>#Chapter 5 Estimation<br>本篇是第五章，内容是参数估计。</p>
+        <h1 id="chapter-5-estimation"><a href="#Chapter-5-Estimation" class="headerlink" title="Chapter 5 Estimation"></a>Chapter 5 Estimation</h1><p>本篇是第五章，内容是参数估计。</p>
 <h3 id="1参数估计的一般问题"><a href="#1-参数估计的一般问题" class="headerlink" title="1.参数估计的一般问题"></a>1.参数估计的一般问题</h3><p>正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。<br>统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方差或者判断总体的分布形式和分布参数。</p>
 <blockquote>
 <ul>
@@ -742,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1参数估计的一般问题"><span class="nav-number">1.</span> <span class="nav-text">1.参数估计的一般问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2区间估计-confidence-intervals"><span class="nav-number">2.</span> <span class="nav-text">2.区间估计 Confidence Intervals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3样本容量的确定"><span class="nav-number">3.</span> <span class="nav-text">3.样本容量的确定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-5-estimation"><span class="nav-number">1.</span> <span class="nav-text">Chapter 5 Estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1参数估计的一般问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.参数估计的一般问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2区间估计-confidence-intervals"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.区间估计 Confidence Intervals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3样本容量的确定"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.样本容量的确定</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

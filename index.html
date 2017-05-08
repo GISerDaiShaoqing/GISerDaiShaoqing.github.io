@@ -238,16 +238,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -421,7 +411,7 @@
       
         
           
-            <p>#Chapter 5 Estimation<br>本篇是第五章，内容是参数估计。</p>
+            <h1 id="chapter-5-estimation"><a href="#Chapter-5-Estimation" class="headerlink" title="Chapter 5 Estimation"></a>Chapter 5 Estimation</h1><p>本篇是第五章，内容是参数估计。</p>
 <h3 id="1参数估计的一般问题"><a href="#1-参数估计的一般问题" class="headerlink" title="1.参数估计的一般问题"></a>1.参数估计的一般问题</h3><p>正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。<br>统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方差或者判断总体的分布形式和分布参数。</p>
 <blockquote>
 <ul>
@@ -1027,14 +1017,7 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>数据审核，包括直接数据的完整性审核以及准确性审核（是否客观），间接数据的适用性审核以及时效性审核；数据筛选，就是对于数据里面的异常值（存在错误，不符合调查要求等），在现在来说就是dirty data（脏数据），将这些数据剔除；数据排序，事实上数据排序更多的目的还是为了更方便地发现异常值，是做数据清洗的手段；数据透视，借鉴于Excel里的数据透视表，事实上就是数据的重铸，融合和汇总，从而得到我们需要的数据。<br>总的来说，前期预处理需要对数据进行排序、汇总和观察发现相关的数据异常值等。在这个阶段，不喜编程的同学推荐用Excel来做数据预处理（通过数据透视图、替换数据、排序、Countif等工具和Excel函数高效完成预处理），更高级的一般可以考虑用R、Python等编程语言进行清洗预处理，或者像在数据库里用SQL语句也是可以的。<br>响应一下本部分的标题，R语言实现，交代几个简单的语句进行数据清洗。</p>
-<pre><code>#x为数据框、数组或矩阵，通过summary可以获取平均值、中位数、四分位数等，如果有缺失数据，则会显示NAN等。
-summary(x)
-
-#表示y是按照x的第一行先升序排列，然后再按x的第二列降序排列得到的数据，-表示降序。
-y&lt;-x[order(x[1],-x[2)]
-
-#去除NA所在行和列
-y&lt;-na.omit(x)
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#x为数据框、数组或矩阵，通过summary可以获取平均值、中位数、四分位数等，如果有缺失数据，则会显示NAN等。</span></div><div class="line">summary(x)</div><div class="line"></div><div class="line"><span class="comment">#表示y是按照x的第一行先升序排列，然后再按x的第二列降序排列得到的数据，-表示降序。</span></div><div class="line">y&lt;-x[order(x[<span class="number">1</span>],-x[<span class="number">2</span>)]</div><div class="line"></div><div class="line"><span class="comment">#去除NA所在行和列</span></div><div class="line">y&lt;-na.omit(x)</div></pre></td></tr></table></figure>
 </code></pre><h3 id="2数据的整理与展示"><a href="#2-数据的整理与展示" class="headerlink" title="2.数据的整理与展示"></a>2.数据的整理与展示</h3><p>这部分的数据整理是在预处理完毕后，根据我们需要对数据进行整理和简单可视化（多画图，多可视化，你能发现很多事情）。那么第一步就是先把我们的数据类型搞清楚。因为不同类型数据，整理方式不同。<br>对于分类数据和顺序数据主要是分类整理。<br>对于数值数据主要是做分组整理。</p>
 <blockquote>
 <ul>
@@ -1308,7 +1291,8 @@ y&lt;-na.omit(x)
 </ul>
 </blockquote>
 <p>（2）调查方案的结构和设计<br>如何做调查？是很多人在科学研究中的第一道难关。这里给出一个关于做调查的普遍步骤流程图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3229757-524c3fee46b68ae5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
 <p>那么调查方案又是什么呢？我认为调查方案就是调查的策划书。明确你调查的一些目的、对象、项目以及调查方法等。一般结构如下：</p>
 <blockquote>
 <ul>
@@ -1370,7 +1354,14 @@ y&lt;-na.omit(x)
 <li>关联性： 满足用户决策、 管理和研究的需要</li>
 <li>及时性： 在最短的时间里取得并公布数据</li>
 <li>一致性： 保持时间序列的可比性</li>
-<li>最低成本： 以最经济的方式取得数据</li>
+<li>最低成本： 以最经济的方式取得数据<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 确定调查目的（Define the issue）
+op1=>operation: 确定感兴趣的总体和抽样单元（Define the population interest and sampling unit）
+op2=>operation: 规范调查问题（Formulate survey questions)
+op3=>operation: 构建抽样框（Construct sampling frame)
+op4=>operation: 选择样本（Select sample)
+op5=>operation: 收集数据（Collect data)
+e=>end: 分析数据（Analyze data)
+st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
 </ul>
 </blockquote>
 
@@ -1553,10 +1544,12 @@ y&lt;-na.omit(x)
 <p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
 </blockquote>
 <p>总结起来，统计学的研究过程就像下面的流程图。</p>
-<p><img src="http://img.blog.csdn.net/20170506191021512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
 <p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
 <h3 id="3统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
-<p><img src="http://img.blog.csdn.net/20170506191039887?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<div id="flowchart-1" class="flow-chart"></div>
+
 <p>统计学应用领域十分广泛，这里就不细谈了。</p>
 <h3 id="4统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
 <blockquote>
@@ -1591,7 +1584,24 @@ y&lt;-na.omit(x)
 </ul>
 </blockquote>
 <p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
-<p><img src="http://img.blog.csdn.net/20170504191401599?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><div id="flowchart-2" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 实际问题
+op1=>operation: 收集数据（取得数据）
+op2=>operation: 整理数据（处理数据）
+op3=>operation: 分析数据（研究数据）
+op4=>operation: 解释数据（结果说明）
+st->op1->op2->op3->op4</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 统计方法
+e=>end: 结论
+sub=>subroutine: 描述统计
+cond1=>condition: 样本=总体？
+cond2=>condition: 分布已知？
+op1=>operation: 推断统计
+op2=>operation: 参数估计
+op3=>operation: 假设检验
+st->cond1(no)->op1->cond2(no)->op2->e
+cond1(yes)->sub->e
+cond2(yes)->op3->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=>start: 总体（参数）
+op=>operation: 样本（统计量）
+st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script></p>
 
           
         

@@ -95,14 +95,13 @@
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="Chapter 2 Data Collection本篇是第二章，内容是数据收集。
 1.数据来源做科学研究离不开数据，而数据的来源有哪些呢？这里比较简单地将数据来源分为两类：直接（一手）数据和间接（二手）数据。直接数据的数据获取来源包括：观测、调查、实验。间接数据的数据获取来源包括：出版物、互联网等。接下来分别谈谈这几个来源。观测——自然科学里有观测，如气象气候、植物生长期等，社会科学同样有观测，譬">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3229757-524c3fee46b68ae5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3229757-936627c6c2cc6967?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-05-07T11:29:03.523Z">
+<meta property="og:updated_time" content="2017-05-08T03:31:23.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（二）——数据收集">
 <meta name="twitter:description" content="Chapter 2 Data Collection本篇是第二章，内容是数据收集。
 1.数据来源做科学研究离不开数据，而数据的来源有哪些呢？这里比较简单地将数据来源分为两类：直接（一手）数据和间接（二手）数据。直接数据的数据获取来源包括：观测、调查、实验。间接数据的数据获取来源包括：出版物、互联网等。接下来分别谈谈这几个来源。观测——自然科学里有观测，如气象气候、植物生长期等，社会科学同样有观测，譬">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3229757-524c3fee46b68ae5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3229757-936627c6c2cc6967?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -243,16 +242,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -452,7 +441,8 @@
 </ul>
 </blockquote>
 <p>（2）调查方案的结构和设计<br>如何做调查？是很多人在科学研究中的第一道难关。这里给出一个关于做调查的普遍步骤流程图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3229757-524c3fee46b68ae5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
 <p>那么调查方案又是什么呢？我认为调查方案就是调查的策划书。明确你调查的一些目的、对象、项目以及调查方法等。一般结构如下：</p>
 <blockquote>
 <ul>
@@ -514,7 +504,14 @@
 <li>关联性： 满足用户决策、 管理和研究的需要</li>
 <li>及时性： 在最短的时间里取得并公布数据</li>
 <li>一致性： 保持时间序列的可比性</li>
-<li>最低成本： 以最经济的方式取得数据</li>
+<li>最低成本： 以最经济的方式取得数据<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 确定调查目的（Define the issue）
+op1=>operation: 确定感兴趣的总体和抽样单元（Define the population interest and sampling unit）
+op2=>operation: 规范调查问题（Formulate survey questions)
+op3=>operation: 构建抽样框（Construct sampling frame)
+op4=>operation: 选择样本（Select sample)
+op5=>operation: 收集数据（Collect data)
+e=>end: 分析数据（Analyze data)
+st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
 </ul>
 </blockquote>
 

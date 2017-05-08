@@ -238,16 +238,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -426,10 +416,7 @@
 <p>installr {installr}    R Documentation<br>                                                            Installing software from R<br>Description<br>Gives the user the option to download software from within R.</p>
 </blockquote>
 <p>上面是installr的官方文档介绍。<br>接下来来讲所谓的一行代码更新R语言。<br>这里有两个注意点：<br>1.你的installr必须跟你的R版本对应，因为R语言默认安装的包都是适配最新的R语言版本。<br>2.使用installr更新R语言必须在原生R里面，Rstudio里面无法进行（笔者没有尝试过其他R的IDE，有童鞋若有尝试也可以进行指正）。<br>这里第一步先改下默认R的镜像（相信有很多童鞋应该改过了）。<br>原生R更改设定为：程序包→设定CRAN镜像<br>无论Python或者R，镜像统统选清华！。<br><img src="http://img.blog.csdn.net/20170323195226796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#安装installr
-install.packages（installr)
-library(installr)
-updater()#就是这句。真得劲。一键更新
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装installr</span></div><div class="line">install.packages（installr)</div><div class="line"><span class="keyword">library</span>(installr)</div><div class="line">updater()<span class="comment">#就是这句。真得劲。一键更新</span></div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20170323195705637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195722928?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195839716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195927326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>后面只要一路确定就好了。<br>这个方法的好处在于，你可以不用重新安装你已经有的包。可以完整保留。<br>注意的是这个包还依赖于stringr,stringi,magrittr。<br>最后贴下这个包的官方文档航和新增的函数（super强大，还可以一键安装Python，RStudio等)。<br><img src="http://img.blog.csdn.net/20170323201813663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <blockquote>
 <p>NEW FUNCTIONS:</p>
@@ -604,26 +591,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
 </code></pre><p>3.用openxlsx包读取Excel</p>
 <pre><code>a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
 </code></pre><p>综合来看，openxlsx的方法简单粗暴，而且经多名骨灰级玩家证明，罕有bug出现。乃R语言和Excel读取的绝对神器。不过笔者也发现，openxlsx包仅适用于.xlsx格式文件。前期的xls格式文件可能还需要前两种方法来读取。除了以上三种方法，还有类似的包如xlsx、readxl。此处依旧强推神器openxlsx。首先，.xlsx文件存储行数大大提升，从65536行数据提升到了104万条数据。其次，它十分便捷，函数所需参数较少。当然最后的最后，它可能需要的R的版本比较的新，下一篇的预告：如何通过一行代码升级R。<br>最后贴出全文的代码。</p>
-<pre><code>#设置工作路径
-setwd(&quot;F:/R/applicationstatics&quot;)
-
-#第一种方法：读取csv
-a&lt;-read.csv(&quot;exercise1.csv&quot;,header = T)
-
-#第二种方法：RODBC包
-#安装载入RODBC包，如果已安装，请跳过第一句语句
-install.packages(RODBC)
-library(RODBC)
-
-ab&lt;-odbcConnectExcel2007(&quot;exercise1.xls&quot;)#连接excel，32位系统使用odbcConnectExcel函数
-sqlTables(ab)
-a&lt;-sqlFetch(ab,&quot;Sheet1$&quot;)
-odbcClose(ab)#关闭句柄，此句是必须。
-
-#第三种方法：openxlsx
-install.packages(openxlsx)
-library(openxlsx)
-a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/applicationstatics"</span>)</div><div class="line"></div><div class="line"><span class="comment">#第一种方法：读取csv</span></div><div class="line">a&lt;-read.csv(<span class="string">"exercise1.csv"</span>,header = <span class="literal">T</span>)</div><div class="line"></div><div class="line"><span class="comment">#第二种方法：RODBC包</span></div><div class="line"><span class="comment">#安装载入RODBC包，如果已安装，请跳过第一句语句</span></div><div class="line">install.packages(RODBC)</div><div class="line"><span class="keyword">library</span>(RODBC)</div><div class="line"></div><div class="line">ab&lt;-odbcConnectExcel2007(<span class="string">"exercise1.xls"</span>)<span class="comment">#连接excel，32位系统使用odbcConnectExcel函数</span></div><div class="line">sqlTables(ab)</div><div class="line">a&lt;-sqlFetch(ab,<span class="string">"Sheet1$"</span>)</div><div class="line">odbcClose(ab)<span class="comment">#关闭句柄，此句是必须。</span></div><div class="line"></div><div class="line"><span class="comment">#第三种方法：openxlsx</span></div><div class="line">install.packages(openxlsx)</div><div class="line"><span class="keyword">library</span>(openxlsx)</div><div class="line">a&lt;-read.xlsx(<span class="string">"exercise1.xlsx"</span>,sheet=<span class="number">1</span>)<span class="comment">#文件名+sheet的序号，简单粗暴</span></div></pre></td></tr></table></figure>
 </code></pre><p>当然文末小福利：《基于Excel的地理数据分析》的电子版。需要的童鞋可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。。</p>
 
           
@@ -783,10 +751,7 @@ a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，�
 <p><a href="http://www.codeblocks.org/" target="_blank" rel="external">http://www.codeblocks.org/</a></p>
 </blockquote>
 <p><img src="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择最后一个<br>2.直接安装即可，确认安装所有部分<br><img src="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.安装完毕后，打开IDE<br>在菜单栏中找到“Setting”→“Compiler”<br><img src="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>复制一个编译器，自定义名字<br>接着点“Toolchain executables”<br>将画框部分的文件全部改成gfortran.exe<br><img src="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击ok即可。<br>4.Hello World 编写<br>在菜单栏找到”File”→”New”→”Project”，建立一个Fortran工程文件。<br><img src="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>工程命名<br><img src="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择自定义的编译器<br><img src="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>添加hello world项目的Fortran文件<br><img src="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编写如下的hello world进行测试。</p>
-<pre><code>program helloworld
-    implicit none
-    write(*,*) &apos;Hello world&apos;
-end program
+<pre><code><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">program</span></span> helloworld</div><div class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></div><div class="line">    <span class="built_in">write</span>(*,*) <span class="string">'Hello world'</span></div><div class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span></div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>5.生成exe文件无法打开的处理方法<br>某些时候生成的exe文件打开会报错。类似“找不到<em>*</em>.dll”“这个应用程序安装/配置不正确，重新安装…”这样的错误。<br>这样的情况下，只需在系统变量里面PATH加上对应的路径即可。</p>
 
@@ -943,16 +908,7 @@ end program
         
           
             <p>如何做出相关系数矩阵可视化图</p>
-<pre><code>install.packages(&quot;psych&quot;)
-install.packages(&quot;corrplot&quot;)#安装包，如果已安装，请略过
-library(psych)
-library(corrplot)#载入两个包
-data(iris)#机器学习常用神奇数据集——鸢尾花数据集
-head(iris)#查看下数据集前五行
-irisnew&lt;-iris[,-5]#去除第五列种类变量
-cormat&lt;-corr.test(irisnew)#相关系数分析及显著性检验
-#最简单的相关系数矩阵可视化
-corrplot(cormat$r)
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"psych"</span>)</div><div class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></div><div class="line"><span class="keyword">library</span>(psych)</div><div class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></div><div class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></div><div class="line">head(iris)<span class="comment">#查看下数据集前五行</span></div><div class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></div><div class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></div><div class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></div><div class="line">corrplot(cormat$r)</div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;)
 </code></pre><p><img src="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
@@ -1132,11 +1088,8 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
 <blockquote>
 <p><a href="http://blog.csdn.net/kikitamoon/article/details/44102383" target="_blank" rel="external">http://blog.csdn.net/kikitamoon/article/details/44102383</a></p>
 </blockquote>
-<p>从GIS数据的种类来说，主要是两种：矢量数据和栅格数据。三维数据也可以基于这两种分别完成。<br>介绍下这两类的三维化。<br>（一）栅格的三维化<br>栅格数据的三维化主要是类似于DEM拉伸成三维的山体。<br>首先打开ArcGIS Pro<br><img src="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打开ArcGIS pro"><br>新建一个二维和三维窗口<br><img src="http://img.blog.csdn.net/20161207192059549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="新建窗口"><br>右击三维场景属性，如下图，设置要三维化的栅格，此外可以根据需求做拉伸<br><img src="http://img.blog.csdn.net/20161207193203977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="栅格地形三维化"><br>效果如下<br><img src="http://img.blog.csdn.net/20161207193655760?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维可视化"><br>点击二三维联动按钮<br><img src="http://img.blog.csdn.net/20161207193753620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动按钮"><br>二三维联动效果：<br><img src="http://img.blog.csdn.net/20161207203704256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果"><br>（二）矢量操作<br>矢量的数据可以通过字段拉伸或者rpk生成。ArcGIS Pro在这方面无缝集成了City Engine的规则建模。因此首先在City Engine中写好CGA，通过City Engine生成规则包rpk。</p>
-<pre><code>@StartRule
-lot--&gt;
-extrude(rand(3, 50)) 
-</code></pre><p><img src="http://img.blog.csdn.net/20161207203634568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打包成rpk规则包"></p>
+<p>从GIS数据的种类来说，主要是两种：矢量数据和栅格数据。三维数据也可以基于这两种分别完成。<br>介绍下这两类的三维化。<br>（一）栅格的三维化<br>栅格数据的三维化主要是类似于DEM拉伸成三维的山体。<br>首先打开ArcGIS Pro<br><img src="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打开ArcGIS pro"><br>新建一个二维和三维窗口<br><img src="http://img.blog.csdn.net/20161207192059549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="新建窗口"><br>右击三维场景属性，如下图，设置要三维化的栅格，此外可以根据需求做拉伸<br><img src="http://img.blog.csdn.net/20161207193203977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="栅格地形三维化"><br>效果如下<br><img src="http://img.blog.csdn.net/20161207193655760?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维可视化"><br>点击二三维联动按钮<br><img src="http://img.blog.csdn.net/20161207193753620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动按钮"><br>二三维联动效果：<br><img src="http://img.blog.csdn.net/20161207203704256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果"><br>（二）矢量操作<br>矢量的数据可以通过字段拉伸或者rpk生成。ArcGIS Pro在这方面无缝集成了City Engine的规则建模。因此首先在City Engine中写好CGA，通过City Engine生成规则包rpk。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@StartRule</div><div class="line">lot--&gt;</div><div class="line">extrude(rand(3, 50))</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20161207203634568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打包成rpk规则包"></p>
 <p>接着点击工具<br> <img src="http://img.blog.csdn.net/20161207203950319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="工具"> <img src="http://img.blog.csdn.net/20161207204001991?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="运行工具"><br>生成三维体图层<br> <img src="http://img.blog.csdn.net/20161207204202040?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="三维体图层"><br> 二三维联动效果如下<br> <img src="http://img.blog.csdn.net/20161207204851894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果矢量"><br> ArcGIS Pro的整体界面非常友好，而且功能强大，也是目前esri主推的新软件，不仅是二三维一体化，在今年esri用户大会上，还演示了基于ArcGIS Pro的各类大数据应用。大数据时代，让我们拥抱ArcGIS Pro。</p>
 
           

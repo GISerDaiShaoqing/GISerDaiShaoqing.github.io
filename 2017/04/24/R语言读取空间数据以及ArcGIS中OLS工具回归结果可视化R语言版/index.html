@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-07T11:28:09.989Z">
+<meta property="og:updated_time" content="2017-05-08T02:15:22.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
 <meta name="twitter:description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
@@ -247,16 +247,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -477,53 +467,13 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 <p><img src="http://img.blog.csdn.net/20170424231216987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><img src="http://img.blog.csdn.net/20170424231227096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <h3 id="4arcgis中ols工具回归结果可视化r语言版"><a href="#4-ArcGIS中OLS工具回归结果可视化（R语言版）" class="headerlink" title="4.ArcGIS中OLS工具回归结果可视化（R语言版）"></a>4.ArcGIS中OLS工具回归结果可视化（R语言版）</h3><p>最后的最后。对应虾神文章的Python版本ArcGIS中OLS工具回归结果可视化，写个R语言版本。</p>
-<pre><code>#载入包
-#如果没安装，请先安装，如果已安装，请注释
-#install.packages(&quot;.../arcgisbinding_1.0.0.125.zip&quot;, repos = NULL, type = &quot;win.binary&quot;)…表示arcgisbinding离线包的路径
-#install.packages(&quot;car&quot;)
-#install.packages(&quot;GGally&quot;)
-#install.packages(&quot;ggplot2&quot;)
-library(arcgisbinding)
-library(car)
-library(GGally)
-library(ggplot2)
-
-#设置工作路径
-setwd(&quot;F:/R/demo/readdata&quot;)
-
-#检查ArcGIS产品许可
-arc.check_product()
-
-#读取数据并将数据转换为数据框
-olsdata&lt;-arc.open(&quot;china.gdb/olstest&quot;)
-olsdata
-olsdataframe&lt;-arc.select(olsdata,fields = c(&quot;gdp&quot;,&quot;Index_2000&quot;,&quot;Pop_Urban&quot;,&quot;POPU&quot;,&quot;PRODUCT&quot;,&quot;Estimated&quot;,&quot;Residual&quot;,&quot;StdResid&quot;))
-
-#把因变量和自变量单独分离出来并用car包里的spm函数绘图
-variableframe&lt;-olsdataframe[,c(1:5)]
-spm(variableframe,diagonal=&quot;hist&quot;)
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#载入包</span></div><div class="line"><span class="comment">#如果没安装，请先安装，如果已安装，请注释</span></div><div class="line"><span class="comment">#install.packages(".../arcgisbinding_1.0.0.125.zip", repos = NULL, type = "win.binary")…表示arcgisbinding离线包的路径</span></div><div class="line"><span class="comment">#install.packages("car")</span></div><div class="line"><span class="comment">#install.packages("GGally")</span></div><div class="line"><span class="comment">#install.packages("ggplot2")</span></div><div class="line"><span class="keyword">library</span>(arcgisbinding)</div><div class="line"><span class="keyword">library</span>(car)</div><div class="line"><span class="keyword">library</span>(GGally)</div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"></div><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/demo/readdata"</span>)</div><div class="line"></div><div class="line"><span class="comment">#检查ArcGIS产品许可</span></div><div class="line">arc.check_product()</div><div class="line"></div><div class="line"><span class="comment">#读取数据并将数据转换为数据框</span></div><div class="line">olsdata&lt;-arc.open(<span class="string">"china.gdb/olstest"</span>)</div><div class="line">olsdata</div><div class="line">olsdataframe&lt;-arc.select(olsdata,fields = c(<span class="string">"gdp"</span>,<span class="string">"Index_2000"</span>,<span class="string">"Pop_Urban"</span>,<span class="string">"POPU"</span>,<span class="string">"PRODUCT"</span>,<span class="string">"Estimated"</span>,<span class="string">"Residual"</span>,<span class="string">"StdResid"</span>))</div><div class="line"></div><div class="line"><span class="comment">#把因变量和自变量单独分离出来并用car包里的spm函数绘图</span></div><div class="line">variableframe&lt;-olsdataframe[,c(<span class="number">1</span>:<span class="number">5</span>)]</div><div class="line">spm(variableframe,diagonal=<span class="string">"hist"</span>)</div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20170425013332358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>感觉似乎不是很好看，换个方式。
-#利用GGally的ggpairs函数画图
-ggpairs(variableframe,upper = list(continuous=&quot;cor&quot;),lower = list(continuous=&quot;smooth&quot;),diag = list(continuous=&quot;barDiag&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20170425150335593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#绘制标准残差的分布，用ggplot2画图
-a&lt;-ggplot(olsdataframe,aes(x=StdResid))+
-  geom_histogram(aes(y=..density..),binwidth = 0.5,colour=&quot;white&quot;,fill=&quot;grey&quot;)+
-  geom_line(stat=&apos;density&apos;,colour=&quot;#FF6666&quot;)
-a
+<p>感觉似乎不是很好看，换个方式。<br>    <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#利用GGally的ggpairs函数画图</span></div><div class="line">ggpairs(variableframe,upper = list(continuous=<span class="string">"cor"</span>),lower = list(continuous=<span class="string">"smooth"</span>),diag = list(continuous=<span class="string">"barDiag"</span>))</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20170425150335593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差的分布，用ggplot2画图</span></div><div class="line">a&lt;-ggplot(olsdataframe,aes(x=StdResid))+</div><div class="line">  geom_histogram(aes(y=..density..),binwidth = <span class="number">0.5</span>,colour=<span class="string">"white"</span>,fill=<span class="string">"grey"</span>)+</div><div class="line">  geom_line(stat=<span class="string">'density'</span>,colour=<span class="string">"#FF6666"</span>)</div><div class="line">a</div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#绘制标准残差和观测值的散点图
-opar&lt;-par(no.readonly = T)
-
-par(fig=c(0,0.8,0,0.8))
-plot(olsdataframe$gdp,olsdataframe$StdResid,col=&quot;grey&quot;,pch=16)
-
-par(fig=c(0,0.8,0.7,1),new=T)
-hist(olsdataframe$gdp,col=&quot;grey&quot;)
-
-par(fig=c(0.75,1,0,0.8),new=T)
-hist(olsdataframe$StdResid,col=&quot;grey&quot;)
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差和观测值的散点图</span></div><div class="line">opar&lt;-par(no.readonly = <span class="literal">T</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0</span>,<span class="number">0.8</span>))</div><div class="line">plot(olsdataframe$gdp,olsdataframe$StdResid,col=<span class="string">"grey"</span>,pch=<span class="number">16</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.7</span>,<span class="number">1</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$gdp,col=<span class="string">"grey"</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0.75</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0.8</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$StdResid,col=<span class="string">"grey"</span>)</div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是为了和虾神最后的效果类似，事实上，在读取完数据框之后，纯属散点图矩阵可视化方面的内容。<br>最后贴出虾神的公众号和博客。</p>
 <p>微信公众号：虾神daxialu——以推广空间分析和空间数据挖掘为己任，致力于在GIS界传递分析价值。<br><img src="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>虾神博客原文地址：《白话空间统计二十三：回归分析番外-ArcGIS中的OLS（三）》</p>
 <blockquote>

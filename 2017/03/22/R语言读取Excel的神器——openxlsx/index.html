@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170322221959695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170322223734874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170322224605035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-07T11:35:53.125Z">
+<meta property="og:updated_time" content="2017-05-08T02:06:42.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言读取Excel的神器——openxlsx">
 <meta name="twitter:description" content="作为非程序猿的各位同志们，可能最擅长的数据整理软件或者统计软件就是——嗯，没有错，它就是集万千宠爱于一身的E~~X~~O。咳咳咳，好了。隆重推出我们的主角——Excel事实上，Excel是个super强大的软件。基本上用它已经能完成大量的统计分析了。For example各类数理统计
@@ -247,16 +247,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -440,26 +430,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
 </code></pre><p>3.用openxlsx包读取Excel</p>
 <pre><code>a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
 </code></pre><p>综合来看，openxlsx的方法简单粗暴，而且经多名骨灰级玩家证明，罕有bug出现。乃R语言和Excel读取的绝对神器。不过笔者也发现，openxlsx包仅适用于.xlsx格式文件。前期的xls格式文件可能还需要前两种方法来读取。除了以上三种方法，还有类似的包如xlsx、readxl。此处依旧强推神器openxlsx。首先，.xlsx文件存储行数大大提升，从65536行数据提升到了104万条数据。其次，它十分便捷，函数所需参数较少。当然最后的最后，它可能需要的R的版本比较的新，下一篇的预告：如何通过一行代码升级R。<br>最后贴出全文的代码。</p>
-<pre><code>#设置工作路径
-setwd(&quot;F:/R/applicationstatics&quot;)
-
-#第一种方法：读取csv
-a&lt;-read.csv(&quot;exercise1.csv&quot;,header = T)
-
-#第二种方法：RODBC包
-#安装载入RODBC包，如果已安装，请跳过第一句语句
-install.packages(RODBC)
-library(RODBC)
-
-ab&lt;-odbcConnectExcel2007(&quot;exercise1.xls&quot;)#连接excel，32位系统使用odbcConnectExcel函数
-sqlTables(ab)
-a&lt;-sqlFetch(ab,&quot;Sheet1$&quot;)
-odbcClose(ab)#关闭句柄，此句是必须。
-
-#第三种方法：openxlsx
-install.packages(openxlsx)
-library(openxlsx)
-a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/applicationstatics"</span>)</div><div class="line"></div><div class="line"><span class="comment">#第一种方法：读取csv</span></div><div class="line">a&lt;-read.csv(<span class="string">"exercise1.csv"</span>,header = <span class="literal">T</span>)</div><div class="line"></div><div class="line"><span class="comment">#第二种方法：RODBC包</span></div><div class="line"><span class="comment">#安装载入RODBC包，如果已安装，请跳过第一句语句</span></div><div class="line">install.packages(RODBC)</div><div class="line"><span class="keyword">library</span>(RODBC)</div><div class="line"></div><div class="line">ab&lt;-odbcConnectExcel2007(<span class="string">"exercise1.xls"</span>)<span class="comment">#连接excel，32位系统使用odbcConnectExcel函数</span></div><div class="line">sqlTables(ab)</div><div class="line">a&lt;-sqlFetch(ab,<span class="string">"Sheet1$"</span>)</div><div class="line">odbcClose(ab)<span class="comment">#关闭句柄，此句是必须。</span></div><div class="line"></div><div class="line"><span class="comment">#第三种方法：openxlsx</span></div><div class="line">install.packages(openxlsx)</div><div class="line"><span class="keyword">library</span>(openxlsx)</div><div class="line">a&lt;-read.xlsx(<span class="string">"exercise1.xlsx"</span>,sheet=<span class="number">1</span>)<span class="comment">#文件名+sheet的序号，简单粗暴</span></div></pre></td></tr></table></figure>
 </code></pre><p>当然文末小福利：《基于Excel的地理数据分析》的电子版。需要的童鞋可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。。</p>
 
       

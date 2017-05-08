@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20161207204001991?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207204202040?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207204851894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-07T11:27:42.577Z">
+<meta property="og:updated_time" content="2017-05-08T02:03:42.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于ArcGIS Pro的二三维一体化">
 <meta name="twitter:description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑">
@@ -249,16 +249,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -434,11 +424,8 @@
 <blockquote>
 <p><a href="http://blog.csdn.net/kikitamoon/article/details/44102383" target="_blank" rel="external">http://blog.csdn.net/kikitamoon/article/details/44102383</a></p>
 </blockquote>
-<p>从GIS数据的种类来说，主要是两种：矢量数据和栅格数据。三维数据也可以基于这两种分别完成。<br>介绍下这两类的三维化。<br>（一）栅格的三维化<br>栅格数据的三维化主要是类似于DEM拉伸成三维的山体。<br>首先打开ArcGIS Pro<br><img src="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打开ArcGIS pro"><br>新建一个二维和三维窗口<br><img src="http://img.blog.csdn.net/20161207192059549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="新建窗口"><br>右击三维场景属性，如下图，设置要三维化的栅格，此外可以根据需求做拉伸<br><img src="http://img.blog.csdn.net/20161207193203977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="栅格地形三维化"><br>效果如下<br><img src="http://img.blog.csdn.net/20161207193655760?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维可视化"><br>点击二三维联动按钮<br><img src="http://img.blog.csdn.net/20161207193753620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动按钮"><br>二三维联动效果：<br><img src="http://img.blog.csdn.net/20161207203704256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果"><br>（二）矢量操作<br>矢量的数据可以通过字段拉伸或者rpk生成。ArcGIS Pro在这方面无缝集成了City Engine的规则建模。因此首先在City Engine中写好CGA，通过City Engine生成规则包rpk。</p>
-<pre><code>@StartRule
-lot--&gt;
-extrude(rand(3, 50)) 
-</code></pre><p><img src="http://img.blog.csdn.net/20161207203634568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打包成rpk规则包"></p>
+<p>从GIS数据的种类来说，主要是两种：矢量数据和栅格数据。三维数据也可以基于这两种分别完成。<br>介绍下这两类的三维化。<br>（一）栅格的三维化<br>栅格数据的三维化主要是类似于DEM拉伸成三维的山体。<br>首先打开ArcGIS Pro<br><img src="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打开ArcGIS pro"><br>新建一个二维和三维窗口<br><img src="http://img.blog.csdn.net/20161207192059549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="新建窗口"><br>右击三维场景属性，如下图，设置要三维化的栅格，此外可以根据需求做拉伸<br><img src="http://img.blog.csdn.net/20161207193203977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="栅格地形三维化"><br>效果如下<br><img src="http://img.blog.csdn.net/20161207193655760?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维可视化"><br>点击二三维联动按钮<br><img src="http://img.blog.csdn.net/20161207193753620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动按钮"><br>二三维联动效果：<br><img src="http://img.blog.csdn.net/20161207203704256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果"><br>（二）矢量操作<br>矢量的数据可以通过字段拉伸或者rpk生成。ArcGIS Pro在这方面无缝集成了City Engine的规则建模。因此首先在City Engine中写好CGA，通过City Engine生成规则包rpk。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@StartRule</div><div class="line">lot--&gt;</div><div class="line">extrude(rand(3, 50))</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20161207203634568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打包成rpk规则包"></p>
 <p>接着点击工具<br> <img src="http://img.blog.csdn.net/20161207203950319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="工具"> <img src="http://img.blog.csdn.net/20161207204001991?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="运行工具"><br>生成三维体图层<br> <img src="http://img.blog.csdn.net/20161207204202040?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="三维体图层"><br> 二三维联动效果如下<br> <img src="http://img.blog.csdn.net/20161207204851894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果矢量"><br> ArcGIS Pro的整体界面非常友好，而且功能强大，也是目前esri主推的新软件，不仅是二三维一体化，在今年esri用户大会上，还演示了基于ArcGIS Pro的各类大数据应用。大数据时代，让我们拥抱ArcGIS Pro。</p>
 
       

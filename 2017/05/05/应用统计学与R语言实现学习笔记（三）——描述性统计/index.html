@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="Chapter 3 Descriptive Statistics本篇是第三章，内容是描述性统计。同时在这一章会开始渗透R语言的相关内容。但整体还是以理论为主。
 1.数据的预处理本章正式进入统计学的一大分支——描述统计。很多人会疑惑做一个Project或者写一篇Paper，最难的是什么？我曾经不止一次说过，最难的是数据。数据收集完成，项目完成了50%。而数据收集完成之后，很多人就会马上开始进行数据处">
-<meta property="og:updated_time" content="2017-05-07T11:29:08.462Z">
+<meta property="og:updated_time" content="2017-05-08T02:15:59.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（三）——描述性统计">
 <meta name="twitter:description" content="Chapter 3 Descriptive Statistics本篇是第三章，内容是描述性统计。同时在这一章会开始渗透R语言的相关内容。但整体还是以理论为主。
@@ -240,16 +240,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -432,14 +422,7 @@
 </ul>
 </blockquote>
 <p>数据审核，包括直接数据的完整性审核以及准确性审核（是否客观），间接数据的适用性审核以及时效性审核；数据筛选，就是对于数据里面的异常值（存在错误，不符合调查要求等），在现在来说就是dirty data（脏数据），将这些数据剔除；数据排序，事实上数据排序更多的目的还是为了更方便地发现异常值，是做数据清洗的手段；数据透视，借鉴于Excel里的数据透视表，事实上就是数据的重铸，融合和汇总，从而得到我们需要的数据。<br>总的来说，前期预处理需要对数据进行排序、汇总和观察发现相关的数据异常值等。在这个阶段，不喜编程的同学推荐用Excel来做数据预处理（通过数据透视图、替换数据、排序、Countif等工具和Excel函数高效完成预处理），更高级的一般可以考虑用R、Python等编程语言进行清洗预处理，或者像在数据库里用SQL语句也是可以的。<br>响应一下本部分的标题，R语言实现，交代几个简单的语句进行数据清洗。</p>
-<pre><code>#x为数据框、数组或矩阵，通过summary可以获取平均值、中位数、四分位数等，如果有缺失数据，则会显示NAN等。
-summary(x)
-
-#表示y是按照x的第一行先升序排列，然后再按x的第二列降序排列得到的数据，-表示降序。
-y&lt;-x[order(x[1],-x[2)]
-
-#去除NA所在行和列
-y&lt;-na.omit(x)
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#x为数据框、数组或矩阵，通过summary可以获取平均值、中位数、四分位数等，如果有缺失数据，则会显示NAN等。</span></div><div class="line">summary(x)</div><div class="line"></div><div class="line"><span class="comment">#表示y是按照x的第一行先升序排列，然后再按x的第二列降序排列得到的数据，-表示降序。</span></div><div class="line">y&lt;-x[order(x[<span class="number">1</span>],-x[<span class="number">2</span>)]</div><div class="line"></div><div class="line"><span class="comment">#去除NA所在行和列</span></div><div class="line">y&lt;-na.omit(x)</div></pre></td></tr></table></figure>
 </code></pre><h3 id="2数据的整理与展示"><a href="#2-数据的整理与展示" class="headerlink" title="2.数据的整理与展示"></a>2.数据的整理与展示</h3><p>这部分的数据整理是在预处理完毕后，根据我们需要对数据进行整理和简单可视化（多画图，多可视化，你能发现很多事情）。那么第一步就是先把我们的数据类型搞清楚。因为不同类型数据，整理方式不同。<br>对于分类数据和顺序数据主要是分类整理。<br>对于数值数据主要是做分组整理。</p>
 <blockquote>
 <ul>

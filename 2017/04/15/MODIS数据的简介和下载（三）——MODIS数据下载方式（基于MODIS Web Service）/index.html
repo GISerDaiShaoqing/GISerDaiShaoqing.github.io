@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170414235407095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170415022056073?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170415022122059?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-07T11:26:41.432Z">
+<meta property="og:updated_time" content="2017-05-08T02:21:00.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）">
 <meta name="twitter:description" content="这是MODIS数据的简介和下载的最后一篇，下载方式的进阶版——基于MODIS Web Service的下载方式。这篇是笔者课程上机实习内容之一，做些简要总结和整理。事实上MODIS产品系列就如前面提到的，由于搭载在Terra星和Aqua星上，所以产品就包括了Terra星、Aqua星以及二者集成的产品。分别以MOD（Terra星）、MYD（Aqua星）、MCD（二者集成）作区分。具体的产品查询网站除">
@@ -253,16 +253,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
           </a>
         </li>
       
@@ -467,24 +457,7 @@
 <pre><code>YC_LAI2009=modisClient(&apos;MOD15A2&apos;,&apos;Lai_1km&apos;,36.833,116.567,2009000,2009365)
 </code></pre><p><img src="http://img.blog.csdn.net/20170414231115151?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414231505866?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>接下来我们讲的是R语言的客户端及其下载方式。R语言的客户端有两种配置方法，一个是基础设置（基于SSOAP来进行），一个是高级设置（MODISTools包）。<br>笔者个人使用的是高级设置，基础设置没有配置过。只是对官方给出的例子做了下翻译，具体的demo如下：</p>
-<pre><code>##确定你安装了SSOAP包，否则先安装SSOAP，用install.packages(&quot;SSOAP&quot;）
-##接着你就可以尝试用命令行的方式来下载裁切你想要的MODIS影像数据了
-
-## 载入包
-library(SSOAP)
-
-## 获取SOAP服务
-ornlMODIS = processWSDL(&quot;http://daac.ornl.gov/cgibin/MODIS/GLBVIZ_1_Glb_subset/MODIS_webservice.wsdl&quot;)
-
-## 定义函数设置
-ornlMODISFuncs = genSOAPClientInterface(operations=ornlMODIS@operations[[1]], def=ornlMODIS)
-
-## 使用获取裁切影像的函数设定
-result = ornlMODISFuncs@functions$getsubset(40.115,-110.025,
-&quot;MOD11A2&quot;,&quot;LST_Day_1km&quot;,&quot;A2001001&quot;,&quot;A2001025&quot;,1,1)
-
-##打印结果
-print(result)
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##确定你安装了SSOAP包，否则先安装SSOAP，用install.packages("SSOAP"）</span></div><div class="line"><span class="comment">##接着你就可以尝试用命令行的方式来下载裁切你想要的MODIS影像数据了</span></div><div class="line"></div><div class="line"><span class="comment">## 载入包</span></div><div class="line"><span class="keyword">library</span>(SSOAP)</div><div class="line"></div><div class="line"><span class="comment">## 获取SOAP服务</span></div><div class="line">ornlMODIS = processWSDL(<span class="string">"http://daac.ornl.gov/cgibin/MODIS/GLBVIZ_1_Glb_subset/MODIS_webservice.wsdl"</span>)</div><div class="line"></div><div class="line"><span class="comment">## 定义函数设置</span></div><div class="line">ornlMODISFuncs = genSOAPClientInterface(operations=ornlMODIS@operations[[<span class="number">1</span>]], def=ornlMODIS)</div><div class="line"></div><div class="line"><span class="comment">## 使用获取裁切影像的函数设定</span></div><div class="line">result = ornlMODISFuncs@functions$getsubset(<span class="number">40.115</span>,-<span class="number">110.025</span>,</div><div class="line"><span class="string">"MOD11A2"</span>,<span class="string">"LST_Day_1km"</span>,<span class="string">"A2001001"</span>,<span class="string">"A2001025"</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">##打印结果</span></div><div class="line">print(result)</div></pre></td></tr></table></figure>
 </code></pre><p>基础设置R语言demo地址：</p>
 <blockquote>
 <p><a href="https://modis.ornl.gov/files/modiswebservice/R_getsubset.r" target="_blank" rel="external">https://modis.ornl.gov/files/modiswebservice/R_getsubset.r</a></p>
@@ -504,17 +477,9 @@ print(result)
 <pre><code>yclai2009&lt;-data.frame(lat=36.833,long=116.567,start.date=2009,end.date=2009)
 MODISSubsets(LoadDat = yclai2009,Products = &quot;MOD15A2&quot;,Bands = &quot;Lai_1km&quot;,Size = c(0,0),StartDate = T,TimeSeriesLength = 1)
 </code></pre><p>最后对获取的LAI数据进行绘图可视化。</p>
-<pre><code>#Matlab中
-Puredata=[YC_LAI2009.data(:,:)]
-plot([0:(length(Puredata)-1)]*8+1,Puredata*YC_LAI2009.scale,&apos;b-&apos;)
-ylabel=(YC_LAI2009.units)
-xlabel=(&apos;day of year&apos;)
-title=(&apos;禹城站2009年LAI&apos;)
+<pre><code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#Matlab中</div><div class="line">Puredata=[YC_LAI2009.data(:,:)]</div><div class="line">plot([0:(length(Puredata)-1)]*8+1,Puredata*YC_LAI2009.scale,'b-')</div><div class="line">ylabel=(YC_LAI2009.units)</div><div class="line">xlabel=('day of year')</div><div class="line">title=('禹城站2009年LAI')</div></pre></td></tr></table></figure>
 
-#R中
-a&lt;-read.table(&quot;Lat36.83300Lon116.56700Start2009-01-01End2009-12-31___MOD15A2.asc&quot;,sep = &quot;,&quot;)
-lai&lt;-data.frame(day=seq(1,365,8),lai=a$V11*0.1)
-plot(lai,type=&quot;l&quot;,pch=16,col=&quot;blue&quot;,xlab=&quot;day of year&quot;,ylab=&quot;LAI&quot;,main=&quot;禹城站2009年LAI&quot;)
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#R中</span></div><div class="line">a&lt;-read.table(<span class="string">"Lat36.83300Lon116.56700Start2009-01-01End2009-12-31___MOD15A2.asc"</span>,sep = <span class="string">","</span>)</div><div class="line">lai&lt;-data.frame(day=seq(<span class="number">1</span>,<span class="number">365</span>,<span class="number">8</span>),lai=a$V11*<span class="number">0.1</span>)</div><div class="line">plot(lai,type=<span class="string">"l"</span>,pch=<span class="number">16</span>,col=<span class="string">"blue"</span>,xlab=<span class="string">"day of year"</span>,ylab=<span class="string">"LAI"</span>,main=<span class="string">"禹城站2009年LAI"</span>)</div></pre></td></tr></table></figure>
 </code></pre><p>Matlab绘图结果<br><img src="http://img.blog.csdn.net/20170415022056073?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>R绘图结果<br><img src="http://img.blog.csdn.net/20170415022122059?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>总的来说，Matlab和R的客户端下载各有优缺点，而基于MODIS Web Service的下载方式最大好处就是在于它的Subset功能，而不是需要先下载整景影像再处理。在做单点模型的时候是非常快捷的。当然客户端的其它函数还有很多，包括像质量控制。本文没有对数据进行质量控制。实际研究中这个是必须进行的步骤（也可以基于客户端的函数来进行，譬如R里面的QualityCheck函数，Matlab的modisClientGetQC等）。<br>此外地理所也开发了在线平台，研究人员只需填写所需参数即可下载。</p>
