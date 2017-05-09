@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="R语言,理论方法," />
 
 
 
@@ -87,12 +87,54 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/QGIS/index.html">
+<meta name="description" content="Chapter 7 Goodness of Fit本篇是第七章，内容是拟合优度检验。
+1.多项分布拟合优度检验的第一个应用是关于多项总体。那么多项总体（或者多项分布）是什么呢？
+
+
+多项分布是二项分布的推广。
+总体被分为几个互不相交的类别。
+多项分布假设：每次试验有且仅有一个结果发生；每次试验独立；每次试验概率不变。
+
+
+拟合优度检验-多项总体步骤
+
+
+将所观测到的数据与理论上的期望值进行比较。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现学习笔记（七）——拟合优度检验">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="Chapter 7 Goodness of Fit本篇是第七章，内容是拟合优度检验。
+1.多项分布拟合优度检验的第一个应用是关于多项总体。那么多项总体（或者多项分布）是什么呢？
+
+
+多项分布是二项分布的推广。
+总体被分为几个互不相交的类别。
+多项分布假设：每次试验有且仅有一个结果发生；每次试验独立；每次试验概率不变。
+
+
+拟合优度检验-多项总体步骤
+
+
+将所观测到的数据与理论上的期望值进行比较。">
+<meta property="og:image" content="http://img.blog.csdn.net/20170510011333319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-05-09T17:47:32.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GISerDaiShaoqing's Blog">
+<meta name="twitter:title" content="应用统计学与R语言实现学习笔记（七）——拟合优度检验">
+<meta name="twitter:description" content="Chapter 7 Goodness of Fit本篇是第七章，内容是拟合优度检验。
+1.多项分布拟合优度检验的第一个应用是关于多项总体。那么多项总体（或者多项分布）是什么呢？
+
+
+多项分布是二项分布的推广。
+总体被分为几个互不相交的类别。
+多项分布假设：每次试验有且仅有一个结果发生；每次试验独立；每次试验概率不变。
+
+
+拟合优度检验-多项总体步骤
+
+
+将所观测到的数据与理论上的期望值进行比较。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170510011333319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -120,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/QGIS/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/"/>
 
 
 
 
 
-  <title> Tag: QGIS | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 应用统计学与R语言实现学习笔记（七）——拟合优度检验 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -151,7 +193,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,46 +331,262 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        QGIS
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                应用统计学与R语言实现学习笔记（七）——拟合优度检验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T00:00:00+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
+                    <span itemprop="name">统计与模型</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（七）——拟合优度检验">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="chapter-7-goodness-of-fit"><a href="#Chapter-7-Goodness-of-Fit" class="headerlink" title="Chapter 7 Goodness of Fit"></a>Chapter 7 Goodness of Fit</h1><p>本篇是第七章，内容是拟合优度检验。</p>
+<h3 id="1多项分布"><a href="#1-多项分布" class="headerlink" title="1.多项分布"></a>1.多项分布</h3><p>拟合优度检验的第一个应用是关于多项总体。那么多项总体（或者多项分布）是什么呢？</p>
+<blockquote>
+<ul>
+<li>多项分布是二项分布的推广。</li>
+<li>总体被分为几个互不相交的类别。</li>
+<li>多项分布假设：每次试验有且仅有一个结果发生；每次试验独立；每次试验概率不变。</li>
+</ul>
+</blockquote>
+<p>拟合优度检验-多项总体步骤</p>
+<blockquote>
+<ul>
+<li>将所观测到的数据与理论上的期望值进行比较。</li>
+<li>步骤：<br>1.计算每一类实际观测到的频次$f_i$；<br>2.计算每一类理论上的期望频次$e_i$；<br>3.计算 Chi-square 统计量——$\chi^2=\sum(f_i-e_i)^2/e_i$。<br>其中自由度 (df) = k-1， k 是多项总体的类别数。</li>
+</ul>
+</blockquote>
+<p>拟合优度检验用于多项总体检验没有直接的函数，这里用R语言的自编函数实现，体会下具体的算法（当然感觉自己写的略复杂）。代码依旧是后面放出，函数具体使用说明也会附上。</p>
+<h3 id="2独立性"><a href="#2-独立性" class="headerlink" title="2.独立性"></a>2.独立性</h3><p>依旧是从问题出发——性别与购物频率是否有关系<br>独立性检验——该统计方法常用于检验两个分类变量是否有关系。那么首先要提到两个概念——独立事件和非独立事件（independent and dependent events)。</p>
+<blockquote>
+<ul>
+<li>独立事件——一个事物发生不会对其他事物发生概率造成影响。</li>
+<li>非独立事件——一个事物发生会影响其他事物发生概率。</li>
+</ul>
+</blockquote>
+<p>接着统计学构建出了一个表来进行独立性检验。这就是联立表（Contingency Tables)。</p>
+<blockquote>
+<ul>
+<li>解决多总体比例问题。</li>
+<li>之前通常用两个或两个以上特征来对样本观测值分类。</li>
+<li>也被称为交叉表。</li>
+</ul>
+</blockquote>
+<p>一般在R中，使用Table函数即可生成两个特征（分类变量）的联立表，xtabs则是根据公式创立联立表，prop.table则可以直接计算出比例。<br>联立表如何做独立性检验呢？首先提出假设（这里不详述，相信大家应该懂怎么建立了），接着计算期望的联立表每个单元格的期望频次。<br>$$ e_{ij}=\frac{(i^{th} Rowtotal)(j^{th} Columtotal)}{Total SampleSize}。 $$<br>接着就可以对比实际频次和期望频次，然后我们用卡方（chi-square)统计量进行检验。<br>$$ \chi^2=\sum_{i=1}^n\sum_{j=1}^m\frac{(f_{ij}-e_{ij})^2}{e_{ij}} with, df=(n-1)(m-1)。 $$<br>n为行数，m为列数，$f_{ij}$,$e_{ij}$分别为第i行和第j列的$单元格_{ij}$实际频次和期望频次。<br>当然这个方法也可以用来检验顺序变量和分类变量。方法类似，这里不赘述。</p>
+<h3 id="3概率分布"><a href="#3-概率分布" class="headerlink" title="3.概率分布"></a>3.概率分布</h3><p>拟合优度检验的最重要的应用其实是探测一个数据具体的概率分布。<br>当然探测数据分布的第一方式——是可见即可得的可视化。主要包括前面提到过的直方图和QQ图。<br>QQ图——Quantile-Quantile Plots（分位数图）：</p>
+<blockquote>
+<ul>
+<li>适用于小数据集。</li>
+<li>猜测分布的基础方法。</li>
+<li>用来绘制QQ图的数据必须落在该分布内。</li>
+<li>如果散点图接近直线，说明数据分布接近正态分布。</li>
+</ul>
+</blockquote>
+<p>这里给出绘制QQ图的原理：</p>
+<blockquote>
+<ul>
+<li>对样本容量为N的样本数据按照升序排序。</li>
+<li>计算从1到N排序的百分比。</li>
+<li>从百分位数得分的关系找到中心分数。</li>
+<li>找到对应于中心分数的z值（标准正态分布）。</li>
+<li>绘制对应z值的观测点数据。</li>
+</ul>
+</blockquote>
+<p>接着用R语言实现<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#QQ plot</span></div><div class="line"><span class="comment">#generation of random number that fall in normal distribution</span></div><div class="line">a&lt;-rnorm(<span class="number">200</span>,<span class="number">0</span>,<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">#plot</span></div><div class="line">jpeg(<span class="string">"plot1.jpg"</span>,width = <span class="number">5000</span>,height = <span class="number">4000</span>,units = <span class="string">"px"</span>,res = <span class="number">1000</span>)</div><div class="line">qqnorm(a)</div><div class="line">qqline(a,col=<span class="string">"red"</span>)</div><div class="line">dev.off()</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20170510011333319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>除了QQ图之外，另外一类方法就是通过统计方法——拟合优度检验来探测数据是否正态分布。<br>以正态分布为例。<br>过程：</p>
+<blockquote>
+<ul>
+<li>获取样本数据。</li>
+<li>将样本结果分组（单元格）。</li>
+<li>比较实际与预期值。</li>
+</ul>
+</blockquote>
+<p>统计量如下：<br>$$ \chi^2=\sum_{i=1}^k\frac{(f_i-ei-)^2}{e_i} $$。<br>R语言中可以用chisp.test函数进行正态分布测验。</p>
+<p>此外对于非正态数据可以通过数学变换转变为正态分布数据。<br>常用的一般包括：</p>
+<blockquote>
+<ul>
+<li>对数变换。</li>
+<li>开方变换。</li>
+<li>指数或平方变换。</li>
+</ul>
+</blockquote>
+<p>这里的数学变换需要根据大家实际研究需求决定。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/08/14/桌面GIS连接Postgresql总结/" itemprop="url">
-              
-                <span itemprop="name">桌面GIS连接Postgresql总结</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-14T00:00:00+08:00"
-              content="2016-08-14" >
-          08-14
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R语言/" rel="tag"># R语言</a>
+          
+            <a href="/tags/理论方法/" rel="tag"># 理论方法</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/" rel="next" title="应用统计学与R语言实现学习笔记（六）——假设检验">
+                <i class="fa fa-chevron-left"></i> 应用统计学与R语言实现学习笔记（六）——假设检验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -336,6 +594,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -355,8 +617,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -452,6 +723,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-7-goodness-of-fit"><span class="nav-number">1.</span> <span class="nav-text">Chapter 7 Goodness of Fit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1多项分布"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.多项分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2独立性"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.独立性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3概率分布"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.概率分布</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -559,6 +846,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

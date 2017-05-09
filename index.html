@@ -301,6 +301,231 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/" itemprop="url">
+                  应用统计学与R语言实现学习笔记（七）——拟合优度检验
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T00:00:00+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
+                    <span itemprop="name">统计与模型</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（七）——拟合优度检验">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="chapter-7-goodness-of-fit"><a href="#Chapter-7-Goodness-of-Fit" class="headerlink" title="Chapter 7 Goodness of Fit"></a>Chapter 7 Goodness of Fit</h1><p>本篇是第七章，内容是拟合优度检验。</p>
+<h3 id="1多项分布"><a href="#1-多项分布" class="headerlink" title="1.多项分布"></a>1.多项分布</h3><p>拟合优度检验的第一个应用是关于多项总体。那么多项总体（或者多项分布）是什么呢？</p>
+<blockquote>
+<ul>
+<li>多项分布是二项分布的推广。</li>
+<li>总体被分为几个互不相交的类别。</li>
+<li>多项分布假设：每次试验有且仅有一个结果发生；每次试验独立；每次试验概率不变。</li>
+</ul>
+</blockquote>
+<p>拟合优度检验-多项总体步骤</p>
+<blockquote>
+<ul>
+<li>将所观测到的数据与理论上的期望值进行比较。</li>
+<li>步骤：<br>1.计算每一类实际观测到的频次$f_i$；<br>2.计算每一类理论上的期望频次$e_i$；<br>3.计算 Chi-square 统计量——$\chi^2=\sum(f_i-e_i)^2/e_i$。<br>其中自由度 (df) = k-1， k 是多项总体的类别数。</li>
+</ul>
+</blockquote>
+<p>拟合优度检验用于多项总体检验没有直接的函数，这里用R语言的自编函数实现，体会下具体的算法（当然感觉自己写的略复杂）。代码依旧是后面放出，函数具体使用说明也会附上。</p>
+<h3 id="2独立性"><a href="#2-独立性" class="headerlink" title="2.独立性"></a>2.独立性</h3><p>依旧是从问题出发——性别与购物频率是否有关系<br>独立性检验——该统计方法常用于检验两个分类变量是否有关系。那么首先要提到两个概念——独立事件和非独立事件（independent and dependent events)。</p>
+<blockquote>
+<ul>
+<li>独立事件——一个事物发生不会对其他事物发生概率造成影响。</li>
+<li>非独立事件——一个事物发生会影响其他事物发生概率。</li>
+</ul>
+</blockquote>
+<p>接着统计学构建出了一个表来进行独立性检验。这就是联立表（Contingency Tables)。</p>
+<blockquote>
+<ul>
+<li>解决多总体比例问题。</li>
+<li>之前通常用两个或两个以上特征来对样本观测值分类。</li>
+<li>也被称为交叉表。</li>
+</ul>
+</blockquote>
+<p>一般在R中，使用Table函数即可生成两个特征（分类变量）的联立表，xtabs则是根据公式创立联立表，prop.table则可以直接计算出比例。<br>联立表如何做独立性检验呢？首先提出假设（这里不详述，相信大家应该懂怎么建立了），接着计算期望的联立表每个单元格的期望频次。<br>$$ e_{ij}=\frac{(i^{th} Rowtotal)(j^{th} Columtotal)}{Total SampleSize}。 $$<br>接着就可以对比实际频次和期望频次，然后我们用卡方（chi-square)统计量进行检验。<br>$$ \chi^2=\sum_{i=1}^n\sum_{j=1}^m\frac{(f_{ij}-e_{ij})^2}{e_{ij}} with, df=(n-1)(m-1)。 $$<br>n为行数，m为列数，$f_{ij}$,$e_{ij}$分别为第i行和第j列的$单元格_{ij}$实际频次和期望频次。<br>当然这个方法也可以用来检验顺序变量和分类变量。方法类似，这里不赘述。</p>
+<h3 id="3概率分布"><a href="#3-概率分布" class="headerlink" title="3.概率分布"></a>3.概率分布</h3><p>拟合优度检验的最重要的应用其实是探测一个数据具体的概率分布。<br>当然探测数据分布的第一方式——是可见即可得的可视化。主要包括前面提到过的直方图和QQ图。<br>QQ图——Quantile-Quantile Plots（分位数图）：</p>
+<blockquote>
+<ul>
+<li>适用于小数据集。</li>
+<li>猜测分布的基础方法。</li>
+<li>用来绘制QQ图的数据必须落在该分布内。</li>
+<li>如果散点图接近直线，说明数据分布接近正态分布。</li>
+</ul>
+</blockquote>
+<p>这里给出绘制QQ图的原理：</p>
+<blockquote>
+<ul>
+<li>对样本容量为N的样本数据按照升序排序。</li>
+<li>计算从1到N排序的百分比。</li>
+<li>从百分位数得分的关系找到中心分数。</li>
+<li>找到对应于中心分数的z值（标准正态分布）。</li>
+<li>绘制对应z值的观测点数据。</li>
+</ul>
+</blockquote>
+<p>接着用R语言实现<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#QQ plot</span></div><div class="line"><span class="comment">#generation of random number that fall in normal distribution</span></div><div class="line">a&lt;-rnorm(<span class="number">200</span>,<span class="number">0</span>,<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">#plot</span></div><div class="line">jpeg(<span class="string">"plot1.jpg"</span>,width = <span class="number">5000</span>,height = <span class="number">4000</span>,units = <span class="string">"px"</span>,res = <span class="number">1000</span>)</div><div class="line">qqnorm(a)</div><div class="line">qqline(a,col=<span class="string">"red"</span>)</div><div class="line">dev.off()</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.blog.csdn.net/20170510011333319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>除了QQ图之外，另外一类方法就是通过统计方法——拟合优度检验来探测数据是否正态分布。<br>以正态分布为例。<br>过程：</p>
+<blockquote>
+<ul>
+<li>获取样本数据。</li>
+<li>将样本结果分组（单元格）。</li>
+<li>比较实际与预期值。</li>
+</ul>
+</blockquote>
+<p>统计量如下：<br>$$ \chi^2=\sum_{i=1}^k\frac{(f_i-ei-)^2}{e_i} $$。<br>R语言中可以用chisp.test函数进行正态分布测验。</p>
+<p>此外对于非正态数据可以通过数学变换转变为正态分布数据。<br>常用的一般包括：</p>
+<blockquote>
+<ul>
+<li>对数变换。</li>
+<li>开方变换。</li>
+<li>指数或平方变换。</li>
+</ul>
+</blockquote>
+<p>这里的数学变换需要根据大家实际研究需求决定。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1515,260 +1740,6 @@ n&lt;-sample(N,n,replace = FALSE)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/" itemprop="url">
-                  应用统计学与R语言实现学习笔记（二）——数据收集
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T00:00:00+08:00">
-                2017-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
-                    <span itemprop="name">统计与模型</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（二）——数据收集">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="chapter-2-data-collection"><a href="#Chapter-2-Data-Collection" class="headerlink" title="Chapter 2 Data Collection"></a>Chapter 2 Data Collection</h1><p>本篇是第二章，内容是数据收集。</p>
-<h3 id="1数据来源"><a href="#1-数据来源" class="headerlink" title="1.数据来源"></a>1.数据来源</h3><p>做科学研究离不开数据，而数据的来源有哪些呢？<br>这里比较简单地将数据来源分为两类：直接（一手）数据和间接（二手）数据。<br>直接数据的数据获取来源包括：观测、调查、实验。<br>间接数据的数据获取来源包括：出版物、互联网等。<br>接下来分别谈谈这几个来源。<br>观测——自然科学里有观测，如气象气候、植物生长期等，社会科学同样有观测，譬如像街区人的观测等。观测的数据可以说是纯粹第一手数据，在研究中是很宝贵的数据，但是很容易受到观测记录员主观因素的影响。<br>调查——自然科学里的调查（室外样品采集，环境状况调查）一般是跟室内实验相结合，而社会科学的调查会更丰富，如典型的问卷调查、访谈、座谈会等。<br>实验——实验是自然科学的核心，这里就不详述了（比如：土壤理化性质分析、植物生态生理特性分析）。不过近年来随着学科交叉增多，社会科学也开始更多地引入实验的方法（以笔者另一门公选课《初级社会网络》为例，耶鲁大学的社会心理学家米尔格兰姆(Stanley Milgram)就设计了一个连锁信件实验，这就是著名的六度分割理论的由来）。<br>当然除了以上三种，我认为在现在的大数据时代，还存在一些新的直接数据来源。</p>
-<blockquote>
-<ul>
-<li>物联网（Interest of Thing,IOT),以各类传感器（RFID、红外感应系统、GPS、通量塔等）为代表，代表数据就是如今火热的大数据——如RFID记录数据、浮动车与出租车GPS轨迹数据、通量塔测量的NEE等。</li>
-<li>遥感（Remote Sensing，RS），某种程度上，遥感也是靠传感器接收数据，但是它与物联网还是有所差别，故单列出来。作为地学和生态学背景（尤其是GIS和RS相关方向的）的学生，对遥感会非常熟悉。遥感的特征就是，可以大范围快速获取地表信息数据（譬如地形、地表温度、气溶胶、albedo等，当然这些都需要进行反演等）。</li>
-</ul>
-</blockquote>
-<p>总的来说，观测在自然科学和社会科学中都有渗透较多，但是观测往往受到记录人员主观因素影响导致误差。而且观测的数据结构一般来说呈现非结构化的特征。调查在社会科学中有较多应用，自然科学中较少，而实验则是在自然科学中应用广泛，社会科学则应用较少。这两类的实质是类似的，需要提前设计好调查的大纲或者实验方案，然后按照设计好的大纲和方案进行调查和实验。也因此这两类数据结构化特征比较明显。<br>所谓的间接数据就是指已经经过他人整理的相关数据。这边列出来的主要包括：<br>出版物：统计年鉴、书籍、论文等。统计年鉴是大部分社会科学相关研究的重要数据来源，这边就不详述了。书籍对于很多如社会研究的文本分析是重要的数据来源。论文作为数据，是近年来兴起的文献计量学的典型数据。此外对Meta分析，论文里的数据则是重要来源。<br>互联网：百度指数、阿里指数、大众点评等数据。<br>互联网数据可以利用网络爬虫获取。<br>总的来说，间接数据易于获取，作用广泛，但使用的时候需要控制数据质量以及引用。</p>
-<h3 id="2调查设计"><a href="#2-调查设计" class="headerlink" title="2.调查设计"></a>2.调查设计</h3><p>这边主要介绍的是数据的调查方式、调查方案的结构和设计以及调查问卷设计。<br>（1）数据的调查方式<br>数据的调查方式一般而言是遵循统计学规律的（我们称之为统计调查方式），这里列举了我国统计调查的常用方式：普查（人口普查、农业普查、甚至到最近刚刚发布成果的全国第一次地理国情普查）、抽样调查（概率抽样、非概率抽样，具体后面第三章会详述）、统计报表（统计公报）。<br>而除了以上之外，当我们需要自己收集直接数据的时候又可以分为以下几种：<br>询问调查类：</p>
-<blockquote>
-<ul>
-<li>访问调查</li>
-<li>邮寄调查</li>
-<li>电话调查</li>
-<li>电脑辅助</li>
-<li>座谈会</li>
-<li>个别深访</li>
-</ul>
-</blockquote>
-<p>观察实验</p>
-<blockquote>
-<ul>
-<li>观察</li>
-<li>实验</li>
-</ul>
-</blockquote>
-<p>（2）调查方案的结构和设计<br>如何做调查？是很多人在科学研究中的第一道难关。这里给出一个关于做调查的普遍步骤流程图：</p>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<p>那么调查方案又是什么呢？我认为调查方案就是调查的策划书。明确你调查的一些目的、对象、项目以及调查方法等。一般结构如下：</p>
-<blockquote>
-<ul>
-<li>调查目的</li>
-<li>调查对象调查单位</li>
-<li>调查项目</li>
-<li>其他</li>
-</ul>
-</blockquote>
-<p>（3）调查问卷设计<br>最后这部分是谈谈调查问卷设计的一些内容（包括笔者自己的一些经验）。<br>问卷结构</p>
-<blockquote>
-<ul>
-<li>开头部分（问候语、填写说明、问卷编号 ） </li>
-<li>甄别部分</li>
-<li>主体部分</li>
-<li>背景部分</li>
-</ul>
-</blockquote>
-<p>其他部分就不详述了，甄别部分一般是针对过滤的问题，就是不符合条件的即可跳过部分调查题目。接下来主要针对主体部分简单介绍。<br>主体部分其实就是问卷主要调查的部分。一般来说要注意一下几点。</p>
-<blockquote>
-<ul>
-<li>提问内容尽可能简短</li>
-<li>用词准确通俗（可按6W原则推敲：Who,Where,When,Why,What,How）</li>
-<li>一项提问只包括一项内容</li>
-<li>避免诱导性提问、否定形式提问、敏感性问题</li>
-</ul>
-</blockquote>
-<p>而问题则又可以分为两大类：开放性问题（自由回答型）和封闭性问题（选择回答型）。<br>封闭性问题包括了二项选择、多项选择（单项、多项、限制选择）、顺序选择法、评定尺度法、双向列联表法。</p>
-<blockquote>
-<ul>
-<li>开放性问题——一般就是可以随便答，这类数据一般是问卷者的主观感受，不会受客观影响。但是最大的问题在于数据收集呈现非结构化特征，多以文本形式存在。研究时必须通过重编码、文本分析等方法。</li>
-<li>封闭性问题——相当于是选择题或者填空题。二项选择就是，只有两个选项（A或B）；多项选择则是有多个选项，可以选至少一个（一个为单项、一个以上且不限制选择的数量为多项、一个以上且限制选择的数量为限制）；顺序选择法，就是给出多个选项，让你按照自己的认识对选项进行排序；评定尺度法，给出多个选项且是有等级划分的（如很差，差，一般，好，很好）进行选择；双向列联表法，将两类不同问题综合到一起，用表格形式，横向为一类问题，纵向为一类问题。</li>
-</ul>
-</blockquote>
-<p>从笔者的经验来说，在设置问卷的时候，必须要先从自己想研究的问题出发，思索如何用数据分析证明自己的结论，然后大致思索需要用来分析的统计方法与统计指标，然后对应选择问题的形式，因为不同的问题形式对应的数据结构大不相同，而且统计方法也不尽相同。<br>最后的最后安利大家一个软件：Survey123 for ArcGIS<br>这是由esri北京研发中心开发的一款外业数据收集软件——获得“问卷好帮手”称号的application。</p>
-<blockquote>
-<p><a href="http://www.esri.com/products/survey123" target="_blank" rel="external">http://www.esri.com/products/survey123</a></p>
-</blockquote>
-<p>主要包括了桌面端Survey123 connect和移动端Survey123 app两大软件。可以简便地建立问卷、分享问卷、搜集数据、分析数据，同时采集时受访者的GPS位置也将被记录。具体教程参照如下网址。</p>
-<blockquote>
-<p><a href="http://doc.arcgis.com/zh-cn/survey123/" target="_blank" rel="external">http://doc.arcgis.com/zh-cn/survey123/</a></p>
-</blockquote>
-<h3 id="3数据质量"><a href="#3-数据质量" class="headerlink" title="3.数据质量"></a>3.数据质量</h3><p>采集数据的时候必须考虑的就是数据的质量，即降低采集数据时产生误差。<br>科学研究中的数据误差无可避免，而误差的来源主要包括：抽样误差、非抽样误差。<br>抽样误差，在抽样方式确定时就无法避免，具体的方法可能还是统计学万能解药———增加样本量。<br>非抽样误差则包括了如下的内容：</p>
-<blockquote>
-<ul>
-<li>抽样框误差</li>
-<li>回答误差</li>
-<li>无回答误差</li>
-<li>调查员误差</li>
-</ul>
-</blockquote>
-<p>抽样框误差——其实就是抽取的样本无法代表总体；回答误差和无回答误差都是由于受访者导致的错误，而调查员误差则无须再介绍，即采集者自身的误差。<br>那么控制误差的方法无非就在于样本大小以及合适的数据框（针对非抽样误差和抽样框误差），靠重访来进行修正（回答误差和无回答误差），调查员误差则需要对调查员进行培训。<br>当然这里还得普及一个概念，在统计学里面，precision（精度）和accuracy（准确性）是不相同的。中文里面往往因为两个单词都翻译成精度，事实上这两个词指的是不一样的内容。二者的区别可以看下面的图。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3229757-936627c6c2cc6967?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这里做个简单的解释，事实上就是我们研究事物是个无法穷尽的总体，因此我们只能进行抽样调查，那么多次抽样调查研究之后，我们可以得到每次抽样调查的均值（也可以是其他统计量），在图中就是蓝色的点，那么在靶中心的绿色部分，可以认为是总体的真正均值。那么也就是说高精度一般指的是，我们的样本数据自身的变异性很小，也就是说，我们做了N次抽样调查，而每次抽样调查的样本均值基本是稳定的。我们抽的N次都是相近的数据，也就是说我们的抽样误差尽可能小了（因为抽了N次数据变化不会太大）。而高准确性一般指的是，我们N次抽样的样本数据的平均值与总体数据差异很小。也就是说我们的N次样本的均值与总体均值很接近，也就是说我们的非抽样误差尽可能小了（因为N次数据平均值与总体均值差异较小，说明我们抽的样本能够反映总体均值的特征）。<br>最后，总结下数据质量的控制要求：</p>
-<blockquote>
-<ul>
-<li>精度(precision)： 最低的抽样误差或随机误差</li>
-<li>准确性(accuracy)： 最小的非抽样误差或偏差</li>
-<li>关联性： 满足用户决策、 管理和研究的需要</li>
-<li>及时性： 在最短的时间里取得并公布数据</li>
-<li>一致性： 保持时间序列的可比性</li>
-<li>最低成本： 以最经济的方式取得数据<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 确定调查目的（Define the issue）
-op1=>operation: 确定感兴趣的总体和抽样单元（Define the population interest and sampling unit）
-op2=>operation: 规范调查问题（Formulate survey questions)
-op3=>operation: 构建抽样框（Construct sampling frame)
-op4=>operation: 选择样本（Select sample)
-op5=>operation: 收集数据（Collect data)
-e=>end: 分析数据（Analyze data)
-st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1818,7 +1789,7 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
