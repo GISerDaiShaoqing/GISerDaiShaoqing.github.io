@@ -443,6 +443,7 @@
 <li>也被称为交叉表。</li>
 </ul>
 </blockquote>
+<p><img src="http://img.blog.csdn.net/20170514170656815?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>一般在R中，使用Table函数即可生成两个特征（分类变量）的联立表，xtabs则是根据公式创立联立表，prop.table则可以直接计算出比例。<br>联立表如何做独立性检验呢？首先提出假设（这里不详述，相信大家应该懂怎么建立了），接着计算期望的联立表每个单元格的期望频次。<br>$$ e_{ij}=\frac{(i^{th} Rowtotal)(j^{th} Columtotal)}{Total SampleSize}。 $$<br>接着就可以对比实际频次和期望频次，然后我们用卡方（chi-square)统计量进行检验。<br>$$ \chi^2=\sum_{i=1}^n\sum_{j=1}^m\frac{(f_{ij}-e_{ij})^2}{e_{ij}} with, df=(n-1)(m-1)。 $$<br>n为行数，m为列数，$f_{ij}$,$e_{ij}$分别为第i行和第j列的$单元格_{ij}$实际频次和期望频次。<br>当然这个方法也可以用来检验顺序变量和分类变量。方法类似，这里不赘述。</p>
 <h3 id="3概率分布"><a href="#3-概率分布" class="headerlink" title="3.概率分布"></a>3.概率分布</h3><p>拟合优度检验的最重要的应用其实是探测一个数据具体的概率分布。<br>当然探测数据分布的第一方式——是可见即可得的可视化。主要包括前面提到过的直方图和QQ图。<br>QQ图——Quantile-Quantile Plots（分位数图）：</p>
 <blockquote>
@@ -474,7 +475,7 @@
 </ul>
 </blockquote>
 <p>统计量如下：<br>$$ \chi^2=\sum_{i=1}^k\frac{(f_i-ei-)^2}{e_i}。 $$<br>R语言中可以用chisp.test函数进行正态分布测验。</p>
-<p>此外对于非正态数据可以通过数学变换转变为正态分布数据。<br>常用的一般包括：</p>
+<p>此外对于有某种特定分布的非正态数据可以通过数学变换转变为正态分布数据。<br>常用的一般包括：</p>
 <blockquote>
 <ul>
 <li>对数变换。</li>
