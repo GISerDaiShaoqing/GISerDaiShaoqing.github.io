@@ -642,9 +642,7 @@
 <blockquote>
 <ul>
 <li>线性关系检验通过后，对各个回归系数进行检验。</li>
-<li>对每一个自变量单独应用 t 检验统计量进行检验。<br>（1）提出假设<br>$$H_0:\beta_i=0(自变量x_i与因变量y没有线性关系)$$<br>$$H_1:\beta_i\neq 0(自变量x_i与因变量y有线性关系)$$</li>
-<li>计算检验的统计量<br>$$ t=\frac{b_i}{s_{b_i}}\sim t(n-p-1)，s_{b_i}=\frac{s}{\sqrt{\sum(x_i-\bar x)^2}}$$</li>
-<li>确定显著性水平$\alpha$，并进行决策：<br>$$ \left|t\right|\gt t_{\alpha/2}，拒绝H_0；\left|t\right|\lt t_{\alpha/2}，不拒绝H_0 $$</li>
+<li>对每一个自变量单独应用 t 检验统计量进行检验。<br>（1）提出假设<br>$$H_0:\beta_i=0(自变量x_i与因变量y没有线性关系)$$<br>$$H_1:\beta_i\neq 0(自变量x_i与因变量y有线性关系)$$<br>（2）计算检验的统计量<br>$$ t=\frac{b_i}{s_{b_i}}\sim t(n-p-1)，s_{b_i}=\frac{s}{\sqrt{\sum(x_i-\bar x)^2}}$$<br>（3）确定显著性水平$\alpha$，并进行决策：<br>$$ \left|t\right|\gt t_{\alpha/2}，拒绝H_0；\left|t\right|\lt t_{\alpha/2}，不拒绝H_0 $$</li>
 </ul>
 </blockquote>
 <p><strong>回归系数的推断(置信区间)</strong><br>回归系数在(1-α)%置信水平下的置信区间为<br>$$ b_i\pm t_{\alpha/2}(n-p-1)s_{b_i} $$<br>回归系数的抽样标准差<br>$$ s_{b_i}=\frac{s}{\sqrt{\sum(x_i-\bar x)^2}}$$</p>

@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://g.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a5e0ae6f5093b5bb5c9eab869.jpg">
 <meta property="og:image" content="http://f.hiphotos.baidu.com/image/pic/item/6a63f6246b600c33ea0a3996104c510fd9f9a179.jpg">
 <meta property="og:image" content="http://h.hiphotos.baidu.com/image/pic/item/2fdda3cc7cd98d10963de06f2b3fb80e7aec9087.jpg">
-<meta property="og:updated_time" content="2017-06-14T04:53:30.294Z">
+<meta property="og:updated_time" content="2017-06-14T10:08:00.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（九）——线性回归">
 <meta name="twitter:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。
@@ -661,9 +661,7 @@
 <blockquote>
 <ul>
 <li>线性关系检验通过后，对各个回归系数进行检验。</li>
-<li>对每一个自变量单独应用 t 检验统计量进行检验。<br>（1）提出假设<br>$$H_0:\beta_i=0(自变量x_i与因变量y没有线性关系)$$<br>$$H_1:\beta_i\neq 0(自变量x_i与因变量y有线性关系)$$</li>
-<li>计算检验的统计量<br>$$ t=\frac{b_i}{s_{b_i}}\sim t(n-p-1)，s_{b_i}=\frac{s}{\sqrt{\sum(x_i-\bar x)^2}}$$</li>
-<li>确定显著性水平$\alpha$，并进行决策：<br>$$ \left|t\right|\gt t_{\alpha/2}，拒绝H_0；\left|t\right|\lt t_{\alpha/2}，不拒绝H_0 $$</li>
+<li>对每一个自变量单独应用 t 检验统计量进行检验。<br>（1）提出假设<br>$$H_0:\beta_i=0(自变量x_i与因变量y没有线性关系)$$<br>$$H_1:\beta_i\neq 0(自变量x_i与因变量y有线性关系)$$<br>（2）计算检验的统计量<br>$$ t=\frac{b_i}{s_{b_i}}\sim t(n-p-1)，s_{b_i}=\frac{s}{\sqrt{\sum(x_i-\bar x)^2}}$$<br>（3）确定显著性水平$\alpha$，并进行决策：<br>$$ \left|t\right|\gt t_{\alpha/2}，拒绝H_0；\left|t\right|\lt t_{\alpha/2}，不拒绝H_0 $$</li>
 </ul>
 </blockquote>
 <p><strong>回归系数的推断(置信区间)</strong><br>回归系数在(1-α)%置信水平下的置信区间为<br>$$ b_i\pm t_{\alpha/2}(n-p-1)s_{b_i} $$<br>回归系数的抽样标准差<br>$$ s_{b_i}=\frac{s}{\sqrt{\sum(x_i-\bar x)^2}}$$</p>
