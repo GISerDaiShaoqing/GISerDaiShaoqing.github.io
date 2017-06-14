@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://g.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a5e0ae6f5093b5bb5c9eab869.jpg">
 <meta property="og:image" content="http://f.hiphotos.baidu.com/image/pic/item/6a63f6246b600c33ea0a3996104c510fd9f9a179.jpg">
 <meta property="og:image" content="http://h.hiphotos.baidu.com/image/pic/item/2fdda3cc7cd98d10963de06f2b3fb80e7aec9087.jpg">
-<meta property="og:updated_time" content="2017-06-14T10:08:00.089Z">
+<meta property="og:updated_time" content="2017-06-14T11:30:01.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（九）——线性回归">
 <meta name="twitter:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。
@@ -649,6 +649,7 @@
 <li>$\beta_i$表示假定其他变量不变，当$x_i$每变动一个单位时，y的平均变动值。</li>
 </ul>
 </blockquote>
+<p>二元回归方程的几何表达——回归面。</p>
 <p><img src="http://f.hiphotos.baidu.com/image/pic/item/c995d143ad4bd11366254c6c50afa40f4afb0587.jpg" alt=""></p>
 <p><strong>估计的多元回归的方程(estimated multiple regression equation)</strong><br>用样本统计量$b_0,b_1,b_2,\cdots,b_p$估计回归方程中的参数$\beta_0,\beta_1,\beta_2,\cdots,\beta_p$时得到的方程。一般形式为。<br>$$\hat y=b_0+b_1x_1+b_2x_2+\cdots+b_px_p$$<br><strong>参数的最小二乘法</strong><br>使因变量的观察值与估计值之间的离差平方和达到最小来求得$b_0,b_1,b_2,\cdots,b_p$，即：<br>$$argmin Q(b_0,b_1,b_2,\cdots,b_p)=\sum_{i=1}^n(y_i-\hat y_i)^2=\sum_{i=1}^ne_i^2$$<br>求解各回归参数的标准方程如下：<br>$$ \begin{cases}\left. \frac{\partial Q}{\partial \beta_0} \right| _{\beta_0=b_0}=0\\\left. \frac{\partial Q}{\partial \beta_i} \right| _{\beta_i=b_i}=0(i=1,2,\cdots,p)\end{cases} $$<br><strong>多重判定系数(multiple coefficient of determination)</strong><br>回归平方和占总平方和的比例，计算公式为<br>$$ R^2=\frac{\sum_{i=1}^n(\hat y_i-\bar y)^2}{\sum_{i=1}^n(y_i-\bar y)^2}=\frac{SSR}{SST}=1-\frac{SSE}{SST} $$<br>因变量取值的变差中， 能被估计的多元回归方程所解释的比例。<br><strong>修正多重判定系数(adjusted multiple coefficient of determination)</strong><br>用样本容量n和自变量的个数p去修正$R^2$得到。计算公式为<br>$$R_a^2=1-(1-R^2)\times\frac{n-1}{n-p-1}$$<br>避免增加自变量而高估$R^2$，意义与$R^2$类似，数值小于$R^2$。<br><strong>估计标准误差s</strong><br>对误差项ε的标准差σ的一个估计值。衡量多元回归方程的拟合优度。计算公式为<br>$$ s=\sqrt{\frac{\sum_{i=1}^n(y_i-\hat y_i)^2}{n-p-1}}=\sqrt{\frac{SSE}{n-p-1}}=\sqrt{MSE} $$<br><strong>线性关系检验</strong><br>检验因变量与所有自变量之间的线性关系是否显著，也被称为总体的显著性检验。检验方法是将回归均方和(MSR)同离差均方和(MSE)加以比较，应用F检验来分析二者之间的差别是否显著。</p>
 <blockquote>
