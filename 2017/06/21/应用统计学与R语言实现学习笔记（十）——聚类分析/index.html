@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170621005808492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170621024446772?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170621024710015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-06-21T10:25:57.456Z">
+<meta property="og:updated_time" content="2017-06-22T16:25:38.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（十）——聚类分析">
 <meta name="twitter:description" content="Chapter 10 Cluster Analysis本篇是第十章，内容是聚类分析。由于之后的几章是典型的分析方法。而且在14章的案例里面可能不会体现，所以内容里会渗透较多的R语言操作。
@@ -621,7 +621,10 @@
 </blockquote>
 <h3 id="9-聚类分析的主要步骤"><a href="#9-聚类分析的主要步骤" class="headerlink" title="9 聚类分析的主要步骤"></a>9 聚类分析的主要步骤</h3><blockquote>
 <p>（1）选择变量<br>和聚类分析的目的密切相关；在不同研究对象上的值有明显的差异；变量之间不能高度相关。<br>（2）计算相似性<br>相似性是聚类分析中的基本概念，它反映了研究对象之间的亲疏程度，聚类分析就是根据对象之间的相似性来分类的。<br>（3）聚类<br>选定了聚类的变量，计算出样品或指标之间的相似程度后，构成了一个相似程度的矩阵。这时主要涉及两个问题：选择聚类的方法和确定形成的类数。<br>（4）聚类结果的解释和证实<br>对聚类结果进行解释是希望对各个类的特征进行准确的描述，给每类起一个合适的名称。这一步可以借助各种描述性统计量进行分析，通常的做法是计算各类在各聚类变量上的均值，对均值进行比较，还可以解释各类差别的原因。<br>（5）有关问题<br>几种聚类方法获得的结果不一定相同，指标聚类采用相似系数，相似系数大或距离小则表示类间关系密切。为了统一，可采用以下公式变换：<br>$$ d_{ij}^2=1-r_{ij}^2 $$<br>（6）变量聚类分析<br>对于变量聚类分析，聚类分析做完之后，各类中有较多的指标。 为了达到降维的目的， 需要在每类中选出一个代表指标。 具体做法是：假设某类中有k个指标， 首先分别计算类内指标之间的相关指数， 然后计算某个指标与类内其它指标之间相关指数的平均数， 即<br>$$ \bar R_i^2=\frac{\sum_{i\neq j}r_{ij}}{k-1} $$<br>取$\bar R_i^2$最大的$x_i$，作为该类的代表。</p>
-<h3 id="10-r语言中聚类分析实现"><a href="#10-R语言中聚类分析实现" class="headerlink" title="10 R语言中聚类分析实现"></a>10 R语言中聚类分析实现</h3><p>R语言自带的聚类分析函数包括了hclust和k-means。所以本篇主要介绍这两个函数的使用。<br>而首先hclust是基于距离进行的聚类分析，所以事实上在做层次聚类的时候，第一步是先计算距离。<br>当然前期说明下，这里的样例数据是北京市12个大气污染监测站点在2017年6月7日和6月8日全天的PM2.5数据（数据来自笔者自己写的代码获取而得，调用了环境云的API），样例数据连同完整的代码会在笔记写完后统一给出。<br>环境云官网：<a href="http://www.envicloud.cn/" target="_blank" rel="external">http://www.envicloud.cn/</a></p>
+</blockquote>
+<h3 id="10-r语言中聚类分析实现"><a href="#10-R语言中聚类分析实现" class="headerlink" title="10 R语言中聚类分析实现"></a>10 R语言中聚类分析实现</h3><p>R语言自带的聚类分析函数包括了hclust和k-means。所以本篇主要介绍这两个函数的使用。<br>而首先hclust是基于距离进行的聚类分析，所以事实上在做层次聚类的时候，第一步是先计算距离。<br>当然前期说明下，这里的样例数据是北京市12个大气污染监测站点在2017年6月7日和6月8日全天的PM2.5数据（数据来自笔者自己写的代码获取而得，调用了环境云的API），样例数据连同完整的代码会在笔记写完后统一给出。</p>
+<blockquote>
+<p>环境云官网：<a href="http://www.envicloud.cn/" target="_blank" rel="external">http://www.envicloud.cn/</a></p>
 </blockquote>
 <p>数据：<br><img src="http://img.blog.csdn.net/20170621000012294?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dist.pm25&lt;-dist(airnew[,-1],method=&apos;euclidean&apos;)</div><div class="line">heatmap(as.matrix(dist.pm25),labRow=stationname,labcol=F)</div></pre></td></tr></table></figure>
