@@ -1,0 +1,1371 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R语言,理论方法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Chapter 11 Discriminant Analysis笔者最近任务繁重，断更了一顿时间，最近会开始慢慢把这个系列写完。本篇是第十一章，内容是判别分析。
+1 判别分析应用判别分析（Discriminant Analysis）——判别分析的目的是对已知分类的数据建立由数值指标构成的分类规则，然后把这样的规则应用到未知分类的样本中去分类，以识别未知样本所属的类别。判别分析是多元数据分析的重要方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现学习笔记（十一）——判别分析">
+<meta property="og:url" content="http://yoursite.com/2017/09/11/应用统计学与R语言实现学习笔记（十一）——判别分析/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="Chapter 11 Discriminant Analysis笔者最近任务繁重，断更了一顿时间，最近会开始慢慢把这个系列写完。本篇是第十一章，内容是判别分析。
+1 判别分析应用判别分析（Discriminant Analysis）——判别分析的目的是对已知分类的数据建立由数值指标构成的分类规则，然后把这样的规则应用到未知分类的样本中去分类，以识别未知样本所属的类别。判别分析是多元数据分析的重要方">
+<meta property="og:image" content="http://img.blog.csdn.net/20170909171703184?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911211711221?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911211731915?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911171703788?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911172010416?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911203632627?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911203707436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911203729717?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911203748500?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911203815468?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911211753018?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170911211141222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-09-11T13:55:56.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="应用统计学与R语言实现学习笔记（十一）——判别分析">
+<meta name="twitter:description" content="Chapter 11 Discriminant Analysis笔者最近任务繁重，断更了一顿时间，最近会开始慢慢把这个系列写完。本篇是第十一章，内容是判别分析。
+1 判别分析应用判别分析（Discriminant Analysis）——判别分析的目的是对已知分类的数据建立由数值指标构成的分类规则，然后把这样的规则应用到未知分类的样本中去分类，以识别未知样本所属的类别。判别分析是多元数据分析的重要方">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170909171703184?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/11/应用统计学与R语言实现学习笔记（十一）——判别分析/"/>
+
+
+
+
+
+  <title> 应用统计学与R语言实现学习笔记（十一）——判别分析 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GISerDaiShaoqing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Urban·Ecology·GIS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/应用统计学与R语言实现学习笔记（十一）——判别分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                应用统计学与R语言实现学习笔记（十一）——判别分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-11T00:00:00+08:00">
+                2017-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
+                    <span itemprop="name">统计与模型</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/11/应用统计学与R语言实现学习笔记（十一）——判别分析/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（十一）——判别分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="chapter-11-discriminant-analysis"><a href="#Chapter-11-Discriminant-Analysis" class="headerlink" title="Chapter 11 Discriminant Analysis"></a>Chapter 11 Discriminant Analysis</h1><p>笔者最近任务繁重，断更了一顿时间，最近会开始慢慢把这个系列写完。本篇是第十一章，内容是判别分析。</p>
+<h3 id="1-判别分析应用"><a href="#1-判别分析应用" class="headerlink" title="1 判别分析应用"></a>1 判别分析应用</h3><p>判别分析（Discriminant Analysis）——判别分析的目的是对已知分类的数据建立由数值指标构成的分类规则，然后把这样的规则应用到未知分类的样本中去分类，以识别未知样本所属的类别。判别分析是多元数据分析的重要方法之一。通常解决被解释变量是非数值变量，解释变量是数值变量的情形。<br>事实上地学领域应用判别分析最多的是在哪里呢？其实是遥感影像的地物分类，通常遥感导论中无论Erdas或者ENVI在做完监督分类之后，其实就是用标注的样本去训练判别函数，然后用判别函数完成整幅影像的判别分析，就可以分出不同的地物类型，这种方法就是我们最普遍使用的极大似然法。而这里的被解释变量就是地物类型，解释变量（多元）就是遥感影像不同波段的DN值，或者是辐射率。</p>
+<blockquote>
+<ul>
+<li>聚类分析和判别分析差异<br>在聚类分析中，人们一般事先并不知道应该分成几类及哪几类，全根据数据确定。<br>在判别分析中，至少有一个已经明确知道类别的“训练样本”，并利用该样本来建立判别准则，并通过预测变量来为未知类别的观测值进行判别。<br>通常实际问题中，可以先聚类以得知类型,再进行判别。<br><strong>用机器学习的话来说，聚类分析是非监督学习，判别分析属于监督学习。</strong></li>
+</ul>
+</blockquote>
+<p>判别分析的数据结构</p>
+<table>
+<thead>
+<tr>
+<th>individuals</th>
+<th style="text-align:center">$X_1$</th>
+<th style="text-align:center">$X_2$</th>
+<th style="text-align:center">$\cdots$</th>
+<th style="text-align:right">$X_l$</th>
+<th style="text-align:right">$\dots$</th>
+<th>$X_p$</th>
+<th><strong>Y</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">114</td>
+<td style="text-align:right">$\cdots$</td>
+<td>0.15</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">117</td>
+<td style="text-align:right">$\cdots$</td>
+<td>0.20</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">$\cdots$</td>
+<td style="text-align:right">$\cdots$</td>
+<td>$\cdots$</td>
+<td>$\cdots$</td>
+</tr>
+<tr>
+<td>i</td>
+<td style="text-align:center">$x_{i1}$</td>
+<td style="text-align:center">$x_{i2}$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">$x_{il}$</td>
+<td style="text-align:right">$\cdots$</td>
+<td>$x_{ip}$</td>
+<td><strong>2</strong></td>
+</tr>
+<tr>
+<td>$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">$\cdots$</td>
+<td style="text-align:right">$\cdots$</td>
+<td>$\cdots$</td>
+<td>$\cdots$</td>
+</tr>
+<tr>
+<td>47</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">$\cdots$</td>
+<td>0.51</td>
+<td><strong>2</strong></td>
+</tr>
+<tr>
+<td>48</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">7.5</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">65</td>
+<td style="text-align:right">$\cdots$</td>
+<td>0.50</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td>$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">$\cdots$</td>
+<td style="text-align:right">$\cdots$</td>
+<td>$\cdots$</td>
+<td>$\cdots$</td>
+</tr>
+<tr>
+<td>n</td>
+<td style="text-align:center">$x_{n1}$</td>
+<td style="text-align:center">$x_{n2}$</td>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:right">$x_{nl}$</td>
+<td style="text-align:right">$\cdots$</td>
+<td>$x_{np}$</td>
+<td><strong>3</strong></td>
+</tr>
+</tbody>
+</table>
+<p>对比聚类分析的数据结构，事实上就是多了最后一列的Y。</p>
+<blockquote>
+<ul>
+<li>个体由$X_1,X_2,\cdots,X_p$变量描述。</li>
+<li>有分类变量$Y$明确对个体分类。</li>
+<li>问题：建立$Y与X_1,X_2,\cdots,X_p$变量间关系的函数。根据函数将新个体进行分类。</li>
+</ul>
+</blockquote>
+<p><strong>误判率</strong><br>误判率的高低有下面两个因素决定：</p>
+<blockquote>
+<ul>
+<li>主观因素：分界线的位置要正确。</li>
+<li>客观因素：均值，方差——通过选择指标来控制：一般来说，维度高一点，可以使分辨率高一些，但在许多情况下，指标太多，不仅不能提高分辨率，还增加计算量（需要丰富的实际经验和试算）；在做判别分析前，要做假设检验。在两个总体的均值有显著差异的情况下，再做判别分析。</li>
+</ul>
+</blockquote>
+<p><strong>判别分析的假设</strong></p>
+<blockquote>
+<ul>
+<li>每一个判别变量（解释变量）不能是其他判别变量的线性组合——不符合该假设的话，无法估计判别函数，变量间高度相关或一变量与其他变量的线性组合高度相关时，参数估计的标准误差将很大。</li>
+<li>判别变量之间具有多元正态分布——可精确的计算显著性检验值和归属概率。</li>
+<li>如要采用线性判别函数，还要求各组协方差距阵相等——线性判别函数使用起来最方便、在实际中使用最广。</li>
+</ul>
+</blockquote>
+<h3 id="2-判别分析方法"><a href="#2-判别分析方法" class="headerlink" title="2 判别分析方法"></a>2 判别分析方法</h3><h4 id="21-距离判别法"><a href="#2-1-距离判别法" class="headerlink" title="2.1 距离判别法"></a>2.1 距离判别法</h4><p><strong>两总体情况</strong><br>假设有两个总体$G_1$和$G_2$，如果能够定义点x到它们的距离d(x,$G_1$)和d(x,$G_2$)，则可用如下规则进行判别：</p>
+<blockquote>
+<ul>
+<li>如果d(x,$G_1$) &lt; d(x,$G_2$)则$x\in G_1$</li>
+<li>如果d(x,$G_2$) &lt; d(x,$G_1$)则$x\in G_2$</li>
+<li>如果d(x,$G_1$) = d(x,$G_2$)则待判。</li>
+</ul>
+</blockquote>
+<p>距离常选用马氏距离——假设$\mu_1,\mu_2,\Sigma_1,\Sigma_2$分别为$G_1和G_2$的均值向量和协方差阵，则点$x$到$G_i$的马氏距离为<br>$$ d^2(x,G_i)=(x-μ_i)’(\Sigma_i)^{-1}(x-μ_i) $$<br>马氏距离的好处是可以克服变量之间的相关性干扰，并且消除各变量量纲的影响。</p>
+<blockquote>
+<ul>
+<li>$\Sigma_1=\Sigma_2=\Sigma$<br>定义：<br>$$ \begin{aligned}<br>d^2(x,G_1)-d^2(x,G_2) &amp; =(x-\mu_1)’\Sigma^{-1}(x-\mu_1)-(x-\mu_2)’\Sigma^{-1}(x-\mu_2) \ &amp;=-2[x-(\mu_1+\mu_2)/2]’\Sigma^{-1}(\mu_1-\mu_2) \end{aligned} $$<br>令：$ \bar\mu=(\mu_1+\mu_2)/2, \alpha=\Sigma^{-1}(\mu_1-\mu_2),W(x)=(x-\bar\mu)’\alpha=\alpha’(x-\bar\mu) $<br>判别规则：<br>如果W(x)&gt;0，d(x,$G_1$) &lt; d(x,$G_2$)则$x\in G_1$<br>如果W(x)<0，d(x,$g_,1$)> d(x,$G_2$)则$x\in G_2$<br>如果W(x)=0，d(x,$G_1$) = d(x,$G_2$)则待判。<br>称W(x)为判别函数(discriminant function)，α为判别系数。<br>当$\mu_1,\mu_2,\Sigma$未知时，可通过样本来估计。<br>$ x_1^{(i)},\cdots,x_{n_i}^{(i)} $为来自$G_i$的样本(i=1,2)。<br>$$ \hat\mu^{(i)}=\frac{1}{n_i}\sum_{k=1}^{n_2}x_k^{(i)}=\bar x^{(i)},\hat \Sigma=\frac{1}{n_1+n_2-2}(S_1+S_2), $$<br>$$ S_i=\sum_{t=1}^{n_i}(x_t^{(i)}-\bar x^{(i)})(x_t^{(i)}-\bar x^{(i)})’,\bar x=\frac{1}{2}(\bar x^{(1)}+\bar x^{(2)}) $$<br>判别函数为$W(x)=(x-\bar x)’\Sigma^{-1}(\bar x^{(1)}-\bar x^{(2)})$</0，d(x,$g_,1$)></li>
+<li>$\Sigma_1 \neq \Sigma_2$<br>判别函数为二次函数<br>$W(x)=d^2(x,G_2)-d^2(x,G_1)=(x-\mu_2)’\Sigma_2^{-1}(x-\mu_2)-(x-\mu_1)’\Sigma_2^{-1}(x-\mu_1)$<br>按照距离最近原则，判别准则为：<br>如果W(x)&gt;0即d(x,$G_1$) &lt; d(x,$G_2$)则$x\in G_1$<br>如果W(x)<0即d(x,$g_,1$)> d(x,$G_2$)则$x\in G_2$<br>如果W(x)=0即d(x,$G_1$) = d(x,$G_2$)则待判。</0即d(x,$g_,1$)></li>
+</ul>
+</blockquote>
+<p><strong>多总体情况</strong></p>
+<blockquote>
+<ul>
+<li>多总体情况：协方差相同<br>假设有k个总体$G_1,G_2,\cdots,G_k$，它们的均值向量分别为$\mu_1,\mu_2,\cdots,\mu_k$,协方差阵为$\Sigma$，类似于两总体的讨论，判别函数为：<br>$W_{ij}(x)=[x-(\mu_1+\mu_2)/2]’\Sigma^{-1}(\mu_i-\mu_j),i,j=1,\cdots,k$<br>判别规则：<br>如果存在i，对所有j≠i，有$W_{ij}(x)&gt;0$，则$x\in G_i$，否则待判。<br>如果服从多元正态分布，且各组协方差相同<br>$\begin{aligned} d^2(x,G_i)&amp; =(x-\mu_i)’\Sigma^{-1}(x-\mu_i) \ &amp; =x’\Sigma^{-1}x-2(x’\Sigma^{-1}\mu_i-\mu_i’\Sigma^{-1}\mu_i/2) \ &amp; =x’\Sigma^{-1}x-f_i(x)\end{aligned}$<br>在所有的$f_i(x)$中，哪个$f_i(x)$的值大，x到相应的组i的马氏距离小，判$x\in G_i$</li>
+<li>多总体情况：协方差不等<br>假设有k个总体$G_1,G_2,\cdots,G_k$，它们的均值向量分别为$\mu_1,\mu_2,\cdots,\mu_k$,协方差阵为$\Sigma_1,\Sigma_2,\cdots,\Sigma_k$，类似于两总体的讨论，判别函数为：<br>$W(x)=(x-\mu_j)’\Sigma_j^{-1}(x-\mu_j)-(x-\mu_i)’\Sigma_i^{-1}(x-\mu_i),i,j=1,\cdots,k$<br>判别规则：<br>如果存在i，对所有j≠i，有$W_{ij}(x)&gt;0$，则$x\in G_i$，否则待判。<br>如果总体均值、协方差未知，用样本均值、协方差估计。</li>
+<li>若总体不服从正态分布，直接从马氏距离来做判别分析，失去了概率意义，仅仅是一直观的经验判断而已，可能偏误较大。</li>
+</ul>
+</blockquote>
+<h4 id="22-fisher判别法"><a href="#2-2-Fisher判别法" class="headerlink" title="2.2 Fisher判别法"></a>2.2 Fisher判别法</h4><p>Fisher判别法的思想就是投影，将k组p维数据投影到某一个方向，使得它们的投影组与组之间尽可能的分开。考虑只有两个(预测)变量的判别问题。假定只有两类。数据中的每个观测值是二维空间的一个点。这里只有两种已知类型的训练样本。一 类 有 38 个 点 ( 用“o”表示)，另一类有44个点(用“*”表示)。按原来变量(横坐标和纵坐标)，很难将这两种点分开。</p>
+<p><img src="http://img.blog.csdn.net/20170909171703184?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>但是沿着图上的虚线方向朝和这个虚线垂直的一条直线进行投影会使得这两类分得最清楚。可以看出，如果向其他方向投影，判别效果不会比这个好。有了投影之后，再用前面讲到的距离远近的方法得到判别准则。这种先投影的判别方法就是Fisher判别法。<br>Fisher判别法</p>
+<blockquote>
+<ul>
+<li>不要求总体分布类型；</li>
+<li>工作原理就是对原数据系统进行坐标变换，寻求能够将总体尽可能分开的方向；</li>
+<li>a为$R^p$中的任一向量，点x在以a为法方向的投影为a’x;</li>
+<li>各组数据的投影为：<br>$$ G_i:a’x_1^{(i)}\cdots a’x_n^{(i)},i=1,2,\cdots,k$$</li>
+<li>这些数据正好组成一元方差分析的数据。</li>
+</ul>
+</blockquote>
+<p>将$G_m$组中数据投影的均值记为$ a’\bar x^{(m)} $,有：<br>$$ a’\bar x^{(m)}=\frac{1}{n_m}\sum_{i=1}^{n_m}a’\bar x_i^{(m)} ,m=1,\cdots,k$$<br>记k组数据投影的总均值为$a’\bar x$，有：<br>$$ a’\bar x=\frac{1}{n}\sum_{m=1}^{k}\sum_{i=1}^{n_m}a’\bar x_i^{(m)} $$<br>组间离差平方和为：<br>$$ SSG=\sum_{m=1}^{k}n_m(a’\bar x^{(m)}-a’\bar x)^2=a’[\sum_{m=1}^{k}n_m(\bar x^{(m)}-\bar x)(\bar x^{(m)}-\bar x)’]a=a’Ba; $$<br>$$  B=\sum_{m=1}^{k}n_m[(\bar x^{(m)}-\bar x)(\bar x^{(m)}-\bar x)’]  $$<br>组内离差平方和为：<br>$$ SSE=\sum_{m=1}^k \sum_{i=1}^{n_m}(a’\bar x^{(m)}-a’\bar x)^2=a’[\sum_{m=1}^k \sum_{i=1}^{n_m}(\bar x^{(m)}-\bar x)(\bar x^{(m)}-\bar x)’]a=a’Ea $$<br>$$ E=\sum_{m=1}^k \sum_{i=1}^{n_m}(\bar x^{(m)}-\bar x)(\bar x^{(m)}-\bar x)’ $$<br>如果K组有显著差异，则<br>$$ F=\frac{SSG/(k-1)}{SSE/(n-k)}=\frac{n-k}{k-1}\frac{a’Ba}{a’Ea} $$<br>F应充分大，即希望找到a使得SSG尽可能大而SSE尽可能小。<br>$$ \Delta (a)=\frac{a’Ba}{a’Ea}\rightarrow max $$<br>使$\frac{a’Ba}{a’Ea}$最大的值为方程$\left|B-\lambda E\right|=0$的最大特征根$\lambda_1$。记方程$\left|B-\lambda E\right|=0$的全部特征根为$\lambda_1\ge \cdots \ge \lambda_r \gt 0$，相应的特征向量为$v_1,\cdots,v_r$。$\Delta (a)$的大小可以估计判别函数$y_i (x)=v_i’x(=a’x)$的效果。记$p_i$为判别能力（效率），有：<br>$$ p_i=\frac{\lambda_i}{\sum_{h=1}^r \lambda_h} $$<br>在有些问题中，仅用一个线性判别函数不能很好区别各个总体，可取第二个、第三个，以此类推。 m个判别函数的判别能力定义为：<br>$$ \sum_{i=1}^mp_i=\frac{\sum_{i=1}^m\lambda_i}{\sum_{h=1}^r \lambda_h} $$<br>据此来确定选择多少判别函数。<br><strong>判别准则</strong><br>选择i使得：<br>$$ v_1’(x-\mu_i)+\cdots+v_m’(x-\mu_i) $$<br>的值最小<br><strong>Fisher判别法实质</strong></p>
+<blockquote>
+<ul>
+<li>选几个新的综合性指标，代替原来的p个指标。</li>
+<li>构成新的综合性指标的条件：<br>（1）不同类的均值差距尽可能大；<br>（2）各类中的方差尽可能小。</li>
+</ul>
+</blockquote>
+<p>Fisher判别法的依据不是x属于哪个总体的概率的大小，而是类别之间具有最大的可分性，也没有考虑错判带来的损失大小（错报台风登陆vs.漏报台风登陆）。</p>
+<h4 id="23-bayes判别法"><a href="#2-3-Bayes判别法" class="headerlink" title="2.3 Bayes判别法"></a>2.3 Bayes判别法</h4><blockquote>
+<ul>
+<li>不用判别式，而是比较新给样品属于各个总体的条件概率p(g|x)，$g=1,\cdots,k$的大小，将新样品判归为来自条件概率最大的总体。</li>
+<li>先给出 k 个总体的先验概率$q_1,\cdots,q_k$（实践中通常把频率作为先验概率）。如各总体密度为${f_k(x)}$，则后验概率为($g=1,\cdots,k$):$P(g|x)=q_gf_g(x)/\Sigma_i q_if_i(x)$。</li>
+<li>当且仅当$P(h|x)= max_gP(g|x)$，判x来自第h总体。</li>
+<li>也可以用使错判的损失最小的准则来判别。</li>
+<li>设($D_1,D_2,\cdots,D_K$)是$R_p$的一个完备的划分，当样品x属于$D_i$,就判x来自$G_i$。</li>
+<li>记$p(j|i), c(j|i)$分别为来自i总体的个体被错判到第j总体的概率和损失。定义平均错判损失(ECM: expected cost of misclassification)为$ECM(D)=\Sigma_{i=1\cdots k}q_i[\Sigma_{j=1\cdots k}p(j|i)c(j|i)]$</li>
+<li>Bayes判别法就是要选择划分D使得ECM(D)最小。</li>
+</ul>
+</blockquote>
+<h3 id="3-建立判别函数的方法"><a href="#3-建立判别函数的方法" class="headerlink" title="3 建立判别函数的方法"></a>3 建立判别函数的方法</h3><p>与多元回归类似，变量选择的好坏直接影响判别分析的效果。<br>常遇问题：（1）忽略最主要的指标；（2）引入太多指标，计算量既大又干扰分析。</p>
+<blockquote>
+<ul>
+<li>全模型法(SPSS系统默认方法）</li>
+<li>前向选择法<br>从没有变量的模型开始 每一部逐步把对判别函数贡献最大的变量加入模型，直到模型外没有一个变量<br>符合条件为止。当希望有较多变量进入判别函数时，选用此方法（在Syntax中实现）。选择使威尔克斯统计量最小且显著的变量加入。</li>
+<li>后向选择法<br>从包含用户指定的所有变量的模型开始。每一部逐步把对判别函数贡献最小的变量从模型中剔除出去，直到留在模型中的变量都符合条件为止。当希望判别函数含有较少变量时，选用此方法。选择使威尔克斯统计量最大且不显著的变量剔除。</li>
+<li>逐步选择法<br>前向选择和后向选择的结合。从没有变量的模型开始。每一部逐步把对判别函数贡献最大的变量加入模型，同时，对模型中的变量进行检验，把不符合条件的变量从模型中删除。是一种较好的方法。选择使威尔克斯统计量最小且显著的变量加入。选择使威尔克斯统计量最大且不显著的变量剔除。</li>
+</ul>
+</blockquote>
+<h3 id="4-判别分析的步骤及注意事项"><a href="#4-判别分析的步骤及注意事项" class="headerlink" title="4 判别分析的步骤及注意事项"></a>4 判别分析的步骤及注意事项</h3><p><strong>判别分析的步骤</strong></p>
+<blockquote>
+<ul>
+<li>第1步：确定研究的问题与目的<br>判别分析适合将个体归类的问题，特别适合一个定性的被解释变量和多个定量的解释变量的情形。</li>
+<li>第2步：判别分析研究设计<br>解释变量与被解释变量的选择：被解释变量的组数可以是两个或更多，但必须互斥和完备。<br>样本容量：判别分析对样本量与预测变量的比率敏感。<br>总样本量：建议比率为每个解释变量20个观测，最小的总样本量为每个变量5个观测。最小的组的大小必须超过解释变量的个数，建议每组至少有20个观测，还要注意组的相对大小（大的组有不相称的高的分类机会）。<br>样本分割：需要将样本分割为两个子样本，一个用于估计判别函数，另一个用于验证。随机分组，最常见的是随机分为两半。通常各组比率相同。</li>
+<li>第3步：判别分析的假定<br>多元正态性，如不满足建议使用Logistic回归。Box’s Test 检验各组协方差阵是否相等，不等的协方差矩阵可能会负面影响分类过程，观测会被“过度归类”到大的协方差阵组中。解释变量的多重共线性。</li>
+<li>第4步：估计判别模型和评估整体拟和统计显著性： Wilks’ Lambda， Hotelling迹和Pillai评估判别函数的判别效力的显著性。<br>评估整体拟和：计算每个观测的判别Z得分，检验各组在判别Z得分上的差异，评估组，关系的预测精度。</li>
+<li>第5步：结果的解释<br>解释判别分析中每个解释变量的相对重要性。<br>标准化判别权重（判别系数）：如存在多重共线性时不合适，可能不稳定。<br>判别载荷，又称结构相关系数，是每个解释变量与判别函数的简单相关系数，也可能不稳定。<br>偏F值。<br>能力指数：当保留多个判别函数时。</li>
+<li>第6步：结果的验证<br>分隔样本或交叉验证法。</li>
+</ul>
+</blockquote>
+<p><strong>判别分析注意事项</strong></p>
+<blockquote>
+<ul>
+<li>解释变量（判别变量）必须是可测量的。</li>
+<li>每一个判别变量不能是其它判别变量的线性组合（不能提供新的信息，无法估计判别函数）。</li>
+<li>判别变量不能高度相关，否则导致估计的标准误差很大。</li>
+<li>训练样本中必须包含所有要判别的类型，分类必须清楚（在判别分析前最好应当做假设检验，确定各个类的有关变量的均值是显著不同的）。</li>
+<li>要选择好可能用于判别的预测变量。判别分析是为了正确地分类，但同时也要注意使用尽可能少的预测变量来达到这个目的。使用较少的变量意味着节省资源和易于对结果作解释。</li>
+<li>检验结果(在SPSS选项中选择Wilks’ Lambda、Rao’s V、 The Squared Mahalanobis Distance或The Sum of Unexplained Variations等检验的计算机输出)，以确定是否分类结果仅由于随机因素。</li>
+<li>对于多个判别函数，要弄清各自的重要性。</li>
+<li>注意训练样本的正确和错误分类率。研究被误分类的观测值，看是否能找出原因。</li>
+</ul>
+</blockquote>
+<h3 id="5-r语言中判别分析实现"><a href="#5-R语言中判别分析实现" class="headerlink" title="5 R语言中判别分析实现"></a>5 R语言中判别分析实现</h3><p>正如上文提到的，我们以一个简单的地物分类的例子来进行实践。<br>原始的遥感影像如图所示(高分一号卫星16 m数据）。</p>
+<p><img src="http://img.blog.csdn.net/20170911211711221?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>高分一号卫星有四个波段，分别显示如下：</p>
+<p><img src="http://img.blog.csdn.net/20170911211731915?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>我们随机在区域内生成了55个样本点，并根据目视解译做了分类，由于所处研究区位于新城且仅作测试，用地类型仅选择了两类：建设用地/不透水面和植被。前面已经用4，3，2显示了原始影像，红色部分即为植被。植被为类型1，建设用地/不透水面为类型2。</p>
+<p><img src="http://img.blog.csdn.net/20170911171703788?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>另外我们随机在区域内还生成了10个样本点作为验证点。</p>
+<p><img src="http://img.blog.csdn.net/20170911172010416?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接着下来我们读取数据并且利用三种不同的判别分析方法进行判别分析地物类别。<br>判别分析可以自己通过dist函数计算距离得到。现在已经有对应的包可以直接分析。<br>这里推荐两个包（WMDB和MASS）。<br>WMDB可以实现加权马氏距离判别分析和Bayes判别分析，MASS可以实现Fisher判别分析。<br>距离判别分析的函数为wmd。具体参数如下：</p>
+<pre><code>wmd(Trnx,TrnG,Tweight=NULL,Tstx=NULL,var.equal=F)
+</code></pre><p>Trnx是训练样本数据。TrnG为分类结果，Tweight为指定权重，可以根据主成分贡献计算或者取相等（原始的判别分析法），Tstx为待测样本数据，var.equal指定协方差矩阵是否相等。<br>Fisher判别分析的函数为lda。具体参数如下：</p>
+<pre><code>lda(formula,data,……,subset,na.action)
+</code></pre><p>formula形如groups~x1+x2+……的形式，data为数据集，subset指定训练样本，na.action指定有缺失值处理方式。<br>Bayes判别分析的函数为dbayes。具体参数如下：</p>
+<pre><code>dbayes(Trnx,TrnG,p=rep(1,length(levels(TrnG))),Tstx=NULL,var.equal=F)
+</code></pre><p>Trnx是训练样本数据。TrnG为分类结果，p为指定先验概率的向量，Tstx为待测样本数据，var.equal指定协方差矩阵是否相等。<br>接下来就是基于高分影像的四个波段进行训练和判别分析。<br>距离判别分析结果。</p>
+<p><img src="http://img.blog.csdn.net/20170911203632627?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>Fisher判别分析结果。</p>
+<p><img src="http://img.blog.csdn.net/20170911203707436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>列联表分析及判别准确率。</p>
+<p><img src="http://img.blog.csdn.net/20170911203729717?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20170911203748500?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>Bayes判别分析结果。</p>
+<p><img src="http://img.blog.csdn.net/20170911203815468?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>从样本数据来看，Fisher结果是最好的。<br>接下来即按照训练好的判别规则进行分类。这里发现WMDB包的两个函数并没有提供预测功能，这里选用了另一个包klaR来做贝叶斯分类（朴素贝叶斯）。<br>分类结果对比：</p>
+<p><img src="http://img.blog.csdn.net/20170911211753018?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>为了验证准确率，这里利用随机生成的10个验证点进行精度验证。</p>
+<p><img src="http://img.blog.csdn.net/20170911211141222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>由于选取验证点较少，准确率都达到了100%。从实际影像对比来看，似乎Bayes方法将更多细小的植被提取出来了，但是也有一部分道路错分。Fisher方法少提取了一部分，但错分的部分几乎没有。<br>这部分的代码和数据后面会一起放出来。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R语言/" rel="tag"># R语言</a>
+          
+            <a href="/tags/理论方法/" rel="tag"># 理论方法</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/21/应用统计学与R语言实现学习笔记（十）——聚类分析/" rel="next" title="应用统计学与R语言实现学习笔记（十）——聚类分析">
+                <i class="fa fa-chevron-left"></i> 应用统计学与R语言实现学习笔记（十）——聚类分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      
+          <div id="gitment-container"></div>
+        
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Dai Shaoqing" />
+          <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/GISerDaiShaoqing" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="Research Gate" target="_blank">Research Gate</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://112.74.203.220:8081/chs/index.php" title="Research Group" target="_blank">Research Group</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.sciencenet.cn/u/GISdsq" title="ScienceNet" target="_blank">ScienceNet</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-11-discriminant-analysis"><span class="nav-number">1.</span> <span class="nav-text">Chapter 11 Discriminant Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-判别分析应用"><span class="nav-number">1.0.1.</span> <span class="nav-text">1 判别分析应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-判别分析方法"><span class="nav-number">1.0.2.</span> <span class="nav-text">2 判别分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#21-距离判别法"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">2.1 距离判别法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-fisher判别法"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2.2 Fisher判别法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23-bayes判别法"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">2.3 Bayes判别法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-建立判别函数的方法"><span class="nav-number">1.0.3.</span> <span class="nav-text">3 建立判别函数的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-判别分析的步骤及注意事项"><span class="nav-number">1.0.4.</span> <span class="nav-text">4 判别分析的步骤及注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-r语言中判别分析实现"><span class="nav-number">1.0.5.</span> <span class="nav-text">5 R语言中判别分析实现</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                id: document.location.href, 
+                owner: 'GISerDaiShaoqing',
+                repo: 'GISerDaiShaoqing.github.io',
+                oauth: {
+                    client_id: '52927536ee23a4cd8688',
+                    client_secret: '6b7134d12cd38cc11a50542fb23b5dee864b907d',
+                }});
+            gitment.render('gitment-container');
+        </script>
+    
+ 
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+</body>
+</html>
