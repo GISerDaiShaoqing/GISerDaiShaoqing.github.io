@@ -301,6 +301,183 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/11/如何做出相关系数矩阵可视化图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/11/如何做出相关系数矩阵可视化图/" itemprop="url">
+                  如何做出相关系数矩阵可视化图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-11T00:00:00+08:00">
+                2016-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/12/11/如何做出相关系数矩阵可视化图/" class="leancloud_visitors" data-flag-title="如何做出相关系数矩阵可视化图">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>如何做出相关系数矩阵可视化图</p>
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"psych"</span>)</div><div class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></div><div class="line"><span class="keyword">library</span>(psych)</div><div class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></div><div class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></div><div class="line">head(iris)<span class="comment">#查看下数据集前五行</span></div><div class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></div><div class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></div><div class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></div><div class="line">corrplot(cormat$r)</div></pre></td></tr></table></figure>
+</code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;square&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method = &quot;number&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170051203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170105390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170119297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170133453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170145922?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>#含显著性检验的相关系数矩阵可视化
+cormatp&lt;-cormat$p#单独取出p值矩阵
+cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
+corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170247486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170259064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
+</code></pre><p><img src="http://img.blog.csdn.net/20161211170308127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/07/arcgispro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -658,7 +835,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
