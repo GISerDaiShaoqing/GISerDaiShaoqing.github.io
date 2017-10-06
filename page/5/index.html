@@ -301,6 +301,199 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/09/在Ubuntu中安装R的几种方式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/09/在Ubuntu中安装R的几种方式总结/" itemprop="url">
+                  在Ubuntu中安装R的几种方式总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-09T00:00:00+08:00">
+                2017-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/09/在Ubuntu中安装R的几种方式总结/" class="leancloud_visitors" data-flag-title="在Ubuntu中安装R的几种方式总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。因缘际会（主要是自己开始入坑Github）发现之前在Windows下安装失败的一个R包bignmf无法安装原因。<br><img src="http://img.blog.csdn.net/20170409153441789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这个包只能在Ubuntu上测试运行。所以之前在windows上根本无法编译和安装。所以笔者打算在Ubuntu上安装R并安装这个包进行使用。<br>这里简单解释下bignmf包的用处，它是基于Rcpp和RcppEigen两个包，通过底层C++代码调用实现的一个R包，实现的算法是NMF（Nonnegative Matrix Factorization，非负矩阵分解)，作者是爱荷华州立大学的潘岚峰大神。当然R本身自带也有NMF包，不过语法不是很友好的感觉，此外最近笔者也发现了另外的可以在windows上运行的NMF的R包，NMF的理论和应用方面，包括bignmf的编译安装，后面有时间会更新（先挖坑），这里不做详细介绍。<br>回到本篇的主要目的，如何在Ubuntu中安装R。<br>这里提供三个方法：1.Linux安装软件的普遍方法——命令行；2.新立得软件包；3.从官网下载R语言环境源码，自行编译安装。<br>1.基于命令行的方法<br>首先先进入/etc/apt/sources.list，变换软件源，同时进入管理员权限</p>
+<pre><code>cd /etc/apt/
+gedit sources.list
+</code></pre><p>在最下面添加一行，deb后面的网址是镜像，根据你的喜好选一个（反正我推荐清华的，速度快，不过之前用厦大的也不错），具体的镜像地址见后面的网址。</p>
+<pre><code>deb https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/linux/ubuntu xenial/
+</code></pre><blockquote>
+<p><a href="https://cran.r-project.org/mirrors.html" target="_blank" rel="external">https://cran.r-project.org/mirrors.html</a></p>
+</blockquote>
+<p>而ubuntu xenial则是根据ubuntu版本确定的。我的是16.04，所以是xenial。具体的看官方说明，文末贴链接。<br><img src="http://img.blog.csdn.net/20170409155857833?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>完了之后先更新下软件源。就可以开始安装R了。如果我们需要自行编译R包并且安装的话，就需要在安装r-base-dev。不过笔者测试过，3.3.3版本的r-base自带了r-base-dev。所以不需要进行额外安装。</p>
+<pre><code>apt-get update
+apt-get install r-base
+apt-get install r-base-dev
+</code></pre><p>完了之后，官方推荐还可以再加个软件源，是关于R的拓展包的。这里贴出命令的通用格式，可以根据需求替换&lt;&gt;的内容。<br>也可以添加下载的公共秘钥。</p>
+<pre><code>apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+deb https://&lt;my.favorite.ubuntu.mirror&gt;/ trusty-backports main restricted universe
+</code></pre><p>完了之后，在命令行里敲入r，出现下面的页面说明安装成功。<br><img src="http://img.blog.csdn.net/20170409161555888?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>2.基于新立得软件管理包<br>新立得软件管理包是Linux下的神器，可以很方便的管理各类软件和依赖库等（上篇提到的WRF-DA模块编译依赖库有些是用这个安装的，具体过程等介绍WRF安装时补充）。当然一开始我没在我的Ubuntu软件里找到新立得。后面仔细翻了下软件列表。发现了这个软件——Synaptic Package Manager，这个就是新立得软件管理包了。启动它，搜索r-base，如图，右击标记安装，然后应用。<br><img src="http://img.blog.csdn.net/20170409163614665?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.基于自行编译的方法<br>自行编译的方法，笔者没有具体尝试。但是看了下官方文档。大致的流程如下：<br>官方推荐是组织一个文件夹进行安装，一级文件夹为R_Home，然后把源码解压到R_Home下面，并在下面建立src, doc等多个二级文件夹。<br>然后回到R_Home文件夹。以管理员身份进入。</p>
+<pre><code>./configure
+make
+make check
+make check-all
+</code></pre><p>make check-all是针对全部的编译的（可选），最后在安装即可。</p>
+<pre><code>make install
+</code></pre><p>可以改变安装路径</p>
+<pre><code>./configure --prefix=/where/you/want/R/to/go
+make prefix=/path/to/here install
+</code></pre><p>具体可以见官方文档（链接见文末）<br>在R装好的情况下，为了写代码方便，推荐安装R最好的IDE，Rstudio。<br>这边Rstudio的安装就不展开讲了。下载好deb安装文件，直接加命令行安装即可。</p>
+<pre><code>dpkg -i rstudio-1.0.136-amd64.deb
+</code></pre><p>在Linux中用Rstudio简单画个散点图。<br><img src="http://img.blog.csdn.net/20170409203103084?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>R语言linux安装官方文档：</p>
+<blockquote>
+<p><a href="https://cran.r-project.org/bin/linux/ubuntu/README" target="_blank" rel="external">https://cran.r-project.org/bin/linux/ubuntu/README</a></p>
+</blockquote>
+<p>R语言镜像地址：</p>
+<blockquote>
+<p><a href="https://cran.r-project.org/mirrors.html" target="_blank" rel="external">https://cran.r-project.org/mirrors.html</a></p>
+</blockquote>
+<p>R语言linux编译安装官方文档：</p>
+<blockquote>
+<p><a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installation" target="_blank" rel="external">https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installation</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1060,167 +1253,6 @@ odbcClose(ab)#关闭句柄，此句是必须。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" itemprop="url">
-                  Fortran语言初探及Win7 64位下Fortran开发环境配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T00:00:00+08:00">
-                2017-01-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" class="leancloud_visitors" data-flag-title="Fortran语言初探及Win7 64位下Fortran开发环境配置">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。<br><img src="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，扯淡完毕，首先先来简介下Fortran语言。<br>Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界上最早出现的计算机高级程序设计语言，广泛应用于科学和工程计算领域。FORTRAN语言以其特有的功能在数值、科学和工程计算领域发挥着重要作用。Fortran 90之前的版本是人们所知晓的FORTRAN（全部字母大写），从Fortran 90以及以后的版本都写成Fortran（仅有第一个字母大写）（ps，来自度娘百科）。<br>可以说Fortran是属于计算机编程语言中的老古董了，但是另一个重要特点就是在科学和工程计算领域应用广泛，主要是其编程语言本身在数组计算上的一些优点决定的。从TIOBE 2017年1月的编程语言排行榜来看<br>Fortran排在第28位，仍居前30之列，说明该语言仍旧具有广泛适用人群。<br><img src="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>那么Fortran在地理学、生态学与遥感方面的应用典型有哪些呢？<br>事实上，在地理学、生态学与遥感领域，Fortran可以说有大量的学者使用并建立开发了大量的模型。比如遥感方面，大气辐射传输6S模型、MODTRAN辐射传输模型；生态学方面，WOFOST作物生长模型、DSSAT作物生长模型、景观中性模型模拟软件RULE等。<br>同时Fortran对数组处理的优势使得它能在遥感数据的处理方面担当举足轻重的角色（类比语言IDL、Matlab、Python的numpy），这也是笔者学习的初衷。<br>当然，正如前面提到了，Fortran是个典型的老古董语言，应用广泛的相关模型基于的Fortran版本的编译器在Win 7及以上系统中基本无法正常安装，故Win 7 64位系统如何配置Fortran开发环境是Fortran语言学习的第一步。<br>由于传统的Visual Fortran 6.6.0及以下版本在Win 7 64位无法兼容，网上虽有帖子提出了相关解决法方法，但笔者亲自尝试的结果是hello world无法运行，故这边介绍其他方法。<br>这里有两种配置方法是可以的：<br>第一种，安装Visual Studio。作为微软主推的IDE，VS在诸多IDE中确实功能突出，优点颇多，作为商业软件，简单的开发环境配置方法也是一大优势。只需勾选Fortran相关编译器安装，即可配置成功。<br>第二种，安装其他IDE，由于VS的简便性导致将其分为一类，其他IDE只需有Fortran编译器即可。VS在简便性上确实很优秀，但是相对而言，VS是个典型的重量级IDE。相对而言，笔者最近喜欢轻量级IDE，故搜索了其他IDE，以Code::Blocks为例，偏爱它的另一个原因就是因为它是免费开源软件（开源大法好）。<br>1.首先下载带有Fortran编译器的Code::Blocks软件。</p>
-<blockquote>
-<p><a href="http://www.codeblocks.org/" target="_blank" rel="external">http://www.codeblocks.org/</a></p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择最后一个<br>2.直接安装即可，确认安装所有部分<br><img src="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.安装完毕后，打开IDE<br>在菜单栏中找到“Setting”→“Compiler”<br><img src="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>复制一个编译器，自定义名字<br>接着点“Toolchain executables”<br>将画框部分的文件全部改成gfortran.exe<br><img src="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击ok即可。<br>4.Hello World 编写<br>在菜单栏找到”File”→”New”→”Project”，建立一个Fortran工程文件。<br><img src="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>工程命名<br><img src="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择自定义的编译器<br><img src="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>添加hello world项目的Fortran文件<br><img src="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编写如下的hello world进行测试。</p>
-<pre><code><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">program</span></span> helloworld</div><div class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></div><div class="line">    <span class="built_in">write</span>(*,*) <span class="string">'Hello world'</span></div><div class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span></div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>5.生成exe文件无法打开的处理方法<br>某些时候生成的exe文件打开会报错。类似“找不到<em>*</em>.dll”“这个应用程序安装/配置不正确，重新安装…”这样的错误。<br>这样的情况下，只需在系统变量里面PATH加上对应的路径即可。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1270,7 +1302,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
