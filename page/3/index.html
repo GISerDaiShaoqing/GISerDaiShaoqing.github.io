@@ -301,6 +301,344 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/" itemprop="url">
+                  应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T00:00:00+08:00">
+                2017-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
+                    <span itemprop="name">统计与模型</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="chapter-4-sampling-and-sample-distribution"><a href="#Chapter-4-Sampling-And-Sample-Distribution" class="headerlink" title="Chapter 4 Sampling And Sample Distribution"></a>Chapter 4 Sampling And Sample Distribution</h1><p>本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。</p>
+<h3 id="1抽样方法"><a href="#1-抽样方法" class="headerlink" title="1.抽样方法"></a>1.抽样方法</h3><p>抽样调查的概念前面已经有所涉及到，这里就不详述了。大部分情况下，普查是不太可能的，所以抽样调查是科学研究中应用最为广泛的收集数据的方法。但是正如前面在谈论precision和accuracy问题的时候说的，我们希望数据的质量是Low Bias and Low Variance，抽样调查的样本既能很好地代表总体（非抽样误差小），同时多次抽样的话，也希望抽样的样本大致都接近，降低抽样误差。所以从统计学诞生至今，已经提出了很多的抽样方法。可以说并没有任何一种方法能完全避免这些误差，这些方法需要根据具体情境具体使用。<br>总的来说，抽样方法可以分为两大类：概率抽样与非概率抽样。<br>概率抽样包括了：</p>
+<blockquote>
+<ul>
+<li>简单随机抽样 </li>
+<li>系统抽样</li>
+<li>分层抽样</li>
+<li>整群抽样</li>
+<li>多阶段抽样</li>
+</ul>
+</blockquote>
+<p>概率抽样是根据一个已知的概率来抽取样本单位（也称为随机抽样），概率抽样要求按照一定的概率随机抽取样本，也就是说每个样本都有一定的机会被抽中，同时每个样本被抽中的概率是可以已知或计算出来的，而当运用概率抽样的样本进行参数估计的时候必须考虑样本被抽中的概率（某种程度来说感觉类似贝叶斯，先验概率和后验概率的问题）。<br>简单随机抽样——从总体N个单位里抽出n个单位作为样本（可以重复抽样，也可以不重复抽样），最常用的抽样方式，参数估计和假设检验主要依据的就是简单随机样本。<br>系统抽样——将总体中的所有单位(抽样单位)按一定顺序排列， 在规定的范围内随机地抽取一个单位作为初始单位， 然后按事先规定好的规则确定其他样本单位（先从数字1到k之间随机抽取一个数字r作为初始单位，以后依次取r+k， r+2k…等单位）。<br>分层抽样——将总体单位按某种特征或某种规则划分为不同的层(Strata)， 然后从不同的层中独立、 随机地抽取样本。<br>整群抽样——将总体中若干个单位合并为组(群)， 抽样时直接抽取群， 然后对中选群中的所有单位全部实施调查。<br>多阶段抽样——先抽取群， 但并不是调查群内的所有单位， 而是再进行一步抽样，从选中的群中抽取出若干个单位进行调查（群是初级抽样单位，第二阶段抽取的是最终抽样单位。将该方法推广， 使抽样的段数增多， 就称为多阶段抽样）<br>非概率抽样包括了：</p>
+<blockquote>
+<ul>
+<li>方便抽样</li>
+<li>判断抽样</li>
+<li>自愿样本</li>
+<li>滚雪球抽样</li>
+<li>配额抽样</li>
+</ul>
+</blockquote>
+<p>非概率抽样则不是按照随机的原则选取样本，而是根据研究的具体需求选取调查样本。<br>方便抽样——研究员依据方便的原则选取对应的样本。<br>判断抽样——研究员根据自己的判断选择样本。<br>自愿样本——被调查者自愿参加调查提供信息。举个跟地学相关的例子——志愿地理信息（Volunteer Geographcial Information,VGI），是指利用工具创建、组装和传播个人资源提供的地理数据，像社交媒体中的签到。<br>滚雪球抽样——首先选择一组进行调查，让调查者提供另外一些属于调查总体的调查对象，然后持续下去。<br>配额抽样——先将体中的所有单位按一定的标志（变量） 分为若干类， 然后在每个类中采用方便抽样或判断抽样的方式选取样本单位。<br>总的来说，各种抽样方式各有各有的优缺点，根据研究具体情况进行选择。而实际研究中简单随机抽样的应用更多些，这边提供R语言中做简单随机抽样的代码示例。</p>
+<pre><code>#N表示总体的数据，n为抽样单位，replace=FALSE代表不重复抽样，replace=TRUE代表重复抽样。
+n&lt;-sample(N,n,replace = FALSE)
+</code></pre><h3 id="2正态分布"><a href="#2-正态分布" class="headerlink" title="2.正态分布"></a>2.正态分布</h3><p>正态分布由高斯作为描述误差相对频数分布的模型而提出的：</p>
+<blockquote>
+<ul>
+<li>描述连续型随机变量的最重要的分布</li>
+<li>许多现象都可以由正态分布来描述</li>
+<li>可用于近似离散型随机变量的分布</li>
+<li>经典统计推断的基础</li>
+</ul>
+</blockquote>
+<p>正态分布的意义，多多少少大家都有了解，这里就不再详述了。<br>随机变量服从$$ X\sim N  (\mu,\sigma^2) $$<br>则X的概率密度函数为<br>$$ f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} -\infty&lt;x&lt;\infty $$<br>这就是正态分布的概率密度函数。<br>正态分布具有如下性质：</p>
+<blockquote>
+<ul>
+<li>关于x=μ的钟形对称性质，峰值在x=μ处。</li>
+<li>均值和标准差一旦决定，该分布形式也就决定了。</li>
+<li>均值决定分布函数位置，标准差决定函数的扁平程度。</li>
+<li>X轴两侧无限延伸，f(x)无限逼近x轴,但理论上不可能相交。</li>
+<li>正态随机变量在特定区间上的取值概率由正态曲线下的面积给出，而且其曲线下的总面积等于1</li>
+</ul>
+</blockquote>
+<p>下图给出了两个图（一个是用核密度生成的曲线，一个是正态分布概率密度函数）来说明以上的部分性质（具体实现的R语言代码会在笔记写完后给出）。</p>
+<p><img src="http://img.blog.csdn.net/20170506153724595?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20170506153700996?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>标准正态分布就是指均值为0，标准差为1的正态分布。通过标准正态分布可以很方便地求算各种概率，所以实际应用中，往往将正态分布数据通过标准化的方式转化为标准正态分布求解具体概率。<br>即令<br>$$ Z=\frac{x-\mu}{\sigma} $$<br>则Z服从标准正态分布。<br>那么如何检验数据的正态性呢？一般有以下几种方法：</p>
+<blockquote>
+<ul>
+<li>对数据画出频数分布的直方图或茎叶图（若数据近似服从正态分布， 则图形的形状与上面给出的正态曲线应该相似）。</li>
+<li>求出样本数据的四分位差和标准差， 然后二者计算比值。 若数据近似服从正态分布，则有<br>$$ Q_d/s\approx1/3 $$</li>
+<li>拟合优度检验</li>
+</ul>
+</blockquote>
+<p>一般可以通过画这个图来进行检验（代码同在笔记写完后给出）。</p>
+<p><img src="http://img.blog.csdn.net/20170506153739704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>或者计算四分位差和标准差比值。<br>这里给出这个方法的R语言实现(用户自编函数）。</p>
+<pre><code>Normaltestindex&lt;-function(x) { 
+    q=fivenum(x)
+    Qd=q[4]-q[2]
+    s=sd(x)
+    Normaltestindex=Qd/s
+    cat(&quot;The Qd/s&quot;, Normaltestindex)
+    }
+</code></pre><p>拟合优度检验是后面章节内容，这里不详述。<br>正态分布在各样本相互前提下存在线性可加性。<br>$$ x_i\sim N(\mu_i,\sigma_i)，且x_i相互独立，则<br>\Sigma a_ix_i\sim N(\Sigma a_i\mu_i,\Sigma a_i^2\sigma_i^2)$$<br>同时样本量够大情况下，n个独立随机变量之和服从正态分布。</p>
+<h3 id="3三种不同性质的分布"><a href="#3-三种不同性质的分布" class="headerlink" title="3.三种不同性质的分布"></a>3.三种不同性质的分布</h3><p>统计量(statistic)——样本来自总体，必然携带有反映总体性质的各种信息。统计的基本任务就是通过对样本的研究来对总体的未知参数或分布类型作出估计，对有关总体的假设作出推断。样本是进行统计推断的依据。但在实际应用时，一般不是直接使用样本本身，而是对样本进行整理和加工, 即针对具体问题构造适当的函数—统计量， 利用这些函数来进行统计推断，揭示总体的统计特性。事实上统计量把分散在样本中的总体信息按需要集中在一个函数上，使该函数能反映总体方面的信息。<br>概念很拗口，总结起来就是，我懒得分析（也没法分析，因为有些总体无法穷尽）总体的分布，我就偷懒地先抽样，并且认为样本能够代表总体特征，再偷懒地计算某些指标，这些指标可以反映样本数据分布特征，这些指标就叫统计量，然后再用统计量去推出（猜）总体的分布特征（第一章提到了，应该叫参数）——果然“懒”才是人类进步的动力。<br>当然这里要区分两个概念——统计量与观察值。<br>$$ 假设X_1,X_2, \cdots ,X_n是来自总体X的样本, x_1,x_2,\cdots ,x_n为其样本值, $$<br>$$则称不含任何总体分布中未知参数的函数g(X_1,X_2,\cdots,X_n)为统计量，相应实数g(x_1,x_2,\cdots,x_n)为观察值 $$<br>如何理解这二者区别呢？其实这里把样本看成了一组随机变量，因为在未抽样前，样本观察值未知，样本就是个随机变量（所以一般来说统计推断的基础是简单随机抽样），但是抽样之后，样本就是一组确定的观察值，这也可以说是样本的二重性。<br>常用的统计量包括了样本均值、样本方差、样本标准差、样本k阶原点矩、样本k阶中心距（具体公式的话，文末附录给出）。<br>从前面提到的统计推断基础是简单随机抽样，也就是要求样本是简单随机样本，那么简单随机样本又是什么呢？<br>首先随机样本的概念：<br>$$ 随机抽取的n个个体的集合(X_1,X_2, \cdots ,X_n),n为样本容量。 $$<br>而简单随机样本则需要在随机样本的前提上满足以下两个条件：</p>
+<blockquote>
+<ul>
+<li>随机性：总体中每个个体都有同等机会被选到样本中,即<br>$$ X_i 与X同分布$$</li>
+<li>独立性：样本中每个个体的选取不影响其他个体的选取，即<br>$$ X_1,X_2, \cdots ,X_n是相互独立的随机变量 $$</li>
+</ul>
+</blockquote>
+<p>接下来是标题提到的三种不同性质的分布：总体分布、样本分布、抽样分布。</p>
+<blockquote>
+<ul>
+<li>总体分布——总体中各元素的观察值所形成的分布，分布通常是未知的，可以假定它服从某种分布。</li>
+<li>样本分布——一个样本中各观察值的分布，也称经验分布，当样本容量 n 逐渐增大时，样本分布逐<br>渐接近总体的分布。</li>
+<li>抽样分布——样本统计量的概率分布， 是一种理论分布，又称为诱导分布，在重复选取容量为n 的样本时，由该统计量的所有可能取值形成的相对频数分布，随机变量是样本统计量（样本函数，如样本均值，样本比例，样本方差等），结果来自容量相同的所有可能样本，提供了样本统计量长远而稳定的信息，是进行推断的理论基础，也是抽样推断科学性的重要依据（ 点估计、 置信区间、假设推断等）。</li>
+</ul>
+</blockquote>
+<p>用一个简单的例子来说明三者的区别。<br>假设总体N=4，随机变量X=年龄。<br>总体分布如下，均值为21，方差为2.236。这里提醒用R语言做统计的同学，R语言默认的var和sd都是求样本的标准差（分母是n-1和n的差别），当你的数据是总体时，建议另外计算，或者可以使用我下面的自编函数（给了个标准差的样例，方差的会在笔记写完后给出）。</p>
+<pre><code>Populationsd&lt;-function(x){
+    n=length(x)
+    m=mean(x)
+    Psd=sqrt(sum((x-m)^2)/n)
+    cat(&quot;The Standard deviation of Population : &quot;,Psd)
+    }
+</code></pre><p><img src="http://img.blog.csdn.net/20170506153800251?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>建立n=2的抽样分布，样本均值分布如下，均值为21，方差为1.58</p>
+<p><img src="http://img.blog.csdn.net/20170506153818748?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>可以发现总体分布是均匀分布，而样本均值的抽样分布却呈现了近似正态分布，均值是相同的，但是方差却有差异。<br>根据总体分布以及样本容量可以将抽样分布分为以下三类：</p>
+<blockquote>
+<ul>
+<li>精确抽样分布：当总体分布已知时，如果对任一自然数都能导出统计量分布的显示表达式，这样的抽样分布称为精确抽样分布（对小样本的统计推断特别有用，大多数是在正态总体下得到的， t分布、 F分布等）。</li>
+<li>渐近抽样分布：样本量无限大时统计量的极限分布（大样本问题）。</li>
+<li>近似抽样分布：注意获得近似分布的条件（用统计量的前二阶矩当作正态分布的前二阶矩获得<br>正态近似，随机模拟法获得统计量的近似分布）。</li>
+</ul>
+</blockquote>
+<h3 id="4一个总体样本统计量的抽样分布"><a href="#4-一个总体样本统计量的抽样分布" class="headerlink" title="4.一个总体样本统计量的抽样分布"></a>4.一个总体样本统计量的抽样分布</h3><p>样本均值的抽样分布——在重复选取容量为 n 的样本时，由样本均值的所有可能取值形成的相对频数分布（一种理论概率分布，推断总体均值的理论基础）。</p>
+<blockquote>
+<ul>
+<li>正态总体均值抽样分布——精确分布（均值无偏）。</li>
+<li>样本均值的中心极限定理——渐进分布。<br>中心极限定理：<br>$$设从均值为\mu， 方差为\sigma^2的一个任意总体中抽取容量为n的样本，$$ $$ 当n充分大时，样本均值的抽样分布近似服从均值为\mu、 方差为\sigma^2/n的正态分布 $$</li>
+</ul>
+</blockquote>
+<p>用一张图来说明这个定理（摘自参考书目1：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.）。</p>
+<p><img src="http://img.blog.csdn.net/20170506154006095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$</p>
+<p>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
+<p>除了均值之外，实际生活中比例也是一个很重要的参数。<br>比例——总体（或样本）中具有某种属性的单位与全部单位总数之比（如不同性别的人与全部人数之比，合格品(或不合格品) 与全部产品总数之比）<br>总体比例可表示为<br>$$ p=\frac{N_0}{N},1-p=\frac{N_1}{N} $$<br>样本比例可表示为<br>$$ p=\frac{n_0}{n},1-p=\frac{n_1}{n} $$<br>样本比例的抽样分布——在重复选取容量为n的样本时，由样本比例的所有可能取值形成的相对频数分布。</p>
+<blockquote>
+<ul>
+<li>一种理论概率分布。</li>
+<li>当样本容量很大时（满足np≥5, n(1-p)≥5)，样本比例的抽样分布可用正态分布近似。</li>
+<li>推断总体比例p的理论基础。</li>
+</ul>
+</blockquote>
+<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
+<p>接下来介绍一个重要的分布——卡方分布。<br>$$ 若随机变量\xi_1,\xi_2,\cdots,\xi_n是n个相互独立的标准正态变量（独立同分布于标准正态分布），$$ $$ 则这n个随机变量的平方和Y=\Sigma\xi_i^2构成的随机变量的分布称为自由度为n的\chi^2分布（chi-square distribution），$$ $$ 记为\chi^2(n)分布 $$<br>卡方分布的性质和特点如下：</p>
+<blockquote>
+<ul>
+<li>分布的变量值始终为正</li>
+<li>分布的形状取决于其自由度n的大小， 通常为不对称的单峰右偏（ 正偏） 分布， 但随着自由度<br>的增大逐渐趋于对称， 当n&gt;30时， 接近正态分布</li>
+<li>期望为：<br>$$ E(\chi^2)=n，$$<br>方差为：<br>$$ D(\chi^2)=2n (n为自由度) $$</li>
+<li>可加性：<br>$$ 若U和V为两个独立的\chi^2分布随机变量，U\sim \chi^2(n_1)， V\sim \chi^2(n_2), $$ $$则U+V这一随机变量服从自由度为n_1+n_2的\chi^2分布$$</li>
+</ul>
+</blockquote>
+<p>卡方分布的性质可以根据这张图来看。</p>
+<p><img src="http://img.blog.csdn.net/20170506163624562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>卡方分布一般用于样本方差的分布的计算。<br>样本方差的分布——在重复选取容量为n的样本时， 由样本方差的所有可能取值形成的相对频数分布。<br>对于来自正态总体的简单随机样本，则比值<br>$$ \frac{(n-1)s^2}{\sigma^2} $$<br>该比值的抽样分布服从<br>$$ 自由度为(n-1)的\chi^2分布，即 \frac{(n-1)s^2}{\sigma^2}\sim \chi^2(n-1) $$</p>
+<p>接着再介绍一个耳熟能详的t分布。t 分布是类似正态分布的一种对称分布， 它通常要比正态分布平坦和分散。<br>t分布的性质和特点如下：</p>
+<blockquote>
+<ul>
+<li>自由度为1的t 分布为柯西分布，期望值不存在。</li>
+<li>n&gt;1时，期望值为0。</li>
+<li>n&gt;2时，方差存在，为n/(n-2)。</li>
+<li>随着自由度的增大，分布也逐渐趋于标准正态分布。（t 分布的极限为标准正态分布，当n&gt;30时， t 分布可用标准正态分布近似）</li>
+</ul>
+</blockquote>
+<p>t分布的性质可以根据这张图来看。</p>
+<p><img src="http://img.blog.csdn.net/20170506165455196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>t分布的应用是在求样本均值与样本标准差之比上<br>样本均值与样本标准差之比的分布为：<br>$$ t=\frac{\bar x-\mu}{s/\sqrt{n}}\sim t(n-1) $$<br>自由度为(n-1)的t 分布</p>
+<h3 id="5两个总体样本统计量的抽样分布"><a href="#5-两个总体样本统计量的抽样分布" class="headerlink" title="5.两个总体样本统计量的抽样分布"></a>5.两个总体样本统计量的抽样分布</h3><p>其实从前面第4点内容可以看出，其实实际应用中，均值、比例、方差的估计是比较多的，因此这三个总体样本统计量的抽样分布特别提出来了。而第4点讨论的是一个总体的，两个总体的也可以类比，道理是一样的。<br>两个样本均值之差的抽样分布：</p>
+<blockquote>
+<ul>
+<li>两个总体均为正态分布，即<br>$$ X_1\sim N(\mu_1,\sigma_1^2) ,X_2\sim N(\mu_2,\sigma_2^2)$$</li>
+<li>两个样本均值之差的抽样分布服从正态分布，其分布的数学期望为两个总体均值之差：<br>$$ E(\bar x_1-\bar x_2)=\mu_1-\mu_2 $$</li>
+<li>方差为各自的方差之和：<br>$$ \sigma_{\bar x_1-\bar x_2}^2=\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2} $$</li>
+</ul>
+</blockquote>
+<p>两个样本比例之差的抽样分布：</p>
+<blockquote>
+<ul>
+<li>两个总体都服从二项分布。</li>
+<li>分别从两个总体中抽取容量为$n_1$和$n_2$的独立样本，当两个样本都为大样本时，两个样本比例之差的抽样分布可用正态分布来近似。</li>
+<li>分布的数学期望为：<br>$$ E(\bar p_1-\bar p_2)=p_1-p_2 $$</li>
+<li>方差为各自方差之和：<br>$$ \sigma_{\bar p_1-\bar p_2}^2=\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2} $$</li>
+</ul>
+</blockquote>
+<p>最后的最后，我们来介绍本片的最后一个重要的分布——F分布。<br>F分布：<br>$$ 设若U为服从自由度为n_1的\chi^2分布，即U\sim \chi^2(n_1), $$ $$ V为服从自由度为n_2的\chi^2分布，即V\sim \chi^2(n_2),且U与V相互独立, $$ $$ F=\frac{U/n_1}{V/n_2},F服从自由度n_1和n_2的F分布, $$ $$记为 F\sim F(n_1,n_2) $$<br>不同自由度下的F分布</p>
+<p><img src="http://img.blog.csdn.net/20170506194529874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>两个样本方差比的抽样分布：</p>
+<blockquote>
+<ul>
+<li>两个总体都为正态分布，即<br>$$ X_1\sim N(\mu_1,\sigma_1^2), X_2\sim N (\mu_2,\sigma_2^2） $$</li>
+<li>从两个总体中分别抽取容量为$n_1$和$n_2$的独立样本。</li>
+<li>两个样本方差比的抽样分布， 服从分子自由度$(n_1-1)$， 分母自由度为$(n_2-1)$的F分布， 即<br>$$ \frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2}\sim F(n_1-1,n_2-1) $$</li>
+</ul>
+</blockquote>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X_i} $$</p>
+<p>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2 $$</p>
+<p>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2} $$</p>
+<p>样本k阶原点矩：</p>
+<p>$$ A_k=\frac{1}{n} \sum_{i=1}^nX_i^k (k=1,2,\cdots) $$</p>
+<p>样本k阶中心矩：</p>
+<p>$$ B_k=\frac{1}{n} \sum_{i=1}^n(X_i-\bar X)^k (k=1,2,\cdots) $$</p>
+<p>各统计量的观察值：</p>
+<p>$$ \bar x=\frac{1}{n} \sum_{i=1}^n{x_i} $$</p>
+<p>$$ s^2=\frac{1}{n-1} \sum_{i=1}^n(x_i-\bar x)^2 $$</p>
+<p>$$ a_k=\frac{1}{n}\sum_{i=1}^nx_i^k (k=1,2,\cdots) $$</p>
+<p>$$ b_k=\frac{1}{n} \sum_{i=1}^n(x_i-\bar x)^k (k=1,2,\cdots) $$</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/应用统计学与R语言实现学习笔记（三）——描述性统计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1243,220 +1581,6 @@ git push
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/" itemprop="url">
-                  R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T00:00:00+08:00">
-                2017-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/" class="leancloud_visitors" data-flag-title="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。</p>
-<h3 id="1矢量数据"><a href="#1-矢量数据" class="headerlink" title="1.矢量数据"></a>1.矢量数据</h3><p>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
-<pre><code>install.packages(&apos;maptools&apos;)
-library(maptools)
-</code></pre><p>接着定位到我们所需读取数据的工作路径上，然后就可以开始读取对应的数据了。</p>
-<pre><code>fujian&lt;-readShapePoints(&apos;fujian.shp&apos;)
-nanhailine&lt;-readShapeLines(&quot;linesnation.shp&quot;)
-province&lt;-readShapePoly(&quot;province.shp&quot;)
-</code></pre><p>如果不需要什么其他操作，读取数据只需要填入文件名字作为传入的参数即可。这几个函数完整的参数大体差不多，主要包括下面几个。<br>fn——文件名，一般能读的是.shp文件，.shx文件和.dbf文件<br>proj4string = CRS(as.character(NA))——坐标系的CRS字符串，关于坐标系的问题，这里不详讲。其实就是一个坐标系对应一个ID，把对应ID读进去，按照对应坐标系读取，这个是遵循规范的。<br>一般前两个参数用得多。后面这些只介绍这三个函数共有的参数，其他参数就请参照帮助文档。<br>verbose = FALSE——默认为False，这个主要是在读取数据后是否返回读入要素的类型和数量。<br>repair=FALSE——这个参数的话，主要是考虑到.shx索引文件太大，默认False会跳过读取数据，TRUE的话，会进行内部修复，读取这类文件。<br>而maptools同样提供了另外一个函数readShapeSpatial，这个就可以读以上的三类要素。</p>
-<pre><code>fujian&lt;-readShapeSpatial(&quot;fujian.shp&quot;)
-</code></pre><p>当然除了maptools，还有其他包可以读取，事实上，maptools提供的函数读取只能传输较差分辨率的空间数据，所以更推荐的是用rgdal包的OGR驱动程序来读取。熟悉开源GIS的同学对GDAL会比较熟悉，事实上rgdal就是GDAL的R接口（当然没装还是要先装，方法同上），读取方式如下，参数也是传入文件名即可简单读取，不过这个参数可以读具体文件也可以读文件夹名。对应上面proj4string也有一个参数p4s，其他参数参照文档。</p>
-<pre><code>fujian&lt;-readOGR(&quot;fujian.shp&quot;)
-</code></pre><p>此外还有shapefiles包也可以进行读取。读取方式（可以读取shp和shx，shx读取结果为空间索引）如下：</p>
-<pre><code>fujian&lt;-read.shp(&quot;fujian.shp&quot;)
-</code></pre><p>矢量数据读取主要通过以上几种方式就可以实现。</p>
-<h3 id="2栅格数据"><a href="#2-栅格数据" class="headerlink" title="2.栅格数据"></a>2.栅格数据</h3><p>栅格数据的话，格式还是多种多样的。这边主要提供几种不同格式的读取方法（.img文件，.tif文件，ASCII码文件和.asc文件）。栅格数据读取主要是基于rgdal包，读取方式如下，img和tif都可以通过readGDAL直接读取。</p>
-<pre><code>co2&lt;-readGDAL(&quot;CO22008.img&quot;)
-co2&lt;-readGDAL(&quot;CO22008.tif&quot;)
-</code></pre><p>这里面的参数我就不详细介绍了，主要解释几个个人认为比较重要的参数。有兴趣的同学可以去查询官方文档。<br>band——波段数，单纯栅格无所谓。做遥感影像数据处理时就会遇到需要几个波段的问题，如果缺省的话，是全部导入。<br>p4s——等同于上面的proj4string<br>type——像素深度：8bit，16bit等<br>除了rgdal之外，也可以通过raster包进行读取.img文件和.tif文件，这个更方便些。读取方式如下</p>
-<pre><code>co2&lt;-raster(&quot;CO22008.img&quot;)
-co2&lt;-raster(&quot;CO22008.tif&quot;)
-</code></pre><p>当然栅格数据还有较为普遍的以ASCII码文件存储的方式。这里也提供下如何读取ASCII码文件，这个方法是基于sp包的，所以需要先安装和载入sp包，这个包是R语言空间数据的基础包，指定了空间数据库的方法和对象。</p>
-<pre><code>co2&lt;-read.asciigrid(&quot;co22008.txt&quot;)
-</code></pre><p>当然ASCII码文件可能是以.asc文件存储的，只需把后缀名改成.asc即可读取。<br>栅格的读取大概就如上。</p>
-<h3 id="3地理数据库geodatabase数据读取"><a href="#3-地理数据库（Geodatabase）数据读取" class="headerlink" title="3.地理数据库（Geodatabase）数据读取"></a>3.地理数据库（Geodatabase）数据读取</h3><p>Geodatabase是Esri在ArcInfo8之后引入的一种全新的面向对象的空间数据模型。具体简介可以自己搜索。也就是说Geodatabase是Esri官方提出的一种数据库，没有ArcGIS是无法创建Geodatabase的。读取的话其实也相对麻烦些。目前看到的只有Esri官方给出的一个R包可以读取Geodatabase数据。R语言与ArcGIS的结合在未来将很有潜力。目前Esri已经在github上开源了部分工具，2015年全球用户大会上也秀出了R-ArcGIS的Sample工具。<br>具体开源地址：</p>
-<blockquote>
-<p><a href="https://r-arcgis.github.io/" target="_blank" rel="external">https://r-arcgis.github.io/</a></p>
-</blockquote>
-<p>本次用来读取Geodatabase的包就是R-ArcGIS中的一个关键包——arcgisbinding。这个包目前没有在cran上，建议下载之后离线安装。下载地址：</p>
-<blockquote>
-<p><a href="https://github.com/R-ArcGIS/r-bridge/releases/tag/v1.0.0.125。" target="_blank" rel="external">https://github.com/R-ArcGIS/r-bridge/releases/tag/v1.0.0.125。</a></p>
-</blockquote>
-<p>这个包的官方文档可以从官网下载，也可以从下面的连接下载。</p>
-<blockquote>
-<p><a href="http://download.csdn.net/detail/esa_dsq/9823403" target="_blank" rel="external">http://download.csdn.net/detail/esa_dsq/9823403</a></p>
-</blockquote>
-<p>具体安装，同时安装完之后需要先确认ArcGIS的许可（要求应该是ArcGIS10.4以上的版本或者ArcGIS pro1.1以上），具体代码如下：</p>
-<pre><code>install.packages(&quot;G:/GIS/Esri/ArcGIS Plugin/arcgisbinding_1.0.0.125.zip&quot;, repos = NULL, type = &quot;win.binary&quot;)
-arc.check_product()
-</code></pre><p><img src="http://img.blog.csdn.net/20170424172827705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>读取的方式稍微复杂些，用到了arc.open，arc.select，arc.data2sp三个函数，arc.open是打开gdb文件里的featureclass（支持的格式还包括layers等），arc.select是将打开的featureclass按照需要的字段和sql读成R语言中熟悉的数据框，arc.data2sp是将数据框转化成空间要素。使用方式如下。</p>
-<pre><code>china&lt;-arc.open(&quot;china.gdb/province&quot;)
-chinapop&lt;-arc.select(china,fields = c(&apos;Pop_Rural&apos;,&apos;Pop_Urban&apos;,&apos;POPU&apos;))
-chinapopsp&lt;-arc.data2sp(chinapop)
-</code></pre><p>当然读取完了我们还是要来可视化一下。用的是spplot函数，这里就不展开讲了，只贴出图（当然只是随手画的，色带啥的都没调）。</p>
-<p><img src="http://img.blog.csdn.net/20170424231148007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170424231216987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170424231227096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="4arcgis中ols工具回归结果可视化r语言版"><a href="#4-ArcGIS中OLS工具回归结果可视化（R语言版）" class="headerlink" title="4.ArcGIS中OLS工具回归结果可视化（R语言版）"></a>4.ArcGIS中OLS工具回归结果可视化（R语言版）</h3><p>最后的最后。对应虾神文章的Python版本ArcGIS中OLS工具回归结果可视化，写个R语言版本。</p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#载入包</span></div><div class="line"><span class="comment">#如果没安装，请先安装，如果已安装，请注释</span></div><div class="line"><span class="comment">#install.packages(".../arcgisbinding_1.0.0.125.zip", repos = NULL, type = "win.binary")…表示arcgisbinding离线包的路径</span></div><div class="line"><span class="comment">#install.packages("car")</span></div><div class="line"><span class="comment">#install.packages("GGally")</span></div><div class="line"><span class="comment">#install.packages("ggplot2")</span></div><div class="line"><span class="keyword">library</span>(arcgisbinding)</div><div class="line"><span class="keyword">library</span>(car)</div><div class="line"><span class="keyword">library</span>(GGally)</div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"></div><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/demo/readdata"</span>)</div><div class="line"></div><div class="line"><span class="comment">#检查ArcGIS产品许可</span></div><div class="line">arc.check_product()</div><div class="line"></div><div class="line"><span class="comment">#读取数据并将数据转换为数据框</span></div><div class="line">olsdata&lt;-arc.open(<span class="string">"china.gdb/olstest"</span>)</div><div class="line">olsdata</div><div class="line">olsdataframe&lt;-arc.select(olsdata,fields = c(<span class="string">"gdp"</span>,<span class="string">"Index_2000"</span>,<span class="string">"Pop_Urban"</span>,<span class="string">"POPU"</span>,<span class="string">"PRODUCT"</span>,<span class="string">"Estimated"</span>,<span class="string">"Residual"</span>,<span class="string">"StdResid"</span>))</div><div class="line"></div><div class="line"><span class="comment">#把因变量和自变量单独分离出来并用car包里的spm函数绘图</span></div><div class="line">variableframe&lt;-olsdataframe[,c(<span class="number">1</span>:<span class="number">5</span>)]</div><div class="line">spm(variableframe,diagonal=<span class="string">"hist"</span>)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425013332358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>感觉似乎不是很好看，换个方式。<br>    <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#利用GGally的ggpairs函数画图</span></div><div class="line">ggpairs(variableframe,upper = list(continuous=<span class="string">"cor"</span>),lower = list(continuous=<span class="string">"smooth"</span>),diag = list(continuous=<span class="string">"barDiag"</span>))</div></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20170425150335593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差的分布，用ggplot2画图</span></div><div class="line">a&lt;-ggplot(olsdataframe,aes(x=StdResid))+</div><div class="line">  geom_histogram(aes(y=..density..),binwidth = <span class="number">0.5</span>,colour=<span class="string">"white"</span>,fill=<span class="string">"grey"</span>)+</div><div class="line">  geom_line(stat=<span class="string">'density'</span>,colour=<span class="string">"#FF6666"</span>)</div><div class="line">a</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差和观测值的散点图</span></div><div class="line">opar&lt;-par(no.readonly = <span class="literal">T</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0</span>,<span class="number">0.8</span>))</div><div class="line">plot(olsdataframe$gdp,olsdataframe$StdResid,col=<span class="string">"grey"</span>,pch=<span class="number">16</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.7</span>,<span class="number">1</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$gdp,col=<span class="string">"grey"</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0.75</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0.8</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$StdResid,col=<span class="string">"grey"</span>)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是为了和虾神最后的效果类似，事实上，在读取完数据框之后，纯属散点图矩阵可视化方面的内容。<br>最后贴出虾神的公众号和博客。</p>
-<p>微信公众号：虾神daxialu——以推广空间分析和空间数据挖掘为己任，致力于在GIS界传递分析价值。<br><img src="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>虾神博客原文地址：《白话空间统计二十三：回归分析番外-ArcGIS中的OLS（三）》</p>
-<blockquote>
-<p><a href="http://blog.csdn.net/allenlu2008/article/details/70456024" target="_blank" rel="external">http://blog.csdn.net/allenlu2008/article/details/70456024</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1506,7 +1630,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
