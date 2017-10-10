@@ -301,6 +301,174 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/23/一行代码更新R语言/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/23/一行代码更新R语言/" itemprop="url">
+                  一行代码更新R语言
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-23T00:00:00+08:00">
+                2017-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/03/23/一行代码更新R语言/" class="leancloud_visitors" data-flag-title="一行代码更新R语言">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>博客中已经陆续更新了两篇关于R语言的文章（相关系数矩阵可视化和读取Excel），按照上一篇挖的坑，这一期讲的是如何只用一行代码更新R语言。<br>这里还是重新认真介绍下R语言（我真的只是凑个字数）<br><img src="http://img.blog.csdn.net/20170323193718540?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，这里安利大家一本书。<br>卡巴科弗. R语言实战[M]. 人民邮电出版社, 2016.<br><img src="http://img.blog.csdn.net/20170323193903285?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，我放的截图是2013年第一版，2016年有再版，建议大家可以购买纸质版。在第一版的时候，附录里提到了这么一件事。<br><img src="http://img.blog.csdn.net/20170323194150828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到当时的2.13.0的版本R仍然没有什么可以自动更新R的方法。不过时至今日，R的版本已经到了3.3.3，在这三年间，R在编程语言排行榜上不断前行。已经有了长久的进步，当然，也出现了可以自动更新R的方法啦。<br>这里介绍的就是R的一个包：installr。</p>
+<blockquote>
+<p>installr {installr}    R Documentation<br>                                                            Installing software from R<br>Description<br>Gives the user the option to download software from within R.</p>
+</blockquote>
+<p>上面是installr的官方文档介绍。<br>接下来来讲所谓的一行代码更新R语言。<br>这里有两个注意点：<br>1.你的installr必须跟你的R版本对应，因为R语言默认安装的包都是适配最新的R语言版本。<br>2.使用installr更新R语言必须在原生R里面，Rstudio里面无法进行（笔者没有尝试过其他R的IDE，有童鞋若有尝试也可以进行指正）。<br>这里第一步先改下默认R的镜像（相信有很多童鞋应该改过了）。<br>原生R更改设定为：程序包→设定CRAN镜像<br>无论Python或者R，镜像统统选清华！。<br><img src="http://img.blog.csdn.net/20170323195226796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装installr</span></div><div class="line">install.packages（installr)</div><div class="line"><span class="keyword">library</span>(installr)</div><div class="line">updater()<span class="comment">#就是这句。真得劲。一键更新</span></div></pre></td></tr></table></figure>
+</code></pre><p><img src="http://img.blog.csdn.net/20170323195705637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195722928?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195839716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195927326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>后面只要一路确定就好了。<br>这个方法的好处在于，你可以不用重新安装你已经有的包。可以完整保留。<br>注意的是这个包还依赖于stringr,stringi,magrittr。<br>最后贴下这个包的官方文档航和新增的函数（super强大，还可以一键安装Python，RStudio等)。<br><img src="http://img.blog.csdn.net/20170323201813663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<blockquote>
+<p>NEW FUNCTIONS:</p>
+<ul>
+<li>install.python - Downloads and installs python 2 or 3<br>UPDATED FUNCTIONS:</li>
+<li>install.URL now gives warning if there is suspicion that the user is not connected to the internet.</li>
+<li>updateR  - added cran_mirror option</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/R语言读取Excel的神器——openxlsx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -957,168 +1125,11 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/桌面GIS连接Postgresql总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/14/桌面GIS连接Postgresql总结/" itemprop="url">
-                  桌面GIS连接Postgresql总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-14T00:00:00+08:00">
-                2016-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/08/14/桌面GIS连接Postgresql总结/" class="leancloud_visitors" data-flag-title="桌面GIS连接Postgresql总结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对于非开发人员的GISer而言，数据库这东西更多停留在mdb，gdb的层面，相对而言这些数据的使用无论是在处理还是管理上，门槛相对较低。但是目前所处的信息爆炸的大数据时代，仅仅依靠桌面GIS本身的数据存储远远不够，在存储大量数据的时候，仍然需要专门的数据库管理。所以桌面GIS如何在关系型数据库中写入空间数据也是一个重要的过程。此文是在阅读了网上的部分博客及自己的亲身经验写成。主要介绍桌面GIS中两大代表——Esri的ArcGIS以及开源的QGIS。使用的关系型数据库是Postgresql，它的空间扩展是PostGIS。<br>桌面GIS：<br>Esri ArcGIS 10.2<br>Esri ArcSDE 10.2<br>QGIS 2.8.2<br>关系型数据库及空间扩展:<br>Postgresql 9.5.0_x64<br>PostGIS 2.2<br>以上软件的安装略过了，网上均有教程。</p>
-<p>（一）QGIS连接Postgresql<br>个人最喜爱QGIS的一点就是它与PostGIS以及其他各类数据库的无缝衔接，确实可以说是直连数据库。<br><img src="http://img.blog.csdn.net/20170325131330743?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是通过这个数据库的操作<br><img src="http://img.blog.csdn.net/20170325131439104?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>先新建一个连接，输入名称、主机、数据库、调整SSL模式、用户名、密码，最后测试连接。<br><img src="http://img.blog.csdn.net/20170325131447576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>如果跳出这个页面，就证明你成功啦。<br><img src="http://img.blog.csdn.net/20170325131520263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来按确定之后，只要在最开始的页面点击“连接”，就已经愉快地连上了。如果你打开Postgresql，会发现全局架构是对应的，所以确认是连接成功的。<br><img src="http://img.blog.csdn.net/20170325131530170?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">!<br>这边选择了一个2008年2月3日北京市的一辆出租车轨迹数据来做测试<br><img src="http://img.blog.csdn.net/20170325131617247?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170325131627903?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>QGIS中，基于出租车轨迹生成的热图<br><img src="http://img.blog.csdn.net/20170325131638530?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>（二）ArcGIS Desktop 连接Postgresql<br>ArcGIS Desktop 10.2之后提供了Postgresql直连的功能，当然这里的直连，我认为可以叫伪直连，因为它仍然需要ArcSDE的支持，而不像QGIS可以直接连接。<br>当然直连的的方法还是相对简单的，不过我也遇到了一个问题，我的Postgresql是64位。但是ArcGIS Desktop目前只有32位。所以即使安装了ArcSDE，也无法直接连接。需要Postgresql32位里面的一些dll文件。<br><img src="http://img.blog.csdn.net/20170325131647138?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>将这些Postgresql对应版本32位的dll文件复制粘贴到ArcGIS安装目录下面的”/ArcGIS/Desktop 10.2/bin的文件夹里，接着可以打开ArcGIS进行连接了。<br><img src="http://img.blog.csdn.net/20170325131653889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170325131708295?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>选择同一个测试数据导入PostGIS<br><img src="http://img.blog.csdn.net/20170325131718514?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>基于ArcGIS连接Postgresql里面的数据制作的核密度图<br><img src="http://img.blog.csdn.net/20170325131729624?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1163,7 +1174,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

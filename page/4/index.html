@@ -301,6 +301,208 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/01/关于Git使用的一些心得/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/01/关于Git使用的一些心得/" itemprop="url">
+                  关于Git使用的一些心得
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-01T00:00:00+08:00">
+                2017-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/01/关于Git使用的一些心得/" class="leancloud_visitors" data-flag-title="关于Git使用的一些心得">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本篇稍微记录下Git使用的一些心得。<br>对Git的使用，应该是从搭建自己的博客开始的。当时看到开源中国推荐的一篇基于码云+hexo搭建自己博客的文章。所以就花了一天时间鼓捣了下博客。<br>顺带整理下目前能看到我写的博客文章的几个地址：<br>自己搭建的博客（Hexo）：</p>
+<blockquote>
+<p><a href="https://giserdaishaoqing.github.io/" target="_blank" rel="external">https://giserdaishaoqing.github.io/</a></p>
+</blockquote>
+<p>CSDN博客：</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/esa_dsq" target="_blank" rel="external">http://blog.csdn.net/esa_dsq</a></p>
+</blockquote>
+<p>简书（相比而言，简书少了一篇关于桌面GIS连接Postgresql的文章）：</p>
+<blockquote>
+<p><a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" rel="external">http://www.jianshu.com/u/8bfccfb12c0d</a></p>
+</blockquote>
+<p>开源中国：</p>
+<blockquote>
+<p><a href="https://my.oschina.net/u/2424163、" target="_blank" rel="external">https://my.oschina.net/u/2424163、</a></p>
+</blockquote>
+<p>以上地址均可看到我的博客文章。<br>回到Git上，关于如何搭建hexo的静态博客。这里就不详述了。网上教程太多。我最早看得是下面的博客，当然后面参考了很多简书和各种平台的。</p>
+<blockquote>
+<p><a href="https://my.oschina.net/z707z/blog/824830" target="_blank" rel="external">https://my.oschina.net/z707z/blog/824830</a></p>
+</blockquote>
+<p>尽管最早是想在OSChina上搭建，不过老是出bug，最后还是选择了github。bug总结起来就是，https连接靠不住，git大法好。用github生成ssh秘钥，然后连接，更为方便。具体的过程下面这篇文章讲得已经很详细了。</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/wfdtxz/article/details/8678982" target="_blank" rel="external">http://blog.csdn.net/wfdtxz/article/details/8678982</a></p>
+</blockquote>
+<p>关键的几个命令就是。</p>
+<pre><code>#查看是否有秘钥
+cd ~/.ssh
+ls
+
+#没有的话就生成一下，引号里填你github账户的邮箱。
+ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;
+</code></pre><p>后面就去本地文件夹搜索下你的秘钥文件id_rsa.pub。复制内容，并打开github，从settings里面找到如下的选项。</p>
+<p><img src="http://img.blog.csdn.net/20170501103623647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>接着点击New Key，然后把秘钥文件里的内容复制过去。启用即可。<br>可以用下面的命令测试下是否成功。</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>这个就是之前搭建博客时提交博客老出错的解决方案。顺带记录下hexo博客的典型命令。</p>
+<pre><code>hexo clean
+hexo generate
+hexo deploy
+hexo server -p 5000
+</code></pre><p>同时，最近刚好完成了ArcGIS中OLS回归工具结果可视化的R语言版本代码（见上一篇博客），顺带就托管到github上，就尝试了下如何push。在需要托管的本地文件夹右击Git Bash，接着输入如下的命令。这里就每次都输下自己的账户密码吧。比较安全。</p>
+<pre><code>#添加需要更新上传的文件
+git add .
+
+#commit一下
+git commit -a -m &quot;备注信息&quot;
+
+#最后push上传
+git push
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1091,173 +1293,11 @@ MODISSubsets(LoadDat = yclai2009,Products = &quot;MOD15A2&quot;,Bands = &quot;La
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" itemprop="url">
-                  MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-14T00:00:00+08:00">
-                2017-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RS/" itemprop="url" rel="index">
-                    <span itemprop="name">RS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" class="leancloud_visitors" data-flag-title="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍两种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R）。<br>FTP下载工具以及完整影像下载的方法<br>笔者最早也是参照网上某篇博客学习的下载方式，老规矩，文末贴链接，这里先感谢这位写博客的同学。同时NASA官网最近刚刚改版了网站，新版网站的下载方式暂时没有看到其他人整理，故稍作些整理。<br>NASA官方遥感影像数据下载网址（里面不止有MODIS，还有ENVISAT，NPP-VIIRS等）：</p>
-<blockquote>
-<p><a href="https://ladsweb.modaps.eosdis.nasa.gov/" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/</a></p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择DATA DISCOVERY的Search&amp;Order：<br><img src="http://img.blog.csdn.net/20170414144325927?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>进入这个页面：<br><img src="http://img.blog.csdn.net/20170414144443755?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>找到你要下载的卫星传感器（这里以Terra星做例子）：<br><img src="http://img.blog.csdn.net/20170414144655022?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择我们需要的产品（这里选了1 km、500 m的二级产品，以及经纬度校正的产品，具体产品介绍看上一篇博客的表格以及列出的链接）：<br><img src="http://img.blog.csdn.net/20170414145237611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>结束后直接点击<br><img src="http://img.blog.csdn.net/20170414145600710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>“TIME”，根据需要选择数据的时间跨度。<br><img src="http://img.blog.csdn.net/20170414145624476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接着点击下一步，“LOCATION”。<br>有不同选择需要影像范围的方法。<br><img src="http://img.blog.csdn.net/20170414145828527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>Country→按国家的行政边界来选择数据<br>Tiles→按瓦片选择，或者说按照MODIS数据全球逐行逐列划分的格网（也可以说是MODIS观测时的行列号）来选择数据<br>Validation Sites→按全球分布的验证的观测站点或者生态网络观测站点选择（可以结合观测站点数据做研究）<br>Draw Custom Box（Classic）→按照用户自定义画出来的框选选择数据（用过老版网站下载的同学会对这个功能比较熟悉）<br>Enter Coordinates→用经纬度坐标来选择数据（这个也是类似于老版网站的下载功能），其实就是研究区的四至坐标。<br>这里选择了按瓦片选择的方式，点击箭头。下一步，“FILES”。这一步会把符合要求的所有数据列出来，但是由于前面搜索的时间跨度太长，web端无法完全显示，所以我们重新修改下相关的需求数据（仅选择2010年的数据，而且选择下载合成产品）。<br><img src="http://img.blog.csdn.net/20170414151039201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是新版网站的一个比较不同的地方，这里的”FILES“，可以直接下载数据。老版网站一般需要Order，提交订单之后才能下载。这样使用比原来更自由些。<br><img src="http://img.blog.csdn.net/20170414151556333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在选择所有数据，提交订单即可。<br><img src="http://img.blog.csdn.net/20170414151806117?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>不过新版网站现在要求要注册账户。所以在下载数据前，记得先申请一个Earthdata的账户（这也就是比较麻烦的点了，目前笔者测试了163和qq邮箱，都没有办法收到激活邮件。目前只有谷歌邮箱能激活，所以必须去注册一个gmail的邮箱）。<br>注意，需要在自己的账户中的“My Application”下面启动“LAADS Web”，最后才能提交订单。<br><img src="http://img.blog.csdn.net/20170414191646367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191637789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191833908?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>FTP的下载必须等到订单出现availlable，才能下载。官方给出的等待时间是5min到10天左右。一般很快就OK了。<br>FTP下载方式的话，需要用FlashFXP这类软件来下载，有需要这个软件的可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。</p>
-<p><img src="http://img.blog.csdn.net/20170414203351993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>地址根据你的订单来决定。<br>ftp: ladsweb.modaps.eosdis.nasa.gov<br>username:anoymous<br>password:你账户申请用的邮箱（gmail邮箱）<br>anoymous意为FTP里的匿名传输。接下来只需要简单地拖拽就可以将上面的数据拷贝到本地文件夹了。<br><img src="http://img.blog.csdn.net/20170414203654198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这就是关于MODIS数据下载方式(FTP)的内容。<br>最后附上旧版网站下载方式教程博客网址：</p>
-<blockquote>
-<p><a href="http://blog.sina.com.cn/s/blog_8684880b010149ue.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_8684880b010149ue.html</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1302,7 +1342,7 @@ MODISSubsets(LoadDat = yclai2009,Products = &quot;MOD15A2&quot;,Bands = &quot;La
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
