@@ -96,7 +96,7 @@
 <meta property="og:description" content="Chapter 8 ANOVA本篇是第八章，内容是方差分析。前一段考试，汇报，作业。忙不过来，停更了一段时间，现在重新开始更这一部分内容。方差分析是很多实验的基础以及很重要的分析手段，这一章内容相比较而言比较多。
 1.方差分析的引论方差分析其实对我们来说并不陌生，因为大学搞生态的那群同学，实验中无数次出现了单方差因素分析的方法。那么方差分析究竟是什么呢？从引论来说，我们举个跟地学领域相关的例子。不">
 <meta property="og:image" content="http://img.blog.csdn.net/20170607211717109?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-06-11T02:14:08.324Z">
+<meta property="og:updated_time" content="2017-10-10T01:43:46.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（八）——方差分析">
 <meta name="twitter:description" content="Chapter 8 ANOVA本篇是第八章，内容是方差分析。前一段考试，汇报，作业。忙不过来，停更了一段时间，现在重新开始更这一部分内容。方差分析是很多实验的基础以及很重要的分析手段，这一章内容相比较而言比较多。
@@ -690,7 +690,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="43-有交互作用双因子方差分析"><a href="#4-3-有交互作用双因子方差分析" class="headerlink" title="4.3 有交互作用双因子方差分析"></a>4.3 有交互作用双因子方差分析</h4><p>除了上面的无交互作用双因子方差分析之外，可能存在的一种情况就是二者同时作用，这就是有交互作用的双因子方差分析。<br>即（$A_i,B_j$）下作了r个试验，所得结果记作$x_{ijk}$,$x_{ijk}$服从$N(\mu_{ij},\sigma^2)，i=1,\cdots,a,j=1,\cdots,b,k=1,\cdots,r$。且相互独立。<br><strong>（1）有交互作用双因子方差分析：模型</strong><br>$$ X_{ijk}=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+\varepsilon_{ijk} $$<br>这里$\varepsilon_{ijk}\sim iid$ $N(0,\sigma^2) $<br><strong>（2）交互作用双因子方差分析：假设</strong><br>因子A<br>原假设：$H_0:α_1= α_2=… = α_a=0$<br>备择假设：$H1:至少一个α_i不等于0$<br>因子B<br>原假设：$H_0: β_1 = β_2 = … = β_b=0$<br>备择假设：$H1:至少一个β_i不等于0$<br>交互作用<br>原假设：$H_0: αβ_{11} = αβ_{12} = … = αβ_{ab}=0$<br>备择假设：$H1:至少一个αβ_{ij}不等于0$<br><strong>计算步骤（公式大全）</strong></p>
+<h4 id="43-有交互作用双因子方差分析"><a href="#4-3-有交互作用双因子方差分析" class="headerlink" title="4.3 有交互作用双因子方差分析"></a>4.3 有交互作用双因子方差分析</h4><p>除了上面的无交互作用双因子方差分析之外，可能存在的一种情况就是二者同时作用，这就是有交互作用的双因子方差分析。<br>即（$A_i,B_j$）下作了r个试验，所得结果记作$x_{ijk}$,$x_{ijk}$服从$N(\mu_{ij},\sigma^2)，i=1,\cdots,a,j=1,\cdots,b,k=1,\cdots,r$。且相互独立。<br><strong>（1）有交互作用双因子方差分析：模型</strong><br>$$ X_{ijk}=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+\varepsilon_{ijk} $$<br>这里$\varepsilon_{ijk}\sim iid$ $N(0,\sigma^2) $<br><strong>（2）交互作用双因子方差分析：假设</strong><br>因子A<br>原假设：$H_0:α_1= α_2=… = α_a=0$<br>备择假设：$H_1:至少一个α_i不等于0$<br>因子B<br>原假设：$H_0: β_1 = β_2 = … = β_b=0$<br>备择假设：$H_1:至少一个β_i不等于0$<br>交互作用<br>原假设：$H_0: αβ_{11} = αβ_{12} = … = αβ_{ab}=0$<br>备择假设：$H1:至少一个αβ_{ij}不等于0$<br><strong>计算步骤（公式大全）</strong></p>
 <blockquote>
 <ul>
 <li>平方和<br>$$ SST=\sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^r(x_{ij}-\bar x’)^2 $$<br>$$ SSA=br\sum_{i=1}^a(x_{i.}-\bar x’)^2 $$<br>$$ SSB=ar\sum_{j=1}^b(x_{.j}-\bar x’)^2 $$<br>$$ SSAB=r\sum_{i=1}^a\sum_{j=1}^b(\bar x_{ij}-\bar x_{i.}-\bar x_{.j}+\bar x’)^2 $$<br>$$ SSE=\sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^r(x_{ijk}-\bar x_{ij})^2 $$<br>$$ SST=SSA+SSB+SSAB+SSE $$</li>
