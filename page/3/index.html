@@ -301,6 +301,377 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/" itemprop="url">
+                  应用统计学与R语言实现学习笔记（六）——假设检验
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-08T00:00:00+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
+                    <span itemprop="name">统计与模型</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（六）——假设检验">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="chapter-6-hypothesis-test"><a href="#Chapter-6-Hypothesis-Test" class="headerlink" title="Chapter 6 Hypothesis Test"></a>Chapter 6 Hypothesis Test</h1><p>本篇是第6章，内容是假设检验。</p>
+<h3 id="1基本思想"><a href="#1-基本思想" class="headerlink" title="1.基本思想"></a>1.基本思想</h3><p>我们还是从问题开始讨论。这回提个接地气的问题——雄安新区批复前后对该地区房价是否有差异？<br>嗯，假设检验其实就是为了解决这类问题。<br>假设检验的基本思想——我们有样本，但是无法获得总体，需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。<br>分解开来，假设检验=假设+检验（或者假设检验）。<br>假设(hypothesis)——对总体的参数的具体数值（或分布形式）所作的陈述（总体参数包括总体均值、比例、 方差等，分析之前必需陈述）。<br>假设检验(hypothesis test)—先对总体的参数（ 或分布形式） 提出某种假设，然后利用样本信息判断假设是否成立的过程（有参数检验和非参数检验；逻辑上运用反证法， 统计上依据小概率原理）。如图。</p>
+<p><img src="http://img.blog.csdn.net/20170508115209606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>假设检验的思想还可以去搜索Fisher 显著性检验的思想(女士品茶试验)的故事深深体会，这里就不详述了。有兴趣的同学可以点击下文的科学网链接查看。</p>
+<blockquote>
+<p><a href="http://blog.sciencenet.cn/blog-624263-795715.html" target="_blank" rel="external">http://blog.sciencenet.cn/blog-624263-795715.html</a></p>
+</blockquote>
+<h3 id="2原假设和备择假设"><a href="#2-原假设和备择假设" class="headerlink" title="2.原假设和备择假设"></a>2.原假设和备择假设</h3><p>从前面的介绍我们知道，假设检验的第一步是建立假设。那么假设分为两种（原假设和备择假设）。那么这二者具体又是什么呢？</p>
+<blockquote>
+<ul>
+<li>原假设(null hypothesis)——原假设又称“ 0假设”，总是有符号 =， ≥ 或≤，表示为 $H_0$。是研究者想收集证据予以反对的假设（生产实践中常对应正常情形，如均值与设计一致）；一般来说，原假设是一旦拒绝便要采取行动的假设。因此， 原假设总是“受到保护的假设” ，没有充分的证据是不能拒绝原假设的。例如，对一家信誉很好的工厂的产品进行检验，原假设一般是“ 产品合格”。</li>
+<li>备择假设(alternative hypothesis)——研究者想收集证据予以支持的假设， 一旦发生就要采取行动， 是与原假设对立的假设，也称“研究假设”，总是有符号 ≠， &gt; 或 &lt;，表示为 $H_1$。</li>
+</ul>
+</blockquote>
+<p>总结起来就是，原假设是统计学史上最悲催角色——它从一开始诞生，就是为了被科学家们发好人卡拒绝而存在的一个假设。备择假设才是科学家们追求的白富美。<br>搞明白了这两个假设，下一步我们做假设检验的时候，就要先提出假设了，这里给了一些提出假设的要点：</p>
+<blockquote>
+<ul>
+<li>原假设和备择假设是一个完备事件组， 而且相互对立（在一项假设检验中， 原假设和备择假设必有一个成立， 而且只有一个成立）。</li>
+<li>先确定备择假设， 再确定原假设。</li>
+<li>等号“ =” 总是放在原假设上。</li>
+<li>因研究目的不同， 对同一问题可能提出不同的假设（ 也可能得出不同的结论）。</li>
+</ul>
+</blockquote>
+<p>同时在实际应用中，我们有不同的需求，因此又有双侧检验和单侧检验的区分。</p>
+<blockquote>
+<ul>
+<li>双侧检验——备择假设没有特定的方向性，并含有符号“=”的假设检验，称为双侧检验或双尾检验(two-tailed test)</li>
+<li>单侧检验——备择假设具有特定的方向性，并含有符号“&gt;”或“&lt;”的假设检验，称为单侧检验或单尾检验(one-tailed test)。其中备择假设的方向为“&lt;”，称为左侧检验，备择假设的方向为“&gt;”，称为右侧检验。</li>
+</ul>
+</blockquote>
+<p>原假设与备择假设形式：</p>
+<blockquote>
+<ul>
+<li>双边检验：$ H_0: \mu=2，H_1: \mu\neq2 $。</li>
+<li>单边检验：左侧检验——$ H_0: \mu\le2，H_1: \mu>2 $，右侧检验——$ H_0: \mu\ge2，H_1: \mu&lt;2 $。</li>
+</ul>
+</blockquote>
+<p>所见即所得，用一张图来表示假设检验过程。</p>
+<p><img src="http://img.blog.csdn.net/20170508122049152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>所以拒绝原假设的理由是假设检验中的小概率原理。那么什么是小概率？</p>
+<blockquote>
+<ul>
+<li>在一次试验中， 一个几乎不可能发生的事件发生的概率。</li>
+<li>在一次试验中小概率事件一旦发生， 我们就有理由拒绝原假设。</li>
+<li>小概率由研究者事先确定。</li>
+</ul>
+</blockquote>
+<p>所以拒绝$H_0$的理由就是</p>
+<p><img src="http://img.blog.csdn.net/20170508122334492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20170508122348076?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="3第一类错误和第二类错误"><a href="#3-第一类错误和第二类错误" class="headerlink" title="3.第一类错误和第二类错误"></a>3.第一类错误和第二类错误</h3><p>上文介绍了假设检验的过程，但是假设检验过程会不会出现错误呢？其实大家仔细分析拒绝原假设的理由就会发现问题了。通常情况下原假设是小概率事件，但是小概率事件≠0概率事件。小概率事件不是不发生，而是发生概率较小。就像天气预报说明天有99%的可能不下雨，结果1%的可能性成为了事实，明天下雨了。因此假设检验中会有两类错误（弃真错误和取伪错误）经常出现。<br>（1）第一类错误(弃真错误)：</p>
+<blockquote>
+<ul>
+<li>原假设为真时拒绝原假设。</li>
+<li>第一类错误的概率为α（没错，就是它，我们的好朋友，小α。咳咳咳，就是显著性水平，一般由研究者事先指定，常用的值有0.01, 0.05, 0.10）。</li>
+</ul>
+</blockquote>
+<p>（2）第二类错误（取伪错误）：</p>
+<blockquote>
+<ul>
+<li>原假设为假时未拒绝原假设。</li>
+<li>第二类错误的概率记为β。</li>
+</ul>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20170508123318554?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20170508131755305?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>α和β的关系——α和β的关系就像翘翘板， α小β就大，α大β就小。所以两类错误不可能同时发生（第一类只在$H_0$为真时发生，第而类只在$H_0$为假时发生）。<br>影响β的因素：</p>
+<blockquote>
+<ul>
+<li>总体参数的真值。</li>
+<li>显著性水平α（当α减少时增大）。</li>
+<li>总体标准差σ（当σ增大时增大）。</li>
+<li>样本容量n（当n减少时增大）。</li>
+</ul>
+</blockquote>
+<h3 id="4统计量与拒绝域"><a href="#4-统计量与拒绝域" class="headerlink" title="4.统计量与拒绝域"></a>4.统计量与拒绝域</h3><p>讲了这么多，但是还没有介绍假设检验的计算过程。假设检验的过程依赖于两个重要数学概念（统计量与拒绝域，前面已经有稍微提到了）。这里再做具体介绍。<br>检验统计量(test statistic)——根据样本观测结果计算得到的， 并据以对原假设和备择假设作出决策的某个样本统计量，是对样本估计量的标准化结果（原假设$H_0$为真，点估计量的抽样分布）。<br>标准化的检验统计量公式为：<br>$$ 标准化的检验统计量=\frac{点估计量-假设值}{点估计量的抽样标准差} $$<br>显著性水平和拒绝域的三种情况：<br>双侧检验：</p>
+<p><img src="http://img.blog.csdn.net/20170508135530979?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>左侧检验：</p>
+<p><img src="http://img.blog.csdn.net/20170508135602105?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>右侧检验：</p>
+<p><img src="http://img.blog.csdn.net/20170508135615106?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>统计量落在拒绝域时，我们就可以拒绝原假设。具体如下：</p>
+<blockquote>
+<ul>
+<li>给定显著性水平α，查表得出相应的临界值$z_{\alpha},z_{\alpha/2},t_{\alpha},t_{\alpha/2},\cdots$。</li>
+<li>将检验统计量的值与α水平的临界值进行比较。</li>
+<li>作出决策：双侧检验——|统计量| &gt; 临界值，拒绝$H_0$；左侧检验——统计量 &lt; 临界值，拒绝$H_0$；右侧检验——统计量 &gt; 临界值，拒绝$H_0$。</li>
+</ul>
+</blockquote>
+<h3 id="5利用p值进行决策"><a href="#5-利用p值进行决策" class="headerlink" title="5.利用p值进行决策"></a>5.利用p值进行决策</h3><p>如何利用假设检验解决实际问题？很重要的一个应用是在决策上。就如标题说的，利用p值进行决策。那么什么是p值?<br>p值(p-value)：在一个假设检验问题中，拒绝原假设的最小显著性水平。</p>
+<blockquote>
+<ul>
+<li>在原假设为真的条件下，检验统计量的观察值大于或等于其计算值的概率(双侧检验为分布中检验统计量两侧面积的总和;单侧检验为分布中检验统计量相应单侧面积）。</li>
+<li>反映实际观测到的数据与原假设$H_0$之间的一致程度。</li>
+<li>被称为观察到的（或实测的）显著性水平。</li>
+<li>决策规则： 若p值&lt;α， 拒绝$H_0$。</li>
+</ul>
+</blockquote>
+<p>p值法步骤（以大样本均值为例）<br>将样本统计量转换成检验统计量z</p>
+<blockquote>
+<ul>
+<li>计算p值： Z为标准正态分布随机变量（$p值=(\left|Z\right|\ge z)(双侧),p值=(Z\le z)(左侧),p值=(Z\ge z)(右侧)$）</li>
+<li>比较p值和α：<br>如果α≥p值，拒绝$H_0$;<br>如果$α&lt;$p值，不能拒绝$H_0$。</li>
+</ul>
+</blockquote>
+<p>假设检验结论的表述<br>假设检验的目的就在于试图找到拒绝原假设的证据， 而不在于证明什么是正确的。</p>
+<blockquote>
+<ul>
+<li>拒绝原假设时结论是清楚的。</li>
+<li>当不拒绝原假设时——并未给出明确的结论，不能说原假设是正确的， 也不能说它不是正确的。但也未说它不是10。 我们只能说样本提供的证据还不足以推翻原假设。</li>
+</ul>
+</blockquote>
+<p>假设检验步骤的总结</p>
+<blockquote>
+<ul>
+<li>陈述原假设和备择假设。</li>
+<li>从所研究的总体中抽出一个随机样本。</li>
+<li>确定一个适当的检验统计量， 并利用样本数据算出其具体数值。</li>
+<li>确定一个适当的显著性水平， 并计算出其临界值， 指定拒绝域。</li>
+<li>将统计量的值与临界值进行比较， 作出决策——统计量的值落在拒绝域，拒绝$H_0$，否则不拒绝$H_0$，也可以直接利用p值作出决策。</li>
+</ul>
+</blockquote>
+<h3 id="6一个总体参数的检验"><a href="#6-一个总体参数的检验" class="headerlink" title="6.一个总体参数的检验"></a>6.一个总体参数的检验</h3><p>前面的理论讲的差不多了，又到了典型总体参数的检验内容的介绍了。依旧是先一个总体参数的检验（总体均值、总体比例、总体方差）。<br>总体均值的检验(大样本： n≥30)<br>使用z检验统计量：<br>$\sigma^2已知$：<br>$$ z=\frac{\bar x-\mu_0}{\sigma/\sqrt{n}}\sim N(0,1)。 $$<br>$\sigma^2未知$：<br>$$ z=\frac{\bar x-\mu_0}{s/\sqrt{n}}\sim N(0,1)。 $$</p>
+<p>总体均值的检验(正态总体小样本)<br>检验统计量：<br>$\sigma^2已知$：<br>$$ z=\frac{\bar x-\mu_0}{\sigma/\sqrt{n}}\sim N(0,1)。 $$<br>$\sigma^2未知$：<br>$$ t=\frac{\bar x-\mu_0}{s/\sqrt{n}}\sim t(n-1)。$$<br>总体比例的检验<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>总体服从二项分布；</li>
+<li>可用正态分布来近似(大样本)。</li>
+</ul>
+</blockquote>
+<p>检验的Z统计量：<br>$$ z=\frac{\bar q-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\sim N(0,1)，p_0为假设的总体比例。 $$<br>总体方差的检验<br>检验一个总体的方差或标准差，假设总体近似服从正态分布，使用$\chi^2$分布。<br>检验统计量：<br>$$ \chi^2=\frac{(n-1)s^2}{\sigma_0^2}\sim \chi^2(n-1)。 $$</p>
+<p><img src="http://img.blog.csdn.net/20170508143623860?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>这里顺带提下作为统计推断的两大分支的区间估计和假设检验的关系。</p>
+<blockquote>
+<ul>
+<li>过程相似：如果假设均值在95%的置信区间之外，双边检验将拒绝原假设（显著性水平为5%）。</li>
+<li>逻辑不同：置信区间——不知道均值多少而要估计它；假设检验: 假定一个均值要看数据是否支持这个假设。</li>
+</ul>
+</blockquote>
+<p>另外还是要谈一谈统计学与实际问题——这里谈的是统计显著性和实际显著性。</p>
+<p>一个被拒绝的原假设意味着有统计显著性，但未必有实际显著性。这种情况常发生在大样本或精确测量场合，如Kepler的行星运行第一定律：行星轨道是椭圆的，当时吻合程度很好，100年后，仪器更高级、测量更精确，该假设被拒绝，因为行星间交互作用导致摄动。因此不要盲目使用统计显著性。此外，显著性水平α的选择也是个很关键的问题。一般来说：</p>
+<blockquote>
+<ul>
+<li>α不宜过小，否则第二类错误概率会较大。</li>
+<li>α的选择与判断发生错误时要付出的代价大小有关。</li>
+<li>α的选择是决策问题。</li>
+</ul>
+</blockquote>
+<h3 id="7两个总体参数的检验"><a href="#7-两个总体参数的检验" class="headerlink" title="7.两个总体参数的检验"></a>7.两个总体参数的检验</h3><p>讲完了一个总体参数，照例来讲就两个总体参数（两个总体均值之差，两个总体比例之差，两个总体方差比）。<br>独立大样本两总体均值之差检验<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个样本是独立的随机样本。</li>
+<li>大样本($n_1\ge30和n_2\ge30$)。</li>
+</ul>
+</blockquote>
+<p>检验统计量：<br>$$ \sigma_1^2，\sigma_2^2已知：z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)。 $$<br>$$ \sigma_1^2，\sigma_2^2未知：z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\sim N(0,1)。 $$<br>正态总体独立小样本均值之差检验（$\sigma_1^2，\sigma_2^2已知$）<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个独立的小样本。</li>
+<li>两个总体都是正态分布。</li>
+<li>$\sigma_1^2，\sigma_2^2已知。$</li>
+</ul>
+</blockquote>
+<p>检验统计量:<br>$$z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)。 $$<br>正态总体独立小样本均值之差检验($\sigma_1^2，\sigma_2^2$未知但$\sigma_1^2=\sigma_2^2$)<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个独立的小样本。</li>
+<li>两个总体都是正态分布。</li>
+<li>$\sigma_1^2，\sigma_2^2未知但相等，即\sigma_1^2=\sigma_2^2。$</li>
+</ul>
+</blockquote>
+<p>检验统计量：<br>$$t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}，其中s_p=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}，自由度：n_1+n_2-2。 $$</p>
+<p>两个总体均值之差的检验($\sigma_1^2，\sigma_2^2$未知且不相等$\sigma_1^2\ne\sigma_2^2$)<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个总体都是正态分布。</li>
+<li>$\sigma_1^2，\sigma_2^2未知且不相等，即\sigma_1^2\ne\sigma_2^2。$</li>
+<li>样本容量相等，$n_1=n_2=n$。</li>
+</ul>
+</blockquote>
+<p>检验统计量：<br>$$t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2+s_2^2}{n}}}，自由度：n_1+n_2-2=2(n-1)。 $$</p>
+<p>两个总体均值之差的检验($\sigma_1^2，\sigma_2^2$未知且不相等$\sigma_1^2\ne\sigma_2^2$)<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个总体都是正态分布。</li>
+<li>$\sigma_1^2，\sigma_2^2未知且不相等，即\sigma_1^2\ne\sigma_2^2。$</li>
+<li>样本容量不相等，$n_1\ne n_2$。</li>
+</ul>
+</blockquote>
+<p>检验统计量：<br>$$t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}，自由度：最接近v的整数——v=\frac{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})^2}{\frac{(s_1^2/n_1)^2}{n_1-1}+\frac{(s_2^2/n_2)^2}{n_2-1}}。 $$</p>
+<p>两个总体均值之差的检验(匹配样本)<br>假定条件:</p>
+<blockquote>
+<ul>
+<li>两个总体配对差值构成的总体服从正态分布。</li>
+<li>配对差是由差值总体中随机抽取的。</li>
+<li>数据配对或匹配(重复测量 (前/后))。</li>
+</ul>
+</blockquote>
+<p>$$ 样本差值均值\bar d=\frac{\sum_{i=1}^n d_i}{n_d}, 样本差值标准差值 s_d=\sqrt{\frac{\sum_{i=1}^n(d_i-\bar d)^2}{n_d-1}}。 $$<br>大样本检验统计量：<br>$$ z=\frac{\bar d-d_0}{s_d/\sqrt{n_d}}\sim N(0,1)。 $$<br>小样本检验统计量：<br>$$ t=\frac{\bar d-d_0}{s_d/\sqrt{n_d}}\sim t(n-1)。 $$</p>
+<p>两个总体比例之差的检验<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个总体都服从二项分布。</li>
+<li>可以用正态分布来近似。</li>
+</ul>
+</blockquote>
+<p>检验统计量：<br>检验$H_0$： $p_1-p_2=0$<br>$$ z=\frac{\bar p_1-\bar p_2}{\sqrt{\bar p(1-\bar p)(\frac{1}{n_1}+\frac{1}{n_2})}}，其中\bar p=\frac{x_1+x_2}{n_1+n_2}=\frac{\bar p_1n_1+\bar p_2n_2}{n_1+n_2}。 $$<br>检验$H_0$： $p_1-p_2=d_0$<br>$$ z=\frac{(\bar p_1-\bar p_2)-d_0}{\sqrt{\frac{\bar p_1(1-\bar p_1)}{n_1}+\frac{\bar p_2(1-\bar p_2)}{n_2}}}。 $$</p>
+<p>两个总体方差比的检验(F检验)<br>假定条件：</p>
+<blockquote>
+<ul>
+<li>两个总体都服从正态分布。</li>
+<li>两个独立的随机样本。</li>
+</ul>
+</blockquote>
+<p>检验统计量：<br>$$ F=\frac{s_1^2}{s_2^2}\sim F(n_1-1,n_2-1)或 F=\frac{s_2^2}{s_1^2}\sim F(n_2-1,n_1-1)。 $$</p>
+<p>最后的总结就是如下图。</p>
+<p><img src="http://img.blog.csdn.net/20170508152254020?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>最后的最后，回到开头提的问题——雄安新区。该问题其实是两个总体参数的检验问题——两个总体均值之差的问题（两个总体分别是批复前的房价和批复后的房价）。所以如果要讨论该问题，可以考虑从批复前后的房价，抽取配对大样本或小样本(楼盘房价）进行假设检验，这样我们就能在统计学上证明这件事对雄安房价的显著影响啦。本篇涉及的R语言内容较少，还是老规矩，放到后面的第14章去讨论。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1398,244 +1769,6 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" itemprop="url">
-                  应用统计学与R语言实现学习笔记（一）——简介
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T00:00:00+08:00">
-                2017-05-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/统计与模型/" itemprop="url" rel="index">
-                    <span itemprop="name">统计与模型</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（一）——简介">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="chapter-1-introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。</p>
-<h3 id="1从问题说起"><a href="#1-从问题说起" class="headerlink" title="1.从问题说起"></a>1.从问题说起</h3><p>常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和问题离不开。老生常谈的就是像牛顿被苹果砸了之后，就想到一个问题，为啥苹果不飞上天和太阳肩并肩呢？<br>我答：因为会被烤焦。<br>。。。<br>嗯，幽默一下。<br>总结下来说，科研中有很多问题跟统计学相关（笔者是地学和生态学背景，就提点接地气的问题）。<br>譬如：<br>（1)人口研究当中，我们希望了解65岁以上老年人所占的比例，以便于我们更好地研究老龄化的问题。<br>（2)从几个监测站点的汽车尾气监测推断今天北京市的汽车尾气排放是否达到大气污染物排放标准。<br>（3）影响植物光合作用的因素是什么，各个因素的影响有多大？<br>以及等等等。<br>总结来说，可以分为以下的几类：<br>（1）统计量问题；（2）参数（推断统计）问题；（3）归因问题；（4）预测问题。</p>
-<h3 id="2统计学及其研究过程"><a href="#2-统计学及其研究过程" class="headerlink" title="2.统计学及其研究过程"></a>2.统计学及其研究过程</h3><p>那么统计学又是什么呢？</p>
-<blockquote>
-<p>statistics: the science of collecting,analyzing, presenting, and interpreting data.<br>Copyright 1994-2000 Encyclopaedia Britannica, In</p>
-</blockquote>
-<p>翻译过来就是</p>
-<blockquote>
-<p>统计学是收集、分析、表述和解释数据的科学（ 不列颠百科全书）</p>
-</blockquote>
-<p>所以统计学包括了：</p>
-<blockquote>
-<ul>
-<li>数据收集：取得数据</li>
-<li>数据处理：整理与图表展示</li>
-<li>数据分析：利用统计分析方法分析数据</li>
-<li>数据解释：结果的说明</li>
-<li>得到结论：从数据分析中得出客观结论。</li>
-</ul>
-</blockquote>
-<p>同时跟统计学密切相关的就是概率论。这二者都是研究随机现象数量规律的学科。而二者的区别可以用一张图来形象体现：</p>
-<p><img src="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>也就是说，概率论是——我知道箱子里面是什么样的，我想知道我拿在手里的球是什么样的可能性分别有多大。统计学则是——我不知道箱子里面是什么样的，但是我已经知道我拿在手里的球是什么样的，我想靠我手里的球的样子去推断箱子是什么样的。<br>有兴趣的也可以查看知乎上的回答。</p>
-<blockquote>
-<p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
-</blockquote>
-<p>总结起来，统计学的研究过程就像下面的流程图。</p>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
-<h3 id="3统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
-<div id="flowchart-1" class="flow-chart"></div>
-
-<p>统计学应用领域十分广泛，这里就不细谈了。</p>
-<h3 id="4统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
-<blockquote>
-<ul>
-<li>分类数据</li>
-<li>顺序数据</li>
-<li>数值数据</li>
-</ul>
-</blockquote>
-<p>（2）按收集方法划分</p>
-<blockquote>
-<ul>
-<li>调查观察数据</li>
-<li>试验数据</li>
-</ul>
-</blockquote>
-<p>（3）按时间状况划分</p>
-<blockquote>
-<ul>
-<li>截面数据</li>
-<li>时序数据</li>
-</ul>
-</blockquote>
-<h3 id="5统计学中的几个基本概念"><a href="#5-统计学中的几个基本概念" class="headerlink" title="5.统计学中的几个基本概念"></a>5.统计学中的几个基本概念</h3><p>统计学中的基本概念分别是：</p>
-<blockquote>
-<ul>
-<li>总体（population）</li>
-<li>样本（sample)</li>
-<li>参数（parameter)</li>
-<li>统计量（statistic)</li>
-<li>变量（variable)</li>
-</ul>
-</blockquote>
-<p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
-<p><div id="flowchart-2" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 实际问题
-op1=>operation: 收集数据（取得数据）
-op2=>operation: 整理数据（处理数据）
-op3=>operation: 分析数据（研究数据）
-op4=>operation: 解释数据（结果说明）
-st->op1->op2->op3->op4</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 统计方法
-e=>end: 结论
-sub=>subroutine: 描述统计
-cond1=>condition: 样本=总体？
-cond2=>condition: 分布已知？
-op1=>operation: 推断统计
-op2=>operation: 参数估计
-op3=>operation: 假设检验
-st->cond1(no)->op1->cond2(no)->op2->e
-cond1(yes)->sub->e
-cond2(yes)->op3->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=>start: 总体（参数）
-op=>operation: 样本（统计量）
-st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1685,7 +1818,7 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1707,7 +1840,7 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
