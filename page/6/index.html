@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -89,7 +91,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="http://yoursite.com/page/6/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/page/6/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GISerDaiShaoqing's Blog">
@@ -100,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/6/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/page/6/"/>
 
 
 
@@ -301,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -410,116 +412,16 @@
 
       
         
-          
-            <p>由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。</p>
+          <p>由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。</p>
 <p>WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。</p>
-<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。<br>具体的可以见官网：</p>
-<blockquote>
-<p><a href="http://www2.mmm.ucar.edu/wrf/users/" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/</a></p>
-</blockquote>
-<p>WRF模拟系统主要包含WPS和WRF两部分模块： WPS模块全称为WRF Pre-processing System，即WRF预处理系统，用来为WRF模型准备输入数据；如果只是做理想实验(idealized modeling)，就不需要用WPS处理真实数据。但是理想实验不在本文介绍范围内，本文介绍的是进行真实数据模拟的操作。 WRF模块就是数值求解的模块，它有两个版本：ARW(Advanced Research WRF) 和 NMM(Nonhydrostatic Mesoscale Model)。大多数研究者主要用的都是ARW版本，本文所有的介绍也都基于ARW版本。 除了WPS与WRF两大核心模块外，WRF系统还有很多附加模块：比如用于数据同化的WRF-DA，用于化学传输的WRF-chem，用于林火模拟的WRF-fire（该段文字引自xg1990的博客，具体地址文末贴出，感谢该位大神的分享）。<br>安装运行WRF模拟系统必须在Linux系统。而笔者又无法放弃windows系统，同时目前工作还处于前期测试阶段，故决定选择用VMware虚拟机搭建一个Linux系统来测试。<br>选用的VMware版本：12.5.2。<br>Linux系统：Ubuntu 16.04<br>具体安装过程不是本文重点。详情可见</p>
-<blockquote>
-<p><a href="https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html" target="_blank" rel="external">https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html</a></p>
-</blockquote>
-<p>此外附上Ubuntu官网链接</p>
-<blockquote>
-<p><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="external">https://www.ubuntu.com/download/desktop</a></p>
-</blockquote>
-<p>WRF-DA编译与安装主要参照官方提供的ppt和文档（地址文末会贴出）。<br><img src="http://img.blog.csdn.net/20170401003926187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>首先看下WRF-DA编译与安装的需求。<br><img src="http://img.blog.csdn.net/20170401004121444?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170401004203600?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170401004212178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>上面提到了需求如下：<br>1.Linux/Mac系统，基于Unix或Linux的系统<br>2.（3DVAR）三维变分的案例内存占用不大，大的（4DVAR）四维变分内存消耗较大。<br>3.支持C和Fortran的编译器（ifort/icc, gfortran/gcc,pgf90/pgcc）<br>4..需要的一些库，类似于WRF。包括：Zlib，netCDF C/Fortran，MPI（MPICH），BUFR，CRTM，RTTOV，HDF5。<br>系统已经安装完毕，而内存部分目前暂时不考虑。接下来看C和Fortran的编译器。<br>Ubuntu内置了gcc的编译器。可以通过命令来查看。</p>
-<pre><code>~$ gcc -v
-</code></pre><p>结果如下：<br><img src="http://img.blog.csdn.net/20170401004956776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接下来安装gfortran，也是通过命令进行安装。</p>
-<pre><code>~$ sudo apt-get install gfortran
-</code></pre><p>通过命令查看是否安装成功。</p>
-<pre><code>~$ gfortran -v
-</code></pre><p><img src="http://img.blog.csdn.net/20170401005315027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是几个库的下载与安装。<br>zlib：</p>
-<blockquote>
-<p><a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a></p>
-</blockquote>
-<p>netCDF C/Fortran：</p>
-<blockquote>
-<p><a href="http://www.unidata.ucar.edu/downloads/netcdf/index.jsp" target="_blank" rel="external">http://www.unidata.ucar.edu/downloads/netcdf/index.jsp</a></p>
-</blockquote>
-<p>MPI（MPICH）：</p>
-<blockquote>
-<p><a href="http://www.mpich.org/downloads/" target="_blank" rel="external">http://www.mpich.org/downloads/</a></p>
-</blockquote>
-<p>BUFR：包含在WRF源代码中</p>
-<p>CRTM：包含在WRF源代码中</p>
-<p>RTTOV：</p>
-<blockquote>
-<p><a href="https://nwpsaf.eu/site/software/rttov/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/</a></p>
-</blockquote>
-<p>需注册，最好自备梯子。</p>
-<p>HDF5：</p>
-<blockquote>
-<p><a href="https://support.hdfgroup.org/HDF5/" target="_blank" rel="external">https://support.hdfgroup.org/HDF5/</a></p>
-</blockquote>
-<p>将如上的几个库的安装包通过共享文件夹放入虚拟机中（mnt/hgfs/Share)。</p>
-<p>zlib和hdf5和netCDF 4相关。具体安装步骤和教程借鉴了官方文档</p>
-<blockquote>
-<p><a href="http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source" target="_blank" rel="external">http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source</a></p>
-</blockquote>
-<p>1.zlib的安装：解压到/usr/下</p>
-<pre><code>$ cp -r zlib-1.2.11.tar.gz /usr/
-$ tar zvf zlib-1.2.11.tar.gz
-</code></pre><p>然后进入解压文件夹，并安装</p>
-<pre><code>$ ./configure --prefix=/usr/local/zlib
-$ make check
-$ make install
-</code></pre><p>修改环境变量。</p>
-<pre><code>gedit ~/.bashrc
-# for zlib  
-export ZLIB_HOME=/usr/local/zlib  export
-LD_LIBRARY_PATH=$ZLIB_HOME/lib:$LD_LIBRARY_PATH
-</code></pre><p>2.HDF5的安装：解压到/usr/下</p>
-<pre><code>$ tar -xvf hdf5-1.8.18.tar
-</code></pre><p>然后进入解压文件夹，并安装</p>
-<pre><code>$ ./configure --with-zlib=/usr/local --prefix=/usr/local/hdf5
-$ make 
-$ make check
-$ make install
-</code></pre><p>HDF5的安装和检验参照：</p>
-<pre><code>./configure --prefix=/usr/local/hdf5 --with-zlib=/usr/local/zlib 
-</code></pre><blockquote>
-<p><a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
-</blockquote>
-<p>HDF5还需配置一个环境变量，避免下面的netCDF C安装报错。</p>
-<pre><code>$ gedit ~/.bashrc
-#for hd5
-export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
-export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
-export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
-$ source ~/.bashrc
-</code></pre><p>3.netCDF C/Fortran安装<br>先装netCDF C：</p>
-<pre><code>$ export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
-$ export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
-$ export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
-$ ./configure --prefix=/usr/local/NETCDF --enable-netcdf-4
-$ make 
-$ make check
-$ make install
-</code></pre><p>接着装netCDF Fortran：<br>先声明环境变量：</p>
-<pre><code>$ export CPPFLAGS=-I/usr/local/NETCDF/include
-$ export LDFLAGS=-L/usr/local/NETCDF/lib
-</code></pre><p>然后进行下一步编译。</p>
-<pre><code>$ ./configure --prefix=/usr/local/NETCDF FC=gfortran
-</code></pre><p>4.mpich的安装：<br>解压之类的步骤同上，同样放到usr下面。<br>解压到指定路径。</p>
-<pre><code>$ tar zxf mpich-3.2.tar.gz 
-$ ./configure -prefix=/usr/local/mpi/
-</code></pre><p>5.rttov的安装：<br>rttov解压出来东西较多，同样新建个path来存放。</p>
-<pre><code>$ tar zxf rttov121.tar.gz 
-$ cd src
-$ ../build/rttov_compile.sh
-</code></pre><p>打完收工。目前应该就完成了WRF-DA编译安装前所有需要的依赖库的编译及安装。下一篇更新WRF-DA具体的编译与安装。由于对Linux系统不熟悉，加上坑爹的rttov，博客写了两三天。从内心坚持要提醒大家的一点，Linux编译环境一定要注意环境变量！！！</p>
-<p>最后重点鸣谢几位主要参考大神的博客以及相关文档：</p>
-<blockquote>
-<p><a href="https://wenku.baidu.com/view/58851bc269eae009591bec0a.html" target="_blank" rel="external">https://wenku.baidu.com/view/58851bc269eae009591bec0a.html</a><br><a href="https://nwpsaf.eu/site/software/rttov/rttov-v12/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/rttov-v12/</a><br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html</a><br><a href="https://xg1990.com/blog/archives/190" target="_blank" rel="external">https://xg1990.com/blog/archives/190</a><br> <a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
-</blockquote>
-
-          
+<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -561,7 +463,7 @@ $ ../build/rttov_compile.sh
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/23/一行代码更新R语言/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/03/23/一行代码更新R语言/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -670,24 +572,14 @@ $ ../build/rttov_compile.sh
 
       
         
-          
-            <p>博客中已经陆续更新了两篇关于R语言的文章（相关系数矩阵可视化和读取Excel），按照上一篇挖的坑，这一期讲的是如何只用一行代码更新R语言。<br>这里还是重新认真介绍下R语言（我真的只是凑个字数）<br><img src="http://img.blog.csdn.net/20170323193718540?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，这里安利大家一本书。<br>卡巴科弗. R语言实战[M]. 人民邮电出版社, 2016.<br><img src="http://img.blog.csdn.net/20170323193903285?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，我放的截图是2013年第一版，2016年有再版，建议大家可以购买纸质版。在第一版的时候，附录里提到了这么一件事。<br><img src="http://img.blog.csdn.net/20170323194150828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到当时的2.13.0的版本R仍然没有什么可以自动更新R的方法。不过时至今日，R的版本已经到了3.3.3，在这三年间，R在编程语言排行榜上不断前行。已经有了长久的进步，当然，也出现了可以自动更新R的方法啦。<br>这里介绍的就是R的一个包：installr。</p>
-<blockquote>
-<p>installr {installr}    R Documentation<br>                                                            Installing software from R<br>Description<br>Gives the user the option to download software from within R.</p>
-</blockquote>
-<p>上面是installr的官方文档介绍。<br>接下来来讲所谓的一行代码更新R语言。<br>这里有两个注意点：<br>1.你的installr必须跟你的R版本对应，因为R语言默认安装的包都是适配最新的R语言版本。<br>2.使用installr更新R语言必须在原生R里面，Rstudio里面无法进行（笔者没有尝试过其他R的IDE，有童鞋若有尝试也可以进行指正）。<br>这里第一步先改下默认R的镜像（相信有很多童鞋应该改过了）。<br>原生R更改设定为：程序包→设定CRAN镜像<br>无论Python或者R，镜像统统选清华！。<br><img src="http://img.blog.csdn.net/20170323195226796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装installr</span></div><div class="line">install.packages（installr)</div><div class="line"><span class="keyword">library</span>(installr)</div><div class="line">updater()<span class="comment">#就是这句。真得劲。一键更新</span></div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170323195705637?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195722928?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195839716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170323195927326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>后面只要一路确定就好了。<br>这个方法的好处在于，你可以不用重新安装你已经有的包。可以完整保留。<br>注意的是这个包还依赖于stringr,stringi,magrittr。<br>最后贴下这个包的官方文档航和新增的函数（super强大，还可以一键安装Python，RStudio等)。<br><img src="http://img.blog.csdn.net/20170323201813663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<blockquote>
-<p>NEW FUNCTIONS:</p>
-<ul>
-<li>install.python - Downloads and installs python 2 or 3<br>UPDATED FUNCTIONS:</li>
-<li>install.URL now gives warning if there is suspicion that the user is not connected to the internet.</li>
-<li>updateR  - added cran_mirror option</li>
-</ul>
-</blockquote>
-
-          
+          <p>博客中已经陆续更新了两篇关于R语言的文章（相关系数矩阵可视化和读取Excel），按照上一篇挖的坑，这一期讲的是如何只用一行代码更新R语言。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/23/一行代码更新R语言/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -729,7 +621,7 @@ $ ../build/rttov_compile.sh
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/R语言读取Excel的神器——openxlsx/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/03/22/R语言读取Excel的神器——openxlsx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -838,23 +730,14 @@ $ ../build/rttov_compile.sh
 
       
         
-          
-            <p>作为非程序猿的各位同志们，可能最擅长的数据整理软件或者统计软件就是——嗯，没有错，它就是集万千宠爱于一身的E<del>~~X</del>~~O。<br><img src="http://img.blog.csdn.net/20170322221532741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>咳咳咳，好了。隆重推出我们的主角——Excel<br><img src="http://img.blog.csdn.net/20170322221737039?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，Excel是个super强大的软件。基本上用它已经能完成大量的统计分析了。<br>For example<br>各类数理统计<br><img src="http://img.blog.csdn.net/20170322221945038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>线性规划（LINGO表示欲哭无泪，你丫的抢我饭碗）。<br><img src="http://img.blog.csdn.net/20170322221959695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>当然，很久很久之前有这门本神书：<br>陈彦光. 基于Excel的地理数据分析[M]. 科学出版社, 2010.<br><img src="http://img.blog.csdn.net/20170322223734874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>当然，作为新时代的研究生，我们怎么能仅用Excel来完成一切的科研任务呢？用老师的话说，你们用Excel做的图，人家审稿都嫌low。这个时候R就登场了。<br>关于R的简介我就不提了。欢迎各种度娘，扯了这么久的淡。终于要进入正题了。<br>今天讲的是R语言的第一步，读数据——读Excel的数据。<br>以下有三种方法:<br>1.将Excel转存为csv格式文件，读csv文件。</p>
-<pre><code>a&lt;-read.csv(&quot;exercise1.csv&quot;,header = T)
-</code></pre><p>2.用RODBC包读取Excel。</p>
-<pre><code>ab&lt;-odbcConnectExcel2007(&quot;exercise1.xls&quot;)#连接excel，32位系统使用odbcConnectExcel函数
-sqlTables(ab)
-</code></pre><p><img src="http://img.blog.csdn.net/20170322224605035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>根据需求读取对应的sheet1</p>
-<pre><code>a&lt;-sqlFetch(ab,&quot;Sheet1$&quot;)
-odbcClose(ab)#关闭句柄，此句是必须。
-</code></pre><p>3.用openxlsx包读取Excel</p>
-<pre><code>a&lt;-read.xlsx(&quot;exercise1.xlsx&quot;,sheet=1)#文件名+sheet的序号，简单粗暴
-</code></pre><p>综合来看，openxlsx的方法简单粗暴，而且经多名骨灰级玩家证明，罕有bug出现。乃R语言和Excel读取的绝对神器。不过笔者也发现，openxlsx包仅适用于.xlsx格式文件。前期的xls格式文件可能还需要前两种方法来读取。除了以上三种方法，还有类似的包如xlsx、readxl。此处依旧强推神器openxlsx。首先，.xlsx文件存储行数大大提升，从65536行数据提升到了104万条数据。其次，它十分便捷，函数所需参数较少。当然最后的最后，它可能需要的R的版本比较的新，下一篇的预告：如何通过一行代码升级R。<br>最后贴出全文的代码。</p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/applicationstatics"</span>)</div><div class="line"></div><div class="line"><span class="comment">#第一种方法：读取csv</span></div><div class="line">a&lt;-read.csv(<span class="string">"exercise1.csv"</span>,header = <span class="literal">T</span>)</div><div class="line"></div><div class="line"><span class="comment">#第二种方法：RODBC包</span></div><div class="line"><span class="comment">#安装载入RODBC包，如果已安装，请跳过第一句语句</span></div><div class="line">install.packages(RODBC)</div><div class="line"><span class="keyword">library</span>(RODBC)</div><div class="line"></div><div class="line">ab&lt;-odbcConnectExcel2007(<span class="string">"exercise1.xls"</span>)<span class="comment">#连接excel，32位系统使用odbcConnectExcel函数</span></div><div class="line">sqlTables(ab)</div><div class="line">a&lt;-sqlFetch(ab,<span class="string">"Sheet1$"</span>)</div><div class="line">odbcClose(ab)<span class="comment">#关闭句柄，此句是必须。</span></div><div class="line"></div><div class="line"><span class="comment">#第三种方法：openxlsx</span></div><div class="line">install.packages(openxlsx)</div><div class="line"><span class="keyword">library</span>(openxlsx)</div><div class="line">a&lt;-read.xlsx(<span class="string">"exercise1.xlsx"</span>,sheet=<span class="number">1</span>)<span class="comment">#文件名+sheet的序号，简单粗暴</span></div></pre></td></tr></table></figure>
-</code></pre><p>当然文末小福利：《基于Excel的地理数据分析》的电子版。需要的童鞋可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。。</p>
-
-          
+          <p>这篇文章讲得是如何用R语言优雅地读取excel，当然前提是用R语言花式读excel，然后最优雅。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/R语言读取Excel的神器——openxlsx/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -896,7 +779,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1005,17 +888,14 @@ odbcClose(ab)#关闭句柄，此句是必须。
 
       
         
-          
-            <p>笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。<br><img src="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，扯淡完毕，首先先来简介下Fortran语言。<br>Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界上最早出现的计算机高级程序设计语言，广泛应用于科学和工程计算领域。FORTRAN语言以其特有的功能在数值、科学和工程计算领域发挥着重要作用。Fortran 90之前的版本是人们所知晓的FORTRAN（全部字母大写），从Fortran 90以及以后的版本都写成Fortran（仅有第一个字母大写）（ps，来自度娘百科）。<br>可以说Fortran是属于计算机编程语言中的老古董了，但是另一个重要特点就是在科学和工程计算领域应用广泛，主要是其编程语言本身在数组计算上的一些优点决定的。从TIOBE 2017年1月的编程语言排行榜来看<br>Fortran排在第28位，仍居前30之列，说明该语言仍旧具有广泛适用人群。<br><img src="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>那么Fortran在地理学、生态学与遥感方面的应用典型有哪些呢？<br>事实上，在地理学、生态学与遥感领域，Fortran可以说有大量的学者使用并建立开发了大量的模型。比如遥感方面，大气辐射传输6S模型、MODTRAN辐射传输模型；生态学方面，WOFOST作物生长模型、DSSAT作物生长模型、景观中性模型模拟软件RULE等。<br>同时Fortran对数组处理的优势使得它能在遥感数据的处理方面担当举足轻重的角色（类比语言IDL、Matlab、Python的numpy），这也是笔者学习的初衷。<br>当然，正如前面提到了，Fortran是个典型的老古董语言，应用广泛的相关模型基于的Fortran版本的编译器在Win 7及以上系统中基本无法正常安装，故Win 7 64位系统如何配置Fortran开发环境是Fortran语言学习的第一步。<br>由于传统的Visual Fortran 6.6.0及以下版本在Win 7 64位无法兼容，网上虽有帖子提出了相关解决法方法，但笔者亲自尝试的结果是hello world无法运行，故这边介绍其他方法。<br>这里有两种配置方法是可以的：<br>第一种，安装Visual Studio。作为微软主推的IDE，VS在诸多IDE中确实功能突出，优点颇多，作为商业软件，简单的开发环境配置方法也是一大优势。只需勾选Fortran相关编译器安装，即可配置成功。<br>第二种，安装其他IDE，由于VS的简便性导致将其分为一类，其他IDE只需有Fortran编译器即可。VS在简便性上确实很优秀，但是相对而言，VS是个典型的重量级IDE。相对而言，笔者最近喜欢轻量级IDE，故搜索了其他IDE，以Code::Blocks为例，偏爱它的另一个原因就是因为它是免费开源软件（开源大法好）。<br>1.首先下载带有Fortran编译器的Code::Blocks软件。</p>
-<blockquote>
-<p><a href="http://www.codeblocks.org/" target="_blank" rel="external">http://www.codeblocks.org/</a></p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择最后一个<br>2.直接安装即可，确认安装所有部分<br><img src="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.安装完毕后，打开IDE<br>在菜单栏中找到“Setting”→“Compiler”<br><img src="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>复制一个编译器，自定义名字<br>接着点“Toolchain executables”<br>将画框部分的文件全部改成gfortran.exe<br><img src="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击ok即可。<br>4.Hello World 编写<br>在菜单栏找到”File”→”New”→”Project”，建立一个Fortran工程文件。<br><img src="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>工程命名<br><img src="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择自定义的编译器<br><img src="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>添加hello world项目的Fortran文件<br><img src="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编写如下的hello world进行测试。</p>
-<pre><code><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">program</span></span> helloworld</div><div class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></div><div class="line">    <span class="built_in">write</span>(*,*) <span class="string">'Hello world'</span></div><div class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span></div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>5.生成exe文件无法打开的处理方法<br>某些时候生成的exe文件打开会报错。类似“找不到<em>*</em>.dll”“这个应用程序安装/配置不正确，重新安装…”这样的错误。<br>这样的情况下，只需在系统变量里面PATH加上对应的路径即可。</p>
-
-          
+          <p>笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1057,7 +937,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/11/如何做出相关系数矩阵可视化图/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2016/12/11/如何做出相关系数矩阵可视化图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1166,33 +1046,14 @@ odbcClose(ab)#关闭句柄，此句是必须。
 
       
         
-          
-            <p>如何做出相关系数矩阵可视化图</p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"psych"</span>)</div><div class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></div><div class="line"><span class="keyword">library</span>(psych)</div><div class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></div><div class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></div><div class="line">head(iris)<span class="comment">#查看下数据集前五行</span></div><div class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></div><div class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></div><div class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></div><div class="line">corrplot(cormat$r)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;number&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170051203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170105390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170119297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170133453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170145922?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#含显著性检验的相关系数矩阵可视化
-cormatp&lt;-cormat$p#单独取出p值矩阵
-cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
-corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170247486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170259064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170308127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
+          <p>如何做出相关系数矩阵可视化图
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/11/如何做出相关系数矩阵可视化图/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1305,6 +1166,13 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -1379,7 +1247,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1395,7 +1263,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -1434,6 +1302,8 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
   
 
 
+  
+
 
 
 
@@ -1455,6 +1325,9 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

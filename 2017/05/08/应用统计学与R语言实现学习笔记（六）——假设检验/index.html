@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -87,14 +89,12 @@
 
 
 
-<meta name="description" content="Chapter 6 Hypothesis Test本篇是第6章，内容是假设检验。
-1.基本思想我们还是从问题开始讨论。这回提个接地气的问题——雄安新区批复前后对该地区房价是否有差异？嗯，假设检验其实就是为了解决这类问题。假设检验的基本思想——我们有样本，但是无法获得总体，需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。分解开来，假设检验">
+<meta name="description" content="Chapter 6 Hypothesis Test本篇是第6章，内容是假设检验。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="应用统计学与R语言实现学习笔记（六）——假设检验">
-<meta property="og:url" content="http://yoursite.com/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="Chapter 6 Hypothesis Test本篇是第6章，内容是假设检验。
-1.基本思想我们还是从问题开始讨论。这回提个接地气的问题——雄安新区批复前后对该地区房价是否有差异？嗯，假设检验其实就是为了解决这类问题。假设检验的基本思想——我们有样本，但是无法获得总体，需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。分解开来，假设检验">
+<meta property="og:description" content="Chapter 6 Hypothesis Test本篇是第6章，内容是假设检验。">
 <meta property="og:image" content="http://img.blog.csdn.net/20170508115209606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170508122049152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170508122334492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -106,11 +106,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170508135615106?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170508143623860?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170508152254020?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-07-30T15:21:21.029Z">
+<meta property="og:updated_time" content="2017-10-12T01:11:24.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（六）——假设检验">
-<meta name="twitter:description" content="Chapter 6 Hypothesis Test本篇是第6章，内容是假设检验。
-1.基本思想我们还是从问题开始讨论。这回提个接地气的问题——雄安新区批复前后对该地区房价是否有差异？嗯，假设检验其实就是为了解决这类问题。假设检验的基本思想——我们有样本，但是无法获得总体，需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。分解开来，假设检验">
+<meta name="twitter:description" content="Chapter 6 Hypothesis Test本篇是第6章，内容是假设检验。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170508115209606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -119,7 +118,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -139,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/"/>
 
 
 
@@ -318,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -423,7 +422,7 @@
       
 
       
-        <h1 id="chapter-6-hypothesis-test"><a href="#Chapter-6-Hypothesis-Test" class="headerlink" title="Chapter 6 Hypothesis Test"></a>Chapter 6 Hypothesis Test</h1><p>本篇是第6章，内容是假设检验。</p>
+        <h1 id="chapter-6-hypothesis-test"><a href="#Chapter-6-Hypothesis-Test" class="headerlink" title="Chapter 6 Hypothesis Test"></a>Chapter 6 Hypothesis Test</h1><p>本篇是第6章，内容是假设检验。<a id="more"></a> </p>
 <h3 id="1基本思想"><a href="#1-基本思想" class="headerlink" title="1.基本思想"></a>1.基本思想</h3><p>我们还是从问题开始讨论。这回提个接地气的问题——雄安新区批复前后对该地区房价是否有差异？<br>嗯，假设检验其实就是为了解决这类问题。<br>假设检验的基本思想——我们有样本，但是无法获得总体，需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。<br>分解开来，假设检验=假设+检验（或者假设检验）。<br>假设(hypothesis)——对总体的参数的具体数值（或分布形式）所作的陈述（总体参数包括总体均值、比例、 方差等，分析之前必需陈述）。<br>假设检验(hypothesis test)—先对总体的参数（ 或分布形式） 提出某种假设，然后利用样本信息判断假设是否成立的过程（有参数检验和非参数检验；逻辑上运用反证法， 统计上依据小概率原理）。如图。</p>
 <p><img src="http://img.blog.csdn.net/20170508115209606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>假设检验的思想还可以去搜索Fisher 显著性检验的思想(女士品茶试验)的故事深深体会，这里就不详述了。有兴趣的同学可以点击下文的科学网链接查看。</p>
@@ -655,6 +654,22 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -662,6 +677,21 @@
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/" title="应用统计学与R语言实现学习笔记（六）——假设检验">https://giserdaishaoqing.github.io/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -804,6 +834,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -894,7 +931,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -910,7 +947,7 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -949,6 +986,8 @@
   
 
 
+  
+
 
 
 
@@ -970,6 +1009,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

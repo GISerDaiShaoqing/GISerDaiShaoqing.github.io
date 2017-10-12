@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -92,7 +94,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
-<meta property="og:url" content="http://yoursite.com/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。
 WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。
@@ -103,7 +105,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 <meta property="og:image" content="http://img.blog.csdn.net/20170401004212178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170401004956776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170401005315027?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-06T02:37:23.674Z">
+<meta property="og:updated_time" content="2017-10-12T01:09:34.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
 <meta name="twitter:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。
@@ -117,7 +119,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -137,7 +139,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/"/>
 
 
 
@@ -316,7 +318,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -423,7 +425,7 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
       
         <p>由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。</p>
 <p>WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。</p>
-<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。<br>具体的可以见官网：</p>
+<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。<a id="more"></a><br>具体的可以见官网：</p>
 <blockquote>
 <p><a href="http://www2.mmm.ucar.edu/wrf/users/" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/</a></p>
 </blockquote>
@@ -542,6 +544,22 @@ $ ../build/rttov_compile.sh
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -549,6 +567,21 @@ $ ../build/rttov_compile.sh
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" title="WRF-DA代码编译与安装（一）——依赖库的编译与安装">https://giserdaishaoqing.github.io/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -680,6 +713,13 @@ $ ../build/rttov_compile.sh
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -754,7 +794,7 @@ $ ../build/rttov_compile.sh
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -770,7 +810,7 @@ $ ../build/rttov_compile.sh
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -809,6 +849,8 @@ $ ../build/rttov_compile.sh
   
 
 
+  
+
 
 
 
@@ -830,6 +872,9 @@ $ ../build/rttov_compile.sh
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

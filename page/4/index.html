@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -89,7 +91,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/page/4/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GISerDaiShaoqing's Blog">
@@ -100,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/4/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/page/4/"/>
 
 
 
@@ -301,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -410,94 +412,14 @@
 
       
         
-          
-            <h1 id="chapter-1-introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。</p>
-<h3 id="1从问题说起"><a href="#1-从问题说起" class="headerlink" title="1.从问题说起"></a>1.从问题说起</h3><p>常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和问题离不开。老生常谈的就是像牛顿被苹果砸了之后，就想到一个问题，为啥苹果不飞上天和太阳肩并肩呢？<br>我答：因为会被烤焦。<br>。。。<br>嗯，幽默一下。<br>总结下来说，科研中有很多问题跟统计学相关（笔者是地学和生态学背景，就提点接地气的问题）。<br>譬如：<br>（1)人口研究当中，我们希望了解65岁以上老年人所占的比例，以便于我们更好地研究老龄化的问题。<br>（2)从几个监测站点的汽车尾气监测推断今天北京市的汽车尾气排放是否达到大气污染物排放标准。<br>（3）影响植物光合作用的因素是什么，各个因素的影响有多大？<br>以及等等等。<br>总结来说，可以分为以下的几类：<br>（1）统计量问题；（2）参数（推断统计）问题；（3）归因问题；（4）预测问题。</p>
-<h3 id="2统计学及其研究过程"><a href="#2-统计学及其研究过程" class="headerlink" title="2.统计学及其研究过程"></a>2.统计学及其研究过程</h3><p>那么统计学又是什么呢？</p>
-<blockquote>
-<p>statistics: the science of collecting,analyzing, presenting, and interpreting data.<br>Copyright 1994-2000 Encyclopaedia Britannica, In</p>
-</blockquote>
-<p>翻译过来就是</p>
-<blockquote>
-<p>统计学是收集、分析、表述和解释数据的科学（ 不列颠百科全书）</p>
-</blockquote>
-<p>所以统计学包括了：</p>
-<blockquote>
-<ul>
-<li>数据收集：取得数据</li>
-<li>数据处理：整理与图表展示</li>
-<li>数据分析：利用统计分析方法分析数据</li>
-<li>数据解释：结果的说明</li>
-<li>得到结论：从数据分析中得出客观结论。</li>
-</ul>
-</blockquote>
-<p>同时跟统计学密切相关的就是概率论。这二者都是研究随机现象数量规律的学科。而二者的区别可以用一张图来形象体现：</p>
-<p><img src="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>也就是说，概率论是——我知道箱子里面是什么样的，我想知道我拿在手里的球是什么样的可能性分别有多大。统计学则是——我不知道箱子里面是什么样的，但是我已经知道我拿在手里的球是什么样的，我想靠我手里的球的样子去推断箱子是什么样的。<br>有兴趣的也可以查看知乎上的回答。</p>
-<blockquote>
-<p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
-</blockquote>
-<p>总结起来，统计学的研究过程就像下面的流程图。</p>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
-<h3 id="3统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
-<div id="flowchart-1" class="flow-chart"></div>
-
-<p>统计学应用领域十分广泛，这里就不细谈了。</p>
-<h3 id="4统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
-<blockquote>
-<ul>
-<li>分类数据</li>
-<li>顺序数据</li>
-<li>数值数据</li>
-</ul>
-</blockquote>
-<p>（2）按收集方法划分</p>
-<blockquote>
-<ul>
-<li>调查观察数据</li>
-<li>试验数据</li>
-</ul>
-</blockquote>
-<p>（3）按时间状况划分</p>
-<blockquote>
-<ul>
-<li>截面数据</li>
-<li>时序数据</li>
-</ul>
-</blockquote>
-<h3 id="5统计学中的几个基本概念"><a href="#5-统计学中的几个基本概念" class="headerlink" title="5.统计学中的几个基本概念"></a>5.统计学中的几个基本概念</h3><p>统计学中的基本概念分别是：</p>
-<blockquote>
-<ul>
-<li>总体（population）</li>
-<li>样本（sample)</li>
-<li>参数（parameter)</li>
-<li>统计量（statistic)</li>
-<li>变量（variable)</li>
-</ul>
-</blockquote>
-<p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
-<p><div id="flowchart-2" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 实际问题
-op1=>operation: 收集数据（取得数据）
-op2=>operation: 整理数据（处理数据）
-op3=>operation: 分析数据（研究数据）
-op4=>operation: 解释数据（结果说明）
-st->op1->op2->op3->op4</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 统计方法
-e=>end: 结论
-sub=>subroutine: 描述统计
-cond1=>condition: 样本=总体？
-cond2=>condition: 分布已知？
-op1=>operation: 推断统计
-op2=>operation: 参数估计
-op3=>operation: 假设检验
-st->cond1(no)->op1->cond2(no)->op2->e
-cond1(yes)->sub->e
-cond2(yes)->op3->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=>start: 总体（参数）
-op=>operation: 样本（统计量）
-st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script></p>
-
-          
+          <h1 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -539,7 +461,7 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/01/关于Git使用的一些心得/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/01/关于Git使用的一些心得/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -648,58 +570,14 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
 
       
         
-          
-            <p>本篇稍微记录下Git使用的一些心得。<br>对Git的使用，应该是从搭建自己的博客开始的。当时看到开源中国推荐的一篇基于码云+hexo搭建自己博客的文章。所以就花了一天时间鼓捣了下博客。<br>顺带整理下目前能看到我写的博客文章的几个地址：<br>自己搭建的博客（Hexo）：</p>
-<blockquote>
-<p><a href="https://giserdaishaoqing.github.io/" target="_blank" rel="external">https://giserdaishaoqing.github.io/</a></p>
-</blockquote>
-<p>CSDN博客：</p>
-<blockquote>
-<p><a href="http://blog.csdn.net/esa_dsq" target="_blank" rel="external">http://blog.csdn.net/esa_dsq</a></p>
-</blockquote>
-<p>简书（相比而言，简书少了一篇关于桌面GIS连接Postgresql的文章）：</p>
-<blockquote>
-<p><a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" rel="external">http://www.jianshu.com/u/8bfccfb12c0d</a></p>
-</blockquote>
-<p>开源中国：</p>
-<blockquote>
-<p><a href="https://my.oschina.net/u/2424163、" target="_blank" rel="external">https://my.oschina.net/u/2424163、</a></p>
-</blockquote>
-<p>以上地址均可看到我的博客文章。<br>回到Git上，关于如何搭建hexo的静态博客。这里就不详述了。网上教程太多。我最早看得是下面的博客，当然后面参考了很多简书和各种平台的。</p>
-<blockquote>
-<p><a href="https://my.oschina.net/z707z/blog/824830" target="_blank" rel="external">https://my.oschina.net/z707z/blog/824830</a></p>
-</blockquote>
-<p>尽管最早是想在OSChina上搭建，不过老是出bug，最后还是选择了github。bug总结起来就是，https连接靠不住，git大法好。用github生成ssh秘钥，然后连接，更为方便。具体的过程下面这篇文章讲得已经很详细了。</p>
-<blockquote>
-<p><a href="http://blog.csdn.net/wfdtxz/article/details/8678982" target="_blank" rel="external">http://blog.csdn.net/wfdtxz/article/details/8678982</a></p>
-</blockquote>
-<p>关键的几个命令就是。</p>
-<pre><code>#查看是否有秘钥
-cd ~/.ssh
-ls
-
-#没有的话就生成一下，引号里填你github账户的邮箱。
-ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;
-</code></pre><p>后面就去本地文件夹搜索下你的秘钥文件id_rsa.pub。复制内容，并打开github，从settings里面找到如下的选项。</p>
-<p><img src="http://img.blog.csdn.net/20170501103623647?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接着点击New Key，然后把秘钥文件里的内容复制过去。启用即可。<br>可以用下面的命令测试下是否成功。</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p>这个就是之前搭建博客时提交博客老出错的解决方案。顺带记录下hexo博客的典型命令。</p>
-<pre><code>hexo clean
-hexo generate
-hexo deploy
-hexo server -p 5000
-</code></pre><p>同时，最近刚好完成了ArcGIS中OLS回归工具结果可视化的R语言版本代码（见上一篇博客），顺带就托管到github上，就尝试了下如何push。在需要托管的本地文件夹右击Git Bash，接着输入如下的命令。这里就每次都输下自己的账户密码吧。比较安全。</p>
-<pre><code>#添加需要更新上传的文件
-git add .
-
-#commit一下
-git commit -a -m &quot;备注信息&quot;
-
-#最后push上传
-git push
-</code></pre>
-          
+          <p>本篇稍微记录下Git使用的一些心得。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/01/关于Git使用的一些心得/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -741,7 +619,7 @@ git push
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -850,70 +728,14 @@ git push
 
       
         
-          
-            <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。</p>
-<h3 id="1矢量数据"><a href="#1-矢量数据" class="headerlink" title="1.矢量数据"></a>1.矢量数据</h3><p>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
-<pre><code>install.packages(&apos;maptools&apos;)
-library(maptools)
-</code></pre><p>接着定位到我们所需读取数据的工作路径上，然后就可以开始读取对应的数据了。</p>
-<pre><code>fujian&lt;-readShapePoints(&apos;fujian.shp&apos;)
-nanhailine&lt;-readShapeLines(&quot;linesnation.shp&quot;)
-province&lt;-readShapePoly(&quot;province.shp&quot;)
-</code></pre><p>如果不需要什么其他操作，读取数据只需要填入文件名字作为传入的参数即可。这几个函数完整的参数大体差不多，主要包括下面几个。<br>fn——文件名，一般能读的是.shp文件，.shx文件和.dbf文件<br>proj4string = CRS(as.character(NA))——坐标系的CRS字符串，关于坐标系的问题，这里不详讲。其实就是一个坐标系对应一个ID，把对应ID读进去，按照对应坐标系读取，这个是遵循规范的。<br>一般前两个参数用得多。后面这些只介绍这三个函数共有的参数，其他参数就请参照帮助文档。<br>verbose = FALSE——默认为False，这个主要是在读取数据后是否返回读入要素的类型和数量。<br>repair=FALSE——这个参数的话，主要是考虑到.shx索引文件太大，默认False会跳过读取数据，TRUE的话，会进行内部修复，读取这类文件。<br>而maptools同样提供了另外一个函数readShapeSpatial，这个就可以读以上的三类要素。</p>
-<pre><code>fujian&lt;-readShapeSpatial(&quot;fujian.shp&quot;)
-</code></pre><p>当然除了maptools，还有其他包可以读取，事实上，maptools提供的函数读取只能传输较差分辨率的空间数据，所以更推荐的是用rgdal包的OGR驱动程序来读取。熟悉开源GIS的同学对GDAL会比较熟悉，事实上rgdal就是GDAL的R接口（当然没装还是要先装，方法同上），读取方式如下，参数也是传入文件名即可简单读取，不过这个参数可以读具体文件也可以读文件夹名。对应上面proj4string也有一个参数p4s，其他参数参照文档。</p>
-<pre><code>fujian&lt;-readOGR(&quot;fujian.shp&quot;)
-</code></pre><p>此外还有shapefiles包也可以进行读取。读取方式（可以读取shp和shx，shx读取结果为空间索引）如下：</p>
-<pre><code>fujian&lt;-read.shp(&quot;fujian.shp&quot;)
-</code></pre><p>矢量数据读取主要通过以上几种方式就可以实现。</p>
-<h3 id="2栅格数据"><a href="#2-栅格数据" class="headerlink" title="2.栅格数据"></a>2.栅格数据</h3><p>栅格数据的话，格式还是多种多样的。这边主要提供几种不同格式的读取方法（.img文件，.tif文件，ASCII码文件和.asc文件）。栅格数据读取主要是基于rgdal包，读取方式如下，img和tif都可以通过readGDAL直接读取。</p>
-<pre><code>co2&lt;-readGDAL(&quot;CO22008.img&quot;)
-co2&lt;-readGDAL(&quot;CO22008.tif&quot;)
-</code></pre><p>这里面的参数我就不详细介绍了，主要解释几个个人认为比较重要的参数。有兴趣的同学可以去查询官方文档。<br>band——波段数，单纯栅格无所谓。做遥感影像数据处理时就会遇到需要几个波段的问题，如果缺省的话，是全部导入。<br>p4s——等同于上面的proj4string<br>type——像素深度：8bit，16bit等<br>除了rgdal之外，也可以通过raster包进行读取.img文件和.tif文件，这个更方便些。读取方式如下</p>
-<pre><code>co2&lt;-raster(&quot;CO22008.img&quot;)
-co2&lt;-raster(&quot;CO22008.tif&quot;)
-</code></pre><p>当然栅格数据还有较为普遍的以ASCII码文件存储的方式。这里也提供下如何读取ASCII码文件，这个方法是基于sp包的，所以需要先安装和载入sp包，这个包是R语言空间数据的基础包，指定了空间数据库的方法和对象。</p>
-<pre><code>co2&lt;-read.asciigrid(&quot;co22008.txt&quot;)
-</code></pre><p>当然ASCII码文件可能是以.asc文件存储的，只需把后缀名改成.asc即可读取。<br>栅格的读取大概就如上。</p>
-<h3 id="3地理数据库geodatabase数据读取"><a href="#3-地理数据库（Geodatabase）数据读取" class="headerlink" title="3.地理数据库（Geodatabase）数据读取"></a>3.地理数据库（Geodatabase）数据读取</h3><p>Geodatabase是Esri在ArcInfo8之后引入的一种全新的面向对象的空间数据模型。具体简介可以自己搜索。也就是说Geodatabase是Esri官方提出的一种数据库，没有ArcGIS是无法创建Geodatabase的。读取的话其实也相对麻烦些。目前看到的只有Esri官方给出的一个R包可以读取Geodatabase数据。R语言与ArcGIS的结合在未来将很有潜力。目前Esri已经在github上开源了部分工具，2015年全球用户大会上也秀出了R-ArcGIS的Sample工具。<br>具体开源地址：</p>
-<blockquote>
-<p><a href="https://r-arcgis.github.io/" target="_blank" rel="external">https://r-arcgis.github.io/</a></p>
-</blockquote>
-<p>本次用来读取Geodatabase的包就是R-ArcGIS中的一个关键包——arcgisbinding。这个包目前没有在cran上，建议下载之后离线安装。下载地址：</p>
-<blockquote>
-<p><a href="https://github.com/R-ArcGIS/r-bridge/releases/tag/v1.0.0.125。" target="_blank" rel="external">https://github.com/R-ArcGIS/r-bridge/releases/tag/v1.0.0.125。</a></p>
-</blockquote>
-<p>这个包的官方文档可以从官网下载，也可以从下面的连接下载。</p>
-<blockquote>
-<p><a href="http://download.csdn.net/detail/esa_dsq/9823403" target="_blank" rel="external">http://download.csdn.net/detail/esa_dsq/9823403</a></p>
-</blockquote>
-<p>具体安装，同时安装完之后需要先确认ArcGIS的许可（要求应该是ArcGIS10.4以上的版本或者ArcGIS pro1.1以上），具体代码如下：</p>
-<pre><code>install.packages(&quot;G:/GIS/Esri/ArcGIS Plugin/arcgisbinding_1.0.0.125.zip&quot;, repos = NULL, type = &quot;win.binary&quot;)
-arc.check_product()
-</code></pre><p><img src="http://img.blog.csdn.net/20170424172827705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>读取的方式稍微复杂些，用到了arc.open，arc.select，arc.data2sp三个函数，arc.open是打开gdb文件里的featureclass（支持的格式还包括layers等），arc.select是将打开的featureclass按照需要的字段和sql读成R语言中熟悉的数据框，arc.data2sp是将数据框转化成空间要素。使用方式如下。</p>
-<pre><code>china&lt;-arc.open(&quot;china.gdb/province&quot;)
-chinapop&lt;-arc.select(china,fields = c(&apos;Pop_Rural&apos;,&apos;Pop_Urban&apos;,&apos;POPU&apos;))
-chinapopsp&lt;-arc.data2sp(chinapop)
-</code></pre><p>当然读取完了我们还是要来可视化一下。用的是spplot函数，这里就不展开讲了，只贴出图（当然只是随手画的，色带啥的都没调）。</p>
-<p><img src="http://img.blog.csdn.net/20170424231148007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170424231216987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170424231227096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="4arcgis中ols工具回归结果可视化r语言版"><a href="#4-ArcGIS中OLS工具回归结果可视化（R语言版）" class="headerlink" title="4.ArcGIS中OLS工具回归结果可视化（R语言版）"></a>4.ArcGIS中OLS工具回归结果可视化（R语言版）</h3><p>最后的最后。对应虾神文章的Python版本ArcGIS中OLS工具回归结果可视化，写个R语言版本。</p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#载入包</span></div><div class="line"><span class="comment">#如果没安装，请先安装，如果已安装，请注释</span></div><div class="line"><span class="comment">#install.packages(".../arcgisbinding_1.0.0.125.zip", repos = NULL, type = "win.binary")…表示arcgisbinding离线包的路径</span></div><div class="line"><span class="comment">#install.packages("car")</span></div><div class="line"><span class="comment">#install.packages("GGally")</span></div><div class="line"><span class="comment">#install.packages("ggplot2")</span></div><div class="line"><span class="keyword">library</span>(arcgisbinding)</div><div class="line"><span class="keyword">library</span>(car)</div><div class="line"><span class="keyword">library</span>(GGally)</div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"></div><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/demo/readdata"</span>)</div><div class="line"></div><div class="line"><span class="comment">#检查ArcGIS产品许可</span></div><div class="line">arc.check_product()</div><div class="line"></div><div class="line"><span class="comment">#读取数据并将数据转换为数据框</span></div><div class="line">olsdata&lt;-arc.open(<span class="string">"china.gdb/olstest"</span>)</div><div class="line">olsdata</div><div class="line">olsdataframe&lt;-arc.select(olsdata,fields = c(<span class="string">"gdp"</span>,<span class="string">"Index_2000"</span>,<span class="string">"Pop_Urban"</span>,<span class="string">"POPU"</span>,<span class="string">"PRODUCT"</span>,<span class="string">"Estimated"</span>,<span class="string">"Residual"</span>,<span class="string">"StdResid"</span>))</div><div class="line"></div><div class="line"><span class="comment">#把因变量和自变量单独分离出来并用car包里的spm函数绘图</span></div><div class="line">variableframe&lt;-olsdataframe[,c(<span class="number">1</span>:<span class="number">5</span>)]</div><div class="line">spm(variableframe,diagonal=<span class="string">"hist"</span>)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425013332358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>感觉似乎不是很好看，换个方式。<br>    <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#利用GGally的ggpairs函数画图</span></div><div class="line">ggpairs(variableframe,upper = list(continuous=<span class="string">"cor"</span>),lower = list(continuous=<span class="string">"smooth"</span>),diag = list(continuous=<span class="string">"barDiag"</span>))</div></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20170425150335593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差的分布，用ggplot2画图</span></div><div class="line">a&lt;-ggplot(olsdataframe,aes(x=StdResid))+</div><div class="line">  geom_histogram(aes(y=..density..),binwidth = <span class="number">0.5</span>,colour=<span class="string">"white"</span>,fill=<span class="string">"grey"</span>)+</div><div class="line">  geom_line(stat=<span class="string">'density'</span>,colour=<span class="string">"#FF6666"</span>)</div><div class="line">a</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差和观测值的散点图</span></div><div class="line">opar&lt;-par(no.readonly = <span class="literal">T</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0</span>,<span class="number">0.8</span>))</div><div class="line">plot(olsdataframe$gdp,olsdataframe$StdResid,col=<span class="string">"grey"</span>,pch=<span class="number">16</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.7</span>,<span class="number">1</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$gdp,col=<span class="string">"grey"</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0.75</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0.8</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$StdResid,col=<span class="string">"grey"</span>)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是为了和虾神最后的效果类似，事实上，在读取完数据框之后，纯属散点图矩阵可视化方面的内容。<br>最后贴出虾神的公众号和博客。</p>
-<p>微信公众号：虾神daxialu——以推广空间分析和空间数据挖掘为己任，致力于在GIS界传递分析价值。<br><img src="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>虾神博客原文地址：《白话空间统计二十三：回归分析番外-ArcGIS中的OLS（三）》</p>
-<blockquote>
-<p><a href="http://blog.csdn.net/allenlu2008/article/details/70456024" target="_blank" rel="external">http://blog.csdn.net/allenlu2008/article/details/70456024</a></p>
-</blockquote>
-
-          
+          <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -955,7 +777,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/22/从定性遥感到定量遥感——大数据时代的空间数据科学/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/22/从定性遥感到定量遥感——大数据时代的空间数据科学/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1064,38 +886,14 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 
       
         
-          
-            <p>笔者最近一周之内连续听了四场关于定量遥感前沿进展的讲座（内容遍布目前定量遥感的诸多热点领域）。<br>这四场讲座分别从定量遥感信息技术整体的前沿进展、气溶胶（民众最关心的PM2.5）定量遥感、植被生态环境定量遥感（高光谱遥感、多光谱遥感）到最后一个雷达遥感（SAR）。可以说十分丰富，信息量也非常大。所以听完之后，有些想法和思考来谈一谈关于从定性遥感到定量遥感的发展以及必然。<br>首先会有很多人会疑惑什么是定量遥感？和普通的遥感有啥区别？那么我想还是先从遥感的起源和定义说起。遥感，也就是Remote Sensing。最早是由这位美国海军的老太太提出的，具体的故事看下图介绍。</p>
-<p><img src="http://img.blog.csdn.net/20170422192848831?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>从广义来说，遥感就是以非直接接触形式探测物体的一种方法，最广泛的一种方式就是以电磁波来进行探测。物体之间的差异，造成了对不同波长的电磁波反射特性不尽相同，通过这个特点，通过传感器接收物体反射回来的电磁波信息，就是典型的遥感探测，当然我们也可以称之为被动遥感。而通过传感器主动发射电磁波并接收物体反射回来的电磁波，同样是遥感探测，也可以称之为主动遥感（有点像海豚的超声波定位原理）。被动遥感的典型案例包括目前多数光学卫星遥感，主动遥感则是近年来兴起的微波遥感、激光雷达遥感等。当然从广义角度来说，无人机航拍这类也可以算是遥感的一类，但是从狭义来说，我认为它还算不上遥感。而遥感的狭义定义就是定量遥感的基础，遥感的狭义定义应当是指通过接收记录物体反射电磁波特性来探测物体性质的方法。所以狭义的遥感的关键是物体反射的电磁波特性。嗯，敲黑板、划重点。三个字：电磁波！电磁波！电磁波！重要事情说三遍。<br>遥感的价值就在于遥感探测得到的电磁波信息，那么电磁波信息能带给我们什么呢？<br>初中老师（也有可能是高中老师吧）曾经曰过：“太阳光是白光（其实它五颜六色），物体在人的视觉里呈现不同颜色，就是因为它吸收了部分光，反射了部分光，这一部分信息被人的视觉所接收并生成图像。”事实上，卫星遥感同样是这个道理，卫星遥感大部分接受的电磁波信息就是地物反射的太阳光波谱信息，所以，不了解遥感的人总觉得它就是在给地球拍照。</p>
-<p><img src="http://img.blog.csdn.net/20170422195700534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>图片来源：ArcGIS Earth</p>
-<p>其实准确说来也没错。人类视觉接收到的也是地物反射的太阳光波谱信息，相机和卫星接收到的也是如此，只不过人类视觉接收的信息可能以某种生物信息或者信号方式记录存在，而相机（RGB值）和卫星则均使用数字来记录。所以我们会觉得卫星遥感影像有时候很直观，看着跟眼睛看到的真实事物或者拍出来的照片一样，三者者事实上也是一样的道理（盗用知乎的一句话：传感器接受到外界光子，要么形成电压信号，要么形成电流信号，然后转换成我们所熟悉的pixel，尽管三者有些许差别，总的来说核心的问题并没有太大差异，文末贴链接）。<br>一个很核心的问题在于，人类视觉可以接受的波谱信息有限制，也就是我们说的可见光部分。但是卫星遥感数据接收的范围则远比这广得多——微波（合成孔径雷达）、热红外等。<br>但是无论是可见光部分或者非可见光部分，卫星所接收的都是用来描述电磁波的信息，而电磁波的信息又是反映物体的物理特性的（前面提到过，物体间的差异导致的反射波谱不同）。所以遥感技术应用的核心就是将电磁波信息转化为对人类有用的Knowlegde。那么如何转化呢？熟悉遥感的同学会知道目视解译这个词。也就是说看图识物。就像前面提到的，由于遥感成像原理与人眼成像原理类似，我们可以把它当地球拍的一系列照片，通过看着一系列照片，我们可以做监测（就像警察叔叔看监控找犯人一样），监测地球发生的变化，也可以监测某种地物的变化（从监控视频中找出犯人）。就像下面的图片。</p>
-<p><img src="http://img.blog.csdn.net/20170422205540669?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>图片来源：Google Earth Engine</p>
-<p>然而一切的发明都是从偷懒开始的，一定会开始想方设法降低自己看照片的工作量。这就出现了计算机上面的一大分支——图像识别与图像分类。正如我上文提到的，卫星遥感的原理跟相机成像原理最核心部分是类似的。那么也就是说卫星遥感影像某种程度上也可以看成是特殊的“图片”。<br>嗯，讲了很久。貌似都是遥感的基础概念。<br>接下来！！！敲黑板，再次划重点。<br>什么是定性遥感？什么是定量遥感？<br>定性遥感就是类似于看图识物，通过将遥感影像当做特殊的“图片”，通过诸如计算机的图像识别、分类的方法去进行分析和处理得到我们所需要的Knowledge。比如简单的土地利用分类、面向对象的分割与分类或者监测变化等，仅仅是定性的划分。</p>
-<p><img src="http://img.blog.csdn.net/20170422211955044?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>GLC30 m土地覆被</p>
-<p>而定量遥感，我就套用一下李传荣老师讲座时的定义：向社会和公众提供有用信息的技术。要精准描述构成地物状态特征的物理化学要素，以及导致地物目标变化的物理化学动力驱动机制。<br>事实上，它的核心就是第一个重点，遥感目前的根本在于电磁波。那么电磁波这么一个物理现象，要做的不仅仅是将电磁波谱映射成普通图像去做解译、分类。既然我们通过卫星接收到了很多人类无法肉眼观测到的电磁波信息，那么我们就希望通过建立具有物理意义的方程以及模型，将电磁波信息转化为对人类更有用的Knowledge。这就是定量遥感所要做的事情。<br>而定量遥感的典型分析方法就是耳熟能详的遥感定量反演。为什么叫反演？其实就是我想知道B的具体值，但是我无法直接观测B的具体值，但是我能观测到A的具体值，而A和B相互之间的关系，可以通过物理学意义的模型或者是其他模型进行表达，那么我就同过A的值去反推出B的值，这就是反演。相信大家就会很清楚，在定量遥感里，A就是传感器接受的波谱信息，而B则可以有很多种东西。比如：<br>1.二氧化碳探测——温室气体</p>
-<p><img src="http://img.blog.csdn.net/20170422212956501?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>来源：GOSAT卫星反演结果。</p>
-<blockquote>
-<p><a href="https://data2.gosat.nies.go.jp/index_en.html" target="_blank" rel="external">https://data2.gosat.nies.go.jp/index_en.html</a></p>
-</blockquote>
-<p>动图链接：<a href="https://pan.baidu.com/s/1hsNyTrY" target="_blank" rel="external">https://pan.baidu.com/s/1hsNyTrY</a></p>
-<p>去年我们国家在12月26日刚刚发射了TanSAT卫星，使得中国成为了第三个发射监测温室气体排放卫星的国家（前两个是美国和日本，分别是OCO-2卫星和GOSAT卫星），这件事对于我们的意义是什么呢？过去我们没有自己的碳卫星，发达国家在气候变化和谈上说中国排放多，我们难以反驳。现在我们有了自己的碳卫星，我们就有了谈判的手段。同时TanSAT卫星尽管有些方面不如前两个卫星，但是有些方面性能远超前两个卫星。<br>2.地表温度<br>地表温度反演，探究城市热环境的影响因素与空间格局分布。探究冷热岛效应成因分布。</p>
-<p><img src="http://img.blog.csdn.net/20170422215728125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>MODIS的LST产品</p>
-<p>3.气溶胶反演<br>气溶胶，可能如PM2.5，PM10这些更耳熟能详。但是要注意的就是气溶胶光学厚度≠PM2.5，它是介质消光系数在大气垂直方向上的积分（简单说它没有分离PM2.5、PM10等气溶胶物质）。所以不做垂直订正和湿度订正就拿来跟PM2.5建立关系的AOD都是耍流氓。</p>
-<p><img src="http://img.blog.csdn.net/20170422220831549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>PM2.5分布图，来源：网络</p>
-<p>MODIS气溶胶产品</p>
-<p>4.生态环境定量遥感<br>植被动态变化与生态环境相关要素如叶面积指数、NDVI、光合有效辐射、NPP、GPP等。</p>
-<p><img src="http://img.blog.csdn.net/20170422215340856?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>VPM模型求算的GPP</p>
-<p>除了以上四个，还有很多对应的定量遥感产品——水体叶绿素浓度产品、雪深产品等等。<br>那么定量遥感的核心就是如何通过卫星接收的数据和具有实际物理意义的模型去反演得到我们所需要的产品。而从模型来说，主要分为几类：经验模型、半经验模型、物理模型。<br>经验模型可以被认为是统计意义上的模型，即无视具体的物理过程，单纯靠统计方法建立的模型。<br>半经验模型一般是结合了部分的物理意义的统计模型。<br>物理模型则是严格按照电磁波谱和辐射传输特性经过推导的到的机理模型。<br>可以说物理模型才是定量遥感真正的核心，因为前面两个模型建立之后通常无法复制。物理模型其实有两大部分，即包括了辐射传输方程推导的模型以及几何光学模型（普及下，这就是布鞋院士李小文院士从事的研究）。<br>然而，定量遥感的研究已经有一段时间，却依旧处在一个不为人知的和无法广泛应用的时代。主要是由于地表的复杂性、定量遥感反演目前出现的病态反演问题、定量遥感产品缺乏验证和质量控制的多重因素影响。复杂性——地表非朗伯体特性、地形起伏等影响；<br>病态反演问题——参数求解过程大部分是求解参数大于方程数；<br>缺乏验证和质量控制——不确定性，缺乏统一标准等。<br>当然可以说现在这些问题开始有逐步的改善——毕竟一句话，问题都解决了，还要搞研究的人干什么。<br>但是可以肯定的是，目前计算机技术的发展、卫星载荷的发展、传感器的发展、多颗卫星共同监测、高光谱遥感、激光雷达、合成孔径雷达的普及的情况下，定量遥感的很多问题将会得到改善。<br>所以是时候从定性遥感走向定量遥感，因为这是必然。随着技术的发展和模型精度提高，遥感应用产品也将更加普及。毕竟现在是大数据时代，我们不断强调的是数据即服务和软件即服务，定量遥感作为地球观测的客观载体，将会迸发出更大的潜力。<br>很多人都会这么说，遥感数据是GIS里面的天生大数据，确实遥感数据满足了大数据的4V或者说5V的特征，但是它又跟计算机意义上的大数据有所不同。计算机上的大数据普遍的格式是什么呢？比较典型包括像文本、图片、视频，而甚至像LBS这样的经纬度数据。简而言之，它是高频数据，时间间隔非常短（诸如5min这样的时间间隔）。而遥感数据却不同，卫星的重访周期基本上很难达到5min，所以它非高频数据，那么从这个角度来说，很多大数据算法是否适用呢？同时它具有非常丰富的物理信息，所以就像老师们说的，我们更应该考虑的是这个不太一般的大数据如何去用，不是简单的拿来主义，用这些所谓的机器学习、深度学习去看图识物，可能更值得考虑的事如何将定量遥感的物理模型与大数据的数据挖掘、机器学习等手段相结合。<br>最后的最后，回到主题——大数据时代的空间数据科学。对于空间数据科学来说，这可能是个最好的时代。因为我们不缺数据，但是可能也是个最坏的时代，因为我们多的是黑箱的算法，更缺少的是内在机制的理论研究。<br>毕竟，科学家还是要有梦去追。</p>
-<p>关于卫星遥感影像与相机成像原理差异知乎解答：</p>
-<blockquote>
-<p><a href="https://www.zhihu.com/question/29835925" target="_blank" rel="external">https://www.zhihu.com/question/29835925</a></p>
-</blockquote>
-<p>后记——<br>从这四场讲座中，了解到很多前沿，对于定量遥感了解可能会更透彻。也了解到自己很多不足。一些简单的想法。就当是学习之后的呓语。<br>最后的最后，推荐两本定量遥感的书吧（京东和当当有满减活动，不用谢，叫我雷锋）。<br><img src="http://img.blog.csdn.net/20170422224425773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170422224433553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
+          <p>笔者最近一周之内连续听了四场关于定量遥感前沿进展的讲座（内容遍布目前定量遥感的诸多热点领域）。<br>这四场讲座分别从定量遥感信息技术整体的前沿进展、气溶胶（民众最关心的PM2.5）定量遥感、植被生态环境定量遥感（高光谱遥感、多光谱遥感）到最后一个雷达遥感（SAR）。可以说十分丰富，信息量也非常大。所以听完之后，有些想法和思考来谈一谈关于从定性遥感到定量遥感的发展以及必然。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/22/从定性遥感到定量遥感——大数据时代的空间数据科学/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1137,7 +935,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/Google Earth网页版初探/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/19/Google Earth网页版初探/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1246,44 +1044,14 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 
       
         
-          
-            <p>最近三维GIS界有个比较爆炸性的消息，嗯，没错，Google Earth Enterprise（谷歌地球企业版）宣告开源，47万行代码的大项目就此开放。（深深感觉谷歌就是要搞事情）。<br>概括下GEE开源可以提供些啥。官方github的Readme文档如是写道：<br><img src="http://img.blog.csdn.net/20170419223326199?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>1.Fusion（融合）——影像、矢量与地形（或者可以说集成）的多源数据融合，导入三维地球（可以漫游飞行）或者集成的二维地图。<br>2.Server（服务器）——可以通过融合用户自定义的多源数据定制一个私人三维地球服务器（基于Apache或者Tornado）。<br>3.Client（客户端）——谷歌地球企业版客户端和谷歌地图Javascript API V3版用来浏览三维地球和二维地图。<br>可以说这个开源项目强大异常，感觉GEE开源对于GIS和Web三维开发者是个很大的福利。<br>GEE开源地址：</p>
-<blockquote>
-<p><a href="https://github.com/google/earthenterprise" target="_blank" rel="external">https://github.com/google/earthenterprise</a></p>
-</blockquote>
-<p>接着近日，早前预告过会在世界地球日（4 月 22 日）前发布新版 Google Earth的 Google，今天公布了新消息，各位期待已久的网页版 Google Earth终于来了。现在 Google Earth在电脑端不再是只以应用形式存在，Google 为桌面浏览器推出了专门版本，不过目前只支持 Chrome，未来会增加对其它主流浏览器的支持。移动端方面，则是 Android 版先行，而 iOS 版会在未来得到更新（该段文字引自《Google 地球网页版上线，点击探索者按钮开启环球旅程吧》，文末贴链接）。<br>嗯，终于进入了本篇的正题，虽然跑题的篇幅略长（其实我觉得也不算跑题）。<br>首先贴主页面，感觉整个页面很舒服。<br><img src="http://img.blog.csdn.net/20170419230511695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接下来介绍下功能。</p>
-<p><img src="http://img.blog.csdn.net/20170419231650611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>主菜单其实包括了下面的几个功能，也可以登录你的谷歌账户。</p>
-<p><img src="http://img.blog.csdn.net/20170419231848839?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>定义地图样式。</p>
-<p><img src="http://img.blog.csdn.net/20170419231931535?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>而网页版最主要的两个功能（探索者和知识卡片，貌似官方把知识卡片称之为运气不错）。<br>探索者是实现了在世界知名景点的虚拟旅游，包括嵌入了360°全景、VR以及谷歌街景。<br>ps，给我一个谷歌地球，我能在跑步机上走遍世界。</p>
-<p><img src="http://img.blog.csdn.net/20170419232357035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>这里尝试了下BBC的纪录片的这个虚拟旅游（在Youtube上，请自备梯子），这里只放了简单的gif图，后面有详细视频的链接。</p>
-<p><img src="http://img.blog.csdn.net/20170420005328330?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>知识卡片功能显示（随机到达2万个地点，都有知识卡片和简介）</p>
-<p><img src="http://img.blog.csdn.net/20170420003105627?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170419234258453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>Google Earth在2005年推出之后，引起了全球对GIS、空间科学的新一轮思考与认知。是Google Earth真真正正让GIS、VGI（Volunteer Geographical information，志愿者地理信息）和空间科学的理念普及到了千家万户。而这一次Google Earth网页版的推出，又将驱动VR（Vitrual Reality，虚拟现实技术）与三维GIS的进一步发展。对于地理教学方面，Gooogle Earth真正提供了一个0门槛，高质量的集成。可以期待的是，随着GEE开源，接下来GEE的发展将再次焕发生机。</p>
-<p>分享的链接：</p>
-<blockquote>
-<p><a href="https://earth.google.com/web/@39.9388838,116.3974589,54.08506769a,142593.39805527d,35y,0h,0t,0r/data=CkwaShJECiUweDM1ZjA1Mjk2ZTcxNDJjYjk6MHhiOTYyNTYyMGFmMGZhOThhGXvXoC-980NAIXNjesISGl1AKgnljJfkuqzluIIYAiAB" target="_blank" rel="external">https://earth.google.com/web/@39.9388838,116.3974589,54.08506769a,142593.39805527d,35y,0h,0t,0r/data=CkwaShJECiUweDM1ZjA1Mjk2ZTcxNDJjYjk6MHhiOTYyNTYyMGFmMGZhOThhGXvXoC-980NAIXNjesISGl1AKgnljJfkuqzluIIYAiAB</a></p>
-</blockquote>
-<p>谷歌地球网页版：</p>
-<blockquote>
-<p><a href="https://earth.google.com/web/" target="_blank" rel="external">https://earth.google.com/web/</a></p>
-</blockquote>
-<p>《Google 地球网页版上线，点击探索者按钮开启环球旅程吧》：</p>
-<blockquote>
-<p><a href="http://cn.technode.com/post/2017-04-19/google-earth-voyager/" target="_blank" rel="external">http://cn.technode.com/post/2017-04-19/google-earth-voyager/</a></p>
-</blockquote>
-<p>体验视频链接：</p>
-<blockquote>
-<p><a href="http://v.youku.com/v_show/id_XMjcxNzgyODYzMg==.html?spm=a2hzp.8253869.0.0&amp;from=y1.7-2#paction" target="_blank" rel="external">http://v.youku.com/v_show/id_XMjcxNzgyODYzMg==.html?spm=a2hzp.8253869.0.0&amp;from=y1.7-2#paction</a><br><a href="http://v.youku.com/v_show/id_XMjcxNzgyNjIzMg==.html?spm=a2hzp.8253869.0.0&amp;from=y1.7-2#paction" target="_blank" rel="external">http://v.youku.com/v_show/id_XMjcxNzgyNjIzMg==.html?spm=a2hzp.8253869.0.0&amp;from=y1.7-2#paction</a></p>
-</blockquote>
-
-          
+          <p>最近三维GIS界有个比较爆炸性的消息，嗯，没错，Google Earth Enterprise（谷歌地球企业版）宣告开源，47万行代码的大项目就此开放。（深深感觉谷歌就是要搞事情）。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/19/Google Earth网页版初探/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1396,6 +1164,13 @@ chinapopsp&lt;-arc.data2sp(chinapop)
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -1470,7 +1245,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1486,7 +1261,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -1525,6 +1300,8 @@ chinapopsp&lt;-arc.data2sp(chinapop)
   
 
 
+  
+
 
 
 
@@ -1546,6 +1323,9 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

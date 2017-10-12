@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -89,7 +91,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/page/7/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GISerDaiShaoqing's Blog">
@@ -100,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/7/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/page/7/"/>
 
 
 
@@ -301,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/07/arcgispro/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2016/12/07/arcgispro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -410,16 +412,14 @@
 
       
         
-          
-            <p>最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。<br>ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑、分析。同时，实现了二三维一体化的数据可视化、管理、分析和发布。此外，ArcGIS Pro原生64位应用，支持多线程处理，极大提高软件性能。<br>关于ArcGIS Pro的安装与使用请参考如下的网址（ps，可以无限试用）。</p>
-<blockquote>
-<p><a href="http://blog.csdn.net/kikitamoon/article/details/44102383" target="_blank" rel="external">http://blog.csdn.net/kikitamoon/article/details/44102383</a></p>
-</blockquote>
-<p>从GIS数据的种类来说，主要是两种：矢量数据和栅格数据。三维数据也可以基于这两种分别完成。<br>介绍下这两类的三维化。<br>（一）栅格的三维化<br>栅格数据的三维化主要是类似于DEM拉伸成三维的山体。<br>首先打开ArcGIS Pro<br><img src="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打开ArcGIS pro"><br>新建一个二维和三维窗口<br><img src="http://img.blog.csdn.net/20161207192059549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="新建窗口"><br>右击三维场景属性，如下图，设置要三维化的栅格，此外可以根据需求做拉伸<br><img src="http://img.blog.csdn.net/20161207193203977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="栅格地形三维化"><br>效果如下<br><img src="http://img.blog.csdn.net/20161207193655760?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维可视化"><br>点击二三维联动按钮<br><img src="http://img.blog.csdn.net/20161207193753620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动按钮"><br>二三维联动效果：<br><img src="http://img.blog.csdn.net/20161207203704256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果"><br>（二）矢量操作<br>矢量的数据可以通过字段拉伸或者rpk生成。ArcGIS Pro在这方面无缝集成了City Engine的规则建模。因此首先在City Engine中写好CGA，通过City Engine生成规则包rpk。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@StartRule</div><div class="line">lot--&gt;</div><div class="line">extrude(rand(3, 50))</div></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20161207203634568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="打包成rpk规则包"></p>
-<p>接着点击工具<br> <img src="http://img.blog.csdn.net/20161207203950319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="工具"> <img src="http://img.blog.csdn.net/20161207204001991?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="运行工具"><br>生成三维体图层<br> <img src="http://img.blog.csdn.net/20161207204202040?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="三维体图层"><br> 二三维联动效果如下<br> <img src="http://img.blog.csdn.net/20161207204851894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="二三维联动效果矢量"><br> ArcGIS Pro的整体界面非常友好，而且功能强大，也是目前esri主推的新软件，不仅是二三维一体化，在今年esri用户大会上，还演示了基于ArcGIS Pro的各类大数据应用。大数据时代，让我们拥抱ArcGIS Pro。</p>
-
-          
+          <p>最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/07/arcgispro/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -461,7 +461,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/桌面GIS连接Postgresql总结/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2016/08/14/桌面GIS连接Postgresql总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -570,13 +570,14 @@
 
       
         
-          
-            <p>对于非开发人员的GISer而言，数据库这东西更多停留在mdb，gdb的层面，相对而言这些数据的使用无论是在处理还是管理上，门槛相对较低。但是目前所处的信息爆炸的大数据时代，仅仅依靠桌面GIS本身的数据存储远远不够，在存储大量数据的时候，仍然需要专门的数据库管理。所以桌面GIS如何在关系型数据库中写入空间数据也是一个重要的过程。此文是在阅读了网上的部分博客及自己的亲身经验写成。主要介绍桌面GIS中两大代表——Esri的ArcGIS以及开源的QGIS。使用的关系型数据库是Postgresql，它的空间扩展是PostGIS。<br>桌面GIS：<br>Esri ArcGIS 10.2<br>Esri ArcSDE 10.2<br>QGIS 2.8.2<br>关系型数据库及空间扩展:<br>Postgresql 9.5.0_x64<br>PostGIS 2.2<br>以上软件的安装略过了，网上均有教程。</p>
-<p>（一）QGIS连接Postgresql<br>个人最喜爱QGIS的一点就是它与PostGIS以及其他各类数据库的无缝衔接，确实可以说是直连数据库。<br><img src="http://img.blog.csdn.net/20170325131330743?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是通过这个数据库的操作<br><img src="http://img.blog.csdn.net/20170325131439104?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>先新建一个连接，输入名称、主机、数据库、调整SSL模式、用户名、密码，最后测试连接。<br><img src="http://img.blog.csdn.net/20170325131447576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>如果跳出这个页面，就证明你成功啦。<br><img src="http://img.blog.csdn.net/20170325131520263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来按确定之后，只要在最开始的页面点击“连接”，就已经愉快地连上了。如果你打开Postgresql，会发现全局架构是对应的，所以确认是连接成功的。<br><img src="http://img.blog.csdn.net/20170325131530170?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">!<br>这边选择了一个2008年2月3日北京市的一辆出租车轨迹数据来做测试<br><img src="http://img.blog.csdn.net/20170325131617247?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170325131627903?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>QGIS中，基于出租车轨迹生成的热图<br><img src="http://img.blog.csdn.net/20170325131638530?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>（二）ArcGIS Desktop 连接Postgresql<br>ArcGIS Desktop 10.2之后提供了Postgresql直连的功能，当然这里的直连，我认为可以叫伪直连，因为它仍然需要ArcSDE的支持，而不像QGIS可以直接连接。<br>当然直连的的方法还是相对简单的，不过我也遇到了一个问题，我的Postgresql是64位。但是ArcGIS Desktop目前只有32位。所以即使安装了ArcSDE，也无法直接连接。需要Postgresql32位里面的一些dll文件。<br><img src="http://img.blog.csdn.net/20170325131647138?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>将这些Postgresql对应版本32位的dll文件复制粘贴到ArcGIS安装目录下面的”/ArcGIS/Desktop 10.2/bin的文件夹里，接着可以打开ArcGIS进行连接了。<br><img src="http://img.blog.csdn.net/20170325131653889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170325131708295?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>选择同一个测试数据导入PostGIS<br><img src="http://img.blog.csdn.net/20170325131718514?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>基于ArcGIS连接Postgresql里面的数据制作的核密度图<br><img src="http://img.blog.csdn.net/20170325131729624?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
+          <p>对于非开发人员的GISer而言，数据库这东西更多停留在mdb，gdb的层面，相对而言这些数据的使用无论是在处理还是管理上，门槛相对较低。但是目前所处的信息爆炸的大数据时代，仅仅依靠桌面GIS本身的数据存储远远不够，在存储大量数据的时候，仍然需要专门的数据库管理。所以桌面GIS如何在关系型数据库中写入空间数据也是一个重要的过程。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/14/桌面GIS连接Postgresql总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -689,6 +690,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -763,7 +771,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -779,7 +787,7 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -818,6 +826,8 @@
   
 
 
+  
+
 
 
 
@@ -839,6 +849,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

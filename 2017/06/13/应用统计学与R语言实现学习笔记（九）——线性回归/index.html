@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -87,18 +89,12 @@
 
 
 
-<meta name="description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。
-1 变量间的关系
-
-确定型关系vs不确定型关系函数关系——一一对应的确定型关系设有两个变量x和y，变量y随变量x一起变化， 并完全依赖于x，当变量x取某个数值时，y依确定的关系取相应的值，则称y">
+<meta name="description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="应用统计学与R语言实现学习笔记（九）——线性回归">
-<meta property="og:url" content="http://yoursite.com/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。
-1 变量间的关系
-
-确定型关系vs不确定型关系函数关系——一一对应的确定型关系设有两个变量x和y，变量y随变量x一起变化， 并完全依赖于x，当变量x取某个数值时，y依确定的关系取相应的值，则称y">
+<meta property="og:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。">
 <meta property="og:image" content="http://c.hiphotos.baidu.com/image/pic/item/adaf2edda3cc7cd9ef270c6b3301213fb80e917d.jpg">
 <meta property="og:image" content="http://e.hiphotos.baidu.com/image/pic/item/e1fe9925bc315c60f07e93b187b1cb1348547781.jpg">
 <meta property="og:image" content="http://f.hiphotos.baidu.com/image/pic/item/7acb0a46f21fbe0906ef384a61600c338744ad3f.jpg">
@@ -111,13 +107,10 @@
 <meta property="og:image" content="http://g.hiphotos.baidu.com/image/pic/item/d62a6059252dd42a5e0ae6f5093b5bb5c9eab869.jpg">
 <meta property="og:image" content="http://f.hiphotos.baidu.com/image/pic/item/6a63f6246b600c33ea0a3996104c510fd9f9a179.jpg">
 <meta property="og:image" content="http://h.hiphotos.baidu.com/image/pic/item/2fdda3cc7cd98d10963de06f2b3fb80e7aec9087.jpg">
-<meta property="og:updated_time" content="2017-06-23T04:54:48.900Z">
+<meta property="og:updated_time" content="2017-10-12T01:11:18.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（九）——线性回归">
-<meta name="twitter:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。
-1 变量间的关系
-
-确定型关系vs不确定型关系函数关系——一一对应的确定型关系设有两个变量x和y，变量y随变量x一起变化， 并完全依赖于x，当变量x取某个数值时，y依确定的关系取相应的值，则称y">
+<meta name="twitter:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。">
 <meta name="twitter:image" content="http://c.hiphotos.baidu.com/image/pic/item/adaf2edda3cc7cd9ef270c6b3301213fb80e917d.jpg">
 
 
@@ -126,7 +119,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -146,7 +139,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/"/>
 
 
 
@@ -325,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -430,7 +423,7 @@
       
 
       
-        <h1 id="chapter-9-linear-regression"><a href="#Chapter-9-Linear-Regression" class="headerlink" title="Chapter 9 Linear Regression"></a>Chapter 9 Linear Regression</h1><p>本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。</p>
+        <h1 id="chapter-9-linear-regression"><a href="#Chapter-9-Linear-Regression" class="headerlink" title="Chapter 9 Linear Regression"></a>Chapter 9 Linear Regression</h1><p>本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。<a id="more"></a> </p>
 <h3 id="1-变量间的关系"><a href="#1-变量间的关系" class="headerlink" title="1 变量间的关系"></a>1 变量间的关系</h3><blockquote>
 <ul>
 <li>确定型关系vs不确定型关系<br>函数关系——一一对应的确定型关系设有两个变量x和y，变量y随变量x一起变化， 并完全依赖于x，当变量x取某个数值时，y依确定的关系取相应的值，则称y是x的函数，记为y=f(x)，其中x称为自变量，y称为因变量各观测点落在一条线上。<br>相关关系(correlation)——变量间关系不能用函数关系精确表达。一个变量的取值不能由另一个变量唯一确定。当变量x取某个值时， 变量y的取值可能有几个。各观测点分布在直线周围。</li>
@@ -822,6 +815,22 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -829,6 +838,21 @@
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/" title="应用统计学与R语言实现学习笔记（九）——线性回归">https://giserdaishaoqing.github.io/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -971,6 +995,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -1061,7 +1092,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1077,7 +1108,7 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -1116,6 +1147,8 @@
   
 
 
+  
+
 
 
 
@@ -1137,6 +1170,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

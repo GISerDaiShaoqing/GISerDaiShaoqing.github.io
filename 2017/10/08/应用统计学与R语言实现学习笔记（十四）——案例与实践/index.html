@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -87,16 +89,12 @@
 
 
 
-<meta name="description" content="Chapter 14 Case and Practice本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。
-1 描述性统计与抽样分布1.一种袋装食品用生产线自动装填，每袋重量大约为50g，但由于某些原因，每袋重量不会恰好是50g。下面是随机抽取的100袋食品，测得的重量数据见附录。（1）构建这些数据的频数分布表。（2）绘制频数分布的直方图。（3）说明数据分布的特征。
-2.甲乙">
+<meta name="description" content="Chapter 14 Case and Practice本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="应用统计学与R语言实现学习笔记（十四）——案例与实践">
-<meta property="og:url" content="http://yoursite.com/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="Chapter 14 Case and Practice本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。
-1 描述性统计与抽样分布1.一种袋装食品用生产线自动装填，每袋重量大约为50g，但由于某些原因，每袋重量不会恰好是50g。下面是随机抽取的100袋食品，测得的重量数据见附录。（1）构建这些数据的频数分布表。（2）绘制频数分布的直方图。（3）说明数据分布的特征。
-2.甲乙">
+<meta property="og:description" content="Chapter 14 Case and Practice本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。">
 <meta property="og:image" content="http://img.blog.csdn.net/20171008212639172?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171008212657681?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171008212723358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -110,12 +108,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20171008213029474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171008213047883?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171008213107161?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-08T13:56:57.241Z">
+<meta property="og:updated_time" content="2017-10-12T01:12:00.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（十四）——案例与实践">
-<meta name="twitter:description" content="Chapter 14 Case and Practice本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。
-1 描述性统计与抽样分布1.一种袋装食品用生产线自动装填，每袋重量大约为50g，但由于某些原因，每袋重量不会恰好是50g。下面是随机抽取的100袋食品，测得的重量数据见附录。（1）构建这些数据的频数分布表。（2）绘制频数分布的直方图。（3）说明数据分布的特征。
-2.甲乙">
+<meta name="twitter:description" content="Chapter 14 Case and Practice本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171008212639172?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -124,7 +120,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -144,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/"/>
 
 
 
@@ -323,7 +319,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -428,7 +424,7 @@
       
 
       
-        <h1 id="chapter-14-case-and-practice"><a href="#Chapter-14-Case-and-Practice" class="headerlink" title="Chapter 14 Case and Practice"></a>Chapter 14 Case and Practice</h1><p>本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。</p>
+        <h1 id="chapter-14-case-and-practice"><a href="#Chapter-14-Case-and-Practice" class="headerlink" title="Chapter 14 Case and Practice"></a>Chapter 14 Case and Practice</h1><p>本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。<a id="more"></a> </p>
 <h3 id="1-描述性统计与抽样分布"><a href="#1-描述性统计与抽样分布" class="headerlink" title="1 描述性统计与抽样分布"></a>1 描述性统计与抽样分布</h3><p>1.一种袋装食品用生产线自动装填，每袋重量大约为50g，但由于某些原因，每袋重量不会恰好是50g。下面是随机抽取的100袋食品，测得的重量数据见附录。<br>（1）构建这些数据的频数分布表。<br>（2）绘制频数分布的直方图。<br>（3）说明数据分布的特征。</p>
 <p>2.甲乙两个班各有40名学生，期末统计学考试成绩的分布见附录。<br>（1）根据上面的数据，画出两个班考试成绩的复合柱形图、环形图和图饼图。<br>（2）比较两个班考试成绩分布的特点。<br>（3）画出雷达图，比较两个班考试成绩的分布是否相似。</p>
 <p>3.随机抽取25个网络用户，得到他们的年龄数据（单位：周岁）见附录。<br>（1）计算众数、中位数。<br>（2）根据定义公式计算四分位数。<br>（3）计算平均数和标准差。<br>（4）计算偏态系数和峰态系数。<br>（5）对网民年龄的分布特征进行综合分析。</p>
@@ -470,6 +466,22 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -477,6 +489,21 @@
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/" title="应用统计学与R语言实现学习笔记（十四）——案例与实践">https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -619,6 +646,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -709,7 +743,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -725,7 +759,7 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -764,6 +798,8 @@
   
 
 
+  
+
 
 
 
@@ -785,6 +821,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

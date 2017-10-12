@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -87,28 +89,22 @@
 
 
 
-<meta name="description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。笔者已经事先从WRF官网下载了该模块的源码（版本为最新的3.8.1）。首先在设置个目录专门来存放WRF的主程序。选择在Home下面新建一个mode。命令如下：
-$ sudo mkdir mode
-先进入管理员模式（sudo su命令），然后将WRFDA的压缩包全部复制到刚刚建好的文件夹中。">
+<meta name="description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装">
-<meta property="og:url" content="http://yoursite.com/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。笔者已经事先从WRF官网下载了该模块的源码（版本为最新的3.8.1）。首先在设置个目录专门来存放WRF的主程序。选择在Home下面新建一个mode。命令如下：
-$ sudo mkdir mode
-先进入管理员模式（sudo su命令），然后将WRFDA的压缩包全部复制到刚刚建好的文件夹中。">
+<meta property="og:description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。">
 <meta property="og:image" content="http://img.blog.csdn.net/20170404193216802?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170404203534788?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170404134527958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170404184632126?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170404202406196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170406003033504?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-06T02:37:14.084Z">
+<meta property="og:updated_time" content="2017-10-12T01:09:23.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装">
-<meta name="twitter:description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。笔者已经事先从WRF官网下载了该模块的源码（版本为最新的3.8.1）。首先在设置个目录专门来存放WRF的主程序。选择在Home下面新建一个mode。命令如下：
-$ sudo mkdir mode
-先进入管理员模式（sudo su命令），然后将WRFDA的压缩包全部复制到刚刚建好的文件夹中。">
+<meta name="twitter:description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170404193216802?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -117,7 +113,7 @@ $ sudo mkdir mode
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -137,7 +133,7 @@ $ sudo mkdir mode
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/"/>
 
 
 
@@ -316,7 +312,7 @@ $ sudo mkdir mode
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -421,7 +417,7 @@ $ sudo mkdir mode
       
 
       
-        <p>上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。笔者已经事先从WRF官网下载了该模块的源码（版本为最新的3.8.1）。<br>首先在设置个目录专门来存放WRF的主程序。选择在Home下面新建一个mode。命令如下：</p>
+        <p>上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。<a id="more"></a> 笔者已经事先从WRF官网下载了该模块的源码（版本为最新的3.8.1）。<br>首先在设置个目录专门来存放WRF的主程序。选择在Home下面新建一个mode。命令如下：</p>
 <pre><code>$ sudo mkdir mode
 </code></pre><p>先进入管理员模式（sudo su命令），然后将WRFDA的压缩包全部复制到刚刚建好的文件夹中。</p>
 <pre><code>cp -r WRFDA_V3.8.1.tar.gz /home/mode/
@@ -455,6 +451,22 @@ export rttov=/usr/rttov/
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -462,6 +474,21 @@ export rttov=/usr/rttov/
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/" title="WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装">https://giserdaishaoqing.github.io/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -593,6 +620,13 @@ export rttov=/usr/rttov/
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -667,7 +701,7 @@ export rttov=/usr/rttov/
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -683,7 +717,7 @@ export rttov=/usr/rttov/
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -722,6 +756,8 @@ export rttov=/usr/rttov/
   
 
 
+  
+
 
 
 
@@ -743,6 +779,9 @@ export rttov=/usr/rttov/
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

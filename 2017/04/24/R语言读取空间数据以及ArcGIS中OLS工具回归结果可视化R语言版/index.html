@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -90,7 +92,7 @@
 <meta name="description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
-<meta property="og:url" content="http://yoursite.com/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
 <meta property="og:image" content="http://img.blog.csdn.net/20170424172827705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -102,7 +104,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-08T02:15:22.292Z">
+<meta property="og:updated_time" content="2017-10-12T01:09:06.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
 <meta name="twitter:description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
@@ -114,7 +116,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -134,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/"/>
 
 
 
@@ -313,7 +315,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -418,7 +420,7 @@
       
 
       
-        <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。</p>
+        <p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。<a id="more"></a> </p>
 <h3 id="1矢量数据"><a href="#1-矢量数据" class="headerlink" title="1.矢量数据"></a>1.矢量数据</h3><p>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
 <pre><code>install.packages(&apos;maptools&apos;)
 library(maptools)
@@ -493,6 +495,22 @@ chinapopsp&lt;-arc.data2sp(chinapop)
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -500,6 +518,21 @@ chinapopsp&lt;-arc.data2sp(chinapop)
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/" title="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -642,6 +675,13 @@ chinapopsp&lt;-arc.data2sp(chinapop)
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -732,7 +772,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -748,7 +788,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -787,6 +827,8 @@ chinapopsp&lt;-arc.data2sp(chinapop)
   
 
 
+  
+
 
 
 
@@ -808,6 +850,9 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

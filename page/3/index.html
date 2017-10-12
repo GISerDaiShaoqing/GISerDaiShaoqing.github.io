@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -89,7 +91,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/page/3/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GISerDaiShaoqing's Blog">
@@ -100,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/3/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/page/3/"/>
 
 
 
@@ -301,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -410,227 +412,14 @@
 
       
         
-          
-            <h1 id="chapter-6-hypothesis-test"><a href="#Chapter-6-Hypothesis-Test" class="headerlink" title="Chapter 6 Hypothesis Test"></a>Chapter 6 Hypothesis Test</h1><p>本篇是第6章，内容是假设检验。</p>
-<h3 id="1基本思想"><a href="#1-基本思想" class="headerlink" title="1.基本思想"></a>1.基本思想</h3><p>我们还是从问题开始讨论。这回提个接地气的问题——雄安新区批复前后对该地区房价是否有差异？<br>嗯，假设检验其实就是为了解决这类问题。<br>假设检验的基本思想——我们有样本，但是无法获得总体，需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。<br>分解开来，假设检验=假设+检验（或者假设检验）。<br>假设(hypothesis)——对总体的参数的具体数值（或分布形式）所作的陈述（总体参数包括总体均值、比例、 方差等，分析之前必需陈述）。<br>假设检验(hypothesis test)—先对总体的参数（ 或分布形式） 提出某种假设，然后利用样本信息判断假设是否成立的过程（有参数检验和非参数检验；逻辑上运用反证法， 统计上依据小概率原理）。如图。</p>
-<p><img src="http://img.blog.csdn.net/20170508115209606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>假设检验的思想还可以去搜索Fisher 显著性检验的思想(女士品茶试验)的故事深深体会，这里就不详述了。有兴趣的同学可以点击下文的科学网链接查看。</p>
-<blockquote>
-<p><a href="http://blog.sciencenet.cn/blog-624263-795715.html" target="_blank" rel="external">http://blog.sciencenet.cn/blog-624263-795715.html</a></p>
-</blockquote>
-<h3 id="2原假设和备择假设"><a href="#2-原假设和备择假设" class="headerlink" title="2.原假设和备择假设"></a>2.原假设和备择假设</h3><p>从前面的介绍我们知道，假设检验的第一步是建立假设。那么假设分为两种（原假设和备择假设）。那么这二者具体又是什么呢？</p>
-<blockquote>
-<ul>
-<li>原假设(null hypothesis)——原假设又称“ 0假设”，总是有符号 =， ≥ 或≤，表示为 $H_0$。是研究者想收集证据予以反对的假设（生产实践中常对应正常情形，如均值与设计一致）；一般来说，原假设是一旦拒绝便要采取行动的假设。因此， 原假设总是“受到保护的假设” ，没有充分的证据是不能拒绝原假设的。例如，对一家信誉很好的工厂的产品进行检验，原假设一般是“ 产品合格”。</li>
-<li>备择假设(alternative hypothesis)——研究者想收集证据予以支持的假设， 一旦发生就要采取行动， 是与原假设对立的假设，也称“研究假设”，总是有符号 ≠， &gt; 或 &lt;，表示为 $H_1$。</li>
-</ul>
-</blockquote>
-<p>总结起来就是，原假设是统计学史上最悲催角色——它从一开始诞生，就是为了被科学家们发好人卡拒绝而存在的一个假设。备择假设才是科学家们追求的白富美。<br>搞明白了这两个假设，下一步我们做假设检验的时候，就要先提出假设了，这里给了一些提出假设的要点：</p>
-<blockquote>
-<ul>
-<li>原假设和备择假设是一个完备事件组， 而且相互对立（在一项假设检验中， 原假设和备择假设必有一个成立， 而且只有一个成立）。</li>
-<li>先确定备择假设， 再确定原假设。</li>
-<li>等号“ =” 总是放在原假设上。</li>
-<li>因研究目的不同， 对同一问题可能提出不同的假设（ 也可能得出不同的结论）。</li>
-</ul>
-</blockquote>
-<p>同时在实际应用中，我们有不同的需求，因此又有双侧检验和单侧检验的区分。</p>
-<blockquote>
-<ul>
-<li>双侧检验——备择假设没有特定的方向性，并含有符号“=”的假设检验，称为双侧检验或双尾检验(two-tailed test)</li>
-<li>单侧检验——备择假设具有特定的方向性，并含有符号“&gt;”或“&lt;”的假设检验，称为单侧检验或单尾检验(one-tailed test)。其中备择假设的方向为“&lt;”，称为左侧检验，备择假设的方向为“&gt;”，称为右侧检验。</li>
-</ul>
-</blockquote>
-<p>原假设与备择假设形式：</p>
-<blockquote>
-<ul>
-<li>双边检验：$ H_0: \mu=2，H_1: \mu\neq2 $。</li>
-<li>单边检验：左侧检验——$ H_0: \mu\le2，H_1: \mu>2 $，右侧检验——$ H_0: \mu\ge2，H_1: \mu&lt;2 $。</li>
-</ul>
-</blockquote>
-<p>所见即所得，用一张图来表示假设检验过程。</p>
-<p><img src="http://img.blog.csdn.net/20170508122049152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>所以拒绝原假设的理由是假设检验中的小概率原理。那么什么是小概率？</p>
-<blockquote>
-<ul>
-<li>在一次试验中， 一个几乎不可能发生的事件发生的概率。</li>
-<li>在一次试验中小概率事件一旦发生， 我们就有理由拒绝原假设。</li>
-<li>小概率由研究者事先确定。</li>
-</ul>
-</blockquote>
-<p>所以拒绝$H_0$的理由就是</p>
-<p><img src="http://img.blog.csdn.net/20170508122334492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170508122348076?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="3第一类错误和第二类错误"><a href="#3-第一类错误和第二类错误" class="headerlink" title="3.第一类错误和第二类错误"></a>3.第一类错误和第二类错误</h3><p>上文介绍了假设检验的过程，但是假设检验过程会不会出现错误呢？其实大家仔细分析拒绝原假设的理由就会发现问题了。通常情况下原假设是小概率事件，但是小概率事件≠0概率事件。小概率事件不是不发生，而是发生概率较小。就像天气预报说明天有99%的可能不下雨，结果1%的可能性成为了事实，明天下雨了。因此假设检验中会有两类错误（弃真错误和取伪错误）经常出现。<br>（1）第一类错误(弃真错误)：</p>
-<blockquote>
-<ul>
-<li>原假设为真时拒绝原假设。</li>
-<li>第一类错误的概率为α（没错，就是它，我们的好朋友，小α。咳咳咳，就是显著性水平，一般由研究者事先指定，常用的值有0.01, 0.05, 0.10）。</li>
-</ul>
-</blockquote>
-<p>（2）第二类错误（取伪错误）：</p>
-<blockquote>
-<ul>
-<li>原假设为假时未拒绝原假设。</li>
-<li>第二类错误的概率记为β。</li>
-</ul>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20170508123318554?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170508131755305?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>α和β的关系——α和β的关系就像翘翘板， α小β就大，α大β就小。所以两类错误不可能同时发生（第一类只在$H_0$为真时发生，第而类只在$H_0$为假时发生）。<br>影响β的因素：</p>
-<blockquote>
-<ul>
-<li>总体参数的真值。</li>
-<li>显著性水平α（当α减少时增大）。</li>
-<li>总体标准差σ（当σ增大时增大）。</li>
-<li>样本容量n（当n减少时增大）。</li>
-</ul>
-</blockquote>
-<h3 id="4统计量与拒绝域"><a href="#4-统计量与拒绝域" class="headerlink" title="4.统计量与拒绝域"></a>4.统计量与拒绝域</h3><p>讲了这么多，但是还没有介绍假设检验的计算过程。假设检验的过程依赖于两个重要数学概念（统计量与拒绝域，前面已经有稍微提到了）。这里再做具体介绍。<br>检验统计量(test statistic)——根据样本观测结果计算得到的， 并据以对原假设和备择假设作出决策的某个样本统计量，是对样本估计量的标准化结果（原假设$H_0$为真，点估计量的抽样分布）。<br>标准化的检验统计量公式为：<br>$$ 标准化的检验统计量=\frac{点估计量-假设值}{点估计量的抽样标准差} $$<br>显著性水平和拒绝域的三种情况：<br>双侧检验：</p>
-<p><img src="http://img.blog.csdn.net/20170508135530979?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>左侧检验：</p>
-<p><img src="http://img.blog.csdn.net/20170508135602105?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>右侧检验：</p>
-<p><img src="http://img.blog.csdn.net/20170508135615106?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>统计量落在拒绝域时，我们就可以拒绝原假设。具体如下：</p>
-<blockquote>
-<ul>
-<li>给定显著性水平α，查表得出相应的临界值$z_{\alpha},z_{\alpha/2},t_{\alpha},t_{\alpha/2},\cdots$。</li>
-<li>将检验统计量的值与α水平的临界值进行比较。</li>
-<li>作出决策：双侧检验——|统计量| &gt; 临界值，拒绝$H_0$；左侧检验——统计量 &lt; 临界值，拒绝$H_0$；右侧检验——统计量 &gt; 临界值，拒绝$H_0$。</li>
-</ul>
-</blockquote>
-<h3 id="5利用p值进行决策"><a href="#5-利用p值进行决策" class="headerlink" title="5.利用p值进行决策"></a>5.利用p值进行决策</h3><p>如何利用假设检验解决实际问题？很重要的一个应用是在决策上。就如标题说的，利用p值进行决策。那么什么是p值?<br>p值(p-value)：在一个假设检验问题中，拒绝原假设的最小显著性水平。</p>
-<blockquote>
-<ul>
-<li>在原假设为真的条件下，检验统计量的观察值大于或等于其计算值的概率(双侧检验为分布中检验统计量两侧面积的总和;单侧检验为分布中检验统计量相应单侧面积）。</li>
-<li>反映实际观测到的数据与原假设$H_0$之间的一致程度。</li>
-<li>被称为观察到的（或实测的）显著性水平。</li>
-<li>决策规则： 若p值&lt;α， 拒绝$H_0$。</li>
-</ul>
-</blockquote>
-<p>p值法步骤（以大样本均值为例）<br>将样本统计量转换成检验统计量z</p>
-<blockquote>
-<ul>
-<li>计算p值： Z为标准正态分布随机变量（$p值=(\left|Z\right|\ge z)(双侧),p值=(Z\le z)(左侧),p值=(Z\ge z)(右侧)$）</li>
-<li>比较p值和α：<br>如果α≥p值，拒绝$H_0$;<br>如果$α&lt;$p值，不能拒绝$H_0$。</li>
-</ul>
-</blockquote>
-<p>假设检验结论的表述<br>假设检验的目的就在于试图找到拒绝原假设的证据， 而不在于证明什么是正确的。</p>
-<blockquote>
-<ul>
-<li>拒绝原假设时结论是清楚的。</li>
-<li>当不拒绝原假设时——并未给出明确的结论，不能说原假设是正确的， 也不能说它不是正确的。但也未说它不是10。 我们只能说样本提供的证据还不足以推翻原假设。</li>
-</ul>
-</blockquote>
-<p>假设检验步骤的总结</p>
-<blockquote>
-<ul>
-<li>陈述原假设和备择假设。</li>
-<li>从所研究的总体中抽出一个随机样本。</li>
-<li>确定一个适当的检验统计量， 并利用样本数据算出其具体数值。</li>
-<li>确定一个适当的显著性水平， 并计算出其临界值， 指定拒绝域。</li>
-<li>将统计量的值与临界值进行比较， 作出决策——统计量的值落在拒绝域，拒绝$H_0$，否则不拒绝$H_0$，也可以直接利用p值作出决策。</li>
-</ul>
-</blockquote>
-<h3 id="6一个总体参数的检验"><a href="#6-一个总体参数的检验" class="headerlink" title="6.一个总体参数的检验"></a>6.一个总体参数的检验</h3><p>前面的理论讲的差不多了，又到了典型总体参数的检验内容的介绍了。依旧是先一个总体参数的检验（总体均值、总体比例、总体方差）。<br>总体均值的检验(大样本： n≥30)<br>使用z检验统计量：<br>$\sigma^2已知$：<br>$$ z=\frac{\bar x-\mu_0}{\sigma/\sqrt{n}}\sim N(0,1)。 $$<br>$\sigma^2未知$：<br>$$ z=\frac{\bar x-\mu_0}{s/\sqrt{n}}\sim N(0,1)。 $$</p>
-<p>总体均值的检验(正态总体小样本)<br>检验统计量：<br>$\sigma^2已知$：<br>$$ z=\frac{\bar x-\mu_0}{\sigma/\sqrt{n}}\sim N(0,1)。 $$<br>$\sigma^2未知$：<br>$$ t=\frac{\bar x-\mu_0}{s/\sqrt{n}}\sim t(n-1)。$$<br>总体比例的检验<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>总体服从二项分布；</li>
-<li>可用正态分布来近似(大样本)。</li>
-</ul>
-</blockquote>
-<p>检验的Z统计量：<br>$$ z=\frac{\bar q-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\sim N(0,1)，p_0为假设的总体比例。 $$<br>总体方差的检验<br>检验一个总体的方差或标准差，假设总体近似服从正态分布，使用$\chi^2$分布。<br>检验统计量：<br>$$ \chi^2=\frac{(n-1)s^2}{\sigma_0^2}\sim \chi^2(n-1)。 $$</p>
-<p><img src="http://img.blog.csdn.net/20170508143623860?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>这里顺带提下作为统计推断的两大分支的区间估计和假设检验的关系。</p>
-<blockquote>
-<ul>
-<li>过程相似：如果假设均值在95%的置信区间之外，双边检验将拒绝原假设（显著性水平为5%）。</li>
-<li>逻辑不同：置信区间——不知道均值多少而要估计它；假设检验: 假定一个均值要看数据是否支持这个假设。</li>
-</ul>
-</blockquote>
-<p>另外还是要谈一谈统计学与实际问题——这里谈的是统计显著性和实际显著性。</p>
-<p>一个被拒绝的原假设意味着有统计显著性，但未必有实际显著性。这种情况常发生在大样本或精确测量场合，如Kepler的行星运行第一定律：行星轨道是椭圆的，当时吻合程度很好，100年后，仪器更高级、测量更精确，该假设被拒绝，因为行星间交互作用导致摄动。因此不要盲目使用统计显著性。此外，显著性水平α的选择也是个很关键的问题。一般来说：</p>
-<blockquote>
-<ul>
-<li>α不宜过小，否则第二类错误概率会较大。</li>
-<li>α的选择与判断发生错误时要付出的代价大小有关。</li>
-<li>α的选择是决策问题。</li>
-</ul>
-</blockquote>
-<h3 id="7两个总体参数的检验"><a href="#7-两个总体参数的检验" class="headerlink" title="7.两个总体参数的检验"></a>7.两个总体参数的检验</h3><p>讲完了一个总体参数，照例来讲就两个总体参数（两个总体均值之差，两个总体比例之差，两个总体方差比）。<br>独立大样本两总体均值之差检验<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个样本是独立的随机样本。</li>
-<li>大样本($n_1\ge30和n_2\ge30$)。</li>
-</ul>
-</blockquote>
-<p>检验统计量：<br>$$ \sigma_1^2，\sigma_2^2已知：z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)。 $$<br>$$ \sigma_1^2，\sigma_2^2未知：z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\sim N(0,1)。 $$<br>正态总体独立小样本均值之差检验（$\sigma_1^2，\sigma_2^2已知$）<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个独立的小样本。</li>
-<li>两个总体都是正态分布。</li>
-<li>$\sigma_1^2，\sigma_2^2已知。$</li>
-</ul>
-</blockquote>
-<p>检验统计量:<br>$$z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)。 $$<br>正态总体独立小样本均值之差检验($\sigma_1^2，\sigma_2^2$未知但$\sigma_1^2=\sigma_2^2$)<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个独立的小样本。</li>
-<li>两个总体都是正态分布。</li>
-<li>$\sigma_1^2，\sigma_2^2未知但相等，即\sigma_1^2=\sigma_2^2。$</li>
-</ul>
-</blockquote>
-<p>检验统计量：<br>$$t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}，其中s_p=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}，自由度：n_1+n_2-2。 $$</p>
-<p>两个总体均值之差的检验($\sigma_1^2，\sigma_2^2$未知且不相等$\sigma_1^2\ne\sigma_2^2$)<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个总体都是正态分布。</li>
-<li>$\sigma_1^2，\sigma_2^2未知且不相等，即\sigma_1^2\ne\sigma_2^2。$</li>
-<li>样本容量相等，$n_1=n_2=n$。</li>
-</ul>
-</blockquote>
-<p>检验统计量：<br>$$t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2+s_2^2}{n}}}，自由度：n_1+n_2-2=2(n-1)。 $$</p>
-<p>两个总体均值之差的检验($\sigma_1^2，\sigma_2^2$未知且不相等$\sigma_1^2\ne\sigma_2^2$)<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个总体都是正态分布。</li>
-<li>$\sigma_1^2，\sigma_2^2未知且不相等，即\sigma_1^2\ne\sigma_2^2。$</li>
-<li>样本容量不相等，$n_1\ne n_2$。</li>
-</ul>
-</blockquote>
-<p>检验统计量：<br>$$t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}，自由度：最接近v的整数——v=\frac{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})^2}{\frac{(s_1^2/n_1)^2}{n_1-1}+\frac{(s_2^2/n_2)^2}{n_2-1}}。 $$</p>
-<p>两个总体均值之差的检验(匹配样本)<br>假定条件:</p>
-<blockquote>
-<ul>
-<li>两个总体配对差值构成的总体服从正态分布。</li>
-<li>配对差是由差值总体中随机抽取的。</li>
-<li>数据配对或匹配(重复测量 (前/后))。</li>
-</ul>
-</blockquote>
-<p>$$ 样本差值均值\bar d=\frac{\sum_{i=1}^n d_i}{n_d}, 样本差值标准差值 s_d=\sqrt{\frac{\sum_{i=1}^n(d_i-\bar d)^2}{n_d-1}}。 $$<br>大样本检验统计量：<br>$$ z=\frac{\bar d-d_0}{s_d/\sqrt{n_d}}\sim N(0,1)。 $$<br>小样本检验统计量：<br>$$ t=\frac{\bar d-d_0}{s_d/\sqrt{n_d}}\sim t(n-1)。 $$</p>
-<p>两个总体比例之差的检验<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个总体都服从二项分布。</li>
-<li>可以用正态分布来近似。</li>
-</ul>
-</blockquote>
-<p>检验统计量：<br>检验$H_0$： $p_1-p_2=0$<br>$$ z=\frac{\bar p_1-\bar p_2}{\sqrt{\bar p(1-\bar p)(\frac{1}{n_1}+\frac{1}{n_2})}}，其中\bar p=\frac{x_1+x_2}{n_1+n_2}=\frac{\bar p_1n_1+\bar p_2n_2}{n_1+n_2}。 $$<br>检验$H_0$： $p_1-p_2=d_0$<br>$$ z=\frac{(\bar p_1-\bar p_2)-d_0}{\sqrt{\frac{\bar p_1(1-\bar p_1)}{n_1}+\frac{\bar p_2(1-\bar p_2)}{n_2}}}。 $$</p>
-<p>两个总体方差比的检验(F检验)<br>假定条件：</p>
-<blockquote>
-<ul>
-<li>两个总体都服从正态分布。</li>
-<li>两个独立的随机样本。</li>
-</ul>
-</blockquote>
-<p>检验统计量：<br>$$ F=\frac{s_1^2}{s_2^2}\sim F(n_1-1,n_2-1)或 F=\frac{s_2^2}{s_1^2}\sim F(n_2-1,n_1-1)。 $$</p>
-<p>最后的总结就是如下图。</p>
-<p><img src="http://img.blog.csdn.net/20170508152254020?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>最后的最后，回到开头提的问题——雄安新区。该问题其实是两个总体参数的检验问题——两个总体均值之差的问题（两个总体分别是批复前的房价和批复后的房价）。所以如果要讨论该问题，可以考虑从批复前后的房价，抽取配对大样本或小样本(楼盘房价）进行假设检验，这样我们就能在统计学上证明这件事对雄安房价的显著影响啦。本篇涉及的R语言内容较少，还是老规矩，放到后面的第14章去讨论。</p>
-
-          
+          <h1 id="Chapter-6-Hypothesis-Test"><a href="#Chapter-6-Hypothesis-Test" class="headerlink" title="Chapter 6 Hypothesis Test"></a>Chapter 6 Hypothesis Test</h1><p>本篇是第6章，内容是假设检验。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/08/应用统计学与R语言实现学习笔记（六）——假设检验/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -672,7 +461,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -781,113 +570,14 @@
 
       
         
-          
-            <h1 id="chapter-5-estimation"><a href="#Chapter-5-Estimation" class="headerlink" title="Chapter 5 Estimation"></a>Chapter 5 Estimation</h1><p>本篇是第五章，内容是参数估计。</p>
-<h3 id="1参数估计的一般问题"><a href="#1-参数估计的一般问题" class="headerlink" title="1.参数估计的一般问题"></a>1.参数估计的一般问题</h3><p>正如前面介绍的，统计学的两大分支，分别是描述统计和推断统计。所以今天来谈谈推断统计的第一大问题——参数估计。当然一般叫统计推断的会更多些，二者是一样的。<br>统计推断(Statistical Inference)——主要包括参数估计和假设检验，实质就是通过样本的均值、标准差、方差等去估计总体的均值、标准差、方差或者判断总体的分布形式和分布参数。</p>
-<blockquote>
-<ul>
-<li>参数估计：根据从总体中抽得的样本所提供的信息，对总体分布中包含的未知参数作出数值上的估计。<br>点估计：用样本的某一函数值来估计总体分布中的未知参数;<br>区间估计：按照一定的可靠度估计出参数的一个范围，即确定一个区间，使这一个区间内包含参数真值的概率达到预先所要求的程度。</li>
-<li>假设检验：需要对总体的分布形式或分布参数事先作出某种假设，然后根据样本观测值，运用统计分析的方法来检验这一假设是否正确。</li>
-</ul>
-</blockquote>
-<p>上一篇提到的，获取样本之后，我们需要去猜总体，参数估计就是猜总体的参数（分布中所含的未知参数；分布特征：均值、方差等；事件的概率等）或者参数空间(参数的可能取值范围)。<br>假设检验是下一章内容，这里就不细述了。<br>首先明确两个概念：估计量（estimator）与估计值(estimated value)。</p>
-<blockquote>
-<ul>
-<li>估计量： 用于估计总体参数的随机变量，一般为样本统计量（如样本均值、 样本比例、 样本方差等； 例如：样本均值就是总体均值$ \mu $的一个估计量）。</li>
-<li>估计值： 估计参数时计算出来的统计量的具体值,如果样本均值=80， 则80就是总体均值的估计值。</li>
-</ul>
-</blockquote>
-<p>既然是估计量，就必须有评价估计量的标准。一般包括以下几点：</p>
-<blockquote>
-<ul>
-<li>无偏性：估计量的数学期望等于被估计的总体参数，样本的随机性导致估计偏差， 偏差平均值为0， 无系统误差（所以在这里又提出了渐进无偏估计：估计随着样本量的增加而逐渐趋近于真值。渐进无偏估计指系统偏差会随着样本量的增加而逐渐减小，趋于0，在大样本时可近似当无偏估计使用）。</li>
-<li>有效性： 对同一总体参数的两个无偏点估计量， 有更小标准差的估计量更有效。</li>
-<li>一致性： 随着样本容量的增大， 估计量的值越来越接近被估计的总体参数。</li>
-</ul>
-</blockquote>
-<p>由于无偏性是最普遍的标准。这里再介绍部分无偏性的几个要点：</p>
-<blockquote>
-<ul>
-<li>样本均值是总体期望的无偏估计。</li>
-<li>诸观测值对样本均值的偏差可正可负，其和恒为0（n个偏差中只有n-1个是独立的）。</li>
-<li>自由度：独立偏差个数。</li>
-<li>偏差平方和（样本量相等情况下，偏差平方和的大小反映样本散布的大小， 样本量大，偏差平方和大趋近于平均偏差平方和，偏差平方和的期望小于方差，有偏估计，渐进无偏估计。</li>
-</ul>
-</blockquote>
-<p>点估计（point estimate）</p>
-<blockquote>
-<ul>
-<li>用样本估计量的某个取值直接作为总体参数的估计值（例如：用样本均值直接作为总体均值的估计；用两个样本均值之差直接作为总体均值之差的估计）。</li>
-<li>无法给出估计值接近总体参数程度的信息（虽然在重复抽样条件下，点估计的均值可望接近总体真值，但由于样本是随机的，抽出一个具体的样本得到的估计值等同于总体真值的可能性很小，特别是在连续分布时，该概率几乎为0，一个点估计量的可靠性是由它的抽样标准误差来衡量的，这表明一个具体的点估计值无法给出估计的可靠性的度量）。</li>
-</ul>
-</blockquote>
-<h3 id="2区间估计-confidence-intervals"><a href="#2-区间估计-Confidence-Intervals" class="headerlink" title="2.区间估计 Confidence Intervals"></a>2.区间估计 Confidence Intervals</h3><p>正如前面提到的点估计可靠性较低，因此在点估计的基础上又提出了区间估计(interval estimate)，它能解决的问题包括：</p>
-<blockquote>
-<ul>
-<li>为解决参数估计的精确度和可靠性问题， 在点估计的基础上给出总体参数估计的一个区间范围（该区间一般由样本统计量加减抽样误差而得到），使这一个区间内包含参数真值的概率大到预先所要求的程度。</li>
-<li>它不具体指出总体参数等于什么，但能指出总体的未知参数落入某一区间的概率有多大。</li>
-</ul>
-</blockquote>
-<p>二者的区别在于：点估计是一个数，区间估计给出一个区间，提供更多关于变异性的信息。通俗的解释，你女朋友买了件衣服，让你猜价格，你猜中准确价格很难，但是你猜一个范围还是准确度比较高的。</p>
-<p><img src="http://img.blog.csdn.net/20170507151431021?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>所以区间估计(interval estimate)的概念是——根据样本统计量的抽样分布能够对样本统计量与总体参数的接近程度给出一个概率度量。<br>由概率度量则引出了置信区间（Confidence Intervals）的概念。</p>
-<p>$$ 设x_1,x_2,\cdots,x_n是来自f(x,\theta)的样本，对于给定的\alpha，0&lt;\alpha&lt;1, $$ $$ 如能找到两个统计量\theta_1(x_1,x_2,\cdots,x_n)和\theta_2(x_1,x_2,\cdots,x_n) $$ $$ 使得P[(\theta_1(x_1,x_2,\cdots,x_n)&lt;\theta&lt;\theta_2(x_1,x_2,\cdots,x_n)]\ge1-\alpha, $$ $$ 称(\theta_1(x_1,x_2,\cdots,x_n),\theta_2(x_1,x_2,\cdots,x_n))是\theta的置信度为1-\alpha的置信区间(Confidence interval);$$ $$ \theta_1,\theta_2为置信上限与置信下限,1-\alpha为置信度,\alpha为显著性水平(Significance level)。 $$</p>
-<p>置信区间实质上是由样本统计量所构造的总体参数的估计区间。在某种程度上确信这个区间包含真正的总体参数（用一个具体的样本所构造的区间是一个特定的区间，我们无法知道这个样本所产生的区间是否包含总<br>体参数的真值，我们只能是希望这个区间是大量包含总体参数真值的区间中的一个，但它也可能是少数几个不包含参数真值的区间中的一个）。置信区间表明了区间估计的精确性， 区间越小越精确，区间越大越不精确。<br>置信水平——将构造置信区间的步骤重复很多次，置信区间包含总体参数真值的次数所占的比例称为置信水平（置信度）。置信水平表明了区间估计的可靠性， 表示为 $ (1 - \alpha) $($\alpha$是总体参数未在区间内的比例， 区间估计不可靠的概率为$\alpha$， 如$\alpha$=0.05， 表明结论犯错误的概率为0.05),常用的置信水平值有99%, 95%, 90%。<br>那么什么样的置信区间是好的置信区间呢？也就是区间估计的评价标准是什么呢？一般包括如下两点：</p>
-<blockquote>
-<ul>
-<li>置信度（置信系数）越大越好——概率越大越放心，但不能一味求大。</li>
-<li>随机区间平均长度越短越好——估计精度越高。</li>
-</ul>
-</blockquote>
-<p>但是在某些实际问题中，我们可能更关心置信上限或置信下限(合金钢强度，越大越好（望大特性），平均强度下限是个重要指标,药物毒性，越小越好（望小特性），平均毒性上限是个重要指标)。这就是单侧置信限问题。<br>谈完了这么多理论，接下来进入实践，如何做一个总体参数的区间估计？<br>按照前一章，我们还是讨论三个重要的总体参数：均值、比例、方差。也是先谈一个总体参数的区间估计。<br>首先规定好符号对应统计量和参数。<br>总体均值——$\mu$，总体比例——p，总体方差——$\sigma^2$;<br>样本均值——$\bar x$，样本比例——$\bar p$，样本方差——$s^2$。<br>一个总体均值的置信区间估计方法总结起来就是：</p>
-<blockquote>
-<ul>
-<li>正态分布，且总体方差$\sigma$已知，用Z值；</li>
-<li>正态分布，且总体方差$\sigma$未知，用t值；</li>
-<li>非正态分布但是大样本，无论总体方差$\sigma$是否已知，用Z值。</li>
-</ul>
-</blockquote>
-<p>第一种情况：正态分布统计量z——$z=\frac{\bar x-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$，总体均值$\mu$在$1-\alpha$置信水平下的置信区间为$\bar x\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$，置信下限为$\bar x- z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$，置信上限为$\bar x+ z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$。<br>第二种情况：t分布统计量——$t=\frac{\bar x-\mu}{s/\sqrt{n}}\sim t(n-1)$，总体均值$\mu$在$1-\alpha$置信水平下的置信区间为$\bar x\pm t_{\alpha/2}\frac{s}{\sqrt{n}}$，置信下限为$\bar x- t_{\alpha/2}\frac{s}{\sqrt{n}}$，置信上限为$\bar x+ t_{\alpha/2}\frac{s}{\sqrt{n}}$。<br>第三种情况：正态分布统计量z——$z=\frac{\bar x-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$，总体均值$\mu$在$1-\alpha$置信水平下的置信区间为$\bar x\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$（$\sigma$未知的话，把$\sigma$换成s即可）。</p>
-<p>一个总体比例的置信区间估计方法如下：<br>假定条件np≥5, n(1-p)≥5, n≥30。<br>正态分布统计量z——$z=\frac{\bar p-p}{\sqrt{\frac{p(1-p)}{n}}}\sim N(0,1)$，总体比例的置信区间为$\bar p\pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}$或$\bar p\pm z_{\alpha/2}\sqrt{\frac{\bar p(1-\bar p)}{n}}$。</p>
-<p>一个正态总体方差的置信区间估计方法如下：<br>总体方差$\sigma^2$的点估计量为$s^2$，则$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2(n-1) $，总体方差在$1-\alpha$置信水平下的置信区间为：<br>$ \frac{(n-1)s^2}{\chi^2_{\alpha/2}(n-1)}\le \sigma^2 \le \frac{(n-1)s^2}{\chi^2_{1-\alpha/2}(n-1)}$</p>
-<p>接下来谈谈两个总体参数的置信区间的估计方法。<br>估计的一般包括均值差、比例差、方差比，主要包括两种抽样方法——独立样本和配对样本。<br>两个正态总体均值之差的置信区间（独立样本）：</p>
-<p>$\sigma_1^2$，$\sigma_2^2$已知，使用正态分布统计量z：$z=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)$，两个总体均值之差$\mu_1-\mu_2$在$1-\alpha$置信水平下的置信区间为：$ (\bar x_1-\bar x_2)\pm z_{\alpha/2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}} $。</p>
-<p>$\sigma_1^2$=$\sigma_2^2$未知，总体方差的合并估计量：$s_p^2=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}$，估计量$ \bar x_1-\bar x_2 $的抽样标准差：$\sqrt{\frac{sp_1^2}{n_1}+\frac{sp_2^2}{n_2}}$，两个样本均值之差的标准化：$ t=\frac{(\bar x_1-\bar x_2)-(\mu_1-\mu_2)}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t(n_1+n_2-2) $，两个总体均值之差$\mu_1-\mu_2$在$1-\alpha$置信水平下的置信区间为：$ (\bar x_1-\bar x_2)\pm t_{\alpha/2}(n_1+n_2-2)\sqrt{s_p^2(\frac{1}{n_1}+\frac{1}{n_2})} $。<br>$\sigma_1^2\neq\sigma_2^2$未知，$n_1=n_2$：$ (\bar x_1-\bar x_2)\pm t_{\alpha/2}(n_1+n_2-2)\sqrt{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})} $。<br>$\sigma_1^2\neq\sigma_2^2$未知，$n_1\neq n_2$：$ (\bar x_1-\bar x_2)\pm t_{\alpha/2}(v)\sqrt{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})} $，$ v为自由度，v=\frac{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})^2}{\frac{(s_1^2/n_1)^2}{n_1-1}+\frac{(s_2^2/n_2)^2}{n_2-1}} $。</p>
-<p>两个总体均值之差的区间估计(独立大样本)<br>两个总体均值之差的估计：<br>$\sigma_1^2$，$\sigma_2^2$已知时，两个总体均值之差$\mu_1-\mu_2$在$1-\alpha$置信水平下的置信区间为：$ (\bar x_1-\bar x_2)\pm z_{\alpha/2}\sqrt{(\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2})} $。<br>$\sigma_1^2$，$\sigma_2^2$未知时，两个总体均值之差$\mu_1-\mu_2$在$1-\alpha$置信水平下的置信区间为：$ (\bar x_1-\bar x_2)\pm z_{\alpha/2}\sqrt{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})} $。</p>
-<p>两个总体均值之差的区间估计(匹配样本)<br>匹配大样本的假定条件——两个匹配的大样本($n_1\ge30和n_2\ge30$)；<br>两个总体均值之差$ \mu_d=\mu_1-\mu_2 $在$1-\alpha$置信水平下的置信区间为：$ \bar d\pm z_{\alpha/2}\frac{\sigma_d}{\sqrt{n}}或\bar d\pm z_{\alpha/2}\frac{s_d}{\sqrt{n}}$，$\bar d$为对应差值的均值，$\sigma_d$为对应差值的标准差。</p>
-<p>匹配小样本的假定条件——两个匹配的小样本($n_1&lt;30和n_2&lt;30$)，两个总体各观察值的配对差服从正态分布。<br>两个总体均值之差$ \mu_d=\mu_1-\mu_2 $在$1-\alpha$置信水平下的置信区间为：$ \bar d\pm t_{\alpha/2}(n-1)\frac{s_d}{n} $</p>
-<p>两个总体比例之差区间的估计<br>假定条件——两个总体服从二项分布，可以用正态分布来近似，两个样本是独立的。<br>两个总体比例之差$p_1-p_2$在$1-\alpha$置信水平下的置信区间为：$\bar p_1-\bar p_2\pm z_{\alpha/2}\sqrt{\frac{\bar q_1(1-\bar q_1)}{n_1}+\frac{\bar q_2(1-\bar q_2)}{n_2}}$。</p>
-<p>两个正态总体方差比的置信区间<br>实际应用如两种不同方法生产的产品性能的稳定性或两种不同测量工具的精度，需要我们去比较两个总体方差。</p>
-<p>两个正态总体方差比的估计<br>比较两个总体的方差比，用两个样本的方差比来判断（如果$s_1^2/s_2^2$接近于1，说明两个总体方差很接近；如果$s_1^2/s_2^2$远离1，说明两个总体方差存在差异）。<br>总体方差比在$1-\alpha$置信水平下的置信区间为：$\frac{s_1^2/s_2^2}{F_{\alpha/2}}&lt;\frac{\sigma_1^2}{\sigma_2^2}&lt;\frac{s_1^2/s_2^2}{F_{1-\alpha/2}},F\sim F(n_1-1,n_2-1)$(F分布性质：$F_{1-\alpha/2}(n_1,n_2)=\frac{1}{F_{\alpha/2}(n_1,n_2)}$)。</p>
-<p>总的来说，参数估计的东西很多，根据具体研究情况，我们可以根据自己需求选择不同的参数估计。当然据笔者所知，R语言在参数估计上，现成函数（指默认的基础包）比较少，一般需要自编函数或者有额外的包。这里先给出一个样例函数（14章中会涉及到一部分，这里不详述）。</p>
-<pre><code>conf.int=function(x,sigma,alpha) {
-    mean=mean(x)
-    n=length(x)
-    z=qnorm(1-alpha/2,mean=0,sd=1,lower.tail = T)
-    c(mean-sigma*z/sqrt(n),mean+sigma*z/sqrt(n))
-    }
-</code></pre><h3 id="3样本容量的确定"><a href="#3-样本容量的确定" class="headerlink" title="3.样本容量的确定"></a>3.样本容量的确定</h3><p>前一章我们提到统计学闻名于世的规定，样本容量一般必须＞30。但是这种规定，并不是万能的。所以样本容量的确定就成了一个问题。n过大费用高、时间长、人力多；n过小误差增大。<br>事实上n的确定依赖于多大置信度（可靠性），什么样的精度（多宽的区间）。<br>所以样本容量的确定需要根据置信区间的性质来决定。<br>置信区间的性质——以正态总体小样本容量为例。首先置信区间的宽度:$ w=2z\frac{\sigma}{\sqrt{n}} $，因此很容易发现影响区间宽度的因素包括了：</p>
-<blockquote>
-<ul>
-<li>样本容量：大样本容量——小区间。</li>
-<li>总体数据的离散程度：小方差——小区间。</li>
-<li>置信水平：高置信度——大t值——大区间。</li>
-</ul>
-</blockquote>
-<p>边际误差（margin error)——置信区间上下限与点估计之间的距离。<br>$$ E=z\frac{\sigma}{\sqrt{n}} $$<br>给定边际误差E和置信水平$1-\alpha$，可以找到所需要的样本容量。</p>
-<p>估计总体均值时样本容量的确定($\sigma^2$已知)：<br>$n=\frac{(z_{\alpha/2})^2\sigma^2}{E^2}，其中E=z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$<br>样本容量n与总体方差$\sigma^2$、边际误差E、置信水平$1-\alpha$之间的关系为：</p>
-<blockquote>
-<ul>
-<li>随总体方差增大而增大。</li>
-<li>随边际误差减小而增大。</li>
-<li>随$1-\alpha$增大而增大，随$\alpha$减小而增大。</li>
-</ul>
-</blockquote>
-<p>$\sigma$未知，如有近期样本可用，用其样本标准差代替$\sigma$，用t分布分位数代替标准正态分布分位数，自由度为近期样本容量-1。否则，可以用一个至少比$\sigma$大的数来替代$\sigma$，抽一个样本，用s代替$\sigma$——Stein 两步法。</p>
-<p>估计总体比例时样本容量的确定：<br>根据比例区间估计公式可得样本容量n为<br>$$ n=\frac{(z_{\alpha/2})^2\cdot p(1-p)}{E^2}，其中：E=z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}} $$<br>E的取值一般小于0.1，p 未知时， 可用之前样本比率估计，或保守的取最大值0.5。</p>
-<p>估计两个总体均值之差时样本容量的确定：<br>设$n_1$和$n_2$为来自两个总体的样本，并假定$n_1=n_2$。根据均值之差的区间估计公式可得两个样本的容量n为：<br>$$ n_1=n_2=n=\frac{(z_{\alpha/2})^2\cdot (\sigma_1^2+\sigma_2^2)}{E^2}，其中E=z_{\alpha/2}\sqrt{\frac{(\sigma_1^2+\sigma_2^2)}{n}} $$。<br>估计两个总体比例之差时样本容量的确定：<br>设$n_1$和$n_2$为来自两个总体的样本，并假定$n_1=n_2$。根据比例之差的区间估计公式可得两个样本的容量n为：<br>$$ n_1=n_2=n=\frac{(z_{\alpha/2})^2\cdot [p_1(1-p_1)+p_2(1-p_2)]}{E^2}，其中E=z_{\alpha/2}\sqrt{\frac{(p_1(1-p_1)+p_2(1-p_2))}{n}} $$。<br>总的来说，样本容量的确定也是根据具体需要以及显著性水平计算得到的。</p>
-
-          
+          <h1 id="Chapter-5-Estimation"><a href="#Chapter-5-Estimation" class="headerlink" title="Chapter 5 Estimation"></a>Chapter 5 Estimation</h1><p>本篇是第五章，内容是参数估计。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -929,7 +619,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1038,194 +728,14 @@
 
       
         
-          
-            <h1 id="chapter-4-sampling-and-sample-distribution"><a href="#Chapter-4-Sampling-And-Sample-Distribution" class="headerlink" title="Chapter 4 Sampling And Sample Distribution"></a>Chapter 4 Sampling And Sample Distribution</h1><p>本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。</p>
-<h3 id="1抽样方法"><a href="#1-抽样方法" class="headerlink" title="1.抽样方法"></a>1.抽样方法</h3><p>抽样调查的概念前面已经有所涉及到，这里就不详述了。大部分情况下，普查是不太可能的，所以抽样调查是科学研究中应用最为广泛的收集数据的方法。但是正如前面在谈论precision和accuracy问题的时候说的，我们希望数据的质量是Low Bias and Low Variance，抽样调查的样本既能很好地代表总体（非抽样误差小），同时多次抽样的话，也希望抽样的样本大致都接近，降低抽样误差。所以从统计学诞生至今，已经提出了很多的抽样方法。可以说并没有任何一种方法能完全避免这些误差，这些方法需要根据具体情境具体使用。<br>总的来说，抽样方法可以分为两大类：概率抽样与非概率抽样。<br>概率抽样包括了：</p>
-<blockquote>
-<ul>
-<li>简单随机抽样 </li>
-<li>系统抽样</li>
-<li>分层抽样</li>
-<li>整群抽样</li>
-<li>多阶段抽样</li>
-</ul>
-</blockquote>
-<p>概率抽样是根据一个已知的概率来抽取样本单位（也称为随机抽样），概率抽样要求按照一定的概率随机抽取样本，也就是说每个样本都有一定的机会被抽中，同时每个样本被抽中的概率是可以已知或计算出来的，而当运用概率抽样的样本进行参数估计的时候必须考虑样本被抽中的概率（某种程度来说感觉类似贝叶斯，先验概率和后验概率的问题）。<br>简单随机抽样——从总体N个单位里抽出n个单位作为样本（可以重复抽样，也可以不重复抽样），最常用的抽样方式，参数估计和假设检验主要依据的就是简单随机样本。<br>系统抽样——将总体中的所有单位(抽样单位)按一定顺序排列， 在规定的范围内随机地抽取一个单位作为初始单位， 然后按事先规定好的规则确定其他样本单位（先从数字1到k之间随机抽取一个数字r作为初始单位，以后依次取r+k， r+2k…等单位）。<br>分层抽样——将总体单位按某种特征或某种规则划分为不同的层(Strata)， 然后从不同的层中独立、 随机地抽取样本。<br>整群抽样——将总体中若干个单位合并为组(群)， 抽样时直接抽取群， 然后对中选群中的所有单位全部实施调查。<br>多阶段抽样——先抽取群， 但并不是调查群内的所有单位， 而是再进行一步抽样，从选中的群中抽取出若干个单位进行调查（群是初级抽样单位，第二阶段抽取的是最终抽样单位。将该方法推广， 使抽样的段数增多， 就称为多阶段抽样）<br>非概率抽样包括了：</p>
-<blockquote>
-<ul>
-<li>方便抽样</li>
-<li>判断抽样</li>
-<li>自愿样本</li>
-<li>滚雪球抽样</li>
-<li>配额抽样</li>
-</ul>
-</blockquote>
-<p>非概率抽样则不是按照随机的原则选取样本，而是根据研究的具体需求选取调查样本。<br>方便抽样——研究员依据方便的原则选取对应的样本。<br>判断抽样——研究员根据自己的判断选择样本。<br>自愿样本——被调查者自愿参加调查提供信息。举个跟地学相关的例子——志愿地理信息（Volunteer Geographcial Information,VGI），是指利用工具创建、组装和传播个人资源提供的地理数据，像社交媒体中的签到。<br>滚雪球抽样——首先选择一组进行调查，让调查者提供另外一些属于调查总体的调查对象，然后持续下去。<br>配额抽样——先将体中的所有单位按一定的标志（变量） 分为若干类， 然后在每个类中采用方便抽样或判断抽样的方式选取样本单位。<br>总的来说，各种抽样方式各有各有的优缺点，根据研究具体情况进行选择。而实际研究中简单随机抽样的应用更多些，这边提供R语言中做简单随机抽样的代码示例。</p>
-<pre><code>#N表示总体的数据，n为抽样单位，replace=FALSE代表不重复抽样，replace=TRUE代表重复抽样。
-n&lt;-sample(N,n,replace = FALSE)
-</code></pre><h3 id="2正态分布"><a href="#2-正态分布" class="headerlink" title="2.正态分布"></a>2.正态分布</h3><p>正态分布由高斯作为描述误差相对频数分布的模型而提出的：</p>
-<blockquote>
-<ul>
-<li>描述连续型随机变量的最重要的分布</li>
-<li>许多现象都可以由正态分布来描述</li>
-<li>可用于近似离散型随机变量的分布</li>
-<li>经典统计推断的基础</li>
-</ul>
-</blockquote>
-<p>正态分布的意义，多多少少大家都有了解，这里就不再详述了。<br>随机变量服从$$ X\sim N  (\mu,\sigma^2) $$<br>则X的概率密度函数为<br>$$ f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} -\infty&lt;x&lt;\infty $$<br>这就是正态分布的概率密度函数。<br>正态分布具有如下性质：</p>
-<blockquote>
-<ul>
-<li>关于x=μ的钟形对称性质，峰值在x=μ处。</li>
-<li>均值和标准差一旦决定，该分布形式也就决定了。</li>
-<li>均值决定分布函数位置，标准差决定函数的扁平程度。</li>
-<li>X轴两侧无限延伸，f(x)无限逼近x轴,但理论上不可能相交。</li>
-<li>正态随机变量在特定区间上的取值概率由正态曲线下的面积给出，而且其曲线下的总面积等于1</li>
-</ul>
-</blockquote>
-<p>下图给出了两个图（一个是用核密度生成的曲线，一个是正态分布概率密度函数）来说明以上的部分性质（具体实现的R语言代码会在笔记写完后给出）。</p>
-<p><img src="http://img.blog.csdn.net/20170506153724595?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170506153700996?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>标准正态分布就是指均值为0，标准差为1的正态分布。通过标准正态分布可以很方便地求算各种概率，所以实际应用中，往往将正态分布数据通过标准化的方式转化为标准正态分布求解具体概率。<br>即令<br>$$ Z=\frac{x-\mu}{\sigma} $$<br>则Z服从标准正态分布。<br>那么如何检验数据的正态性呢？一般有以下几种方法：</p>
-<blockquote>
-<ul>
-<li>对数据画出频数分布的直方图或茎叶图（若数据近似服从正态分布， 则图形的形状与上面给出的正态曲线应该相似）。</li>
-<li>求出样本数据的四分位差和标准差， 然后二者计算比值。 若数据近似服从正态分布，则有<br>$$ Q_d/s\approx1/3 $$</li>
-<li>拟合优度检验</li>
-</ul>
-</blockquote>
-<p>一般可以通过画这个图来进行检验（代码同在笔记写完后给出）。</p>
-<p><img src="http://img.blog.csdn.net/20170506153739704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>或者计算四分位差和标准差比值。<br>这里给出这个方法的R语言实现(用户自编函数）。</p>
-<pre><code>Normaltestindex&lt;-function(x) { 
-    q=fivenum(x)
-    Qd=q[4]-q[2]
-    s=sd(x)
-    Normaltestindex=Qd/s
-    cat(&quot;The Qd/s&quot;, Normaltestindex)
-    }
-</code></pre><p>拟合优度检验是后面章节内容，这里不详述。<br>正态分布在各样本相互前提下存在线性可加性。<br>$$ x_i\sim N(\mu_i,\sigma_i)，且x_i相互独立，则<br>\Sigma a_ix_i\sim N(\Sigma a_i\mu_i,\Sigma a_i^2\sigma_i^2)$$<br>同时样本量够大情况下，n个独立随机变量之和服从正态分布。</p>
-<h3 id="3三种不同性质的分布"><a href="#3-三种不同性质的分布" class="headerlink" title="3.三种不同性质的分布"></a>3.三种不同性质的分布</h3><p>统计量(statistic)——样本来自总体，必然携带有反映总体性质的各种信息。统计的基本任务就是通过对样本的研究来对总体的未知参数或分布类型作出估计，对有关总体的假设作出推断。样本是进行统计推断的依据。但在实际应用时，一般不是直接使用样本本身，而是对样本进行整理和加工, 即针对具体问题构造适当的函数—统计量， 利用这些函数来进行统计推断，揭示总体的统计特性。事实上统计量把分散在样本中的总体信息按需要集中在一个函数上，使该函数能反映总体方面的信息。<br>概念很拗口，总结起来就是，我懒得分析（也没法分析，因为有些总体无法穷尽）总体的分布，我就偷懒地先抽样，并且认为样本能够代表总体特征，再偷懒地计算某些指标，这些指标可以反映样本数据分布特征，这些指标就叫统计量，然后再用统计量去推出（猜）总体的分布特征（第一章提到了，应该叫参数）——果然“懒”才是人类进步的动力。<br>当然这里要区分两个概念——统计量与观察值。<br>$$ 假设X_1,X_2, \cdots ,X_n是来自总体X的样本, x_1,x_2,\cdots ,x_n为其样本值, $$<br>$$则称不含任何总体分布中未知参数的函数g(X_1,X_2,\cdots,X_n)为统计量，相应实数g(x_1,x_2,\cdots,x_n)为观察值 $$<br>如何理解这二者区别呢？其实这里把样本看成了一组随机变量，因为在未抽样前，样本观察值未知，样本就是个随机变量（所以一般来说统计推断的基础是简单随机抽样），但是抽样之后，样本就是一组确定的观察值，这也可以说是样本的二重性。<br>常用的统计量包括了样本均值、样本方差、样本标准差、样本k阶原点矩、样本k阶中心距（具体公式的话，文末附录给出）。<br>从前面提到的统计推断基础是简单随机抽样，也就是要求样本是简单随机样本，那么简单随机样本又是什么呢？<br>首先随机样本的概念：<br>$$ 随机抽取的n个个体的集合(X_1,X_2, \cdots ,X_n),n为样本容量。 $$<br>而简单随机样本则需要在随机样本的前提上满足以下两个条件：</p>
-<blockquote>
-<ul>
-<li>随机性：总体中每个个体都有同等机会被选到样本中,即<br>$$ X_i 与X同分布$$</li>
-<li>独立性：样本中每个个体的选取不影响其他个体的选取，即<br>$$ X_1,X_2, \cdots ,X_n是相互独立的随机变量 $$</li>
-</ul>
-</blockquote>
-<p>接下来是标题提到的三种不同性质的分布：总体分布、样本分布、抽样分布。</p>
-<blockquote>
-<ul>
-<li>总体分布——总体中各元素的观察值所形成的分布，分布通常是未知的，可以假定它服从某种分布。</li>
-<li>样本分布——一个样本中各观察值的分布，也称经验分布，当样本容量 n 逐渐增大时，样本分布逐<br>渐接近总体的分布。</li>
-<li>抽样分布——样本统计量的概率分布， 是一种理论分布，又称为诱导分布，在重复选取容量为n 的样本时，由该统计量的所有可能取值形成的相对频数分布，随机变量是样本统计量（样本函数，如样本均值，样本比例，样本方差等），结果来自容量相同的所有可能样本，提供了样本统计量长远而稳定的信息，是进行推断的理论基础，也是抽样推断科学性的重要依据（ 点估计、 置信区间、假设推断等）。</li>
-</ul>
-</blockquote>
-<p>用一个简单的例子来说明三者的区别。<br>假设总体N=4，随机变量X=年龄。<br>总体分布如下，均值为21，方差为2.236。这里提醒用R语言做统计的同学，R语言默认的var和sd都是求样本的标准差（分母是n-1和n的差别），当你的数据是总体时，建议另外计算，或者可以使用我下面的自编函数（给了个标准差的样例，方差的会在笔记写完后给出）。</p>
-<pre><code>Populationsd&lt;-function(x){
-    n=length(x)
-    m=mean(x)
-    Psd=sqrt(sum((x-m)^2)/n)
-    cat(&quot;The Standard deviation of Population : &quot;,Psd)
-    }
-</code></pre><p><img src="http://img.blog.csdn.net/20170506153800251?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>建立n=2的抽样分布，样本均值分布如下，均值为21，方差为1.58</p>
-<p><img src="http://img.blog.csdn.net/20170506153818748?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>可以发现总体分布是均匀分布，而样本均值的抽样分布却呈现了近似正态分布，均值是相同的，但是方差却有差异。<br>根据总体分布以及样本容量可以将抽样分布分为以下三类：</p>
-<blockquote>
-<ul>
-<li>精确抽样分布：当总体分布已知时，如果对任一自然数都能导出统计量分布的显示表达式，这样的抽样分布称为精确抽样分布（对小样本的统计推断特别有用，大多数是在正态总体下得到的， t分布、 F分布等）。</li>
-<li>渐近抽样分布：样本量无限大时统计量的极限分布（大样本问题）。</li>
-<li>近似抽样分布：注意获得近似分布的条件（用统计量的前二阶矩当作正态分布的前二阶矩获得<br>正态近似，随机模拟法获得统计量的近似分布）。</li>
-</ul>
-</blockquote>
-<h3 id="4一个总体样本统计量的抽样分布"><a href="#4-一个总体样本统计量的抽样分布" class="headerlink" title="4.一个总体样本统计量的抽样分布"></a>4.一个总体样本统计量的抽样分布</h3><p>样本均值的抽样分布——在重复选取容量为 n 的样本时，由样本均值的所有可能取值形成的相对频数分布（一种理论概率分布，推断总体均值的理论基础）。</p>
-<blockquote>
-<ul>
-<li>正态总体均值抽样分布——精确分布（均值无偏）。</li>
-<li>样本均值的中心极限定理——渐进分布。<br>中心极限定理：<br>$$设从均值为\mu， 方差为\sigma^2的一个任意总体中抽取容量为n的样本，$$ $$ 当n充分大时，样本均值的抽样分布近似服从均值为\mu、 方差为\sigma^2/n的正态分布 $$</li>
-</ul>
-</blockquote>
-<p>用一张图来说明这个定理（摘自参考书目1：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.）。</p>
-<p><img src="http://img.blog.csdn.net/20170506154006095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：</p>
-<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$ </p>
-<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$</p>
-<p>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
-<p>除了均值之外，实际生活中比例也是一个很重要的参数。<br>比例——总体（或样本）中具有某种属性的单位与全部单位总数之比（如不同性别的人与全部人数之比，合格品(或不合格品) 与全部产品总数之比）<br>总体比例可表示为<br>$$ p=\frac{N_0}{N},1-p=\frac{N_1}{N} $$<br>样本比例可表示为<br>$$ p=\frac{n_0}{n},1-p=\frac{n_1}{n} $$<br>样本比例的抽样分布——在重复选取容量为n的样本时，由样本比例的所有可能取值形成的相对频数分布。</p>
-<blockquote>
-<ul>
-<li>一种理论概率分布。</li>
-<li>当样本容量很大时（满足np≥5, n(1-p)≥5)，样本比例的抽样分布可用正态分布近似。</li>
-<li>推断总体比例p的理论基础。</li>
-</ul>
-</blockquote>
-<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：</p>
-<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$ </p>
-<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
-<p>接下来介绍一个重要的分布——卡方分布。<br>$$ 若随机变量\xi_1,\xi_2,\cdots,\xi_n是n个相互独立的标准正态变量（独立同分布于标准正态分布），$$ $$ 则这n个随机变量的平方和Y=\Sigma\xi_i^2构成的随机变量的分布称为自由度为n的\chi^2分布（chi-square distribution），$$ $$ 记为\chi^2(n)分布 $$<br>卡方分布的性质和特点如下：</p>
-<blockquote>
-<ul>
-<li>分布的变量值始终为正</li>
-<li>分布的形状取决于其自由度n的大小， 通常为不对称的单峰右偏（ 正偏） 分布， 但随着自由度<br>的增大逐渐趋于对称， 当n&gt;30时， 接近正态分布</li>
-<li>期望为：<br>$$ E(\chi^2)=n，$$<br>方差为：<br>$$ D(\chi^2)=2n (n为自由度) $$</li>
-<li>可加性：<br>$$ 若U和V为两个独立的\chi^2分布随机变量，U\sim \chi^2(n_1)， V\sim \chi^2(n_2), $$ $$则U+V这一随机变量服从自由度为n_1+n_2的\chi^2分布$$</li>
-</ul>
-</blockquote>
-<p>卡方分布的性质可以根据这张图来看。</p>
-<p><img src="http://img.blog.csdn.net/20170506163624562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>卡方分布一般用于样本方差的分布的计算。<br>样本方差的分布——在重复选取容量为n的样本时， 由样本方差的所有可能取值形成的相对频数分布。<br>对于来自正态总体的简单随机样本，则比值<br>$$ \frac{(n-1)s^2}{\sigma^2} $$<br>该比值的抽样分布服从<br>$$ 自由度为(n-1)的\chi^2分布，即 \frac{(n-1)s^2}{\sigma^2}\sim \chi^2(n-1) $$</p>
-<p>接着再介绍一个耳熟能详的t分布。t 分布是类似正态分布的一种对称分布， 它通常要比正态分布平坦和分散。<br>t分布的性质和特点如下：</p>
-<blockquote>
-<ul>
-<li>自由度为1的t 分布为柯西分布，期望值不存在。</li>
-<li>n&gt;1时，期望值为0。</li>
-<li>n&gt;2时，方差存在，为n/(n-2)。</li>
-<li>随着自由度的增大，分布也逐渐趋于标准正态分布。（t 分布的极限为标准正态分布，当n&gt;30时， t 分布可用标准正态分布近似）</li>
-</ul>
-</blockquote>
-<p>t分布的性质可以根据这张图来看。</p>
-<p><img src="http://img.blog.csdn.net/20170506165455196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>t分布的应用是在求样本均值与样本标准差之比上<br>样本均值与样本标准差之比的分布为：<br>$$ t=\frac{\bar x-\mu}{s/\sqrt{n}}\sim t(n-1) $$<br>自由度为(n-1)的t 分布</p>
-<h3 id="5两个总体样本统计量的抽样分布"><a href="#5-两个总体样本统计量的抽样分布" class="headerlink" title="5.两个总体样本统计量的抽样分布"></a>5.两个总体样本统计量的抽样分布</h3><p>其实从前面第4点内容可以看出，其实实际应用中，均值、比例、方差的估计是比较多的，因此这三个总体样本统计量的抽样分布特别提出来了。而第4点讨论的是一个总体的，两个总体的也可以类比，道理是一样的。<br>两个样本均值之差的抽样分布：</p>
-<blockquote>
-<ul>
-<li>两个总体均为正态分布，即<br>$$ X_1\sim N(\mu_1,\sigma_1^2) ,X_2\sim N(\mu_2,\sigma_2^2)$$</li>
-<li>两个样本均值之差的抽样分布服从正态分布，其分布的数学期望为两个总体均值之差：<br>$$ E(\bar x_1-\bar x_2)=\mu_1-\mu_2 $$</li>
-<li>方差为各自的方差之和：<br>$$ \sigma_{\bar x_1-\bar x_2}^2=\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2} $$</li>
-</ul>
-</blockquote>
-<p>两个样本比例之差的抽样分布：</p>
-<blockquote>
-<ul>
-<li>两个总体都服从二项分布。</li>
-<li>分别从两个总体中抽取容量为$n_1$和$n_2$的独立样本，当两个样本都为大样本时，两个样本比例之差的抽样分布可用正态分布来近似。</li>
-<li>分布的数学期望为：<br>$$ E(\bar p_1-\bar p_2)=p_1-p_2 $$</li>
-<li>方差为各自方差之和：<br>$$ \sigma_{\bar p_1-\bar p_2}^2=\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2} $$</li>
-</ul>
-</blockquote>
-<p>最后的最后，我们来介绍本片的最后一个重要的分布——F分布。<br>F分布：<br>$$ 设若U为服从自由度为n_1的\chi^2分布，即U\sim \chi^2(n_1), $$ $$ V为服从自由度为n_2的\chi^2分布，即V\sim \chi^2(n_2),且U与V相互独立, $$ $$ F=\frac{U/n_1}{V/n_2},F服从自由度n_1和n_2的F分布, $$ $$记为 F\sim F(n_1,n_2) $$<br>不同自由度下的F分布</p>
-<p><img src="http://img.blog.csdn.net/20170506194529874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>两个样本方差比的抽样分布：</p>
-<blockquote>
-<ul>
-<li>两个总体都为正态分布，即<br>$$ X_1\sim N(\mu_1,\sigma_1^2), X_2\sim N (\mu_2,\sigma_2^2） $$</li>
-<li>从两个总体中分别抽取容量为$n_1$和$n_2$的独立样本。</li>
-<li>两个样本方差比的抽样分布， 服从分子自由度$(n_1-1)$， 分母自由度为$(n_2-1)$的F分布， 即<br>$$ \frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2}\sim F(n_1-1,n_2-1) $$</li>
-</ul>
-</blockquote>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X_i} $$</p>
-<p>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2 $$</p>
-<p>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2} $$</p>
-<p>样本k阶原点矩：</p>
-<p>$$ A_k=\frac{1}{n} \sum_{i=1}^nX_i^k (k=1,2,\cdots) $$</p>
-<p>样本k阶中心矩：</p>
-<p>$$ B_k=\frac{1}{n} \sum_{i=1}^n(X_i-\bar X)^k (k=1,2,\cdots) $$</p>
-<p>各统计量的观察值：</p>
-<p>$$ \bar x=\frac{1}{n} \sum_{i=1}^n{x_i} $$</p>
-<p>$$ s^2=\frac{1}{n-1} \sum_{i=1}^n(x_i-\bar x)^2 $$</p>
-<p>$$ a_k=\frac{1}{n}\sum_{i=1}^nx_i^k (k=1,2,\cdots) $$</p>
-<p>$$ b_k=\frac{1}{n} \sum_{i=1}^n(x_i-\bar x)^k (k=1,2,\cdots) $$</p>
-
-          
+          <h1 id="Chapter-4-Sampling-And-Sample-Distribution"><a href="#Chapter-4-Sampling-And-Sample-Distribution" class="headerlink" title="Chapter 4 Sampling And Sample Distribution"></a>Chapter 4 Sampling And Sample Distribution</h1><p>本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1267,7 +777,7 @@ n&lt;-sample(N,n,replace = FALSE)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/应用统计学与R语言实现学习笔记（三）——描述性统计/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/05/应用统计学与R语言实现学习笔记（三）——描述性统计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1376,113 +886,14 @@ n&lt;-sample(N,n,replace = FALSE)
 
       
         
-          
-            <h1 id="chapter-3-descriptive-statistics"><a href="#Chapter-3-Descriptive-Statistics" class="headerlink" title="Chapter 3 Descriptive Statistics"></a>Chapter 3 Descriptive Statistics</h1><p>本篇是第三章，内容是描述性统计。同时在这一章会开始渗透R语言的相关内容。但整体还是以理论为主。</p>
-<h3 id="1数据的预处理"><a href="#1-数据的预处理" class="headerlink" title="1.数据的预处理"></a>1.数据的预处理</h3><p>本章正式进入统计学的一大分支——描述统计。<br>很多人会疑惑做一个Project或者写一篇Paper，最难的是什么？我曾经不止一次说过，最难的是数据。数据收集完成，项目完成了50%。而数据收集完成之后，很多人就会马上开始进行数据处理和分析，事实上这是不对的。因为你不清楚你的数据是否有问题（什么问题都有可能，会导致你的分析出现各种问题）。所以你拿到数据后的第一步，应该是对数据做预处理，或者用大数据时代的话——叫数据清洗或者ETL（Extract-Transform-Load），我想预处理还会占掉Project花费时间的20%吧。<br>那么接下来先介绍下预处理的内容。<br>数据预处理：</p>
-<blockquote>
-<ul>
-<li>数据审核</li>
-<li>数据筛选</li>
-<li>数据排序</li>
-<li>数据透视</li>
-</ul>
-</blockquote>
-<p>数据审核，包括直接数据的完整性审核以及准确性审核（是否客观），间接数据的适用性审核以及时效性审核；数据筛选，就是对于数据里面的异常值（存在错误，不符合调查要求等），在现在来说就是dirty data（脏数据），将这些数据剔除；数据排序，事实上数据排序更多的目的还是为了更方便地发现异常值，是做数据清洗的手段；数据透视，借鉴于Excel里的数据透视表，事实上就是数据的重铸，融合和汇总，从而得到我们需要的数据。<br>总的来说，前期预处理需要对数据进行排序、汇总和观察发现相关的数据异常值等。在这个阶段，不喜编程的同学推荐用Excel来做数据预处理（通过数据透视图、替换数据、排序、Countif等工具和Excel函数高效完成预处理），更高级的一般可以考虑用R、Python等编程语言进行清洗预处理，或者像在数据库里用SQL语句也是可以的。<br>响应一下本部分的标题，R语言实现，交代几个简单的语句进行数据清洗。</p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#x为数据框、数组或矩阵，通过summary可以获取平均值、中位数、四分位数等，如果有缺失数据，则会显示NAN等。</span></div><div class="line">summary(x)</div><div class="line"></div><div class="line"><span class="comment">#表示y是按照x的第一行先升序排列，然后再按x的第二列降序排列得到的数据，-表示降序。</span></div><div class="line">y&lt;-x[order(x[<span class="number">1</span>],-x[<span class="number">2</span>)]</div><div class="line"></div><div class="line"><span class="comment">#去除NA所在行和列</span></div><div class="line">y&lt;-na.omit(x)</div></pre></td></tr></table></figure>
-</code></pre><h3 id="2数据的整理与展示"><a href="#2-数据的整理与展示" class="headerlink" title="2.数据的整理与展示"></a>2.数据的整理与展示</h3><p>这部分的数据整理是在预处理完毕后，根据我们需要对数据进行整理和简单可视化（多画图，多可视化，你能发现很多事情）。那么第一步就是先把我们的数据类型搞清楚。因为不同类型数据，整理方式不同。<br>对于分类数据和顺序数据主要是分类整理。<br>对于数值数据主要是做分组整理。</p>
-<blockquote>
-<ul>
-<li>分类数据的整理核心就是计算频数、比例、百分比、比率，一般可视化用条形图（柱状图）。此外还可以考虑使用帕累托图。帕累托图（Pareto chart）是以意大利经济学家V.Pareto的名字而命名的。这是一个双坐标轴图，一侧纵坐标是频率，另一侧纵坐标是累计频率。是在条形图基础上加上一条折线图（累计频率曲线）。通常用帕累托图来表示，就是研究事物特征是否存在二八定律（20/80规律，典型案例：20%的人拥有80%的财富）。<br>除此之外，分类型数据还可以用饼图来进行可视化。</li>
-<li>顺序数据则一般选用累计频率曲线和环状图进行可视化。</li>
-<li>数值型数据的可视化方式是最多的。主要包括了直方图、折线图（频数多边形图）、打点图、茎叶图、箱线图、线图（时间序列数据）、双变量问题（二维散点图与散点图矩阵）、三变量问题（三维散点图或气泡图）、多变量问题（雷达图）。</li>
-</ul>
-</blockquote>
-<p>其中这里面有一个直方图分组使用的经验公式。</p>
-<p>$$ K=1+\frac{\lg {n}}{\lg {2}} $$</p>
-<p>K为组数，n为样本数。确定组数，通过极差和组数求组距即可分组。<br>这部分有很多可视化内容，暂时就不在这部分讲述了（第14章会重点讲解几个典型的可视化方式的R语言绘制)。<br>最后小结下数据可视化的内容。</p>
-<blockquote>
-<ul>
-<li>品质数据——先制作汇总表，然后可以采用条形图、饼图、环状图可视化；</li>
-<li>数值数据中的原始数据——茎叶图、箱线图可视化；</li>
-<li>数值数据中的分组数据——直方图、折线图；</li>
-<li>数值数据中的时间序列数据——线图；</li>
-<li>数值数据中的多元数据——散点图、气泡图、雷达图。</li>
-</ul>
-</blockquote>
-<p>此外对于图表可视化来说，好的图表可视化应当具有如下特征：</p>
-<blockquote>
-<ul>
-<li>显示数据；</li>
-<li>让读者把注意力集中在图表的内容上，而不是制作图表的程序上；</li>
-<li>强调数据之间的比较；</li>
-<li>服务于一个明确的目的；</li>
-<li>有对图表的统计描述和文字说明。</li>
-</ul>
-</blockquote>
-<p>鉴别图表优劣的准则：</p>
-<blockquote>
-<ul>
-<li>精心设计、 有助于洞察问题的实质；</li>
-<li>使复杂的观点得到简明、 确切、 高效的阐述；</li>
-<li>能在最短的时间内以最少的笔墨给读者提供最大量的信息；</li>
-<li>表述数据的真实情况， 避免歪曲。</li>
-</ul>
-</blockquote>
-<p>当然图表可视化不仅仅只有R，Excel、SPSS、Tableau都可以使用。</p>
-<h3 id="3数据的概括性度量"><a href="#3-数据的概括性度量" class="headerlink" title="3.数据的概括性度量"></a>3.数据的概括性度量</h3><p>当你面对一堆数据时，你还是不知道从何下手，因为我们不可能强行记住每个数据，然后在脑海里对各个数据的分布进行比较，所以科学家们在处理数据的时候，都希望用数据规模尽可能小的一个指标去描述数据尽可能多的信息。那么从数据的角度出发，针对数据分布的不同方面，科学家们也都找出了不相同的指标来进行描述。<br>简单来说，数据分布包括了集中趋势、离散程度、分布形状三个方面的内容。</p>
-<blockquote>
-<ul>
-<li>集中趋势：众数、中位数、平均数；</li>
-<li>离散程度：异众比率、四分位差、极差、方差或标准差、离散系数；</li>
-<li>分布形状：偏态系数、峰态系数。</li>
-</ul>
-</blockquote>
-<p>集中趋势的几个指标想必大家较为清楚，就不展开详述了。而离散程度中极差、方差和标准差也是如此，同上，不过单独解释下自由度的概念（一组数据中可以自由取值的数据的个数，与附加给独立观测值的约束或限制的个数<br>有关，比如三个数据的均值已经知道，知道其中两个数据，第三个数据是固定的，也就是说在添加了均值这个约束之后，观测数据自由取值的个数是n-1=2个）。这里重点解释异众比率，四分位差、离散系数、偏态系数和峰态系数。<br>异众比率——从字面理解即可，非众数的比率。也就是——不是众数的组的频数占总频数的比率。<br>四分位差——上四分位数减去下四分位数。<br>离散系数——也就是标准差系数，即用标准差除以平均值。<br>偏态系数——用来描述数据分布特征（分布偏斜程度）的系数，该系数&gt;0为右偏分布，<0为左偏分布，=0为对称分布。 峰态系数——用来描述数据分布特征（分布扁平程度）的系数，该系数="">0为尖峰分布，&lt;0为扁平分布，=0为扁平峰度适中。<br>最后单列出以上部分指标的公式（有数学恐惧症的同学请跳过）：</0为左偏分布，=0为对称分布。></p>
-<p>中位数：</p>
-<p>$$ x_{((n+1)/2)} （n为奇数）$$</p>
-<p>或</p>
-<p>$$ (x_ {(n/2)}+x_{(n/2)+1})/2 （n为偶数）$$</p>
-<p>四分位数：<br>$$ Q_ {L位置}=\frac{n}{4},Q_{U位置}=\frac{3n}{4} $$</p>
-<p>$$ Q_ {L位置}=\frac{n+1}{4},Q_{U位置}=\frac{3（n+1）}{4} $$</p>
-<p>$$ Q_ {位置}=\frac{[\frac{n+1}{2}]+1}{2} $$</p>
-<p>$$ Q_ {L位置}=\frac{n+3}{4},Q_{U位置}=\frac{3n+1}{4} $$</p>
-<p>平均数： </p>
-<p>$$ \bar{x}=\frac{\sum_ {i=1}^n x_{i}}{n}(简单平均数), \bar{x}=\frac{\sum_{i=1}^k M_{i}f_{i}}{n}(加权平均数)$$</p>
-<p>$$ G_{m}=\sqrt[n] {\prod_{i=1}^n {(1+x_{i})}}-1(几何平均数)$$</p>
-<p>异众比率：$$ v_r=1-\frac{f_m}{\sum f_i}  $$</p>
-<p>极差： $$ R=max(x_i)-min(x_i) $$</p>
-<p>四分位差： $$ Q_d=Q_U-Q_L $$</p>
-<p>平均差：<br>$$ M_d=\frac{\sum_{i=1}^n \left|{x_i-\bar {x}}\right|}{n} $$</p>
-<p>或</p>
-<p>$$ M_d=\frac{\sum_{i=1}^k \left|{M_i-\bar {x}}\right|f_i}{n} $$</p>
-<p>总体方差： </p>
-<p>$$ \sigma^2=\frac{\sum_{i=1}^N (x_i-\mu)^2}{n} $$ </p>
-<p>或 </p>
-<p>$$ \sigma^2=\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n} $$</p>
-<p>总体标准差： </p>
-<p>$$ \sigma=\sqrt {\frac{\sum_{i=1}^N (x_i-\mu)^2}{n}} $$ </p>
-<p>或 </p>
-<p>$$ \sigma=\sqrt{\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n}} $$</p>
-<p>样本方差：</p>
-<p>$$ s^2=\frac{\sum_{i=1}^N (x_i-\mu)^2}{n-1} $$ </p>
-<p>或 </p>
-<p>$$ s^2=\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n-1} $$</p>
-<p>样本标准差：<br>$$ s=\sqrt {\frac{\sum_{i=1}^N (x_i-\mu)^2}{n-1}} $$ </p>
-<p>或 $$ s=\sqrt{\frac{\sum_{i=1}^k (M_i-\mu)^2f_i}{n-1}} $$</p>
-<p>标准分数： </p>
-<p>$$ z_i=\frac{x_i-\bar{x}}{s} $$</p>
-<p>标准差系数： </p>
-<p>$$ v_s=\frac{s}{\bar{x}} $$</p>
-<p>偏态系数： </p>
-<p>$$ SK=\frac{n\sum(x_i-\bar{x})^3}{(n-1)(n-2)s^3} $$</p>
-<p>或</p>
-<p>$$ SK=\frac{\sum_{i=1}^k(M_i-\bar{x})^3f_i}{ns^3} $$</p>
-<p>峰态系数：</p>
-<p>$$ K=\frac{n(n+1)\sum{(x_i-\bar{x})^4}-3[\sum{(x_i-\bar{x})^2}]^2(n-1)}{(n-1)(n-2)(n-3)s^4} $$</p>
-<p>或</p>
-<p>$$ K=\frac{\sum_{i=1}^k{(M_i-\bar{x})^4f_i}}{ns^4}-3 $$</p>
-
-          
+          <h1 id="Chapter-3-Descriptive-Statistics"><a href="#Chapter-3-Descriptive-Statistics" class="headerlink" title="Chapter 3 Descriptive Statistics"></a>Chapter 3 Descriptive Statistics</h1><p>本篇是第三章，内容是描述性统计。同时在这一章会开始渗透R语言的相关内容。但整体还是以理论为主。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/05/应用统计学与R语言实现学习笔记（三）——描述性统计/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1524,7 +935,7 @@ n&lt;-sample(N,n,replace = FALSE)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1633,110 +1044,14 @@ n&lt;-sample(N,n,replace = FALSE)
 
       
         
-          
-            <h1 id="chapter-2-data-collection"><a href="#Chapter-2-Data-Collection" class="headerlink" title="Chapter 2 Data Collection"></a>Chapter 2 Data Collection</h1><p>本篇是第二章，内容是数据收集。</p>
-<h3 id="1数据来源"><a href="#1-数据来源" class="headerlink" title="1.数据来源"></a>1.数据来源</h3><p>做科学研究离不开数据，而数据的来源有哪些呢？<br>这里比较简单地将数据来源分为两类：直接（一手）数据和间接（二手）数据。<br>直接数据的数据获取来源包括：观测、调查、实验。<br>间接数据的数据获取来源包括：出版物、互联网等。<br>接下来分别谈谈这几个来源。<br>观测——自然科学里有观测，如气象气候、植物生长期等，社会科学同样有观测，譬如像街区人的观测等。观测的数据可以说是纯粹第一手数据，在研究中是很宝贵的数据，但是很容易受到观测记录员主观因素的影响。<br>调查——自然科学里的调查（室外样品采集，环境状况调查）一般是跟室内实验相结合，而社会科学的调查会更丰富，如典型的问卷调查、访谈、座谈会等。<br>实验——实验是自然科学的核心，这里就不详述了（比如：土壤理化性质分析、植物生态生理特性分析）。不过近年来随着学科交叉增多，社会科学也开始更多地引入实验的方法（以笔者另一门公选课《初级社会网络》为例，耶鲁大学的社会心理学家米尔格兰姆(Stanley Milgram)就设计了一个连锁信件实验，这就是著名的六度分割理论的由来）。<br>当然除了以上三种，我认为在现在的大数据时代，还存在一些新的直接数据来源。</p>
-<blockquote>
-<ul>
-<li>物联网（Interest of Thing,IOT),以各类传感器（RFID、红外感应系统、GPS、通量塔等）为代表，代表数据就是如今火热的大数据——如RFID记录数据、浮动车与出租车GPS轨迹数据、通量塔测量的NEE等。</li>
-<li>遥感（Remote Sensing，RS），某种程度上，遥感也是靠传感器接收数据，但是它与物联网还是有所差别，故单列出来。作为地学和生态学背景（尤其是GIS和RS相关方向的）的学生，对遥感会非常熟悉。遥感的特征就是，可以大范围快速获取地表信息数据（譬如地形、地表温度、气溶胶、albedo等，当然这些都需要进行反演等）。</li>
-</ul>
-</blockquote>
-<p>总的来说，观测在自然科学和社会科学中都有渗透较多，但是观测往往受到记录人员主观因素影响导致误差。而且观测的数据结构一般来说呈现非结构化的特征。调查在社会科学中有较多应用，自然科学中较少，而实验则是在自然科学中应用广泛，社会科学则应用较少。这两类的实质是类似的，需要提前设计好调查的大纲或者实验方案，然后按照设计好的大纲和方案进行调查和实验。也因此这两类数据结构化特征比较明显。<br>所谓的间接数据就是指已经经过他人整理的相关数据。这边列出来的主要包括：<br>出版物：统计年鉴、书籍、论文等。统计年鉴是大部分社会科学相关研究的重要数据来源，这边就不详述了。书籍对于很多如社会研究的文本分析是重要的数据来源。论文作为数据，是近年来兴起的文献计量学的典型数据。此外对Meta分析，论文里的数据则是重要来源。<br>互联网：百度指数、阿里指数、大众点评等数据。<br>互联网数据可以利用网络爬虫获取。<br>总的来说，间接数据易于获取，作用广泛，但使用的时候需要控制数据质量以及引用。</p>
-<h3 id="2调查设计"><a href="#2-调查设计" class="headerlink" title="2.调查设计"></a>2.调查设计</h3><p>这边主要介绍的是数据的调查方式、调查方案的结构和设计以及调查问卷设计。<br>（1）数据的调查方式<br>数据的调查方式一般而言是遵循统计学规律的（我们称之为统计调查方式），这里列举了我国统计调查的常用方式：普查（人口普查、农业普查、甚至到最近刚刚发布成果的全国第一次地理国情普查）、抽样调查（概率抽样、非概率抽样，具体后面第三章会详述）、统计报表（统计公报）。<br>而除了以上之外，当我们需要自己收集直接数据的时候又可以分为以下几种：<br>询问调查类：</p>
-<blockquote>
-<ul>
-<li>访问调查</li>
-<li>邮寄调查</li>
-<li>电话调查</li>
-<li>电脑辅助</li>
-<li>座谈会</li>
-<li>个别深访</li>
-</ul>
-</blockquote>
-<p>观察实验</p>
-<blockquote>
-<ul>
-<li>观察</li>
-<li>实验</li>
-</ul>
-</blockquote>
-<p>（2）调查方案的结构和设计<br>如何做调查？是很多人在科学研究中的第一道难关。这里给出一个关于做调查的普遍步骤流程图：</p>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<p>那么调查方案又是什么呢？我认为调查方案就是调查的策划书。明确你调查的一些目的、对象、项目以及调查方法等。一般结构如下：</p>
-<blockquote>
-<ul>
-<li>调查目的</li>
-<li>调查对象调查单位</li>
-<li>调查项目</li>
-<li>其他</li>
-</ul>
-</blockquote>
-<p>（3）调查问卷设计<br>最后这部分是谈谈调查问卷设计的一些内容（包括笔者自己的一些经验）。<br>问卷结构</p>
-<blockquote>
-<ul>
-<li>开头部分（问候语、填写说明、问卷编号 ） </li>
-<li>甄别部分</li>
-<li>主体部分</li>
-<li>背景部分</li>
-</ul>
-</blockquote>
-<p>其他部分就不详述了，甄别部分一般是针对过滤的问题，就是不符合条件的即可跳过部分调查题目。接下来主要针对主体部分简单介绍。<br>主体部分其实就是问卷主要调查的部分。一般来说要注意一下几点。</p>
-<blockquote>
-<ul>
-<li>提问内容尽可能简短</li>
-<li>用词准确通俗（可按6W原则推敲：Who,Where,When,Why,What,How）</li>
-<li>一项提问只包括一项内容</li>
-<li>避免诱导性提问、否定形式提问、敏感性问题</li>
-</ul>
-</blockquote>
-<p>而问题则又可以分为两大类：开放性问题（自由回答型）和封闭性问题（选择回答型）。<br>封闭性问题包括了二项选择、多项选择（单项、多项、限制选择）、顺序选择法、评定尺度法、双向列联表法。</p>
-<blockquote>
-<ul>
-<li>开放性问题——一般就是可以随便答，这类数据一般是问卷者的主观感受，不会受客观影响。但是最大的问题在于数据收集呈现非结构化特征，多以文本形式存在。研究时必须通过重编码、文本分析等方法。</li>
-<li>封闭性问题——相当于是选择题或者填空题。二项选择就是，只有两个选项（A或B）；多项选择则是有多个选项，可以选至少一个（一个为单项、一个以上且不限制选择的数量为多项、一个以上且限制选择的数量为限制）；顺序选择法，就是给出多个选项，让你按照自己的认识对选项进行排序；评定尺度法，给出多个选项且是有等级划分的（如很差，差，一般，好，很好）进行选择；双向列联表法，将两类不同问题综合到一起，用表格形式，横向为一类问题，纵向为一类问题。</li>
-</ul>
-</blockquote>
-<p>从笔者的经验来说，在设置问卷的时候，必须要先从自己想研究的问题出发，思索如何用数据分析证明自己的结论，然后大致思索需要用来分析的统计方法与统计指标，然后对应选择问题的形式，因为不同的问题形式对应的数据结构大不相同，而且统计方法也不尽相同。<br>最后的最后安利大家一个软件：Survey123 for ArcGIS<br>这是由esri北京研发中心开发的一款外业数据收集软件——获得“问卷好帮手”称号的application。</p>
-<blockquote>
-<p><a href="http://www.esri.com/products/survey123" target="_blank" rel="external">http://www.esri.com/products/survey123</a></p>
-</blockquote>
-<p>主要包括了桌面端Survey123 connect和移动端Survey123 app两大软件。可以简便地建立问卷、分享问卷、搜集数据、分析数据，同时采集时受访者的GPS位置也将被记录。具体教程参照如下网址。</p>
-<blockquote>
-<p><a href="http://doc.arcgis.com/zh-cn/survey123/" target="_blank" rel="external">http://doc.arcgis.com/zh-cn/survey123/</a></p>
-</blockquote>
-<h3 id="3数据质量"><a href="#3-数据质量" class="headerlink" title="3.数据质量"></a>3.数据质量</h3><p>采集数据的时候必须考虑的就是数据的质量，即降低采集数据时产生误差。<br>科学研究中的数据误差无可避免，而误差的来源主要包括：抽样误差、非抽样误差。<br>抽样误差，在抽样方式确定时就无法避免，具体的方法可能还是统计学万能解药———增加样本量。<br>非抽样误差则包括了如下的内容：</p>
-<blockquote>
-<ul>
-<li>抽样框误差</li>
-<li>回答误差</li>
-<li>无回答误差</li>
-<li>调查员误差</li>
-</ul>
-</blockquote>
-<p>抽样框误差——其实就是抽取的样本无法代表总体；回答误差和无回答误差都是由于受访者导致的错误，而调查员误差则无须再介绍，即采集者自身的误差。<br>那么控制误差的方法无非就在于样本大小以及合适的数据框（针对非抽样误差和抽样框误差），靠重访来进行修正（回答误差和无回答误差），调查员误差则需要对调查员进行培训。<br>当然这里还得普及一个概念，在统计学里面，precision（精度）和accuracy（准确性）是不相同的。中文里面往往因为两个单词都翻译成精度，事实上这两个词指的是不一样的内容。二者的区别可以看下面的图。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3229757-936627c6c2cc6967?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这里做个简单的解释，事实上就是我们研究事物是个无法穷尽的总体，因此我们只能进行抽样调查，那么多次抽样调查研究之后，我们可以得到每次抽样调查的均值（也可以是其他统计量），在图中就是蓝色的点，那么在靶中心的绿色部分，可以认为是总体的真正均值。那么也就是说高精度一般指的是，我们的样本数据自身的变异性很小，也就是说，我们做了N次抽样调查，而每次抽样调查的样本均值基本是稳定的。我们抽的N次都是相近的数据，也就是说我们的抽样误差尽可能小了（因为抽了N次数据变化不会太大）。而高准确性一般指的是，我们N次抽样的样本数据的平均值与总体数据差异很小。也就是说我们的N次样本的均值与总体均值很接近，也就是说我们的非抽样误差尽可能小了（因为N次数据平均值与总体均值差异较小，说明我们抽的样本能够反映总体均值的特征）。<br>最后，总结下数据质量的控制要求：</p>
-<blockquote>
-<ul>
-<li>精度(precision)： 最低的抽样误差或随机误差</li>
-<li>准确性(accuracy)： 最小的非抽样误差或偏差</li>
-<li>关联性： 满足用户决策、 管理和研究的需要</li>
-<li>及时性： 在最短的时间里取得并公布数据</li>
-<li>一致性： 保持时间序列的可比性</li>
-<li>最低成本： 以最经济的方式取得数据<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 确定调查目的（Define the issue）
-op1=>operation: 确定感兴趣的总体和抽样单元（Define the population interest and sampling unit）
-op2=>operation: 规范调查问题（Formulate survey questions)
-op3=>operation: 构建抽样框（Construct sampling frame)
-op4=>operation: 选择样本（Select sample)
-op5=>operation: 收集数据（Collect data)
-e=>end: 分析数据（Analyze data)
-st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
-</ul>
-</blockquote>
-
-          
+          <h1 id="Chapter-2-Data-Collection"><a href="#Chapter-2-Data-Collection" class="headerlink" title="Chapter 2 Data Collection"></a>Chapter 2 Data Collection</h1><p>本篇是第二章，内容是数据收集。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1849,6 +1164,13 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -1923,7 +1245,7 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1939,7 +1261,7 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -1978,6 +1300,8 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
   
 
 
+  
+
 
 
 
@@ -1999,6 +1323,9 @@ st->op1->op2->op3->op4->op5->e</textarea><textarea id="flowchart-0-options" styl
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
 
 
 
@@ -89,7 +91,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GISerDaiShaoqing's Blog">
@@ -100,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/"/>
 
 
 
@@ -301,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/VMware Workstation下安装Ubuntu 64位系统/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/11/VMware Workstation下安装Ubuntu 64位系统/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -410,69 +412,14 @@
 
       
         
-          
-            <p>虽然笔者开始接触Linux有一段时间了，但是安装Ubuntu 64位系统并自己分区貌似也是才第一次。这里记录下安装过程。<br>首先打开VMware Workstation。点击文件。</p>
-<p><img src="http://img.blog.csdn.net/20171011222145907?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>选择自定义。</p>
-<p><img src="http://img.blog.csdn.net/20171011222312320?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>这里直接点下一步。</p>
-<p><img src="http://img.blog.csdn.net/20171011222326970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>选择稍后安装操作系统。</p>
-<p><img src="http://img.blog.csdn.net/20171011222411519?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>选择Linux，Ubuntu64位。并命名。因为这个虚拟机需要运行WRF之类的程序，选择了双核，当然目的也是实验看看。内存也调大了一些，4G。</p>
-<p><img src="http://img.blog.csdn.net/20171011222456663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171011222521288?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171011222538372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171011222653782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>网络设置默认，直接下一步。</p>
-<p><img src="http://img.blog.csdn.net/20171011222721319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>如图，下一步。</p>
-<p><img src="http://img.blog.csdn.net/20171011222758862?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>虚拟磁盘类型也是默认，下一步。</p>
-<p><img src="http://img.blog.csdn.net/20171011222832207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>创建新磁盘，下一步。</p>
-<p><img src="http://img.blog.csdn.net/20171011222929463?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>设置80G空间，并存储为单个文件。下一步。</p>
-<p><img src="http://img.blog.csdn.net/20171011223037884?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>OK，完毕。</p>
-<p><img src="http://img.blog.csdn.net/20171011223049557?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>存储位置自选。</p>
-<p><img src="http://img.blog.csdn.net/20171011223210368?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>接着右击设置。在CD/DVD里设置找到提前下载好的iso系统镜像。</p>
-<p><img src="http://img.blog.csdn.net/20171011223240341?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171011223301691?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>接着启动虚拟机就开始安装程序了。</p>
-<p><img src="http://img.blog.csdn.net/20171011223341276?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>这个不勾选，继续。</p>
-<p><img src="http://img.blog.csdn.net/20171011223554617?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>点击”Something else”，自己分区，如果选择上面的选项则是推荐分区（看个人需求）。</p>
-<p><img src="http://img.blog.csdn.net/20171011223611798?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>我的分区如下。</p>
-<p><img src="http://img.blog.csdn.net/20171011223703546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>各个分区的意思呢，可以查看这篇博客。<br><a href="http://www.cnblogs.com/pangguoming/p/4584846.html" target="_blank" rel="external">安装Ubuntu Linux系统时硬盘分区最合理的方法</a></p>
-<p>简单说至少需要四个分区（下面的第四个看需求）。</p>
-<blockquote>
-<ol>
-<li>目录：/；大小：10G-20G；格式：ext4，描述：根目录。</li>
-<li>目录：swap；大小：&lt;2048M；格式：swap；描述：交换空间。</li>
-<li>目录：/boot；大小：200M左右；格式：ext4；    描述：Linux的内核及引导系统程序所需要的文件，比如 vmlinuz initrd.img文件都位于这个目录中。在一般情况下，GRUB或LILO系统引导管理器也位于这个目录；启动撞在文件存放位置，如kernels，initrd，grub。</li>
-<li>目录：/tmp；大小：5G左右；格式：ext4；描述：系统的临时文件，一般系统重启不会被保存。（建立服务器需要？）。</li>
-<li>目录：/home；大小：尽量大些；格式：ext4；描述：用户工作目录；个人配置文件，如个人环境变量等；所有账号分配一个工作目录。<br>分完之后，接下来基本是一路默认了。</li>
-</ol>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20171011224123310?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171011224150093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>这里设置中文。</p>
-<p><img src="http://img.blog.csdn.net/20171011224202553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>设置超级用户和登录密码。</p>
-<p><img src="http://img.blog.csdn.net/20171011224230780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>正式开始安装。</p>
-<p><img src="http://img.blog.csdn.net/20171011224250119?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>安装完毕重启。</p>
-<p><img src="http://img.blog.csdn.net/20171011224310987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171011224424991?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-
-          
+          <p>虽然笔者开始接触Linux有一段时间了，但是安装Ubuntu 64位系统并自己分区貌似也是才第一次。这里记录下安装过程。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/11/VMware Workstation下安装Ubuntu 64位系统/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -514,7 +461,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/应用统计学与R语言实现学习笔记后记/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/10/应用统计学与R语言实现学习笔记后记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -623,69 +570,14 @@
 
       
         
-          
-            <h1 id="1-后记"><a href="#1-后记" class="headerlink" title="1 后记"></a>1 后记</h1><p>应用统计学与R语言实现学习笔记这一系列博客断断续续写了5个月左右。现在终于算是基本完成了。我个人比较强迫症，比较喜欢一个系列更完再更其他的。所以中间有一些不错的内容想写到博客里都没动笔。后面会继续填坑。另外之后遇到的跟应用统计学与R语言实现相关的内容会以番外篇形式发布。</p>
-<p>当时想到写这个东西，主要是自己选了门应用统计学的公选课，个人觉得不能浪费了这门课，而且其实我们在做一些研究的时候，其实都用了很多新的、高大上的所谓的新方法，并且不断在追逐所谓的Big data，但是回过头来想想，最基础的统计学理论可能才是我们需要补课的地方（不得不说这门课挺对我胃口，去年暑假花了一部分时间在啃贾俊平的统计学，刚好是这门课的参考教材）。这个年代，用个tensorflow的包，import一下，训练个模型出来就能说自己做的是深度学习。个人意见，也对也不对。IT技术飞速发展，大大降低了程序猿的门槛，但是现在的情况更应当说是程序猿的行当易学难精了。扯得有点远，总之我认为返璞归真地去学一学高数、概率论、统计学、线性代数可能比一上来就开始各种机器学习什么的要强得多。</p>
-<p>这份笔记的定位，就是一份笔记，某些程度上就是课程老师给我们的ppt，我对理论部分做了整理。所以要归功于我的任课老师王老师。我不求大家从头到尾看完这份笔记，因为理论很枯燥，但是当需要用些什么内容的时候，可以想起这份笔记，供大家查找和参考。我的笔记并不像《深入浅出统计学》那样直白而又易懂的语言，尽管中间有一定的尝试，所以不可能看完我的这个系列博客就能对统计学的基本内容完全融会贯通，如果你希望在统计学上有所建树，需要大家自己去补课。另外我这部分更多针对于应用，而且基于我自己本身地学背景，我讲的例子也都跟尽量跟地学、生态相关。所以其他专业的同学会觉得一些例子苦涩难懂是比较正常的（在此向其他专业同学说声不好意思，你们的批评我虚心接受，但是你们这方面的建议我坚决不改，傲娇脸）。</p>
-<p>好，讲了这么多。这个系列我其实是作为我自己的一个开源项目做的，我希望大家有什么意见可以一起来帮忙修改完善这个项目。如果你觉得还不错，也不要吝啬你的star。我博客里提到的很多代码之类的也都在这个项目里面开源了。就请大家批评指正。</p>
-<p><a href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R" target="_blank" rel="external">Note-of-Applied-Statistics-with-R</a></p>
-<h1 id="2-基于gitbook的电子书生成教程"><a href="#2-基于gitbook的电子书生成教程" class="headerlink" title="2 基于gitbook的电子书生成教程"></a>2 基于gitbook的电子书生成教程</h1><blockquote>
-<p>Modern book format and toolchain using Git and Markdown</p>
-</blockquote>
-<p>这是 gitbook 项目主页上对 gitbook 的定义。<br>gitbook 首先是一个软件，正如上面定义的那样，它使用 Git 和 Markdown 来编排书本。</p>
-<blockquote>
-<p><a href="https://www.gitbook.com" target="_blank" rel="external">gitbook官网</a></p>
-</blockquote>
-<p>也可以使用gitbook editor。<br>gitbook可以与github关联，直接将仓库的markdown文档发布成电子书。为了方便管理，选择在github上搭建电子书整体内容，然后push到github上，同时同步到gitbook中。首先用github登录gitbook。接着在github上创建一个新的仓库。只保留markdown文档和文件夹。gitbook的关键是需要SUMMARY的markdown文档，这个文件是用来组织书的框架。如下图。</p>
-<p><img src="http://img.blog.csdn.net/20171010102953719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>README的前言其实就是上面的后记，想说的话大体相同。只不过时间先后问题导致成了前言和后记。其他的是链接各章节。<br>接着看一下github上仓库项目结构（初步构成）。</p>
-<p><img src="http://img.blog.csdn.net/20171010103114659?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>因为在线渲染电子书速度较慢，我们可以在本地进行渲染和修改。目前只需将仓库先克隆到本地。接着安装gitbook（基于node.js）。<br>因为gitbook是基于node.js的，先查看是否安装了node.js。</p>
-<pre><code>node -v
-npm -v
-</code></pre><p><img src="http://img.blog.csdn.net/20171010145824528?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>接着输入命令，安装gitbook。</p>
-<pre><code>npm install gitbook-cli -g
-</code></pre><p><img src="http://img.blog.csdn.net/20171010145835836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171010145939459?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>接下来在github上先安装gitbook的拓展应用。并选择应用的仓库范围（可以选择所有仓库，也可以只选择对应的仓库）</p>
-<p><img src="http://img.blog.csdn.net/20171010150124228?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>这样在gitbook上创建新书的时候，可以选择github的模板，直接导入书籍的仓库，并且后面可以自动同步。</p>
-<p><img src="http://img.blog.csdn.net/20171010145949441?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171010150240363?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>在gitbook的setting中设置，默认生成pdf，mobi，epub的电子书供下载，选择MIT许可证。</p>
-<p><img src="http://img.blog.csdn.net/20171010150252215?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>gitbook可以通过book.json这个文件来控制生成电子书的一些具体定制化的需求。我的设置如下，因为用到了流程图和大量数学公式，就多加了katex和mermaid的插件。</p>
-<p><img src="http://img.blog.csdn.net/20171010150909624?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>首先通过命令行，定位到克隆到本地书籍的路径。</p>
-<pre><code>gitbook install
-</code></pre><p>先安装插件。<br>接着渲染一下。</p>
-<pre><code>gitbook build
-</code></pre><p>最后本地服务器运行。</p>
-<pre><code>gitbook serve
-</code></pre><p>在浏览器网址输入localhost:4000。<br>即可查看。</p>
-<p><img src="http://img.blog.csdn.net/20171010151537171?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171010151555095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>执行gitbook build的时候可能会有各种报错，根据报错信息一个一个修改。目前发现似乎gitbook不太支持mathjax。而且公式里面不能有中文及中文标点符号，而且原来在博客上，两个$是表示数学符号，但是不是自己占一行。四个 $是表示独立的公式，必须另起一行。但是katex只认四个$。所以进行了一番较多修改，流程图目前也一直无法显示。mermaid跟我博客的流程图插件也不相同。我用的是flowchart，但是安装了似乎也不显示。最后就先用截图来表示了。<br>全部搞定后直接push到github上。</p>
-<p><img src="http://img.blog.csdn.net/20171010191244823?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>发现gitbook上没有完全同步。可以从setting里面设置。</p>
-<p><img src="http://img.blog.csdn.net/20171010192027061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>OK，大工告成，接下来只需等它在线渲染成功就可以了。<br>PDF版本。</p>
-<p><img src="http://img.blog.csdn.net/20171010192518241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>每每看到封面的熊本分分钟出戏。。。</p>
-<p>在线网址访问网址：<br><a href="https://giserdaishaoqing.gitbooks.io/note-of-applied-statistics-with-r-book/content/" target="_blank" rel="external">应用统计学与R语言实现学习笔记</a></p>
-<p>有兴趣的同学可以下载这本电子书，也可以在评论留邮箱，可以发送给大家。</p>
-<p>参考博客：</p>
-<blockquote>
-<ul>
-<li><a href="http://www.ituring.com.cn/article/127744" target="_blank" rel="external">使用GitBook平台发布电子书</a></li>
-<li><a href="http://blog.csdn.net/zhangjk1993/article/details/50380403" target="_blank" rel="external">【Gitbook】实用配置及插件介绍</a></li>
-<li><a href="http://blog.csdn.net/axi295309066/article/details/61420694" target="_blank" rel="external">GitBook使用教程</a></li>
-<li><a href="https://bookfere.com/post/287.html" target="_blank" rel="external">GitBook 制作 Kindle 电子书详细教程（可视化版）</a></li>
-</ul>
-</blockquote>
-
-          
+          <h1 id="1-后记"><a href="#1-后记" class="headerlink" title="1 后记"></a>1 后记</h1><p>应用统计学与R语言实现学习笔记这一系列博客断断续续写了5个月左右。现在终于算是基本完成了。我个人比较强迫症，比较喜欢一个系列更完再更其他的。所以中间有一些不错的内容想写到博客里都没动笔。后面会继续填坑。另外之后遇到的跟应用统计学与R语言实现相关的内容会以番外篇形式发布。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/10/应用统计学与R语言实现学习笔记后记/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -727,7 +619,7 @@ npm -v
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -836,37 +728,14 @@ npm -v
 
       
         
-          
-            <h1 id="chapter-14-case-and-practice"><a href="#Chapter-14-Case-and-Practice" class="headerlink" title="Chapter 14 Case and Practice"></a>Chapter 14 Case and Practice</h1><p>本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。</p>
-<h3 id="1-描述性统计与抽样分布"><a href="#1-描述性统计与抽样分布" class="headerlink" title="1 描述性统计与抽样分布"></a>1 描述性统计与抽样分布</h3><p>1.一种袋装食品用生产线自动装填，每袋重量大约为50g，但由于某些原因，每袋重量不会恰好是50g。下面是随机抽取的100袋食品，测得的重量数据见附录。<br>（1）构建这些数据的频数分布表。<br>（2）绘制频数分布的直方图。<br>（3）说明数据分布的特征。</p>
-<p>2.甲乙两个班各有40名学生，期末统计学考试成绩的分布见附录。<br>（1）根据上面的数据，画出两个班考试成绩的复合柱形图、环形图和图饼图。<br>（2）比较两个班考试成绩分布的特点。<br>（3）画出雷达图，比较两个班考试成绩的分布是否相似。</p>
-<p>3.随机抽取25个网络用户，得到他们的年龄数据（单位：周岁）见附录。<br>（1）计算众数、中位数。<br>（2）根据定义公式计算四分位数。<br>（3）计算平均数和标准差。<br>（4）计算偏态系数和峰态系数。<br>（5）对网民年龄的分布特征进行综合分析。</p>
-<p>4.某银行为缩短顾客到银行办理业务等待的时间，准备采用两种排队方式进行试验：一种是所有顾客都进入一个等待队列；另一种是顾客在三个业务窗口处列队三排等待。为比较哪种排队方式使顾客等待的时间更短，两种排队方式各随机抽取的9名顾客，得到第一中排队方式的平均等待时间为7.2分钟，标准差为，1.97分钟，第二种排队方式的等待时间（单位：min）见附录。<br>（１）画出第二种排队方式等待时间的茎叶图。<br>（２）计算第二种排队方式等待时间的平均数和标准差。<br>（３）比较两种排队方式等待时间的离散程度。<br>（４）如果让你选择一种排队方式，你会选择哪一种？试说明理由。</p>
-<p>5.从均值为200、标准差为50的总体中，抽取n=100的简单随机样本，用样本均值`x估计总体均值。<br>a)描述重复抽样的样本均值的抽样分布。<br>b)不重复抽样，总体单位数分别为10000、1000时的样本均值的抽样分布。 </p>
-<h3 id="2-参数估计与假设检验"><a href="#2-参数估计与假设检验" class="headerlink" title="2 参数估计与假设检验"></a>2 参数估计与假设检验</h3><p>1.某大学为了解学生每天上网的时间，在全校7500名学生中采取不重复抽样方法随机抽取36人，调查他们每天上网的时间（单位：小时） ，得到的数据见附录。求该校大学生平均上网时间的置信区间，置信概率分别为90%、95%和99%。</p>
-<p>2.假定两个总体的标准差分别为：$\sigma_1$=12，$\sigma_2$=15，若要求误差范围不超过5，相应的置信水平为95%，假定$n_1=n_2$，估计两个总体均值之差$m_1-m_2$时所需的样本容量为多大？ </p>
-<p>3.经验表明，一个矩形的宽与长之比等于0.618的时候会给人们比较良好的感觉。某工艺品工厂生产的矩形工艺品框架的宽与长要求也按这一比例设计，假定其总体服从正态分布，现随机抽取了20个框架测得比值见附录。在显著性水平 ＝0.05时，能否认为该厂生产的工艺品框架宽与长的平均比例为0.618？。</p>
-<p>4.一家大型超市连锁店上个月接到许多消费者投诉某种品牌炸土豆片中60克一袋的那种土豆片的重量不符。店方猜想引起这些投诉的原因是运输过程中沉积在食品袋底部的土豆片碎屑，但为了使顾客们对花钱买到的土豆片感到物有所值，店方仍然决定对来自于一家最大的供应商的下一批袋装炸土豆片的平均重量（克）进行检验，假设陈述如下：<br>                $H_0: \mu\le 60$      $H_1:\mu&lt;60$<br>如果有证据可以拒绝原假设，店方就拒收这批炸土豆片并向供应商提出投诉。<br>（1）与这一假设检验问题相关联的第一类错误是什么？<br>（2）与这一假设检验问题相关联的第二类错误是什么？<br>（3）你认为连锁店的顾客们会将哪类错误看得较为严重？而供应商会将哪类错误看得较为严重？</p>
-<h3 id="3-方差分析与回归分析"><a href="#3-方差分析与回归分析" class="headerlink" title="3 方差分析与回归分析"></a>3 方差分析与回归分析</h3><p>1.某家电制造公司准备购进一批5#电池，现有A、B、C三个电池生产企业愿意供货，为比较它们生产的电池质量，从每个企业各随机抽取5只电池，经试验得其寿命（单位：h）数据见附录。试分析三个企业生产的电池的平均寿命之间有无显著差异（$\alpha=0.05$）。如果有差异，用LSD方法检验哪些企业之间有差异？</p>
-<p>2.一家超市连锁店的老板进行一项研究，确定超市所在的位置和竞争者的数量对销售额是否有显著影响。获得的月销售额数据（单位：万元）见附录。取显著性水平$\alpha=0.01$，检验：<br>（1）竞争者的数量对销售额是否有显著影响。<br>（2）超市的位置对销售额是否有显著影响。<br>（3）竞争者的数量和超市的位置对销售额是否有交互影响。</p>
-<p>3.附录中有随机抽取的15家大型商场销售的同类产品的有关数据（单位：元）。<br>（1）计算y与$x_1$ 、y与$x_2$之间的相关系数，是否有证据表明销售价格与购进价格、销售价格与销售费用之间存在线性关系？<br>（2）根据上述结果，你认为用购进价格和销售费用来预测销售价格是否有用？<br>（3）用Excel进行回归，并检验模型的线性关系是否显著（$\alpha=0.05$）。<br>（4）解释判定系数$R^2$，所得结论与问题（2）中是否一致?<br>（5）计算$x_1$与$x_2$之间的相关系数，所得结果意味着什么？<br>（6）模型中是否存在多重共线性？你对模型有何建议？</p>
-<p>4.附录中有32名美士足球运动员的rating及其他相关信息。请建立一个回归模型以预测一位美士足球运动员的rating。提交报告包括：使用什么方法建立的模型，该方法的运行结果，最终模型的解释（拟合程度、预测误差）。</p>
-<p>这一份作业汇总从最原始的描述统计、参数估计、假设检验到基础的方差分析与回归分析均有了。根据这里的习题即可对前面的内容再次熟悉。<br>这里就不多说了，我有一份比较完整的文档针对这份内容。这里先给出节选部分的截图。具体地址再给出。</p>
-<p><img src="http://img.blog.csdn.net/20171008212639172?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212657681?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212723358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212739353?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212759111?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212820763?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212841228?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212915392?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212933612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008212957999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008213029474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008213047883?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171008213107161?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-
-          
+          <h1 id="Chapter-14-Case-and-Practice"><a href="#Chapter-14-Case-and-Practice" class="headerlink" title="Chapter 14 Case and Practice"></a>Chapter 14 Case and Practice</h1><p>本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -908,7 +777,7 @@ npm -v
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/06/应用统计学与R语言实现学习笔记（十三）——因子分析/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/06/应用统计学与R语言实现学习笔记（十三）——因子分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1017,112 +886,14 @@ npm -v
 
       
         
-          
-            <h1 id="chapter-13-factor-analysis"><a href="#Chapter-13-Factor-Analysis" class="headerlink" title="Chapter 13 Factor Analysis"></a>Chapter 13 Factor Analysis</h1><p>本篇是第十三章，内容是因子分析。</p>
-<h3 id="1-因子分析概念"><a href="#1-因子分析概念" class="headerlink" title="1 因子分析概念"></a>1 因子分析概念</h3><p>因子分析是一种数据简化的技术。它通过研究众多变量之间的内部依赖关系，探求观测数据中的基本结构，并用少数几个假想变量来表示其基本的数据结构。这几个假想变量能够反映原来众多变量的主要信息。原始的变量是可观测的显在变量，而假想变量是不可观测的潜在变量，称为因子。<br>即一种用来在众多变量中辨别、分析和归结出变量间的相互关系并用简单的变量（因子）来描述这种关系的数据分析方法。<br><strong>寻求基本结构</strong></p>
-<blockquote>
-<ul>
-<li>通过因子分析，找出几个较少的有实际意义的因子，反映出原来数据的基本结构。</li>
-<li>通常找出的这组观察不到的因子概括了原始的变量的大多数信息。</li>
-</ul>
-</blockquote>
-<p><strong>数据简化</strong></p>
-<blockquote>
-<ul>
-<li>强相关问题会对分析带来困难。</li>
-<li>通过因子分析，可以用所找出的少数几个因子代替原来的变量做回归分析、聚类分析、判别分析等。</li>
-</ul>
-</blockquote>
-<p><strong>因子分析的用途</strong></p>
-<blockquote>
-<ul>
-<li>产生新的、更少的变量以便为后续的回归和其他分析做基础。</li>
-<li>识别概念或产品的基本感知和特性。</li>
-<li>改善市场研究领域多元测量的结构与方法。</li>
-</ul>
-</blockquote>
-<h3 id="2-因子分析模型"><a href="#2-因子分析模型" class="headerlink" title="2 因子分析模型"></a>2 因子分析模型</h3><p><strong>数学模型</strong><br>设$X_i(i=1,2,\cdots,p)$p个变量，如果表示为：<br>$$ X_i=\mu_i+a_{i1}F_1+\cdots+a_{im}F_m+\varepsilon_i(m\le p) $$<br>或<br>$$ \begin {bmatrix} X_1\\X_2\\\vdots\\X_p  \end {bmatrix}=\begin {bmatrix} \mu_1\\\mu_2\\\vdots\\\mu_p  \end {bmatrix}+\begin {bmatrix} \alpha_{11}&amp;\alpha_{12}&amp;\cdots&amp;\alpha_{1m}\\\alpha_{21}&amp;\alpha_{22}&amp;\cdots&amp;\alpha_{2m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\alpha_{p1}&amp;\alpha_{p2}&amp;\cdots&amp;\alpha_{pm} \end {bmatrix}\begin {bmatrix} F_1\\F_2\\\vdots\\F_m  \end {bmatrix}+\begin{bmatrix} \varepsilon_1\ \varepsilon_2\\\vdots\ \varepsilon_p  \end {bmatrix} $$<br>或$$ X-\mu=AF+\varepsilon $$<br>$F_1,F_2,\cdots,F_m$称为公共因子,是不可观测的变量，它们的系数称为因子载荷。$\varepsilon_i$是特殊因子，是不可能被前m个公共因子包含的部分。并且满足：<br>$cov(F,\varepsilon)=0$，即$F,\varepsilon$不相关；<br>$$ D(F)=\begin {bmatrix} 1 &amp; &amp; &amp; \\&amp;1&amp;&amp;&amp;\\&amp;&amp;\ddots&amp;\\&amp;&amp;&amp;1 \end {bmatrix}=I $$<br>即$F_1,F_2,\cdots,F_m$互不相关，方差为1。<br>$$ D(\varepsilon)=\begin {bmatrix}\sigma_1^2&amp;&amp;&amp;\\&amp;\sigma_w^2&amp;&amp;&amp;\\&amp;&amp;\ddots&amp;\\&amp;&amp;&amp;\sigma_p^2\end {bmatrix} $$<br>即$\varepsilon_i\sim N(0,\sigma_i^2)$互不相关，方差不一定相等。<br><strong>用矩阵的方式表达</strong><br>$$ X-\mu=AF+\varepsilon $$ $$ E(F)=0 $$ $$ E(\varepsilon)=0 $$ $$ Var(F)=1 $$<br>$$ cov(F,\varepsilon)=E(F\varepsilon’)=\begin {pmatrix}E(F_1\varepsilon_1)&amp;E(F_1\varepsilon_2)&amp;\cdots&amp;E(F_1\varepsilon_p)\\E(F_2\varepsilon_1)&amp;E(F_2\varepsilon_2)&amp;\cdots&amp;E(F_2\varepsilon_p)\\\vdots&amp;\vdots&amp;&amp;\vdots\\E(F_p\varepsilon_1)&amp;E(F_p\varepsilon_2)&amp;\cdots&amp;E(F_p\varepsilon_p) \end {pmatrix}=0 $$<br>$$ Var(\varepsilon)=diag(\sigma_1^2,\sigma_2^2,\cdots,\sigma_p^2) $$<br><strong>因子分析模型的性质</strong></p>
-<blockquote>
-<p>1、原始变量X的协方差矩阵的分解<br>$$ \Sigma_x=AA’+D $$<br>A是因子模型的系数<br>$$ Var(\varepsilon)=D=diag(\sigma_1^2,\sigma_2^2,\cdots,\sigma_p^2) $$<br>D的主对角线上的元素值越小，则公共因子共享的成分越多。<br>2、模型不受计量单位的影响。<br>3、因子载荷不是惟一的：设T为一个p×p的正交矩阵，令A<em>=AT， F</em>=T’F也是一个满足因子模型条件的因子载荷。</p>
-</blockquote>
-<p><strong>因子载荷矩阵中的统计特征</strong></p>
-<blockquote>
-<ul>
-<li>因子载荷$a_{ij}$是第i个变量与第j个公共因子的相关系数。</li>
-<li>变量$X_i$的共同度是因子载荷矩阵的第i行的元素的平方和。记为$h_i^2=\sum_{i=1}^ma_{ij}^2$<br>所有的公共因子和特殊因子对变量$X_i$的贡献为1。如果$\sum_{i=1}^ma_{ij}^2$非常靠近1， $\sigma_i^2$非常小，则因子分析的效果好，从原变量空间到公共因子空间的转化性质好。</li>
-<li>因子载荷矩阵中各列元素的平方和$S_j=\sum_{i=1}^pa_{ij}^2$称为$F_j(j=1,2,\cdots,m)$对所有的$X_i$的方差贡献和。衡量$F_j$的相对重要性。</li>
-</ul>
-</blockquote>
-<h3 id="3-因子载荷矩阵的估计方法"><a href="#3-因子载荷矩阵的估计方法" class="headerlink" title="3 因子载荷矩阵的估计方法"></a>3 因子载荷矩阵的估计方法</h3><blockquote>
-<ul>
-<li>主成分分析法<br>设随机向量$x=(x_1,x_2,\cdots,x_p)’$的均值为$\mu$，协方差为$\Sigma$，$\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_p\ge0$为$\Sigma$的特征根，$u_1,u_2,\cdots,u_p$为对应的标准化特征向量，则：<br>$$ \Sigma=U\begin {bmatrix}\lambda_1&amp;&amp;&amp;\\&amp;\lambda_2&amp;&amp;\\&amp;&amp;\cdots&amp;\\&amp;&amp;&amp;\lambda_p \end {bmatrix}U’=AA’+D=\begin {bmatrix}\sqrt\lambda_1u_1&amp;\sqrt\lambda_2u_2&amp;\cdots&amp;\sqrt\lambda_pu_p \end {bmatrix}\begin {bmatrix}\sqrt\lambda_1u_1’\\\sqrt\lambda_2u_2’\\\vdots\\\sqrt\lambda_pu_p’ \end {bmatrix}+D $$<br>上式给出的Σ表达式是精确的，然而，它实际上是毫无价值的，因为我们的目的是寻求用少数几个公共因子解释，故略去后面的p-m项的贡献。<br>上式有一个假定：模型中的特殊因子是不重要的，因而从Σ的分解中忽略了特殊因子的方差。<br>确定因子个数（特征根大于1所对应的特征向量；碎石原则：把特征根从大到小排列，把特征根减小速度变缓的特征根都删掉）。</li>
-<li><p>主因子法<br>主因子方法是对主成分方法的修正，假定我们首先对变量进行标准化变换。则<br>$$ R=AA’+D\\R^{\ast}=AA’=R-D $$<br>称$R^{\ast}$为约相关矩阵，$R^{\ast}$对角线上的元素是$h_i^2$，而不是1。<br>$$ R^{\ast}=R-\hat D=\begin {bmatrix}\hat h_1^2&amp;r_{12}&amp;\cdots&amp;r_{1p}\\r_{21}&amp;\hat h_2^2&amp;\cdots&amp;r_{2p}\\\vdots&amp;\vdots&amp;&amp;\vdots\\r_{p1}&amp;r_{p2}&amp;\cdots&amp;\hat h_p^2 \end {bmatrix} $$<br>直接求$R^{\ast}$的前p个特征根和对应的正交特征向量。得如下的矩阵：<br>$$A=\begin {bmatrix}\sqrt{\lambda_1^{\ast}}u_1^{\ast}&amp;\sqrt{\lambda_2^{\ast}}u_2^{\ast}&amp;\cdots&amp;\sqrt{\lambda_p^{\ast}}u_p^{\ast} \end {bmatrix}$$<br>$R^{\ast}$特征根：$\lambda_1^{\ast}\ge\lambda_2^{\ast}\ge\cdots\ge\lambda_p^{\ast}\ge0$，正交特征向量：$u_1^{\ast},u_2^{\ast},\cdots,u_p^{\ast}$<br>当特殊因子$\varepsilon_i$的方差已知：<br>$$ R^{\ast}=R-\begin {bmatrix}\sigma_1^2&amp;&amp;&amp;\\&amp;\sigma_2^2&amp;&amp;\\&amp;&amp;\ddots&amp;\\&amp;&amp;&amp;\sigma_p^2 \end {bmatrix}=\begin {bmatrix}\sqrt{\lambda_1^{\ast}}u_1^{\ast}&amp;\sqrt{\lambda_2^{\ast}}u_2^{\ast}&amp;\cdots&amp;\sqrt{\lambda_p^{\ast}}u_p^{\ast} \end {bmatrix}\begin {bmatrix}\sqrt{\lambda_1^{\ast}}u_1^{‘\ast}\\\sqrt{\lambda_2^{\ast}}u_2^{‘\ast}\\\vdots\\\sqrt{\lambda_p^{\ast}}u_p^{‘\ast} \end {bmatrix} $$<br>$$ A=\begin {bmatrix}\sqrt{\lambda_1^{\ast}}u_1^{\ast}&amp;\sqrt{\lambda_2^{\ast}}u_2^{\ast}&amp;\cdots&amp;\sqrt{\lambda_m^{\ast}}u_m^{\ast}\end {bmatrix} $$<br>$$ D=\begin {pmatrix}1-\hat h_1^2&amp;&amp;0\\&amp;\ddots&amp;\\0&amp;&amp;1-\hat h_p^2 \end {pmatrix} $$<br>在实际的应用中，个性方差矩阵一般都是未知的，可以通过一组样本来估计。估计的方法有如下几种：<br>首先，求$h_i^2$的初始估计值，构造出R*<br>1、取$h_i^2=1$，在这个情况下主因子解与主成分解等价；<br>2、取$h_i^2=R_i^2$，$R_i^2$为$x_i$与其他所有的原始变量$x_j$的复相关系数的平方，即$x_i$对其余的p-1个$x_j$的回归方程的判定系数，这是因为xi与公共因子的关系是通过其余的p-1个$x_j$的线性组合联系起来的；<br>3、取$\hat h_i^2=max\left|r_{ij}\right|(j\neq i)$，这意味着取$x_i$与其余的$x_j$的简单相关系数的绝对值最大者；<br>4、取$h_i^2=\frac{1}{p-1}\sum_{j=1,j\neq i}^pr_{ij}$，其中要求该值为正数。<br>5、取$h_i^2=1/r^{ii}$，其中$r^{ii}$是$R^{-1}$的对角元。</p>
-</li>
-<li><p>极大似然估计法<br>如果假定公共因子F和特殊因子$\varepsilon$服从正态分布，那么可以得到因子载荷和特殊因子方差的极大似然估计。设$x_1,x_2,\cdots,x_n$为来自正态总体$N_p(\mu,\Sigma)$的随机样本。$\Sigma=AA’+\Sigma_{\varepsilon}$<br>$$\begin {aligned} L(\hat \mu,\hat A,\hat D)&amp;=f(X)=f(X_1)\cdot f(X_2)\cdots f(X_n)\\&amp;=\prod_{i=1}^n(2\pi)^{-p/2}\left |\Sigma\right|^{1/2}exp\begin {bmatrix}-\frac{1}{2}(x_i-\mu)’\Sigma^{-1}(x_i-\mu) \end {bmatrix}\\&amp;=\begin {bmatrix}(2\pi)^p\left |\Sigma \right |^{-n/2} \end {bmatrix}exp\begin {bmatrix}-\frac{1}{2}\sum_{i=1}^n(X_i-\mu)’\Sigma^{-1}(X_i-\mu) \end {bmatrix} \end {aligned} $$<br>用数值极大化的方法可以得到极大似然估计。</p>
-</li>
-</ul>
-</blockquote>
-<h3 id="4-因子旋转正交变换"><a href="#4-因子旋转（正交变换）" class="headerlink" title="4 因子旋转（正交变换）"></a>4 因子旋转（正交变换）</h3><p><strong>旋转因子的目的</strong><br>因子分析的目的不仅仅是要找出公共因子以及对变量进行分组，更重要的是要知道每个公共因子的意义，以便进行进一步的分析。如果每个公共因子的含义不清，则不便于进行实际背景的解释。<br>初始因子的综合性太强，难以找出因子的实际意义。由于因子载荷阵是不唯一的，所以可以对因子载荷阵进行旋转，使因子载荷阵的结构简化，使其每列或行的元素平方值向0和1两极分化。<br><strong>旋转方法</strong><br>设$\Gamma$正交矩阵，做正交变换$B=A\Gamma$。</p>
-<blockquote>
-<ul>
-<li>变换后各变量的共同度不会发生变化。</li>
-<li>变换后各因子的贡献会发生变化。</li>
-</ul>
-</blockquote>
-<p>三种主要的正交旋转法</p>
-<blockquote>
-<ul>
-<li>方差最大法<br>方差最大法从简化因子载荷矩阵的每一列出发，使和每个因子有关的载荷的平方的方差最大。当只有少数几个变量在某个因子上有较高的载荷时，对因子的解释最简单。 方差最大的直观意义是希望通过因子旋转后，使每个因子上的载荷尽量拉开距离，一部分的载荷趋于±1，另一部分趋于0。<br>$$ A=\begin {bmatrix} a_{11}&amp;a_{12}\\a_{21}&amp;a_{22}\\\vdots&amp;\vdots\\a_{p1}&amp;a_{p2} \end {bmatrix} $$<br>$$ X_1=a_{11}F_1+a_{12}F_2\\X_2=a_{21}F_1+a_{22}F_2\\\cdots\\X_p=a_{p1}F_1+a_{p2}F_2  $$<br>设旋转矩阵：$ T=\begin {pmatrix}\cos\varphi&amp;-\sin\varphi\\\sin\varphi&amp;\cos\varphi \end {pmatrix} $<br>则$$ \begin {aligned}B&amp;=AT=A\begin {pmatrix}\cos\varphi&amp;-\sin\varphi\\\sin\varphi&amp;\cos\varphi \end {pmatrix}\\&amp;=\begin {pmatrix}a_{11}\cos\varphi+a_{12}\sin\varphi&amp;-a_{11}\sin\varphi+a_{12}\cos\varphi\\\vdots&amp;\vdots\\a_{p1}\cos\varphi+a_{p2}\sin\varphi&amp;-a_{p1}\sin\varphi+a_{p2}\cos\varphi \end {pmatrix}\\&amp;=\begin {pmatrix}a_{11}^{\ast}&amp;a_{12}^{\ast}\\\vdots&amp;\vdots\\a_{p1}^{\ast}&amp;a_{p2}^{\ast} \end {pmatrix} \end {aligned} $$<br>令$ d_{ij}=\frac{a_{ij}^{\ast}}{h_i},i=1,2,\cdots,p;j=1,2 $<br>$ \bar d_j=\frac{1}{p}\sum_{i=1}^pd_{ij}^2 $（这是列和）<br>简化准则为：$ V(\theta)=\sum_{j=1}^m\sum_{i=1}^p(d_{ij}^2-\bar d_j)^2=max $<br>即：$ V_1+V_2+V_3+\cdots+V_m=max $<br>令$ \frac{\partial V}{\partial \theta}=0 $，则可以解出$ \theta_0 $<br>旋转矩阵为：$ T=\begin {pmatrix}\cos\theta_0&amp;-\sin\theta_0\\\sin\theta_0&amp;\cos\theta_0 \end {pmatrix} $</li>
-<li>四次方最大法<br>四次方最大旋转是从简化载荷矩阵的行出发，通过旋转初始因子，使每个变量只在一个因子上有较高的载荷，而在其它的因子上尽可能低的载荷。 如果每个变量只在一个因子上有非零的载荷，这时的因子解释是最简单的。四次方最大法通过使因子载荷矩阵中每一行的因子载荷平方的方差达到最大。<br>简化准则为：$ Q=\sum_{i=1}^p\sum_{j=1}^m(b_{ij}^2-\frac{1}{m})^2=max $<br>$$ \begin {aligned} Q&amp;=\sum_{i=1}^p\sum_{j=1}^m(b_{ij}^2-\frac{1}{m})^2=\sum_{i=1}^p\sum_{j=1}^m(b_{ij}^4-2\frac{1}{m}b_{ij}^2+\frac{1}{m^2})\\&amp;=\sum_{i=1}^p\sum_{j=1}^m(b_{ij}^4-2\sum_{i=1}^p\sum_{j=1}^m\frac{1}{m}b_{ij}^2+\sum_{i=1}^p\sum_{j=1}^m\frac{1}{m^2})\\&amp;=\sum_{i=1}^p\sum_{j=1}^m(b_{ij}^4-2\sum_{i=1}^p\sum_{j=1}^m\frac{1}{m}b_{ij}^2+\sum_{i=1}^p\sum_{j=1}^m\frac{1}{m^2})\\&amp;=\sum_{i=1}^p\sum_{j=1}^m(b_{ij}^4-2+\frac{p}{m}) \end {aligned} $$<br>最终的简化准则为：$ Q=\sum_{i=1}^p\sum_{j=1}^mb_{ij}^4=MAX $</li>
-<li>等量最大法<br>等量最大法把四次方最大法和方差最大法结合起来求Q和V的加权平均最大。<br>最终的简化准则为：$ E=\sum_{i=1}^p\sum_{j=1}^mb_{ij}^4-\gamma\sum_{j=1}^m(\sum_{i=1}^pb_{ij}^2)^2/p=MAX $<br>权数$\gamma$等于$m/2$，因子数有关。</li>
-</ul>
-</blockquote>
-<h3 id="5-因子得分"><a href="#5-因子得分" class="headerlink" title="5 因子得分"></a>5 因子得分</h3><p>当解决了用一组公共因子的线性组合来表示一组观测变量后，有时我们需要使用这些因子做其他的研究。比如把得到的因子作为自变量来做回归分析，对样本进行分类或评价，这就需要我们对公共因子进行测度，即给出公共因子的值。<br><strong>因子得分</strong><br>因子分析的数学模型：<br>$$ \begin {bmatrix}X_1\\X_2\\\vdots\\X_p \end {bmatrix}=\begin {bmatrix}\alpha_{11}&amp;\alpha_{12}&amp;\cdots&amp;\alpha_{1m}\\\alpha_{21}&amp;\alpha_{22}&amp;\cdots&amp;\alpha_{2m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\alpha_{p1}&amp;\alpha_{p2}&amp;\cdots&amp;\alpha_{pm} \end {bmatrix}\begin {bmatrix}F_1\\F_2\\\vdots\\F_p \end {bmatrix} $$<br>原变量被表示为公共因子的线性组合，当载荷矩阵旋转之后，公共因子可以做出解释，通常的情况下，我们还想反过来把公共因子表示为原变量的线性组合。<br>因子得分函数：$F_j=\beta_{j1}X_1+\cdots+\beta_{jp}X_p, j=1,\cdots,m$。<br>可见，要求得每个因子的得分，必须求得分函数的系数，而由于p&gt;m，所以不能得到精确的得分，只能通过估计。<br><strong>巴特莱特因子得分(加权最小二乘法）</strong><br>把$x_i-\mu_i$看作因变量；把因子载荷矩阵<br>$$ \begin {bmatrix}\alpha_{11}&amp;\alpha_{12}&amp;\cdots&amp;\alpha_{1m}\\\alpha_{21}&amp;\alpha_{22}&amp;\cdots&amp;\alpha_{2m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\alpha_{p1}&amp;\alpha_{p2}&amp;\cdots&amp;\alpha_{pm} \end {bmatrix} $$<br>看成自变量的观测；把某个个案的得分$F_j$看作最小二乘法需要求的系数。<br>$$ \begin {cases}x_{i1}-\mu_1=a_{11}f_1+a_{12}f_2+\cdots+a_{1m}f_m+\varepsilon_1\\x_{i2}-\mu_2=a_{21}f_1+a_{22}f_2+\cdots+a_{2m}f_m+\varepsilon_2\\\cdots\\x_{ip}-\mu_p=a_{p1}f_1+a_{p2}f_2+\cdots+a_{pm}f_m+\varepsilon_p \end {cases} $$<br>由于特殊因子的方差相异，所以用加权最小二乘法求得分，每个个案作一次，要求出所有样品的得分，需要作n次。<br>$$ \sum_{j=1}^p[(x_i-\mu_i)-(a_{i1}\hat f_1+a_{i2}\hat f_2+\cdots+a_{im}\hat f_m)]^2/\sigma_i^2 $$<br>使上式最小的$\hat f_1,\cdots,\hat f_m$是相应个案的因子得分。<br><strong>回归方法</strong><br>$$ \begin {bmatrix}X_1\\X_2\\\vdots\\X_n \end {bmatrix}=\begin {bmatrix}\alpha_{11}&amp;\alpha_{12}&amp;\cdots&amp;\alpha_{1m}\\\alpha_{21}&amp;\alpha_{22}&amp;\cdots&amp;\alpha_{2m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\alpha_{p1}&amp;\alpha_{p2}&amp;\cdots&amp;\alpha_{pm} \end {bmatrix}\begin {bmatrix}F_1\\F_2\\\vdots\\F_p \end {bmatrix}+\begin {bmatrix}\varepsilon_1\\\varepsilon_2\\\vdots\\\varepsilon_n \end {bmatrix} $$<br>$$ \hat F_j=b_{j1}X_1+\cdots+b_{jp}X_p, j=1,\cdots,m $$<br>$$ \begin {bmatrix}b_{11}&amp;b_{12}&amp;\cdots&amp;b_{1p}\\b_{21}&amp;b_{22}&amp;\cdots&amp;b_{2p}\\\vdots&amp;\vdots&amp;&amp;\vdots\\b_{m1}&amp;b_{m2}&amp;\cdots&amp;b_{mp} \end {bmatrix}=\begin {bmatrix}b_1\\b_2\\\vdots\\b_m \end {bmatrix} $$<br>$$ \begin {aligned} \alpha_{ij}=\gamma_{x_iF_j}=E(X_i,F_j)&amp;=E[X_i(b_{j1}X_1+\cdots+b_{jp}X_p)]\\&amp;=b_{j1}\gamma_{i1}+\cdots+b_{jp}\gamma_{ip}=\begin {bmatrix}\gamma_{i1}&amp;\gamma_{i2}&amp;\cdots&amp;\gamma_{ip} \end {bmatrix}\begin {bmatrix}b_{j1}\\b_{j2}\\\vdots\\b_{jp} \end {bmatrix} \end {aligned}$$<br>则，我们有如下的方程组：<br>$$ \begin {bmatrix}\gamma_{11}&amp;\gamma_{12}&amp;\cdots&amp;\gamma_{1p}\\\gamma_{21}&amp;\gamma_{22}&amp;\cdots&amp;\gamma_{2p}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\gamma_{p1}&amp;\gamma_{p2}&amp;\cdots&amp;\gamma_{pp} \end {bmatrix}\begin {bmatrix}b_{j1}\\b_{j2}\\\vdots\\b_{jp} \end {bmatrix}=\begin {bmatrix}a_{1j}\\a_{2j}\\\vdots\\a_{pj} \end {bmatrix},j=1,2,\cdots,m $$<br>$\begin {bmatrix}\gamma_{11}&amp;\gamma_{12}&amp;\cdots&amp;\gamma_{1p}\\\gamma_{21}&amp;\gamma_{22}&amp;\cdots&amp;\gamma_{2p}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\gamma_{p1}&amp;\gamma_{p2}&amp;\cdots&amp;\gamma_{pp} \end {bmatrix}$为原始变量的相关系数；$\begin {bmatrix}b_{j1}\\b_{j2}\\\vdots\\b_{jp} \end {bmatrix}$为第j个因子得分函数的系数；$\begin {bmatrix}a_{1j}\\a_{2j}\\\vdots\\a_{pj} \end {bmatrix}$为载荷矩阵的第 j列<br><strong>注：共需要解m次才能解出所有的得分函数的系数。</strong></p>
-<h3 id="6-因子分析步骤"><a href="#6-因子分析步骤" class="headerlink" title="6 因子分析步骤"></a>6 因子分析步骤</h3><blockquote>
-<ul>
-<li>选择分析的变量<br>用定性分析和定量分析的方法选择变量，因子分析的前提条件是观测变量间有较强的相关性，因为如果变量之间无相关性或相关性较小的话，他们不会有共享因子，所以原始变量间应该有较强的相关性。</li>
-<li>计算所选原始变量的相关系数矩阵<br>相关系数矩阵描述了原始变量之间的相关关系。可以帮助判断原始变量之间是否存在相关关系，这对因子分析是非常重要的，因为如果所选变量之间无关系，做因子分析是不恰当的。并且相关系数矩阵是估计因子结构的基础。</li>
-<li>提取公共因子<br>这一步要确定因子求解的方法和因子的个数。需要根据研究者的设计方案或有关的经验或知识事先确定。因子个数的确定可以根据因子方差的大小，只取方差大于1(或特征值大于1)的那些因子，因为方差小于1的因子其贡献可能很小。或者按照因子的累计方差贡献率来确定，一般认为要达到60％才能符合要求。</li>
-<li>因子旋转<br>通过坐标变换使每个原始变量在尽可能少的因子之间有密切的关系，这样因子的实际意义更容易解释,也更容易为每个潜在因子赋予有实际意义的名字。</li>
-<li>计算因子得分<br>求出各样本的因子得分，有了因子得分值，则可以在许多分析中使用这些因子，例如以因子的得分做聚类分析的变量，做回归分析中的回归因子。</li>
-</ul>
-</blockquote>
-<p><strong>注</strong></p>
-<blockquote>
-<ul>
-<li>因子分析是十分主观的，在许多出版的资料中，因子分析模型都用少数可命名因子提供了合理解释。实际上，绝大多数因子分析并没有产生如此明确的结果。不幸的是，评价因子分析质量的法则尚未很好量化，质量问题只好依赖一个“哇！”准则如果在仔细检查因子分析的时候，研究人员能够喊出“哇，我明白这些因子”的时候，就可认为是成功地运用了因子分析方法。</li>
-</ul>
-</blockquote>
-<p><strong>主成分分析与因子分析</strong><br>主成分分析与因子分析有所不同，主成分分析仅仅是变量变换。</p>
-<blockquote>
-<ul>
-<li>主成分分析：原始变量的线性组合表示新的综合变量，即主成分。</li>
-<li>因子分析：潜在的假想变量和随机影响变量的线性组合表示原始变量。因子模型除了公共因子外还有特殊因子。公共因子只解释了原来变量的部分方差，而全部主成分解释了原来变量的全部方差。</li>
-</ul>
-</blockquote>
-<p>主成分和公共因子的位置不同。因子分析也有因子载荷（ factor loading）的概念，代表了因子和原先变量的相关系数。但是在因子分析公式中的因子载荷位置和主成分分析不同。<br>在数学模型上，因子分析和主成分分析也有不少区别。而且因子分析的计算也复杂得多。根据因子分析模型的特点，它还多一道程序：因子旋转（ factor rotation）；这个步骤可以使结果更好。<br>旋转后的公共因子一般没有主成分那么综合，公共因子往往可以找到实际意义，而主成分常找不到实际的含义。<br>可以看出，因子分析和主成分分析都依赖于原始变量，也只能反映原始变量的信息。所以原始变量的选择很重要。在得到分析的结果时，并不一定会都得到如我们例子那样清楚的结果。这与问题的性质，选取的原始变量以及数据的质量等都有关系。如果原始变量本质上独立，就很难把很多独立变量用少数综合的变量概括，降维就可能失败。数据越相关，降维效果就越好。可用如下方法进行变量间的相关性检验：</p>
-<blockquote>
-<ul>
-<li>KMO样本测度： KMO在0.9以上，非常适合； 0.8-0.9，很适合； 0.7-0.8，适合； 0.6-0.7，不太适合；<br>0.5-0.6；很勉强； 0.5以下，不适合；</li>
-<li>巴特莱特球体检验： H0：相关系数矩阵R为单位阵I。拒绝时H0可作因子分析</li>
-</ul>
-</blockquote>
-<h3 id="7-因子分析的r语言实现"><a href="#7-因子分析的R语言实现" class="headerlink" title="7 因子分析的R语言实现"></a>7 因子分析的R语言实现</h3><p>R语言做因子分析这里主要介绍三个函数，一个是自带的factanal函数。</p>
-<pre><code>factanal(x,factors,data=NULL,covmat=NUL,n.obs=NA,subset,na.action,start=NULL,score=c(&quot;none&quot;,&quot;regression&quot;,&quot;Bartlett&quot;),rotation=&quot;varimax&quot;,control=NULL,…)
-</code></pre><p>x是公式或者用于因子分析的数据，可以是矩阵（每一行为一个样本）或数据框；factors表示要生成的因子个数；data指定数据集，当x为公式的时候使用；covmat是样本的协方差矩阵或者相关系数矩阵，使用这个参数的时候x可以忽略；scores表示计算因子得分的方法；rotation表示因子旋转的方法，默认为”varimax”，最大方差旋转。这里近介绍几个常用的几个参数，其他参数说明可查询R语言官方帮助。另外，这个函数事实上仅支持用极大似然估计方法做因子分析。<br>第二个函数就是自编函数实现的主成分分析方法做因子分析（具体函数代码后面给出）。</p>
-<pre><code>factor.analysis(x,m)
-</code></pre><p>x为相关系数矩阵，m为因子个数。<br>第三个函数是psych包里的fa函数。</p>
-<pre><code>fa（r，nfactors=，n.obs=，rotate=，scores=，fm）
-</code></pre><p>r是相关系数矩阵或原始数据矩阵；nfactors设定提取的因子数（默认为1）；n.obs是观测数（输入相关系数矩阵时需要填写）；rotate设定放置的方法（默认互变异数最小法）；scores设定是否计算因子得分（默认不计算）；fm设定因子化方法（默认极小残差法）。<br>用上一章提供的数据再进行因子分析。比较不同函数结果的差异。<br>基于factnal函数，3个因子。</p>
-<p><img src="http://img.blog.csdn.net/20171006171325567?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>基于自编函数，3个因子。</p>
-<p><img src="http://img.blog.csdn.net/20171006171646756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>基于fa函数，3个因子。</p>
-<p><img src="http://img.blog.csdn.net/20171006171827685?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171006171925164?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20171006171946111?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-
-          
+          <h1 id="Chapter-13-Factor-Analysis"><a href="#Chapter-13-Factor-Analysis" class="headerlink" title="Chapter 13 Factor Analysis"></a>Chapter 13 Factor Analysis</h1><p>本篇是第十三章，内容是因子分析。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/06/应用统计学与R语言实现学习笔记（十三）——因子分析/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1164,7 +935,7 @@ npm -v
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/应用统计学与R语言实现学习笔记（十二）——主成分分析/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/09/22/应用统计学与R语言实现学习笔记（十二）——主成分分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -1273,57 +1044,14 @@ npm -v
 
       
         
-          
-            <h1 id="chapter-12-priciple-component-analysis"><a href="#Chapter-12-Priciple-Component-Analysis" class="headerlink" title="Chapter 12 Priciple Component Analysis"></a>Chapter 12 Priciple Component Analysis</h1><p>本篇是第十二章，内容是主成分分析。</p>
-<h3 id="1-主成分分析基本思想"><a href="#1-主成分分析基本思想" class="headerlink" title="1 主成分分析基本思想"></a>1 主成分分析基本思想</h3><p>依旧从问题开始本篇的介绍。地理学和生态学研究里经常遇到的问题就是，影响变量非常之多，而且地球表层地理生态环境现象无法使用控制变量的方式进行实验。同时影响变量非常多，经常出现变量冗余、冗杂的现象，同时多元分布数据本身对人类的认知就是一种挑战。这里举个栗子：比如在研究城市经济发展的时候，我们会考虑到的因素会包括第一产业、第二产业、第三产业占比，城市人口，城市地理位置，城市气候适宜度，政策扶持等等很多因子，但是这里有很多因子存在共线性的情况，也就是变量冗余冗杂。用矛盾论的话说，要抓住主要矛盾，那么如何在多元分布数据中分离出主要的因子，这就是本篇的主角主成分分析（Priciple Component Analysis，PCA）。</p>
-<p>所以它的<strong>基本思想</strong>是。</p>
-<p>在社会经济的研究中，为了全面系统的分析和研究问题，必须考虑许多经济指标，这些指标能从不同的侧面反映我们所研究的对象的特征，但在某种程度上存在信息的重叠，具有一定的相关性。这种信息的重叠有时甚至会抹杀事物的真正特征与内在规律。<br>主成分分析是利用降维的思想， 在力求数据信息丢失最少的原则下，对高维的变量空间降维，即在众多变量中找出少数几个综合指标（原始变量的线性组合），并且这几个综合指标将尽可能多地保留原来指标变异方面的信息，且这些综合指标互不相关。这些综合指标就称为主成分。主成分的数目少于原始变量的数目。<br>在一个低维空间识辨系统要比在一个高维空间容易得多。因此，更容易抓住主要矛盾，揭示事物内部变量之间的规律性，使问题得到简化，提高分析效率。指标间具有相关性是做主成分分析的前提。<br>主成分分析是一种数学变换方法，它把给定的一组变量通过线性变换转换为一组不相关的变量。在这种变换中，保持变量的总方差不变，同时，使第一主成分具有最大方差，第二主成分具有次大方差，依此类推。<br><strong>主成分与原始变量间的关系</strong><br>（1）每一个主成分是原始变量的线性组合。<br>（2）主成分的数目少于原始变量的数目。<br>（3）主成分保留了原始变量的大多数变异信息。<br>（4）各主成分间互不相关。</p>
-<h3 id="2-几何解释与数学模型"><a href="#2-几何解释与数学模型" class="headerlink" title="2 几何解释与数学模型"></a>2 几何解释与数学模型</h3><h4 id="21-几何解释"><a href="#2-1-几何解释" class="headerlink" title="2.1 几何解释"></a>2.1 几何解释</h4><p>假定只有二维，即只有两个变量，由横坐标和纵坐标所代表；每个观测值都有相应于这两个坐标轴的坐标值。如果这些数据形成一个椭圆形状的点阵（这在二维正态的假定下是可能的）该椭圆有一个长轴和一个短轴。在短轴方向上数据变化较少。在极端的情况，短轴如退化成一点，长轴的方向可以完全解释这些点的变化，由二维到一维的降维就自然完成了。</p>
-<p><img src="http://img.blog.csdn.net/20170920201148730?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>由图可以看出这些样本点无论是沿着$x_l$轴方向或$x_2$轴方向都具有较大的离散性，其离散的程度可以分别用观测变量$x_l$的方差和$x_2$的方差定量地表示。显然，如果只考虑$x_1$和$x_2$中的任何一个，那么包含在原始数据中的经济信息将会有较大的损失。<br>当坐标轴和椭圆的长短轴平行，那么代表长轴的变量就描述了数据的主要变化，而代表短轴的变量就描述了数据的次要变化。但是，坐标轴通常并不和椭圆的长短轴平行。因此，需要寻找椭圆的长短轴，并进行变换，使得新变量和椭圆的长短轴平行。如果长轴变量代表了数据包含的大部分信息，就用该变量代替原先的两个变量（舍去次要的一维），降维就完成了。椭圆的长短轴相差得越大，降维也越有道理。</p>
-<h4 id="22-数学模型"><a href="#2-2-数学模型" class="headerlink" title="2.2 数学模型"></a>2.2 数学模型</h4><p>如果我们将xl轴和x2轴先平移，再同时按逆时针方向旋转$\theta$角度，得到新坐标轴Fl和F2。Fl和F2是两个新变量。根据旋转变换的公式：<br>$$ \begin{cases} y_1=x_1\cos\theta+x_2\sin\theta\\y_2=-x_1\sin\theta+x_2\cos\theta \end{cases} $$<br>$$ \begin{pmatrix} y_1\\y_2 \end{pmatrix}=\begin{pmatrix} \cos\theta &amp; \sin\theta\\-sin\theta &amp; \cos\theta \end{pmatrix} \begin{pmatrix} x_1\\x_2 \end{pmatrix}=U’x $$<br>$U’$为旋转变换矩阵，它是正交矩阵，即有$U’=U^{-1},U’U^{-1}=I$。<br>旋转变换的目的是为了使得n个样品点在$F_l$轴方向上的离散程度最大，即$F_l$的方差最大。变量$F_l$代表了原始数据的绝大部分信息，在研究某经济问题时，即使不考虑变量$F_2$也无损大局。经过上述旋转变换原始数据的大部分信息集中到$F_l$轴上，对数据中包含的信息起到了浓缩作用。<br>$F_l$， $F_2$除了可以对包含在$X_l$，$ X_2$中的信息起着浓缩作用之外，还具有不相关的性质，这就使得在研究复杂的问题时避免了信息重叠所带来的虚假性。二维平面上的个点的方差大部分都归结在$F_l$轴上，而$F_2$轴上的方差很小。 $F_l$和$F_2$称为原始变量，$x_1$和$x_2$的综合变量。 简化了系统结构，抓住了主要矛盾。<br><strong>多维情形</strong><br>多维变量的情况和二维类似。正如二维椭圆有两个主轴，三维椭球有三个主轴一样，有几个变量，就有几个主轴。和二维情况类似，高维椭球的主轴也是互相垂直的。首先把高维椭球的主轴找出来，再用代表大多数数据信息的最长的几个轴作为新变量。这些互相正交的新变量是原先变量的线性组合，叫做主成分(principal component)。<br>假设我们所讨论的实际问题中，有p个指标，我们把这p个指标看作p个随机变量，记为$X_1， X_2， \cdots，X_p$，主成分分析就是要把这个p指标的问题，转变为讨论p个指标的线性组合的问题，而这些新的指标$F_1， F_2， \cdots， F_k(k\le p)$，按照保留主要信息量的原则充分反映原指标的信息，并且相互独立。<br>这种由讨论多个指标降为少数几个综合指标的过程在数学上就叫做降维。主成分分析通常的做法是，寻求原指标的线性组合Fi。<br>$$ F_1=u_{11}X_1+u_{21}X_2+\cdots+u_{p1}X_p\\F_2=u_{12}X_1+u_{22}X_2+\cdots+u_{p2}X_p\\\cdots\\F_p=u_{1p}X_1+u_{2p}X_2+\cdots+u_{pp}X_p $$<br><strong>满足条件</strong><br>每个主成分的系数平方和为1。即<br>$$ u_{1i}^2+u_{2i}^2+\cdots+u_{pi}^2=1 $$<br>主成分之间相互独立，即无重叠的信息。即<br>$$ Cov(F_i，F_j）=0，i\neq j,i,j=1,2，\cdots，p $$<br>主成分的方差依次递减，重要性依次递减，即<br>$$ Var(F_1)\ge Var(F_2)\ge \cdots \ge Var(F_p) $$</p>
-<h3 id="3-主成分的推导"><a href="#3-主成分的推导" class="headerlink" title="3 主成分的推导"></a>3 主成分的推导</h3><p><strong>两个线性代数的结论</strong><br>1、若A是p阶实对称矩阵，则一定可以找到正交阵U，使<br>$$ U^{-1}AU=\begin{bmatrix} \lambda_1 &amp; 0 &amp; \cdots &amp; 0\\0 &amp; \lambda_2 &amp; \cdots &amp; 0\\\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\0 &amp; 0 &amp; \cdots &amp; \lambda_p \end{bmatrix}_{p\times p} $$<br>其中$\lambda_i，i=1,2,\cdots,p $是A的特征根。<br>2、若上述矩阵的特征根所对应的单位特征向量为$u_1,\cdots,u_p$。<br>令<br>$$ U=(u_1,\cdots,u_p)=\begin {bmatrix} u_{11} &amp; u_{12} &amp; \cdots &amp;  u_{1p}\\u_{21} &amp; u_{22} &amp; \cdots &amp; u_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\u_{p1} &amp; u_{p2} &amp; \cdots &amp; u_{pp} \end {bmatrix} $$<br>则实对称阵A属于不同特征根所对应的特征向量是正交的，即有$U’U=UU’=I$<br><strong>第一主成分</strong><br>设X的协方差阵为<br>$$ \Sigma_x=\begin {bmatrix} \sigma_{11} &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1p}\\\sigma_{21} &amp; \sigma_{22} &amp; \cdots &amp; \sigma_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\\sigma_{p1} &amp; \sigma_{p2} &amp; \cdots &amp; \sigma_{pp} \end {bmatrix} $$<br>由于$\Sigma_x$为非负定的对称阵，必存在正交阵U，使得：<br>$$ U’\Sigma_x U=\begin {bmatrix} \lambda_1 &amp; &amp; 0\\&amp; \ddots  &amp;\\0 &amp; &amp; \lambda_p \end {bmatrix} $$<br>其中$\lambda_1，\lambda_2，\cdots，\lambda_p$为$\Sigma_x$的特征根。不妨假设$\lambda_1\ge \lambda_2\ge \cdots \ge \lambda_p$。而U恰好是由特征根相对应的特征向量所组成的正交阵。<br>$$ U=(u_1,\cdots,u_p)=\begin {bmatrix} u_{11} &amp; u_{12} &amp; \cdots &amp; u_{1p}\\u_{21} &amp; u_{22} &amp; \cdots &amp; u_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\u_{p1} &amp; u_{p2} &amp; \cdots &amp; u_{pp} \end {bmatrix} $$<br>$$ U_i=(u_{1i},u_{2i},\cdots,u_{pi})’ i=1,2,\cdots,p $$<br>设有p维正交向量$a_1=(a_{11},a_{21},\cdots,a_{p1})’$，$F_1=a_{11}X_1+\cdots+a_{p1}X_p=a’X$<br>$$ V(F_1)=a_1’\Sigma a_1==a_1’U\begin {bmatrix} \lambda_1 &amp; &amp; &amp;\\&amp; \lambda_2 &amp; &amp;\\&amp; &amp; \cdots &amp; &amp;\\&amp; &amp; &amp; \lambda_p &amp;\end {bmatrix}U’a_1 $$<br>当且仅当$a_1=u_1$时，即$F_1=u_{11}X_1+\cdots+u_{p1}X_p$时，有最大的方差$\lambda_1$。$Var(F_1)=U_1’\Sigma_x U_1=\lambda_1$。如果第一主成分的信息不够，则需要寻找第二主成分。<br><strong>第二主成分</strong><br>在约束条件$cov(F_1,F_2)=0$下，寻找第二主成分，取线性变换<br>$$ F_2=u_{12}X_1+\cdots+u_{p2}X_p $$<br>的方差次大<br>$$ cov(F_1,F_2)=cov(u_1’x,u_2’x)=u_2’\Sigma u_1=\lambda_1 u_2’u_1=0 $$<br>$$ Var(F_2)=U_2’\Sigma_x U_2=\lambda_2 $$<br>类推<br>$$ F_1=u_{11}X_1+u_{21}X_2+\cdots+u_{p1}X_p\\F_2=u_{12}X_1+u_{22}X_2+\cdots+u_{p2}X_p\\\cdots\\F_p=u_{1p}X_1+u_{2p}X_2+\cdots+u_{pp}X_p$$<br>写成矩阵形式：<br>$$ F=U’X $$<br>$$  U=(u_1,\cdots,u_p)=\begin {bmatrix} u_{11} &amp; u_{12} &amp; \cdots &amp; u_{1p}\\u_{21} &amp; u_{22} &amp; \cdots &amp; u_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\u_{p1} &amp; u_{p2} &amp; \cdots &amp; u_{pp} \end {bmatrix}  $$<br>$$ X=(X_1,X_2,\cdots,X_p)’ $$</p>
-<h3 id="4-主成分的性质"><a href="#4-主成分的性质" class="headerlink" title="4 主成分的性质"></a>4 主成分的性质</h3><p>1、<strong>均值</strong> $E(U’x)=U’\mu$<br>2、<strong>方差为所有特征根之和</strong><br>$$ \sum_{i=1}^pVar(F_i)=\lambda_1+\lambda_2+\cdots+\lambda_p=\sigma_1^2+\sigma_2^2+\cdots+\sigma_p^2 $$<br>说明主成分分析把p个随机变量的总方差分解成为p个不相关的随机变量的方差之和。协方差矩阵$\Sigma$的对角线上的元素之和等于特征根之和。<br>3、<strong>精度分析</strong><br>1）贡献率：第i个主成分的方差在全部方差中所占比重$\lambda_i/\sum_{i=1}^p\lambda_i$，称为贡献率，体现这个主成分的综合能力的大小，即反映原来p个指标的信息的多少。<br>2）累积贡献率：前k个主成分共有多大的综合能力，用这个k个主成分的方差和在全部方差中所占比重<br>$$ \sum_{i=1}^k\lambda_i/\sum_{i=1}^p\lambda_i $$<br>来描述，称为累积贡献率。<br>我们进行主成分分析的目的之一是希望用尽可能少的主成分$F_1，F_2，\cdots，F_k(k\le p)$代替原来的p个指标。到底应该选择多少个主成分，在实际工作中，所采用主成分个数的多少取决于能够反映原来变量85%以上的信息量为依据，即当累积贡献率≥85%时的主成分的个数就足够了。最常见的情况是主成分为2到3个。<br>4、<strong>载荷矩阵</strong><br>$$  \begin {bmatrix} u_{11} &amp; u_{12} &amp; \cdots &amp; u_{1m}\\u_{21} &amp; u_{22} &amp; \cdots &amp; u_{2m}\\\vdots &amp; \vdots &amp; &amp; \vdots\\u_{p1} &amp; u_{p2} &amp; \cdots &amp; u_{pm} \end {bmatrix}  $$<br><strong>原始变量与主成分之间的相关系数</strong><br>$$ F_j=u_{1j}x_1+u_{2j}x_2+\cdots+u_{pj}x_p j=1,2,\cdots,m,m\le p $$<br>$$ F=U’X UF=X $$<br>$$ \begin {bmatrix} x_1\\x_2\\\vdots\\x_p \end {bmatrix}=\begin {bmatrix} u_{11} &amp; u_{12} &amp; \cdots &amp; u_{1p}\\u_{21} &amp; u_{22} &amp; \cdots &amp; u_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\u_{p1} &amp; u_{p2} &amp; \cdots &amp; u_{pp} \end {bmatrix}\begin {bmatrix} F_1\\F_2\\\vdots\\F_p \end {bmatrix} $$<br>$$ Cov(x_i,F_j)=Cov(u_{i1}F_1+u_{i2}F_2+\cdots+u_{ip}F_p,F_j)=u_{ij}\lambda_j $$<br>$$ \rho(x_i,F_j)=\frac{u_{ij}\lambda_j}{\sigma_i\sqrt{\lambda_j}}=\frac{u_{ij}\sqrt{\lambda_j}}{\sigma_i} $$<br>可见，$x_i$和$F_j$的相关的密切程度取决于对应线性组合系数的大小。该相关系数又叫因子负荷量。在解释主成分的成因或是第i个变量对第k个主成分的重要性时，应当根据因子负荷量而不是变换系数u.<br><strong>原始变量被主成分的提取率</strong><br>主成分的贡献率和累计贡献率度量了$F_1，F_2，\cdots，F_m$分别从原始变量$X_1, X_2, \cdots, X_P$中提取了多少信息。那么$X_1, X_2, \cdots, X_P$各有多少信息分别被$F_1，F_2，\cdots，F_m$提取？<br>这可以用$F_1，F_2，\cdots，F_m$分别与$X_1, X_2, \cdots, X_P$的相关系数的平方来衡量。<br>$$ Var(x_i)=Var(u_{i1}F_1+u_{i2}F_2+\cdots+u_{ip}F_p) $$<br>则<br>$$ u_{i1}^2\lambda_1+u_{i2}^2\lambda_2+\cdots+u_{im}^2\lambda_m+\cdots+u_{ip}^2\lambda_p=\sigma_i^2 $$<br>$u_{ij}^2\lambda_j$是$F_j$能说明的第i 原始变量的方差。<br>$u_{ij}^2\lambda_j/\sigma_i^2$是$F_j$提取的第i原始变量信息的比重。<br>如果我们仅仅提出了m个主成分，则第i原始变量信息的被提取率为：<br>$$ \Omega_i=\sum_{j=1}^m\lambda_ju_{ij}^2/\sigma_i^2=\sum_{j=1}^m\rho_{ij}^2 $$<br><strong>公共成分</strong><br>定义：如果一个主成分仅仅对某一个原始变量有作用，则称为特殊成分。如果一个主成分对所有的原始变量都起作用，则称为公共成分。</p>
-<h3 id="5-主成分分析的步骤"><a href="#5-主成分分析的步骤" class="headerlink" title="5 主成分分析的步骤"></a>5 主成分分析的步骤</h3><p>第一步：由X的协方差阵或相关系数阵Σ，求出其特征根，即解方程，可得特征根。<br>第二步：求出特征根所对应的特征向量$U_1,U_2,\cdots,U_p$，<br>$$ U_i=(u_{1i},u_{2i},\cdots,u_{pi})’ $$<br>第三步：计算累积贡献率，给出恰当的主成分个数。<br>$$ F_i=U_i’X，i=1,2,\cdots,k(k\le p) $$<br>第四步：计算所选出的k个主成分的得分。将原始数据的中心化值:<br>$$ X_i^{\ast}=X_i-\bar X=(x_{1i}-\bar x_1,x_{2i}-\bar x_2,\cdots,x_{pi}-\bar x_p)’ $$<br>代入前k个主成分的表达式，分别计算出各单位k个主成分的得分，并按得分值的大小排队。</p>
-<p><strong>基于协方差矩阵</strong></p>
-<p>在实际问题中， X的协方差通常是未知的，样品有<br>$$ X_1=(x_{1l},x_{2l},\cdots,x_{pl})’(l=1,2,\cdots,n) $$<br>$$ \hat\Sigma_x=(\frac{1}{n-1}\sum_{l=1}^n(x_{ij}-\bar x_i)(x_{jl}-\bar x_j))_{p\times p} $$</p>
-<p><strong>基于相关系数矩阵</strong></p>
-<p>如果变量有不同的量纲， 变量水平差异很大，应该基于相关系数矩阵进行主成分分析。不同的是计算得分时应采用标准化后的数据。</p>
-<h3 id="6-主成分的应用与回归"><a href="#6-主成分的应用与回归" class="headerlink" title="6 主成分的应用与回归"></a>6 主成分的应用与回归</h3><p>1、主成分分析能降低所研究的数据空间的维数。即用研究m维的Y空间代替p维的X空间(m＜p)，而低维的Y空间代替高维的x空间所损失的信息很少。即使只有一个主成分$Y_1$(即m＝1)时，这个$Y_1$仍是使用全部X变量(p个)得到的。在所选的前m个主成分中，如果某个Xi的系数全部近似于零的话，就可以把这个Xi删除，这也是一种删除多余变量的方法。<br>2、多维数据的一种图形表示方法。多元统计研究的问题大都多于3个变量，要把研究的问题用图形表示出来是不可能的。然而，经过主成分分析后，我们可以选取前两个主成分或其中某两个主成分，根据主成分的得分，画出n个样品在二维平面上的分布情况，由图形可直观地看出各样品在主分量中的地位。<br>3、用主成分分析法构造回归模型。即把各主成分作为新自变量代替原来的自变量做回归分析。<br><strong>主成分回归方法</strong><br>$$ F_1=u_{11}X_1+u_{21}X_2+\cdots+u_{p1}X_p\\F_2=u_{12}X_1+u_{22}X_2+\cdots+u_{p2}X_p\\\cdots\\F_p=u_{1p}X_1+u_{2p}X_2+\cdots+u_{pp}X_p$$</p>
-<p>$$ Y_i^{\ast}=\gamma_1F_{11}+\gamma_2F_{12}+\cdots+\gamma_mF_{1m}+\varepsilon_i\\\sum_{i=1}^n[Y_i^{\ast}-\gamma_1F_{11}-\gamma_2F_{12}-\cdots-\gamma_mF_{1m}]^2=min $$</p>
-<p>原始数据观测矩阵</p>
-<p>$$ X_0=\begin {bmatrix} x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p}\\x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np} \end {bmatrix} $$</p>
-<p>主成分系数矩阵</p>
-<p>$$  U=(u_1,\cdots,u_p)=\begin {bmatrix} u_{11} &amp; u_{12} &amp; \cdots &amp; u_{1p}\\u_{21} &amp; u_{22} &amp; \cdots &amp; u_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\u_{p1} &amp; u_{p2} &amp; \cdots &amp; u_{pp} \end {bmatrix}  $$</p>
-<p>主成分得分矩阵</p>
-<p>$$ \begin {bmatrix} F_{11} &amp; F_{12} &amp; \cdots &amp; F_{1p}\\F_{21} &amp; F_{22} &amp; \cdots &amp; F_{2p}\\\vdots &amp; \vdots &amp; &amp; \vdots\\F_{n1} &amp; F_{n2} &amp; \cdots &amp; F_{np} \end {bmatrix}\\F=X_0U $$</p>
-<p><strong>主成分分析的一些注意事项</strong><br>主成分分析依赖于原始变量，也只能反映原始变量的信息。所以原始变量的选择很重要。<br>如果原始变量本质上独立，那么降维就可能失败，这是因为很难把很多独立变量用少数综合的变量概括。数据越相关，降维效果就越好。<br>分析结果并不一定会有清楚的解释。这与问题的性质，选取的原始变量以及数据的质量等都有关系。<br><strong>基于相关系数矩阵还是基于协方差矩阵做主成分分析？</strong><br>有时基于相关系数矩阵和基于协方差矩阵求出的主成分会有很大不同，且两者之间不存在简单的线性关系。<br>一般而言，当分析中所选择的经济变量具有不同的量纲，变量水平差异很大，应考虑将数据标准化，选择基于相关系数矩阵的主成分分析。对同度量或是取值范围在同量级的数据，选择基于协方差矩阵的主成分分析。<br><strong>选择几个主成分？</strong><br>主成分分析的目的是简化变量，一般情况下主成分的个数应该小于原始变量的个数。关于保留几个主成分，应该权衡主成分个数和保留的信息。<br><strong>如何解释主成分所包含的经济意义？</strong><br>主成分分析不要求数据来自于正态总体。一般认为当原始数据大部分变量的相关系数都小于0.3时，运用主成分分析的效果不显著。</p>
-<h3 id="7-主成分分析的r语言实现"><a href="#7-主成分分析的R语言实现" class="headerlink" title="7 主成分分析的R语言实现"></a>7 主成分分析的R语言实现</h3><p>主成分分析的函数本篇介绍的主要有两个。<br>一个是princomp，一个是psych里的principal。</p>
-<pre><code>princomp(x,cor=FALSE,scores=TRUE)
-</code></pre><p>x为主成分分析数据集，cor=TRUE和FALSE分别代表是基于相关系数矩阵计算还是协方差矩阵计算。scores则代表是否存储主成分得分。</p>
-<pre><code>principal(x,nfactors=2,rotate=&quot;varimax&quot;,scores=T,covar=F)
-</code></pre><p>x为主成分分析数据集，nfactors为主成分个数，rotate表示旋转方式（一般选方差最大，保证互不相关），scores则代表是否存储主成分得分，covar=TRUE和FALSE分别代表是基于协方差矩阵计算还是相关系数矩阵计算。<br>这回用的数据是2006年城市统计年鉴285个地级市的经济人口数据，探究gdp与人口之间的关系。<br>先做一个相关系数可视化。发现人口因子之间相互影响因子很高。</p>
-<p><img src="http://img.blog.csdn.net/20170922113957661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>于是先对人口的几个因子进行降维和主成分分析，中途发现第三产业从业人数（third)加入会使得系数矩阵不正定，后面就删除了第三产业从业人数(third)。<br>分别用不同方式进行主成分分析结果。<br>princomp结果（基于协方差矩阵）<br>碎石图</p>
-<p><img src="http://img.blog.csdn.net/20170922114350110?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br>结果</p>
-<p><img src="http://img.blog.csdn.net/20170922114628759?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>主成分得分图</p>
-<p><img src="http://img.blog.csdn.net/20170922114914511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br>princomp结果（基于相关系数矩阵）<br>碎石图</p>
-<p><img src="http://img.blog.csdn.net/20170922114947287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br>结果</p>
-<p><img src="http://img.blog.csdn.net/20170922115017165?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>主成分得分图</p>
-<p><img src="http://img.blog.csdn.net/20170922115034650?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>principal结果<br>碎石图</p>
-<p><img src="http://img.blog.csdn.net/20170922115104036?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>因子关系图<br><img src="http://img.blog.csdn.net/20170922115130649?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>主成分得分图</p>
-<p><img src="http://img.blog.csdn.net/20170922115210591?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>碎石图表示的是曲线与纵坐标1交点的横坐标即为主成分个数，而主成分得分荷图是将原始数据的坐标映射在主成分分析的坐标上，事实上可以根据主成分得分在不同象限对原始数据进行分类，在本篇的样例数据里其实就是可以通过人口生成的几个主成分对中国地级市进行分类，可以区分出是在第一主成分得分高，第二主成分得分低的城市，亦或是其他排列组合的分类结果。关于这种可视化图具体如何解释。可以参照如下的文章。</p>
-<blockquote>
-<p><a href="http://www.cnblogs.com/SCUJIN/p/5965946.html" target="_blank" rel="external">http://www.cnblogs.com/SCUJIN/p/5965946.html</a></p>
-</blockquote>
-
-          
+          <h1 id="Chapter-12-Priciple-Component-Analysis"><a href="#Chapter-12-Priciple-Component-Analysis" class="headerlink" title="Chapter 12 Priciple Component Analysis"></a>Chapter 12 Priciple Component Analysis</h1><p>本篇是第十二章，内容是主成分分析。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/22/应用统计学与R语言实现学习笔记（十二）——主成分分析/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1436,6 +1164,13 @@ npm -v
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -1510,7 +1245,7 @@ npm -v
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1526,7 +1261,7 @@ npm -v
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -1565,6 +1300,8 @@ npm -v
   
 
 
+  
+
 
 
 
@@ -1586,6 +1323,9 @@ npm -v
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

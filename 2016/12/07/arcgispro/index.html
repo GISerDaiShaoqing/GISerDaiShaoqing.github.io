@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -71,11 +71,13 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ArcGIS Pro,3D-GIS,CGA," />
+  <meta name="keywords" content="3D-GIS,ArcGIS Pro,CGA," />
 
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
 
 
 
@@ -87,12 +89,12 @@
 
 
 
-<meta name="description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑">
+<meta name="description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于ArcGIS Pro的二三维一体化">
-<meta property="og:url" content="http://yoursite.com/2016/12/07/arcgispro/index.html">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2016/12/07/arcgispro/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑">
+<meta property="og:description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207192059549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207193203977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -104,10 +106,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20161207204001991?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207204202040?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161207204851894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-08T02:03:42.953Z">
+<meta property="og:updated_time" content="2017-10-12T00:44:39.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于ArcGIS Pro的二三维一体化">
-<meta name="twitter:description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑">
+<meta name="twitter:description" content="最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20161207191755287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -116,7 +118,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -136,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/07/arcgispro/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2016/12/07/arcgispro/"/>
 
 
 
@@ -315,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/07/arcgispro/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2016/12/07/arcgispro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -420,7 +422,7 @@
       
 
       
-        <p>最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。<br>ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑、分析。同时，实现了二三维一体化的数据可视化、管理、分析和发布。此外，ArcGIS Pro原生64位应用，支持多线程处理，极大提高软件性能。<br>关于ArcGIS Pro的安装与使用请参考如下的网址（ps，可以无限试用）。</p>
+        <p>最近尝试了下ArcGIS Pro的二三维一体化管理功能。感觉相当不错，记录一下使用过程与操作。<a id="more"></a><br>ArcGIS Pro是一款全新的桌面应用程序，它改变了桌面GIS的工作方式，以满足新一代WebGIS应用模式。ArcGIS Pro采用Ribbon界面风格，给人全新的用户体验。它作为一个高级的应用程序，可以对来自本地、ArcGIS Online、或者Portal for ArcGIS的数据进行可视化、编辑、分析。同时，实现了二三维一体化的数据可视化、管理、分析和发布。此外，ArcGIS Pro原生64位应用，支持多线程处理，极大提高软件性能。<br>关于ArcGIS Pro的安装与使用请参考如下的网址（ps，可以无限试用）。</p>
 <blockquote>
 <p><a href="http://blog.csdn.net/kikitamoon/article/details/44102383" target="_blank" rel="external">http://blog.csdn.net/kikitamoon/article/details/44102383</a></p>
 </blockquote>
@@ -441,6 +443,22 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -448,6 +466,21 @@
     <div>
       
         
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2016/12/07/arcgispro/" title="基于ArcGIS Pro的二三维一体化">https://giserdaishaoqing.github.io/2016/12/07/arcgispro/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
 
       
     </div>
@@ -456,9 +489,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ArcGIS-Pro/" rel="tag"># ArcGIS Pro</a>
-          
             <a href="/tags/3D-GIS/" rel="tag"># 3D-GIS</a>
+          
+            <a href="/tags/ArcGIS-Pro/" rel="tag"># ArcGIS Pro</a>
           
             <a href="/tags/CGA/" rel="tag"># CGA</a>
           
@@ -583,6 +616,13 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
@@ -657,7 +697,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -673,7 +713,7 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
@@ -712,6 +752,8 @@
   
 
 
+  
+
 
 
 
@@ -733,6 +775,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
