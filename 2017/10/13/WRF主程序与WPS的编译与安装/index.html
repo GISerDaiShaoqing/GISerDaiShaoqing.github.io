@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Fortran语言," />
+  <meta name="keywords" content="WRF," />
 
 
 
@@ -89,28 +89,40 @@
 
 
 
-<meta name="description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。">
+<meta name="description" content="最近重新把WRF学习提上事宜，所以开始重新鼓捣WRF。由于WRF-DA的运行需要依赖WPS程序，这里就填下之前两篇WRF-DA模块编译中挖的坑。即WRF主程序的编译与安装。如果不太清楚的WRF与WRF-DA相关的可以去翻下前两篇博客。
+
+博客地址">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/index.html">
+<meta property="og:title" content="WRF主程序与WPS的编译与安装">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/10/13/WRF主程序与WPS的编译与安装/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。">
-<meta property="og:image" content="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-12T01:08:10.744Z">
+<meta property="og:description" content="最近重新把WRF学习提上事宜，所以开始重新鼓捣WRF。由于WRF-DA的运行需要依赖WPS程序，这里就填下之前两篇WRF-DA模块编译中挖的坑。即WRF主程序的编译与安装。如果不太清楚的WRF与WRF-DA相关的可以去翻下前两篇博客。
+
+博客地址">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013114147715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013115127092?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013115428467?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013120150589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013120628975?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013142003035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013142216964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013143505773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013154401349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013165106157?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013165653389?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013170120805?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013170302126?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013170412299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013171839863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013172347511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171013172458480?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-13T09:40:11.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fortran语言初探及Win7 64位下Fortran开发环境配置">
-<meta name="twitter:description" content="笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="WRF主程序与WPS的编译与安装">
+<meta name="twitter:description" content="最近重新把WRF学习提上事宜，所以开始重新鼓捣WRF。由于WRF-DA的运行需要依赖WPS程序，这里就填下之前两篇WRF-DA模块编译中挖的坑。即WRF主程序的编译与安装。如果不太清楚的WRF与WRF-DA相关的可以去翻下前两篇博客。
+
+博客地址">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171013114147715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -138,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/10/13/WRF主程序与WPS的编译与安装/"/>
 
 
 
 
 
-  <title> Fortran语言初探及Win7 64位下Fortran开发环境配置 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> WRF主程序与WPS的编译与安装 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -317,7 +329,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/13/WRF主程序与WPS的编译与安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -338,7 +350,7 @@
             
             
               
-                Fortran语言初探及Win7 64位下Fortran开发环境配置
+                WRF主程序与WPS的编译与安装
               
             
           </h1>
@@ -353,8 +365,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T00:00:00+08:00">
-                2017-01-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-13T00:00:00+08:00">
+                2017-10-13
               </time>
             
 
@@ -376,8 +388,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -393,7 +405,7 @@
 
           
           
-             <span id="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" class="leancloud_visitors" data-flag-title="Fortran语言初探及Win7 64位下Fortran开发环境配置">
+             <span id="/2017/10/13/WRF主程序与WPS的编译与安装/" class="leancloud_visitors" data-flag-title="WRF主程序与WPS的编译与安装">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,14 +434,148 @@
       
 
       
-        <p>笔者作为一只游走在生态、遥感、GIS与计算机的学生狗，最近终于因缘际会各种巧合下开始学习Fortran。<a id="more"></a> 还记得遥感物理课上牛柳两位老师（真是一个折磨萌萌哒台湾腔南方银口音的老师组合）的辐射传输方程、几何光学模型时时出现Fortran的身影。<br><img src="http://img.blog.csdn.net/20170115235630541?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>好了，扯淡完毕，首先先来简介下Fortran语言。<br>Fortran源自于“公式翻译”（英语：FormulaTranslation）的缩写，是一种编程语言。它是世界上最早出现的计算机高级程序设计语言，广泛应用于科学和工程计算领域。FORTRAN语言以其特有的功能在数值、科学和工程计算领域发挥着重要作用。Fortran 90之前的版本是人们所知晓的FORTRAN（全部字母大写），从Fortran 90以及以后的版本都写成Fortran（仅有第一个字母大写）（ps，来自度娘百科）。<br>可以说Fortran是属于计算机编程语言中的老古董了，但是另一个重要特点就是在科学和工程计算领域应用广泛，主要是其编程语言本身在数组计算上的一些优点决定的。从TIOBE 2017年1月的编程语言排行榜来看<br>Fortran排在第28位，仍居前30之列，说明该语言仍旧具有广泛适用人群。<br><img src="http://img.blog.csdn.net/20170116001534725?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>那么Fortran在地理学、生态学与遥感方面的应用典型有哪些呢？<br>事实上，在地理学、生态学与遥感领域，Fortran可以说有大量的学者使用并建立开发了大量的模型。比如遥感方面，大气辐射传输6S模型、MODTRAN辐射传输模型；生态学方面，WOFOST作物生长模型、DSSAT作物生长模型、景观中性模型模拟软件RULE等。<br>同时Fortran对数组处理的优势使得它能在遥感数据的处理方面担当举足轻重的角色（类比语言IDL、Matlab、Python的numpy），这也是笔者学习的初衷。<br>当然，正如前面提到了，Fortran是个典型的老古董语言，应用广泛的相关模型基于的Fortran版本的编译器在Win 7及以上系统中基本无法正常安装，故Win 7 64位系统如何配置Fortran开发环境是Fortran语言学习的第一步。<br>由于传统的Visual Fortran 6.6.0及以下版本在Win 7 64位无法兼容，网上虽有帖子提出了相关解决法方法，但笔者亲自尝试的结果是hello world无法运行，故这边介绍其他方法。<br>这里有两种配置方法是可以的：<br>第一种，安装Visual Studio。作为微软主推的IDE，VS在诸多IDE中确实功能突出，优点颇多，作为商业软件，简单的开发环境配置方法也是一大优势。只需勾选Fortran相关编译器安装，即可配置成功。<br>第二种，安装其他IDE，由于VS的简便性导致将其分为一类，其他IDE只需有Fortran编译器即可。VS在简便性上确实很优秀，但是相对而言，VS是个典型的重量级IDE。相对而言，笔者最近喜欢轻量级IDE，故搜索了其他IDE，以Code::Blocks为例，偏爱它的另一个原因就是因为它是免费开源软件（开源大法好）。<br>1.首先下载带有Fortran编译器的Code::Blocks软件。</p>
+        <p>最近重新把WRF学习提上事宜，所以开始重新鼓捣WRF。<br>由于WRF-DA的运行需要依赖WPS程序，这里就填下之前两篇WRF-DA模块编译中挖的坑。即WRF主程序的编译与安装。如果不太清楚的WRF与WRF-DA相关的可以去翻下前两篇博客。</p>
 <blockquote>
-<p><a href="http://www.codeblocks.org/" target="_blank" rel="external">http://www.codeblocks.org/</a></p>
+<p><a href="https://giserdaishaoqing.github.io/tags/WRF/">博客地址</a><a id="more"></a> </p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20170116003051263?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择最后一个<br>2.直接安装即可，确认安装所有部分<br><img src="http://img.blog.csdn.net/20170116003318950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.安装完毕后，打开IDE<br>在菜单栏中找到“Setting”→“Compiler”<br><img src="http://img.blog.csdn.net/20170116003942517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>复制一个编译器，自定义名字<br>接着点“Toolchain executables”<br>将画框部分的文件全部改成gfortran.exe<br><img src="http://img.blog.csdn.net/20170116004640952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击ok即可。<br>4.Hello World 编写<br>在菜单栏找到”File”→”New”→”Project”，建立一个Fortran工程文件。<br><img src="http://img.blog.csdn.net/20170116004851564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>工程命名<br><img src="http://img.blog.csdn.net/20170116005010300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择自定义的编译器<br><img src="http://img.blog.csdn.net/20170116005122661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>添加hello world项目的Fortran文件<br><img src="http://img.blog.csdn.net/20170116005352618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编写如下的hello world进行测试。</p>
-<pre><code><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">program</span></span> helloworld</div><div class="line">    <span class="keyword">implicit</span> <span class="keyword">none</span></div><div class="line">    <span class="built_in">write</span>(*,*) <span class="string">'Hello world'</span></div><div class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span></div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170116010152825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>5.生成exe文件无法打开的处理方法<br>某些时候生成的exe文件打开会报错。类似“找不到<em>*</em>.dll”“这个应用程序安装/配置不正确，重新安装…”这样的错误。<br>这样的情况下，只需在系统变量里面PATH加上对应的路径即可。</p>
+<p>最近本来准备换VitualBox来玩虚拟机，结果不小心玩脱了，把之前编译安装好WRF-DA模块的Ubuntu系统删除了，所以只好重头再来了。所以这回我是从WRF主程序等一一安装完，最后再来安装WRF-DA模块。不过这一次按照网上原来的教程装了好多次都失败了，不得已之下，我去请教了WRF官方邮箱。他们给我提供了一份官方安装教程，结果一次成功。这里介绍下这份教程的过程。</p>
+<blockquote>
+<p><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php" target="_blank" rel="external">WRF官方在线安装教程</a></p>
+</blockquote>
+<h1 id="1-系统环境测试"><a href="#1-系统环境测试" class="headerlink" title="1 系统环境测试"></a>1 系统环境测试</h1><p>首先对编译需要的gfortran,cpp,gcc检查是否安装，版本是否匹配。</p>
+<pre><code>which gfortran
+which cpp
+which gcc
+gfortran --version
+gcc --version
+g++ --version
+</code></pre><p><img src="http://img.blog.csdn.net/20171013114147715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171013115127092?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>能显示路径说明已安装，版本检查也未出现。<br>可以发现gfortran并未安装。</p>
+<pre><code>apt install gfortran
+</code></pre><p><img src="http://img.blog.csdn.net/20171013115428467?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接下来在安装WRF的文件夹下创建两个文件夹。一个是Build_WRF，一个是TESTS。<br>然后下载Fortran and C Tests Tar File文件，并放入TESTS文件夹下，对编译器做测试。<br>解压完毕。</p>
+<p><img src="http://img.blog.csdn.net/20171013120150589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>一共有7个测试。<br>首先是对Fortran和C的编译器做测试。</p>
+<pre><code>gfortran TEST_1_fortran_only_fixed.f
+./a.out
+
+gfortran TEST_2_fortran_only_free.f90
+./a.out
+
+gcc TEST_3_c_only.c
+./a.out
+
+gcc -c -m64 TEST_4_fortran+c_c.c
+gfortran -c -m64 TEST_4_fortran+c_f.f90
+gfortran -m64 TEST_4_fortran+c_f.o TEST_4_fortran+c_c.o
+./a.out
+</code></pre><p><img src="http://img.blog.csdn.net/20171013120628975?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接下来测试下csh，perl，sh是否可行。</p>
+<pre><code>./TEST_csh.csh
+./TEST_perl.pl
+./TEST_sh.sh
+</code></pre><p><img src="http://img.blog.csdn.net/20171013142003035?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>可以发现csh测试不通过。解决方案为安装tcsh。</p>
+<pre><code>apt install tcsh
+</code></pre><p><img src="http://img.blog.csdn.net/20171013142216964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>安装完，测试通过。</p>
+<h1 id="2-安装依赖库"><a href="#2-安装依赖库" class="headerlink" title="2 安装依赖库"></a>2 安装依赖库</h1><p>首先在Build_WRF文件夹下面创建一个LIBRARIES的文件夹。然后下载所需的依赖库。</p>
+<p><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz" target="_blank" rel="external">mpich-3.0.4</a><br><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/netcdf-4.1.3.tar.gz" target="_blank" rel="external">netcdf-4.1.3</a><br><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/jasper-1.900.1.tar.gz" target="_blank" rel="external">Jasper-1.900.1</a><br><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/libpng-1.2.50.tar.gz" target="_blank" rel="external">libpng-1.2.50</a><br><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/zlib-1.2.7.tar.gz" target="_blank" rel="external">zlib-1.2.7</a></p>
+<p>把这些压缩包全部放到LIBRARIES下面。</p>
+<p><img src="http://img.blog.csdn.net/20171013143505773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接着设置环境变量开始安装。</p>
+<h2 id="1-netcdf安装"><a href="#1-netcdf安装" class="headerlink" title="1 netcdf安装"></a>1 netcdf安装</h2><p>这里用的是4.1.3版本的netcdf，这个版本还没有把netcdf-fortran和netcdf-c拆开。比较新的版本已经把二者拆开了，新版本则必须两个都安装。</p>
+<pre><code>exprot DIR=/home/Build_WRF/LIBRARIES
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64
+tar zxvf netcdf-4.1.3.tar.gz
+cd netcdf-4.1.3
+./configure --prefix=$DIR/netcdf --disable-dap \
+ --disable-netcdf-4 --disable-shared
+make
+make install
+export PATH=$DIR/netcdf/bin:$PATH
+export NETCDF=$DIR/netcdf
+</code></pre><p>虽然网上有很多教程要求先安装zllib和hdf5后安装netcdf，但是我决定按官方教程走走看。</p>
+<p><img src="http://img.blog.csdn.net/20171013154401349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="2-mpich安装"><a href="#2-mpich安装" class="headerlink" title="2 mpich安装"></a>2 mpich安装</h2><p>如果不需要并行运算，可以不安装这个库。这里还是安装一下。</p>
+<pre><code>tar xzvf mpich-3.0.4.tar.gz
+cd mpich-3.0.4
+./configure --prefix=$DIR/mpich
+make
+make install
+export PATH=$DIR/mpich/bin:$PATH
+</code></pre><h2 id="3-zlib安装"><a href="#3-zlib安装" class="headerlink" title="3 zlib安装"></a>3 zlib安装</h2><pre><code>export LDFLAGS=-L$DIR/grib2/lib
+export CPPFLAGS=-I$DIR/grib2/include
+
+tar xzvf zlib-1.2.7.tar.gz
+cd zlib-1.2.7
+./configure --prefix=$DIR/grib2
+make
+make install
+</code></pre><h2 id="4-libpng安装"><a href="#4-libpng安装" class="headerlink" title="4 libpng安装"></a>4 libpng安装</h2><pre><code>tar xzvf libpng-1.2.50.tar.gz
+cd libpng-1.2.50
+./configure --prefix=$DIR/grib2
+make
+make install
+</code></pre><h2 id="5-jasper安装"><a href="#5-jasper安装" class="headerlink" title="5 jasper安装"></a>5 jasper安装</h2><pre><code>tar xzvf jasper-1.900.1.tar.gz
+cd jasper-1.900.1
+./configure --prefix=$DIR/grib2
+make
+make install
+</code></pre><h1 id="3-依赖库兼容性测试"><a href="#3-依赖库兼容性测试" class="headerlink" title="3 依赖库兼容性测试"></a>3 依赖库兼容性测试</h1><p>接下来对安装完的依赖库兼容性做测试。<br><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/Fortran_C_NETCDF_MPI_tests.tar" target="_blank" rel="external">测试文件</a></p>
+<h2 id="1-fortrancnetcdf"><a href="#1-Fortran-C-NetCDF" class="headerlink" title="1 Fortran+C+NetCDF"></a>1 Fortran+C+NetCDF</h2><pre><code>tar -xf Fortran_C_NETCDF_MPI_tests.tar
+cp ${NETCDF}/include/netcdf.inc .
+gfortran -c 01_fortran+c+netcdf_f.f
+gcc -c 01_fortran+c+netcdf_c.c
+gfortran 01_fortran+c+netcdf_f.o 01_fortran+c+netcdf_c.o \
+     -L${NETCDF}/lib -lnetcdff -lnetcdf
+./a.out
+</code></pre><p><img src="http://img.blog.csdn.net/20171013165106157?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="2-fortrancnetcdfmpi"><a href="#2-Fortran-C-NetCDF-MPI" class="headerlink" title="2 Fortran+C+NetCDF+MPI"></a>2 Fortran+C+NetCDF+MPI</h2><pre><code>cp ${NETCDF}/include/netcdf.inc .
+mpif90 -c 02_fortran+c+netcdf+mpi_f.f
+mpicc -c 02_fortran+c+netcdf+mpi_c.c
+mpif90 02_fortran+c+netcdf+mpi_f.o \
+02_fortran+c+netcdf+mpi_c.o \
+     -L${NETCDF}/lib -lnetcdff -lnetcdf
+mpirun ./a.out
+</code></pre><p><img src="http://img.blog.csdn.net/20171013165653389?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h1 id="4-编译wrf"><a href="#4-编译WRF" class="headerlink" title="4 编译WRF"></a>4 编译WRF</h1><p>下载WRF的源码，放在Build_WRF里面。<br><a href="http://www2.mmm.ucar.edu/wrf/src/WRFV3.9.1.1.TAR.gz" target="_blank" rel="external">WRF3.9.1</a></p>
+<pre><code>gunzip WRFV3.9.1.1.TAR.gz
+tar -xf WRFV3.9.1.1.TAR
+cd WRFV3
+./configure
+</code></pre><p><img src="http://img.blog.csdn.net/20171013170120805?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>需要安装m4。</p>
+<pre><code>apt-get install m4
+</code></pre><p>接着configure一下，出现如下界面。</p>
+<p><img src="http://img.blog.csdn.net/20171013170302126?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>选择34和1。</p>
+<p><img src="http://img.blog.csdn.net/20171013170412299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<pre><code>./compile em_real &gt;&amp; log.compile
+</code></pre><p>接下来只要等待编译完成了。<br>用下面的语句检查是否生成exe。</p>
+<pre><code>ls -ls main/*.exe
+</code></pre><p><img src="http://img.blog.csdn.net/20171013171839863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h1 id="5-编译wps"><a href="#5-编译WPS" class="headerlink" title="5 编译WPS"></a>5 编译WPS</h1><p>接下来就是编译WPS。</p>
+<pre><code>gunzip WPSV3.9.1.TAR.gz
+tar -xf WPSV3.9.1.TAR
+cd WPS
+./clean
+export JASPERLIB=$DIR/grib2/lib
+export JASPERINC=$DIR/grib2/include
+./configure
+</code></pre><p>出现如下界面</p>
+<p><img src="http://img.blog.csdn.net/20171013172347511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>选择3，然后运行如下命令编译。</p>
+<pre><code>WRF_DIR = ../WRFV3
+./compile &gt;&amp; log.compile
+</code></pre><p><img src="http://img.blog.csdn.net/20171013172458480?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>上述的exe出现且不为红色可以初步认为编译安装成功。如何运行WRF后面再介绍。</p>
 
       
     </div>
@@ -474,7 +620,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>Post link:</strong>
-      <a href="https://giserdaishaoqing.github.io/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" title="Fortran语言初探及Win7 64位下Fortran开发环境配置">https://giserdaishaoqing.github.io/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/</a>
+      <a href="https://giserdaishaoqing.github.io/2017/10/13/WRF主程序与WPS的编译与安装/" title="WRF主程序与WPS的编译与安装">https://giserdaishaoqing.github.io/2017/10/13/WRF主程序与WPS的编译与安装/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright Notice: </strong>
@@ -490,7 +636,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Fortran语言/" rel="tag"># Fortran语言</a>
+            <a href="/tags/WRF/" rel="tag"># WRF</a>
           
         </div>
       
@@ -503,8 +649,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/11/如何做出相关系数矩阵可视化图/" rel="next" title="如何做出相关系数矩阵可视化图">
-                <i class="fa fa-chevron-left"></i> 如何做出相关系数矩阵可视化图
+              <a href="/2017/10/11/VMware Workstation下安装Ubuntu 64位系统/" rel="next" title="VMware Workstation下安装Ubuntu 64位系统">
+                <i class="fa fa-chevron-left"></i> VMware Workstation下安装Ubuntu 64位系统
               </a>
             
           </div>
@@ -512,10 +658,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/22/R语言读取Excel的神器——openxlsx/" rel="prev" title="R语言读取Excel的神器——openxlsx">
-                R语言读取Excel的神器——openxlsx <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -566,8 +708,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -678,6 +829,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-系统环境测试"><span class="nav-number">1.</span> <span class="nav-text">1 系统环境测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装依赖库"><span class="nav-number">2.</span> <span class="nav-text">2 安装依赖库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-netcdf安装"><span class="nav-number">2.1.</span> <span class="nav-text">1 netcdf安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mpich安装"><span class="nav-number">2.2.</span> <span class="nav-text">2 mpich安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-zlib安装"><span class="nav-number">2.3.</span> <span class="nav-text">3 zlib安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-libpng安装"><span class="nav-number">2.4.</span> <span class="nav-text">4 libpng安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-jasper安装"><span class="nav-number">2.5.</span> <span class="nav-text">5 jasper安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-依赖库兼容性测试"><span class="nav-number">3.</span> <span class="nav-text">3 依赖库兼容性测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-fortrancnetcdf"><span class="nav-number">3.1.</span> <span class="nav-text">1 Fortran+C+NetCDF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-fortrancnetcdfmpi"><span class="nav-number">3.2.</span> <span class="nav-text">2 Fortran+C+NetCDF+MPI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-编译wrf"><span class="nav-number">4.</span> <span class="nav-text">4 编译WRF</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-编译wps"><span class="nav-number">5.</span> <span class="nav-text">5 编译WPS</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
