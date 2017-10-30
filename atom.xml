@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2017-10-13T09:40:11.544Z</updated>
+  <updated>2017-10-30T06:24:25.711Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WRFDA与WRFDA-4DVAR的编译安装</title>
+    <link href="https://giserdaishaoqing.github.io/2017/10/30/WRFDA%E4%B8%8EWRFDA-4DVAR%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/"/>
+    <id>https://giserdaishaoqing.github.io/2017/10/30/WRFDA与WRFDA-4DVAR的编译安装/</id>
+    <published>2017-10-29T16:00:00.000Z</published>
+    <updated>2017-10-30T06:24:25.711Z</updated>
+    
+    <content type="html"><![CDATA[<p>前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。<br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/Docs/user_guide_V3.9.1/users_guide_chap6.htm#_Installing_WRFDA_for_1" target="_blank" rel="external">参考文档</a><a id="more"></a> </p><h1 id="1-wrfda运行三维变分编译安装"><a href="#1-WRFDA（运行三维变分）编译安装" class="headerlink" title="1 WRFDA（运行三维变分）编译安装"></a>1 WRFDA（运行三维变分）编译安装</h1><p>事实上在安装完WRF后，再安装WRFDA应该是比较简单的。这里遇到了一个问题。就是hdf5库的安装。按教程似乎必须安装hdf5库。但是前文安装WRF的时候，netcdf安装并没有基于hdf5库编译安装。所以现在再安装的话，也无法编译成功WRFDA(我尝试了挺多次，前面在WRF编译完成后，再安装hdf5，再编译无法成功)，这一点可以在网上找一些教程，网上大多教程都是先安装hdf5和zlib然后再装的netcdf。这一方面我也发了邮件向官方求助，目前还没收到回复，但是先按照如上的安装程序走下来看看。</p><p>在编译安装完WRF后，其实WRFDA只需要再设置NETCDF（在不需要hdf5安装的前提下）的环境变量就可以安装，当然需要做辐射传输模型同化的，则可以考虑，WRFDA自带的是CRTM，如果需要用RTTOV的需要在编译前安装并且设置环境变量（我前面的安装教程已经交代过设置环境变量的内容，<a href="https://nwpsaf.eu/site/news/" target="_blank" rel="external">RTTOV</a>)。这里就不安装了，直接下载WRFDA的<a href="http://www2.mmm.ucar.edu/wrf/src/WRFDA_V3.9.1.tar.gz" target="_blank" rel="external">源码</a>编译安装。</p><p>事实上前文安装WRF的时候已经设置过NETCDF的环境变量，此外前文设置的环境变量也请一一设置。所以这里所需的操作如下。</p><pre><code>gunzip WRFDA_V3.9.1.tar.gztar -xf WRFDA_V3.9.1.tar.gz./configure wrfda</code></pre><p><img src="http://img.blog.csdn.net/20171015163347608?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>确实显示了hdf5没有设置环境变量。所以编译出来应该是无法使用这个数据格式同化的。这里依旧选择34。<br>接下来可以开始编译。</p><pre><code>./compile all_wrfvar &gt;&amp; compile.out</code></pre><p>接着等待编译完成。用如下的命令查看生成的exe。</p><pre><code>ls -l var/build/*exe var/obsproc/src/obsproc.exe</code></pre><p><img src="http://img.blog.csdn.net/20171015163732809?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><h1 id="2-wrfda-4dvar编译安装"><a href="#2-WRFDA-4DVAR编译安装" class="headerlink" title="2 WRFDA-4DVAR编译安装"></a>2 WRFDA-4DVAR编译安装</h1><p>WRFDA-4DVAR就是运行四维变分程序同化的模块。至于这个的要求也在之前写WRFDA安装的文章里有介绍。可以翻到前面的博客查看。要安装WRFDA-4DVAR，必须先安装<a href="http://www2.mmm.ucar.edu/wrf/src/WRFPLUS_V3.9.1.tar.gz" target="_blank" rel="external">WRFPLUS</a>。</p><pre><code>gunzip WRFPLUSV3.9.1.tar.gztar -xf WRFPLUSV3.9.1.tarcd WRFPLUSV3./configure wrfplus</code></pre><p><img src="http://img.blog.csdn.net/20171015164215784?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>用下面的命令查询生成的exe。</p><pre><code>ls -ls main/*.exe</code></pre><p><img src="http://img.blog.csdn.net/20171015165216386?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接着设置环境变量。</p><pre><code>export WRFPLUS_DIR=/home/Build_WRF/WRFPLUSV3</code></pre><p>生成编译的文件。</p><pre><code>./configure 4dvar</code></pre><p><img src="http://img.blog.csdn.net/20171015171304489?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>开始编译</p><pre><code>./compile all_wrfvar &gt;&amp; compile.outls -ls var/build/*.exe var/obsproc/*.exe</code></pre><p>编译出现跟上面3DVAR辩分相同的44个exe即成功。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。&lt;br&gt;&lt;a href=&quot;http://www2.mmm.ucar.edu/wrf/users/wrfda/Docs/user_guide_V3.9.1/users_guide_chap6.htm#_Installing_WRFDA_for_1&quot;&gt;参考文档&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="https://giserdaishaoqing.github.io/categories/linux/"/>
+    
+    
+      <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
+    
+  </entry>
   
   <entry>
     <title>WRF主程序与WPS的编译与安装</title>
@@ -469,28 +491,6 @@
       <category term="R语言" scheme="https://giserdaishaoqing.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
     
       <category term="ArcGIS" scheme="https://giserdaishaoqing.github.io/tags/ArcGIS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从定性遥感到定量遥感——大数据时代的空间数据科学</title>
-    <link href="https://giserdaishaoqing.github.io/2017/04/22/%E4%BB%8E%E5%AE%9A%E6%80%A7%E9%81%A5%E6%84%9F%E5%88%B0%E5%AE%9A%E9%87%8F%E9%81%A5%E6%84%9F%E2%80%94%E2%80%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3%E7%9A%84%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
-    <id>https://giserdaishaoqing.github.io/2017/04/22/从定性遥感到定量遥感——大数据时代的空间数据科学/</id>
-    <published>2017-04-21T16:00:00.000Z</published>
-    <updated>2017-10-12T01:09:47.607Z</updated>
-    
-    <content type="html"><![CDATA[<p>笔者最近一周之内连续听了四场关于定量遥感前沿进展的讲座（内容遍布目前定量遥感的诸多热点领域）。<br>这四场讲座分别从定量遥感信息技术整体的前沿进展、气溶胶（民众最关心的PM2.5）定量遥感、植被生态环境定量遥感（高光谱遥感、多光谱遥感）到最后一个雷达遥感（SAR）。可以说十分丰富，信息量也非常大。所以听完之后，有些想法和思考来谈一谈关于从定性遥感到定量遥感的发展以及必然。<a id="more"></a><br>首先会有很多人会疑惑什么是定量遥感？和普通的遥感有啥区别？那么我想还是先从遥感的起源和定义说起。遥感，也就是Remote Sensing。最早是由这位美国海军的老太太提出的，具体的故事看下图介绍。</p><p><img src="http://img.blog.csdn.net/20170422192848831?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p>从广义来说，遥感就是以非直接接触形式探测物体的一种方法，最广泛的一种方式就是以电磁波来进行探测。物体之间的差异，造成了对不同波长的电磁波反射特性不尽相同，通过这个特点，通过传感器接收物体反射回来的电磁波信息，就是典型的遥感探测，当然我们也可以称之为被动遥感。而通过传感器主动发射电磁波并接收物体反射回来的电磁波，同样是遥感探测，也可以称之为主动遥感（有点像海豚的超声波定位原理）。被动遥感的典型案例包括目前多数光学卫星遥感，主动遥感则是近年来兴起的微波遥感、激光雷达遥感等。当然从广义角度来说，无人机航拍这类也可以算是遥感的一类，但是从狭义来说，我认为它还算不上遥感。而遥感的狭义定义就是定量遥感的基础，遥感的狭义定义应当是指通过接收记录物体反射电磁波特性来探测物体性质的方法。所以狭义的遥感的关键是物体反射的电磁波特性。嗯，敲黑板、划重点。三个字：电磁波！电磁波！电磁波！重要事情说三遍。<br>遥感的价值就在于遥感探测得到的电磁波信息，那么电磁波信息能带给我们什么呢？<br>初中老师（也有可能是高中老师吧）曾经曰过：“太阳光是白光（其实它五颜六色），物体在人的视觉里呈现不同颜色，就是因为它吸收了部分光，反射了部分光，这一部分信息被人的视觉所接收并生成图像。”事实上，卫星遥感同样是这个道理，卫星遥感大部分接受的电磁波信息就是地物反射的太阳光波谱信息，所以，不了解遥感的人总觉得它就是在给地球拍照。</p><p><img src="http://img.blog.csdn.net/20170422195700534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>图片来源：ArcGIS Earth</p><p>其实准确说来也没错。人类视觉接收到的也是地物反射的太阳光波谱信息，相机和卫星接收到的也是如此，只不过人类视觉接收的信息可能以某种生物信息或者信号方式记录存在，而相机（RGB值）和卫星则均使用数字来记录。所以我们会觉得卫星遥感影像有时候很直观，看着跟眼睛看到的真实事物或者拍出来的照片一样，三者者事实上也是一样的道理（盗用知乎的一句话：传感器接受到外界光子，要么形成电压信号，要么形成电流信号，然后转换成我们所熟悉的pixel，尽管三者有些许差别，总的来说核心的问题并没有太大差异，文末贴链接）。<br>一个很核心的问题在于，人类视觉可以接受的波谱信息有限制，也就是我们说的可见光部分。但是卫星遥感数据接收的范围则远比这广得多——微波（合成孔径雷达）、热红外等。<br>但是无论是可见光部分或者非可见光部分，卫星所接收的都是用来描述电磁波的信息，而电磁波的信息又是反映物体的物理特性的（前面提到过，物体间的差异导致的反射波谱不同）。所以遥感技术应用的核心就是将电磁波信息转化为对人类有用的Knowlegde。那么如何转化呢？熟悉遥感的同学会知道目视解译这个词。也就是说看图识物。就像前面提到的，由于遥感成像原理与人眼成像原理类似，我们可以把它当地球拍的一系列照片，通过看着一系列照片，我们可以做监测（就像警察叔叔看监控找犯人一样），监测地球发生的变化，也可以监测某种地物的变化（从监控视频中找出犯人）。就像下面的图片。</p><p><img src="http://img.blog.csdn.net/20170422205540669?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>图片来源：Google Earth Engine</p><p>然而一切的发明都是从偷懒开始的，一定会开始想方设法降低自己看照片的工作量。这就出现了计算机上面的一大分支——图像识别与图像分类。正如我上文提到的，卫星遥感的原理跟相机成像原理最核心部分是类似的。那么也就是说卫星遥感影像某种程度上也可以看成是特殊的“图片”。<br>嗯，讲了很久。貌似都是遥感的基础概念。<br>接下来！！！敲黑板，再次划重点。<br>什么是定性遥感？什么是定量遥感？<br>定性遥感就是类似于看图识物，通过将遥感影像当做特殊的“图片”，通过诸如计算机的图像识别、分类的方法去进行分析和处理得到我们所需要的Knowledge。比如简单的土地利用分类、面向对象的分割与分类或者监测变化等，仅仅是定性的划分。</p><p><img src="http://img.blog.csdn.net/20170422211955044?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>GLC30 m土地覆被</p><p>而定量遥感，我就套用一下李传荣老师讲座时的定义：向社会和公众提供有用信息的技术。要精准描述构成地物状态特征的物理化学要素，以及导致地物目标变化的物理化学动力驱动机制。<br>事实上，它的核心就是第一个重点，遥感目前的根本在于电磁波。那么电磁波这么一个物理现象，要做的不仅仅是将电磁波谱映射成普通图像去做解译、分类。既然我们通过卫星接收到了很多人类无法肉眼观测到的电磁波信息，那么我们就希望通过建立具有物理意义的方程以及模型，将电磁波信息转化为对人类更有用的Knowledge。这就是定量遥感所要做的事情。<br>而定量遥感的典型分析方法就是耳熟能详的遥感定量反演。为什么叫反演？其实就是我想知道B的具体值，但是我无法直接观测B的具体值，但是我能观测到A的具体值，而A和B相互之间的关系，可以通过物理学意义的模型或者是其他模型进行表达，那么我就同过A的值去反推出B的值，这就是反演。相信大家就会很清楚，在定量遥感里，A就是传感器接受的波谱信息，而B则可以有很多种东西。比如：<br>1.二氧化碳探测——温室气体</p><p><img src="http://img.blog.csdn.net/20170422212956501?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p>来源：GOSAT卫星反演结果。</p><blockquote><p><a href="https://data2.gosat.nies.go.jp/index_en.html" target="_blank" rel="external">https://data2.gosat.nies.go.jp/index_en.html</a></p></blockquote><p>动图链接：<a href="https://pan.baidu.com/s/1hsNyTrY" target="_blank" rel="external">https://pan.baidu.com/s/1hsNyTrY</a></p><p>去年我们国家在12月26日刚刚发射了TanSAT卫星，使得中国成为了第三个发射监测温室气体排放卫星的国家（前两个是美国和日本，分别是OCO-2卫星和GOSAT卫星），这件事对于我们的意义是什么呢？过去我们没有自己的碳卫星，发达国家在气候变化和谈上说中国排放多，我们难以反驳。现在我们有了自己的碳卫星，我们就有了谈判的手段。同时TanSAT卫星尽管有些方面不如前两个卫星，但是有些方面性能远超前两个卫星。<br>2.地表温度<br>地表温度反演，探究城市热环境的影响因素与空间格局分布。探究冷热岛效应成因分布。</p><p><img src="http://img.blog.csdn.net/20170422215728125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p>MODIS的LST产品</p><p>3.气溶胶反演<br>气溶胶，可能如PM2.5，PM10这些更耳熟能详。但是要注意的就是气溶胶光学厚度≠PM2.5，它是介质消光系数在大气垂直方向上的积分（简单说它没有分离PM2.5、PM10等气溶胶物质）。所以不做垂直订正和湿度订正就拿来跟PM2.5建立关系的AOD都是耍流氓。</p><p><img src="http://img.blog.csdn.net/20170422220831549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>PM2.5分布图，来源：网络</p><p>MODIS气溶胶产品</p><p>4.生态环境定量遥感<br>植被动态变化与生态环境相关要素如叶面积指数、NDVI、光合有效辐射、NPP、GPP等。</p><p><img src="http://img.blog.csdn.net/20170422215340856?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>VPM模型求算的GPP</p><p>除了以上四个，还有很多对应的定量遥感产品——水体叶绿素浓度产品、雪深产品等等。<br>那么定量遥感的核心就是如何通过卫星接收的数据和具有实际物理意义的模型去反演得到我们所需要的产品。而从模型来说，主要分为几类：经验模型、半经验模型、物理模型。<br>经验模型可以被认为是统计意义上的模型，即无视具体的物理过程，单纯靠统计方法建立的模型。<br>半经验模型一般是结合了部分的物理意义的统计模型。<br>物理模型则是严格按照电磁波谱和辐射传输特性经过推导的到的机理模型。<br>可以说物理模型才是定量遥感真正的核心，因为前面两个模型建立之后通常无法复制。物理模型其实有两大部分，即包括了辐射传输方程推导的模型以及几何光学模型（普及下，这就是布鞋院士李小文院士从事的研究）。<br>然而，定量遥感的研究已经有一段时间，却依旧处在一个不为人知的和无法广泛应用的时代。主要是由于地表的复杂性、定量遥感反演目前出现的病态反演问题、定量遥感产品缺乏验证和质量控制的多重因素影响。复杂性——地表非朗伯体特性、地形起伏等影响；<br>病态反演问题——参数求解过程大部分是求解参数大于方程数；<br>缺乏验证和质量控制——不确定性，缺乏统一标准等。<br>当然可以说现在这些问题开始有逐步的改善——毕竟一句话，问题都解决了，还要搞研究的人干什么。<br>但是可以肯定的是，目前计算机技术的发展、卫星载荷的发展、传感器的发展、多颗卫星共同监测、高光谱遥感、激光雷达、合成孔径雷达的普及的情况下，定量遥感的很多问题将会得到改善。<br>所以是时候从定性遥感走向定量遥感，因为这是必然。随着技术的发展和模型精度提高，遥感应用产品也将更加普及。毕竟现在是大数据时代，我们不断强调的是数据即服务和软件即服务，定量遥感作为地球观测的客观载体，将会迸发出更大的潜力。<br>很多人都会这么说，遥感数据是GIS里面的天生大数据，确实遥感数据满足了大数据的4V或者说5V的特征，但是它又跟计算机意义上的大数据有所不同。计算机上的大数据普遍的格式是什么呢？比较典型包括像文本、图片、视频，而甚至像LBS这样的经纬度数据。简而言之，它是高频数据，时间间隔非常短（诸如5min这样的时间间隔）。而遥感数据却不同，卫星的重访周期基本上很难达到5min，所以它非高频数据，那么从这个角度来说，很多大数据算法是否适用呢？同时它具有非常丰富的物理信息，所以就像老师们说的，我们更应该考虑的是这个不太一般的大数据如何去用，不是简单的拿来主义，用这些所谓的机器学习、深度学习去看图识物，可能更值得考虑的事如何将定量遥感的物理模型与大数据的数据挖掘、机器学习等手段相结合。<br>最后的最后，回到主题——大数据时代的空间数据科学。对于空间数据科学来说，这可能是个最好的时代。因为我们不缺数据，但是可能也是个最坏的时代，因为我们多的是黑箱的算法，更缺少的是内在机制的理论研究。<br>毕竟，科学家还是要有梦去追。</p><p>关于卫星遥感影像与相机成像原理差异知乎解答：</p><blockquote><p><a href="https://www.zhihu.com/question/29835925" target="_blank" rel="external">https://www.zhihu.com/question/29835925</a></p></blockquote><p>后记——<br>从这四场讲座中，了解到很多前沿，对于定量遥感了解可能会更透彻。也了解到自己很多不足。一些简单的想法。就当是学习之后的呓语。<br>最后的最后，推荐两本定量遥感的书吧（京东和当当有满减活动，不用谢，叫我雷锋）。<br><img src="http://img.blog.csdn.net/20170422224425773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170422224433553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;笔者最近一周之内连续听了四场关于定量遥感前沿进展的讲座（内容遍布目前定量遥感的诸多热点领域）。&lt;br&gt;这四场讲座分别从定量遥感信息技术整体的前沿进展、气溶胶（民众最关心的PM2.5）定量遥感、植被生态环境定量遥感（高光谱遥感、多光谱遥感）到最后一个雷达遥感（SAR）。可以说十分丰富，信息量也非常大。所以听完之后，有些想法和思考来谈一谈关于从定性遥感到定量遥感的发展以及必然。
-    
-    </summary>
-    
-      <category term="RS" scheme="https://giserdaishaoqing.github.io/categories/RS/"/>
-    
-    
-      <category term="生态地学思索" scheme="https://giserdaishaoqing.github.io/tags/%E7%94%9F%E6%80%81%E5%9C%B0%E5%AD%A6%E6%80%9D%E7%B4%A2/"/>
     
   </entry>
   

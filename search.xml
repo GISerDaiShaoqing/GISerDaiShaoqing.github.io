@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[WRFDA与WRFDA-4DVAR的编译安装]]></title>
+    <url>%2F2017%2F10%2F30%2FWRFDA%E4%B8%8EWRFDA-4DVAR%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。参考文档 1 WRFDA（运行三维变分）编译安装事实上在安装完WRF后，再安装WRFDA应该是比较简单的。这里遇到了一个问题。就是hdf5库的安装。按教程似乎必须安装hdf5库。但是前文安装WRF的时候，netcdf安装并没有基于hdf5库编译安装。所以现在再安装的话，也无法编译成功WRFDA(我尝试了挺多次，前面在WRF编译完成后，再安装hdf5，再编译无法成功)，这一点可以在网上找一些教程，网上大多教程都是先安装hdf5和zlib然后再装的netcdf。这一方面我也发了邮件向官方求助，目前还没收到回复，但是先按照如上的安装程序走下来看看。 在编译安装完WRF后，其实WRFDA只需要再设置NETCDF（在不需要hdf5安装的前提下）的环境变量就可以安装，当然需要做辐射传输模型同化的，则可以考虑，WRFDA自带的是CRTM，如果需要用RTTOV的需要在编译前安装并且设置环境变量（我前面的安装教程已经交代过设置环境变量的内容，RTTOV)。这里就不安装了，直接下载WRFDA的源码编译安装。 事实上前文安装WRF的时候已经设置过NETCDF的环境变量，此外前文设置的环境变量也请一一设置。所以这里所需的操作如下。 gunzip WRFDA_V3.9.1.tar.gz tar -xf WRFDA_V3.9.1.tar.gz ./configure wrfda 确实显示了hdf5没有设置环境变量。所以编译出来应该是无法使用这个数据格式同化的。这里依旧选择34。接下来可以开始编译。 ./compile all_wrfvar &gt;&amp; compile.out 接着等待编译完成。用如下的命令查看生成的exe。 ls -l var/build/*exe var/obsproc/src/obsproc.exe 2 WRFDA-4DVAR编译安装WRFDA-4DVAR就是运行四维变分程序同化的模块。至于这个的要求也在之前写WRFDA安装的文章里有介绍。可以翻到前面的博客查看。要安装WRFDA-4DVAR，必须先安装WRFPLUS。 gunzip WRFPLUSV3.9.1.tar.gz tar -xf WRFPLUSV3.9.1.tar cd WRFPLUSV3 ./configure wrfplus 用下面的命令查询生成的exe。 ls -ls main/*.exe 接着设置环境变量。 export WRFPLUS_DIR=/home/Build_WRF/WRFPLUSV3 生成编译的文件。 ./configure 4dvar 开始编译 ./compile all_wrfvar &gt;&amp; compile.out ls -ls var/build/*.exe var/obsproc/*.exe 编译出现跟上面3DVAR辩分相同的44个exe即成功。]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>WRF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[WRF主程序与WPS的编译与安装]]></title>
     <url>%2F2017%2F10%2F13%2FWRF%E4%B8%BB%E7%A8%8B%E5%BA%8F%E4%B8%8EWPS%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[最近重新把WRF学习提上事宜，所以开始重新鼓捣WRF。由于WRF-DA的运行需要依赖WPS程序，这里就填下之前两篇WRF-DA模块编译中挖的坑。即WRF主程序的编译与安装。如果不太清楚的WRF与WRF-DA相关的可以去翻下前两篇博客。 博客地址 最近本来准备换VitualBox来玩虚拟机，结果不小心玩脱了，把之前编译安装好WRF-DA模块的Ubuntu系统删除了，所以只好重头再来了。所以这回我是从WRF主程序等一一安装完，最后再来安装WRF-DA模块。不过这一次按照网上原来的教程装了好多次都失败了，不得已之下，我去请教了WRF官方邮箱。他们给我提供了一份官方安装教程，结果一次成功。这里介绍下这份教程的过程。 WRF官方在线安装教程 1 系统环境测试首先对编译需要的gfortran,cpp,gcc检查是否安装，版本是否匹配。 which gfortran which cpp which gcc gfortran --version gcc --version g++ --version 能显示路径说明已安装，版本检查也未出现。可以发现gfortran并未安装。 apt install gfortran 接下来在安装WRF的文件夹下创建两个文件夹。一个是Build_WRF，一个是TESTS。然后下载Fortran and C Tests Tar File文件，并放入TESTS文件夹下，对编译器做测试。解压完毕。 一共有7个测试。首先是对Fortran和C的编译器做测试。 gfortran TEST_1_fortran_only_fixed.f ./a.out gfortran TEST_2_fortran_only_free.f90 ./a.out gcc TEST_3_c_only.c ./a.out gcc -c -m64 TEST_4_fortran+c_c.c gfortran -c -m64 TEST_4_fortran+c_f.f90 gfortran -m64 TEST_4_fortran+c_f.o TEST_4_fortran+c_c.o ./a.out 接下来测试下csh，perl，sh是否可行。 ./TEST_csh.csh ./TEST_perl.pl ./TEST_sh.sh 可以发现csh测试不通过。解决方案为安装tcsh。 apt install tcsh 安装完，测试通过。 2 安装依赖库首先在Build_WRF文件夹下面创建一个LIBRARIES的文件夹。然后下载所需的依赖库。 mpich-3.0.4netcdf-4.1.3Jasper-1.900.1libpng-1.2.50zlib-1.2.7 把这些压缩包全部放到LIBRARIES下面。 接着设置环境变量开始安装。 1 netcdf安装这里用的是4.1.3版本的netcdf，这个版本还没有把netcdf-fortran和netcdf-c拆开。比较新的版本已经把二者拆开了，新版本则必须两个都安装。 exprot DIR=/home/Build_WRF/LIBRARIES export CC=gcc export CXX=g++ export FC=gfortran export FCFLAGS=-m64 export F77=gfortran export FFLAGS=-m64 tar zxvf netcdf-4.1.3.tar.gz cd netcdf-4.1.3 ./configure --prefix=$DIR/netcdf --disable-dap \ --disable-netcdf-4 --disable-shared make make install export PATH=$DIR/netcdf/bin:$PATH export NETCDF=$DIR/netcdf 虽然网上有很多教程要求先安装zllib和hdf5后安装netcdf，但是我决定按官方教程走走看。 2 mpich安装如果不需要并行运算，可以不安装这个库。这里还是安装一下。 tar xzvf mpich-3.0.4.tar.gz cd mpich-3.0.4 ./configure --prefix=$DIR/mpich make make install export PATH=$DIR/mpich/bin:$PATH 3 zlib安装export LDFLAGS=-L$DIR/grib2/lib export CPPFLAGS=-I$DIR/grib2/include tar xzvf zlib-1.2.7.tar.gz cd zlib-1.2.7 ./configure --prefix=$DIR/grib2 make make install 4 libpng安装tar xzvf libpng-1.2.50.tar.gz cd libpng-1.2.50 ./configure --prefix=$DIR/grib2 make make install 5 jasper安装tar xzvf jasper-1.900.1.tar.gz cd jasper-1.900.1 ./configure --prefix=$DIR/grib2 make make install 3 依赖库兼容性测试接下来对安装完的依赖库兼容性做测试。测试文件 1 Fortran+C+NetCDFtar -xf Fortran_C_NETCDF_MPI_tests.tar cp ${NETCDF}/include/netcdf.inc . gfortran -c 01_fortran+c+netcdf_f.f gcc -c 01_fortran+c+netcdf_c.c gfortran 01_fortran+c+netcdf_f.o 01_fortran+c+netcdf_c.o \ -L${NETCDF}/lib -lnetcdff -lnetcdf ./a.out 2 Fortran+C+NetCDF+MPIcp ${NETCDF}/include/netcdf.inc . mpif90 -c 02_fortran+c+netcdf+mpi_f.f mpicc -c 02_fortran+c+netcdf+mpi_c.c mpif90 02_fortran+c+netcdf+mpi_f.o \ 02_fortran+c+netcdf+mpi_c.o \ -L${NETCDF}/lib -lnetcdff -lnetcdf mpirun ./a.out 4 编译WRF下载WRF的源码，放在Build_WRF里面。WRF3.9.1 gunzip WRFV3.9.1.1.TAR.gz tar -xf WRFV3.9.1.1.TAR cd WRFV3 ./configure 需要安装m4。 apt-get install m4 接着configure一下，出现如下界面。 选择34和1。 ./compile em_real &gt;&amp; log.compile 接下来只要等待编译完成了。用下面的语句检查是否生成exe。 ls -ls main/*.exe 5 编译WPS接下来就是编译WPS。 gunzip WPSV3.9.1.TAR.gz tar -xf WPSV3.9.1.TAR cd WPS ./clean export JASPERLIB=$DIR/grib2/lib export JASPERINC=$DIR/grib2/include ./configure 出现如下界面 选择3，然后运行如下命令编译。 WRF_DIR = ../WRFV3 ./compile &gt;&amp; log.compile 上述的exe出现且不为红色可以初步认为编译安装成功。如何运行WRF后面再介绍。]]></content>
@@ -258,8 +269,8 @@
         <category>RS</category>
       </categories>
       <tags>
-        <tag>R语言</tag>
         <tag>MODIS</tag>
+        <tag>R语言</tag>
         <tag>Matlab</tag>
       </tags>
   </entry>
