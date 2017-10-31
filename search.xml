@@ -15,13 +15,13 @@
   <entry>
     <title><![CDATA[WRFDA与WRFDA-4DVAR的编译安装]]></title>
     <url>%2F2017%2F10%2F30%2FWRFDA%E4%B8%8EWRFDA-4DVAR%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。参考文档 1 WRFDA（运行三维变分）编译安装事实上在安装完WRF后，再安装WRFDA应该是比较简单的。这里遇到了一个问题。就是hdf5库的安装。按教程似乎必须安装hdf5库。但是前文安装WRF的时候，netcdf安装并没有基于hdf5库编译安装。所以现在再安装的话，也无法编译成功WRFDA(我尝试了挺多次，前面在WRF编译完成后，再安装hdf5，再编译无法成功)，这一点可以在网上找一些教程，网上大多教程都是先安装hdf5和zlib然后再装的netcdf。这一方面我也发了邮件向官方求助，目前还没收到回复，但是先按照如上的安装程序走下来看看。 在编译安装完WRF后，其实WRFDA只需要再设置NETCDF（在不需要hdf5安装的前提下）的环境变量就可以安装，当然需要做辐射传输模型同化的，则可以考虑，WRFDA自带的是CRTM，如果需要用RTTOV的需要在编译前安装并且设置环境变量（我前面的安装教程已经交代过设置环境变量的内容，RTTOV)。这里就不安装了，直接下载WRFDA的源码编译安装。 事实上前文安装WRF的时候已经设置过NETCDF的环境变量，此外前文设置的环境变量也请一一设置。所以这里所需的操作如下。 gunzip WRFDA_V3.9.1.tar.gz tar -xf WRFDA_V3.9.1.tar.gz ./configure wrfda 确实显示了hdf5没有设置环境变量。所以编译出来应该是无法使用这个数据格式同化的。这里依旧选择34。接下来可以开始编译。 ./compile all_wrfvar &gt;&amp; compile.out 接着等待编译完成。用如下的命令查看生成的exe。 ls -l var/build/*exe var/obsproc/src/obsproc.exe 2 WRFDA-4DVAR编译安装WRFDA-4DVAR就是运行四维变分程序同化的模块。至于这个的要求也在之前写WRFDA安装的文章里有介绍。可以翻到前面的博客查看。要安装WRFDA-4DVAR，必须先安装WRFPLUS。 gunzip WRFPLUSV3.9.1.tar.gz tar -xf WRFPLUSV3.9.1.tar cd WRFPLUSV3 ./configure wrfplus 用下面的命令查询生成的exe。 ls -ls main/*.exe 接着设置环境变量。 export WRFPLUS_DIR=/home/Build_WRF/WRFPLUSV3 生成编译的文件。 ./configure 4dvar 开始编译 ./compile all_wrfvar &gt;&amp; compile.out ls -ls var/build/*.exe var/obsproc/*.exe 编译出现跟上面3DVAR辩分相同的44个exe即成功。]]></content>
+    <content type="text"><![CDATA[前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。参考文档 1 WRFDA（运行三维变分）编译安装事实上在安装完WRF后，再安装WRFDA应该是比较简单的。这里遇到了一个问题。就是hdf5库的安装。按教程似乎必须安装hdf5库。但是前文安装WRF的时候，netcdf安装并没有基于hdf5库编译安装。所以现在再安装的话，也无法编译成功WRFDA(我尝试了挺多次，前面在WRF编译完成后，再安装hdf5，再编译无法成功)，这一点可以在网上找一些教程，网上大多教程都是先安装hdf5和zlib然后再装的netcdf。这一方面我也发了邮件向官方求助，目前还没收到回复，但是先按照如上的安装程序走下来看看。 在编译安装完WRF后，其实WRFDA只需要再设置NETCDF（在不需要hdf5安装的前提下）的环境变量就可以安装，当然需要做辐射传输模型同化的，则可以考虑，WRFDA自带的是CRTM，如果需要用RTTOV的需要在编译前安装并且设置环境变量（我前面的安装教程已经交代过设置环境变量的内容，RTTOV)。这里就不安装了，直接下载WRFDA的源码编译安装。 事实上前文安装WRF的时候已经设置过NETCDF的环境变量，此外前文设置的环境变量也请一一设置。所以这里所需的操作如下。 gunzip WRFDA_V3.9.1.tar.gz tar -xf WRFDA_V3.9.1.tar.gz ./configure wrfda 确实显示了hdf5没有设置环境变量。所以编译出来应该是无法使用这个数据格式同化的。这里依旧选择34。接下来可以开始编译。 ./compile all_wrfvar &gt;&amp; compile.out 接着等待编译完成。用如下的命令查看生成的exe。 ls -l var/build/*exe var/obsproc/src/obsproc.exe 2 WRFDA-4DVAR编译安装WRFDA-4DVAR就是运行四维变分程序同化的模块。至于这个的要求也在之前写WRFDA安装的文章里有介绍。可以翻到前面的博客查看。要安装WRFDA-4DVAR，必须先安装WRFPLUS。 gunzip WRFPLUSV3.9.1.tar.gz tar -xf WRFPLUSV3.9.1.tar cd WRFPLUSV3 ./configure wrfplus 用下面的命令查询生成的exe。 ls -ls main/*.exe 接着设置环境变量。 export WRFPLUS_DIR=/home/Build_WRF/WRFPLUSV3 生成编译的文件。 ./configure 4dvar 开始编译 ./compile all_wrfvar &gt;&amp; compile.out ls -ls var/build/*.exe var/obsproc/*.exe 编译出现跟上面3DVAR相同的44个exe即成功。]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -32,8 +32,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -271,8 +271,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>Google Earth</tag>
         <tag>3D-GIS</tag>
+        <tag>Google Earth</tag>
       </tags>
   </entry>
   <entry>
@@ -330,8 +330,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -342,8 +342,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -399,8 +399,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>3D-GIS</tag>
         <tag>ArcGIS Pro</tag>
+        <tag>3D-GIS</tag>
         <tag>CGA</tag>
       </tags>
   </entry>
