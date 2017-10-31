@@ -248,6 +248,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -416,7 +426,7 @@
       
 
       
-        <p>前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。<br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/Docs/user_guide_V3.9.1/users_guide_chap6.htm#_Installing_WRFDA_for_1" target="_blank" rel="external">参考文档</a><a id="more"></a> </p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。<br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/Docs/user_guide_V3.9.1/users_guide_chap6.htm#_Installing_WRFDA_for_1" target="_blank" rel="external">参考文档</a><a id="more"></a> </p>
 <h1 id="1-wrfda运行三维变分编译安装"><a href="#1-WRFDA（运行三维变分）编译安装" class="headerlink" title="1 WRFDA（运行三维变分）编译安装"></a>1 WRFDA（运行三维变分）编译安装</h1><p>事实上在安装完WRF后，再安装WRFDA应该是比较简单的。这里遇到了一个问题。就是hdf5库的安装。按教程似乎必须安装hdf5库。但是前文安装WRF的时候，netcdf安装并没有基于hdf5库编译安装。所以现在再安装的话，也无法编译成功WRFDA(我尝试了挺多次，前面在WRF编译完成后，再安装hdf5，再编译无法成功)，这一点可以在网上找一些教程，网上大多教程都是先安装hdf5和zlib然后再装的netcdf。这一方面我也发了邮件向官方求助，目前还没收到回复，但是先按照如上的安装程序走下来看看。</p>
 <p>在编译安装完WRF后，其实WRFDA只需要再设置NETCDF（在不需要hdf5安装的前提下）的环境变量就可以安装，当然需要做辐射传输模型同化的，则可以考虑，WRFDA自带的是CRTM，如果需要用RTTOV的需要在编译前安装并且设置环境变量（我前面的安装教程已经交代过设置环境变量的内容，<a href="https://nwpsaf.eu/site/news/" target="_blank" rel="external">RTTOV</a>)。这里就不安装了，直接下载WRFDA的<a href="http://www2.mmm.ucar.edu/wrf/src/WRFDA_V3.9.1.tar.gz" target="_blank" rel="external">源码</a>编译安装。</p>
 <p>事实上前文安装WRF的时候已经设置过NETCDF的环境变量，此外前文设置的环境变量也请一一设置。所以这里所需的操作如下。</p>
@@ -610,7 +620,7 @@ ls -ls var/build/*.exe var/obsproc/*.exe
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -632,7 +642,7 @@ ls -ls var/build/*.exe var/obsproc/*.exe
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

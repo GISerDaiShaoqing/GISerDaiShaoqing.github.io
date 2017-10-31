@@ -248,6 +248,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -416,7 +426,7 @@
       
 
       
-        <p>近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。<a id="more"></a> 因缘际会（主要是自己开始入坑Github）发现之前在Windows下安装失败的一个R包bignmf无法安装原因。<br><img src="http://img.blog.csdn.net/20170409153441789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这个包只能在Ubuntu上测试运行。所以之前在windows上根本无法编译和安装。所以笔者打算在Ubuntu上安装R并安装这个包进行使用。<br>这里简单解释下bignmf包的用处，它是基于Rcpp和RcppEigen两个包，通过底层C++代码调用实现的一个R包，实现的算法是NMF（Nonnegative Matrix Factorization，非负矩阵分解)，作者是爱荷华州立大学的潘岚峰大神。当然R本身自带也有NMF包，不过语法不是很友好的感觉，此外最近笔者也发现了另外的可以在windows上运行的NMF的R包，NMF的理论和应用方面，包括bignmf的编译安装，后面有时间会更新（先挖坑），这里不做详细介绍。<br>回到本篇的主要目的，如何在Ubuntu中安装R。<br>这里提供三个方法：1.Linux安装软件的普遍方法——命令行；2.新立得软件包；3.从官网下载R语言环境源码，自行编译安装。<br>1.基于命令行的方法<br>首先先进入/etc/apt/sources.list，变换软件源，同时进入管理员权限</p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。<a id="more"></a> 因缘际会（主要是自己开始入坑Github）发现之前在Windows下安装失败的一个R包bignmf无法安装原因。<br><img src="http://img.blog.csdn.net/20170409153441789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这个包只能在Ubuntu上测试运行。所以之前在windows上根本无法编译和安装。所以笔者打算在Ubuntu上安装R并安装这个包进行使用。<br>这里简单解释下bignmf包的用处，它是基于Rcpp和RcppEigen两个包，通过底层C++代码调用实现的一个R包，实现的算法是NMF（Nonnegative Matrix Factorization，非负矩阵分解)，作者是爱荷华州立大学的潘岚峰大神。当然R本身自带也有NMF包，不过语法不是很友好的感觉，此外最近笔者也发现了另外的可以在windows上运行的NMF的R包，NMF的理论和应用方面，包括bignmf的编译安装，后面有时间会更新（先挖坑），这里不做详细介绍。<br>回到本篇的主要目的，如何在Ubuntu中安装R。<br>这里提供三个方法：1.Linux安装软件的普遍方法——命令行；2.新立得软件包；3.从官网下载R语言环境源码，自行编译安装。<br>1.基于命令行的方法<br>首先先进入/etc/apt/sources.list，变换软件源，同时进入管理员权限</p>
 <pre><code>cd /etc/apt/
 gedit sources.list
 </code></pre><p>在最下面添加一行，deb后面的网址是镜像，根据你的喜好选一个（反正我推荐清华的，速度快，不过之前用厦大的也不错），具体的镜像地址见后面的网址。</p>
@@ -610,7 +620,7 @@ make prefix=/path/to/here install
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -632,7 +642,7 @@ make prefix=/path/to/here install
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -249,6 +249,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -417,7 +427,7 @@
       
 
       
-        <p>这篇文章讲得是如何用R语言优雅地读取excel，当然前提是用R语言花式读excel，然后最优雅。<a id="more"></a><br>作为非程序猿的各位同志们，可能最擅长的数据整理软件或者统计软件就是——嗯，没有错，它就是集万千宠爱于一身的E<del>~~X</del>~~O。<br><img src="http://img.blog.csdn.net/20170322221532741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>咳咳咳，好了。隆重推出我们的主角——Excel<br><img src="http://img.blog.csdn.net/20170322221737039?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，Excel是个super强大的软件。基本上用它已经能完成大量的统计分析了。<br>For example<br>各类数理统计<br><img src="http://img.blog.csdn.net/20170322221945038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>这篇文章讲得是如何用R语言优雅地读取excel，当然前提是用R语言花式读excel，然后最优雅。<a id="more"></a><br>作为非程序猿的各位同志们，可能最擅长的数据整理软件或者统计软件就是——嗯，没有错，它就是集万千宠爱于一身的E<del>~~X</del>~~O。<br><img src="http://img.blog.csdn.net/20170322221532741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>咳咳咳，好了。隆重推出我们的主角——Excel<br><img src="http://img.blog.csdn.net/20170322221737039?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>事实上，Excel是个super强大的软件。基本上用它已经能完成大量的统计分析了。<br>For example<br>各类数理统计<br><img src="http://img.blog.csdn.net/20170322221945038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>线性规划（LINGO表示欲哭无泪，你丫的抢我饭碗）。<br><img src="http://img.blog.csdn.net/20170322221959695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>当然，很久很久之前有这门本神书：<br>陈彦光. 基于Excel的地理数据分析[M]. 科学出版社, 2010.<br><img src="http://img.blog.csdn.net/20170322223734874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>当然，作为新时代的研究生，我们怎么能仅用Excel来完成一切的科研任务呢？用老师的话说，你们用Excel做的图，人家审稿都嫌low。这个时候R就登场了。<br>关于R的简介我就不提了。欢迎各种度娘，扯了这么久的淡。终于要进入正题了。<br>今天讲的是R语言的第一步，读数据——读Excel的数据。<br>以下有三种方法:<br>1.将Excel转存为csv格式文件，读csv文件。</p>
 <pre><code>a&lt;-read.csv(&quot;exercise1.csv&quot;,header = T)
 </code></pre><p>2.用RODBC包读取Excel。</p>
@@ -585,7 +595,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -607,7 +617,7 @@ odbcClose(ab)#关闭句柄，此句是必须。
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

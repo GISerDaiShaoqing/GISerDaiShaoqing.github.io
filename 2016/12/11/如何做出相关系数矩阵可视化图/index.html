@@ -253,6 +253,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -421,7 +431,7 @@
       
 
       
-        <p>如何做出相关系数矩阵可视化图<a id="more"></a> </p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>如何做出相关系数矩阵可视化图<a id="more"></a> </p>
 <pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"psych"</span>)</div><div class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></div><div class="line"><span class="keyword">library</span>(psych)</div><div class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></div><div class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></div><div class="line">head(iris)<span class="comment">#查看下数据集前五行</span></div><div class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></div><div class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></div><div class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></div><div class="line">corrplot(cormat$r)</div></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;)
@@ -597,7 +607,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -619,7 +629,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
