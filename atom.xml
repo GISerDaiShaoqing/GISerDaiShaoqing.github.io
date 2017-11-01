@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2017-10-31T08:48:53.843Z</updated>
+  <updated>2017-11-01T01:40:23.291Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo博客优化相关内容</title>
+    <link href="https://giserdaishaoqing.github.io/2017/10/31/hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/"/>
+    <id>https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/</id>
+    <published>2017-10-31T08:53:00.000Z</published>
+    <updated>2017-11-01T01:40:23.291Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>记录最近hexo博客优化的一些网址。<br><a href="https://giserdaishaoqing.github.io/">我的博客</a><a id="more"></a></p><p>增加了RSS订阅，支付宝打赏，建站时间，博客版权许可，动画效果。这里参照的主要是NexT官网文档。</p><p><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT官网文档</a></p><p><img src="http://img.blog.csdn.net/20171031170213705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031170220033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>另外支付宝打赏功能似乎有些bug，参照下面的帖子做了修改。</p><p><a href="http://blog.csdn.net/lcyaiym/article/details/76796545" target="_blank" rel="external">hexo的next主题打赏</a></p><p><img src="http://img.blog.csdn.net/20171031170234746?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接着后面增加了评论功能（就在多说倒闭后不久）。使用的是Gitment。</p><p>感谢大神。</p><p><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">Gitment：使用 GitHub Issues 搭建评论系统</a><br><a href="https://www.banquanyin.com/C1017063008012455808" target="_blank" rel="external">Hexo博客框架下Gitment取代多说评论</a></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031170530720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>然而不满足的我顺带增加了留言板（hhh），并在留言板上加上了音乐播放器。</p><p>参考博客：</p><p><a href="http://radiationstu.cn/2017/08/01/%E7%A7%91%E6%8A%80/%E7%BB%99Hexo%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/" target="_blank" rel="external">给Hexo添加留言板</a></p><p><a href="https://www.zhihu.com/question/38797520?sort=created" target="_blank" rel="external">知乎提问·给Hexo添加留言板？</a></p><p><a href="http://www.jianshu.com/p/6e41e3191963" target="_blank" rel="external">Hexo博客中插入音乐</a></p><p><a href="http://tc9011.com/2016/12/24/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E3%80%81high%E4%B8%80%E4%B8%8B%E5%8F%8A%E4%B8%80%E4%BA%9B%E5%9D%91/" target="_blank" rel="external">hexo添加音乐、high一下及一些坑</a></p><p><a href="https://jingyan.baidu.com/article/f54ae2fc34c9d41e92b849af.html" target="_blank" rel="external">怎样用七牛空间获得音乐外链</a></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031171023674?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>顺带一提，挖到了篇好文章。</p><p><a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p><p>现在又增加了字数统计、访客统计、Fork me on github等（参照的是上文和官方文档）。</p><p>效果如下：</p><p><img src="http://img.blog.csdn.net/20171031203408344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031203432615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031212446684?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>还有添加日历的功能。但是似乎没见到用在NexT上的。先存下地址，后面有空研究一下。</p><p><a href="http://lupeng.me/2016/05/11/Hexo%E6%B7%BB%E5%8A%A0%E6%97%A5%E5%8E%86%E4%BA%91.html" target="_blank" rel="external">Hexo主题中添加日历云功能</a></p><p><a href="http://howiefh.github.io/2016/04/29/hexo-s-calendar-plugin/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Hexo日历插件</a></p><p>接下来多实现一个功能，在留言板中增加一个访客地理分布功能。</p><p>基于以下的网址：</p><p><a href="http://www.revolvermaps.com/" target="_blank" rel="external">revolvermaps</a></p><p>只需复制代码，放在markdown文档中就OK。</p><p><img src="http://img.blog.csdn.net/20171031221222773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031221246234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>不过后面发现有些问题在本地预览能够显示，但是在github上部署完后，网页无法显示。目前就先去掉了。等后期再研究。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录最近hexo博客优化的一些网址。&lt;br&gt;&lt;a href=&quot;https://giserdaishaoqing.github.io/&quot;&gt;我的博客&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
+    
+    
+      <category term="hexo" scheme="https://giserdaishaoqing.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2017第十五届esri用户大会观感（二）——大会整体</title>
     <link href="https://giserdaishaoqing.github.io/2017/10/31/2017%E7%AC%AC%E5%8D%81%E4%BA%94%E5%B1%8Aesri%E7%94%A8%E6%88%B7%E5%A4%A7%E4%BC%9A%E8%A7%82%E6%84%9F%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%A4%A7%E4%BC%9A%E6%95%B4%E4%BD%93/"/>
     <id>https://giserdaishaoqing.github.io/2017/10/31/2017第十五届esri用户大会观感（二）——大会整体/</id>
-    <published>2017-10-30T16:00:00.000Z</published>
-    <updated>2017-10-31T08:48:53.843Z</updated>
+    <published>2017-10-31T08:40:00.000Z</published>
+    <updated>2017-11-01T01:40:03.629Z</updated>
     
     <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>上文初步介绍了大会的盛况以及笔者负责的Web App Builder for ArcGIS，本篇来讲讲大会整体观感。总体来说，我觉得本次大会的两大亮点可能不在产品技术本身。而是此次宣布的两大关于产品销售的消息。第一是ArcGIS个人版使用许可推出（960元/年，<a href="http://www.higis.cn/personaluse/" target="_blank" rel="external">详情请点击</a>），第二是扶持初创GIS企业的计划（该计划主要面向经营线下或线上的软件产品和服务，员工不超过50人，年营业额不超过一千万人民币的初创企业，提供ArcGIS软件三年的免费使用权）。当然技术上也有些亮点，我会就我的认识来谈一谈。</p><p>先谈谈两大亮点，而后聊些具体的技术和应用上看到的。<a id="more"></a> </p><h1 id="1-arcgis个人版使用许可"><a href="#1-ArcGIS个人版使用许可" class="headerlink" title="1 ArcGIS个人版使用许可"></a>1 ArcGIS个人版使用许可</h1><p>先来看看960元/年提供了啥。</p><p><img src="http://img.blog.csdn.net/20171031152106587?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>ArcGIS Pro，ArcMap，ArcCatalog的桌面高级版许可+桌面版中包括的所有高级分析功能拓展模块。直到工作流管理模块来说，已经涵盖了ArcGIS系列桌面的所有软件和功能，非开发人员需要用的ArcGIS桌面已经全部包括，另外传统的ArcGIS系列只留了ArcMap和ArcCatalog，某种程度来说，esri公司确实在推动ArcGIS Pro替代传统桌面。当然我个人觉得更关键的应该是”ArcGIS Online Level 2 Named User account and 100 Service Credits”。</p><p>不知大家有没有注意到前文提到的关于Web App Builder for ArcGIS许可方面的内容，明确要求Level 2成员。ArcGIS Online Level 2成员账户事实上具备了可以使用esri多个app的许可。同时应当拥有一个主页，也就是可以当做公有portal的url地址。</p><p>产品的简介如下。事实上ArcGIS Desktop大家还是比较熟悉的，Pro则是新一代桌面，而且是为Web GIS平台打造的桌面应用，它本身可以直连portal，同时又具备多种Web GIS相关关联的功能，二三维一体化可以去参考<a href="https://giserdaishaoqing.github.io/2016/12/07/arcgispro/">我前面的博客</a>。其他新特性就暂且不提了。ArcGIS Online是公有云平台，事实上就是公有的和在线版本的portal。</p><p><img src="http://img.blog.csdn.net/20171031153303561?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>附赠的还有一堆视频和文档。</p><p><img src="http://img.blog.csdn.net/20171031153728631?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>总的来说，价格相当超值，而且符合esri公司在云计算时代的产品定位规划。</p><h1 id="2-关于初创企业支持计划"><a href="#2-关于初创企业支持计划" class="headerlink" title="2 关于初创企业支持计划"></a>2 关于初创企业支持计划</h1><p>这个，毕竟笔者非企业人士就不瞎逼逼了，个人感觉还是蛮超值的，不过跟当年esri刚进中国在打通高校是一个道理。esri如今能在全世界包括中国占据这么大地理信息市场份额一大原因是因为他们在进入市场时送给各大高校那些软件造就的。现在相信对企业来说也是差不多的。</p><h1 id="3-所见所闻"><a href="#3-所见所闻" class="headerlink" title="3 所见所闻"></a>3 所见所闻</h1><p>由于企业主办的会议，比普通学术会议来说，我个人感觉是见到更多的落地项目，也见到了更多接地气的应用，当然逼格依旧在。印象比较深的包括今年获评esri用户最佳应用奖之一的“智慧宁波时空信息云平台”。当然原因主要还是笔者最近有些宁波这块研究的任务。基于portal for ArcGIS搭建的云平台，在辅助智慧城市建设方面，可以说走出了坚定的一步。ps，宁波市规划局没记错的话，似乎和百度慧眼也有合作，应该算是国内规划信息化走得很前端。</p><p><img src="http://img.blog.csdn.net/20171031154936930?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>还有是江苏省的互联网+国土资源服务平台。</p><p><img src="http://img.blog.csdn.net/20171031155324449?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接下来聊一聊web平台中的另外两架马车（ArcGIS API for Javascript和ArcGIS API for Python）。<br>JS API演示demo十分丰富，最主要是基于4.5版本的API，听到了两个比较大的亮点。</p><p>一个是点云数据支持渲染（<a href="https://developers.arcgis.com/javascript/latest/sample-code/layers-pointcloud-portal/index.html" target="_blank" rel="external">在线地址</a>）。</p><p><img src="http://img.blog.csdn.net/20171031160808278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>激光雷达和倾斜摄影的技术使得三维建模越来越快速。而JS 4.5 API是esri最主要做三维web的版本。</p><p>另外一个应该是号称可以渲染大数据的JS API，不过后面据闻需要ArcGIS Enterprise 10.6版本发布的服务支持（<a href="https://developers.arcgis.com/javascript/latest/sample-code/visualization-vv-opacity-animate/index.html" target="_blank" rel="external">在线地址</a>）。</p><p><img src="http://img.blog.csdn.net/20171031162652782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>ArcGIS API for Python的话，这次看到的是基于scikit-learning和esri存储的landsat数据实现遥感分类的相关样例。关于landsat存储的可以见<a href="http://blog.csdn.net/allenlu2008/article/details/71056491" target="_blank" rel="external">虾神博客</a>。此外值得推荐的是另外一个web app<a href="http://landsatexplorer.esri.com/" target="_blank" rel="external">Landsat Explorer web app</a>，来源于2017 esri 全球用户大会。</p><p><img src="http://img.blog.csdn.net/20171031163042612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>很多demo可以在<a href="http://solutions.arcgisonline.cn/" target="_blank" rel="external">体验中心</a>查看。</p><p>另外ArcGIS runtime SDK现在可以实现.Net跨平台开发，以及三维支持。当然还有Geoevent，GeoAnalytics Server，矢量切片，无人机等多种技术。</p><p><img src="http://img.blog.csdn.net/20171031163833194?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031163900574?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031163908349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>很凑巧，今天esri官方放出了主题演示的一些视频。<a href="http://mp.weixin.qq.com/s/Jk8PJciEAXoC_K7olqU-tQ" target="_blank" rel="external">详情请点击</a></p><p>记录些观感。欢迎交流。</p>]]></content>
     
@@ -40,28 +62,6 @@
       <category term="ArcGIS Pro" scheme="https://giserdaishaoqing.github.io/tags/ArcGIS-Pro/"/>
     
       <category term="ArcGIS Online" scheme="https://giserdaishaoqing.github.io/tags/ArcGIS-Online/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客优化相关内容</title>
-    <link href="https://giserdaishaoqing.github.io/2017/10/31/hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/"/>
-    <id>https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/</id>
-    <published>2017-10-30T16:00:00.000Z</published>
-    <updated>2017-11-01T00:47:49.628Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>记录最近hexo博客优化的一些网址。<br><a href="https://giserdaishaoqing.github.io/">我的博客</a><a id="more"></a></p><p>增加了RSS订阅，支付宝打赏，建站时间，博客版权许可，动画效果。这里参照的主要是NexT官网文档。</p><p><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT官网文档</a></p><p><img src="http://img.blog.csdn.net/20171031170213705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031170220033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>另外支付宝打赏功能似乎有些bug，参照下面的帖子做了修改。</p><p><a href="http://blog.csdn.net/lcyaiym/article/details/76796545" target="_blank" rel="external">hexo的next主题打赏</a></p><p><img src="http://img.blog.csdn.net/20171031170234746?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接着后面增加了评论功能（就在多说倒闭后不久）。使用的是Gitment。</p><p>感谢大神。</p><p><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">Gitment：使用 GitHub Issues 搭建评论系统</a><br><a href="https://www.banquanyin.com/C1017063008012455808" target="_blank" rel="external">Hexo博客框架下Gitment取代多说评论</a></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031170530720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>然而不满足的我顺带增加了留言板（hhh），并在留言板上加上了音乐播放器。</p><p>参考博客：</p><p><a href="http://radiationstu.cn/2017/08/01/%E7%A7%91%E6%8A%80/%E7%BB%99Hexo%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/" target="_blank" rel="external">给Hexo添加留言板</a></p><p><a href="https://www.zhihu.com/question/38797520?sort=created" target="_blank" rel="external">知乎提问·给Hexo添加留言板？</a></p><p><a href="http://www.jianshu.com/p/6e41e3191963" target="_blank" rel="external">Hexo博客中插入音乐</a></p><p><a href="http://tc9011.com/2016/12/24/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E3%80%81high%E4%B8%80%E4%B8%8B%E5%8F%8A%E4%B8%80%E4%BA%9B%E5%9D%91/" target="_blank" rel="external">hexo添加音乐、high一下及一些坑</a></p><p><a href="https://jingyan.baidu.com/article/f54ae2fc34c9d41e92b849af.html" target="_blank" rel="external">怎样用七牛空间获得音乐外链</a></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031171023674?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>顺带一提，挖到了篇好文章。</p><p><a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p><p>现在又增加了字数统计、访客统计、Fork me on github等（参照的是上文和官方文档）。</p><p>效果如下：</p><p><img src="http://img.blog.csdn.net/20171031203408344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031203432615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031212446684?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>还有添加日历的功能。但是似乎没见到用在NexT上的。先存下地址，后面有空研究一下。</p><p><a href="http://lupeng.me/2016/05/11/Hexo%E6%B7%BB%E5%8A%A0%E6%97%A5%E5%8E%86%E4%BA%91.html" target="_blank" rel="external">Hexo主题中添加日历云功能</a></p><p><a href="http://howiefh.github.io/2016/04/29/hexo-s-calendar-plugin/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Hexo日历插件</a></p><p>接下来多实现一个功能，在留言板中增加一个访客地理分布功能。</p><p>基于以下的网址：</p><p><a href="http://www.revolvermaps.com/" target="_blank" rel="external">revolvermaps</a></p><p>只需复制代码，放在markdown文档中就OK。</p><p><img src="http://img.blog.csdn.net/20171031221222773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031221246234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>不过后面发现有些问题在本地预览能够显示，但是在github上部署完后，网页无法显示。目前就先去掉了。等后期再研究。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录最近hexo博客优化的一些网址。&lt;br&gt;&lt;a href=&quot;https://giserdaishaoqing.github.io/&quot;&gt;我的博客&lt;/a&gt;
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
-    
-    
-      <category term="hexo" scheme="https://giserdaishaoqing.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -109,9 +109,9 @@
       <category term="Linux" scheme="https://giserdaishaoqing.github.io/categories/Linux/"/>
     
     
-      <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
-    
       <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
+    
+      <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
     
   </entry>
   
@@ -135,9 +135,9 @@
       <category term="Linux" scheme="https://giserdaishaoqing.github.io/categories/Linux/"/>
     
     
-      <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
-    
       <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
+    
+      <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
     
   </entry>
   
