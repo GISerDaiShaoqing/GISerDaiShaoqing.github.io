@@ -14,6 +14,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[hexo博客优化相关内容]]></title>
+    <url>%2F2017%2F10%2F31%2Fhexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%2F</url>
+    <content type="text"><![CDATA[记录最近hexo博客优化的一些网址。我的博客 增加了RSS订阅，支付宝打赏，建站时间，博客版权许可，动画效果。这里参照的主要是NexT官网文档。 NexT官网文档 另外支付宝打赏功能似乎有些bug，参照下面的帖子做了修改。 hexo的next主题打赏 接着后面增加了评论功能（就在多说倒闭后不久）。使用的是Gitment。 感谢大神。 Gitment：使用 GitHub Issues 搭建评论系统Hexo博客框架下Gitment取代多说评论 效果： 然而不满足的我顺带增加了留言板（hhh），并在留言板上加上了音乐播放器。 参考博客： 给Hexo添加留言板 知乎提问·给Hexo添加留言板？ Hexo博客中插入音乐 hexo添加音乐、high一下及一些坑 怎样用七牛空间获得音乐外链 效果： 顺带一提，挖到了篇好文章。 hexo的next主题个性化教程：打造炫酷网站 现在又增加了字数统计、访客统计、Fork me on github等（参照的是上文和官方文档）。 效果如下： 还有添加日历的功能。但是似乎没见到用在NexT上的。先存下地址，后面有空研究一下。 Hexo主题中添加日历云功能 Hexo日历插件 接下来多实现一个功能，在留言板中增加一个访客地理分布功能。 基于以下的网址： revolvermaps 只需复制代码，放在markdown文档中就OK。 效果： 不过后面发现有些问题在本地预览能够显示，但是在github上部署完后，网页无法显示。目前就先去掉了。等后期再研究。]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2017第十五届esri用户大会观感（一）——WAB敏捷开发]]></title>
     <url>%2F2017%2F10%2F30%2F2017%E7%AC%AC%E5%8D%81%E4%BA%94%E5%B1%8Aesri%E7%94%A8%E6%88%B7%E5%A4%A7%E4%BC%9A%E8%A7%82%E6%84%9F%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94WAB%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%2F</url>
     <content type="text"><![CDATA[2017年10月24日和25日，在北京国际会议中心召开了第十五届esri用户大会。本次会议的主题围绕着slogan的理念提出的”Applying The Science of Where”，一共有6大主题报告，6大技术论坛，10大行业论坛，业界称为GIS届的饕餮盛宴。从Enabling a Smarter World到The Science of Where,大概是走过风风雨雨，看过世界万物最终又返璞归真回到原点去回答，我是谁？我从哪里来？我到哪里去？ 空间贯穿着我们的一生，从子宫到坟墓，人依托着空间而存在，而地理与GIS正是用来理解我们所生存的地球空间的语言。 笔者很荣幸地成为了本届esri用户大会体验区志愿者之一，所负责的产品是esri推出的0代码敏捷开发的Web App Builder for ArcGIS。所以从观感来讲，就先来介绍下Web App Builder for ArcGIS产品吧。 1 Web App Builder for ArcGIS简介ArcGIS WebApp Builder 是Esri在2014年4月份推出的一种直观的所见即所得式 (WYSIWYG) 应用程序，可用于构建 2D 和 3D web 应用程序，而无需编写一行代码。它所包括的强大工具可用来配置功能完备的 HTML 应用程序。添加地图和工具时，您可以在应用程序中看到这些地图和工具并立即使用。 主要功能可通过 Web AppBuilder for ArcGIS 进行以下操作： 创建能在所有设备上运行的 HTML/JavaScript 应用程序。 使用即用型微件构建所需应用程序。 使用可配置的主题自定义应用程序的外观。 在线托管应用程序或在自己的服务器上运行应用程序。 创建自定义应用程序模板。 详情请点击 当然这里有许可相关限制。 2 Web App Builder for ArcGIS在线版敏捷开发正如前面所说，对于许可的限制，事实上目前Web App Builder for ArcGIS必须有ArcGIS Online或者是Portal的支持。而简单地说Web App Builder for ArcGIS有两种版本，一种是在线版本，内置在ArcGIS Online或者Portal中，只需有账户就可以快速搭建，另一种则是独立的开发者版本，需要部署。那我们就先来介绍第一种方式。 第一种方式对于许可有限制，事实上作为试用和测试的话，我们只需要注册一个账户，试用ArcGIS即可享受21天的ArcGIS Online组织2级成员的许可，当然这个也支持ArcGIS Pro等。 至于如何申请请点击：ArcGIS及Online使用许可申请。 接下来进入正题。进行快速的敏捷开发。这是笔者试用账户下托管的数据。我利用ArcGIS Pro发布了一份2016年1月1日到1月7日全国各个县级市空气质量的数据。并做了一张简易热力图。 接着点击“创建”→“使用Web App Builder” 设置好标题、标签和摘要即可创建（也可以选择3D，这里就选择2D）。 这里可以选择任意一个主题。也可以设置颜色以及布局 接着点击”地图”，选择所需要的数据和底图。这里选择了做好的”Urban Air”。此外还可以选择地图初始化的范围等。 接下来就可以点击”微件”，配置webgis地图的基础功能了。这里最新版提供了超过33个微件，满足webgis地图应用基本需求。 该主题里画框的”微件”分别对应的位置如上。 微件列表。 微件内部配置 最终页面。 最后还可以修改下”属性”，即可。 接下来可以选择保存，或者预览，或者启动。保存即保存在自己的账户项目内，预览可以观察不同尺寸的效果（web app是自适应的html5），启动的话直接访问该应用。 保存完毕即可查看。 也可以下载下来进行部署。下图为访问的页面。 如上是在线版本的敏捷开发。 3 Web App Builder for ArcGIS开发者版本部署前文提到，Web App Builder for ArcGIS有独立的开发者版本，可以下载下来自己部署。不过依旧需要有ArcGIS Online或者portal账户来支撑。 Web App Builder for ArcGIS开发者版本 开发者版本下载下来的文件夹结构。 只需要点击startup.bat运行，即可启动。cmd运行后，在浏览器中输入http://localhost:3345或https://localhsot:3346访问。 与在线版不同的就是，接着就需要你填入ArcGIS Online或者portal的组织url了。同时还需要有个应用ID。 试用账户组织的url可以直接点击组织查询（这个为自己申请试用时设置的）。 所以这里需要先从ArcGIS Online先行创建app，传递ID。首先点击”添加项目”→”应用程序”。 选择”Web制图”→”添加”。笔者测试过，这里必须设置为https://localhost:3346/webappbuilder。 点击”设置”→”注册” 必须做个重定向，将回调地址设为本地（除了localhost还可以设置为计算机名），注册。 即可看到ID。 运行startup.bat，访问https://localhost:3346。 接下来步骤与前面在线版本差异不大。当然也有一个公用的可以使用的portal: http://www.arcgisonline.cn/portal。也可以通过这个进行配置。相关教程在第一篇参考博客中。 整体来说，在用户大会体验区开放的接近一天半的时间内，还是有大量的人对零代码构建web app的工具产生了浓厚兴趣，整体来说大家都在询问的无非是：如何部署在自己的服务器上以及如何进行二次开发，而不仅仅是基于现有的框架。 解答如下：部署在自己服务器上的话必须购买portal for ArcGIS。而由于该工具是以敏捷开发为目的，封装得较好，所以二次开发支持的无非是主题配置和微件使用（具体可见文末的几篇博客）。当然也有大神对源码进行了改动，使其可以不依赖于portal for ArcGIS，这里就不提了（因为某种程度上失去了敏捷开发的特性，当然改完之后的倒是很完美）。 WAB敏捷开发目前来看已经是portal for ArcGIS以及新一代ArcGIS平台web开发的三架马车（另两架分别是ArcGIS API for Python，ArcGIS API for Javascript）了，当然个人理解，仅从我们体验区布设来看。 WAB的敏捷开发实现了一个快速开发的途径，某种程度上也降低了无代码人员开发的难度，本身也具有不错的平台扩展性，演示的demo中有集成了百度Echarts的可视化，当然基于portal for ArcGIS或者ArcGIS Online的这个特性确实在彰显esri公司在云计算时代的应对之策。 最后的最后，我个人觉得该产品可以类比Tableau Public和power BI。当然相对而言，WAB确实更偏向于GIS，而后两者则纯粹考虑可视化。 相关教程学习资料与博客: Web Appbuilder For ArcGIS# 正式版使用教程 配置与使用 webAppbuilder微件使用教程1 快速入门 webAppbuilder微件使用教程2 常用微件介绍 webAppbuilder微件使用教程3 地理处理微件 Webappbuilder开发快速预览 Webappbuilder自定义widget模板 WebAppBuilder自定义主题 ArcGIS WebApp builder 教程（一）简介 ArcGIS WebApp builder 教程（二）入门 ArcGIS Web Appbuilder代码改动为不需要protal步骤初探 Web App Builder For ArcGIS 安装部署使用 ArcGIS WebApp Builder 使用指南]]></content>
@@ -249,8 +260,8 @@
         <category>Coding</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>hexo</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>

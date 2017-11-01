@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ArcGIS,R," />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -89,26 +89,27 @@
 
 
 
-<meta name="description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
+<meta name="description" content="记录最近hexo博客优化的一些网址。我的博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/index.html">
+<meta property="og:title" content="hexo博客优化相关内容">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
-<meta property="og:image" content="http://img.blog.csdn.net/20170424172827705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170424231148007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170424231216987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170424231227096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170425013332358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170425150335593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-31T00:28:49.810Z">
+<meta property="og:description" content="记录最近hexo博客优化的一些网址。我的博客">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031170213705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031170220033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031170234746?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031170530720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031171023674?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031203408344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031203432615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031212446684?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031221222773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171031221246234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-01T00:47:49.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
-<meta name="twitter:description" content="前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170424172827705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="hexo博客优化相关内容">
+<meta name="twitter:description" content="记录最近hexo博客优化的一些网址。我的博客">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171031170213705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -136,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/"/>
 
 
 
 
 
-  <title> R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> hexo博客优化相关内容 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -331,7 +332,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -352,7 +353,7 @@
             
             
               
-                R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版
+                hexo博客优化相关内容
               
             
           </h1>
@@ -367,8 +368,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T00:00:00+08:00">
-                2017-04-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-31T00:00:00+08:00">
+                2017-10-31
               </time>
             
 
@@ -407,7 +408,7 @@
 
           
           
-             <span id="/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/" class="leancloud_visitors" data-flag-title="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">
+             <span id="/2017/10/31/hexo博客优化相关内容/" class="leancloud_visitors" data-flag-title="hexo博客优化相关内容">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -436,7 +437,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  2,217
+                  440
                 </span>
               
 
@@ -452,7 +453,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  9
+                  2
                 </span>
               
             </div>
@@ -471,67 +472,46 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>前面已经介绍过R语言读取excel的方法了，当然读取数据来说，个人还是推荐csv或txt存储（针对小数据量）。大数据量的数据的话建议还是用数据库，此外也可以考虑data.table包读取，这个包也是个神包，后面学习完可能来谈谈。这个都是题外话，今天主要目的还是来介绍R语言读取空间数据的方法。主要是之前有同学问过读取的方法。我就顺带整理下，另外虾神今天刚发了一篇关于ArcGIS的OLS工具回归结果可视化内容，并贴出了Python版可视化的代码（文末贴链接），所以对应写个R语言版。<br>本文介绍的空间数据类型主要包括了三种：矢量数据（以最普遍的的shapefile为例），栅格（raster，这个格式就比较多了，不过大同小异）,地理数据库（geodatabase也就是.gdb文件，Esri的数据库）。<a id="more"></a> </p>
-<h3 id="1矢量数据"><a href="#1-矢量数据" class="headerlink" title="1.矢量数据"></a>1.矢量数据</h3><p>矢量数据其实主要包括了三类：点，线和面，能读取的方式有很多种。下面列举几种。<br>先从点线面分别读取的方式来看，主要包括readShapePoints（读取点），readShapeLines（读取线要素），readShapePoly（读取面要素）。这几个函数都是maptools包里面的。所以第一步如果没安装的话请先安装。</p>
-<pre><code>install.packages(&apos;maptools&apos;)
-library(maptools)
-</code></pre><p>接着定位到我们所需读取数据的工作路径上，然后就可以开始读取对应的数据了。</p>
-<pre><code>fujian&lt;-readShapePoints(&apos;fujian.shp&apos;)
-nanhailine&lt;-readShapeLines(&quot;linesnation.shp&quot;)
-province&lt;-readShapePoly(&quot;province.shp&quot;)
-</code></pre><p>如果不需要什么其他操作，读取数据只需要填入文件名字作为传入的参数即可。这几个函数完整的参数大体差不多，主要包括下面几个。<br>fn——文件名，一般能读的是.shp文件，.shx文件和.dbf文件<br>proj4string = CRS(as.character(NA))——坐标系的CRS字符串，关于坐标系的问题，这里不详讲。其实就是一个坐标系对应一个ID，把对应ID读进去，按照对应坐标系读取，这个是遵循规范的。<br>一般前两个参数用得多。后面这些只介绍这三个函数共有的参数，其他参数就请参照帮助文档。<br>verbose = FALSE——默认为False，这个主要是在读取数据后是否返回读入要素的类型和数量。<br>repair=FALSE——这个参数的话，主要是考虑到.shx索引文件太大，默认False会跳过读取数据，TRUE的话，会进行内部修复，读取这类文件。<br>而maptools同样提供了另外一个函数readShapeSpatial，这个就可以读以上的三类要素。</p>
-<pre><code>fujian&lt;-readShapeSpatial(&quot;fujian.shp&quot;)
-</code></pre><p>当然除了maptools，还有其他包可以读取，事实上，maptools提供的函数读取只能传输较差分辨率的空间数据，所以更推荐的是用rgdal包的OGR驱动程序来读取。熟悉开源GIS的同学对GDAL会比较熟悉，事实上rgdal就是GDAL的R接口（当然没装还是要先装，方法同上），读取方式如下，参数也是传入文件名即可简单读取，不过这个参数可以读具体文件也可以读文件夹名。对应上面proj4string也有一个参数p4s，其他参数参照文档。</p>
-<pre><code>fujian&lt;-readOGR(&quot;fujian.shp&quot;)
-</code></pre><p>此外还有shapefiles包也可以进行读取。读取方式（可以读取shp和shx，shx读取结果为空间索引）如下：</p>
-<pre><code>fujian&lt;-read.shp(&quot;fujian.shp&quot;)
-</code></pre><p>矢量数据读取主要通过以上几种方式就可以实现。</p>
-<h3 id="2栅格数据"><a href="#2-栅格数据" class="headerlink" title="2.栅格数据"></a>2.栅格数据</h3><p>栅格数据的话，格式还是多种多样的。这边主要提供几种不同格式的读取方法（.img文件，.tif文件，ASCII码文件和.asc文件）。栅格数据读取主要是基于rgdal包，读取方式如下，img和tif都可以通过readGDAL直接读取。</p>
-<pre><code>co2&lt;-readGDAL(&quot;CO22008.img&quot;)
-co2&lt;-readGDAL(&quot;CO22008.tif&quot;)
-</code></pre><p>这里面的参数我就不详细介绍了，主要解释几个个人认为比较重要的参数。有兴趣的同学可以去查询官方文档。<br>band——波段数，单纯栅格无所谓。做遥感影像数据处理时就会遇到需要几个波段的问题，如果缺省的话，是全部导入。<br>p4s——等同于上面的proj4string<br>type——像素深度：8bit，16bit等<br>除了rgdal之外，也可以通过raster包进行读取.img文件和.tif文件，这个更方便些。读取方式如下</p>
-<pre><code>co2&lt;-raster(&quot;CO22008.img&quot;)
-co2&lt;-raster(&quot;CO22008.tif&quot;)
-</code></pre><p>当然栅格数据还有较为普遍的以ASCII码文件存储的方式。这里也提供下如何读取ASCII码文件，这个方法是基于sp包的，所以需要先安装和载入sp包，这个包是R语言空间数据的基础包，指定了空间数据库的方法和对象。</p>
-<pre><code>co2&lt;-read.asciigrid(&quot;co22008.txt&quot;)
-</code></pre><p>当然ASCII码文件可能是以.asc文件存储的，只需把后缀名改成.asc即可读取。<br>栅格的读取大概就如上。</p>
-<h3 id="3地理数据库geodatabase数据读取"><a href="#3-地理数据库（Geodatabase）数据读取" class="headerlink" title="3.地理数据库（Geodatabase）数据读取"></a>3.地理数据库（Geodatabase）数据读取</h3><p>Geodatabase是Esri在ArcInfo8之后引入的一种全新的面向对象的空间数据模型。具体简介可以自己搜索。也就是说Geodatabase是Esri官方提出的一种数据库，没有ArcGIS是无法创建Geodatabase的。读取的话其实也相对麻烦些。目前看到的只有Esri官方给出的一个R包可以读取Geodatabase数据。R语言与ArcGIS的结合在未来将很有潜力。目前Esri已经在github上开源了部分工具，2015年全球用户大会上也秀出了R-ArcGIS的Sample工具。<br>具体开源地址：</p>
-<blockquote>
-<p><a href="https://r-arcgis.github.io/" target="_blank" rel="external">https://r-arcgis.github.io/</a></p>
-</blockquote>
-<p>本次用来读取Geodatabase的包就是R-ArcGIS中的一个关键包——arcgisbinding。这个包目前没有在cran上，建议下载之后离线安装。下载地址：</p>
-<blockquote>
-<p><a href="https://github.com/R-ArcGIS/r-bridge/releases/tag/v1.0.0.125。" target="_blank" rel="external">https://github.com/R-ArcGIS/r-bridge/releases/tag/v1.0.0.125。</a></p>
-</blockquote>
-<p>这个包的官方文档可以从官网下载，也可以从下面的连接下载。</p>
-<blockquote>
-<p><a href="http://download.csdn.net/detail/esa_dsq/9823403" target="_blank" rel="external">http://download.csdn.net/detail/esa_dsq/9823403</a></p>
-</blockquote>
-<p>具体安装，同时安装完之后需要先确认ArcGIS的许可（要求应该是ArcGIS10.4以上的版本或者ArcGIS pro1.1以上），具体代码如下：</p>
-<pre><code>install.packages(&quot;G:/GIS/Esri/ArcGIS Plugin/arcgisbinding_1.0.0.125.zip&quot;, repos = NULL, type = &quot;win.binary&quot;)
-arc.check_product()
-</code></pre><p><img src="http://img.blog.csdn.net/20170424172827705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>读取的方式稍微复杂些，用到了arc.open，arc.select，arc.data2sp三个函数，arc.open是打开gdb文件里的featureclass（支持的格式还包括layers等），arc.select是将打开的featureclass按照需要的字段和sql读成R语言中熟悉的数据框，arc.data2sp是将数据框转化成空间要素。使用方式如下。</p>
-<pre><code>china&lt;-arc.open(&quot;china.gdb/province&quot;)
-chinapop&lt;-arc.select(china,fields = c(&apos;Pop_Rural&apos;,&apos;Pop_Urban&apos;,&apos;POPU&apos;))
-chinapopsp&lt;-arc.data2sp(chinapop)
-</code></pre><p>当然读取完了我们还是要来可视化一下。用的是spplot函数，这里就不展开讲了，只贴出图（当然只是随手画的，色带啥的都没调）。</p>
-<p><img src="http://img.blog.csdn.net/20170424231148007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170424231216987?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170424231227096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="4arcgis中ols工具回归结果可视化r语言版"><a href="#4-ArcGIS中OLS工具回归结果可视化（R语言版）" class="headerlink" title="4.ArcGIS中OLS工具回归结果可视化（R语言版）"></a>4.ArcGIS中OLS工具回归结果可视化（R语言版）</h3><p>最后的最后。对应虾神文章的Python版本ArcGIS中OLS工具回归结果可视化，写个R语言版本。</p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#载入包</span></div><div class="line"><span class="comment">#如果没安装，请先安装，如果已安装，请注释</span></div><div class="line"><span class="comment">#install.packages(".../arcgisbinding_1.0.0.125.zip", repos = NULL, type = "win.binary")…表示arcgisbinding离线包的路径</span></div><div class="line"><span class="comment">#install.packages("car")</span></div><div class="line"><span class="comment">#install.packages("GGally")</span></div><div class="line"><span class="comment">#install.packages("ggplot2")</span></div><div class="line"><span class="keyword">library</span>(arcgisbinding)</div><div class="line"><span class="keyword">library</span>(car)</div><div class="line"><span class="keyword">library</span>(GGally)</div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line"></div><div class="line"><span class="comment">#设置工作路径</span></div><div class="line">setwd(<span class="string">"F:/R/demo/readdata"</span>)</div><div class="line"></div><div class="line"><span class="comment">#检查ArcGIS产品许可</span></div><div class="line">arc.check_product()</div><div class="line"></div><div class="line"><span class="comment">#读取数据并将数据转换为数据框</span></div><div class="line">olsdata&lt;-arc.open(<span class="string">"china.gdb/olstest"</span>)</div><div class="line">olsdata</div><div class="line">olsdataframe&lt;-arc.select(olsdata,fields = c(<span class="string">"gdp"</span>,<span class="string">"Index_2000"</span>,<span class="string">"Pop_Urban"</span>,<span class="string">"POPU"</span>,<span class="string">"PRODUCT"</span>,<span class="string">"Estimated"</span>,<span class="string">"Residual"</span>,<span class="string">"StdResid"</span>))</div><div class="line"></div><div class="line"><span class="comment">#把因变量和自变量单独分离出来并用car包里的spm函数绘图</span></div><div class="line">variableframe&lt;-olsdataframe[,c(<span class="number">1</span>:<span class="number">5</span>)]</div><div class="line">spm(variableframe,diagonal=<span class="string">"hist"</span>)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425013332358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>感觉似乎不是很好看，换个方式。<br>    <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#利用GGally的ggpairs函数画图</span></div><div class="line">ggpairs(variableframe,upper = list(continuous=<span class="string">"cor"</span>),lower = list(continuous=<span class="string">"smooth"</span>),diag = list(continuous=<span class="string">"barDiag"</span>))</div></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20170425150335593?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差的分布，用ggplot2画图</span></div><div class="line">a&lt;-ggplot(olsdataframe,aes(x=StdResid))+</div><div class="line">  geom_histogram(aes(y=..density..),binwidth = <span class="number">0.5</span>,colour=<span class="string">"white"</span>,fill=<span class="string">"grey"</span>)+</div><div class="line">  geom_line(stat=<span class="string">'density'</span>,colour=<span class="string">"#FF6666"</span>)</div><div class="line">a</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425162937378?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#绘制标准残差和观测值的散点图</span></div><div class="line">opar&lt;-par(no.readonly = <span class="literal">T</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0</span>,<span class="number">0.8</span>))</div><div class="line">plot(olsdataframe$gdp,olsdataframe$StdResid,col=<span class="string">"grey"</span>,pch=<span class="number">16</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0</span>,<span class="number">0.8</span>,<span class="number">0.7</span>,<span class="number">1</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$gdp,col=<span class="string">"grey"</span>)</div><div class="line"></div><div class="line">par(fig=c(<span class="number">0.75</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0.8</span>),new=<span class="literal">T</span>)</div><div class="line">hist(olsdataframe$StdResid,col=<span class="string">"grey"</span>)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20170425165238300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>主要是为了和虾神最后的效果类似，事实上，在读取完数据框之后，纯属散点图矩阵可视化方面的内容。<br>最后贴出虾神的公众号和博客。</p>
-<p>微信公众号：虾神daxialu——以推广空间分析和空间数据挖掘为己任，致力于在GIS界传递分析价值。<br><img src="http://img.blog.csdn.net/20170425165340362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>虾神博客原文地址：《白话空间统计二十三：回归分析番外-ArcGIS中的OLS（三）》</p>
-<blockquote>
-<p><a href="http://blog.csdn.net/allenlu2008/article/details/70456024" target="_blank" rel="external">http://blog.csdn.net/allenlu2008/article/details/70456024</a></p>
-</blockquote>
+        <script src="\assets\js\APlayer.min.js"> </script><p>记录最近hexo博客优化的一些网址。<br><a href="https://giserdaishaoqing.github.io/">我的博客</a><a id="more"></a></p>
+<p>增加了RSS订阅，支付宝打赏，建站时间，博客版权许可，动画效果。这里参照的主要是NexT官网文档。</p>
+<p><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT官网文档</a></p>
+<p><img src="http://img.blog.csdn.net/20171031170213705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171031170220033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>另外支付宝打赏功能似乎有些bug，参照下面的帖子做了修改。</p>
+<p><a href="http://blog.csdn.net/lcyaiym/article/details/76796545" target="_blank" rel="external">hexo的next主题打赏</a></p>
+<p><img src="http://img.blog.csdn.net/20171031170234746?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接着后面增加了评论功能（就在多说倒闭后不久）。使用的是Gitment。</p>
+<p>感谢大神。</p>
+<p><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">Gitment：使用 GitHub Issues 搭建评论系统</a><br><a href="https://www.banquanyin.com/C1017063008012455808" target="_blank" rel="external">Hexo博客框架下Gitment取代多说评论</a></p>
+<p>效果：</p>
+<p><img src="http://img.blog.csdn.net/20171031170530720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>然而不满足的我顺带增加了留言板（hhh），并在留言板上加上了音乐播放器。</p>
+<p>参考博客：</p>
+<p><a href="http://radiationstu.cn/2017/08/01/%E7%A7%91%E6%8A%80/%E7%BB%99Hexo%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/" target="_blank" rel="external">给Hexo添加留言板</a></p>
+<p><a href="https://www.zhihu.com/question/38797520?sort=created" target="_blank" rel="external">知乎提问·给Hexo添加留言板？</a></p>
+<p><a href="http://www.jianshu.com/p/6e41e3191963" target="_blank" rel="external">Hexo博客中插入音乐</a></p>
+<p><a href="http://tc9011.com/2016/12/24/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E3%80%81high%E4%B8%80%E4%B8%8B%E5%8F%8A%E4%B8%80%E4%BA%9B%E5%9D%91/" target="_blank" rel="external">hexo添加音乐、high一下及一些坑</a></p>
+<p><a href="https://jingyan.baidu.com/article/f54ae2fc34c9d41e92b849af.html" target="_blank" rel="external">怎样用七牛空间获得音乐外链</a></p>
+<p>效果：</p>
+<p><img src="http://img.blog.csdn.net/20171031171023674?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>顺带一提，挖到了篇好文章。</p>
+<p><a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p>
+<p>现在又增加了字数统计、访客统计、Fork me on github等（参照的是上文和官方文档）。</p>
+<p>效果如下：</p>
+<p><img src="http://img.blog.csdn.net/20171031203408344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171031203432615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171031212446684?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>还有添加日历的功能。但是似乎没见到用在NexT上的。先存下地址，后面有空研究一下。</p>
+<p><a href="http://lupeng.me/2016/05/11/Hexo%E6%B7%BB%E5%8A%A0%E6%97%A5%E5%8E%86%E4%BA%91.html" target="_blank" rel="external">Hexo主题中添加日历云功能</a></p>
+<p><a href="http://howiefh.github.io/2016/04/29/hexo-s-calendar-plugin/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Hexo日历插件</a></p>
+<p>接下来多实现一个功能，在留言板中增加一个访客地理分布功能。</p>
+<p>基于以下的网址：</p>
+<p><a href="http://www.revolvermaps.com/" target="_blank" rel="external">revolvermaps</a></p>
+<p>只需复制代码，放在markdown文档中就OK。</p>
+<p><img src="http://img.blog.csdn.net/20171031221222773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>效果：</p>
+<p><img src="http://img.blog.csdn.net/20171031221246234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>不过后面发现有些问题在本地预览能够显示，但是在github上部署完后，网页无法显示。目前就先去掉了。等后期再研究。</p>
 
       
     </div>
@@ -576,7 +556,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
     </li>
     <li class="post-copyright-link">
       <strong>Post link:</strong>
-      <a href="https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/" title="R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版">https://giserdaishaoqing.github.io/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/</a>
+      <a href="https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/" title="hexo博客优化相关内容">https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright Notice: </strong>
@@ -592,9 +572,7 @@ chinapopsp&lt;-arc.data2sp(chinapop)
       
         <div class="post-tags">
           
-            <a href="/tags/ArcGIS/" rel="tag"><i class="fa fa-tag"></i> ArcGIS</a>
-          
-            <a href="/tags/R/" rel="tag"><i class="fa fa-tag"></i> R</a>
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
           
         </div>
       
@@ -607,8 +585,8 @@ chinapopsp&lt;-arc.data2sp(chinapop)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/22/从定性遥感到定量遥感——大数据时代的空间数据科学/" rel="next" title="从定性遥感到定量遥感——大数据时代的空间数据科学">
-                <i class="fa fa-chevron-left"></i> 从定性遥感到定量遥感——大数据时代的空间数据科学
+              <a href="/2017/10/30/2017第十五届esri用户大会观感（一）——WAB敏捷开发/" rel="next" title="2017第十五届esri用户大会观感（一）——WAB敏捷开发">
+                <i class="fa fa-chevron-left"></i> 2017第十五届esri用户大会观感（一）——WAB敏捷开发
               </a>
             
           </div>
@@ -617,8 +595,8 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/01/关于Git使用的一些心得/" rel="prev" title="关于Git使用的一些心得">
-                关于Git使用的一些心得 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/31/2017第十五届esri用户大会观感（二）——大会整体/" rel="prev" title="2017第十五届esri用户大会观感（二）——大会整体">
+                2017第十五届esri用户大会观感（二）——大会整体 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -670,17 +648,8 @@ chinapopsp&lt;-arc.data2sp(chinapop)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -791,22 +760,6 @@ chinapopsp&lt;-arc.data2sp(chinapop)
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1矢量数据"><span class="nav-number">1.</span> <span class="nav-text">1.矢量数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2栅格数据"><span class="nav-number">2.</span> <span class="nav-text">2.栅格数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3地理数据库geodatabase数据读取"><span class="nav-number">3.</span> <span class="nav-text">3.地理数据库（Geodatabase）数据读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4arcgis中ols工具回归结果可视化r语言版"><span class="nav-number">4.</span> <span class="nav-text">4.ArcGIS中OLS工具回归结果可视化（R语言版）</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
