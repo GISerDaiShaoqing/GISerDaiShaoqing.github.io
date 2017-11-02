@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://giserdaishaoqing.github.io/about/index.html</loc>
+    
+    <lastmod>2017-11-02T07:37:21.871Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://giserdaishaoqing.github.io/2017/10/31/hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</loc>
     
     <lastmod>2017-11-01T01:40:23.291Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://giserdaishaoqing.github.io/categories/index.html</loc>
     
     <lastmod>2017-10-31T13:17:07.991Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://giserdaishaoqing.github.io/about/index.html</loc>
-    
-    <lastmod>2017-10-31T13:16:53.729Z</lastmod>
     
   </url>
   
