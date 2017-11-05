@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hugo使用备忘录]]></title>
+    <url>%2F2017%2F11%2F05%2Fhugo%E4%BD%BF%E7%94%A8%E5%A4%87%E5%BF%98%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[最近在github上发现了除了hexo外的另一个静态网页神器：hugo，这里就简单记录下使用的一些记录。 这里抄一下hugo官方文档的介绍。 Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 官方文档地址 这里多说几句Go语言。该语言貌似最近挺火热，很多人看好的一门新语言。以后有空闲可以考虑看看这个语言，不得不说最近在考虑使用docker的问题（配置环境十分方便），突然发现这东西好像也是Go写的。 进入正题，使用hugo其实没那么麻烦，因为可以用编译好的exe文件（windows系统下）。具体的安装教程见如下： Install hugo 翻译一下：第一步，从Hugo Release页面下载hugo的压缩包。第二步，在你喜欢的地方创建一个Hugo和bin的文件夹：’C:\Hugo\bin\’。第三步，将下载的压缩包放到刚刚建立的文件夹里面。第四步，解压压缩包文件，提取hugo.exe到’C:\Hugo\bin\’里。第五步，在你的windows环境变量中加入Hugo exe路径。 顺带一提，最近用hugo的原因是，刚刚发现的一个开源hugo的学术主页框架项目。 项目地址 接着就开始建立站点了。 在你的Hugo exe所在文件夹下打开cmd（按住shift右击，可以在当前文件夹打开cmd）。 hugo new [创建站点文件夹路径名字] 这样就算创建好了。接下来就只需要拷贝主题即可，用git clone，这里需要开启Git bash。 拷贝主题之后，针对配置文件进行修改。主要修改的是content里的一些markdown的文档。其实是各个主页。而其他配置则通过根目录的config.toml，熟悉hexo的同学上手速度应该快一些，跟.yml文件类似。 接下来记录一些常用命令。 本地预览命令。 hugo server 访问端口，localhost:1313。 生成public文件夹，baseUrl填部署的仓库地址，这里用的github部署。 hugo --theme=academic --baseUrl=&quot;https://xxxx&quot; 切换到public文件夹，并push到远程仓库。 cd public git init git remote add origin https://github.com/xxxx/xxx.git(从仓库的clone那里复制) git add -A git commit -m &quot;first commit&quot; git push -u origin master 之后的更新就只需要后面三句命令就可以了。]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>hugo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo博客优化相关内容]]></title>
     <url>%2F2017%2F10%2F31%2Fhexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%2F</url>
     <content type="text"><![CDATA[记录最近hexo博客优化的一些网址。我的博客 增加了RSS订阅，支付宝打赏，建站时间，博客版权许可，动画效果。这里参照的主要是NexT官网文档。 NexT官网文档 另外支付宝打赏功能似乎有些bug，参照下面的帖子做了修改。 hexo的next主题打赏 接着后面增加了评论功能（就在多说倒闭后不久）。使用的是Gitment。 感谢大神。 Gitment：使用 GitHub Issues 搭建评论系统Hexo博客框架下Gitment取代多说评论 效果： 然而不满足的我顺带增加了留言板（hhh），并在留言板上加上了音乐播放器。 参考博客： 给Hexo添加留言板 知乎提问·给Hexo添加留言板？ Hexo博客中插入音乐 hexo添加音乐、high一下及一些坑 怎样用七牛空间获得音乐外链 效果： 顺带一提，挖到了篇好文章。 hexo的next主题个性化教程：打造炫酷网站 现在又增加了字数统计、访客统计、Fork me on github等（参照的是上文和官方文档）。 效果如下： 还有添加日历的功能。但是似乎没见到用在NexT上的。先存下地址，后面有空研究一下。 Hexo主题中添加日历云功能 Hexo日历插件 接下来多实现一个功能，在留言板中增加一个访客地理分布功能。 基于以下的网址： revolvermaps 只需复制代码，放在markdown文档中就OK。 效果： 不过后面发现有些问题在本地预览能够显示，但是在github上部署完后，网页无法显示。目前就先去掉了。等后期再研究。]]></content>
