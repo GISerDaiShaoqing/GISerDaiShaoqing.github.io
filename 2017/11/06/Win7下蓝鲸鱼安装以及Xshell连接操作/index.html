@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -89,12 +89,31 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/tags/WRF/index.html">
+<meta name="description" content="我爱吃金拱门，开封菜也不错，但我觉得最好吃的是小红帽，那我们就来安装个蓝鲸鱼吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win7下蓝鲸鱼安装以及Xshell连接操作">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/11/06/Win7下蓝鲸鱼安装以及Xshell连接操作/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="我爱吃金拱门，开封菜也不错，但我觉得最好吃的是小红帽，那我们就来安装个蓝鲸鱼吧。">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106091551363?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106101531817?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106101539524?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106101547943?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106101555224?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106102524666?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106102710265?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106103832064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106103840871?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106103535312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106103933349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106104000699?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106104121302?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171106104346243?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-06T02:54:17.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GISerDaiShaoqing's Blog">
+<meta name="twitter:title" content="Win7下蓝鲸鱼安装以及Xshell连接操作">
+<meta name="twitter:description" content="我爱吃金拱门，开封菜也不错，但我觉得最好吃的是小红帽，那我们就来安装个蓝鲸鱼吧。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171106091551363?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -122,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/tags/WRF/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/11/06/Win7下蓝鲸鱼安装以及Xshell连接操作/"/>
 
 
 
 
 
-  <title> Tag: WRF | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Win7下蓝鲸鱼安装以及Xshell连接操作 | GISerDaiShaoqing's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -153,7 +172,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 	
 	<a href="https://github.com/GISerDaiShaoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" 
@@ -307,130 +326,303 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        WRF
-        <small>Tag</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/30/WRFDA与WRFDA-4DVAR的编译安装/" itemprop="url">
-              
-                <span itemprop="name">WRFDA与WRFDA-4DVAR的编译安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-30T00:00:00+08:00"
-              content="2017-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/13/WRF主程序与WPS的编译与安装/" itemprop="url">
-              
-                <span itemprop="name">WRF主程序与WPS的编译与安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-13T00:00:00+08:00"
-              content="2017-10-13" >
-          10-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/" itemprop="url">
-              
-                <span itemprop="name">WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-04T00:00:00+08:00"
-              content="2017-04-04" >
-          04-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/" itemprop="url">
-              
-                <span itemprop="name">WRF-DA代码编译与安装（一）——依赖库的编译与安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-02T00:00:00+08:00"
-              content="2017-04-02" >
-          04-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/11/06/Win7下蓝鲸鱼安装以及Xshell连接操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Win7下蓝鲸鱼安装以及Xshell连接操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-06T00:00:00+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/06/Win7下蓝鲸鱼安装以及Xshell连接操作/" class="leancloud_visitors" data-flag-title="Win7下蓝鲸鱼安装以及Xshell连接操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  971
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>我爱吃金拱门，开封菜也不错，但我觉得最好吃的是小红帽，那我们就来安装个蓝鲸鱼吧。<a id="more"></a> </p>
+<h1 id="1-docker简介"><a href="#1-Docker简介" class="headerlink" title="1 Docker简介"></a>1 Docker简介</h1><p>隆重推出我们的主人公——蓝鲸鱼，Docker先生。</p>
+<p><img src="http://img.blog.csdn.net/20171106091551363?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接下来让我抄一段百度百科的简介。</p>
+<p>Docker （基于Go语言开发！基于Go语言开发！基于Go语言开发！）是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<a href="https://baike.baidu.com/item/Docker/13344470?fr=aladdin" target="_blank" rel="external">看不够的点这里，看不懂的点这里</a>。</p>
+<p>嗯，所以这东西吧，你可以把它当成小型虚拟机，貌似目前的需求也差不多，配置消耗相对虚拟机小得多，相对来说能快速部署环境是个优点。</p>
+<p>具体的也可以查看<a href="https://www.docker.com/" target="_blank" rel="external">Docker官网</a></p>
+<h1 id="2-win-7下安装过程"><a href="#2-Win-7下安装过程" class="headerlink" title="2 Win 7下安装过程"></a>2 Win 7下安装过程</h1><p>目前来看，Docker跟Linux和MacOS系统应该还是更相容的，但是毕竟我们是研究GIS的人员，Windows才是王道（谁让ArcGIS只有windows版本呢？呃，不过其实QGIS和GRASS GIS就有各种平台版本，功能也相当强大)。那么如何在Win 7下安装Docker呢？其实这样子我们通过Docker去运行Linux环境（用Docker的话讲，这叫容器）的话，相对更方便些，消耗资源也比虚拟机小，这也是我开始安装的目的。本文就来介绍下。</p>
+<p>目前Docker在Win 10最新系统安装已经十分方便，而且不需要依赖Virtual Box。</p>
+<p><a href="https://docs.docker.com/docker-for-windows/" target="_blank" rel="external">具体就看官网吧</a></p>
+<p>直接下载Docker for Windows的app安装就可以。</p>
+<p>而Win 7的话，上面那个不支持，所以还得依赖Virtual Box（其实说来还是得靠虚拟机）。接下来就来讲讲怎么安装吧。</p>
+<p>Win 7上使用Docker Toolbox.exe进行安装。</p>
+<p><a href="https://github.com/boot2docker/windows-installer/releases" target="_blank" rel="external">github下载地址</a>，但是这个地址国内下载很慢（而且似乎不是很新，也可以从<a href="https://docs.docker.com/toolbox/overview/#whats-in-the-box" target="_blank" rel="external">Docker官网</a>下载）。可以用下面的另一个地址。</p>
+<p><a href="https://get.daocloud.io/toolbox/" target="_blank" rel="external">下载地址</a></p>
+<p>下载下来之后，就只需双击exe开始安装。</p>
+<p><img src="http://img.blog.csdn.net/20171106101531817?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171106101539524?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171106101547943?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171106101555224?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>如果第二步已经安装过Git和Virtual也可以不勾选，中间还会让安装Oracle的一些东西，全部安装即可。但是后面就不能直接双击.sh文件运行docker了，得在git bash下面运行。</p>
+<p>安装完毕之后，应该会出现这两个文件。</p>
+<p><img src="http://img.blog.csdn.net/20171106102524666?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>通常双击什么的快速启动终端就可以了，第一次需要配置花的时间久一点。或者也可以到Docker安装文件夹下，双击.sh文件。不过后面发现这会报错，找不到boot2docker.iso文件，而这个文件就在Docker安装文件夹下。</p>
+<p><img src="http://img.blog.csdn.net/20171106102710265?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>先将这个iso文件拷贝到，C:[用户]Administrator.docker\machine\cache下，再运行就.sh文件或者运行Docker Quickstart Terminal就成功了。</p>
+<p><img src="http://img.blog.csdn.net/20171106103832064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171106103840871?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h1 id="3-用xshell连接自己的docker"><a href="#3-用Xshell连接自己的Docker" class="headerlink" title="3 用Xshell连接自己的Docker"></a>3 用Xshell连接自己的Docker</h1><p>用单纯的命令行有很多限制，一般可以用终端模拟器来连接，这里用的Xshell，也可以用其他终端模拟器。</p>
+<p><img src="http://img.blog.csdn.net/20171106103535312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>这里用户名为docker，密码为tcuser（默认）。</p>
+<p><img src="http://img.blog.csdn.net/20171106103933349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171106104000699?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>连接成功。接下来运行个hello world。</p>
+<pre><code>docker run hello-world
+</code></pre><p><img src="http://img.blog.csdn.net/20171106104121302?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h1 id="4-docker-hub注册"><a href="#4-docker-hub注册" class="headerlink" title="4 docker hub注册"></a>4 docker hub注册</h1><p>这个就是可以将自己的镜像push到仓库里的账户，登陆的话，只需要敲入如下命令。</p>
+<pre><code>docker login
+</code></pre><p>填入账户和密码即可。</p>
+<p><img src="http://img.blog.csdn.net/20171106104346243?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>账户名最好用小写字母和数字即可。</p>
+<p>一些参考博客及文档。</p>
+<p><a href="http://blog.csdn.net/jpiverson/article/details/50730607" target="_blank" rel="external">创建Docker Hub账号&amp;库</a></p>
+<p><a href="http://blog.csdn.net/ljf10010/article/details/48286589" target="_blank" rel="external">你的Docker Hub账户</a></p>
+<p><a href="http://www.widuu.com/chinese_docker/userguide/" target="_blank" rel="external">使用Docker Hub | Docker 中文指南</a></p>
+<p><a href="http://blog.csdn.net/zistxym/article/details/42918339" target="_blank" rel="external">DOCKER windows 7 详细安装教程</a></p>
+<p><a href="http://blog.csdn.net/jack__cj/article/details/55004929" target="_blank" rel="external">Windows7 上运行docker实战</a></p>
+<p><a href="http://www.jianshu.com/p/d809971b1fc1" target="_blank" rel="external">完整记录在 windows7 下使用 docker 的过程</a></p>
+<p><a href="http://www.cnblogs.com/jinjiangongzuoshi/p/6538321.html" target="_blank" rel="external">Docker在windows下的使用【一】</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>Post author:</strong>
+      Dai Shaoqing
+    </li>
+    <li class="post-copyright-link">
+      <strong>Post link:</strong>
+      <a href="https://giserdaishaoqing.github.io/2017/11/06/Win7下蓝鲸鱼安装以及Xshell连接操作/" title="Win7下蓝鲸鱼安装以及Xshell连接操作">https://giserdaishaoqing.github.io/2017/11/06/Win7下蓝鲸鱼安装以及Xshell连接操作/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright Notice: </strong>
+      All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/05/hugo使用备忘录/" rel="next" title="hugo使用备忘录">
+                <i class="fa fa-chevron-left"></i> hugo使用备忘录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -438,6 +630,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      
+          <div id="gitment-container"></div>
+        
+    
+  </div>
+
 
         </div>
         
@@ -457,8 +657,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -573,6 +782,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-docker简介"><span class="nav-number">1.</span> <span class="nav-text">1 Docker简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-win-7下安装过程"><span class="nav-number">2.</span> <span class="nav-text">2 Win 7下安装过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-用xshell连接自己的docker"><span class="nav-number">3.</span> <span class="nav-text">3 用Xshell连接自己的Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-docker-hub注册"><span class="nav-number">4.</span> <span class="nav-text">4 docker hub注册</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -709,6 +934,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Win7下蓝鲸鱼安装以及Xshell连接操作]]></title>
+    <url>%2F2017%2F11%2F06%2FWin7%E4%B8%8B%E8%93%9D%E9%B2%B8%E9%B1%BC%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[我爱吃金拱门，开封菜也不错，但我觉得最好吃的是小红帽，那我们就来安装个蓝鲸鱼吧。 1 Docker简介隆重推出我们的主人公——蓝鲸鱼，Docker先生。 接下来让我抄一段百度百科的简介。 Docker （基于Go语言开发！基于Go语言开发！基于Go语言开发！）是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。看不够的点这里，看不懂的点这里。 嗯，所以这东西吧，你可以把它当成小型虚拟机，貌似目前的需求也差不多，配置消耗相对虚拟机小得多，相对来说能快速部署环境是个优点。 具体的也可以查看Docker官网 2 Win 7下安装过程目前来看，Docker跟Linux和MacOS系统应该还是更相容的，但是毕竟我们是研究GIS的人员，Windows才是王道（谁让ArcGIS只有windows版本呢？呃，不过其实QGIS和GRASS GIS就有各种平台版本，功能也相当强大)。那么如何在Win 7下安装Docker呢？其实这样子我们通过Docker去运行Linux环境（用Docker的话讲，这叫容器）的话，相对更方便些，消耗资源也比虚拟机小，这也是我开始安装的目的。本文就来介绍下。 目前Docker在Win 10最新系统安装已经十分方便，而且不需要依赖Virtual Box。 具体就看官网吧 直接下载Docker for Windows的app安装就可以。 而Win 7的话，上面那个不支持，所以还得依赖Virtual Box（其实说来还是得靠虚拟机）。接下来就来讲讲怎么安装吧。 Win 7上使用Docker Toolbox.exe进行安装。 github下载地址，但是这个地址国内下载很慢（而且似乎不是很新，也可以从Docker官网下载）。可以用下面的另一个地址。 下载地址 下载下来之后，就只需双击exe开始安装。 如果第二步已经安装过Git和Virtual也可以不勾选，中间还会让安装Oracle的一些东西，全部安装即可。但是后面就不能直接双击.sh文件运行docker了，得在git bash下面运行。 安装完毕之后，应该会出现这两个文件。 通常双击什么的快速启动终端就可以了，第一次需要配置花的时间久一点。或者也可以到Docker安装文件夹下，双击.sh文件。不过后面发现这会报错，找不到boot2docker.iso文件，而这个文件就在Docker安装文件夹下。 先将这个iso文件拷贝到，C:[用户]Administrator.docker\machine\cache下，再运行就.sh文件或者运行Docker Quickstart Terminal就成功了。 3 用Xshell连接自己的Docker用单纯的命令行有很多限制，一般可以用终端模拟器来连接，这里用的Xshell，也可以用其他终端模拟器。 这里用户名为docker，密码为tcuser（默认）。 连接成功。接下来运行个hello world。 docker run hello-world 4 docker hub注册这个就是可以将自己的镜像push到仓库里的账户，登陆的话，只需要敲入如下命令。 docker login 填入账户和密码即可。 账户名最好用小写字母和数字即可。 一些参考博客及文档。 创建Docker Hub账号&amp;库 你的Docker Hub账户 使用Docker Hub | Docker 中文指南 DOCKER windows 7 详细安装教程 Windows7 上运行docker实战 完整记录在 windows7 下使用 docker 的过程 Docker在windows下的使用【一】]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hugo使用备忘录]]></title>
     <url>%2F2017%2F11%2F05%2Fhugo%E4%BD%BF%E7%94%A8%E5%A4%87%E5%BF%98%E5%BD%95%2F</url>
     <content type="text"><![CDATA[最近在github上发现了除了hexo外的另一个静态网页神器：hugo，这里就简单记录下使用的一些记录。 这里抄一下hugo官方文档的介绍。 Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 官方文档地址 这里多说几句Go语言。该语言貌似最近挺火热，很多人看好的一门新语言。以后有空闲可以考虑看看这个语言，不得不说最近在考虑使用docker的问题（配置环境十分方便），突然发现这东西好像也是Go写的。 进入正题，使用hugo其实没那么麻烦，因为可以用编译好的exe文件（windows系统下）。具体的安装教程见如下： Install hugo 翻译一下：第一步，从Hugo Release页面下载hugo的压缩包。第二步，在你喜欢的地方创建一个Hugo和bin的文件夹：’C:\Hugo\bin\’。第三步，将下载的压缩包放到刚刚建立的文件夹里面。第四步，解压压缩包文件，提取hugo.exe到’C:\Hugo\bin\’里。第五步，在你的windows环境变量中加入Hugo exe路径。 顺带一提，最近用hugo的原因是，刚刚发现的一个开源hugo的学术主页框架项目。 项目地址 接着就开始建立站点了。 在你的Hugo exe所在文件夹下打开cmd（按住shift右击，可以在当前文件夹打开cmd）。 hugo new [创建站点文件夹路径名字] 这样就算创建好了。接下来就只需要拷贝主题即可，用git clone，这里需要开启Git bash。 拷贝主题之后，针对配置文件进行修改。主要修改的是content里的一些markdown的文档。其实是各个主页。而其他配置则通过根目录的config.toml，熟悉hexo的同学上手速度应该快一些，跟.yml文件类似。 接下来记录一些常用命令。 本地预览命令。 hugo server 访问端口，localhost:1313。 生成public文件夹，baseUrl填部署的仓库地址，这里用的github部署。 hugo --theme=academic --baseUrl=&quot;https://xxxx&quot; 切换到public文件夹，并push到远程仓库。 cd public git init git remote add origin https://github.com/xxxx/xxx.git(从仓库的clone那里复制) git add -A git commit -m &quot;first commit&quot; git push -u origin master 之后的更新就只需要后面三句命令就可以了。]]></content>
@@ -55,8 +66,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -67,8 +78,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -365,8 +376,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -377,8 +388,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
