@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[花式安装蓝鲸鱼札记]]></title>
+    <url>%2F2017%2F11%2F08%2F%E8%8A%B1%E5%BC%8F%E5%AE%89%E8%A3%85%E8%93%9D%E9%B2%B8%E9%B1%BC%E6%9C%AD%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[大家好，蓝鲸鱼又来了。 自从上篇搞完蓝鲸鱼在Win 7下安装之后，笔者就看到了另一篇文章。 Win10 Docker 安装使用 感觉仿佛很棒的样子。于是我们就开始愉快地新系（zuo）统（si）旅程，笔者顺手就升级了Win 10系统。这里顺带介绍一个神器。 YUMI是一个多系统USB启动盘制作的软件。最早是在知乎回答上看到。 如何制作支持安装多系统（Win/Linux）的U盘启动盘？ YUMI官网 也可以点击这个百度网盘地址 操作手册。 一键安装即可。 好。回到正题。Win 10升完之后，我遇上了各种有的没的bug。。。包括蓝鲸鱼！ 当然还是先简介下怎么安装。 算了。。。自己看官网文档去。 官网 简单地说。我遇上的问题就是如下。 其实总结起来，就是网络网卡一些问题。百度、必应、谷歌都未果。但是在github上找到了对应的issues。 Hyper-V was unable to find a virtual switch with name “DockerNAT”. 然后历经磨难，突然发现，是我的毒霸把一堆服务给禁止了。然后没有按顺序一个个开启，一堆毛病。于是就愉快地开启docker之旅。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Win7下蓝鲸鱼安装以及Xshell连接操作]]></title>
     <url>%2F2017%2F11%2F06%2FWin7%E4%B8%8B%E8%93%9D%E9%B2%B8%E9%B1%BC%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[我爱吃金拱门，开封菜也不错，但我觉得最好吃的是小红帽，那我们就来安装个蓝鲸鱼吧。 1 Docker简介隆重推出我们的主人公——蓝鲸鱼，Docker先生。 接下来让我抄一段百度百科的简介。 Docker （基于Go语言开发！基于Go语言开发！基于Go语言开发！）是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。看不够的点这里，看不懂的点这里。 嗯，所以这东西吧，你可以把它当成小型虚拟机，貌似目前的需求也差不多，配置消耗相对虚拟机小得多，相对来说能快速部署环境是个优点。 具体的也可以查看Docker官网 2 Win 7下安装过程目前来看，Docker跟Linux和MacOS系统应该还是更相容的，但是毕竟我们是研究GIS的人员，Windows才是王道（谁让ArcGIS只有windows版本呢？呃，不过其实QGIS和GRASS GIS就有各种平台版本，功能也相当强大)。那么如何在Win 7下安装Docker呢？其实这样子我们通过Docker去运行Linux环境（用Docker的话讲，这叫容器）的话，相对更方便些，消耗资源也比虚拟机小，这也是我开始安装的目的。本文就来介绍下。 目前Docker在Win 10最新系统安装已经十分方便，而且不需要依赖Virtual Box。 具体就看官网吧 直接下载Docker for Windows的app安装就可以。 而Win 7的话，上面那个不支持，所以还得依赖Virtual Box（其实说来还是得靠虚拟机）。接下来就来讲讲怎么安装吧。 Win 7上使用Docker Toolbox.exe进行安装。 github下载地址，但是这个地址国内下载很慢（而且似乎不是很新，也可以从Docker官网下载）。可以用下面的另一个地址。 下载地址 下载下来之后，就只需双击exe开始安装。 如果第二步已经安装过Git和Virtual也可以不勾选，中间还会让安装Oracle的一些东西，全部安装即可。但是后面就不能直接双击.sh文件运行docker了，得在git bash下面运行。 安装完毕之后，应该会出现这两个文件。 通常双击什么的快速启动终端就可以了，第一次需要配置花的时间久一点。或者也可以到Docker安装文件夹下，双击.sh文件。不过后面发现这会报错，找不到boot2docker.iso文件，而这个文件就在Docker安装文件夹下。 先将这个iso文件拷贝到，C:[用户]Administrator.docker\machine\cache下，再运行就.sh文件或者运行Docker Quickstart Terminal就成功了。 3 用Xshell连接自己的Docker用单纯的命令行有很多限制，一般可以用终端模拟器来连接，这里用的Xshell，也可以用其他终端模拟器。 这里用户名为docker，密码为tcuser（默认）。 连接成功。接下来运行个hello world。 docker run hello-world 4 docker hub注册这个就是可以将自己的镜像push到仓库里的账户，登陆的话，只需要敲入如下命令。 docker login 填入账户和密码即可。 账户名最好用小写字母和数字即可。 一些参考博客及文档。 创建Docker Hub账号&amp;库 你的Docker Hub账户 使用Docker Hub | Docker 中文指南 DOCKER windows 7 详细安装教程 Windows7 上运行docker实战 完整记录在 windows7 下使用 docker 的过程 Docker在windows下的使用【一】]]></content>
@@ -66,8 +77,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -78,8 +89,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -376,8 +387,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -388,8 +399,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
