@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何实现一个以中国为中心的世界地图]]></title>
+    <url>%2F2017%2F11%2F14%2F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BB%A5%E4%B8%AD%E5%9B%BD%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[最近屡屡有小伙伴为各种目的在询问有没有中国位于中心的世界地图。在某位同学的强烈要求下，我决定稍微记录下这个以我大中华为中心的世界地图的做法。效果图： 原始数据。 1 ArcGIS第一种就简单介绍下ArcGIS平台上如何操作吧。 首先在ArcGIS软件中，右击Layers（图层）→Properties（属性）→Coordinate System（坐标系） 然后如图所示点击生成一个新的Projected Coordinate System（投影坐标系）。 按照如图所示设置。 并用Save As，导出一个.prj的投影文件。 接着用Arctoolbox的投影工具进行投影变换（我本身数据是WGS1984的地理坐标系）。 选择投影的时候可以直接import。 等待运行。 结果图。 如上，其实过程不复杂。最关键的这个使得中国能居于中间的原因是投影参数里面的第三个参数——Central Meridian，也就是中央经线。有兴趣还可以自行调整，我这里设150结果如上，也可以自行设定，只需要双击投影文件修改属性即可。 2 R第二种介绍下R语言的方法。R语言做空间数据的这些处理最主要的两个包就是sp和rgdal。所以在处理前请先安装这两个包。 接下来直接进入正题。 我们需要先读入空间数据，然后对空间数据进行投影变换。 如何读空间数据就请点击前面我写过的文章，戳 其实关键步骤就是用prj4字符串构造出我们需要的投影坐标系。关于这一点，推荐看下面的这篇博客学习。 坐标详解与PROJ.4使用说明 此外推荐几个网站用来查询相关坐标系信息。 epsg开源查询网站，托管在github上 空间参考官网网站 OGR驱动中的矢量格式、读写情况以及代码 这里直接给出对应的prj4字符串。”+proj=eqc +lat_ts=30 +lat_0=0 +lon_0=150 +ellps=WGS84 +datum=WGS84 +units=m +no_defs” 用sptransform转换投影坐标系，结果如图。 打完收工。 贴个R语言源码图。]]></content>
+      <categories>
+        <category>GIS</category>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>ArcGIS</tag>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[花式安装蓝鲸鱼札记]]></title>
     <url>%2F2017%2F11%2F08%2F%E8%8A%B1%E5%BC%8F%E5%AE%89%E8%A3%85%E8%93%9D%E9%B2%B8%E9%B1%BC%E6%9C%AD%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[大家好，蓝鲸鱼又来了。 自从上篇搞完蓝鲸鱼在Win 7下安装之后，笔者就看到了另一篇文章。 Win10 Docker 安装使用 感觉仿佛很棒的样子。于是我们就开始愉快地新系（zuo）统（si）旅程，笔者顺手就升级了Win 10系统。这里顺带介绍一个神器。 YUMI是一个多系统USB启动盘制作的软件。最早是在知乎回答上看到。 如何制作支持安装多系统（Win/Linux）的U盘启动盘？ YUMI官网 也可以点击这个百度网盘地址 操作手册。 一键安装即可。 好。回到正题。Win 10升完之后，我遇上了各种有的没的bug。。。包括蓝鲸鱼！ 当然还是先简介下怎么安装。 算了。。。自己看官网文档去。 官网 简单地说。我遇上的问题就是如下。 其实总结起来，就是网络网卡一些问题。百度、必应、谷歌都未果。但是在github上找到了对应的issues。 Hyper-V was unable to find a virtual switch with name “DockerNAT”. 然后历经磨难，突然发现，是我的毒霸把一堆服务给禁止了。然后没有按顺序一个个开启，一堆毛病。于是就愉快地开启docker之旅。]]></content>
