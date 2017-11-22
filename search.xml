@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hexo+NexT博客优化第二弹]]></title>
     <url>%2F2017%2F11%2F22%2Fhexo%2BNexT%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%AC%AC%E4%BA%8C%E5%BC%B9%2F</url>
-    <content type="text"><![CDATA[最近对hexo和NexT博客又做了一次优化。主要干了三件事。 博客地址 顶部加载条实现： 这个如果用的是比较新的NexT主题，只需要在配置文件里面进行修改就可以了。旧的话，就需要对/next/layout/_partials/head.swig文件做些修改，添加对应的代码。 &lt;script src=&quot;//cdn.bootcss.com/pace/1.0.2/pace.min.js&quot;&gt;&lt;/script&gt; &lt;link href=&quot;//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css&quot; rel=&quot;stylesheet&quot;&gt; &lt;style&gt; .pace .pace-progress { background: #1E92FB; /*进度条颜色*/ height: 3px; } .pace .pace-progress-inner { box-shadow: 0 0 10px #1E92FB, 0 0 5px #1E92FB; /*阴影颜色*/ } .pace .pace-activity { border-top-color: #1E92FB; /*上边框颜色*/ border-left-color: #1E92FB; /*左边框颜色*/ } &lt;/style&gt; 具体的可以点击上次那篇推荐的文章。 hexo的next主题个性化教程：打造炫酷网站 另外就是增加了词云和运行时间。 词云其实就是标签做的，放在侧边栏上。需要安装插件。 npm install hexo-tag-cloud@^2.0.* --save 接着在next/layout/_macro/sidebar.swig添加如下内容。 {% if site.tags.length > 1 %} Tag Cloud {{ list_tags() }} {% endif %} 运行时间的话，在next/layout/_custom/sidebar.swig文件中先添加。 &lt;div id=&quot;days&quot;&gt;&lt;/div&gt; &lt;/script&gt; &lt;script language=&quot;javascript&quot;&gt; function show_date_time(){ window.setTimeout(&quot;show_date_time()&quot;, 1000); BirthDay=new Date(&quot;05/27/2017 15:00:00&quot;); today=new Date(); timeold=(today.getTime()-BirthDay.getTime()); sectimeold=timeold/1000 secondsold=Math.floor(sectimeold); msPerDay=24*60*60*1000 e_daysold=timeold/msPerDay daysold=Math.floor(e_daysold); e_hrsold=(e_daysold-daysold)*24; hrsold=setzero(Math.floor(e_hrsold)); e_minsold=(e_hrsold-hrsold)*60; minsold=setzero(Math.floor((e_hrsold-hrsold)*60)); seconds=setzero(Math.floor((e_minsold-minsold)*60)); document.getElementById(&apos;days&apos;).innerHTML=&quot;已运行&quot;+daysold+&quot;天&quot;+hrsold+&quot;时&quot;+minsold+&quot;分&quot;+seconds+&quot;秒&quot;; } function setzero(i){ if (i&lt;10) {i=&quot;0&quot; + i}; return i; } show_date_time(); &lt;/script&gt; 接着在next/layout/_macro/sidebar.swig文件中修改。 {% if theme.links %} {{ theme.links_title }}&nbsp; {% for name, link in theme.links %} {{ name }} {% endfor %} {% include '../_custom/sidebar.swig' %} {% endif %} 觉得需要调整颜色的还可以在/next/source/css/_custom/custom.styl加入如下的语句。 // 自定义的侧栏时间样式 #days { display: block; color: rgb(7, 179, 155); font-size: 13px; margin-top: 15px; } 另外参照着增加了Readme，增加了一些图标等。 有找到了几篇还不错的文章。以及本次优化参考的主要文章链接。 打造个性超赞博客Hexo+NexT+GithubPages的超深度优化在移动设备下启用NexT主题的目录页面和回到顶部按钮Hexo博客中使用标签云hexo-tag-cloudHexo 标签云插件github地址]]></content>
+    <content type="text"><![CDATA[最近对hexo和NexT博客又做了一次优化。主要干了三件事。 博客地址 顶部加载条实现： 这个如果用的是比较新的NexT主题，只需要在配置文件里面进行修改就可以了。旧的话，就需要对/next/layout/_partials/head.swig文件做些修改，添加对应的代码。 123456789101112131415&lt;script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"&gt;&lt;/script&gt;&lt;link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"&gt;&lt;style&gt;.pace .pace-progress &#123;background: #1E92FB; /*进度条颜色*/height: 3px;&#125;.pace .pace-progress-inner &#123;box-shadow: 0 0 10px #1E92FB, 0 0 5px #1E92FB; /*阴影颜色*/&#125;.pace .pace-activity &#123;border-top-color: #1E92FB; /*上边框颜色*/border-left-color: #1E92FB; /*左边框颜色*/&#125;&lt;/style&gt; 具体的可以点击上次那篇推荐的文章。 hexo的next主题个性化教程：打造炫酷网站 另外就是增加了词云和运行时间。 词云其实就是标签做的，放在侧边栏上。需要安装插件。 npm install hexo-tag-cloud@^2.0.* --save 接着在next/layout/_macro/sidebar.swig添加如下内容。 123456789101112&#123;% if site.tags.length &gt; 1 %&#125;&lt;script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"&gt;&lt;/script&gt;&lt;script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"&gt;&lt;/script&gt;&lt;div class="widget-wrap"&gt;&lt;h3 class="widget-title"&gt;Tag Cloud&lt;/h3&gt;&lt;div id="myCanvasContainer" class="widget tagcloud"&gt;&lt;canvas width="250" height="250" id="resCanvas" style="width=100%"&gt;&#123;&#123; list_tags() &#125;&#125;&lt;/canvas&gt;&lt;/div&gt;&lt;/div&gt;&#123;% endif %&#125; 运行时间的话，在next/layout/_custom/sidebar.swig文件中先添加。 123456789101112131415161718192021222324252627&lt;div id="days"&gt;&lt;/div&gt;&lt;/script&gt;&lt;script language="javascript"&gt;function show_date_time()&#123;window.setTimeout("show_date_time()", 1000);BirthDay=new Date("05/27/2017 15:00:00");today=new Date();timeold=(today.getTime()-BirthDay.getTime());sectimeold=timeold/1000secondsold=Math.floor(sectimeold);msPerDay=24*60*60*1000e_daysold=timeold/msPerDaydaysold=Math.floor(e_daysold);e_hrsold=(e_daysold-daysold)*24;hrsold=setzero(Math.floor(e_hrsold));e_minsold=(e_hrsold-hrsold)*60;minsold=setzero(Math.floor((e_hrsold-hrsold)*60));seconds=setzero(Math.floor((e_minsold-minsold)*60));document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";&#125;function setzero(i)&#123;if (i&lt;10)&#123;i="0" + i&#125;;return i;&#125;show_date_time();&lt;/script&gt; 接着在next/layout/_macro/sidebar.swig文件中修改。 123456789101112131415161718&#123;# Blogroll #&#125;&#123;% if theme.links %&#125; &lt;div class="links-of-blogroll motion-element &#123;&#123; "links-of-blogroll-" + theme.links_layout | default('inline') &#125;&#125;"&gt; &lt;div class="links-of-blogroll-title"&gt; &lt;i class="fa fa-fw fa-&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;"&gt;&lt;/i&gt; &#123;&#123; theme.links_title &#125;&#125;&amp;nbsp; &lt;i class="fa fa-fw fa-&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;"&gt;&lt;/i&gt; &lt;/div&gt; &lt;ul class="links-of-blogroll-list"&gt; &#123;% for name, link in theme.links %&#125; &lt;li class="links-of-blogroll-item"&gt; &lt;a href="&#123;&#123; link &#125;&#125;" title="&#123;&#123; name &#125;&#125;" target="_blank"&gt;&#123;&#123; name &#125;&#125;&lt;/a&gt; &lt;/li&gt; &#123;% endfor %&#125; &lt;/ul&gt; &#123;% include '../_custom/sidebar.swig' %&#125; &lt;/div&gt; &#123;% endif %&#125; 觉得需要调整颜色的还可以在/next/source/css/_custom/custom.styl加入如下的语句。 1234567// 自定义的侧栏时间样式#days &#123; display: block; color: rgb(7, 179, 155); font-size: 13px; margin-top: 15px;&#125; 另外参照着增加了Readme，增加了一些图标等。 有找到了几篇还不错的文章。以及本次优化参考的主要文章链接。 打造个性超赞博客Hexo+NexT+GithubPages的超深度优化 在移动设备下启用NexT主题的目录页面和回到顶部按钮 Hexo博客中使用标签云hexo-tag-cloud Hexo 标签云插件github地址]]></content>
       <categories>
         <category>Coding</category>
       </categories>
@@ -111,8 +111,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -123,8 +123,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -421,8 +421,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -433,8 +433,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -490,8 +490,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>3D-GIS</tag>
         <tag>ArcGIS Pro</tag>
+        <tag>3D-GIS</tag>
         <tag>CGA</tag>
       </tags>
   </entry>

@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20171122143936321?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171122152720612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171122160616532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-11-22T08:15:58.260Z">
+<meta property="og:updated_time" content="2017-11-22T09:21:55.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+NexT博客优化第二弹">
 <meta name="twitter:description" content="最近对hexo和NexT博客又做了一次优化。主要干了三件事。
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  571
+                  702
                 </span>
               
 
@@ -487,98 +487,28 @@
 <p>顶部加载条实现：</p>
 <p><img src="http://img.blog.csdn.net/20171122143936321?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>这个如果用的是比较新的NexT主题，只需要在配置文件里面进行修改就可以了。旧的话，就需要对/next/layout/_partials/head.swig文件做些修改，添加对应的代码。</p>
-<pre><code>&lt;script src=&quot;//cdn.bootcss.com/pace/1.0.2/pace.min.js&quot;&gt;&lt;/script&gt;
-&lt;link href=&quot;//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css&quot; rel=&quot;stylesheet&quot;&gt;
-&lt;style&gt;
-.pace .pace-progress {
-    background: #1E92FB; /*进度条颜色*/
-    height: 3px;
-}
-.pace .pace-progress-inner {
-     box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
-}
-.pace .pace-activity {
-    border-top-color: #1E92FB;    /*上边框颜色*/
-    border-left-color: #1E92FB;    /*左边框颜色*/
-}
-&lt;/style&gt;
-</code></pre><p>具体的可以点击上次那篇推荐的文章。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/pace/1.0.2/pace.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">.pace .pace-progress &#123;</div><div class="line">background: #1E92FB; /*进度条颜色*/</div><div class="line">height: 3px;</div><div class="line">&#125;</div><div class="line">.pace .pace-progress-inner &#123;</div><div class="line">box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/</div><div class="line">&#125;</div><div class="line">.pace .pace-activity &#123;</div><div class="line">border-top-color: #1E92FB;    /*上边框颜色*/</div><div class="line">border-left-color: #1E92FB;    /*左边框颜色*/</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>具体的可以点击上次那篇推荐的文章。</p>
 <p><a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p>
 <p>另外就是增加了词云和运行时间。</p>
 <p>词云其实就是标签做的，放在侧边栏上。需要安装插件。</p>
 <pre><code>npm install hexo-tag-cloud@^2.0.* --save
 </code></pre><p>接着在next/layout/_macro/sidebar.swig添加如下内容。</p>
-<pre><code>{% if site.tags.length > 1 %}
-	<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
-	<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
-	<div class="widget-wrap">
-    <h3 class="widget-title" id="tag-cloud">Tag Cloud</h3>
-    <div id="myCanvasContainer" class="widget tagcloud">
-        <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            {{ list_tags() }}
-        </canvas>
-    </div>
-	</div>
-	{% endif %}
-</code></pre><p>运行时间的话，在next/layout/_custom/sidebar.swig文件中先添加。</p>
-<pre><code>&lt;div id=&quot;days&quot;&gt;&lt;/div&gt;
-&lt;/script&gt;
-&lt;script language=&quot;javascript&quot;&gt;
-function show_date_time(){
-window.setTimeout(&quot;show_date_time()&quot;, 1000);
-BirthDay=new Date(&quot;05/27/2017 15:00:00&quot;);
-today=new Date();
-timeold=(today.getTime()-BirthDay.getTime());
-sectimeold=timeold/1000
-secondsold=Math.floor(sectimeold);
-msPerDay=24*60*60*1000
-e_daysold=timeold/msPerDay
-daysold=Math.floor(e_daysold);
-e_hrsold=(e_daysold-daysold)*24;
-hrsold=setzero(Math.floor(e_hrsold));
-e_minsold=(e_hrsold-hrsold)*60;
-minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
-seconds=setzero(Math.floor((e_minsold-minsold)*60));
-document.getElementById(&apos;days&apos;).innerHTML=&quot;已运行&quot;+daysold+&quot;天&quot;+hrsold+&quot;时&quot;+minsold+&quot;分&quot;+seconds+&quot;秒&quot;;
-}
-function setzero(i){
-if (i&lt;10)
-{i=&quot;0&quot; + i};
-return i;
-}
-show_date_time();
-&lt;/script&gt;
-</code></pre><p>接着在next/layout/_macro/sidebar.swig文件中修改。</p>
-<pre><code>{% if theme.links %}
-          <div class="links-of-blogroll motion-element {{ " links-of-blogroll-"="" +="" theme.links_layout="" |="" default('inline')="" }}"="">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-{{ theme.links_icon | default('globe') | lower }}"></i>
-              {{ theme.links_title }}&nbsp;
-              <i class="fa  fa-fw fa-{{ theme.links_icon | default('globe') | lower }}"></i>
-            </div>
-            <ul class="links-of-blogroll-list">
-              {% for name, link in theme.links %}
-                <li class="links-of-blogroll-item">
-                  <a href="{{ link }}" title="{{ name }}" target="_blank">{{ name }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-             {% include '../_custom/sidebar.swig' %}
-          </div>
-         {% endif %}
-</code></pre><p>觉得需要调整颜色的还可以在/next/source/css/_custom/custom.styl加入如下的语句。</p>
-<pre><code>// 自定义的侧栏时间样式
-#days {
-display: block;
-color: rgb(7, 179, 155);
-font-size: 13px;
-margin-top: 15px;
-}
-</code></pre><p><img src="http://img.blog.csdn.net/20171122152720612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;% if site.tags.length &gt; 1 %&#125;</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">src</span>=<span class="string">"/js/tagcloud.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">src</span>=<span class="string">"/js/tagcanvas.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"widget-wrap"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"widget-title"</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myCanvasContainer"</span> <span class="attr">class</span>=<span class="string">"widget tagcloud"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"250"</span> <span class="attr">height</span>=<span class="string">"250"</span> <span class="attr">id</span>=<span class="string">"resCanvas"</span> <span class="attr">style</span>=<span class="string">"width=100%"</span>&gt;</span></div><div class="line">&#123;&#123; list_tags() &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<p>运行时间的话，在next/layout/_custom/sidebar.swig文件中先添加。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"days"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">function show_date_time()&#123;</div><div class="line">window.setTimeout("show_date_time()", 1000);</div><div class="line">BirthDay=new Date("05/27/2017 15:00:00");</div><div class="line">today=new Date();</div><div class="line">timeold=(today.getTime()-BirthDay.getTime());</div><div class="line">sectimeold=timeold/1000</div><div class="line">secondsold=Math.floor(sectimeold);</div><div class="line">msPerDay=24*60*60*1000</div><div class="line">e_daysold=timeold/msPerDay</div><div class="line">daysold=Math.floor(e_daysold);</div><div class="line">e_hrsold=(e_daysold-daysold)*24;</div><div class="line">hrsold=setzero(Math.floor(e_hrsold));</div><div class="line">e_minsold=(e_hrsold-hrsold)*60;</div><div class="line">minsold=setzero(Math.floor((e_hrsold-hrsold)*60));</div><div class="line">seconds=setzero(Math.floor((e_minsold-minsold)*60));</div><div class="line">document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";</div><div class="line">&#125;</div><div class="line">function setzero(i)&#123;</div><div class="line">if (i<span class="tag">&lt;<span class="name">10)</span></span></div><div class="line">&#123;<span class="attr">i</span>=<span class="string">"0"</span> + <span class="attr">i</span>&#125;;</div><div class="line"><span class="attr">return</span> <span class="attr">i</span>;</div><div class="line">&#125;</div><div class="line"><span class="attr">show_date_time</span>();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接着在next/layout/_macro/sidebar.swig文件中修改。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;# Blogroll #&#125;</div><div class="line">&#123;% if theme.links %&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll motion-element &#123;&#123; "</span><span class="attr">links-of-blogroll-</span>" + <span class="attr">theme.links_layout</span> | <span class="attr">default</span>('<span class="attr">inline</span>') &#125;&#125;"&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-title"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa  fa-fw fa-&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">      &#123;&#123; theme.links_title &#125;&#125;&amp;nbsp;</div><div class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa  fa-fw fa-&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-list"</span>&gt;</span></div><div class="line">      &#123;% for name, link in theme.links %&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-item"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; link &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; name &#125;&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      &#123;% endfor %&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">     &#123;% include '../_custom/sidebar.swig' %&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"> &#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<p>觉得需要调整颜色的还可以在/next/source/css/_custom/custom.styl加入如下的语句。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 自定义的侧栏时间样式</div><div class="line">#days &#123;</div><div class="line">   display: block;</div><div class="line">   color: rgb(7, 179, 155);</div><div class="line">   font-size: 13px;</div><div class="line">   margin-top: 15px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171122152720612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>另外参照着增加了Readme，增加了一些图标等。</p>
 <p><img src="http://img.blog.csdn.net/20171122160616532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>有找到了几篇还不错的文章。以及本次优化参考的主要文章链接。</p>
-<p><a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#更新提示（可以最后看）" target="_blank" rel="external">打造个性超赞博客Hexo+NexT+GithubPages的超深度优化</a><br><a href="https://leaferx.online/2017/02/05/EnableTOConMobile/" target="_blank" rel="external">在移动设备下启用NexT主题的目录页面和回到顶部按钮</a><br><a href="http://blog.csdn.net/DreamHome_S/article/details/78250692" target="_blank" rel="external">Hexo博客中使用标签云hexo-tag-cloud</a><br><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="external">Hexo 标签云插件github地址</a></p>
+<p><a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#更新提示（可以最后看）" target="_blank" rel="external">打造个性超赞博客Hexo+NexT+GithubPages的超深度优化</a></p>
+<p><a href="https://leaferx.online/2017/02/05/EnableTOConMobile/" target="_blank" rel="external">在移动设备下启用NexT主题的目录页面和回到顶部按钮</a></p>
+<p><a href="http://blog.csdn.net/DreamHome_S/article/details/78250692" target="_blank" rel="external">Hexo博客中使用标签云hexo-tag-cloud</a></p>
+<p><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="external">Hexo 标签云插件github地址</a></p>
 
       
     </div>
@@ -711,17 +641,8 @@ margin-top: 15px;
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -908,22 +829,6 @@ show_date_time();
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#tag-cloud"><span class="nav-number">1.</span> <span class="nav-text">Tag Cloud</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -962,7 +867,7 @@ show_date_time();
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共98.1k字</span>
+  <span class="post-count">博客全站共98.2k字</span>
 </div>
         
 <div class="busuanzi-count">
