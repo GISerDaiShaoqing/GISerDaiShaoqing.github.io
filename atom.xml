@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2017-11-20T14:17:03.442Z</updated>
+  <updated>2017-11-22T08:15:58.260Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo+NexT博客优化第二弹</title>
+    <link href="https://giserdaishaoqing.github.io/2017/11/22/hexo+NexT%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%AC%AC%E4%BA%8C%E5%BC%B9/"/>
+    <id>https://giserdaishaoqing.github.io/2017/11/22/hexo+NexT博客优化第二弹/</id>
+    <published>2017-11-21T16:00:00.000Z</published>
+    <updated>2017-11-22T08:15:58.260Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>最近对hexo和NexT博客又做了一次优化。主要干了三件事。</p><p><a href="https://giserdaishaoqing.github.io/">博客地址</a><a id="more"></a> </p><p>顶部加载条实现：</p><p><img src="http://img.blog.csdn.net/20171122143936321?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>这个如果用的是比较新的NexT主题，只需要在配置文件里面进行修改就可以了。旧的话，就需要对/next/layout/_partials/head.swig文件做些修改，添加对应的代码。</p><pre><code>&lt;script src=&quot;//cdn.bootcss.com/pace/1.0.2/pace.min.js&quot;&gt;&lt;/script&gt;&lt;link href=&quot;//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css&quot; rel=&quot;stylesheet&quot;&gt;&lt;style&gt;.pace .pace-progress {    background: #1E92FB; /*进度条颜色*/    height: 3px;}.pace .pace-progress-inner {     box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/}.pace .pace-activity {    border-top-color: #1E92FB;    /*上边框颜色*/    border-left-color: #1E92FB;    /*左边框颜色*/}&lt;/style&gt;</code></pre><p>具体的可以点击上次那篇推荐的文章。</p><p><a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p><p>另外就是增加了词云和运行时间。</p><p>词云其实就是标签做的，放在侧边栏上。需要安装插件。</p><pre><code>npm install hexo-tag-cloud@^2.0.* --save</code></pre><p>接着在next/layout/_macro/sidebar.swig添加如下内容。</p><pre><code>{% if site.tags.length > 1 %}<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script><script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script><div class="widget-wrap">    <h3 class="widget-title" id="tag-cloud">Tag Cloud</h3>    <div id="myCanvasContainer" class="widget tagcloud">        <canvas width="250" height="250" id="resCanvas" style="width=100%">            {{ list_tags() }}        </canvas>    </div></div>{% endif %}</code></pre><p>运行时间的话，在next/layout/_custom/sidebar.swig文件中先添加。</p><pre><code>&lt;div id=&quot;days&quot;&gt;&lt;/div&gt;&lt;/script&gt;&lt;script language=&quot;javascript&quot;&gt;function show_date_time(){window.setTimeout(&quot;show_date_time()&quot;, 1000);BirthDay=new Date(&quot;05/27/2017 15:00:00&quot;);today=new Date();timeold=(today.getTime()-BirthDay.getTime());sectimeold=timeold/1000secondsold=Math.floor(sectimeold);msPerDay=24*60*60*1000e_daysold=timeold/msPerDaydaysold=Math.floor(e_daysold);e_hrsold=(e_daysold-daysold)*24;hrsold=setzero(Math.floor(e_hrsold));e_minsold=(e_hrsold-hrsold)*60;minsold=setzero(Math.floor((e_hrsold-hrsold)*60));seconds=setzero(Math.floor((e_minsold-minsold)*60));document.getElementById(&apos;days&apos;).innerHTML=&quot;已运行&quot;+daysold+&quot;天&quot;+hrsold+&quot;时&quot;+minsold+&quot;分&quot;+seconds+&quot;秒&quot;;}function setzero(i){if (i&lt;10){i=&quot;0&quot; + i};return i;}show_date_time();&lt;/script&gt;</code></pre><p>接着在next/layout/_macro/sidebar.swig文件中修改。</p><pre><code>{% if theme.links %}          <div class="links-of-blogroll motion-element {{ " links-of-blogroll-"="" +="" theme.links_layout="" |="" default('inline')="" }}"="">            <div class="links-of-blogroll-title">              <i class="fa  fa-fw fa-{{ theme.links_icon | default('globe') | lower }}"></i>              {{ theme.links_title }}&nbsp;              <i class="fa  fa-fw fa-{{ theme.links_icon | default('globe') | lower }}"></i>            </div>            <ul class="links-of-blogroll-list">              {% for name, link in theme.links %}                <li class="links-of-blogroll-item">                  <a href="{{ link }}" title="{{ name }}" target="_blank">{{ name }}</a>                </li>              {% endfor %}            </ul>             {% include '../_custom/sidebar.swig' %}          </div>         {% endif %}</code></pre><p>觉得需要调整颜色的还可以在/next/source/css/_custom/custom.styl加入如下的语句。</p><pre><code>// 自定义的侧栏时间样式#days {display: block;color: rgb(7, 179, 155);font-size: 13px;margin-top: 15px;}</code></pre><p><img src="http://img.blog.csdn.net/20171122152720612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>另外参照着增加了Readme，增加了一些图标等。</p><p><img src="http://img.blog.csdn.net/20171122160616532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>有找到了几篇还不错的文章。以及本次优化参考的主要文章链接。</p><p><a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#更新提示（可以最后看）" target="_blank" rel="external">打造个性超赞博客Hexo+NexT+GithubPages的超深度优化</a><br><a href="https://leaferx.online/2017/02/05/EnableTOConMobile/" target="_blank" rel="external">在移动设备下启用NexT主题的目录页面和回到顶部按钮</a><br><a href="http://blog.csdn.net/DreamHome_S/article/details/78250692" target="_blank" rel="external">Hexo博客中使用标签云hexo-tag-cloud</a><br><a href="https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md" target="_blank" rel="external">Hexo 标签云插件github地址</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近对hexo和NexT博客又做了一次优化。主要干了三件事。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://giserdaishaoqing.github.io/&quot;&gt;博客地址&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
+    
+    
+      <category term="hexo" scheme="https://giserdaishaoqing.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Endnote使用小记</title>
@@ -222,9 +245,9 @@
       <category term="Linux" scheme="https://giserdaishaoqing.github.io/categories/Linux/"/>
     
     
-      <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
-    
       <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
+    
+      <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
     
   </entry>
   
@@ -248,9 +271,9 @@
       <category term="Linux" scheme="https://giserdaishaoqing.github.io/categories/Linux/"/>
     
     
-      <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
-    
       <category term="WRF" scheme="https://giserdaishaoqing.github.io/tags/WRF/"/>
+    
+      <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
     
   </entry>
   
@@ -458,30 +481,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Chapter-8-ANOVA&quot;&gt;&lt;a href=&quot;#Chapter-8-ANOVA&quot; class=&quot;headerlink&quot; title=&quot;Chapter 8 ANOVA&quot;&gt;&lt;/a&gt;Chapter 8 ANOVA&lt;/h1&gt;&lt;p&gt;本篇是第八章，内容是方差分析。前一段考试，汇报，作业。忙不过来，停更了一段时间，现在重新开始更这一部分内容。方差分析是很多实验的基础以及很重要的分析手段，这一章内容相比较而言比较多。
-    
-    </summary>
-    
-      <category term="Statistics &amp; Model" scheme="https://giserdaishaoqing.github.io/categories/Statistics-Model/"/>
-    
-    
-      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
-    
-      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>应用统计学与R语言实现学习笔记（七）——拟合优度检验</title>
-    <link href="https://giserdaishaoqing.github.io/2017/05/10/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%E2%80%94%E2%80%94%E6%8B%9F%E5%90%88%E4%BC%98%E5%BA%A6%E6%A3%80%E9%AA%8C/"/>
-    <id>https://giserdaishaoqing.github.io/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/</id>
-    <published>2017-05-09T16:00:00.000Z</published>
-    <updated>2017-10-31T00:32:06.382Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="chapter-7-goodness-of-fit"><a href="#Chapter-7-Goodness-of-Fit" class="headerlink" title="Chapter 7 Goodness of Fit"></a>Chapter 7 Goodness of Fit</h1><p>本篇是第七章，内容是拟合优度检验。<a id="more"></a> </p><h3 id="1多项分布"><a href="#1-多项分布" class="headerlink" title="1.多项分布"></a>1.多项分布</h3><p>拟合优度检验的第一个应用是关于多项总体。那么多项总体（或者多项分布）是什么呢？</p><blockquote><ul><li>多项分布是二项分布的推广。</li><li>总体被分为几个互不相交的类别。</li><li>多项分布假设：每次试验有且仅有一个结果发生；每次试验独立；每次试验概率不变。</li></ul></blockquote><p>拟合优度检验-多项总体步骤</p><blockquote><ul><li>将所观测到的数据与理论上的期望值进行比较。</li><li>步骤：<br>1.计算每一类实际观测到的频次$f_i$；<br>2.计算每一类理论上的期望频次$e_i$；<br>3.计算 Chi-square 统计量——$\chi^2=\sum(f_i-e_i)^2/e_i$。<br>其中自由度 (df) = k-1， k 是多项总体的类别数。</li></ul></blockquote><p>拟合优度检验用于多项总体检验没有直接的函数，这里用R语言的自编函数实现，体会下具体的算法（当然感觉自己写的略复杂）。代码依旧是后面放出，函数具体使用说明也会附上。</p><h3 id="2独立性"><a href="#2-独立性" class="headerlink" title="2.独立性"></a>2.独立性</h3><p>依旧是从问题出发——性别与购物频率是否有关系<br>独立性检验——该统计方法常用于检验两个分类变量是否有关系。那么首先要提到两个概念——独立事件和非独立事件（independent and dependent events)。</p><blockquote><ul><li>独立事件——一个事物发生不会对其他事物发生概率造成影响。</li><li>非独立事件——一个事物发生会影响其他事物发生概率。</li></ul></blockquote><p>接着统计学构建出了一个表来进行独立性检验。这就是联立表（Contingency Tables)。</p><blockquote><ul><li>解决多总体比例问题。</li><li>之前通常用两个或两个以上特征来对样本观测值分类。</li><li>也被称为交叉表。</li></ul></blockquote><p><img src="http://img.blog.csdn.net/20170514170656815?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p>一般在R中，使用Table函数即可生成两个特征（分类变量）的联立表，xtabs则是根据公式创立联立表，prop.table则可以直接计算出比例。<br>联立表如何做独立性检验呢？首先提出假设（这里不详述，相信大家应该懂怎么建立了），接着计算期望的联立表每个单元格的期望频次。<br>$$ e_{ij}=\frac{(i^{th} Rowtotal)(j^{th} Columtotal)}{Total SampleSize}。 $$<br>接着就可以对比实际频次和期望频次，然后我们用卡方（chi-square)统计量进行检验。<br>$$ \chi^2=\sum_{i=1}^n\sum_{j=1}^m\frac{(f_{ij}-e_{ij})^2}{e_{ij}} with, df=(n-1)(m-1)。 $$<br>n为行数，m为列数，$f_{ij}$,$e_{ij}$分别为第i行和第j列的$单元格_{ij}$实际频次和期望频次。<br>当然这个方法也可以用来检验顺序变量和分类变量。方法类似，这里不赘述。</p><h3 id="3概率分布"><a href="#3-概率分布" class="headerlink" title="3.概率分布"></a>3.概率分布</h3><p>拟合优度检验的最重要的应用其实是探测一个数据具体的概率分布。<br>当然探测数据分布的第一方式——是可见即可得的可视化。主要包括前面提到过的直方图和QQ图。<br>QQ图——Quantile-Quantile Plots（分位数图）：</p><blockquote><ul><li>适用于小数据集。</li><li>猜测分布的基础方法。</li><li>用来绘制QQ图的数据必须落在该分布内。</li><li>如果散点图接近直线，说明数据分布接近正态分布。</li></ul></blockquote><p>这里给出绘制QQ图的原理：</p><blockquote><ul><li>对样本容量为N的样本数据按照升序排序。</li><li>计算从1到N排序的百分比。</li><li>从百分位数得分的关系找到中心分数。</li><li>找到对应于中心分数的z值（标准正态分布）。</li><li>绘制对应z值的观测点数据。</li></ul></blockquote><p>接着用R语言实现<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#QQ plot</span></div><div class="line"><span class="comment">#generation of random number that fall in normal distribution</span></div><div class="line">a&lt;-rnorm(<span class="number">200</span>,<span class="number">0</span>,<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">#plot</span></div><div class="line">jpeg(<span class="string">"plot1.jpg"</span>,width = <span class="number">5000</span>,height = <span class="number">4000</span>,units = <span class="string">"px"</span>,res = <span class="number">1000</span>)</div><div class="line">qqnorm(a)</div><div class="line">qqline(a,col=<span class="string">"red"</span>)</div><div class="line">dev.off()</div></pre></td></tr></table></figure></p><p><img src="http://img.blog.csdn.net/20170510011333319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p><p>除了QQ图之外，另外一类方法就是通过统计方法——拟合优度检验来探测数据是否正态分布。<br>以正态分布为例。<br>过程：</p><blockquote><ul><li>获取样本数据。</li><li>将样本结果分组（单元格）。</li><li>比较实际与预期值。</li></ul></blockquote><p>统计量如下：<br>$$ \chi^2=\sum_{i=1}^k\frac{(f_i-ei-)^2}{e_i}。 $$<br>R语言中可以用chisp.test函数进行正态分布测验。</p><p>此外对于有某种特定分布的非正态数据可以通过数学变换转变为正态分布数据。<br>常用的一般包括：</p><blockquote><ul><li>对数变换。</li><li>开方变换。</li><li>指数或平方变换。</li></ul></blockquote><p>这里的数学变换需要根据大家实际研究需求决定。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Chapter-7-Goodness-of-Fit&quot;&gt;&lt;a href=&quot;#Chapter-7-Goodness-of-Fit&quot; class=&quot;headerlink&quot; title=&quot;Chapter 7 Goodness of Fit&quot;&gt;&lt;/a&gt;Chapter 7 Goodness of Fit&lt;/h1&gt;&lt;p&gt;本篇是第七章，内容是拟合优度检验。
     
     </summary>
     
