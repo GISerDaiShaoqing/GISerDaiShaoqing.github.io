@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -108,12 +108,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="GISerDaiShaoqing's Blog">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/archives/2017/04/index.html">
+<meta name="description" content="接着前文的hexo博客继续优化。其实也没什么大动作，这回主要是对评论系统做些整理。本文如题目所示：介绍一个神器，Valine。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客评论新神器——Valine">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/11/24/hexo博客评论新神器——Valine/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="接着前文的hexo博客继续优化。其实也没什么大动作，这回主要是对评论系统做些整理。本文如题目所示：介绍一个神器，Valine。">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124155819854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124160855406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124171046951?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-24T09:16:42.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GISerDaiShaoqing's Blog">
+<meta name="twitter:title" content="hexo博客评论新神器——Valine">
+<meta name="twitter:description" content="接着前文的hexo博客继续优化。其实也没什么大动作，这回主要是对评论系统做些整理。本文如题目所示：介绍一个神器，Valine。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171124155819854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -143,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/archives/2017/04/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/11/24/hexo博客评论新神器——Valine/"/>
 
 
 
 
 
-  <title>Archive | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>hexo博客评论新神器——Valine | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -168,7 +176,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-archive">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     	<a href="https://github.com/GISerDaiShaoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" 
@@ -322,225 +330,284 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 44 posts in total. Keep on posting.
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/11/24/hexo博客评论新神器——Valine/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">hexo博客评论新神器——Valine</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-24T00:00:00+08:00">
+                2017-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/24/R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版</span>
+                <span class="post-meta-item-text">In</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-24T00:00:00+08:00"
-              content="2017-04-24" >
-          04-24
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/24/hexo博客评论新神器——Valine/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/24/hexo博客评论新神器——Valine/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+             <span id="/2017/11/24/hexo博客评论新神器——Valine/" class="leancloud_visitors" data-flag-title="hexo博客评论新神器——Valine">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  439
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/22/从定性遥感到定量遥感——大数据时代的空间数据科学/" itemprop="url">
-              
-                <span itemprop="name">从定性遥感到定量遥感——大数据时代的空间数据科学</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-22T00:00:00+08:00"
-              content="2017-04-22" >
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/19/Google Earth网页版初探/" itemprop="url">
-              
-                <span itemprop="name">Google Earth网页初探</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-19T00:00:00+08:00"
-              content="2017-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>接着前文的hexo博客继续优化。其实也没什么大动作，这回主要是对评论系统做些整理。本文如题目所示：介绍一个神器，Valine。<a id="more"></a></p>
+<p>本来hexo博客用的是gitment，我也非常喜欢，看着逼格就超高呀。无奈我用着bug略多，而且毕竟有github账户的小伙伴似乎并不多。于是我就忍痛准备换评论系统。然后在最近刚刚加入的hexo博客群里，看见了一个神器。也就是本篇主人公——Valine.js。</p>
+<p>具体配置就见如下的文章吧。它的定义—— 一款极简的无后端评论系统。</p>
+<p>在多说和网易云跟帖相继倒闭的情况下，这个简直是救人一命胜造七级浮屠呀。</p>
+<p><a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/" target="_blank" rel="external">Valine – 一款极简的评论系统</a></p>
+<p><a href="https://valine.js.org" target="_blank" rel="external">Valine官网</a></p>
+<p>这个评论系统是基于LeanCloud的，大家应该对这个很熟悉，对，Hexo的博客阅读量统计也是它。官网网址如下，需要注册一个账户。</p>
+<p><a href="https://leancloud.cn" target="_blank" rel="external">LeanCloud官网</a></p>
+<p>另外多提一句，最近为了更好更快升级，我重新在本地部署了下我的hexo博客，就是把NexT主题利用Git方式克隆到本地，以后升级就比较快了。这个内容可以参见官网。也因为克隆了最新版本，发现已经集成了gitment和valinejs（神速）。所以配置起来就很方便了。</p>
+<p><img src="http://img.blog.csdn.net/20171124155819854?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>这里重点讲一下关于邮件提醒的事。</p>
+<p><img src="http://img.blog.csdn.net/20171124160855406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>这样设置一下就可以了。不清楚的查看下面的链接也可以。</p>
+<p><a href="https://valine.js.org/#/configuration" target="_blank" rel="external">valline详细配置官网</a></p>
+<p><a href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE" target="_blank" rel="external">Valine 评论系统中的邮件提醒设置</a></p>
+<p>最后多说一句。支持导出评论和数据分析。</p>
+<p><img src="http://img.blog.csdn.net/20171124171046951?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/15/MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）/" itemprop="url">
-              
-                <span itemprop="name">MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-15T00:00:00+08:00"
-              content="2017-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/" itemprop="url">
-              
-                <span itemprop="name">MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-14T00:00:00+08:00"
-              content="2017-04-14" >
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Dai Shaoqing
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://giserdaishaoqing.github.io/2017/11/24/hexo博客评论新神器——Valine/" title="hexo博客评论新神器——Valine">https://giserdaishaoqing.github.io/2017/11/24/hexo博客评论新神器——Valine/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/22/hexo+NexT博客优化第二弹/" rel="next" title="hexo+NexT博客优化第二弹">
+                <i class="fa fa-chevron-left"></i> hexo+NexT博客优化第二弹
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/04/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/04/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -548,6 +615,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -909,6 +983,10 @@ show_date_time();
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
