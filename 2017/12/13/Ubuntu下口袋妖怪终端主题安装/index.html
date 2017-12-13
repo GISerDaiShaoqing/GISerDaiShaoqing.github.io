@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="R," />
+  <meta name="keywords" content="Python,Ubuntu," />
 
 
 
@@ -108,27 +108,35 @@
 
 
 
-<meta name="description" content="如何做出相关系数矩阵可视化图">
+<meta name="description" content="之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个软件，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。
+先上图。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何做出相关系数矩阵可视化图">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/2016/12/11/如何做出相关系数矩阵可视化图/index.html">
+<meta property="og:title" content="Ubuntu下口袋妖怪终端主题安装">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/12/13/Ubuntu下口袋妖怪终端主题安装/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="如何做出相关系数矩阵可视化图">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170051203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170105390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170119297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170133453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170145922?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170247486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170259064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20161211170308127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-31T00:30:27.626Z">
+<meta property="og:description" content="之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个软件，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。
+先上图。">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094603958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213093946118?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094037373?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094052000?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094112057?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094205260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094228298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094247447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094301257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094441993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094510127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094525429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094538815?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094551512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171213094603958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-12-13T02:17:53.182Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何做出相关系数矩阵可视化图">
-<meta name="twitter:description" content="如何做出相关系数矩阵可视化图">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="Ubuntu下口袋妖怪终端主题安装">
+<meta name="twitter:description" content="之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个软件，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。
+先上图。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171213094603958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -158,13 +166,13 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/2016/12/11/如何做出相关系数矩阵可视化图/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/12/13/Ubuntu下口袋妖怪终端主题安装/"/>
 
 
 
 
 
-  <title>如何做出相关系数矩阵可视化图 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Ubuntu下口袋妖怪终端主题安装 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -351,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2016/12/11/如何做出相关系数矩阵可视化图/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/12/13/Ubuntu下口袋妖怪终端主题安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -368,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何做出相关系数矩阵可视化图</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu下口袋妖怪终端主题安装</h1>
         
 
         <div class="post-meta">
@@ -380,8 +388,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-11T00:00:00+08:00">
-                2016-12-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T00:00:00+08:00">
+                2017-12-13
               </time>
             
 
@@ -403,8 +411,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Coding/" itemprop="url" rel="index">
-                    <span itemprop="name">Coding</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -421,8 +429,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/11/如何做出相关系数矩阵可视化图/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/12/11/如何做出相关系数矩阵可视化图/" itemprop="commentCount"></span>
+                <a href="/2017/12/13/Ubuntu下口袋妖怪终端主题安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/13/Ubuntu下口袋妖怪终端主题安装/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -430,7 +438,7 @@
 
           
           
-             <span id="/2016/12/11/如何做出相关系数矩阵可视化图/" class="leancloud_visitors" data-flag-title="如何做出相关系数矩阵可视化图">
+             <span id="/2017/12/13/Ubuntu下口袋妖怪终端主题安装/" class="leancloud_visitors" data-flag-title="Ubuntu下口袋妖怪终端主题安装">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -460,7 +468,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  286
+                  352
                 </span>
               
 
@@ -497,30 +505,43 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>如何做出相关系数矩阵可视化图<a id="more"></a> </p>
-<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"psych"</span>)</div><div class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></div><div class="line"><span class="keyword">library</span>(psych)</div><div class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></div><div class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></div><div class="line">head(iris)<span class="comment">#查看下数据集前五行</span></div><div class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></div><div class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></div><div class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></div><div class="line">corrplot(cormat$r)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://img.blog.csdn.net/20161211165911154?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170030233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;number&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170051203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170105390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170119297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170133453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170145922?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>#含显著性检验的相关系数矩阵可视化
-cormatp&lt;-cormat$p#单独取出p值矩阵
-cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
-corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170247486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170259064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://img.blog.csdn.net/20161211170308127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个软件，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。</p>
+<p>先上图。</p>
+<p><img src="http://img.blog.csdn.net/20171213094603958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br><a id="more"></a></p>
+<p>这回先贴出这个链接。</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NzM0MjcyMQ==&amp;mid=2650074431&amp;idx=1&amp;sn=fcbc725ccdd6e93db3291f769b5e3217&amp;chksm=bedb365189acbf4797a36c49c571d39ac1602a2e922b5fb0513593964d33df2816926a7bd5f4&amp;mpshare=1&amp;scene=1&amp;srcid=0924NI8OqHNo5tTNSN3iUOeB#rd" target="_blank" rel="external">可能是国内最火的开源项目——Python篇</a></p>
+<p>还有做这个主题的github链接。</p>
+<p><a href="https://github.com/LazoCoder/Pokemon-Terminal" target="_blank" rel="external">Pokemon-Terminal github链接</a></p>
+<p>我用的Linux是Ubuntu，接下来就按照这个进行安装。首先这个主题支持的终端模拟器主要是以下三个：iTerm2， Terminology，Tilix。这里选择安装Tilix，首先添加这个终端模拟器仓库的公钥。这里我都是以root超级用户权限操作的，如果没有的话，请在命令前面加sudo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add-apt-repository ppa:webupd8team/terminix</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171213093946118?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt update</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171213094037373?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>安装Tilix。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt install tilix</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171213094052000?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>然后打开Tilix，并锁定到启动器。</p>
+<p><img src="http://img.blog.csdn.net/20171213094112057?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094205260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094228298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>有可能出现配置问题，建议是在bashrc中添加语句。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="variable">$TILIX_ID</span> ] || [ <span class="variable">$VTE_VERSION</span> ]; <span class="keyword">then</span></div><div class="line">        <span class="built_in">source</span> /etc/profile.d/vte.sh</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<p>具体问题可参照如下网址：<br><a href="https://gnunn1.github.io/tilix-web/manual/vteconfig/" target="_blank" rel="external">终端配置</a></p>
+<p>接下来设置配置方案。</p>
+<p><img src="http://img.blog.csdn.net/20171213094247447?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094301257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094441993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094510127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>然后安装npm。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt install npm</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171213094525429?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>接着安装pokemon-terminal。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global pokemon-terminal</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171213094538815?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094551512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20171213094603958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>大功告成。</p>
+<p>主要参考：<br><a href="https://www.maketecheasier.com/customize-linux-terminal-pokemon-skins/" target="_blank" rel="external">国外大神安装教程</a></p>
 
       
     </div>
@@ -565,7 +586,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://giserdaishaoqing.github.io/2016/12/11/如何做出相关系数矩阵可视化图/" title="如何做出相关系数矩阵可视化图">https://giserdaishaoqing.github.io/2016/12/11/如何做出相关系数矩阵可视化图/</a>
+    <a href="https://giserdaishaoqing.github.io/2017/12/13/Ubuntu下口袋妖怪终端主题安装/" title="Ubuntu下口袋妖怪终端主题安装">https://giserdaishaoqing.github.io/2017/12/13/Ubuntu下口袋妖怪终端主题安装/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -580,7 +601,9 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag"># R</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
         </div>
       
@@ -593,8 +616,8 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/07/arcgispro/" rel="next" title="基于ArcGIS Pro的二三维一体化">
-                <i class="fa fa-chevron-left"></i> 基于ArcGIS Pro的二三维一体化
+              <a href="/2017/12/12/Windows和Linux双系统安装教程/" rel="next" title="Windows和Linux双系统安装教程">
+                <i class="fa fa-chevron-left"></i> Windows和Linux双系统安装教程
               </a>
             
           </div>
@@ -602,10 +625,6 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/16/Fortran语言初探及Win7 64位下Fortran开发环境配置/" rel="prev" title="Fortran语言初探及Win7 64位下Fortran开发环境配置">
-                Fortran语言初探及Win7 64位下Fortran开发环境配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
