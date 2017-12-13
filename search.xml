@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Ubuntu下口袋妖怪终端主题安装]]></title>
     <url>%2F2017%2F12%2F13%2FUbuntu%E4%B8%8B%E5%8F%A3%E8%A2%8B%E5%A6%96%E6%80%AA%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个软件，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。 先上图。 这回先贴出这个链接。 可能是国内最火的开源项目——Python篇 还有做这个主题的github链接。 Pokemon-Terminal github链接 我用的Linux是Ubuntu，接下来就按照这个进行安装。首先这个主题支持的终端模拟器主要是以下三个：iTerm2， Terminology，Tilix。这里选择安装Tilix，首先添加这个终端模拟器仓库的公钥。这里我都是以root超级用户权限操作的，如果没有的话，请在命令前面加sudo。 1add-apt-repository ppa:webupd8team/terminix 1apt update 安装Tilix。 1apt install tilix 然后打开Tilix，并锁定到启动器。 有可能出现配置问题，建议是在bashrc中添加语句。 123if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.shfi 具体问题可参照如下网址：终端配置 接下来设置配置方案。 然后安装npm。 1apt install npm 接着安装pokemon-terminal。 1npm install --global pokemon-terminal 大功告成。 主要参考：国外大神安装教程]]></content>
+    <content type="text"><![CDATA[之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个主题，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。 先上图。 这回先贴出这个链接。 可能是国内最火的开源项目——Python篇 还有做这个主题的github链接。 Pokemon-Terminal github链接 我用的Linux是Ubuntu，接下来就按照这个进行安装。首先这个主题支持的终端模拟器主要是以下三个：iTerm2， Terminology，Tilix。这里选择安装Tilix，首先添加这个终端模拟器仓库的公钥。这里我都是以root超级用户权限操作的，如果没有的话，请在命令前面加sudo。 1add-apt-repository ppa:webupd8team/terminix 1apt update 安装Tilix。 1apt install tilix 然后打开Tilix，并锁定到启动器。 有可能出现配置问题，建议是在bashrc中添加语句。 123if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.shfi 具体问题可参照如下网址：终端配置 接下来设置配置方案。 不过下面的教程是针对该主题的1.0.7版本，目前主题已经更新到1.1.1版本。如果现在安装的话，更方便的方式是，先安装Python3.6，同时安装setuptools（推荐新立得安装），然后下载github仓库。接着只需要如下的命令即可。 1sudo python3.6 setup.py install 下面的npm安装方式只针对之前的版本（只是顺带记录，不过现在也提供了这个方式，但还是建议上面的安装方法）然后安装npm，最主要Ubuntu16.04默认有个python3.5.2，npm直接安装是跟Python版本对应，而新主题要求在3.6的Python以上，也可以考虑升级原有的Python。 1apt install npm 接着安装pokemon-terminal。 1npm install --global pokemon-terminal 大功告成。 主要参考：国外大神安装教程]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -536,8 +536,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>3D-GIS</tag>
         <tag>ArcGIS Pro</tag>
+        <tag>3D-GIS</tag>
         <tag>CGA</tag>
       </tags>
   </entry>
