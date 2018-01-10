@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[迟到的2017总结文]]></title>
+    <url>%2F2018%2F01%2F10%2F%E8%BF%9F%E6%9D%A5%E7%9A%842017%E6%80%BB%E7%BB%93%E6%96%87%2F</url>
+    <content type="text"><![CDATA[悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。 默默做个总结来迎接新的一年。 2017年走过的城市还蛮多的。一年下来，半年北方，半年小厦门。参加的学术活动也算不少，也算有些小成果。不过我想这一年来在github和博客上确实花了不少功夫，对于开源、编程，自己也有了更深入的了解。 2017年博客一共发了44篇博客，第一次利用github搭建了自己的主页和博客。而自己的各种博客也是基本同步。 对整体的博客内容做些梳理。 第一部分：技术实践笔记杂谈，像学了半天Fortran开始配环境的、装WRF的、Hexo和NexT优化的、装系统的。 第二部分：R语言相关的编程笔记，R算是我现在比较熟练的语言，当然去年特地为了记录公选课学习内容，连载了一系列的应用统计学与R语言实践笔记（也是github上开源了的项目，前几天被人forked了下，还有点小激动）。 第三部分：地理、生态、GIS相关的，阅读量最高的MODIS系列——其实也是源自我上课的实习内容。其实今天在回顾过去的一些基础知识，发现课堂上掌握得确实还不够，仍然需要好好温习。 第四部分：学习方面的感受，esri用户大会，定量遥感讲座。 新的一年先立些flag。 （一）机器学习笔记——最近在学习吴恩达大大的公开课，希望有所斩获。有空会更新这部分的笔记。 （二）空间统计内容——这里还是要推荐虾神的白话空间统计系列，但是我也想对之前自己学习空间统计内容做些梳理（最近正在看莫兰指数推导——嗯，死去活来），数学恐惧症就跳过吧。 （三）论文推荐和阅读——我可能会把阅读文献内容也放到博客内。 （四）研究成果推荐——虽然成果不多，但也会考虑，哈哈。 如果你们还对我的博客有啥建设性意见。欢迎留言。 var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"灌篮高手","author":"青春","url":"http://oyo5uzjmz.bkt.clouddn.com/BAAD%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/SD.jpg"}]}; options.element = document.getElementById("aplayer0"); new APlayer(options);]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Summary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu下口袋妖怪终端主题安装]]></title>
     <url>%2F2017%2F12%2F13%2FUbuntu%E4%B8%8B%E5%8F%A3%E8%A2%8B%E5%A6%96%E6%80%AA%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[之前看到开源中国的文章，介绍了国内最火的开源项目——Python篇。看到一个比较有意思的项目——终端的口袋妖怪主题。之前介绍安装WRF的博客，细心的同学已经发现，我已然安装上了那个主题，今天就来介绍下Ubuntu下口袋妖怪终端主题安装吧。 先上图。 这回先贴出这个链接。 可能是国内最火的开源项目——Python篇 还有做这个主题的github链接。 Pokemon-Terminal github链接 我用的Linux是Ubuntu，接下来就按照这个进行安装。首先这个主题支持的终端模拟器主要是以下三个：iTerm2， Terminology，Tilix。这里选择安装Tilix，首先添加这个终端模拟器仓库的公钥。这里我都是以root超级用户权限操作的，如果没有的话，请在命令前面加sudo。 1add-apt-repository ppa:webupd8team/terminix 1apt update 安装Tilix。 1apt install tilix 然后打开Tilix，并锁定到启动器。 有可能出现配置问题，建议是在bashrc中添加语句。 123if [ $TILIX_ID ] || [ $VTE_VERSION ]; then source /etc/profile.d/vte.shfi 具体问题可参照如下网址：终端配置 接下来设置配置方案。 不过下面的教程是针对该主题的1.0.7版本，目前主题已经更新到1.1.1版本。如果现在安装的话，更方便的方式是，先安装Python3.6，同时安装setuptools（推荐新立得安装），然后下载github仓库。接着只需要如下的命令即可。 1sudo python3.6 setup.py install 下面的npm安装方式只针对之前的版本（只是顺带记录，不过现在也提供了这个方式，但还是建议上面的安装方法）然后安装npm，最主要Ubuntu16.04默认有个python3.5.2，npm直接安装是跟Python版本对应，而新主题要求在3.6的Python以上，也可以考虑升级原有的Python。 1apt install npm 接着安装pokemon-terminal。 1npm install --global pokemon-terminal 大功告成。 主要参考：国外大神安装教程]]></content>
