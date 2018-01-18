@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="R,Theory," />
+  <meta name="keywords" content="MODIS,Python," />
 
 
 
@@ -108,18 +108,37 @@
 
 
 
-<meta name="description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。">
+<meta name="description" content="新年开坑第一篇，关于之前MODIS系列博客的补充和番外篇。有兴趣的同学可以去翻阅前面的文章复习。
+MODIS数据的简介和下载（一）——MODIS数据简介
+MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
+MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）
+之前有小伙伴在评论区问过我，说Matlab客户端不能用了，前一段笔者自己使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="应用统计学与R语言实现学习笔记（一）——简介">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/index.html">
+<meta property="og:title" content="MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。">
-<meta property="og:image" content="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-31T00:33:04.031Z">
+<meta property="og:description" content="新年开坑第一篇，关于之前MODIS系列博客的补充和番外篇。有兴趣的同学可以去翻阅前面的文章复习。
+MODIS数据的简介和下载（一）——MODIS数据简介
+MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
+MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）
+之前有小伙伴在评论区问过我，说Matlab客户端不能用了，前一段笔者自己使">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118110004092?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118110015958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118112040064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118113215737?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118113224322?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118120635290?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118120842166?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20180118120901735?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-01-18T07:03:11.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="应用统计学与R语言实现学习笔记（一）——简介">
-<meta name="twitter:description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用">
+<meta name="twitter:description" content="新年开坑第一篇，关于之前MODIS系列博客的补充和番外篇。有兴趣的同学可以去翻阅前面的文章复习。
+MODIS数据的简介和下载（一）——MODIS数据简介
+MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
+MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）
+之前有小伙伴在评论区问过我，说Matlab客户端不能用了，前一段笔者自己使">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180118110004092?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -149,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/"/>
 
 
 
 
 
-  <title>应用统计学与R语言实现学习笔记（一）——简介 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -342,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -359,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">应用统计学与R语言实现学习笔记（一）——简介</h1>
+          <h1 class="post-title" itemprop="name headline">MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用</h1>
         
 
         <div class="post-meta">
@@ -371,8 +390,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T00:00:00+08:00">
-                2017-05-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-18T00:00:00+08:00">
+                2018-01-18
               </time>
             
 
@@ -394,8 +413,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Statistics-Model/" itemprop="url" rel="index">
-                    <span itemprop="name">Statistics & Model</span>
+                  <a href="/categories/RS/" itemprop="url" rel="index">
+                    <span itemprop="name">RS</span>
                   </a>
                 </span>
 
@@ -412,8 +431,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" itemprop="commentCount"></span>
+                <a href="/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -421,7 +440,7 @@
 
           
           
-             <span id="/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（一）——简介">
+             <span id="/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/" class="leancloud_visitors" data-flag-title="MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -451,7 +470,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1,407
+                  762
                 </span>
               
 
@@ -467,7 +486,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  5
+                  3
                 </span>
               
             </div>
@@ -488,91 +507,38 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h1 id="chapter-1-introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。<a id="more"></a> </p>
-<h3 id="1从问题说起"><a href="#1-从问题说起" class="headerlink" title="1.从问题说起"></a>1.从问题说起</h3><p>常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和问题离不开。老生常谈的就是像牛顿被苹果砸了之后，就想到一个问题，为啥苹果不飞上天和太阳肩并肩呢？<br>我答：因为会被烤焦。<br>。。。<br>嗯，幽默一下。<br>总结下来说，科研中有很多问题跟统计学相关（笔者是地学和生态学背景，就提点接地气的问题）。<br>譬如：<br>（1)人口研究当中，我们希望了解65岁以上老年人所占的比例，以便于我们更好地研究老龄化的问题。<br>（2)从几个监测站点的汽车尾气监测推断今天北京市的汽车尾气排放是否达到大气污染物排放标准。<br>（3）影响植物光合作用的因素是什么，各个因素的影响有多大？<br>以及等等等。<br>总结来说，可以分为以下的几类：<br>（1）统计量问题；（2）参数（推断统计）问题；（3）归因问题；（4）预测问题。</p>
-<h3 id="2统计学及其研究过程"><a href="#2-统计学及其研究过程" class="headerlink" title="2.统计学及其研究过程"></a>2.统计学及其研究过程</h3><p>那么统计学又是什么呢？</p>
-<blockquote>
-<p>statistics: the science of collecting,analyzing, presenting, and interpreting data.<br>Copyright 1994-2000 Encyclopaedia Britannica, In</p>
-</blockquote>
-<p>翻译过来就是</p>
-<blockquote>
-<p>统计学是收集、分析、表述和解释数据的科学（ 不列颠百科全书）</p>
-</blockquote>
-<p>所以统计学包括了：</p>
-<blockquote>
-<ul>
-<li>数据收集：取得数据</li>
-<li>数据处理：整理与图表展示</li>
-<li>数据分析：利用统计分析方法分析数据</li>
-<li>数据解释：结果的说明</li>
-<li>得到结论：从数据分析中得出客观结论。</li>
-</ul>
-</blockquote>
-<p>同时跟统计学密切相关的就是概率论。这二者都是研究随机现象数量规律的学科。而二者的区别可以用一张图来形象体现：</p>
-<p><img src="http://img.blog.csdn.net/20170501221112045?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>也就是说，概率论是——我知道箱子里面是什么样的，我想知道我拿在手里的球是什么样的可能性分别有多大。统计学则是——我不知道箱子里面是什么样的，但是我已经知道我拿在手里的球是什么样的，我想靠我手里的球的样子去推断箱子是什么样的。<br>有兴趣的也可以查看知乎上的回答。</p>
-<blockquote>
-<p><a href="https://www.zhihu.com/question/20269390" target="_blank" rel="external">https://www.zhihu.com/question/20269390</a></p>
-</blockquote>
-<p>总结起来，统计学的研究过程就像下面的流程图。</p>
-<div id="flowchart-0" class="flow-chart"></div>
-
-<p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
-<h3 id="3统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本=总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
-<div id="flowchart-1" class="flow-chart"></div>
-
-<p>统计学应用领域十分广泛，这里就不细谈了。</p>
-<h3 id="4统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
-<blockquote>
-<ul>
-<li>分类数据</li>
-<li>顺序数据</li>
-<li>数值数据</li>
-</ul>
-</blockquote>
-<p>（2）按收集方法划分</p>
-<blockquote>
-<ul>
-<li>调查观察数据</li>
-<li>试验数据</li>
-</ul>
-</blockquote>
-<p>（3）按时间状况划分</p>
-<blockquote>
-<ul>
-<li>截面数据</li>
-<li>时序数据</li>
-</ul>
-</blockquote>
-<h3 id="5统计学中的几个基本概念"><a href="#5-统计学中的几个基本概念" class="headerlink" title="5.统计学中的几个基本概念"></a>5.统计学中的几个基本概念</h3><p>统计学中的基本概念分别是：</p>
-<blockquote>
-<ul>
-<li>总体（population）</li>
-<li>样本（sample)</li>
-<li>参数（parameter)</li>
-<li>统计量（statistic)</li>
-<li>变量（variable)</li>
-</ul>
-</blockquote>
-<p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
-<p><div id="flowchart-2" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 实际问题
-op1=>operation: 收集数据（取得数据）
-op2=>operation: 整理数据（处理数据）
-op3=>operation: 分析数据（研究数据）
-op4=>operation: 解释数据（结果说明）
-st->op1->op2->op3->op4</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: 统计方法
-e=>end: 结论
-sub=>subroutine: 描述统计
-cond1=>condition: 样本=总体？
-cond2=>condition: 分布已知？
-op1=>operation: 推断统计
-op2=>operation: 参数估计
-op3=>operation: 假设检验
-st->cond1(no)->op1->cond2(no)->op2->e
-cond1(yes)->sub->e
-cond2(yes)->op3->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=>start: 总体（参数）
-op=>operation: 样本（统计量）
-st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script></p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>新年开坑第一篇，关于之前MODIS系列博客的补充和番外篇。有兴趣的同学可以去翻阅前面的文章复习。</p>
+<p><a href="https://giserdaishaoqing.github.io/2017/04/13/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E7%AE%80%E4%BB%8B/">MODIS数据的简介和下载（一）——MODIS数据简介</a></p>
+<p><a href="https://giserdaishaoqing.github.io/2017/04/14/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88FTP%EF%BC%89/">MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）</a></p>
+<p><a href="https://giserdaishaoqing.github.io/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/">MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）</a></p>
+<p>之前有小伙伴在评论区问过我，说Matlab客户端不能用了，前一段笔者自己使用的时候发现R的客户端也挂了，去官网一看，发现MODIS官网更新了产品版本，原来的这些客户端都不支持了。当时仅剩一个Python版本的客户端（不过好消息是最近又把各个语言的客户端都更新了，习惯用Matlab或者R的同学可以继续使用）。<a id="more"></a></p>
+<p><img src="http://img.blog.csdn.net/20180118110004092?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><a href="https://modis.ornl.gov/data/modis_webservice.html" target="_blank" rel="external">Web Service客户端下载地址</a></p>
+<p>Matlab只需要解压即可，R的MODISTools包则需要下载下来离线安装（我会把新的客户端的文件：R、Matlab、Python放到网盘共享，大家也可以在文末找链接）。</p>
+<p>今天重点还是讲Python的客户端，点击开Python客户端下载之后是一个网页显示的文本文件。本文的Python环境是基于Anaconda的2.7.12。</p>
+<p><img src="http://img.blog.csdn.net/20180118110015958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>将页面复制下来，存成Python文件。另外还需要安装SUDS的模块，通过pip就可以安装（前面的博客已经介绍过pip）。</p>
+<p><a href="https://giserdaishaoqing.github.io/2017/11/29/Python%E5%BC%80%E7%AF%87%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B%E3%80%81pip%E5%92%8Cconda/">Python开篇——简介、pip和conda</a></p>
+<p>只需要在cmd里运行pip install suds（确保你的pip在系统变量路径里）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install suds</div></pre></td></tr></table></figure>
+<p>接下来就是将下载的Python文件作为包引入即可。如何引用一个别人写好的未打包成包的Python函数？其实这里有两种方式。</p>
+<p>一种是把别人写好的Python函数放到如下的路径’Python安装路径/Lib/site-packages’，这种方式一劳永逸，这样就等同于你安装了这个Python函数。可以随意的import。</p>
+<p>另一种方式就是现在系统路径里加入Python函数所处的路径。具体的实现如下面的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os,sys</div><div class="line">sys.path.append(<span class="string">"MODIS Web Service的Python客户端所在路径"</span>)</div><div class="line"><span class="keyword">import</span> MODISWeb</div></pre></td></tr></table></figure>
+<p>最后import 下载的MODIS Web Service的python文件名（我这里用的MODISWeb）即可。</p>
+<p>使用的方式与前文的MODIS和R的客户端大体相同。</p>
+<p><img src="http://img.blog.csdn.net/20180118112040064?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20180118113215737?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20180118113224322?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>因为LAI是8天合成数据，我们想通过已有的数据进行拟合，对时间序列做个简单的预测。这里用线性回归模型进行拟合。</p>
+<p><img src="http://img.blog.csdn.net/20180118120635290?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>这里使用了sklearn里面的线性模型来训练拟合线性回归模型。</p>
+<p>绘制回归图。</p>
+<p><img src="http://img.blog.csdn.net/20180118120842166?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20180118120901735?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>上文只是简单地对MODIS数据做些简单分析，如果拥有实测数据，则可以通过遥感数据和实测数据的拟合，实现遥感数据反演。而具体的应用就待各位进一步挖掘了。</p>
+<p>R、Matlab、Python客户端下载链接。</p>
+<p><a href="https://pan.baidu.com/s/1c3DsMUO" target="_blank" rel="external">https://pan.baidu.com/s/1c3DsMUO</a></p>
 
       
     </div>
@@ -617,7 +583,7 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://giserdaishaoqing.github.io/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/" title="应用统计学与R语言实现学习笔记（一）——简介">https://giserdaishaoqing.github.io/2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/</a>
+    <a href="https://giserdaishaoqing.github.io/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/" title="MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用">https://giserdaishaoqing.github.io/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -632,9 +598,9 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
       
         <div class="post-tags">
           
-            <a href="/tags/R/" rel="tag"># R</a>
+            <a href="/tags/MODIS/" rel="tag"># MODIS</a>
           
-            <a href="/tags/Theory/" rel="tag"># Theory</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -647,8 +613,8 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/关于Git使用的一些心得/" rel="next" title="关于Git使用的一些心得">
-                <i class="fa fa-chevron-left"></i> 关于Git使用的一些心得
+              <a href="/2018/01/10/迟来的2017总结文/" rel="next" title="迟到的2017总结文">
+                <i class="fa fa-chevron-left"></i> 迟到的2017总结文
               </a>
             
           </div>
@@ -656,10 +622,6 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/04/应用统计学与R语言实现学习笔记（二）——数据收集/" rel="prev" title="应用统计学与R语言实现学习笔记（二）——数据收集">
-                应用统计学与R语言实现学习笔记（二）——数据收集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -716,17 +678,8 @@ st(right)->op</textarea><textarea id="flowchart-2-options" style="display: none"
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -895,22 +848,6 @@ show_date_time();
 	        </div>
 	    
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-1-introduction"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1从问题说起"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.从问题说起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2统计学及其研究过程"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.统计学及其研究过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3统计方法及其应用领域"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.统计方法及其应用领域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4统计数据类型"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.统计数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5统计学中的几个基本概念"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.统计学中的几个基本概念</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

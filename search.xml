@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用]]></title>
+    <url>%2F2018%2F01%2F18%2FMODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%EF%BC%89%E2%80%94%E2%80%94MODIS%20Web%20Service%E7%9A%84Python%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[新年开坑第一篇，关于之前MODIS系列博客的补充和番外篇。有兴趣的同学可以去翻阅前面的文章复习。 MODIS数据的简介和下载（一）——MODIS数据简介 MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP） MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service） 之前有小伙伴在评论区问过我，说Matlab客户端不能用了，前一段笔者自己使用的时候发现R的客户端也挂了，去官网一看，发现MODIS官网更新了产品版本，原来的这些客户端都不支持了。当时仅剩一个Python版本的客户端（不过好消息是最近又把各个语言的客户端都更新了，习惯用Matlab或者R的同学可以继续使用）。 Web Service客户端下载地址 Matlab只需要解压即可，R的MODISTools包则需要下载下来离线安装（我会把新的客户端的文件：R、Matlab、Python放到网盘共享，大家也可以在文末找链接）。 今天重点还是讲Python的客户端，点击开Python客户端下载之后是一个网页显示的文本文件。本文的Python环境是基于Anaconda的2.7.12。 将页面复制下来，存成Python文件。另外还需要安装SUDS的模块，通过pip就可以安装（前面的博客已经介绍过pip）。 Python开篇——简介、pip和conda 只需要在cmd里运行pip install suds（确保你的pip在系统变量路径里） 1pip install suds 接下来就是将下载的Python文件作为包引入即可。如何引用一个别人写好的未打包成包的Python函数？其实这里有两种方式。 一种是把别人写好的Python函数放到如下的路径’Python安装路径/Lib/site-packages’，这种方式一劳永逸，这样就等同于你安装了这个Python函数。可以随意的import。 另一种方式就是现在系统路径里加入Python函数所处的路径。具体的实现如下面的代码。 123import os,syssys.path.append("MODIS Web Service的Python客户端所在路径")import MODISWeb 最后import 下载的MODIS Web Service的python文件名（我这里用的MODISWeb）即可。 使用的方式与前文的MODIS和R的客户端大体相同。 因为LAI是8天合成数据，我们想通过已有的数据进行拟合，对时间序列做个简单的预测。这里用线性回归模型进行拟合。 这里使用了sklearn里面的线性模型来训练拟合线性回归模型。 绘制回归图。 上文只是简单地对MODIS数据做些简单分析，如果拥有实测数据，则可以通过遥感数据和实测数据的拟合，实现遥感数据反演。而具体的应用就待各位进一步挖掘了。 R、Matlab、Python客户端下载链接。 https://pan.baidu.com/s/1c3DsMUO]]></content>
+      <categories>
+        <category>RS</category>
+      </categories>
+      <tags>
+        <tag>MODIS</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[迟到的2017总结文]]></title>
     <url>%2F2018%2F01%2F10%2F%E8%BF%9F%E6%9D%A5%E7%9A%842017%E6%80%BB%E7%BB%93%E6%96%87%2F</url>
     <content type="text"><![CDATA[悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。 默默做个总结来迎接新的一年。 2017年走过的城市还蛮多的。一年下来，半年北方，半年小厦门。参加的学术活动也算不少，也算有些小成果。不过我想这一年来在github和博客上确实花了不少功夫，对于开源、编程，自己也有了更深入的了解。 2017年博客一共发了44篇博客，第一次利用github搭建了自己的主页和博客。而自己的各种博客也是基本同步。 对整体的博客内容做些梳理。 第一部分：技术实践笔记杂谈，像学了半天Fortran开始配环境的、装WRF的、Hexo和NexT优化的、装系统的。 第二部分：R语言相关的编程笔记，R算是我现在比较熟练的语言，当然去年特地为了记录公选课学习内容，连载了一系列的应用统计学与R语言实践笔记（也是github上开源了的项目，前几天被人forked了下，还有点小激动）。 第三部分：地理、生态、GIS相关的，阅读量最高的MODIS系列——其实也是源自我上课的实习内容。其实今天在回顾过去的一些基础知识，发现课堂上掌握得确实还不够，仍然需要好好温习。 第四部分：学习方面的感受，esri用户大会，定量遥感讲座。 新的一年先立些flag。 （一）机器学习笔记——最近在学习吴恩达大大的公开课，希望有所斩获。有空会更新这部分的笔记。 （二）空间统计内容——这里还是要推荐虾神的白话空间统计系列，但是我也想对之前自己学习空间统计内容做些梳理（最近正在看莫兰指数推导——嗯，死去活来），数学恐惧症就跳过吧。 （三）论文推荐和阅读——我可能会把阅读文献内容也放到博客内。 （四）研究成果推荐——虽然成果不多，但也会考虑，哈哈。 如果你们还对我的博客有啥建设性意见。欢迎留言。 var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"灌篮高手","author":"青春","url":"http://oyo5uzjmz.bkt.clouddn.com/BAAD%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/SD.jpg"}]}; options.element = document.getElementById("aplayer0"); new APlayer(options);]]></content>
