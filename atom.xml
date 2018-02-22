@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-01-21T04:44:40.316Z</updated>
+  <updated>2018-02-22T13:27:39.154Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>天不生Tobler，万古GIS如长夜</title>
+    <link href="https://giserdaishaoqing.github.io/2018/02/22/%E5%A4%A9%E4%B8%8D%E7%94%9FTobler%EF%BC%8C%E4%B8%87%E5%8F%A4GIS%E5%A6%82%E9%95%BF%E5%A4%9C/"/>
+    <id>https://giserdaishaoqing.github.io/2018/02/22/天不生Tobler，万古GIS如长夜/</id>
+    <published>2018-02-21T16:00:00.000Z</published>
+    <updated>2018-02-22T13:27:39.154Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>今日在QQ上惊闻Waldo Tobler老先生已于昨日过世，实乃地理学界的一大憾事，特地以此文表示深切的悼念。<a id="more"></a></p><h1 id="一"><a href="#（一）" class="headerlink" title="（一）"></a>（一）</h1><p>Waldo Tobler，生于1930年，圣塔芭芭拉加州大学（UniversityofCalifornia,SantaBarbara，简称UCSB，又常译为加州大学圣塔芭芭拉分校）退休教授，美籍瑞士地理学家，制图学家。下图的帅哥就是老爷子（文字介绍来自百度百科，图片来自维基百科）。</p><p><img src="http://img.blog.csdn.net/20180222185907382?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p><a href="https://baike.baidu.com/item/%E5%9C%B0%E7%90%86%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%AE%9A%E5%BE%8B/2362779?fr=aladdin" target="_blank" rel="external">百度百科</a></p><p><a href="https://en.wikipedia.org/wiki/Waldo_R._Tobler" target="_blank" rel="external">维基百科</a></p><p>Tobler先生最广为人知的就是他提出的观点，也就是后来被地理学界称为地理学第一定律的“Everything is related to everything else, but near things are more related to each other”。个人的翻译为：世界上的一切事物都是相关的，但是相邻的事物相关性更大，当然有各自的翻译，整体意思是一致的，空间邻近的事物具有相关性，也就是所谓的空间自相关性。小文院士在2007年在《自然杂志》上撰文《地理学第一定律与时空邻近度的提出》，对地理学第一定律做了官方的阐释。</p><p>正如题目所言，Tobler先生对于地理学界而言是个活着的传奇，他是当今GIS与空间统计研究基础的奠基人，而这一切都因为他的地理学第一定律。无论是莫兰指数、地理加权回归、克里金插值都是建立在空间自相关的基础上衍生开来的理论。正如他在第一篇提到这个的文章所说，”As a premise, I make the assumption that everything is related to everything else.“</p><p>地理学从古代发展至今，这个古老的学科曾今因为缺乏足够的合法性，而一度濒临灭亡，很多学科都有地理学深深的印记，却又在不断发展中独立出来。而当地理学的分支学科纷纷独立时，地理学本身独立存在的合法性又何在？不同地理学派对此的争论，在1950时代引发了地理学的计量革命，以及GIS的出现，给了地理学又一次新的生命。而在计量革命与GIS出现之后，随着Tobler先生的地理学第一定律提出，GIS和地理学界重新激发了蓬勃的生命力。</p><p>所以，深切地感谢Tobler先生与他所提出的地理学第一定律。</p><p><a href="http://blog.sciencenet.cn/blog-2984-16562.html" target="_blank" rel="external">时空尺度与地表过程</a></p><p><a href="http://blog.sina.com.cn/s/blog_643115fc01011pdz.html" target="_blank" rel="external">1948-2006：哈佛大学地理系的灭亡与地理学的重生</a></p><h1 id="二"><a href="#（二）" class="headerlink" title="（二）"></a>（二）</h1><p>地理学第一定律用简介的语言描述了地理学现象的规律，中国人喜欢咬文嚼字，我曾经在早前大学给一次学弟学妹的汇报里以自己的理解解读过地理学与物理学。理者，可以翻译为规律，如此翻译而来，地理就是研究地球/地球表层事物的规律，物理就是研究事物之间的规律。</p><p>当然无非提的就是地理学的定律与物理学的定律。物理学有着牛顿三大定律，而地理学目前有两大定律（第一和第二定律，分别是讲述空间自相关性与空间异质性）。两个学科都有着一些定律，却有些不同。物理学的定律是普适性的定律，放之四海而皆准，除了二次元，你怕是在任何地方都无法脱离地心引力。而地理学的定律却不一定有那么强的普适性，之前有人将地理学第一定律的中文翻译为，世界上的一切事物都是相关的，但是相邻的事物往往相关性更大。相比于我的直白翻译，他加上了一个往往。往往也就是说是可能，而非完全确定的，也就是说有些地理现象确实不存在空间自相关性，随机分布或者均匀分布。</p><p>时至今日这依旧是被诟病的点，空间自相关性确实是地理学特征，也是空间统计仰赖基础，但是空间统计却出现了一千个作者，一千种结果的情况，随着空间权重矩阵和空间关系的变化，同一个区域的空间统计结果各不相同，甚至于今日我在Research Gate上看到的一个问题：同一个空间权重矩阵（至少他认为一样），但是STATA，R和Geoda得到的莫兰指数结果各不相同。</p><p><img src="http://img.blog.csdn.net/20180222204150162?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>而我的看法是，正是因为地学现象受到诸多环境因素、人类因素、生物因素的耦合影响，导致它具有非常强的复杂性。因此如何用模型去表达一个地球表层，本身是一件很困难的事。我认为空间统计已经将地学的实质之一表达出来了，但是地球表层的复杂性使得研究人员必须在了解地球表层地理现象的大体过程的同时，选择最为适宜的空间统计方法进行分析。当然我认为空间统计依旧有很多值得完善的问题，如始终横亘在地理学面前的可变面元问题，抑或者是尺度问题，抑或者是如何实现地球表层要素的渐变与突变的表达，抑或者是老生常谈的不确定性问题。而这些则需要我们去进一步地研究与挖掘。</p><p>而到目前为止，我认为这两条定律已经很好地为我们描绘了地球表层地理现象的两大基本特性，而一些潜在的其他特性，则需要我们进一步发现和刻画，从而使得对地理现象更好的了解。</p><h1 id="三"><a href="#（三）" class="headerlink" title="（三）"></a>（三）</h1><p>从微博上道听途说Tobler老先生依旧在88岁高龄的情况下亲临博士毕业答辩现场。在去年，我在Research Gate上关注了Tobler先生，而就在去年，他更新了自己的Research Gate，依旧在提出新的东西——这回是他另一个主要的研究方向，地图制图与地理投影，Tobler先生又提出了一种新的墨卡托投影。88岁高龄的先生依旧充满着活跃的思想，我也是由衷地钦佩。</p><p>用中国人的话来说，可以说先生仙风道骨，仿佛不食人间烟火，一心只有科研。同时这又让我想起了小文院士。</p><p>曾经听中国地理学会副理事长张国友老师评价道：”地理学是一门经世致用的学科“，当时为之一振。这样的学科，也正因为有这些苦心研究的学者，而更加熠熠生辉吧。</p><p>天不生Tobler，万古GIS如长夜。</p><p>向先生以及诸多地学先驱致以最高的敬意。</p><div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div><script>var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"落叶归根","author":"王力宏","url":"http://oyo5uzjmz.bkt.clouddn.com/%E7%8E%8B%E5%8A%9B%E5%AE%8F%20-%20%E8%90%BD%E5%8F%B6%E5%BD%92%E6%A0%B9.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/250px-Waldo_Tobler_2007.jpg"}]};options.element = document.getElementById("aplayer0");new APlayer(options);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今日在QQ上惊闻Waldo Tobler老先生已于昨日过世，实乃地理学界的一大憾事，特地以此文表示深切的悼念。
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+  </entry>
   
   <entry>
     <title>MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用</title>
@@ -51,7 +73,7 @@
     <published>2018-01-09T16:00:00.000Z</published>
     <updated>2018-01-10T14:58:14.600Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。</p><p>默默做个总结来迎接新的一年。</p><a id="more"></a><p>2017年走过的城市还蛮多的。一年下来，半年北方，半年小厦门。参加的学术活动也算不少，也算有些小成果。不过我想这一年来在github和博客上确实花了不少功夫，对于开源、编程，自己也有了更深入的了解。</p><p>2017年博客一共发了44篇博客，第一次利用github搭建了自己的主页和博客。而自己的各种博客也是基本同步。</p><p>对整体的博客内容做些梳理。</p><p>第一部分：技术实践笔记杂谈，像学了半天Fortran开始配环境的、装WRF的、Hexo和NexT优化的、装系统的。</p><p>第二部分：R语言相关的编程笔记，R算是我现在比较熟练的语言，当然去年特地为了记录公选课学习内容，连载了一系列的应用统计学与R语言实践笔记（也是github上开源了的项目，前几天被人forked了下，还有点小激动）。</p><p>第三部分：地理、生态、GIS相关的，阅读量最高的MODIS系列——其实也是源自我上课的实习内容。其实今天在回顾过去的一些基础知识，发现课堂上掌握得确实还不够，仍然需要好好温习。</p><p>第四部分：学习方面的感受，esri用户大会，定量遥感讲座。</p><p>新的一年先立些flag。</p><p>（一）机器学习笔记——最近在学习吴恩达大大的公开课，希望有所斩获。有空会更新这部分的笔记。</p><p>（二）空间统计内容——这里还是要推荐虾神的白话空间统计系列，但是我也想对之前自己学习空间统计内容做些梳理（最近正在看莫兰指数推导——嗯，死去活来），数学恐惧症就跳过吧。</p><p>（三）论文推荐和阅读——我可能会把阅读文献内容也放到博客内。</p><p>（四）研究成果推荐——虽然成果不多，但也会考虑，哈哈。</p><p>如果你们还对我的博客有啥建设性意见。欢迎留言。</p><div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div><script>var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"灌篮高手","author":"青春","url":"http://oyo5uzjmz.bkt.clouddn.com/BAAD%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/SD.jpg"}]};options.element = document.getElementById("aplayer0");new APlayer(options);</script>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。</p><p>默默做个总结来迎接新的一年。</p><a id="more"></a><p>2017年走过的城市还蛮多的。一年下来，半年北方，半年小厦门。参加的学术活动也算不少，也算有些小成果。不过我想这一年来在github和博客上确实花了不少功夫，对于开源、编程，自己也有了更深入的了解。</p><p>2017年博客一共发了44篇博客，第一次利用github搭建了自己的主页和博客。而自己的各种博客也是基本同步。</p><p>对整体的博客内容做些梳理。</p><p>第一部分：技术实践笔记杂谈，像学了半天Fortran开始配环境的、装WRF的、Hexo和NexT优化的、装系统的。</p><p>第二部分：R语言相关的编程笔记，R算是我现在比较熟练的语言，当然去年特地为了记录公选课学习内容，连载了一系列的应用统计学与R语言实践笔记（也是github上开源了的项目，前几天被人forked了下，还有点小激动）。</p><p>第三部分：地理、生态、GIS相关的，阅读量最高的MODIS系列——其实也是源自我上课的实习内容。其实今天在回顾过去的一些基础知识，发现课堂上掌握得确实还不够，仍然需要好好温习。</p><p>第四部分：学习方面的感受，esri用户大会，定量遥感讲座。</p><p>新的一年先立些flag。</p><p>（一）机器学习笔记——最近在学习吴恩达大大的公开课，希望有所斩获。有空会更新这部分的笔记。</p><p>（二）空间统计内容——这里还是要推荐虾神的白话空间统计系列，但是我也想对之前自己学习空间统计内容做些梳理（最近正在看莫兰指数推导——嗯，死去活来），数学恐惧症就跳过吧。</p><p>（三）论文推荐和阅读——我可能会把阅读文献内容也放到博客内。</p><p>（四）研究成果推荐——虽然成果不多，但也会考虑，哈哈。</p><p>如果你们还对我的博客有啥建设性意见。欢迎留言。</p><div id="aplayer1" class="aplayer" style="margin-bottom: 20px;"></div><script>var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"灌篮高手","author":"青春","url":"http://oyo5uzjmz.bkt.clouddn.com/BAAD%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/SD.jpg"}]};options.element = document.getElementById("aplayer1");new APlayer(options);</script>]]></content>
     
     <summary type="html">
     
@@ -459,30 +481,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;1-后记&quot;&gt;&lt;a href=&quot;#1-后记&quot; class=&quot;headerlink&quot; title=&quot;1 后记&quot;&gt;&lt;/a&gt;1 后记&lt;/h1&gt;&lt;p&gt;应用统计学与R语言实现学习笔记这一系列博客断断续续写了5个月左右。现在终于算是基本完成了。我个人比较强迫症，比较喜欢一个系列更完再更其他的。所以中间有一些不错的内容想写到博客里都没动笔。后面会继续填坑。另外之后遇到的跟应用统计学与R语言实现相关的内容会以番外篇形式发布。
-    
-    </summary>
-    
-      <category term="Statistics &amp; Model" scheme="https://giserdaishaoqing.github.io/categories/Statistics-Model/"/>
-    
-    
-      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
-    
-      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>应用统计学与R语言实现学习笔记（十四）——案例与实践</title>
-    <link href="https://giserdaishaoqing.github.io/2017/10/08/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://giserdaishaoqing.github.io/2017/10/08/应用统计学与R语言实现学习笔记（十四）——案例与实践/</id>
-    <published>2017-10-07T16:00:00.000Z</published>
-    <updated>2017-10-31T00:32:38.284Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="chapter-14-case-and-practice"><a href="#Chapter-14-Case-and-Practice" class="headerlink" title="Chapter 14 Case and Practice"></a>Chapter 14 Case and Practice</h1><p>本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。<a id="more"></a> </p><h3 id="1-描述性统计与抽样分布"><a href="#1-描述性统计与抽样分布" class="headerlink" title="1 描述性统计与抽样分布"></a>1 描述性统计与抽样分布</h3><p>1.一种袋装食品用生产线自动装填，每袋重量大约为50g，但由于某些原因，每袋重量不会恰好是50g。下面是随机抽取的100袋食品，测得的重量数据见附录。<br>（1）构建这些数据的频数分布表。<br>（2）绘制频数分布的直方图。<br>（3）说明数据分布的特征。</p><p>2.甲乙两个班各有40名学生，期末统计学考试成绩的分布见附录。<br>（1）根据上面的数据，画出两个班考试成绩的复合柱形图、环形图和图饼图。<br>（2）比较两个班考试成绩分布的特点。<br>（3）画出雷达图，比较两个班考试成绩的分布是否相似。</p><p>3.随机抽取25个网络用户，得到他们的年龄数据（单位：周岁）见附录。<br>（1）计算众数、中位数。<br>（2）根据定义公式计算四分位数。<br>（3）计算平均数和标准差。<br>（4）计算偏态系数和峰态系数。<br>（5）对网民年龄的分布特征进行综合分析。</p><p>4.某银行为缩短顾客到银行办理业务等待的时间，准备采用两种排队方式进行试验：一种是所有顾客都进入一个等待队列；另一种是顾客在三个业务窗口处列队三排等待。为比较哪种排队方式使顾客等待的时间更短，两种排队方式各随机抽取的9名顾客，得到第一中排队方式的平均等待时间为7.2分钟，标准差为，1.97分钟，第二种排队方式的等待时间（单位：min）见附录。<br>（１）画出第二种排队方式等待时间的茎叶图。<br>（２）计算第二种排队方式等待时间的平均数和标准差。<br>（３）比较两种排队方式等待时间的离散程度。<br>（４）如果让你选择一种排队方式，你会选择哪一种？试说明理由。</p><p>5.从均值为200、标准差为50的总体中，抽取n=100的简单随机样本，用样本均值`x估计总体均值。<br>a)描述重复抽样的样本均值的抽样分布。<br>b)不重复抽样，总体单位数分别为10000、1000时的样本均值的抽样分布。 </p><h3 id="2-参数估计与假设检验"><a href="#2-参数估计与假设检验" class="headerlink" title="2 参数估计与假设检验"></a>2 参数估计与假设检验</h3><p>1.某大学为了解学生每天上网的时间，在全校7500名学生中采取不重复抽样方法随机抽取36人，调查他们每天上网的时间（单位：小时） ，得到的数据见附录。求该校大学生平均上网时间的置信区间，置信概率分别为90%、95%和99%。</p><p>2.假定两个总体的标准差分别为：$\sigma_1$=12，$\sigma_2$=15，若要求误差范围不超过5，相应的置信水平为95%，假定$n_1=n_2$，估计两个总体均值之差$m_1-m_2$时所需的样本容量为多大？ </p><p>3.经验表明，一个矩形的宽与长之比等于0.618的时候会给人们比较良好的感觉。某工艺品工厂生产的矩形工艺品框架的宽与长要求也按这一比例设计，假定其总体服从正态分布，现随机抽取了20个框架测得比值见附录。在显著性水平 ＝0.05时，能否认为该厂生产的工艺品框架宽与长的平均比例为0.618？。</p><p>4.一家大型超市连锁店上个月接到许多消费者投诉某种品牌炸土豆片中60克一袋的那种土豆片的重量不符。店方猜想引起这些投诉的原因是运输过程中沉积在食品袋底部的土豆片碎屑，但为了使顾客们对花钱买到的土豆片感到物有所值，店方仍然决定对来自于一家最大的供应商的下一批袋装炸土豆片的平均重量（克）进行检验，假设陈述如下：<br>                $H_0: \mu\le 60$      $H_1:\mu&lt;60$<br>如果有证据可以拒绝原假设，店方就拒收这批炸土豆片并向供应商提出投诉。<br>（1）与这一假设检验问题相关联的第一类错误是什么？<br>（2）与这一假设检验问题相关联的第二类错误是什么？<br>（3）你认为连锁店的顾客们会将哪类错误看得较为严重？而供应商会将哪类错误看得较为严重？</p><h3 id="3-方差分析与回归分析"><a href="#3-方差分析与回归分析" class="headerlink" title="3 方差分析与回归分析"></a>3 方差分析与回归分析</h3><p>1.某家电制造公司准备购进一批5#电池，现有A、B、C三个电池生产企业愿意供货，为比较它们生产的电池质量，从每个企业各随机抽取5只电池，经试验得其寿命（单位：h）数据见附录。试分析三个企业生产的电池的平均寿命之间有无显著差异（$\alpha=0.05$）。如果有差异，用LSD方法检验哪些企业之间有差异？</p><p>2.一家超市连锁店的老板进行一项研究，确定超市所在的位置和竞争者的数量对销售额是否有显著影响。获得的月销售额数据（单位：万元）见附录。取显著性水平$\alpha=0.01$，检验：<br>（1）竞争者的数量对销售额是否有显著影响。<br>（2）超市的位置对销售额是否有显著影响。<br>（3）竞争者的数量和超市的位置对销售额是否有交互影响。</p><p>3.附录中有随机抽取的15家大型商场销售的同类产品的有关数据（单位：元）。<br>（1）计算y与$x_1$ 、y与$x_2$之间的相关系数，是否有证据表明销售价格与购进价格、销售价格与销售费用之间存在线性关系？<br>（2）根据上述结果，你认为用购进价格和销售费用来预测销售价格是否有用？<br>（3）用Excel进行回归，并检验模型的线性关系是否显著（$\alpha=0.05$）。<br>（4）解释判定系数$R^2$，所得结论与问题（2）中是否一致?<br>（5）计算$x_1$与$x_2$之间的相关系数，所得结果意味着什么？<br>（6）模型中是否存在多重共线性？你对模型有何建议？</p><p>4.附录中有32名美士足球运动员的rating及其他相关信息。请建立一个回归模型以预测一位美士足球运动员的rating。提交报告包括：使用什么方法建立的模型，该方法的运行结果，最终模型的解释（拟合程度、预测误差）。</p><p>这一份作业汇总从最原始的描述统计、参数估计、假设检验到基础的方差分析与回归分析均有了。根据这里的习题即可对前面的内容再次熟悉。<br>这里就不多说了，我有一份比较完整的文档针对这份内容。这里先给出节选部分的截图。具体地址再给出。</p><p><img src="http://img.blog.csdn.net/20171008212639172?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212657681?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212723358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212739353?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212759111?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212820763?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212841228?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212915392?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212933612?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008212957999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008213029474?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008213047883?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171008213107161?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Chapter-14-Case-and-Practice&quot;&gt;&lt;a href=&quot;#Chapter-14-Case-and-Practice&quot; class=&quot;headerlink&quot; title=&quot;Chapter 14 Case and Practice&quot;&gt;&lt;/a&gt;Chapter 14 Case and Practice&lt;/h1&gt;&lt;p&gt;本篇是第十四章，内容是案例与实践。这里其实是对我公选课的作业做了个汇总。
     
     </summary>
     
