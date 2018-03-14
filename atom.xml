@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-02-22T13:27:39.154Z</updated>
+  <updated>2018-03-14T16:50:02.049Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R语言高清图片输出设置</title>
+    <link href="https://giserdaishaoqing.github.io/2018/03/14/R%E8%AF%AD%E8%A8%80%E9%AB%98%E6%B8%85%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://giserdaishaoqing.github.io/2018/03/14/R语言高清图片输出设置/</id>
+    <published>2018-03-13T16:00:00.000Z</published>
+    <updated>2018-03-14T16:50:02.049Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。<a id="more"></a></p><h2 id="解决方案思路rcorel-draw"><a href="#解决方案思路：R-Corel-Draw" class="headerlink" title="解决方案思路：R+Corel Draw"></a>解决方案思路：R+Corel Draw</h2><p>这也是某期刊图的修改要求，必须提供.cdr文件。当然测试后发现，.cdr输出的tif即使被压缩，也能很清晰。</p><p>这里谈谈怎么做。首先R目前是没法直接输出.cdr格式的文件的，根据网上的经验就是用emf这个格式，能够输出Corel Draw能读取的矢量文件，导入后再做些微调。</p><p>但是R输出emf没有像tiff和jpeg那样的语句，主要使用的是savePlot函数。</p><p>这里摘下R的帮助文档再来解释这个函数</p><p>Usage</p><p>savePlot(filename = “Rplot”,<br>         type = c(“wmf”, “emf”, “png”, “jpg”, “jpeg”, “bmp”,<br>                  “tif”, “tiff”, “ps”, “eps”, “pdf”),<br>         device = dev.cur(),<br>         restoreConsole = TRUE)</p><p>Arguments</p><p>filename<br>The filename under which to save the plot. Tilde-expansion (see path.expand is supported.</p><p>type<br>The type of plot, Windows metafile, PNG, JPEG, BMP (Windows bitmap format), TIFF, PostScript or PDF.</p><p>device<br>A device number of a windows device, by default the current device.</p><p>restoreConsole<br>See the ‘Details’ section of windows.</p><p>一个参数一个参数来解释吧。<br>filename：很好理解，就是你要输出的图片路径和名称，用字符串类型。如“C:/Rplot”。不必加后缀。<br>type：输出格式。<br>device：Windows设备的设备编号，默认为当前设备，这个参数。<br>restoreConsole：这个参数也是跟windows图形设备相关的。</p><p>实际使用时，后两个参数默认就可以。主要是针对前两个参数。</p><p>接下来用一个案例来展示下操作。使用的是R语言默认的mtcars数据。用plot绘图和ggplot2绘图各测试一遍。但是笔者就如网上所说在Rstudio中运行savePlot报错。</p><p><img src="//img-blog.csdn.net/20180314235754342?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>事实上这个语句只能在原生的Rgui中运行。因此将R代码存成脚本，在Rgui中直接用source调用写好的脚本即可。</p><p>plot只需直接绘图语句。而ggplot则需要多一句print语句，才能输出图片。</p><p>运行完后，打开corel draw，按下图进行操作。</p><p><img src="//img-blog.csdn.net/20180315001842779?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p><img src="//img-blog.csdn.net/20180315001927348?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p><img src="//img-blog.csdn.net/20180315002028603?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p><img src="//img-blog.csdn.net/20180315002149925?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p><img src="//img-blog.csdn.net/20180315002157492?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>这样就能把emf转变成全部可编辑的矢量了。</p><p>当然Rstudio也有个方法。就是使用复制到剪贴板的功能，然后粘贴到Corel Draw里面。</p><p><img src="//img-blog.csdn.net/20180315002938540?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p><img src="//img-blog.csdn.net/2018031500295111?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>这就是将R导入到Corel Draw前期工作。相比与之前压缩得非常厉害的图片，我感觉Corel Draw输出的图片质量非常高。此外，后面搜索时，我也发现了R的一个包：<a href="https://mirrors.ustc.edu.cn/CRAN/web/packages/devEMF/devEMF.pdf" target="_blank" rel="external">devEMF: EMF Graphics Output Device</a>。可以输出emf，这样在Rstudio里也可以操作了。</p><p>参考博客：<br><a href="https://www.shengxin.ren/article/73" target="_blank" rel="external">R语言可以这么玩 |高质量图片这样导出！</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。
+    
+    </summary>
+    
+      <category term="Paper" scheme="https://giserdaishaoqing.github.io/categories/Paper/"/>
+    
+    
+      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
+    
+  </entry>
   
   <entry>
     <title>天不生Tobler，万古GIS如长夜</title>
@@ -71,7 +93,7 @@
     <link href="https://giserdaishaoqing.github.io/2018/01/10/%E8%BF%9F%E6%9D%A5%E7%9A%842017%E6%80%BB%E7%BB%93%E6%96%87/"/>
     <id>https://giserdaishaoqing.github.io/2018/01/10/迟来的2017总结文/</id>
     <published>2018-01-09T16:00:00.000Z</published>
-    <updated>2018-01-10T14:58:14.600Z</updated>
+    <updated>2018-03-14T16:49:13.418Z</updated>
     
     <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。</p><p>默默做个总结来迎接新的一年。</p><a id="more"></a><p>2017年走过的城市还蛮多的。一年下来，半年北方，半年小厦门。参加的学术活动也算不少，也算有些小成果。不过我想这一年来在github和博客上确实花了不少功夫，对于开源、编程，自己也有了更深入的了解。</p><p>2017年博客一共发了44篇博客，第一次利用github搭建了自己的主页和博客。而自己的各种博客也是基本同步。</p><p>对整体的博客内容做些梳理。</p><p>第一部分：技术实践笔记杂谈，像学了半天Fortran开始配环境的、装WRF的、Hexo和NexT优化的、装系统的。</p><p>第二部分：R语言相关的编程笔记，R算是我现在比较熟练的语言，当然去年特地为了记录公选课学习内容，连载了一系列的应用统计学与R语言实践笔记（也是github上开源了的项目，前几天被人forked了下，还有点小激动）。</p><p>第三部分：地理、生态、GIS相关的，阅读量最高的MODIS系列——其实也是源自我上课的实习内容。其实今天在回顾过去的一些基础知识，发现课堂上掌握得确实还不够，仍然需要好好温习。</p><p>第四部分：学习方面的感受，esri用户大会，定量遥感讲座。</p><p>新的一年先立些flag。</p><p>（一）机器学习笔记——最近在学习吴恩达大大的公开课，希望有所斩获。有空会更新这部分的笔记。</p><p>（二）空间统计内容——这里还是要推荐虾神的白话空间统计系列，但是我也想对之前自己学习空间统计内容做些梳理（最近正在看莫兰指数推导——嗯，死去活来），数学恐惧症就跳过吧。</p><p>（三）论文推荐和阅读——我可能会把阅读文献内容也放到博客内。</p><p>（四）研究成果推荐——虽然成果不多，但也会考虑，哈哈。</p><p>如果你们还对我的博客有啥建设性意见。欢迎留言。</p><div id="aplayer1" class="aplayer" style="margin-bottom: 20px;"></div><script>var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"灌篮高手","author":"青春","url":"http://oyo5uzjmz.bkt.clouddn.com/BAAD%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/SD.jpg"}]};options.element = document.getElementById("aplayer1");new APlayer(options);</script>]]></content>
     
@@ -466,30 +488,6 @@
       <category term="Ubuntu" scheme="https://giserdaishaoqing.github.io/tags/Ubuntu/"/>
     
       <category term="Vmware Workstation" scheme="https://giserdaishaoqing.github.io/tags/Vmware-Workstation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>应用统计学与R语言实现学习笔记后记</title>
-    <link href="https://giserdaishaoqing.github.io/2017/10/10/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%90%8E%E8%AE%B0/"/>
-    <id>https://giserdaishaoqing.github.io/2017/10/10/应用统计学与R语言实现学习笔记后记/</id>
-    <published>2017-10-09T16:00:00.000Z</published>
-    <updated>2017-10-31T00:33:10.324Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="1-后记"><a href="#1-后记" class="headerlink" title="1 后记"></a>1 后记</h1><p>应用统计学与R语言实现学习笔记这一系列博客断断续续写了5个月左右。现在终于算是基本完成了。我个人比较强迫症，比较喜欢一个系列更完再更其他的。所以中间有一些不错的内容想写到博客里都没动笔。后面会继续填坑。另外之后遇到的跟应用统计学与R语言实现相关的内容会以番外篇形式发布。<a id="more"></a> </p><p>当时想到写这个东西，主要是自己选了门应用统计学的公选课，个人觉得不能浪费了这门课，而且其实我们在做一些研究的时候，其实都用了很多新的、高大上的所谓的新方法，并且不断在追逐所谓的Big data，但是回过头来想想，最基础的统计学理论可能才是我们需要补课的地方（不得不说这门课挺对我胃口，去年暑假花了一部分时间在啃贾俊平的统计学，刚好是这门课的参考教材）。这个年代，用个tensorflow的包，import一下，训练个模型出来就能说自己做的是深度学习。个人意见，也对也不对。IT技术飞速发展，大大降低了程序猿的门槛，但是现在的情况更应当说是程序猿的行当易学难精了。扯得有点远，总之我认为返璞归真地去学一学高数、概率论、统计学、线性代数可能比一上来就开始各种机器学习什么的要强得多。</p><p>这份笔记的定位，就是一份笔记，某些程度上就是课程老师给我们的ppt，我对理论部分做了整理。所以要归功于我的任课老师王老师。我不求大家从头到尾看完这份笔记，因为理论很枯燥，但是当需要用些什么内容的时候，可以想起这份笔记，供大家查找和参考。我的笔记并不像《深入浅出统计学》那样直白而又易懂的语言，尽管中间有一定的尝试，所以不可能看完我的这个系列博客就能对统计学的基本内容完全融会贯通，如果你希望在统计学上有所建树，需要大家自己去补课。另外我这部分更多针对于应用，而且基于我自己本身地学背景，我讲的例子也都跟尽量跟地学、生态相关。所以其他专业的同学会觉得一些例子苦涩难懂是比较正常的（在此向其他专业同学说声不好意思，你们的批评我虚心接受，但是你们这方面的建议我坚决不改，傲娇脸）。</p><p>好，讲了这么多。这个系列我其实是作为我自己的一个开源项目做的，我希望大家有什么意见可以一起来帮忙修改完善这个项目。如果你觉得还不错，也不要吝啬你的star。我博客里提到的很多代码之类的也都在这个项目里面开源了。就请大家批评指正。</p><p><a href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R" target="_blank" rel="external">Note-of-Applied-Statistics-with-R</a></p><h1 id="2-基于gitbook的电子书生成教程"><a href="#2-基于gitbook的电子书生成教程" class="headerlink" title="2 基于gitbook的电子书生成教程"></a>2 基于gitbook的电子书生成教程</h1><blockquote><p>Modern book format and toolchain using Git and Markdown</p></blockquote><p>这是 gitbook 项目主页上对 gitbook 的定义。<br>gitbook 首先是一个软件，正如上面定义的那样，它使用 Git 和 Markdown 来编排书本。</p><blockquote><p><a href="https://www.gitbook.com" target="_blank" rel="external">gitbook官网</a></p></blockquote><p>也可以使用gitbook editor。<br>gitbook可以与github关联，直接将仓库的markdown文档发布成电子书。为了方便管理，选择在github上搭建电子书整体内容，然后push到github上，同时同步到gitbook中。首先用github登录gitbook。接着在github上创建一个新的仓库。只保留markdown文档和文件夹。gitbook的关键是需要SUMMARY的markdown文档，这个文件是用来组织书的框架。如下图。</p><p><img src="http://img.blog.csdn.net/20171010102953719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>README的前言其实就是上面的后记，想说的话大体相同。只不过时间先后问题导致成了前言和后记。其他的是链接各章节。<br>接着看一下github上仓库项目结构（初步构成）。</p><p><img src="http://img.blog.csdn.net/20171010103114659?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>因为在线渲染电子书速度较慢，我们可以在本地进行渲染和修改。目前只需将仓库先克隆到本地。接着安装gitbook（基于node.js）。<br>因为gitbook是基于node.js的，先查看是否安装了node.js。</p><pre><code>node -vnpm -v</code></pre><p><img src="http://img.blog.csdn.net/20171010145824528?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接着输入命令，安装gitbook。</p><pre><code>npm install gitbook-cli -g</code></pre><p><img src="http://img.blog.csdn.net/20171010145835836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171010145939459?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接下来在github上先安装gitbook的拓展应用。并选择应用的仓库范围（可以选择所有仓库，也可以只选择对应的仓库）</p><p><img src="http://img.blog.csdn.net/20171010150124228?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>这样在gitbook上创建新书的时候，可以选择github的模板，直接导入书籍的仓库，并且后面可以自动同步。</p><p><img src="http://img.blog.csdn.net/20171010145949441?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171010150240363?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>在gitbook的setting中设置，默认生成pdf，mobi，epub的电子书供下载，选择MIT许可证。</p><p><img src="http://img.blog.csdn.net/20171010150252215?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>gitbook可以通过book.json这个文件来控制生成电子书的一些具体定制化的需求。我的设置如下，因为用到了流程图和大量数学公式，就多加了katex和mermaid的插件。</p><p><img src="http://img.blog.csdn.net/20171010150909624?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>首先通过命令行，定位到克隆到本地书籍的路径。</p><pre><code>gitbook install</code></pre><p>先安装插件。<br>接着渲染一下。</p><pre><code>gitbook build</code></pre><p>最后本地服务器运行。</p><pre><code>gitbook serve</code></pre><p>在浏览器网址输入localhost:4000。<br>即可查看。</p><p><img src="http://img.blog.csdn.net/20171010151537171?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171010151555095?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>执行gitbook build的时候可能会有各种报错，根据报错信息一个一个修改。目前发现似乎gitbook不太支持mathjax。而且公式里面不能有中文及中文标点符号，而且原来在博客上，两个$是表示数学符号，但是不是自己占一行。四个 $是表示独立的公式，必须另起一行。但是katex只认四个$。所以进行了一番较多修改，流程图目前也一直无法显示。mermaid跟我博客的流程图插件也不相同。我用的是flowchart，但是安装了似乎也不显示。最后就先用截图来表示了。<br>全部搞定后直接push到github上。</p><p><img src="http://img.blog.csdn.net/20171010191244823?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>发现gitbook上没有完全同步。可以从setting里面设置。</p><p><img src="http://img.blog.csdn.net/20171010192027061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>OK，大工告成，接下来只需等它在线渲染成功就可以了。<br>PDF版本。</p><p><img src="http://img.blog.csdn.net/20171010192518241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>每每看到封面的熊本分分钟出戏。。。</p><p>在线网址访问网址：<br><a href="https://giserdaishaoqing.gitbooks.io/note-of-applied-statistics-with-r-book/content/" target="_blank" rel="external">应用统计学与R语言实现学习笔记</a></p><p>有兴趣的同学可以下载这本电子书，也可以在评论留邮箱，可以发送给大家。</p><p>参考博客：</p><blockquote><ul><li><a href="http://www.ituring.com.cn/article/127744" target="_blank" rel="external">使用GitBook平台发布电子书</a></li><li><a href="http://blog.csdn.net/zhangjk1993/article/details/50380403" target="_blank" rel="external">【Gitbook】实用配置及插件介绍</a></li><li><a href="http://blog.csdn.net/axi295309066/article/details/61420694" target="_blank" rel="external">GitBook使用教程</a></li><li><a href="https://bookfere.com/post/287.html" target="_blank" rel="external">GitBook 制作 Kindle 电子书详细教程（可视化版）</a></li></ul></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;1-后记&quot;&gt;&lt;a href=&quot;#1-后记&quot; class=&quot;headerlink&quot; title=&quot;1 后记&quot;&gt;&lt;/a&gt;1 后记&lt;/h1&gt;&lt;p&gt;应用统计学与R语言实现学习笔记这一系列博客断断续续写了5个月左右。现在终于算是基本完成了。我个人比较强迫症，比较喜欢一个系列更完再更其他的。所以中间有一些不错的内容想写到博客里都没动笔。后面会继续填坑。另外之后遇到的跟应用统计学与R语言实现相关的内容会以番外篇形式发布。
-    
-    </summary>
-    
-      <category term="Statistics &amp; Model" scheme="https://giserdaishaoqing.github.io/categories/Statistics-Model/"/>
-    
-    
-      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
-    
-      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
     
   </entry>
   
