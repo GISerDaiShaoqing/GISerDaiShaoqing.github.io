@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[快速生成Github README.md的目录]]></title>
+    <url>%2F2018%2F03%2F19%2F%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90Github%20README.md%E7%9A%84%E7%9B%AE%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[熟悉Github的同学可能知道创建一个Repo，通常都会生成一个README.md。好的README能增加代码的可阅读性。另外通常也可以将README作为开发文档。而这个README本身是遵循Markdown语法的，但是Markdown本身并没有绝对标准，Github的渲染方式与一些常用博客渲染方式不相同，导致在使用时有些麻烦。这里推荐一个Github上的教程。 GFM教程 GFM教程博客地址 事实上大部分和普通Markdown还是类似的，但是目录的语法差别蛮大，刚好对于笔者而言，最近需要在Github上文档上建立目录来使用，但是又不想写GFM的语法。这个时候刚好搜索到了一些可以用的开源代码。这里简单介绍一个目前使用的方法。 1 Github+百度搜索结果 事实上解决方案还蛮多的（Github大法好）。 当时还在百度上搜索了下，找到了这个方案。 ghtoc Github地址（pyhon） ghtoc博客 2 解决方案：gh-md-toc后面发现了gh-md-toc这个神器。 gh-md-toc Github地址 但是这个东西在Mac和Linux很友好，windows似乎不那么友好。不过这里也给了windows的解决方案。 就是github-markdown-toc.go。 github-markdown-toc.go Github地址 如果你有GO语言（又是你）的编译环境，可以尝试自己编译，如果没有，可以直接下载编译好的二进制文件。 二进制文件 下载下来之后，发现没有后缀名无法识别，实际上这是个exe文件，所以只需要暴力地在后面加上.exe就可以开始愉快使用了。 首先将README.md文档复制到gh-md-toc.exe的根目录下。 接着按住shift键同时右击。 打开Powershell窗口后，直接键入。 1./gh-md-toc.exe README.md 接下来只需将这段话复制粘贴到README.md里面即可。]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[R语言高清图片输出设置]]></title>
     <url>%2F2018%2F03%2F14%2FR%E8%AF%AD%E8%A8%80%E9%AB%98%E6%B8%85%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA%E8%AE%BE%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。 解决方案思路：R+Corel Draw这也是某期刊图的修改要求，必须提供.cdr文件。当然测试后发现，.cdr输出的tif即使被压缩，也能很清晰。 这里谈谈怎么做。首先R目前是没法直接输出.cdr格式的文件的，根据网上的经验就是用emf这个格式，能够输出Corel Draw能读取的矢量文件，导入后再做些微调。 但是R输出emf没有像tiff和jpeg那样的语句，主要使用的是savePlot函数。 这里摘下R的帮助文档再来解释这个函数 Usage savePlot(filename = “Rplot”, type = c(“wmf”, “emf”, “png”, “jpg”, “jpeg”, “bmp”, “tif”, “tiff”, “ps”, “eps”, “pdf”), device = dev.cur(), restoreConsole = TRUE) Arguments filenameThe filename under which to save the plot. Tilde-expansion (see path.expand is supported. typeThe type of plot, Windows metafile, PNG, JPEG, BMP (Windows bitmap format), TIFF, PostScript or PDF. deviceA device number of a windows device, by default the current device. restoreConsoleSee the ‘Details’ section of windows. 一个参数一个参数来解释吧。filename：很好理解，就是你要输出的图片路径和名称，用字符串类型。如“C:/Rplot”。不必加后缀。type：输出格式。device：Windows设备的设备编号，默认为当前设备，这个参数。restoreConsole：这个参数也是跟windows图形设备相关的。 实际使用时，后两个参数默认就可以。主要是针对前两个参数。 接下来用一个案例来展示下操作。使用的是R语言默认的mtcars数据。用plot绘图和ggplot2绘图各测试一遍。但是笔者就如网上所说在Rstudio中运行savePlot报错。 事实上这个语句只能在原生的Rgui中运行。因此将R代码存成脚本，在Rgui中直接用source调用写好的脚本即可。 plot只需直接绘图语句。而ggplot则需要多一句print语句，才能输出图片。 运行完后，打开corel draw，按下图进行操作。 这样就能把emf转变成全部可编辑的矢量了。 当然Rstudio也有个方法。就是使用复制到剪贴板的功能，然后粘贴到Corel Draw里面。 这就是将R导入到Corel Draw前期工作。相比与之前压缩得非常厉害的图片，我感觉Corel Draw输出的图片质量非常高。此外，后面搜索时，我也发现了R的一个包：devEMF: EMF Graphics Output Device。可以输出emf，这样在Rstudio里也可以操作了。 参考博客：R语言可以这么玩 |高质量图片这样导出！]]></content>
@@ -581,8 +592,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>3D-GIS</tag>
         <tag>ArcGIS Pro</tag>
+        <tag>3D-GIS</tag>
         <tag>CGA</tag>
       </tags>
   </entry>
