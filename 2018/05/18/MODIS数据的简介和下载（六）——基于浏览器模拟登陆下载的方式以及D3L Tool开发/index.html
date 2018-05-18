@@ -129,7 +129,7 @@ MODIS数据的简介和下载（三）——MODIS数据">
 <meta property="og:image" content="https://img-blog.csdn.net/20180518153123821?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180518153631497?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180518153639900?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-05-18T07:51:06.149Z">
+<meta property="og:updated_time" content="2018-05-18T07:55:15.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MODIS数据的简介和下载（六）——基于浏览器模拟登陆下载的方式以及D3L Tool开发">
 <meta name="twitter:description" content="接上文，由于NASA官方弃用了FTP改用HTTPS服务，所以关于MODIS数据的下载方式有所改变。完整系列博客可以参照以下链接。本篇主要介绍的是我自己写的一个下载方式，以及我为了方便大家下载开发的一个带图形界面的下载工具。
@@ -512,8 +512,6 @@ MODIS数据的简介和下载（三）——MODIS数据">
 <p><a href="https://giserdaishaoqing.github.io/2018/01/18/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%EF%BC%89%E2%80%94%E2%80%94MODIS%20Web%20Service%E7%9A%84Python%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BA%94%E7%94%A8/">MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用</a></p>
 <p><a href="https://giserdaishaoqing.github.io/2018/04/22/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94HTTPS%E6%9C%8D%E5%8A%A1%E4%B8%8B%E8%BD%BD%E8%AF%B4%E6%98%8E/">MODIS数据的简介和下载（四）——HTTPS服务下载说明</a></p>
 <p><a href="https://giserdaishaoqing.github.io/2018/04/23/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%BA%94%E7%94%A8%E5%AF%86%E9%92%A5%E7%9A%84Python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BD/">MODIS数据的简介和下载（五）——应用密钥的Python脚本下载</a></p>
-<p>如果需要这个exe，可以在下面的百度网盘链接下载。</p>
-<p><a href="https://pan.baidu.com/s/1BajMxbUrweaihyidsrS5Rw" target="_blank" rel="external">nasa.exe</a></p>
 <a id="more"></a> 
 <h1 id="1-基于nasa官方脚本封装的exe"><a href="#1-基于NASA官方脚本封装的exe" class="headerlink" title="1 基于NASA官方脚本封装的exe"></a>1 基于NASA官方脚本封装的exe</h1><p>这应该是近段时间MODIS数据的最后一篇系列，如果有新的内容我会继续更新。废话不多说，事实上基于Python的脚本下载，可能还是有很多小伙伴们不是很能get。毕竟也是门编程语言，就像下图。</p>
 <p><img src="https://img-blog.csdn.net/2018051814514465?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
@@ -530,6 +528,8 @@ MODIS数据的简介和下载（三）——MODIS数据">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nasa.exe -h</div><div class="line">nasa -h</div></pre></td></tr></table></figure>
 <p>在CMD中上述两个语句都可以，都是查询帮助语句。下载的语句可以见上文。</p>
 <p><img src="https://img-blog.csdn.net/20180518151519725?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>如果需要这个exe，可以在下面的百度网盘链接下载。</p>
+<p><a href="https://pan.baidu.com/s/1BajMxbUrweaihyidsrS5Rw" target="_blank" rel="external">nasa.exe</a></p>
 <h1 id="2-基于浏览器模拟登陆下载与d3ltool开发"><a href="#2-基于浏览器模拟登陆下载与D3LTool开发" class="headerlink" title="2 基于浏览器模拟登陆下载与D3LTool开发"></a>2 基于浏览器模拟登陆下载与D3LTool开发</h1><p>当然对于我封装的这个exe，依旧是个基于命令行的程序，可能大家还是不甚喜爱。基于这个原因，我最近花了一小点时间，开发了一个小的GUI软件，我把它称为D3L Tool of NASA Satellite。主要功能就是针对LAADS系列的卫星影像的下载。</p>
 <p>软件整体界面如下：</p>
 <p><img src="https://img-blog.csdn.net/20180518152426896?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
