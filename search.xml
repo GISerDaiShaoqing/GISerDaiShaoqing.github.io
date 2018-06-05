@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[R语言字符串处理的一次经历]]></title>
+    <url>%2F2018%2F06%2F05%2FR%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E6%AC%A1%E7%BB%8F%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[最近笔者在研读一些文献，发现了Remote Sensing of Environment上的一期Special Issues。这一期可以说是地学上Data Assimilation较为经典的研究吧。所以也是目前研读的重点。当然也是有些其他需求，现在想对这一期专刊的作者与客座编辑做些分析探讨。涉及到一些R语言的字符串处理方式。这里记录下。 1 数据描述数据就比较简单了。一共两个数据。第一个数据如下。 主要包括Title和Author两列，这个数据我命名为RSEDAPaper.xlsx文件。 第二个数据如下。 主要包括EditorBoard，这个数据我命名为EditorBoard.xlsx文件。 2 问题描述与思路我其实想了解Remote Sensing of Environment这一期专刊里，Editor Board参与的文章数量有几篇？所以这就涉及到两个处理，第一步是首先要对Author的字段进行分割成单独的作者，第二步是与EditorBoard的数据做匹配。 3 R语言实现第一步首先要把用R语言将数据读入到内存里。由于我存的都是Excel文件，就需要用到openxlsx包。之前我已经介绍过如何在R里读取Excel文件。详情请见下文链接。 R语言读取Excel的神器——openxlsx 1234library(openxlsx)basepath &lt;- "E:/RSEDA/"RSEDA &lt;- read.xlsx(paste(basepath, "RSEDAPaper.xlsx", sep = ""))Editor &lt;- read.xlsx(paste(basepath, "EditorBoard.xlsx", sep = "")) basepath是你存放数据的路径，根据具体情况来处理。 接下来就是涉及到第一步处理，我们首先将Author这种一长串的数据进行分割。 其实这种论文的作者名是比较好分割的，直接使用”,”分割即可。使用的R语言函数是strsplit。输入函数最主要包括两个，一个是字符串，一个是分割符号。样例如下： 1234a &lt;- RSEDA$Author[2]aa &lt;- unlist(strsplit(a, split = ","))a 两次输出分别为： 可以发现已经成功做了分割，使得变成了7个作者单独的一个向量，当然如果你的字符串连接方式不是”,”，你只需要在split的等号后面进行修改。而作者个数不相同的情况下，这样子如何存储呢？这时候就用到了R里的一个特殊存储结构：列表。列表很适合存储这种长度不一的一些数据。 1234567authorlist &lt;- list()for (i in 1:nrow(RSEDA)) &#123; authors &lt;- RSEDA$Author[i] authors &lt;- unlist(strsplit(authors, split = ",")) authorlist[[i]] &lt;- authors&#125;authorlist 可以发现很好的存储起来了，当然还有个小问题。由于英文的一些空格的原因，导致有些作者前后多了空格。所以做下一步匹配之前需要对这个进行处理，这里用的是stringr包。 123library(stringr)b &lt;- " John M. Morrison "str_trim(b, "both") 效果如图，side = “both”，指去除掉两边的空格，”left”和”right”则是去除左边或右边的空格。接下来只需要筛选数据做匹配。这里先生成一个跟前面authorlist一样结构的editorlist列表。然后针对每一篇文章作者分析，用一个for循环和luse获取作者个数，然后，再嵌套一个for循环，获取这一篇文章里每个作者名字，接着去除空格，然后是匹配，ifelse语句的含义是表示，如果这个作者名字有出现在Editor Board里，就输出1，如果没有输出0。 12345678910editorlist &lt;- list()editorlist &lt;- authorlistfor (i in 1:nrow(RSEDA)) &#123; luse &lt;- length(authorlist[[i]]) for (m in 1:luse) &#123; deauthor &lt;- authorlist[[i]][m] deauthor &lt;- str_trim(deauthor, 'both') editorlist[[i]][m] &lt;- ifelse(deauthor%in%Editor$EditorBoard, 1, 0) &#125;&#125; 输出结果如图。接着对每一篇文章统计，是否有Editor Board，有的话是1，没有的话是0。 1234RSEDA$editor &lt;- 1for (i in 1:nrow(RSEDA)) &#123; RSEDA$editor[i] &lt;- ifelse("1"%in%editorlist[[i]], 1, 0) &#125; 先生成了一个字段editor表示是否有Editor Board，默认值为1。而接着就是对每一行分析，这里每一行，是否有含”1”，有的话，即为有Editor Board。 事实上分析结果显示，这一期专刊里居然一个Editor Board也没有参与文章发表。也是蛮奇怪的。后期可能会针对这些文献做些介绍。这一期的R语言处理的步骤也可以用到其他部分，其实主要是字符串分割，去除空格以及简单的包含处理。]]></content>
+      <categories>
+        <category>Coding</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MODIS数据的简介和下载（六）——基于浏览器模拟登陆下载的方式以及D3L Tool开发]]></title>
     <url>%2F2018%2F05%2F18%2FMODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8AD3L%20Tool%E5%BC%80%E5%8F%91%2F</url>
     <content type="text"><![CDATA[接上文，由于NASA官方弃用了FTP改用HTTPS服务，所以关于MODIS数据的下载方式有所改变。完整系列博客可以参照以下链接。本篇主要介绍的是我自己写的一个下载方式，以及我为了方便大家下载开发的一个带图形界面的下载工具。 MODIS数据的简介和下载（一）——MODIS数据简介 MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP） MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service） MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用 MODIS数据的简介和下载（四）——HTTPS服务下载说明 MODIS数据的简介和下载（五）——应用密钥的Python脚本下载 1 基于NASA官方脚本封装的exe这应该是近段时间MODIS数据的最后一篇系列，如果有新的内容我会继续更新。废话不多说，事实上基于Python的脚本下载，可能还是有很多小伙伴们不是很能get。毕竟也是门编程语言，就像下图。 为此，为了方便大家使用这个脚本下载，我用pyinstaller对NASA官方提供的官方下载脚本做了封装，变成了可以在Windows上运行的exe。盗用了下nasa的图标（后面有空我会顺带来介绍下pyinstaller）。 这样子，无需python环境也可以运行程序。如果是win10，会有传统的CMD和Powershell两个窗口，按住shift右击可以打开的是Powershell，如果是win7的话，就是CMD窗口，这里都讲述下怎么使用。 打开Powershell窗口之后，在窗口上输入如下命令。即如图所示。其余的命令行跟上一篇教程提到的一样。这里就不赘述了。 1.\nasa.exe -h win10（包括win7）如果打开CMD窗口。通常需要先定位到这个exe所在路径（F：/MODISDownload）。 12cd DIR(eg. F:/MODISDownload)F: 这样就定位到了exe所在路径。 12nasa.exe -hnasa -h 在CMD中上述两个语句都可以，都是查询帮助语句。下载的语句可以见上文。 如果需要这个exe，可以在下面的百度网盘链接下载。 nasa.exe 2 基于浏览器模拟登陆下载与D3LTool开发当然对于我封装的这个exe，依旧是个基于命令行的程序，可能大家还是不甚喜爱。基于这个原因，我最近花了一小点时间，开发了一个小的GUI软件，我把它称为D3L Tool of NASA Satellite。主要功能就是针对LAADS系列的卫星影像的下载。 软件整体界面如下： 主要功能就是两个下载，一个是使用NASA脚本下载，一个是使用谷歌浏览器下载。NASA脚本下载功能的原理其实就是调用了上面的nasa.exe下载。你只需要填入所需要的数据url地址，下载路径以及你的token再点击下载即可。相比于命令行可能更友好些吧。而使用谷歌浏览器下载的方式，是我自己想到的批量下载方式（前面的博客也有提到），其实就是通过selenium这个自动化测试的神器（后面有空也会聊一聊这个东西），打开浏览器，模拟登陆NASA Earthdata账户，然后自动下载所有数据。所需要填入的就是用户名，密码，订单号和下载路径。但是由于谷歌浏览器和selenium的一些问题，下载路径在软件里面修改是无效的，必须得从你电脑上的谷歌浏览器的设置里进行修改。才能让所有下载的卫星影像数据存储到制定路径里。否则就是默认的谷歌浏览器下载路径。 具体的功能我就不详细介绍了，我已经在建立了这个软件的一个官方网站，具体的使用教程和软件下载链接都在下面的官网里。 D3L Tool of NASA Satellite 也提供了多个版本的下载（当前仅支持Windows上的版本）。 如果有什么问题欢迎在github上提交issues或者邮件联系我，如果你觉得不错的话，也欢迎star。 最后附上两张软件下载中的截图。]]></content>
@@ -628,8 +639,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>ArcGIS Pro</tag>
         <tag>3D-GIS</tag>
+        <tag>ArcGIS Pro</tag>
         <tag>CGA</tag>
       </tags>
   </entry>
