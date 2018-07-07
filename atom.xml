@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-06-05T07:02:43.728Z</updated>
+  <updated>2018-07-07T04:54:27.666Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（一）</title>
+    <link href="https://giserdaishaoqing.github.io/2018/07/07/Coding%20and%20Paper%20Letter%EF%BC%881%EF%BC%89/"/>
+    <id>https://giserdaishaoqing.github.io/2018/07/07/Coding and Paper Letter（1）/</id>
+    <published>2018-07-06T16:00:00.000Z</published>
+    <updated>2018-07-07T04:54:27.666Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>最近发现需要在快速阅读背景下，对快餐式资源做整理与收集。以Coding（以Github）和Paper（自己看到的一些论文，论文一般主要看题目和摘要做些简单小结）的资源为主。<a id="more"></a> </p><h1 id="1-coding"><a href="#1-Coding：" class="headerlink" title="1 Coding："></a>1 Coding：</h1><p>1.QGIS上的变形地图插件，我后面会专门来介绍变形地图这个主题的内容。</p><p><a href="https://github.com/informeren/qgis-cartogram" target="_blank" rel="external">qgis-cartogram源码</a></p><p><img src="https://img-blog.csdn.net/20180707093850674?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>2.火星坐标与地球坐标转换开源代码。</p><p><a href="https://github.com/wandergis/coordtransform-cli" target="_blank" rel="external">命令行版</a></p><p><a href="https://github.com/wandergis/coordTransform_py" target="_blank" rel="external">Python版</a></p><p><a href="https://github.com/wandergis/coordtransform" target="_blank" rel="external">项目与说明</a></p><p>3.空间统计开源软件GeoDa资源。</p><p><a href="https://github.com/GeoDaCenter/geoda" target="_blank" rel="external">GeoDa 源码</a></p><p><img src="https://img-blog.csdn.net/20180707094653147?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>4.空间统计分析开源Python库——PySAL。</p><p><a href="https://github.com/pysal/pysal" target="_blank" rel="external">PySAL GitHub</a></p><p><img src="https://img-blog.csdn.net/20180707094659976?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>5.GIS资源链接整理。</p><p><a href="https://github.com/sshuair/awesome-gis" target="_blank" rel="external">Awesome GIS</a></p><p>6.R语言包（rasterVIS）。一个专门针对栅格做可视化的包。十分强大。</p><p><a href="https://github.com/oscarperpinan/rastervis" target="_blank" rel="external">rasterVis GitHub</a></p><p><img src="https://img-blog.csdn.net/20180707095210392?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>7.基于CityEngine开发的地理设计工具箱。这个项目讨论了一系列工具，这些工具旨在使数据驱动设计能够支持大规模方案规划项目。这些工具旨在集成GIS和CityEngine，以支持创建大量3D内容，以支持城市规划/地理设计项目。创建的内容可用于创建图像作为剪切图纸的一部分（与数据驱动页面一起使用），或链接到Web地图中的Web内容（通过提供弹出窗口或Web场景链接到的内容）。这里提出的工作流程的重点是街道，但脚本也支持与建筑物/批次/分区可视化相关的项目。意图：这些工具的目的是通过结合使用GIS和CityEngine，实现大规模的数据驱动设计。</p><p><a href="https://github.com/Holisticnature/geodesign-toolkit-gis-cityengine-integration-tools" target="_blank" rel="external">CityEngineToolKit-GeodesignToolkit GitHub</a></p><p>8.深度照片风格转换。基于深度学习的照片风格转换。</p><p><a href="https://github.com/luanfujun/deep-photo-styletransfer" target="_blank" rel="external">deep-photo-styletransfer 源码</a></p><p><img src="https://img-blog.csdn.net/20180707101408852?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><p>9.R语言包（scanstatistics）。时空扫描统计算法的R包实现，这个算法最早由哈佛大学学者提出，用于疾病的空间统计分析。</p><p><a href="https://github.com/BenjaK/scanstatistics" target="_blank" rel="external">scanstatistics GitHub</a></p><p><img src="https://img-blog.csdn.net/20180707102509487?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0VTQV9EU1E=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p><h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="https://link.springer.com/article/10.1186/s12889-018-5615-2" target="_blank" rel="external">Outdoor air pollution, green space, and cancer incidence in Saxony: A semi-individual cohort study/萨克森州的室外空气污染，绿色空间和癌症发病率：半个体的队列研究</a>。</p><p>这是目前比较有意思的一个方向，空气污染的人群暴露、绿色空间与疾病三者的关系。使用的是萨克森州的保健数据（主要研究了口腔和咽喉，皮肤——非黑色素瘤皮肤癌 - NMSC的癌症事件（2010-2014），前列腺癌，乳腺癌和结肠直肠癌等疾病），室外空气污染主要考虑PM10和NO2，绿色空间使用NDVI做表征，模型选用的是多层次泊松回归模型。结论主要是高空气污染会增加癌症患病风险，而增加住宅绿色空间则可以降低。</p><p>2.<a href="https://arxiv.org/abs/1802.07452" target="_blank" rel="external">Spatial Morphing Kernel Regression For Feature Interpolation/基于空间变形核回归的高维特征空间插值</a></p><p>针对近年来兴起的带有地理标记的社交媒体数据——也就是志愿者地理信息数据（Volunteer Geographical Information，VGI）。这次用的是Flickr数据。首先是基于卷积神经网络（CNN）提取了Flickr图片的高维特征，然后针对提取的特征进行空间插值。比较了IDW，核回归（高斯核和空间变形核）不同插值方法的结果（以parcel classification结果为例）。</p><p>3.<a href="http://journals.sagepub.com/doi/full/10.1177/0308518X18786250" target="_blank" rel="external">Social media data as a proxy for hourly fine-scale electric power consumption estimation/社交媒体数据作为小时级精细电力消耗估计的辅助数据</a></p><p>准确预测电力需求对现代电力系统的运行至关重要。不准确的负荷预测将显着影响电网效率。预测一个小区域（如建筑物）的电力需求长期以来一直是众所周知的挑战。这项研究分析了带有地理标记的推文与每小时电力消耗之间的关联。检索所有可用的带有地理标记的推文和电表读数，并在空间上汇总到研究区域中的每个建筑物。人类活动指标（推文所反映的）与电力消耗之间存在高度相关性，相关系数超过0.8。非常有意思的研究。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近发现需要在快速阅读背景下，对快餐式资源做整理与收集。以Coding（以Github）和Paper（自己看到的一些论文，论文一般主要看题目和摘要做些简单小结）的资源为主。
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
+    
+      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
+    
+  </entry>
   
   <entry>
     <title>R语言字符串处理的一次经历</title>
@@ -474,28 +500,6 @@
     
     
       <category term="hugo" scheme="https://giserdaishaoqing.github.io/tags/hugo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客优化相关内容</title>
-    <link href="https://giserdaishaoqing.github.io/2017/10/31/hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/"/>
-    <id>https://giserdaishaoqing.github.io/2017/10/31/hexo博客优化相关内容/</id>
-    <published>2017-10-31T08:53:00.000Z</published>
-    <updated>2017-11-01T01:40:23.291Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>记录最近hexo博客优化的一些网址。<br><a href="https://giserdaishaoqing.github.io/">我的博客</a><a id="more"></a></p><p>增加了RSS订阅，支付宝打赏，建站时间，博客版权许可，动画效果。这里参照的主要是NexT官网文档。</p><p><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT官网文档</a></p><p><img src="http://img.blog.csdn.net/20171031170213705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031170220033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>另外支付宝打赏功能似乎有些bug，参照下面的帖子做了修改。</p><p><a href="http://blog.csdn.net/lcyaiym/article/details/76796545" target="_blank" rel="external">hexo的next主题打赏</a></p><p><img src="http://img.blog.csdn.net/20171031170234746?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>接着后面增加了评论功能（就在多说倒闭后不久）。使用的是Gitment。</p><p>感谢大神。</p><p><a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">Gitment：使用 GitHub Issues 搭建评论系统</a><br><a href="https://www.banquanyin.com/C1017063008012455808" target="_blank" rel="external">Hexo博客框架下Gitment取代多说评论</a></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031170530720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>然而不满足的我顺带增加了留言板（hhh），并在留言板上加上了音乐播放器。</p><p>参考博客：</p><p><a href="http://radiationstu.cn/2017/08/01/%E7%A7%91%E6%8A%80/%E7%BB%99Hexo%E6%B7%BB%E5%8A%A0%E7%95%99%E8%A8%80%E6%9D%BF/" target="_blank" rel="external">给Hexo添加留言板</a></p><p><a href="https://www.zhihu.com/question/38797520?sort=created" target="_blank" rel="external">知乎提问·给Hexo添加留言板？</a></p><p><a href="http://www.jianshu.com/p/6e41e3191963" target="_blank" rel="external">Hexo博客中插入音乐</a></p><p><a href="http://tc9011.com/2016/12/24/hexo%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E3%80%81high%E4%B8%80%E4%B8%8B%E5%8F%8A%E4%B8%80%E4%BA%9B%E5%9D%91/" target="_blank" rel="external">hexo添加音乐、high一下及一些坑</a></p><p><a href="https://jingyan.baidu.com/article/f54ae2fc34c9d41e92b849af.html" target="_blank" rel="external">怎样用七牛空间获得音乐外链</a></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031171023674?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>顺带一提，挖到了篇好文章。</p><p><a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p><p>现在又增加了字数统计、访客统计、Fork me on github等（参照的是上文和官方文档）。</p><p>效果如下：</p><p><img src="http://img.blog.csdn.net/20171031203408344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031203432615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p><img src="http://img.blog.csdn.net/20171031212446684?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>还有添加日历的功能。但是似乎没见到用在NexT上的。先存下地址，后面有空研究一下。</p><p><a href="http://lupeng.me/2016/05/11/Hexo%E6%B7%BB%E5%8A%A0%E6%97%A5%E5%8E%86%E4%BA%91.html" target="_blank" rel="external">Hexo主题中添加日历云功能</a></p><p><a href="http://howiefh.github.io/2016/04/29/hexo-s-calendar-plugin/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Hexo日历插件</a></p><p>接下来多实现一个功能，在留言板中增加一个访客地理分布功能。</p><p>基于以下的网址：</p><p><a href="http://www.revolvermaps.com/" target="_blank" rel="external">revolvermaps</a></p><p>只需复制代码，放在markdown文档中就OK。</p><p><img src="http://img.blog.csdn.net/20171031221222773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>效果：</p><p><img src="http://img.blog.csdn.net/20171031221246234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>不过后面发现有些问题在本地预览能够显示，但是在github上部署完后，网页无法显示。目前就先去掉了。等后期再研究。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录最近hexo博客优化的一些网址。&lt;br&gt;&lt;a href=&quot;https://giserdaishaoqing.github.io/&quot;&gt;我的博客&lt;/a&gt;
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
-    
-    
-      <category term="hexo" scheme="https://giserdaishaoqing.github.io/tags/hexo/"/>
     
   </entry>
   

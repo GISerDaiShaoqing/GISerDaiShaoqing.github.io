@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Coding and Paper Letter（一）]]></title>
+    <url>%2F2018%2F07%2F07%2FCoding%20and%20Paper%20Letter%EF%BC%881%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[最近发现需要在快速阅读背景下，对快餐式资源做整理与收集。以Coding（以Github）和Paper（自己看到的一些论文，论文一般主要看题目和摘要做些简单小结）的资源为主。 1 Coding：1.QGIS上的变形地图插件，我后面会专门来介绍变形地图这个主题的内容。 qgis-cartogram源码 2.火星坐标与地球坐标转换开源代码。 命令行版 Python版 项目与说明 3.空间统计开源软件GeoDa资源。 GeoDa 源码 4.空间统计分析开源Python库——PySAL。 PySAL GitHub 5.GIS资源链接整理。 Awesome GIS 6.R语言包（rasterVIS）。一个专门针对栅格做可视化的包。十分强大。 rasterVis GitHub 7.基于CityEngine开发的地理设计工具箱。这个项目讨论了一系列工具，这些工具旨在使数据驱动设计能够支持大规模方案规划项目。这些工具旨在集成GIS和CityEngine，以支持创建大量3D内容，以支持城市规划/地理设计项目。创建的内容可用于创建图像作为剪切图纸的一部分（与数据驱动页面一起使用），或链接到Web地图中的Web内容（通过提供弹出窗口或Web场景链接到的内容）。这里提出的工作流程的重点是街道，但脚本也支持与建筑物/批次/分区可视化相关的项目。意图：这些工具的目的是通过结合使用GIS和CityEngine，实现大规模的数据驱动设计。 CityEngineToolKit-GeodesignToolkit GitHub 8.深度照片风格转换。基于深度学习的照片风格转换。 deep-photo-styletransfer 源码 9.R语言包（scanstatistics）。时空扫描统计算法的R包实现，这个算法最早由哈佛大学学者提出，用于疾病的空间统计分析。 scanstatistics GitHub 2 Paper:1.Outdoor air pollution, green space, and cancer incidence in Saxony: A semi-individual cohort study/萨克森州的室外空气污染，绿色空间和癌症发病率：半个体的队列研究。 这是目前比较有意思的一个方向，空气污染的人群暴露、绿色空间与疾病三者的关系。使用的是萨克森州的保健数据（主要研究了口腔和咽喉，皮肤——非黑色素瘤皮肤癌 - NMSC的癌症事件（2010-2014），前列腺癌，乳腺癌和结肠直肠癌等疾病），室外空气污染主要考虑PM10和NO2，绿色空间使用NDVI做表征，模型选用的是多层次泊松回归模型。结论主要是高空气污染会增加癌症患病风险，而增加住宅绿色空间则可以降低。 2.Spatial Morphing Kernel Regression For Feature Interpolation/基于空间变形核回归的高维特征空间插值 针对近年来兴起的带有地理标记的社交媒体数据——也就是志愿者地理信息数据（Volunteer Geographical Information，VGI）。这次用的是Flickr数据。首先是基于卷积神经网络（CNN）提取了Flickr图片的高维特征，然后针对提取的特征进行空间插值。比较了IDW，核回归（高斯核和空间变形核）不同插值方法的结果（以parcel classification结果为例）。 3.Social media data as a proxy for hourly fine-scale electric power consumption estimation/社交媒体数据作为小时级精细电力消耗估计的辅助数据 准确预测电力需求对现代电力系统的运行至关重要。不准确的负荷预测将显着影响电网效率。预测一个小区域（如建筑物）的电力需求长期以来一直是众所周知的挑战。这项研究分析了带有地理标记的推文与每小时电力消耗之间的关联。检索所有可用的带有地理标记的推文和电表读数，并在空间上汇总到研究区域中的每个建筑物。人类活动指标（推文所反映的）与电力消耗之间存在高度相关性，相关系数超过0.8。非常有意思的研究。]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Consideration of Ecology and Geography</tag>
+        <tag>Summary</tag>
+        <tag>Theory</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[R语言字符串处理的一次经历]]></title>
     <url>%2F2018%2F06%2F05%2FR%E8%AF%AD%E8%A8%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E6%AC%A1%E7%BB%8F%E5%8E%86%2F</url>
     <content type="text"><![CDATA[最近笔者在研读一些文献，发现了Remote Sensing of Environment上的一期Special Issues。这一期可以说是地学上Data Assimilation较为经典的研究吧。所以也是目前研读的重点。当然也是有些其他需求，现在想对这一期专刊的作者与客座编辑做些分析探讨。涉及到一些R语言的字符串处理方式。这里记录下。 1 数据描述数据就比较简单了。一共两个数据。第一个数据如下。 主要包括Title和Author两列，这个数据我命名为RSEDAPaper.xlsx文件。 第二个数据如下。 主要包括EditorBoard，这个数据我命名为EditorBoard.xlsx文件。 2 问题描述与思路我其实想了解Remote Sensing of Environment这一期专刊里，Editor Board参与的文章数量有几篇？所以这就涉及到两个处理，第一步是首先要对Author的字段进行分割成单独的作者，第二步是与EditorBoard的数据做匹配。 3 R语言实现第一步首先要把用R语言将数据读入到内存里。由于我存的都是Excel文件，就需要用到openxlsx包。之前我已经介绍过如何在R里读取Excel文件。详情请见下文链接。 R语言读取Excel的神器——openxlsx 1234library(openxlsx)basepath &lt;- "E:/RSEDA/"RSEDA &lt;- read.xlsx(paste(basepath, "RSEDAPaper.xlsx", sep = ""))Editor &lt;- read.xlsx(paste(basepath, "EditorBoard.xlsx", sep = "")) basepath是你存放数据的路径，根据具体情况来处理。 接下来就是涉及到第一步处理，我们首先将Author这种一长串的数据进行分割。 其实这种论文的作者名是比较好分割的，直接使用”,”分割即可。使用的R语言函数是strsplit。输入函数最主要包括两个，一个是字符串，一个是分割符号。样例如下： 1234a &lt;- RSEDA$Author[2]aa &lt;- unlist(strsplit(a, split = ","))a 两次输出分别为： 可以发现已经成功做了分割，使得变成了7个作者单独的一个向量，当然如果你的字符串连接方式不是”,”，你只需要在split的等号后面进行修改。而作者个数不相同的情况下，这样子如何存储呢？这时候就用到了R里的一个特殊存储结构：列表。列表很适合存储这种长度不一的一些数据。 1234567authorlist &lt;- list()for (i in 1:nrow(RSEDA)) &#123; authors &lt;- RSEDA$Author[i] authors &lt;- unlist(strsplit(authors, split = ",")) authorlist[[i]] &lt;- authors&#125;authorlist 可以发现很好的存储起来了，当然还有个小问题。由于英文的一些空格的原因，导致有些作者前后多了空格。所以做下一步匹配之前需要对这个进行处理，这里用的是stringr包。 123library(stringr)b &lt;- " John M. Morrison "str_trim(b, "both") 效果如图，side = “both”，指去除掉两边的空格，”left”和”right”则是去除左边或右边的空格。接下来只需要筛选数据做匹配。这里先生成一个跟前面authorlist一样结构的editorlist列表。然后针对每一篇文章作者分析，用一个for循环和luse获取作者个数，然后，再嵌套一个for循环，获取这一篇文章里每个作者名字，接着去除空格，然后是匹配，ifelse语句的含义是表示，如果这个作者名字有出现在Editor Board里，就输出1，如果没有输出0。 12345678910editorlist &lt;- list()editorlist &lt;- authorlistfor (i in 1:nrow(RSEDA)) &#123; luse &lt;- length(authorlist[[i]]) for (m in 1:luse) &#123; deauthor &lt;- authorlist[[i]][m] deauthor &lt;- str_trim(deauthor, 'both') editorlist[[i]][m] &lt;- ifelse(deauthor%in%Editor$EditorBoard, 1, 0) &#125;&#125; 输出结果如图。接着对每一篇文章统计，是否有Editor Board，有的话是1，没有的话是0。 1234RSEDA$editor &lt;- 1for (i in 1:nrow(RSEDA)) &#123; RSEDA$editor[i] &lt;- ifelse("1"%in%editorlist[[i]], 1, 0) &#125; 先生成了一个字段editor表示是否有Editor Board，默认值为1。而接着就是对每一行分析，这里每一行，是否有含”1”，有的话，即为有Editor Board。 事实上分析结果显示，这一期专刊里居然一个Editor Board也没有参与文章发表。也是蛮奇怪的。后期可能会针对这些文献做些介绍。这一期的R语言处理的步骤也可以用到其他部分，其实主要是字符串分割，去除空格以及简单的包含处理。]]></content>
@@ -260,8 +273,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -272,8 +285,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -296,8 +309,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -308,8 +321,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -320,8 +333,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -332,8 +345,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -344,8 +357,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -356,8 +369,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -368,8 +381,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -380,8 +393,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -392,8 +405,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -404,8 +417,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -416,8 +429,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -428,8 +441,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -440,8 +453,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -452,8 +465,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -464,8 +477,8 @@
         <category>Statistics &amp; Model</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>Theory</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -570,8 +583,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -582,8 +595,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
