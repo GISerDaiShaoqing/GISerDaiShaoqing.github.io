@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-07-07T08:41:33.472Z</updated>
+  <updated>2018-07-08T08:24:26.766Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（二）</title>
+    <link href="https://giserdaishaoqing.github.io/2018/07/08/Coding%20and%20Paper%20Letter%EF%BC%882%EF%BC%89/"/>
+    <id>https://giserdaishaoqing.github.io/2018/07/08/Coding and Paper Letter（2）/</id>
+    <published>2018-07-07T16:00:00.000Z</published>
+    <updated>2018-07-08T08:24:26.766Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding：" class="headerlink" title="1 Coding："></a>1 Coding：</h1><p>1.近期高光谱遥感的论文和开源代码。</p><p><a href="https://github.com/Santara/LandcoverClassification_BaselineEvaluation" target="_blank" rel="external">LandcoverClassification_BaselineEvaluation GitHub</a>基于高光谱数据对土地覆被进行分类的代码。</p><p><a href="https://github.com/junjun-jiang/JSaCR" target="_blank" rel="external">Matlab code for hyperspectral image classification based on JSaCR GitHub</a>发表于IEEE TGRS Letter上论文的源码。</p><p><a href="https://github.com/Penn000/Multiview-Marginal-Discriminant-Projection-for-Hyperspectral-Images-Classification" target="_blank" rel="external">Multiview Marginal Discriminant Projection for Hyperspectral Images Classification<br>Introduction GitHub</a>NCIG 2018的论文，高光谱影像分类。</p><p><a href="https://github.com/stefpant/HSIclassification" target="_blank" rel="external">Supervised classification of hyperspectral image(HSI) GitHub</a>高光谱影像的监督分类器。</p><p><a href="https://github.com/hetul-patel/hyspeclib" target="_blank" rel="external">Deep learning library for hyperspectral image classification GitHub</a>Python的开源库hyspeclib，基于高光谱影像分类的深度学习库。</p><p><a href="https://github.com/liubing220524/ResNet-for-hyperspectral-image-classification" target="_blank" rel="external">ResNet-for-hyperspectral-image-classification GitHub</a>基于残差神经网络的高光谱分类代码。</p><p><a href="https://github.com/SleepyBrain/Remote-Sensing" target="_blank" rel="external">Undergraduate thesis work on hyperspectral image classification GitHub</a>研究高光谱影像的毕业论文。</p><p><a href="https://github.com/FelineFiles/hyperspectral-classification-with-svm" target="_blank" rel="external">hyperspectral-classification-with-svm GitHub</a>基于SVM的高光谱影像分类。该仓库还提供了与最小二乘法的对比。</p><p><a href="https://github.com/linlinle/Hyperspectral-classification-CNN" target="_blank" rel="external">Hyperspectral-classification-CNN GitHub</a>基于CNN的高光谱分类。</p><p><a href="https://github.com/AlphaNext/Hyperspectral-Imagery-Classification" target="_blank" rel="external">Hyperspectral-Imagery-Classification GitHub</a>发表于IEEE Remote Sensing Letter的关于高光谱影像分类的文章的代码。</p><p><a href="https://github.com/computervisionlearner/Hyperspectral-image-classification" target="_blank" rel="external">2018 IEEE GRSS Data Fusion Contest GitHub</a>IEEE的数据融合竞赛。主要提供高光谱、LiDAR和高分辨率RGB影像。</p><p><a href="https://github.com/irkingmaker/Hyperspectral-Image-Classification" target="_blank" rel="external">Hyperspectral-Image-Classification GitHub</a>高光谱影像分类的代码（Tensorflow）。</p><p><a href="https://github.com/xen0f0n/hyperspectral_data_classification" target="_blank" rel="external">hyperspectral_data_classification GitHub</a>高光谱影像分类开源代码。</p><p><a href="https://github.com/zhangjinyangnwpu/HSI_Classification" target="_blank" rel="external">HSI_Classification GitHub</a>高光谱影像的分类代码。方法包括knn, svm, 1D-CNN, 2D-CNN, 3D-CNN, DPPN, DCPN。</p><p><a href="https://github.com/ytongbai/Hyperspectral-Classification" target="_blank" rel="external">Hyperspectral classification using DNN improved by attention and inception structure GitHub</a>使用DNN改进的高光谱分类开源代码。</p><p><a href="https://github.com/spectralpython/spectral" target="_blank" rel="external">spectral GitHub</a>Python用于高光谱影像处理的模块spectral。</p><p><a href="https://github.com/danqu130/Indian_pines_classification" target="_blank" rel="external">Indian_pines_classification GitHub</a>一个使用CNN与keras的简单分类器用于印度松树高光谱图像分类。</p><p><a href="https://github.com/syamkakarla98/Dimensionality-reduction-and-classification-on-Hyperspectral-Images-Using-Python" target="_blank" rel="external">Dimensionality reduction and classification on Hyperspectral Image Using Python GitHub</a>基于Python的高光谱图像降维与分类。</p><p><a href="https://github.com/XericZephyr/hsic_toolbox" target="_blank" rel="external">Matlab Hyperspectral Image Classification Toolbox</a>Matlab的高光谱影像分类工具箱。</p><p>2.激光雷达与高光谱在森林遥感中应用。</p><p><a href="https://github.com/weecology/DeepForest" target="_blank" rel="external">DeepForest GitHub</a>利用激光雷达和高光谱数据与卷积神经网络进行树分割和分类。</p><p>3.R语言包compareDF。用于比较两个数据框。</p><p><a href="https://github.com/alexsanjoseph/compareDF" target="_blank" rel="external">compareDF</a></p><p><img src="https://upload-images.jianshu.io/upload_images/3229757-41d62eb244b64878.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p>4.基于PyQGIS的加权Voronoi算法实现。这个也是比较有意思的一个算法。后面可以来考虑介绍下这个内容。</p><p><a href="https://github.com/HichamZouarhi/Weighted-Voronoi-PyQGIS" target="_blank" rel="external">Weighted-Voronoi-PyQGIS</a></p><p>5.R语言包cartogram，R语言中变形地图的包。后面会针对不同软件实现变形地图做些介绍。</p><p><a href="https://github.com/sjewo/cartogram" target="_blank" rel="external">cartogram</a></p><p><img src="https://upload-images.jianshu.io/upload_images/3229757-93fe60c659448b5e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p>6.R语言包spdplyr。R语言数据清洗与重构神器dplyr的空间拓展。</p><p><a href="https://github.com/mdsumner/spdplyr" target="_blank" rel="external">spdplyr</a></p><p>7.R语言与ArcGIS的桥接库。也先挖坑吧，这个也是想介绍的内容之一。</p><p><a href="https://github.com/R-ArcGIS/r-bridge" target="_blank" rel="external">R-ArcGIS bridge</a></p><p>8.R语言包ggspatial。ggplot2对空间要素的扩展。</p><p><a href="https://github.com/paleolimbot/ggspatial" target="_blank" rel="external">ggspatial</a></p><p><img src="https://upload-images.jianshu.io/upload_images/3229757-b177275a2607154f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p>9.基于SportUV数据对NBA球员的分析代码。</p><p><a href="https://github.com/linouk23/NBA-Player-Movements" target="_blank" rel="external">NBA-Player-Movements</a></p><p><img src="https://upload-images.jianshu.io/upload_images/3229757-6ac2e3d384c43bce.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p><p>10.一个NASA开放数据的简单Python接口pyNASA。</p><p><a href="https://github.com/bmtgoncalves/pyNASA" target="_blank" rel="external">pyNASA</a></p><p>11.R语言包rnoaa，可以连接许多NOAA数据的API接口。</p><p><a href="https://github.com/ropensci/rnoaa" target="_blank" rel="external">rnoaa</a></p><p>12.Markdown中绘制流程图的两种方式。</p><p><a href="https://github.com/knsv/mermaid" target="_blank" rel="external">1 mermaid</a></p><p><a href="https://github.com/adrai/flowchart.js" target="_blank" rel="external">2 flowchart.js</a></p><p>13.R语言包velox。R语言中快速操作栅格的包，运行速度快于raster等。</p><p><a href="https://github.com/hunzikp/velox" target="_blank" rel="external">velox</a></p><h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="https://www.researchgate.net/publication/326136049_Inference_in_multiscale_geographically_weighted_regression" target="_blank" rel="external">Inference in multiscale geographically weighted regression/多尺度GWR的推论</a></p><p>最近的一篇论文（Fotheringham et al.2017）通过允许GWR中的带宽或平滑因子为模型中的每个协变量分别导出，显着扩展了众所周知的地理加权回归（GWR）框架—— 一个称为多尺度GWR的框架（MGWR）。然而，MGWR框架的一个限制是，到目前为止，没有关于局部参数估计的推断是可能的。本文通过将GWR重新设计为广义加法模型（GAM）来解决此限制，将此框架扩展到MGWR，然后导出MGWR中本地参数的标准误差。</p><p>2.<a href="https://www.researchgate.net/publication/326137577_Spatially-correlated_Multilevel_Models_A_Generic_Specification_with_Spatially-Local_Regularization" target="_blank" rel="external">Spatially-correlated Multilevel Models: A Generic Specification with Spatially-Local Regularization/空间相关的多层次模型：具有空间局部正则化的通用规范</a></p><p>多层次（或方差分量）模型已应用于区域科学，流行病学和polimetrics的许多领域。它们最常用于模拟政策制度中的非平稳性处理，这是一种空间过程异质性。具有空间相关分量的多级模型越来越多地用于模拟空间异质性和空间依赖性的存在。在本文中，开发了用于空间相关多层次模型的通用Gibbs采样器，并在癌症筛查模型中检查其性质。</p><p>3.<a href="http://www.mdpi.com/1660-4601/14/7/750" target="_blank" rel="external">Assessing the Potential of Land Use Modification to Mitigate Ambient NO2 and Its Consequences for Respiratory Health/评估土地利用变化减少环境NO2及其对呼吸系统健康的影响的潜力</a></p><p>这篇文章使用了波特兰 - 希尔斯伯勒 - 温哥华（美国）的夏季和冬季NO2空间密集观测来建模，并且使用随机森林（一种集合数据学习技术）研究NO2与LULC的空间变化。随机森林模型与BenMAP一起进一步用于更好地理解LULC，环境NO2和呼吸系统健康之间的关系。还使用灵敏度分析研究了土地利用改变对环境NO2的影响，并且如何影响呼吸健康。结果显示与道路和树冠区相关的NO2可能影响4-12岁儿童哮喘急性发作的年发病率。</p><p>4.<a href="http://link.springer.com/10.1007/s11356-018-1478-4" target="_blank" rel="external">Quantifying particulate matter accumulated on leaves by 17 species of urban trees in Beijing, China/量化中国北京17种城市树木积累的颗粒物质</a></p><p>这项研究使用洗涤和称重方法来量化17种城市植物物种（包括4种灌木和13种树木）叶片表面和叶子蜡质内水溶性离子和不溶性PM的积累。沉积的PM以三种尺寸分数确定：细（0.2-2.5μm），粗（2.5-10μm）和大（&gt;10μm）。在各种物种中检测到PM积累的显着差异。侧柏（Platycladus orientalis）和华山松（Pinus armandi）的叶子是捕获PM的最有效的。在整个物种中，65％和35％的PM平均分别沉积在叶片表面和蜡质中。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;资源整理
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
+    
+      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（一）</title>
@@ -478,28 +504,6 @@
     
     
       <category term="Docker" scheme="https://giserdaishaoqing.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hugo使用备忘录</title>
-    <link href="https://giserdaishaoqing.github.io/2017/11/05/hugo%E4%BD%BF%E7%94%A8%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    <id>https://giserdaishaoqing.github.io/2017/11/05/hugo使用备忘录/</id>
-    <published>2017-11-04T16:00:00.000Z</published>
-    <updated>2017-11-05T09:46:45.582Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>最近在github上发现了除了hexo外的另一个静态网页神器：hugo，这里就简单记录下使用的一些记录。<a id="more"></a> </p><p>这里抄一下hugo官方文档的介绍。</p><p><strong>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署</strong>。</p><p><a href="http://www.gohugo.org/" target="_blank" rel="external">官方文档地址</a></p><p>这里多说几句Go语言。该语言貌似最近挺火热，很多人看好的一门新语言。以后有空闲可以考虑看看这个语言，不得不说最近在考虑使用docker的问题（配置环境十分方便），突然发现这东西好像也是Go写的。</p><p>进入正题，使用hugo其实没那么麻烦，因为可以用编译好的exe文件（windows系统下）。<br>具体的安装教程见如下：</p><p><a href="https://georgecushen.com/create-your-website-with-hugo/#installing-hugo" target="_blank" rel="external">Install hugo</a></p><p><img src="http://img.blog.csdn.net/20171105170915601?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p><p>翻译一下：<br>第一步，从<a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="external">Hugo Release</a>页面下载hugo的压缩包。<br>第二步，在你喜欢的地方创建一个Hugo和bin的文件夹：’C:\Hugo\bin\’。<br>第三步，将下载的压缩包放到刚刚建立的文件夹里面。<br>第四步，解压压缩包文件，提取hugo.exe到’C:\Hugo\bin\’里。<br>第五步，在你的windows环境变量中加入Hugo exe路径。</p><p>顺带一提，最近用hugo的原因是，刚刚发现的一个开源hugo的学术主页框架项目。</p><p><a href="https://github.com/gcushen/hugo-academic" target="_blank" rel="external">项目地址</a></p><p>接着就开始建立站点了。</p><p>在你的Hugo exe所在文件夹下打开cmd（按住shift右击，可以在当前文件夹打开cmd）。</p><pre><code>hugo new [创建站点文件夹路径名字]</code></pre><p>这样就算创建好了。接下来就只需要拷贝主题即可，用git clone，这里需要开启Git bash。</p><p>拷贝主题之后，针对配置文件进行修改。主要修改的是content里的一些markdown的文档。其实是各个主页。而其他配置则通过根目录的config.toml，熟悉hexo的同学上手速度应该快一些，跟.yml文件类似。</p><p>接下来记录一些常用命令。</p><p>本地预览命令。</p><pre><code>hugo server</code></pre><p>访问端口，localhost:1313。</p><p>生成public文件夹，baseUrl填部署的仓库地址，这里用的github部署。</p><pre><code>hugo --theme=academic --baseUrl=&quot;https://xxxx&quot;</code></pre><p> 切换到public文件夹，并push到远程仓库。</p><pre><code>cd publicgit initgit remote add origin https://github.com/xxxx/xxx.git(从仓库的clone那里复制)git add -Agit commit -m &quot;first commit&quot;git push -u origin master</code></pre><p>之后的更新就只需要后面三句命令就可以了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在github上发现了除了hexo外的另一个静态网页神器：hugo，这里就简单记录下使用的一些记录。
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
-    
-    
-      <category term="hugo" scheme="https://giserdaishaoqing.github.io/tags/hugo/"/>
     
   </entry>
   
