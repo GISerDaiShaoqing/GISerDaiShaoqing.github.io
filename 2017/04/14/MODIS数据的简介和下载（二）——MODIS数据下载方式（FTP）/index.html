@@ -114,27 +114,27 @@
 <meta property="og:url" content="https://giserdaishaoqing.github.io/2017/04/14/MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍两种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414144325927?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414144443755?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414144655022?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414145237611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414145600710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414145624476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414145828527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414151039201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414151556333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414151806117?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414191646367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414191637789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414191833908?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414203351993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170414203654198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-12T01:08:38.469Z">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414143949.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414144257.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414144434.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414144629.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145033.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145553.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145508.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145807.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414151026.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414151539.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414151752.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414191340.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414191412.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414191826.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414202905.jpg">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414203645.jpg">
+<meta property="og:updated_time" content="2018-07-09T07:44:05.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
 <meta name="twitter:description" content="前一篇我们已经介绍了MODIS数据的简介、参数以及相关的典型应用。这一篇我们来介绍下MODIS数据的下载方式。当然这边主要是介绍国外网站的下载方式，国内网站的普遍是在地理空间数据云和遥感集市下载。国外网站（NASA官网）下载方式主要介绍两种。本篇主要针对第一种方式，基于完整的一景影像下载的过程（FTP工具）。后面一篇更新的是基于MODIS Web Service的客户端下载的方式（Matlab和R">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414143949.jpg">
 
 
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1,084
+                  1,078
                 </span>
               
 
@@ -507,8 +507,36 @@
 <blockquote>
 <p><a href="https://ladsweb.modaps.eosdis.nasa.gov/" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/</a></p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20170414144006970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择DATA DISCOVERY的Search&amp;Order：<br><img src="http://img.blog.csdn.net/20170414144325927?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>进入这个页面：<br><img src="http://img.blog.csdn.net/20170414144443755?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>找到你要下载的卫星传感器（这里以Terra星做例子）：<br><img src="http://img.blog.csdn.net/20170414144655022?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择我们需要的产品（这里选了1 km、500 m的二级产品，以及经纬度校正的产品，具体产品介绍看上一篇博客的表格以及列出的链接）：<br><img src="http://img.blog.csdn.net/20170414145237611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>结束后直接点击<br><img src="http://img.blog.csdn.net/20170414145600710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>“TIME”，根据需要选择数据的时间跨度。<br><img src="http://img.blog.csdn.net/20170414145624476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接着点击下一步，“LOCATION”。<br>有不同选择需要影像范围的方法。<br><img src="http://img.blog.csdn.net/20170414145828527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>Country→按国家的行政边界来选择数据<br>Tiles→按瓦片选择，或者说按照MODIS数据全球逐行逐列划分的格网（也可以说是MODIS观测时的行列号）来选择数据<br>Validation Sites→按全球分布的验证的观测站点或者生态网络观测站点选择（可以结合观测站点数据做研究）<br>Draw Custom Box（Classic）→按照用户自定义画出来的框选选择数据（用过老版网站下载的同学会对这个功能比较熟悉）<br>Enter Coordinates→用经纬度坐标来选择数据（这个也是类似于老版网站的下载功能），其实就是研究区的四至坐标。<br>这里选择了按瓦片选择的方式，点击箭头。下一步，“FILES”。这一步会把符合要求的所有数据列出来，但是由于前面搜索的时间跨度太长，web端无法完全显示，所以我们重新修改下相关的需求数据（仅选择2010年的数据，而且选择下载合成产品）。<br><img src="http://img.blog.csdn.net/20170414151039201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来是新版网站的一个比较不同的地方，这里的”FILES“，可以直接下载数据。老版网站一般需要Order，提交订单之后才能下载。这样使用比原来更自由些。<br><img src="http://img.blog.csdn.net/20170414151556333?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在选择所有数据，提交订单即可。<br><img src="http://img.blog.csdn.net/20170414151806117?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>不过新版网站现在要求要注册账户。所以在下载数据前，记得先申请一个Earthdata的账户（这也就是比较麻烦的点了，目前笔者测试了163和qq邮箱，都没有办法收到激活邮件。目前只有谷歌邮箱能激活，所以必须去注册一个gmail的邮箱）。<br>注意，需要在自己的账户中的“My Application”下面启动“LAADS Web”，最后才能提交订单。<br><img src="http://img.blog.csdn.net/20170414191646367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191637789?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170414191833908?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>FTP的下载必须等到订单出现availlable，才能下载。官方给出的等待时间是5min到10天左右。一般很快就OK了。<br>FTP下载方式的话，需要用FlashFXP这类软件来下载，有需要这个软件的可以在评论区留邮箱或在我的主页（友情链接里面）搜索下我的邮箱。</p>
-<p><img src="http://img.blog.csdn.net/20170414203351993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>地址根据你的订单来决定。<br>ftp: ladsweb.modaps.eosdis.nasa.gov<br>username:anoymous<br>password:你账户申请用的邮箱（gmail邮箱）<br>anoymous意为FTP里的匿名传输。接下来只需要简单地拖拽就可以将上面的数据拷贝到本地文件夹了。<br><img src="http://img.blog.csdn.net/20170414203654198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRVNBX0RTUQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这就是关于MODIS数据下载方式(FTP)的内容。<br>最后附上旧版网站下载方式教程博客网址：</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414143949.jpg" alt=""></p>
+<p>选择DATA DISCOVERY的Search&amp;Order：</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414144257.jpg" alt=""></p>
+<p>进入这个页面：</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414144434.jpg" alt=""></p>
+<p>找到你要下载的卫星传感器（这里以Terra星做例子）：</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414144629.jpg" alt=""></p>
+<p>选择我们需要的产品（这里选了1 km、500 m的二级产品，以及经纬度校正的产品，具体产品介绍看上一篇博客的表格以及列出的链接）：</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145033.jpg" alt=""></p>
+<p>结束后直接点击</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145553.jpg" alt=""></p>
+<p>“TIME”，根据需要选择数据的时间跨度。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145508.jpg" alt=""></p>
+<p>接着点击下一步，“LOCATION”。<br>有不同选择需要影像范围的方法。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414145807.jpg" alt=""></p>
+<p>Country→按国家的行政边界来选择数据<br>Tiles→按瓦片选择，或者说按照MODIS数据全球逐行逐列划分的格网（也可以说是MODIS观测时的行列号）来选择数据<br>Validation Sites→按全球分布的验证的观测站点或者生态网络观测站点选择（可以结合观测站点数据做研究）<br>Draw Custom Box（Classic）→按照用户自定义画出来的框选选择数据（用过老版网站下载的同学会对这个功能比较熟悉）<br>Enter Coordinates→用经纬度坐标来选择数据（这个也是类似于老版网站的下载功能），其实就是研究区的四至坐标。<br>这里选择了按瓦片选择的方式，点击箭头。下一步，“FILES”。这一步会把符合要求的所有数据列出来，但是由于前面搜索的时间跨度太长，web端无法完全显示，所以我们重新修改下相关的需求数据（仅选择2010年的数据，而且选择下载合成产品）。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414151026.jpg" alt=""></p>
+<p>接下来是新版网站的一个比较不同的地方，这里的”FILES“，可以直接下载数据。老版网站一般需要Order，提交订单之后才能下载。这样使用比原来更自由些。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414151539.jpg" alt=""></p>
+<p>现在选择所有数据，提交订单即可。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414151752.jpg" alt=""></p>
+<p>不过新版网站现在要求要注册账户。所以在下载数据前，记得先申请一个Earthdata的账户（这也就是比较麻烦的点了，目前笔者测试了163和qq邮箱，都没有办法收到激活邮件。目前只有谷歌邮箱能激活，所以必须去注册一个gmail的邮箱）。<br>注意，需要在自己的账户中的“My Application”下面启动“LAADS Web”，最后才能提交订单。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414191340.jpg" alt=""></p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414191412.jpg" alt=""></p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414191826.jpg" alt=""></p>
+<p>FTP的下载必须等到订单出现availlable，才能下载。官方给出的等待时间是5min到10天左右。一般很快就OK了。<br>FTP下载方式的话，需要用FlashFXP这类软件来下载，有需要这个软件的可以在评论区留邮箱或在我的主页搜索下我的邮箱。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414202905.jpg" alt=""></p>
+<p>地址根据你的订单来决定。<br>ftp: ladsweb.modaps.eosdis.nasa.gov<br>username:anoymous<br>password:你账户申请用的邮箱（gmail邮箱）<br>anoymous意为FTP里的匿名传输。接下来只需要简单地拖拽就可以将上面的数据拷贝到本地文件夹了。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170414203645.jpg" alt=""></p>
+<p>这就是关于MODIS数据下载方式(FTP)的内容。<br>最后附上旧版网站下载方式教程博客网址：</p>
 <blockquote>
 <p><a href="http://blog.sina.com.cn/s/blog_8684880b010149ue.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_8684880b010149ue.html</a></p>
 </blockquote>
@@ -673,7 +701,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -817,7 +845,7 @@ show_date_time();
 		        <h3 class="widget-title">Tag Cloud</h3>
 			    <div id="myCanvasContainer" class="widget tagcloud">
 			    <canvas width="250" height="250" id="resCanvas" style="width=100%">
-			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
 			    </canvas>
 			    </div>
 	        </div>
@@ -851,7 +879,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">113.7k</span>
+    <span title="Site words total count">114.8k</span>
   
 </div>
 
