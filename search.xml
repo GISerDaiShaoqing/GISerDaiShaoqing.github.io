@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Coding and Paper Letter（四）]]></title>
+    <url>%2F2018%2F07%2F10%2FCoding-and-Paper-Letter%EF%BC%88%E5%9B%9B%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[资源整理。 1 Coding：1.与Ecological Forecast这本书以及研究生相关的实践活动。 EF_Activities 2.h2o的R示例，h2o是一个机器学习的平台。 h2o-r-examples 3.R语言包rnassqs，是NOAA快速API的R接口。 rnassqs 4.Python模块spatiallist，用于空间数据处理的模块，从pyroSAR项目中提取。Ubuntu系统上，基于GDAL以及sqlite和spatialite。 spatialist 5.R语言包rayshader,用来将DEM生成各式各样的山体阴影数据。 rayshader 6.Scipy2018年关于地理空间数据的Workshop资料。 scipy2018-geospatial-data 7.R语言包HydroData，可以获取大量开放的地球系统观测数据、矢量数据、栅格数据。 HydroData 8.R语言包fredr，美国联邦银行经济数据的Restful API接口简单封装的包。 fredr 9.R语言包ncdump,简化我们在R中处理NetCDF的方式的一个包。 ncdump 10.《用R做地理计算》书籍。基于gitbook的书籍。讲述了如何用R做地理计算。包括源码以及书籍的在线阅读。 geocompr 11.R语言包leaflet，开源地图库leaflet的R语言接口。用于R语言中地图数据的交互可视化。 leaflet 12.R语言包FRK,针对大数据的固定秩克里金插值算法。FRK算法的论文发表于统计学顶刊Journal of Statisticial Software。以后有空来学习和介绍。 FRK 13.pandoc，通用的文档转换开源方案。 pandoc 14.R语言包ggthemr,可以设定固定的几种ggplot2的绘图风格。 ggthemr 15.R语言包alluvial，用于绘制如下的类似于平行坐标图的图。 alluvial 16.R语言包ggResponse，用于绘制不同模型的响应曲线。 ggResponse 2 Paper:1.HIV Clustering in Mississippi: Spatial Epidemiological Study to Inform Implementation Science in the Deep South/密西西比州的艾滋病毒聚类：空间流行病学研究，以便在南方深入了解实施科学 近年来，美国一半以上的新艾滋病病毒感染发生在美国东南部的非洲裔美国人中。空间流行病学分析可以通过识别与聚类相关的HIV热点和社区层面因素，为深南地区的公共卫生应对提供信息。这项研究的目的是通过分析州级HIV监测数据来识别和描述密西西比州的HIV群集。我们结合使用空间流行病学和统计模型来识别和描述2008年至2014年密西西比州人口普查区（n = 658）的艾滋病病毒热点。 2.What Is It Like Down There? Generating Dense Ground-Level Views and Image Features From Overhead Imagery Using Conditional Generative Adversarial Networks/它在那里是什么样的？利用条件生成对抗网络从正射图像生成密集的地平面视图和图像特征 本文研究条件生成对抗网络（cGAN），以克服使用地理标记媒体进行地理发现的基本限制，即其稀疏和不均匀的空间分布。我们训练cGAN以生成给定顶部图像的位置的地平面视图。我们展示的“假”地平面图像看起来很自然，并且在结构上与真实图像相似。更重要的是，我们显示生成的图像代表了位置，并且cGAN学习的表示是提供信息的。我想条件生成对抗网络是深度学习和机器学习一个很重要的研究方向，这篇文章很好的结合了地理信息做了研究。值得学习。]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Consideration of Ecology and Geography</tag>
+        <tag>Summary</tag>
+        <tag>Theory</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Coding and Paper Letter（三）]]></title>
     <url>%2F2018%2F07%2F09%2FCoding%20and%20Paper%20Letter%EF%BC%883%EF%BC%89%2F</url>
     <content type="text"><![CDATA[资源整理 1 Coding：1.变化检测专题。 Change-Detection-in-Remote-Sensing-Images遥感影像变化检测的Python代码。 change-detection-tutorial时间序列数据的变化检测。 SAR-change-detectionSAR影像的变化监测。 demeter土地利用土地覆盖分解和变化检测模型，demeter是一个开源Python包，旨在分解由综合评估模型（IAM）生成的未来土地分配预测。 lcmap-ccdcLCMAP-ccdc - Python连续变化检测和分类库。 cglops-change-detection通过土地覆盖变化检测增强CGLOPS。 Land-use-change-detection利用多传感器卫星数据进行土地利用变化检测。 REU-AcceleratedChangeDetectioninSARImages用于合成孔径雷达（SAR）图像变化检测的深度神经网络算法。 bayesian-change-detection基于贝叶斯模型的变化检测Python模块。 Change-Detection-in-Satellite-Imagery采用主成分分析（PCA）和差分图像上的K-Means来检测多时相图像卫星图像的变化。 Temporal-Changes-Detection-in-3D-scenes使用VisualSfM重建的3D场景中的时间变化检测。 Opticks_Gsoc2013用于Opticks的基于对象的图像融合和变化检测工具。 ChangeAnomalyDetectionCRAN上的R语言包，变化检测。 VGG-net-for-photo-change-detection用VGG Net训练检测照片。 matlab-ccdc用于CCDC相关处理的原始Matlab代码。 CCDC使用所有可用的Landsat数据为土地覆盖的连续变化检测和分类（CCDC）开发的算法。 lcmap-ccdc基于Apache Spark的LCMAP变化检测和分类。 CRCPython遥感影像分析，分类和变化检测。 NRT_Validation在遥感影像中验证近实时变化检测产品。 CRC4Docker用于书“遥感影像分析，分类和变化检测，第四修订版”的Python脚本。 2.数据科学可视化项目，有非常多有趣的项目。 Data-And-Visualization-Projects 3.Python的一个库，用线要素和三维组合来表达地理要素。 GeospatialLineGraphs 4.R语言包raster的教程说明。 visualraster 5.R语言包sparsebn，用于通过稀疏正则化从高维数据中学习稀疏贝叶斯网络和其他图形模型。 sparsebn 6.Docker的实践资源，关于Docker是啥的可以去翻我前面的博客，有简单介绍以及如何安装。 docker_practice Win7下蓝鲸鱼安装以及Xshell连接操作) 花式安装蓝鲸鱼札记 7.Processing的R拓展。Processing是一个基于Java的动态可视化库，提供了R的接口（接口不一定对，但是就是可以利用R来写Processing）。 Processing.R 8.R Shiny的资源，Shiny是R语言的神器，通过R的代码可以设计html的网页。 awesome-rshiny 9.MapD Core是一个内存中的列存储SQL关系数据库。 mapd-core 10.想要熟练使用Python for GIS的GIS分析师的进步路径：从学徒到大师 python-for-gis-progression-path 11.基于贝叶斯方法的pm2.5预测（R语言），从抓取、数据分析到预测。 PredictPM25 12.Python库Geopandas，Pandas包的地理扩展。 geopandas 13.用于空间/地理Python探索的笔记和库，UCL CASA的课程资源。 Geopython 14.自动化GIS流程课程的课程信息 Course-information 15.R语言包baidumap，百度地图的R语言接口。 baidumap 2 Paper:1.Deep Learning: Individual Maize Segmentation From Terrestrial Lidar Data Using Faster R-CNN and Regional Growth Algorithms/深度学习：使用更快的R-CNN和区域增长算法从地面激光雷达数据中分割玉米 深度学习在LiDAR中的应用。在对象检测，分类和分割方面表现出很高的性能。在这项研究中，我们提出了一种结合深度倾斜和区域生长算法从地面激光雷达数据中分割单个玉米的方法。训练场地的扫描3D点被切成行和行，具有固定的3D窗口。窗口内的点被压缩成深度图像，用于训练更快的R-CNN（基于区域的卷积神经网络）模型以学习检测玉米茎的能力。使用不同种植密度的三个地点来测试该方法。 2.Challenging the Establishment of Cartography and GIS/地图学与地理信息系统建立的挑战 2018年7月6-8日中国兰州第六届全国青年学者地理空间信息论坛，江斌老师的汇报。针对大数据与传统地理学理论的一个新思考。]]></content>
@@ -218,8 +231,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>ArcGIS</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -527,8 +540,8 @@
         <category>Coding</category>
       </categories>
       <tags>
-        <tag>R</tag>
         <tag>ArcGIS</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
@@ -678,8 +691,8 @@
         <category>GIS</category>
       </categories>
       <tags>
-        <tag>3D-GIS</tag>
         <tag>ArcGIS Pro</tag>
+        <tag>3D-GIS</tag>
         <tag>CGA</tag>
       </tags>
   </entry>

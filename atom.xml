@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-07-09T14:19:23.685Z</updated>
+  <updated>2018-07-10T07:21:53.757Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（四）</title>
+    <link href="https://giserdaishaoqing.github.io/2018/07/10/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://giserdaishaoqing.github.io/2018/07/10/Coding-and-Paper-Letter（四）/</id>
+    <published>2018-07-10T06:32:00.000Z</published>
+    <updated>2018-07-10T07:21:53.757Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理。<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding：" class="headerlink" title="1 Coding："></a>1 Coding：</h1><p>1.与Ecological Forecast这本书以及研究生相关的实践活动。</p><p><a href="https://github.com/EcoForecast/EF_Activities" target="_blank" rel="external">EF_Activities</a></p><p>2.h2o的R示例，h2o是一个机器学习的平台。</p><p><a href="https://github.com/navdeep-G/h2o-r-examples" target="_blank" rel="external">h2o-r-examples</a></p><p>3.R语言包rnassqs，是NOAA快速API的R接口。</p><p><a href="https://github.com/potterzot/rnassqs" target="_blank" rel="external">rnassqs</a></p><p>4.Python模块spatiallist，用于空间数据处理的模块，从<a href="https://github.com/johntruckenbrodt/pyroSAR" target="_blank" rel="external">pyroSAR</a>项目中提取。Ubuntu系统上，基于GDAL以及sqlite和spatialite。</p><p><a href="https://github.com/johntruckenbrodt/spatialist" target="_blank" rel="external">spatialist</a></p><p>5.R语言包rayshader,用来将DEM生成各式各样的山体阴影数据。</p><p><a href="https://github.com/tylermorganwall/rayshader" target="_blank" rel="external">rayshader</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531205006424d5ziwhfk.png?imageslim" alt=""></p><p>6.Scipy2018年关于地理空间数据的Workshop资料。</p><p><a href="https://github.com/geopandas/scipy2018-geospatial-data" target="_blank" rel="external">scipy2018-geospatial-data</a></p><p>7.R语言包HydroData，可以获取大量开放的地球系统观测数据、矢量数据、栅格数据。</p><p><a href="https://github.com/mikejohnson51/HydroData" target="_blank" rel="external">HydroData</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15312053164735zlrdqfd.png?imageslim" alt=""></p><p>8.R语言包fredr，美国联邦银行经济数据的Restful API接口简单封装的包。</p><p><a href="https://github.com/sboysel/fredr" target="_blank" rel="external">fredr</a></p><p>9.R语言包ncdump,简化我们在R中处理NetCDF的方式的一个包。</p><p><a href="https://github.com/hypertidy/ncdump" target="_blank" rel="external">ncdump</a></p><p>10.《用R做地理计算》书籍。基于gitbook的书籍。讲述了如何用R做地理计算。包括源码以及书籍的在线阅读。</p><p><a href="https://github.com/Robinlovelace/geocompr" target="_blank" rel="external">geocompr</a></p><p>11.R语言包leaflet，开源地图库leaflet的R语言接口。用于R语言中地图数据的交互可视化。</p><p><a href="https://github.com/rstudio/leaflet" target="_blank" rel="external">leaflet</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531205795095jneq37ze.png?imageslim" alt=""></p><p>12.R语言包FRK,针对大数据的固定秩克里金插值算法。FRK算法的论文发表于统计学顶刊Journal of Statisticial Software。以后有空来学习和介绍。</p><p><a href="https://github.com/andrewzm/FRK" target="_blank" rel="external">FRK</a></p><p>13.pandoc，通用的文档转换开源方案。</p><p><a href="https://github.com/jgm/pandoc" target="_blank" rel="external">pandoc</a></p><p>14.R语言包ggthemr,可以设定固定的几种ggplot2的绘图风格。</p><p><a href="https://github.com/cttobin/ggthemr" target="_blank" rel="external">ggthemr</a></p><p>15.R语言包alluvial，用于绘制如下的类似于平行坐标图的图。</p><p><a href="https://github.com/mbojan/alluvial" target="_blank" rel="external">alluvial</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15312064648834m1i98xx.png?imageslim" alt=""></p><p>16.R语言包ggResponse，用于绘制不同模型的响应曲线。</p><p><a href="https://github.com/rvalavi/ggResponse" target="_blank" rel="external">ggResponse</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531206627766lzknxads.png?imageslim" alt=""></p><h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="http://europepmc.org/abstract/MED/29615383" target="_blank" rel="external">HIV Clustering in Mississippi: Spatial Epidemiological Study to Inform Implementation Science in the Deep South/密西西比州的艾滋病毒聚类：空间流行病学研究，以便在南方深入了解实施科学</a></p><p>近年来，美国一半以上的新艾滋病病毒感染发生在美国东南部的非洲裔美国人中。空间流行病学分析可以通过识别与聚类相关的HIV热点和社区层面因素，为深南地区的公共卫生应对提供信息。这项研究的目的是通过分析州级HIV监测数据来识别和描述密西西比州的HIV群集。我们结合使用空间流行病学和统计模型来识别和描述2008年至2014年密西西比州人口普查区（n = 658）的艾滋病病毒热点。</p><p>2.<a href="https://arxiv.org/abs/1806.05129" target="_blank" rel="external">What Is It Like Down There? Generating Dense Ground-Level Views and Image Features From Overhead Imagery Using Conditional Generative Adversarial Networks/它在那里是什么样的？利用条件生成对抗网络从正射图像生成密集的地平面视图和图像特征</a></p><p>本文研究条件生成对抗网络（cGAN），以克服使用地理标记媒体进行地理发现的基本限制，即其稀疏和不均匀的空间分布。我们训练cGAN以生成给定顶部图像的位置的地平面视图。我们展示的“假”地平面图像看起来很自然，并且在结构上与真实图像相似。更重要的是，我们显示生成的图像代表了位置，并且cGAN学习的表示是提供信息的。我想条件生成对抗网络是深度学习和机器学习一个很重要的研究方向，这篇文章很好的结合了地理信息做了研究。值得学习。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;资源整理。
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
+    
+      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（三）</title>
@@ -483,31 +509,9 @@
       <category term="GIS" scheme="https://giserdaishaoqing.github.io/categories/GIS/"/>
     
     
-      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
-    
       <category term="ArcGIS" scheme="https://giserdaishaoqing.github.io/tags/ArcGIS/"/>
     
-  </entry>
-  
-  <entry>
-    <title>花式安装蓝鲸鱼札记</title>
-    <link href="https://giserdaishaoqing.github.io/2017/11/08/%E8%8A%B1%E5%BC%8F%E5%AE%89%E8%A3%85%E8%93%9D%E9%B2%B8%E9%B1%BC%E6%9C%AD%E8%AE%B0/"/>
-    <id>https://giserdaishaoqing.github.io/2017/11/08/花式安装蓝鲸鱼札记/</id>
-    <published>2017-11-07T16:00:00.000Z</published>
-    <updated>2018-07-09T13:34:37.692Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>大家好，蓝鲸鱼又来了。<a id="more"></a> </p><p>自从上篇搞完蓝鲸鱼在Win 7下安装之后，笔者就看到了另一篇文章。</p><p><a href="http://blog.csdn.net/shi1451042748/article/details/52996046" target="_blank" rel="external">Win10 Docker 安装使用</a></p><p>感觉仿佛很棒的样子。于是我们就开始愉快地新系（zuo）统（si）旅程，笔者顺手就升级了Win 10系统。这里顺带介绍一个神器。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109230659.jpg" alt=""></p><p>YUMI是一个多系统USB启动盘制作的软件。最早是在知乎回答上看到。</p><p><a href="https://www.zhihu.com/question/22119059" target="_blank" rel="external">如何制作支持安装多系统（Win/Linux）的U盘启动盘？</a></p><p><a href="https://www.pendrivelinux.com/yumi-multiboot-usb-creator/" target="_blank" rel="external">YUMI官网</a></p><p><a href="https://pan.baidu.com/s/1cqCmbs" target="_blank" rel="external">也可以点击这个百度网盘地址</a></p><p>操作手册。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109231547.jpg" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109231634.jpg" alt=""></p><p>一键安装即可。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109231921.jpg" alt=""></p><p>好。回到正题。Win 10升完之后，我遇上了各种有的没的bug。。。包括蓝鲸鱼！</p><p>当然还是先简介下怎么安装。</p><hr><p>算了。。。自己看官网文档去。</p><p><a href="https://docs.docker.com/docker-for-windows/" target="_blank" rel="external">官网</a></p><p>简单地说。我遇上的问题就是如下。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/docker.png" alt=""></p><p>其实总结起来，就是网络网卡一些问题。百度、必应、谷歌都未果。但是在github上找到了对应的issues。</p><p><a href="https://github.com/docker/for-win/issues/324" target="_blank" rel="external">Hyper-V was unable to find a virtual switch with name “DockerNAT”.</a></p><p>然后历经磨难，突然发现，是我的毒霸把一堆服务给禁止了。然后没有按顺序一个个开启，一堆毛病。于是就愉快地开启docker之旅。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109234534.jpg" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109234626.jpg" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171109234644.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;大家好，蓝鲸鱼又来了。
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://giserdaishaoqing.github.io/categories/Linux/"/>
-    
-    
-      <category term="Docker" scheme="https://giserdaishaoqing.github.io/tags/Docker/"/>
+      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
     
   </entry>
   
