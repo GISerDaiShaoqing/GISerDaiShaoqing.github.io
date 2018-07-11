@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="Chapter 5 Estimation本篇是第五章，内容是参数估计。">
 <meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170507151334.jpg">
-<meta property="og:updated_time" content="2018-07-09T08:21:22.248Z">
+<meta property="og:updated_time" content="2018-07-11T03:35:01.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（五）——参数估计">
 <meta name="twitter:description" content="Chapter 5 Estimation本篇是第五章，内容是参数估计。">
@@ -564,7 +564,7 @@
 <p>匹配小样本的假定条件——两个匹配的小样本($n_1&lt;30和n_2&lt;30$)，两个总体各观察值的配对差服从正态分布。<br>两个总体均值之差$ \mu_d=\mu_1-\mu_2 $在$1-\alpha$置信水平下的置信区间为：$ \bar d\pm t_{\alpha/2}(n-1)\frac{s_d}{n} $</p>
 <p>两个总体比例之差区间的估计<br>假定条件——两个总体服从二项分布，可以用正态分布来近似，两个样本是独立的。<br>两个总体比例之差$p_1-p_2$在$1-\alpha$置信水平下的置信区间为：$\bar p_1-\bar p_2\pm z_{\alpha/2}\sqrt{\frac{\bar q_1(1-\bar q_1)}{n_1}+\frac{\bar q_2(1-\bar q_2)}{n_2}}$。</p>
 <p>两个正态总体方差比的置信区间<br>实际应用如两种不同方法生产的产品性能的稳定性或两种不同测量工具的精度，需要我们去比较两个总体方差。</p>
-<p>两个正态总体方差比的估计<br>比较两个总体的方差比，用两个样本的方差比来判断（如果$s_1^2/s_2^2$接近于1，说明两个总体方差很接近；如果$s_1^2/s_2^2$远离1，说明两个总体方差存在差异）。<br>总体方差比在$1-\alpha$置信水平下的置信区间为：$\frac{s_1^2/s_2^2}{F_{\alpha/2}}&lt;\frac{\sigma_1^2}{\sigma_2^2}&lt;\frac{s_1^2/s_2^2}{F_{1-\alpha/2}},F\sim F(n_1-1,n_2-1)$(F分布性质：$F_{1-\alpha/2}(n_1,n_2)=\frac{1}{F_{\alpha/2}(n_1,n_2)}$)。</p>
+<p>两个正态总体方差比的估计<br>比较两个总体的方差比，用两个样本的方差比来判断（如果$s_1^2/s_2^2$接近于1，说明两个总体方差很接近；如果$s_1^2/s_2^2$远离1，说明两个总体方差存在差异）。<br>总体方差比在$1-\alpha$置信水平下的置信区间为：$\frac{s_1^2/s_2^2}{F_{\alpha/2}}&lt;\frac{\sigma_1^2}{\sigma_2^2}&lt;\frac{s_1^2/s_2^2}{F_{1-\alpha/2}},F\sim F(n_1-1,n_2-1)$(F分布性质：$F_{1-\alpha/2}(n_1,n_2)=\frac{1}{F_{\alpha/2}(n_2,n_1)}$)。</p>
 <p>总的来说，参数估计的东西很多，根据具体研究情况，我们可以根据自己需求选择不同的参数估计。当然据笔者所知，R语言在参数估计上，现成函数（指默认的基础包）比较少，一般需要自编函数或者有额外的包。这里先给出一个样例函数（14章中会涉及到一部分，这里不详述）。</p>
 <pre><code>conf.int=function(x,sigma,alpha) {
     mean=mean(x)
