@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-07-10T08:14:17.123Z</updated>
+  <updated>2018-07-11T14:12:54.719Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（五）</title>
+    <link href="https://giserdaishaoqing.github.io/2018/07/11/Coding-and-Paper-Letter%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <id>https://giserdaishaoqing.github.io/2018/07/11/Coding-and-Paper-Letter（五）/</id>
+    <published>2018-07-11T13:38:00.000Z</published>
+    <updated>2018-07-11T14:12:54.719Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding：" class="headerlink" title="1 Coding："></a>1 Coding：</h1><p>1.Python模块libpysal，pysal的核心组件。与pysal的区别目前没有明确。有空研究一下。功能都是Python空间分析的模块。</p><p><a href="https://github.com/pysal/libpysal" target="_blank" rel="external">libpysal</a></p><p>2.R语言包mongrel，多项逻辑斯蒂-正态线性回归模型。</p><p><a href="https://github.com/jsilve24/mongrel" target="_blank" rel="external">mongrel</a></p><p>3.R语言工程SLATRRA——Satellite Latency Assessment Tools for Real-time River Applications，用于实时河流应用的卫星延迟评估工具。包含Allen等人的数据分析和数字和表格的制作，“河流波浪传播时间的全球估计和低延迟卫星数据的影响”。代码的最基本部分包括：</p><blockquote><ul><li>计算河流坡度；</li><li>将兴趣点（POI：城市，水坝和仪表）连接到河网；</li><li>模拟流量波动和计算行程时间；</li><li>使用基于仪表的快速估算来验证模型；</li><li>生成图表，并计算论文中提供的各种统计数据。</li></ul></blockquote><p><a href="https://github.com/geoallen/SLATRRA" target="_blank" rel="external">SLATRRA</a></p><p>4.R语言工程RSSA——统计分析用于估算GRWL数据库中的全球河流和河流表面积。</p><p><a href="https://github.com/geoallen/RSSA" target="_blank" rel="external">RSSA</a></p><p>5.R语言包nassR。通过R下快速统计载各种USDA数据的方法。</p><p><a href="https://github.com/rdinter/nassR" target="_blank" rel="external">nassR</a></p><p>6.书籍《社会空间数据科学书》。</p><p><a href="https://github.com/chris-prener/SSDSBook" target="_blank" rel="external">SSDSBook</a></p><p>7.R语言包getSpatialData。通过R可以轻松查询，预览，下载和预处理多种空间数据（包括MODIS, Landsat等卫星）。</p><p><a href="https://github.com/16EAGLE/getSpatialData" target="_blank" rel="external">getSpatialData</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531317030675o5aprzpa.png?imageslim" alt=""></p><p>8.R语言包blockCV,包创建空间或环境分离的训练和测试K折数据用以进行交叉验证，以在空间结构化环境中提供稳健的误差估计。</p><p><a href="https://github.com/rvalavi/blockCV" target="_blank" rel="external">blockCV</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531317134579enja0cu3.png?imageslim" alt=""></p><p>9.R-Shiny工程hikeR,用于轻松规划下一次徒步旅行或骑自行车旅行。</p><p><a href="https://github.com/EricKrg/hikeR" target="_blank" rel="external">hikeR</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531317208861kxvzqoac.png?imageslim" alt=""></p><p>10.R-Shiny示例工程。使用Electron封装Shiny WebApp作为独立应用程序的演示和教学材料。</p><p><a href="https://github.com/ksasso/useR_electron_meet_shiny" target="_blank" rel="external">useR_electron_meet_shiny</a></p><p>11.Python工程senti_analysis，利用Python实现酒店评论的中文情感分析。</p><p><a href="https://github.com/AimeeLee77/senti_analysis" target="_blank" rel="external">senti_analysis</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531317327866mitusw47.png?imageslim" alt=""></p><p>12.Python软件包PyMC3，Python中的概率编程：使用Theano进行贝叶斯建模和概率机器学习。PyMC3是一个用于贝叶斯统计建模和概率机器学习的Python软件包，侧重于高级马尔可夫链蒙特卡罗（MCMC）和变分推理（VI）算法。 其灵活性和可扩展性使其适用于大量问题。</p><p><a href="https://github.com/pymc-devs/pymc3" target="_blank" rel="external">pymc3</a></p><p>13.深度学习库tensorflow的可视化工具tensorboard。</p><p><a href="https://github.com/tensorflow/tensorboard" target="_blank" rel="external">tensorboard</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531317551504f1oqz8qd.png?imageslim" alt=""></p><p>14.R语言包geodist，超轻量级，超快速计算地理距离。</p><p><a href="https://github.com/hypertidy/geodist" target="_blank" rel="external">geodist</a></p><p>15.深度学习和机器学习研究人员使用的参照表</p><p><a href="https://github.com/kailashahirwar/cheatsheets-ai" target="_blank" rel="external">cheatsheets-ai</a></p><p>16.数据科学家的空间可视化养成手册。</p><p><a href="https://github.com/stamen/spatial-dataviz-for-data-scientists" target="_blank" rel="external">spatial dataviz for data scientists</a></p><h1 id="2-paper"><a href="#2-Paper：" class="headerlink" title="2 Paper："></a>2 Paper：</h1><p>1.<a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018JD028432" target="_blank" rel="external">Role of Groundwater in the Dryland Ecohydrological System: A Case Study of the Heihe River Basin/地下水在旱地生态水文系统中的作用 - 以黑河流域为例</a></p><p>地下水维持旱地的粮食生产和生态系统健康。地下水影响相互关联的水文过程和生态状态，然而，生态水文系统中地下水的功能尚未明确量化。在这项研究中，我们使用具有多个独立数据库的区域尺度综合模型评估地下水在黑河流域生态水文系统中的作用。事实上很多生态系统服务测算的时候在地下水这块考虑明显不足（以InVEST模型来说基本忽略地下水部分）。</p><p>2.<a href="http://www.lightingjournal.org/index.php/path/article/view/79" target="_blank" rel="external">Changes in outdoor lighting in Germany from 2012-2016/2012 - 2016年德国户外照明的变化</a></p><p>使用可见红外成像辐射计套件的白天和夜晚波段调查了2012 - 2016年德国联邦州总光照区域和稳定照明区域的光度变化。 大多数州的照明区域和光泽都增加了。本文还讨论了遥感夜间数据在可持续照明环境中的作用。事实上目前光污染的问题也是一个城市研究较少的问题，去年esri杯开发竞赛地理分析组一等奖也是以灯光污染为题，我想这是一个很有前景的方向。</p><p>3.<a href="http://www.progressingeography.com/CN/abstract/abstract40371.shtml" target="_blank" rel="external">基于随机森林和时空核密度方法的不同周期犯罪热点预测对比</a></p><p>推荐柳林老师团队的一篇犯罪地理的论文，用目前新兴的机器学习算法随机森林与时空统计算法时空核密度对犯罪热点进行预测比较。结果发现：在各时间周期上,随机森林分类热点预测方法的面积和案件量命中率均比时空核密度方法准确性高;并且2种方法均能有效地识别犯罪热点中的高发区域,其中在较小范围较短时间内随机森林识别热点中的高发区效率更高,而在较大范围较长时间周期上时空核密度方法识别高发区更优。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;资源整理
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
+    
+      <category term="Theory" scheme="https://giserdaishaoqing.github.io/tags/Theory/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（四）</title>
@@ -487,31 +513,6 @@
     
     
       <category term="Endnote" scheme="https://giserdaishaoqing.github.io/tags/Endnote/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何实现一个以中国为中心的世界地图</title>
-    <link href="https://giserdaishaoqing.github.io/2017/11/14/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BB%A5%E4%B8%AD%E5%9B%BD%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE/"/>
-    <id>https://giserdaishaoqing.github.io/2017/11/14/如何实现一个以中国为中心的世界地图/</id>
-    <published>2017-11-13T16:00:00.000Z</published>
-    <updated>2018-07-09T13:49:40.033Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>最近屡屡有小伙伴为各种目的在询问有没有中国位于中心的世界地图。在某位同学的强烈要求下，我决定稍微记录下这个以我大中华为中心的世界地图的做法。效果图：</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113204444.jpg" alt=""></p><a id="more"></a> <p>原始数据。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113195535.jpg" alt=""></p><h1 id="1-arcgis"><a href="#1-ArcGIS" class="headerlink" title="1 ArcGIS"></a>1 ArcGIS</h1><p>第一种就简单介绍下ArcGIS平台上如何操作吧。</p><p>首先在ArcGIS软件中，右击Layers（图层）→Properties（属性）→Coordinate System（坐标系）</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113200337.jpg" alt=""></p><p>然后如图所示点击生成一个新的Projected Coordinate System（投影坐标系）。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113200921.jpg" alt=""></p><p>按照如图所示设置。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113200949.jpg" alt=""></p><p>并用Save As，导出一个.prj的投影文件。</p><p>接着用Arctoolbox的投影工具进行投影变换（我本身数据是WGS1984的地理坐标系）。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113201327.jpg" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113202047.jpg" alt=""></p><p>选择投影的时候可以直接import。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113202036.jpg" alt=""></p><p>等待运行。</p><p>结果图。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113204444.jpg" alt=""></p><p>如上，其实过程不复杂。最关键的这个使得中国能居于中间的原因是投影参数里面的第三个参数——Central Meridian，也就是中央经线。有兴趣还可以自行调整，我这里设150结果如上，也可以自行设定，只需要双击投影文件修改属性即可。</p><h1 id="2-r"><a href="#2-R" class="headerlink" title="2 R"></a>2 R</h1><p>第二种介绍下R语言的方法。R语言做空间数据的这些处理最主要的两个包就是sp和rgdal。所以在处理前请先安装这两个包。</p><p>接下来直接进入正题。</p><p>我们需要先读入空间数据，然后对空间数据进行投影变换。</p><p>如何读空间数据就请点击前面我写过的文章，<a href="https://giserdaishaoqing.github.io/2017/04/24/R%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%8F%96%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BB%A5%E5%8F%8AArcGIS%E4%B8%ADOLS%E5%B7%A5%E5%85%B7%E5%9B%9E%E5%BD%92%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96R%E8%AF%AD%E8%A8%80%E7%89%88/">戳</a></p><p>其实关键步骤就是用prj4字符串构造出我们需要的投影坐标系。关于这一点，推荐看下面的这篇博客学习。</p><p><a href="http://blog.csdn.net/sf2gis2/article/details/50686811" target="_blank" rel="external">坐标详解与PROJ.4使用说明</a></p><p>此外推荐几个网站用来查询相关坐标系信息。</p><p><a href="http://epsg.io/" target="_blank" rel="external">epsg开源查询网站，托管在github上</a></p><p><a href="http://spatialreference.org/" target="_blank" rel="external">空间参考官网网站</a></p><p><a href="http://www.gdal.org/ogr_formats.html" target="_blank" rel="external">OGR驱动中的矢量格式、读写情况以及代码</a></p><p>这里直接给出对应的prj4字符串。”+proj=eqc +lat_ts=30 +lat_0=0 +lon_0=150 +ellps=WGS84 +datum=WGS84 +units=m +no_defs”</p><p>用sptransform转换投影坐标系，结果如图。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/Rplotchinaworld.png" alt=""></p><p>打完收工。</p><p>贴个R语言源码图。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171114100936.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近屡屡有小伙伴为各种目的在询问有没有中国位于中心的世界地图。在某位同学的强烈要求下，我决定稍微记录下这个以我大中华为中心的世界地图的做法。效果图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171113204444.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="GIS" scheme="https://giserdaishaoqing.github.io/categories/GIS/"/>
-    
-    
-      <category term="ArcGIS" scheme="https://giserdaishaoqing.github.io/tags/ArcGIS/"/>
-    
-      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
     
   </entry>
   
