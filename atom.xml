@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-07-17T01:38:41.956Z</updated>
+  <updated>2018-07-18T14:13:23.782Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（八）</title>
+    <link href="https://giserdaishaoqing.github.io/2018/07/18/Coding-and-Paper-Letter%EF%BC%88%E5%85%AB%EF%BC%89/"/>
+    <id>https://giserdaishaoqing.github.io/2018/07/18/Coding-and-Paper-Letter（八）/</id>
+    <published>2018-07-18T13:03:00.000Z</published>
+    <updated>2018-07-18T14:13:23.782Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding：" class="headerlink" title="1 Coding："></a>1 Coding：</h1><p>1.Python项目，由Allen Downey撰写的Think Python第二版的LaTeX源代码和支持代码。</p><p><a href="https://github.com/AllenDowney/ThinkPython2" target="_blank" rel="external">ThinkPython2</a></p><p>2.R语言包h3jsr，h3jsr使用V8的神奇力量通过其javascript绑定提供对Uber H3库的访问。 </p><p><a href="https://github.com/obrl-soil/h3jsr" target="_blank" rel="external">h3jsr</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531919284643hbnz0z4b.png?imageslim" alt=""></p><p>3.Python项目roi pooling,深度学习项目，这个项目包含自定义TensorFlow操作的感兴趣区域池化的实现。 负责计算的CUDA代码主要取自Ross Girshick最初的Caffe实现。</p><p><a href="https://github.com/deepsense-ai/roi-pooling" target="_blank" rel="external">roi pooling</a></p><p>4.开源项目Weak Supervised Segmentation List，该项目包含一些弱监督语义分割工作的列表。根据监督学习类型，下面列出了论文和资源。</p><p><a href="https://github.com/JackieZhangdx/WeakSupervisedSegmentationList" target="_blank" rel="external">Weak Supervised Segmentation List</a></p><p>5.Python项目General Framework fo SR Tasks。图像超分辨率率重建任务的通用开源框架</p><p><a href="https://github.com/penguin1214/General_Framework_for_SR_Tasks" target="_blank" rel="external">General Framework for SR Tasks</a></p><p>6.Python开源项目3D Deepbox，论文3D Bounding Box Estimation Using Deep Learning and Geometry by Fu-Hsiang Chan的Tensorflow实现。目的是从单个二维图像预测边界框的大小和3D空间中对象的方向。</p><p><a href="https://github.com/smallcorgi/3D-Deepbox" target="_blank" rel="external">3D Deepbox</a></p><p>7.Python项目开源框架pyroSAR，用于大规模SAR卫星数据处理的Python框架。</p><p><a href="https://github.com/johntruckenbrodt/pyroSAR" target="_blank" rel="external">pyroSAR</a></p><p>8.开源项目DeepGlobe Road Extraction Challenge，DeepGlobe道路提取挑战赛第一名解决方案代码。</p><p><a href="https://github.com/zlkanata/DeepGlobe-Road-Extraction-Challenge" target="_blank" rel="external">DeepGlobe Road Extraction Challenge</a></p><p>9.Python库pygdal，Virtualenv和setuptools友好版本的标准GDAL python桥接项目。如果您在virtualenv中安装GDAL时遇到问题，那么此软件包适合您。 您可以使用此软件包将GDAL安装到virtualenv中，但仍需要在系统上安装GDAL库及其头文件。 在Ubuntu上可以这样做：</p><p><a href="https://github.com/nextgis/pygdal" target="_blank" rel="external">pygdal</a></p><p>10.开源项目Slides SciPyConf 2018,第17届Python科学会议（2018年）上公开ppt。</p><p><a href="https://github.com/deniederhut/Slides-SciPyConf-2018" target="_blank" rel="external">Slides SciPyConf 2018</a></p><p>11.R语言包redux，R语言的Redis客户端。</p><p><a href="https://github.com/richfitz/redux" target="_blank" rel="external">redux</a></p><p>12.开源项目road orientation map，当前地图视图的道路方向的可视化。 浏览地图以查看您所在城市的图表。将360°划分为64个区间并累积具有相应方向的路段长度，然后将分布绘制为极坐标图。 两个方向都计算双向道路。</p><p><a href="https://github.com/mourner/road-orientation-map" target="_blank" rel="external">road orientation map</a></p><p>13.开源项目SparseNet，稀疏聚合卷积网络的开源代码。另外一个是关于使用稀疏聚合卷积网络做图像分类的开源代码。</p><p><a href="https://github.com/Lyken17/SparseNet" target="_blank" rel="external">SparseNet</a></p><p><a href="https://github.com/anthony123/SparseNet-A-Sparse-DenseNet-for-Image-Classification" target="_blank" rel="external">SparseNet A Sparse DenseNet for Image Classification</a></p><p>14.开源项目Object Detection Metrics，用于评估对象检测算法的最常用指标。</p><p><a href="https://github.com/rafaelpadilla/Object-Detection-Metrics" target="_blank" rel="external">Object Detectin Metrics</a></p><p>15.R语言项目SoilGrids250m，全球土壤属性和类别的空间预测，分辨率为250米。</p><p><a href="https://github.com/ISRICWorldSoil/SoilGrids250m" target="_blank" rel="external">SoilGrids250m</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531921836342fwwnv051.png?imageslim" alt=""></p><p>16.R语言项目Spatial data visualization with R，一本R语言可视化秘籍，用R做空间可视化的代码。</p><p><a href="https://github.com/oswaldosantos/Spatial_data_visualization_with_R" target="_blank" rel="external">Spatial data visualization with R</a></p><p>17.Python项目urban data science，基于Python的城市数据科学课程的课程材料，Jupyter笔记本，教程，指南和演示。</p><p><a href="https://github.com/gboeing/urban-data-science" target="_blank" rel="external">urban data science</a></p><p>18.R语言包rpostgis，支持R和PostGIS的PostgreSQL数据库的接口。</p><p><a href="https://github.com/mablab/rpostgis" target="_blank" rel="external">rpostgis</a></p><p>19.R语言包getlandsat，从AWS公共数据集中获取Landsat 8数据的包。</p><p><a href="https://github.com/ropensci/getlandsat" target="_blank" rel="external">getlandsat</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1531922057494q7dxfdqe.png?imageslim" alt=""></p><p>20.R语言包MVST，用于多变量时空建模的R包。</p><p><a href="https://github.com/andrewzm/MVST" target="_blank" rel="external">MVST</a></p><h1 id="2-paper"><a href="#2-Paper：" class="headerlink" title="2 Paper："></a>2 Paper：</h1><p>1.<a href="http://www.mdpi.com/2071-1050/10/7/2431" target="_blank" rel="external">Potential of Particle Matter Dry Deposition on Green Roofs and Living Walls Vegetation for Mitigating Urban Atmospheric Pollution in Semiarid Climates/半干旱气候下绿色屋顶和生活墙植被减缓城市大气污染的颗粒物干沉降的潜力</a></p><p>在过去二十年中，绿色屋顶和生活墙植被在建筑物中的应用增加，因为它们建筑节能，促进生物多样性，控制水径流，减轻城市热岛效应，改善室内和城市空气质量，并将人与自然联系起来。然而，很少有研究量化绿色屋顶（GR）和生活墙植被（LW）对减轻空气污染的影响，特别是在空气颗粒物（PM）水平较高的半干旱气候中。因此，本文的目的是通过半干旱气候下GR和LW中常用的几种植被物种来量化PM 10和PM 2.5的干沉降。使用方法是传统的滞尘采样研究，并得出了几种类型较为有效。这种绿色基础设施有助于减轻空气污染。可以说GI也是近年来很火的一个研究方向，因为GI上承热岛效应，下接海绵城市。</p><p>2.<a href="https://www.nature.com/articles/sdata201783" target="_blank" rel="external">A multiscale dataset for understanding complex eco-hydrological processes in a heterogeneous oasis system/用于理解绿洲异质系统中复杂生态水文过程的多尺度数据集</a></p><p>该文章发表于Nature子刊Scientific Data，是当下流行的数据文章和数据期刊。主要介绍了中国科学院寒旱所/西北生态环境资源研究院李新老师团队牵头的黑河流域项目的数据。推荐指数五颗星。该文章的数据为2012年在绿洲 - 沙漠地区从黑河流域联合遥测实验研究（HiWATER）获得的多尺度数据集。在异质地表面上提升生态水文过程是一项巨大的挑战。多尺度观测的可用性很差，阻碍了这一领域的进展。 HiWATER是一项旨在通过分层嵌套比例仪器来解决这一挑战的实验，以获得多尺度和多学科数据。 HiWATER观测系统由涡动协方差磁通，大孔径闪烁计和自动气象站的通量观测矩阵组成;土壤水分和叶面积指数的生态水文传感网络;利用激光雷达，成像光谱仪，多角度热像仪和L波段微波辐射计进行超分辨率机载遥感;和植被动态和光合作用过程的同步地面测量。在传感器校准，数据收集，数据处理和数据集生成过程中，所有观测数据都经过精心控制。这些数据可在figshare和寒冷干旱地区科学数据中心免费获取。这些数据对于阐明多尺度生态水文过程和开发升级方法非常有用。</p><p>3.<a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1944-8287.1999.tb00126.x" target="_blank" rel="external">Gender, the Home‐Work Link, and Space‐Time Patterns of Nonemployment Activities/性别，家庭工作联系和非就业活动的时空模式</a></p><p>美国伊利诺大学厄巴纳-香槟分校著名时间地理学家关美宝老师的大作，在重新定义家庭作业链接的理论工作的基础上，该论文将户外非就业活动确定为家庭与工作之间动态依赖关系的另一个重要组成部分。利用俄亥俄州哥伦布市的旅行日记数据和基于GIS的三维可视化技术，比较了三个人口群体的这些活动的时空模式。使用了非递归结构方程模型研究。结果显示，无论其就业状况如何，女性的日间固定性限制都高于男性。当家庭中有其他成年人分担一些家庭责任时，这种限制就会减少。面临更高固定性约束的女性更有可能兼职工作。一个重要的含义是，纠正家庭内部的分工和性别关系不仅会减少妇女的固定性限制，还会改善她们的劳动力市场地位（特别是对于目前从事兼职工作的妇女）。一个意想不到的结果是，即使遇到更高水平的固定性限制，全职女性也会比男性更长距离上班。这表明，与过去的研究通常所假设的相反，工作之旅可能无法反映女性在日常生活中面临的固定性约束的程度。</p><p>4.<a href="https://www.nature.com/articles/s41598-018-21577-6" target="_blank" rel="external">Light pollution is greatest within migration passage areas for nocturnally-migrating birds around the world/世界各地夜间迁徙鸟类的迁徙通道区域内的光污染最严重</a></p><p>夜间过多或误导的人造光（ALAN）产生的光污染会影响鸟类生物学和生态学的几个方面，包括昼夜节律的破坏和飞行过程中的迷失方向。当ALAN照亮天空时，许多迁徙鸟类每年两次穿越大片土地。考虑到全世界光污染的广泛和日益增加的侵蚀，我们评估了298只夜间迁徙鸟类的地理范围内的年平均ALAN强度与5个因素的关联：年周期阶段，育种与非之间的平均距离 - 养殖范围，范围大小，全球半球范围和IUCN保护类别。在迁移季节，对于短距离移民，对于范围较小的物种和在西半球的物种，地理范围内的光污染相对较大。我们的研究结果表明，候鸟可能受到光污染的影响，特别是在迁徙过程中，这是其年度周期中最关键的阶段。我们希望这些结果能够进一步研究光污染如何影响迁徙鸟类，以及其他高度流动的动物在整个年度周期中的影响。一个非常有意思的光污染的研究。拓展了夜间灯光数据的应用研究。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;资源整理
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（七）</title>
@@ -484,28 +508,6 @@
     
     
       <category term="Python" scheme="https://giserdaishaoqing.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客评论新神器——Valine</title>
-    <link href="https://giserdaishaoqing.github.io/2017/11/24/hexo%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E6%96%B0%E7%A5%9E%E5%99%A8%E2%80%94%E2%80%94Valine/"/>
-    <id>https://giserdaishaoqing.github.io/2017/11/24/hexo博客评论新神器——Valine/</id>
-    <published>2017-11-23T16:00:00.000Z</published>
-    <updated>2018-07-09T13:57:59.497Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>接着前文的hexo博客继续优化。其实也没什么大动作，这回主要是对评论系统做些整理。本文如题目所示：介绍一个神器，Valine。<a id="more"></a></p><p>本来hexo博客用的是gitment，我也非常喜欢，看着逼格就超高呀。无奈我用着bug略多，而且毕竟有github账户的小伙伴似乎并不多。于是我就忍痛准备换评论系统。然后在最近刚刚加入的hexo博客群里，看见了一个神器。也就是本篇主人公——Valine.js。</p><p>具体配置就见如下的文章吧。它的定义—— 一款极简的无后端评论系统。</p><p>在多说和网易云跟帖相继倒闭的情况下，这个简直是救人一命胜造七级浮屠呀。</p><p><a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/" target="_blank" rel="external">Valine – 一款极简的评论系统</a></p><p><a href="https://valine.js.org" target="_blank" rel="external">Valine官网</a></p><p>这个评论系统是基于LeanCloud的，大家应该对这个很熟悉，对，Hexo的博客阅读量统计也是它。官网网址如下，需要注册一个账户。</p><p><a href="https://leancloud.cn" target="_blank" rel="external">LeanCloud官网</a></p><p>另外多提一句，最近为了更好更快升级，我重新在本地部署了下我的hexo博客，就是把NexT主题利用Git方式克隆到本地，以后升级就比较快了。这个内容可以参见官网。也因为克隆了最新版本，发现已经集成了gitment和valinejs（神速）。所以配置起来就很方便了。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171124155800.jpg" alt=""></p><p>这里重点讲一下关于邮件提醒的事。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171124160817.jpg" alt=""></p><p>这样设置一下就可以了。不清楚的查看下面的链接也可以。</p><p><a href="https://valine.js.org/#/configuration" target="_blank" rel="external">valline详细配置官网</a></p><p><a href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE" target="_blank" rel="external">Valine 评论系统中的邮件提醒设置</a></p><p>最后多说一句。支持导出评论和数据分析。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171124171037.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;接着前文的hexo博客继续优化。其实也没什么大动作，这回主要是对评论系统做些整理。本文如题目所示：介绍一个神器，Valine。
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
-    
-    
-      <category term="hexo" scheme="https://giserdaishaoqing.github.io/tags/hexo/"/>
     
   </entry>
   
