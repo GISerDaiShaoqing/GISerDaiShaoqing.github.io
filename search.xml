@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Coding and Paper Letter（九）]]></title>
+    <url>%2F2018%2F07%2F20%2FCoding-and-Paper-Letter%EF%BC%88%E4%B9%9D%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[资源整理 1 Coding：1.高光谱遥感相关代码资源。 Sensor Specific Hyperspectral Image Feature Learning利用卷积神经网络学习高光谱图像传感器特有的空间谱特征。 Hyperspectral Image Spatial Super Resolution via 3D Full Convolutional Neural Network基于三维全卷积神经网络的高光谱图像空间超分辨率重建，3D-FRCNN是具有单个网络的高光谱图像超分辨率（SR）的统一框架。 您可以使用该代码来训练/评估网络以获得hsi超分辨率（SR）。 3dfcnn3dfcn用于超光谱超分辨率的Python代码。 2.开源项目Johns Hopkins University Data Science Specialization on Coursera，约翰霍普金斯大学数据科学专业领域的学生或社区导师期间开发的内容，该内容是通过Coursera提供的。 许多人已经开发了内容来帮助学生完成专业化的十门课程。 datasciencectacontent 3.CVPR 17 论文”Image Super-Resolution via Deep Recursive Residual Network”的代码。 DRRN CVPR17 4.Python库，轻量级库，用于在Theano中构建和训练神经网络。 Lasagne 5.Python项目2d unet with keras，使用2d unet来做分割节点。 2d unet with keras 6.NASA的开源项目。 Python项目： POPP棕榈油种植预测（POPP）。 该Python软件可自动执行下载，大气校正和处理栅格数据的过程，以识别潜在的棕榈油种植园。 DRIP SLIPDRIP SLIP,检测实时增加降水（DRIP）/突然滑坡识别产品（SLIP）的代码。 SETSkyglow Estimation Toolbox，Skyglow估算工具箱（SET）。工具箱采用Python 2.7编写，并从NASA和NOAA的Suomi国家极地轨道合作伙伴（NPP）可见红外成像辐射计套件（VIIRS）卫星传感器进行卫星测量，以使用当地参数绘制天光图像。使用工具箱的研究人员可以通过考虑不同视角的光散射，并将SET的传播模型应用于不同的位置，从而以更高的精度识别光污染源。 R项目： PiCoPiCo,基于像素相关的景观分类（PiCo）。 PiCo是一个R脚本，自动化并区域化了Wallace等人2016年开发的气候景观响应（CLaRe）指标。该脚本执行像素逐步回归分析，以生成相关值可以评估为目标波束草的栅格。 GEE项目： LUCTLUCT，用Google地球引擎代码界面进行了美属维尔京群岛（USVI）的土地使用分类。一共六个类：水，低密度住宅，高密度住宅，森林/灌木，农业和裸地。 MARSHe利用GEE制作从2000年到2017年切萨皮克湾沼泽健康状况变化的地图。 7.Python项目Hierarchical Attention Network，用于文档分类的分层强化网络。 Hierarchical Attention Network 8.开源项目深度强化学习Nanodegree计划。 deep reinforcement learning 9.开源项目关于生成对抗（神经）网络的论文清单。 really awesome gan 10.R语言开源项目r4ds，R在数据科学中的应用。 r4ds 11.Python库verde，用于处理空间数据（水深测量，地球物理调查等）并在常规网格上进行插值（即网格化）。 verde 12.Python项目ee jupyter contrib，使用Jupyter作为GEE的IDE。 ee jupyter contrib 13.R语言项目model gov,h2o-3中的模型改进。 model gov 14.Python库inequality，空间（非空间）不平衡的测度。 inequality 15.R语言包darksky，darksky API的R接口。 darksky 16.R语言包SpaceTimeModels，使用INLA拟合空间和时空模型参数的R包。 SpaceTimeModels 17.R语言项目Spatio temporal Kriging R,用于3D克里金插值的R脚本。 Spatio temporal Kriging R 18.R语言包rsatscan，与SaTScan独立软件连接的工具，类和方法。 rsatscan 19.R语言包MSScvm，Landsat MSS图像的自动云掩膜实现。 MSScvm 20.R语言项目Downscaling，用于SNAP气候降尺度的R代码。 Downscaling 2 Paper:1.Multidecadal, county-level analysis of the effects of land use, Bt cotton, and weather on cotton pests in China/多年度土地利用，Bt抗虫棉花和天气对中国棉花害虫的影响的县级分析 土地利用，气候和农业技术的长期变化可能会影响有害生物的严重程度和管理。只有通过分析长期数据才能确定这些主要驱动因素的影响。本研究调查了1991 - 2015年间中国51个县的三种主要棉花害虫的土地利用，转基因苏云金芽孢杆菌（Bt）抗虫棉的采用，天气，害虫严重程度和杀虫剂使用面板数据。 Bt棉对棉花及其管理中的整个害虫复合体具有普遍影响。研究结果支持基于Bt的植物抗性作为综合虫害管理（IPM）的一个组成部分的有用性，但强调了农业生态系统反馈循环以及气候重要性导致的意外结果的可能性。发表于PNAS的一篇论文，结合了自然生态、农业、遥感数据，计量经济学的面板数据分析方法。 2.Learning Transferable Deep Models for Land-Use Classification with High-Resolution Remote Sensing Images/利用高分辨率遥感影像学习可转移的土地利用分类深度模型 近年来，大量的高空间分辨率遥感（HRRS）图像可用于土地利用制图。然而，由于增加的空间分辨率和由不同的图像采集条件引起的数据干扰带来的复杂信息，通常很难找到一种有效的方法来实现具有异构和高分辨率遥感图像的准确的土地利用分类。本文提出了一种方案，用HRRS图像学习土地利用分类的可转移深度模型。主要思想是依靠深度神经网络来呈现不同类型土地利用中包含的语义信息，并提出伪标记和样本选择方案，以提高深层模型的可转移性。深度学习在土地利用分类的应用，前一段时间RSE也刊登了黄波老师这方面的研究。 3.Adaptive Deep Sparse Semantic Modeling Framework for High Spatial Resolution Image Scene Classification/高空间分辨率图像场景分类的自适应深度稀疏语义建模框架 发表于IEEE TGRS，遥感界Top期刊。是关于语义建模的文章。高空间分辨率（HSR）图像场景分类涉及根据地理属性用特定语义类别标记HSR图像，已经受到越来越多的关注，并且已经为此任务提出了许多算法。使用概率主题模型来获取潜在主题和使用卷积神经网络（CNN）来捕获用于表示HSR图像的深度特征已经是桥接语义差距的有效方式。但是，中级主题功能通常是本地的和重要的，而高级深度功能则传达更多的全局和详细信息。为了发现HSR图像的更多判别语义，提出了一种结合稀疏主题和深度特征的自适应深度稀疏语义建模（ADSSM）框架，用于HSR图像场景分类。在ADSSM中，集成了完全稀疏的主题模型和CNN。为了利用HSR场景的多级语义，稀疏主题特征和深层特征在语义层面上被有效地融合。基于稀疏主题特征和深度特征之间的差异，提出了一种自适应特征归一化策略来改善不同特征的融合。用四个HSR图像分类数据集获得的实验结果证实，与其他现有技术方法相比，所提出的方法显着改善了性能。 4.Measuring night sky brightness: Methods and challenges/测量夜空亮度：方法和挑战 近年来，测量夜空的亮度已成为一个越来越重要的话题，因为人造光及其在地球大气层中的散射继续在全球蔓延。已经为此任务开发了若干仪器和技术。本文概述了这些，并讨论了它们的优点和局限性。讨论了在测量夜空亮度时可以和应该得出的不同数量，以及在这种情况下已经并且仍然需要定义的程序。尽管如此，仅有天顶的单波段单通道设备，如“Sky Quality Meter”，仍然是长期研究夜空亮度和从移动平台进行研究的可行选择。准确解释这些数据需要对天光的颜色组成有一些了解。我们建议通过校准的摄像系统和校准的照度计或亮度计，对这些设备的长期时间序列进行补充，并定期进行全天空采样。与光污染相关的文章。 5.The Limits of the Neighborhood Effect: Contextual Uncertainties in Geographic, Environmental Health, and Social Science Research/邻域效应的限制：地理，环境健康和社会科学研究中的背景不确定性 本文借鉴了最近的研究，认为研究人员需要关注常规理解的邻域效应的极限。它强调了背景影响的复杂性以及准确表示和测量个体暴露于这些影响的挑战。具体而言，它讨论了语境效应的特质和多维性质，语境影响的时间复杂性，曝光度量的框架依赖性，选择性流动性偏差以及邻域效应研究中的发表偏倚。它还讨论了在未来的研究中如何减轻背景不确定性（例如，通过收集和使用高分辨率的时空数据，并转向不依赖于帧的暴露测量，其结果不受数据在空间方面的组织方式的影响，时间）。邻域是空间统计绕不开的关键点，也是造成各类空间统计结果不确定性的一个重要原因之一。 6.Estimation of land surface heat fluxes based on visible infrared imaging radiometer suite data: Case study in northern China/基于可见红外成像辐射计套件数据的地表热通量估算：中国北方的案例研究 蒸发蒸腾（ET）在地表 - 大气相互作用中起着重要作用，可以使用遥感数据进行监测。可见红外成像辐射计套件（VIIRS）传感器是一代光学卫星传感器，提供375至750米空间分辨率的日全球覆盖，22个光谱通道，能够监测从区域到全球的ET。然而，很少有研究关注从VIIRS图像获取ET的方法。本研究的目的是引入一种算法，该算法利用VIIRS数据和气象变量来估算陆地表面的能量预算，包括净辐射，土壤热通量，显热通量和潜热通量。基于表面能量平衡方程的单源模型用于获取中国张掖绿洲内的地表热通量。使用在HiWATER（黑河流域联合遥测实验研究）项目期间收集的观测结果验证了结果。为了便于比较，还使用中等分辨率成像光谱仪（MODIS）数据来检索区域表面热通量。误差分析表明，在本文的模型中，估计的显热通量的准确度依赖于检索到的表面温度和冠层高度的误差。生态水文过程与遥感的耦合一直是最近的一个研究热点。 7.人口城市化对空气污染人群暴露贡献的定量方法研究 生态中心周伟奇老师组韩立建老师的成果，短期快速城市化引发一系列生态环境问题，尤其是近年来以细颗粒物（PM2.5）为代表的城市与区域空气污染问题。人群的污染暴露一方面是因为污染区范围的扩张，另外一方面则归因于城市化引发的人口迁移，目前的研究重点关注于前者的贡献，而忽略了后者的贡献。因此，本研究建立了城市化对空气污染人群暴露贡献的定量方法，并选取我国PM2.5污染最为严重的京津冀城市群开展了实证研究，通过利用2000、2005、2010、2015年PM2.5浓度和人口栅格数据以及人口自然增长率数据，定量评估了城市化引发的人口迁移对空气污染人群暴露的贡献。本研究建立了定量化的方法揭示了城市化在空气污染人群暴露中的定量贡献，为科学引导城市化发展提供了定量的手段，为合理规划京津冀城市群地区的人口流动与空气污染奠定了数据基础。]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Consideration of Ecology and Geography</tag>
+        <tag>Summary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Coding and Paper Letter（八）]]></title>
     <url>%2F2018%2F07%2F18%2FCoding-and-Paper-Letter%EF%BC%88%E5%85%AB%EF%BC%89%2F</url>
     <content type="text"><![CDATA[资源整理 1 Coding：1.Python项目，由Allen Downey撰写的Think Python第二版的LaTeX源代码和支持代码。 ThinkPython2 2.R语言包h3jsr，h3jsr使用V8的神奇力量通过其javascript绑定提供对Uber H3库的访问。 h3jsr 3.Python项目roi pooling,深度学习项目，这个项目包含自定义TensorFlow操作的感兴趣区域池化的实现。 负责计算的CUDA代码主要取自Ross Girshick最初的Caffe实现。 roi pooling 4.开源项目Weak Supervised Segmentation List，该项目包含一些弱监督语义分割工作的列表。根据监督学习类型，下面列出了论文和资源。 Weak Supervised Segmentation List 5.Python项目General Framework fo SR Tasks。图像超分辨率率重建任务的通用开源框架 General Framework for SR Tasks 6.Python开源项目3D Deepbox，论文3D Bounding Box Estimation Using Deep Learning and Geometry by Fu-Hsiang Chan的Tensorflow实现。目的是从单个二维图像预测边界框的大小和3D空间中对象的方向。 3D Deepbox 7.Python项目开源框架pyroSAR，用于大规模SAR卫星数据处理的Python框架。 pyroSAR 8.开源项目DeepGlobe Road Extraction Challenge，DeepGlobe道路提取挑战赛第一名解决方案代码。 DeepGlobe Road Extraction Challenge 9.Python库pygdal，Virtualenv和setuptools友好版本的标准GDAL python桥接项目。如果您在virtualenv中安装GDAL时遇到问题，那么此软件包适合您。 您可以使用此软件包将GDAL安装到virtualenv中，但仍需要在系统上安装GDAL库及其头文件。 在Ubuntu上可以这样做： pygdal 10.开源项目Slides SciPyConf 2018,第17届Python科学会议（2018年）上公开ppt。 Slides SciPyConf 2018 11.R语言包redux，R语言的Redis客户端。 redux 12.开源项目road orientation map，当前地图视图的道路方向的可视化。 浏览地图以查看您所在城市的图表。将360°划分为64个区间并累积具有相应方向的路段长度，然后将分布绘制为极坐标图。 两个方向都计算双向道路。 road orientation map 13.开源项目SparseNet，稀疏聚合卷积网络的开源代码。另外一个是关于使用稀疏聚合卷积网络做图像分类的开源代码。 SparseNet SparseNet A Sparse DenseNet for Image Classification 14.开源项目Object Detection Metrics，用于评估对象检测算法的最常用指标。 Object Detectin Metrics 15.R语言项目SoilGrids250m，全球土壤属性和类别的空间预测，分辨率为250米。 SoilGrids250m 16.R语言项目Spatial data visualization with R，一本R语言可视化秘籍，用R做空间可视化的代码。 Spatial data visualization with R 17.Python项目urban data science，基于Python的城市数据科学课程的课程材料，Jupyter笔记本，教程，指南和演示。 urban data science 18.R语言包rpostgis，支持R和PostGIS的PostgreSQL数据库的接口。 rpostgis 19.R语言包getlandsat，从AWS公共数据集中获取Landsat 8数据的包。 getlandsat 20.R语言包MVST，用于多变量时空建模的R包。 MVST 2 Paper：1.Potential of Particle Matter Dry Deposition on Green Roofs and Living Walls Vegetation for Mitigating Urban Atmospheric Pollution in Semiarid Climates/半干旱气候下绿色屋顶和生活墙植被减缓城市大气污染的颗粒物干沉降的潜力 在过去二十年中，绿色屋顶和生活墙植被在建筑物中的应用增加，因为它们建筑节能，促进生物多样性，控制水径流，减轻城市热岛效应，改善室内和城市空气质量，并将人与自然联系起来。然而，很少有研究量化绿色屋顶（GR）和生活墙植被（LW）对减轻空气污染的影响，特别是在空气颗粒物（PM）水平较高的半干旱气候中。因此，本文的目的是通过半干旱气候下GR和LW中常用的几种植被物种来量化PM 10和PM 2.5的干沉降。使用方法是传统的滞尘采样研究，并得出了几种类型较为有效。这种绿色基础设施有助于减轻空气污染。可以说GI也是近年来很火的一个研究方向，因为GI上承热岛效应，下接海绵城市。 2.A multiscale dataset for understanding complex eco-hydrological processes in a heterogeneous oasis system/用于理解绿洲异质系统中复杂生态水文过程的多尺度数据集 该文章发表于Nature子刊Scientific Data，是当下流行的数据文章和数据期刊。主要介绍了中国科学院寒旱所/西北生态环境资源研究院李新老师团队牵头的黑河流域项目的数据。推荐指数五颗星。该文章的数据为2012年在绿洲 - 沙漠地区从黑河流域联合遥测实验研究（HiWATER）获得的多尺度数据集。在异质地表面上提升生态水文过程是一项巨大的挑战。多尺度观测的可用性很差，阻碍了这一领域的进展。 HiWATER是一项旨在通过分层嵌套比例仪器来解决这一挑战的实验，以获得多尺度和多学科数据。 HiWATER观测系统由涡动协方差磁通，大孔径闪烁计和自动气象站的通量观测矩阵组成;土壤水分和叶面积指数的生态水文传感网络;利用激光雷达，成像光谱仪，多角度热像仪和L波段微波辐射计进行超分辨率机载遥感;和植被动态和光合作用过程的同步地面测量。在传感器校准，数据收集，数据处理和数据集生成过程中，所有观测数据都经过精心控制。这些数据可在figshare和寒冷干旱地区科学数据中心免费获取。这些数据对于阐明多尺度生态水文过程和开发升级方法非常有用。 3.Gender, the Home‐Work Link, and Space‐Time Patterns of Nonemployment Activities/性别，家庭工作联系和非就业活动的时空模式 美国伊利诺大学厄巴纳-香槟分校著名时间地理学家关美宝老师的大作，在重新定义家庭作业链接的理论工作的基础上，该论文将户外非就业活动确定为家庭与工作之间动态依赖关系的另一个重要组成部分。利用俄亥俄州哥伦布市的旅行日记数据和基于GIS的三维可视化技术，比较了三个人口群体的这些活动的时空模式。使用了非递归结构方程模型研究。结果显示，无论其就业状况如何，女性的日间固定性限制都高于男性。当家庭中有其他成年人分担一些家庭责任时，这种限制就会减少。面临更高固定性约束的女性更有可能兼职工作。一个重要的含义是，纠正家庭内部的分工和性别关系不仅会减少妇女的固定性限制，还会改善她们的劳动力市场地位（特别是对于目前从事兼职工作的妇女）。一个意想不到的结果是，即使遇到更高水平的固定性限制，全职女性也会比男性更长距离上班。这表明，与过去的研究通常所假设的相反，工作之旅可能无法反映女性在日常生活中面临的固定性约束的程度。 4.Light pollution is greatest within migration passage areas for nocturnally-migrating birds around the world/世界各地夜间迁徙鸟类的迁徙通道区域内的光污染最严重 夜间过多或误导的人造光（ALAN）产生的光污染会影响鸟类生物学和生态学的几个方面，包括昼夜节律的破坏和飞行过程中的迷失方向。当ALAN照亮天空时，许多迁徙鸟类每年两次穿越大片土地。考虑到全世界光污染的广泛和日益增加的侵蚀，我们评估了298只夜间迁徙鸟类的地理范围内的年平均ALAN强度与5个因素的关联：年周期阶段，育种与非之间的平均距离 - 养殖范围，范围大小，全球半球范围和IUCN保护类别。在迁移季节，对于短距离移民，对于范围较小的物种和在西半球的物种，地理范围内的光污染相对较大。我们的研究结果表明，候鸟可能受到光污染的影响，特别是在迁徙过程中，这是其年度周期中最关键的阶段。我们希望这些结果能够进一步研究光污染如何影响迁徙鸟类，以及其他高度流动的动物在整个年度周期中的影响。一个非常有意思的光污染的研究。拓展了夜间灯光数据的应用研究。]]></content>
@@ -356,8 +368,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -368,8 +380,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -666,8 +678,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -678,8 +690,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
