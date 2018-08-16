@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-08-13T07:34:56.151Z</updated>
+  <updated>2018-08-16T15:05:26.461Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（十二）</title>
+    <link href="https://giserdaishaoqing.github.io/2018/08/16/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/"/>
+    <id>https://giserdaishaoqing.github.io/2018/08/16/Coding-and-Paper-Letter（十二）/</id>
+    <published>2018-08-16T12:54:00.000Z</published>
+    <updated>2018-08-16T15:05:26.461Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理。<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding：" class="headerlink" title="1 Coding："></a>1 Coding：</h1><p>1.R语言生成的ppt，GeoStat2018会议报告，时空模式分析的报告。</p><p><a href="https://github.com/Nowosad/geostat18" target="_blank" rel="external">geostat18</a></p><p>2.欧空局哨兵和SMOS的工具集，关于对地观测数据的处理与分析的docker容器。</p><p><a href="https://github.com/schwankner/docker-esa-snap" target="_blank" rel="external">docker esa snap</a></p><p>3.R语言包ggmapstyles，一个R包可以切换各种不同风格的地图。</p><p><a href="https://github.com/mikey-harper/ggmapstyles" target="_blank" rel="external">ggmapstyles</a></p><p>4.地理空间的docker镜像并且打包成AWS（亚马逊云服务器）的linux系统。</p><p><a href="https://github.com/developmentseed/geolambda" target="_blank" rel="external">geolamda</a></p><p>5.R语言包ggrastr，ggplot2的拓展包，专门针对栅格几何图形。</p><p><a href="https://github.com/VPetukhov/ggrastr" target="_blank" rel="external">ggrastr</a></p><p>6.一系列关于使用Google Earth Engine(GEE)的工具（javascript）。</p><p><a href="https://github.com/fitoprincipe/geetools-code-editor" target="_blank" rel="external">geetools code editor</a></p><p>7.R语言教程展示如何构建一个简单的ABM模型。</p><p><a href="https://github.com/amesoudi/cultural_evolution_ABM_tutorial" target="_blank" rel="external">cultural evolution ABM tutorial</a></p><p>8.基于Python API的Google Earth Engine(GEE)的最佳可获取像素组合。</p><p><a href="https://github.com/fitoprincipe/geebap" target="_blank" rel="external">geebap</a></p><p>9.R语言包caiman，冠层照片分析。</p><p><a href="https://github.com/GastonMauroDiaz/caiman" target="_blank" rel="external">caiman</a></p><p>10.R语言包imager，专门用做图像处理的R包。</p><p><a href="https://github.com/dahtah/imager" target="_blank" rel="external">imager</a></p><p>11.基于neo4j的推荐引擎模块。</p><p><a href="https://github.com/graphaware/neo4j-reco" target="_blank" rel="external">neo4j reco</a></p><p>12.高性能，易用且可扩展的机器学习包（C ++，Python，R）。</p><p><a href="https://github.com/aksnzhy/xlearn" target="_blank" rel="external">xlearn</a></p><p>13.将光线应用到rgl的绝对坐标上。</p><p><a href="https://github.com/mdsumner/montereybayshader" target="_blank" rel="external">montereybayshader</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1534429785559purcd75j.png?imageslim" alt=""></p><p>14.将shapefile转换为json文件。</p><p><a href="https://github.com/calvinmetcalf/shapefile-js" target="_blank" rel="external">shapefile js</a></p><p>15.基于R的贝叶斯分析模板。</p><p><a href="https://github.com/cdphelan/bayesian-template" target="_blank" rel="external">bayesian template</a></p><p>16.R语言包autoxgboost，自动调整和安装xgboost的R包。</p><p><a href="https://github.com/ja-thomas/autoxgboost" target="_blank" rel="external">autoxgboost</a></p><h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="http://www.mdpi.com/2071-1050/10/5/1442" target="_blank" rel="external">Air Quality Monitoring Network Design Optimisation for Robust Land Use Regression Models/鲁棒土地利用回归模型的空气质量监测网络优化设计</a></p><p>为了解空气污染对健康的影响，一个非常普遍的流行病学研究是可用的暴露数据质量。许多流行病学研究依赖于经验建模技术，例如土地利用回归（LUR）来评估环境空气暴露。以前的研究已经以临时的方式定位监测站，有利于它们在交通“热点”中的位置，或者在主观上被认为对土地使用和人口感兴趣的区域。然而，监测站的临时安置可能导致长期暴露分析的不明智决定。本文介绍了一种识别空气质量监测站位置的系统方法。它结合了LUR的灵活性和将权重放在优先区域（如人口密集区域）的能力，以最小化空间平均预测误差。在研究区域测试方法已经表明它导致平均预测误差的显着下降（没有空间权重的情况下为99.87％;在研究区域中具有空间权重的99.94％）。这项工作的结果可以指导网站的选择，同时扩展或创建空气质量监测网络，以实现稳健的LUR估算，同时将预测误差降至最低。土地利用回归模型是一个比较常用的环境大气污染监测建模模型。这篇文章不仅仅是从模型角度对模型改进，还针对空气质量监测网络做了优化。</p><p>2.<a href="https://www.sciencedirect.com/science/article/pii/S0168192318301813" target="_blank" rel="external">Partitioning evapotranspiration using an optimized satellite-based ET model across biomes/使用优化的基于卫星的ET模型在生物群系中划分蒸散</a></p><p>蒸散（ET）的划分是陆地水平衡和全球水循环的关键因素，了解陆地生物群落的划分以及ET划分与潜在影响因素之间的关系对于预测未来的生态系统反馈至关重要。基于优化的Priestly-Taylor喷射推进实验室模型，我们将ET分为三个组成部分蒸腾（T），冠层拦截蒸发（EI）和土壤蒸发（ES）。我们发现EI的成分是显着的，不同生物群落中EI与降水的比率在0.02到0.29之间。 T / ET比率范围为0.29至0.72，生物群落之间存在明显差异，且比率通常低于先前使用同位素方法的研究。 （T + EI）/ ET比率被限制在从0.57到0.86的相对窄的范围内。随着年降水量的增加，T / ET值呈明显下降趋势，但T / ET与年叶面积指数之间无显着相关性。蒸散是生态系统中很关键的一个组成，近些年来很多研究都是针对ET的。这个文章将ET更好地与生物群落结合在一起，值得一度，发表在农林科学top期刊Agricultural and Forest Meteorology上。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;资源整理。
+    
+    </summary>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（十一）</title>
@@ -484,29 +506,6 @@
       <category term="MODIS" scheme="https://giserdaishaoqing.github.io/tags/MODIS/"/>
     
       <category term="Python" scheme="https://giserdaishaoqing.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>迟到的2017总结文</title>
-    <link href="https://giserdaishaoqing.github.io/2018/01/10/%E8%BF%9F%E6%9D%A5%E7%9A%842017%E6%80%BB%E7%BB%93%E6%96%87/"/>
-    <id>https://giserdaishaoqing.github.io/2018/01/10/迟来的2017总结文/</id>
-    <published>2018-01-09T16:00:00.000Z</published>
-    <updated>2018-03-14T16:49:13.418Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。</p><p>默默做个总结来迎接新的一年。</p><a id="more"></a><p>2017年走过的城市还蛮多的。一年下来，半年北方，半年小厦门。参加的学术活动也算不少，也算有些小成果。不过我想这一年来在github和博客上确实花了不少功夫，对于开源、编程，自己也有了更深入的了解。</p><p>2017年博客一共发了44篇博客，第一次利用github搭建了自己的主页和博客。而自己的各种博客也是基本同步。</p><p>对整体的博客内容做些梳理。</p><p>第一部分：技术实践笔记杂谈，像学了半天Fortran开始配环境的、装WRF的、Hexo和NexT优化的、装系统的。</p><p>第二部分：R语言相关的编程笔记，R算是我现在比较熟练的语言，当然去年特地为了记录公选课学习内容，连载了一系列的应用统计学与R语言实践笔记（也是github上开源了的项目，前几天被人forked了下，还有点小激动）。</p><p>第三部分：地理、生态、GIS相关的，阅读量最高的MODIS系列——其实也是源自我上课的实习内容。其实今天在回顾过去的一些基础知识，发现课堂上掌握得确实还不够，仍然需要好好温习。</p><p>第四部分：学习方面的感受，esri用户大会，定量遥感讲座。</p><p>新的一年先立些flag。</p><p>（一）机器学习笔记——最近在学习吴恩达大大的公开课，希望有所斩获。有空会更新这部分的笔记。</p><p>（二）空间统计内容——这里还是要推荐虾神的白话空间统计系列，但是我也想对之前自己学习空间统计内容做些梳理（最近正在看莫兰指数推导——嗯，死去活来），数学恐惧症就跳过吧。</p><p>（三）论文推荐和阅读——我可能会把阅读文献内容也放到博客内。</p><p>（四）研究成果推荐——虽然成果不多，但也会考虑，哈哈。</p><p>如果你们还对我的博客有啥建设性意见。欢迎留言。</p><div id="aplayer1" class="aplayer" style="margin-bottom: 20px;"></div><script>var options = {"narrow":false,"autoplay":true,"showlrc":0,"mode":"random","music":[{"title":"灌篮高手","author":"青春","url":"http://oyo5uzjmz.bkt.clouddn.com/BAAD%20-%20%E5%90%9B%E3%81%8C%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%A8%E5%8F%AB%E3%81%B3%E3%81%9F%E3%81%84.mp3","pic":"http://oyo5uzjmz.bkt.clouddn.com/SD.jpg"}]};options.element = document.getElementById("aplayer1");new APlayer(options);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;悄然过去的2017年，仿佛还来不及说再见。突然想起那天科比球衣退役时热泪盈眶地在宿舍看直播的自己。&lt;/p&gt;
-&lt;p&gt;默默做个总结来迎接新的一年。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
-    
-    
-      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
     
   </entry>
   

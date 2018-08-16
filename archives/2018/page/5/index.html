@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="MODIS,Python,Shell," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -108,40 +108,12 @@
 
 
 
-<meta name="description" content="接上文，由于NASA官方弃用了FTP改用HTTPS服务，所以关于MODIS数据的下载方式有所改变。完整系列博客可以参照以下链接。本篇主要接着上一篇没有讲完的应用密钥的脚本下载介绍。
-MODIS数据的简介和下载（一）——MODIS数据简介
-MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
-MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Serv">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MODIS数据的简介和下载（五）——应用密钥的Python脚本下载">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GISerDaiShaoqing's Blog">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/archives/2018/page/5/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="接上文，由于NASA官方弃用了FTP改用HTTPS服务，所以关于MODIS数据的下载方式有所改变。完整系列博客可以参照以下链接。本篇主要接着上一篇没有讲完的应用密钥的脚本下载介绍。
-MODIS数据的简介和下载（一）——MODIS数据简介
-MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
-MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Serv">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423143729.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423144317.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423144856.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423144955.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165311.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165322.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165340.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165353.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165401.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423203851.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423204449.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423204534.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423204935.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423205035.png">
-<meta property="og:updated_time" content="2018-07-10T01:17:05.839Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MODIS数据的简介和下载（五）——应用密钥的Python脚本下载">
-<meta name="twitter:description" content="接上文，由于NASA官方弃用了FTP改用HTTPS服务，所以关于MODIS数据的下载方式有所改变。完整系列博客可以参照以下链接。本篇主要接着上一篇没有讲完的应用密钥的脚本下载介绍。
-MODIS数据的简介和下载（一）——MODIS数据简介
-MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
-MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Serv">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423143729.png">
+<meta name="twitter:title" content="GISerDaiShaoqing's Blog">
 
 
 
@@ -171,13 +143,13 @@ MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODI
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/"/>
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/archives/2018/page/5/"/>
 
 
 
 
 
-  <title>MODIS数据的简介和下载（五）——应用密钥的Python脚本下载 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Archive | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -196,7 +168,7 @@ MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODI
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     	<a href="https://github.com/GISerDaiShaoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" 
@@ -350,341 +322,77 @@ MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODI
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+         
+          
+        Nice! 68 posts in total. Keep on posting.
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/01/10/迟来的2017总结文/" itemprop="url">
+              
+                <span itemprop="name">迟到的2017总结文</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">MODIS数据的简介和下载（五）——应用密钥的Python脚本下载</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-23T00:00:00+08:00">
-                2018-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RS/" itemprop="url" rel="index">
-                    <span itemprop="name">RS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/" class="leancloud_visitors" data-flag-title="MODIS数据的简介和下载（五）——应用密钥的Python脚本下载">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1,608
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <script src="\assets\js\APlayer.min.js"> </script><p>接上文，由于NASA官方弃用了FTP改用HTTPS服务，所以关于MODIS数据的下载方式有所改变。完整系列博客可以参照以下链接。本篇主要接着上一篇没有讲完的应用密钥的脚本下载介绍。</p>
-<p><a href="https://giserdaishaoqing.github.io/2017/04/13/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E7%AE%80%E4%BB%8B/">MODIS数据的简介和下载（一）——MODIS数据简介</a></p>
-<p><a href="https://giserdaishaoqing.github.io/2017/04/14/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88FTP%EF%BC%89/">MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）</a></p>
-<p><a href="https://giserdaishaoqing.github.io/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/">MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）</a></p>
-<p><a href="https://giserdaishaoqing.github.io/2018/01/18/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%EF%BC%89%E2%80%94%E2%80%94MODIS%20Web%20Service%E7%9A%84Python%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BA%94%E7%94%A8/">MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用</a></p>
-<p><a href="https://giserdaishaoqing.github.io/2018/04/22/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94HTTPS%E6%9C%8D%E5%8A%A1%E4%B8%8B%E8%BD%BD%E8%AF%B4%E6%98%8E/">MODIS数据的简介和下载（四）——HTTPS服务下载说明</a><br><a id="more"></a> </p>
-<h1 id="1-官方教程与说明"><a href="#1-官方教程与说明" class="headerlink" title="1 官方教程与说明"></a>1 官方教程与说明</h1><p><a href="https://ladsweb.modaps.eosdis.nasa.gov/tools-and-services/data-download-scripts/#requesting" target="_blank" rel="external">LAADS Data Download Scripts</a></p>
-<p>接着上文的部分往下，上一篇博客已经讲了一小部分应用密钥。本篇主要针对以下部分介绍（红框部分）。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423143729.png" alt=""></p>
-<h2 id="1-应用密钥"><a href="#1-应用密钥" class="headerlink" title="1 应用密钥"></a>1 应用密钥</h2><h3 id="1-申请一个应用密钥"><a href="#1-申请一个应用密钥" class="headerlink" title="1 申请一个应用密钥"></a>1 申请一个应用密钥</h3><p>任何注册了Earthdata账户(<a href="https://urs.earthdata.nasa.gov/profile" target="_blank" rel="external">注册链接</a>)的人都可以申请应用密钥。通过以下步骤就可以申请一个应用密钥。</p>
-<p>1.首先转到对应的页面：<a href="https://ladsweb.modaps.eosdis.nasa.gov/" target="_blank" rel="external">LAADS DAAC</a>，登陆Earthdata。<br>2.接着点击Profile→App Keys（见截图）。<br>3.通过输入你对keys的描述并且点击 “Create New App Key”按钮创建一个新的应用密钥。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423144317.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423144856.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423144955.png" alt=""></p>
-<p>当然如果以前你就有应用密钥，但是你忘记了，那就按照如下的步骤操作：<br>1.登陆Earthdata（同上）。<br>2.接着点击Profile→App Keys（同上）。<br>3.复制你的密钥。</p>
-<p>总的来说这个操作跟国内百度地图、高德地图API也没太大差别。</p>
-<h3 id="2-我有一个应用密钥后应该怎么样呢"><a href="#2-我有一个应用密钥后，应该怎么样呢" class="headerlink" title="2 我有一个应用密钥后，应该怎么样呢?"></a>2 我有一个应用密钥后，应该怎么样呢?</h3><p>应用密钥可以通过HTTPS GET服务请求数据。关于HTTPS的GET和POST服务，可以看一下我找的几个帖子吧，对于做过爬虫，调用过API的人应该不陌生。</p>
-<p><a href="http://www.w3school.com.cn/tags/html_ref_httpmethods.asp" target="_blank" rel="external">HTTP 方法：GET 对比 POST</a><br><a href="https://www.zhihu.com/question/28586791" target="_blank" rel="external">知乎：get和post区别？</a></p>
-<p>官方给了个样例，是用“curl”命令行工具来创建带请求的URL。</p>
-<p><a href="https://ladsweb.modaps.eosdis.nasa.gov/PATH_TO_MY_FILE" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/PATH_TO_MY_FILE</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -v -H &apos;Authorization: Bearer MY_APP_KEY&apos; &apos;https://ladsweb.modaps.eosdis.nasa.gov/PATH_TO_MY_FILE&apos; &gt; result</div></pre></td></tr></table></figure>
-<p>-v和-H属于附加的设置命令。</p>
-<p>curl是个适用于所有操作系统的命令行工具。<a href="https://baike.baidu.com/item/curl/10098606?fr=aladdin" target="_blank" rel="external">curl简介</a>，也就是说通过curl可以下载对应订单的数据。</p>
-<p>它给出了使用这个方式下载的一些要点：</p>
-<p>1.所有的字符串都很重要，包括破折号、冒号和引号；<br>2.将’MY_APP_KEY’替换成你的应用密钥；<br>3.把“PATH_TO_MY_FILE”替换成你所需要的文件的路径。<br>4.通常LAADS DAAC的文件路径像下面的形式：</p>
-<p>archive/allData/COLLECTION/PRODUCT/YEAR/DAY_OF_YEAR/FILENAME </p>
-<p>这里给出一个URL的示例：</p>
-<p><a href="https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/6/MOD02QKM/2007/018/MOD02QKM.A2007018.0105.006.2014227230926.hdf" target="_blank" rel="external">https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/6/MOD02QKM/2007/018/MOD02QKM.A2007018.0105.006.2014227230926.hdf</a></p>
-<p>在发送请求之后会返回给你一个2007年第18天MODIS Terra250m的大气顶层反射率产品。</p>
-<p>笔者常用系统是Ubuntu和Windows10，这里就演示下如何用curl下载数据吧(以Ubuntu为例）。以给出的URL为样例。</p>
-<p><a href="https://curl.haxx.se/download.html" target="_blank" rel="external">curl官网</a></p>
-<p>Ubuntu上可以直接用apt-get install命令安装curl。网上有帖子，这里不细述了。接着按照上面所说的改写命令行，如果不要“&gt; result”，是按照原来的文件名下载。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165311.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165322.png" alt=""></p>
-<p>下载中。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165340.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165353.png" alt=""></p>
-<p>结果数据。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423165401.png" alt=""></p>
-<p>Windows下的尝试不是很愉快。当然curl也不是主要下载方式，所以我就不继续探索了，如果后面有机会再来说这个吧。</p>
-<h2 id="2-自动化"><a href="#2-自动化" class="headerlink" title="2 自动化"></a>2 自动化</h2><p>如果你需要的数据是单个文件，并且你知道它位于LAADS数据存档的路径，那么点击并下载它是很简单的。如果你需要下载的文件非常多（比如上个月整个月的VIIRS数据），你可能更愿意利用脚本来下载。因此这里给出了一些代码的示例：Shell脚本、Perl和Python版的。<br>两条警告：1.不要把全部数据下到你的硬盘。2.尽可能在你的脚本里避免错误，以防下载过多导致IP被封。</p>
-<h2 id="3-代码示例"><a href="#3-代码示例" class="headerlink" title="3 代码示例"></a>3 代码示例</h2><p>大多数语言都可以进行HTTPS通信，下面有些样例。使用方式是点击“下载源代码”以下载或复制代码并将其粘贴到反映语言的文件中（Shell脚本为.sh，Perl为.p1.，Python为.py）。 确保为文件设置了执行权限。 最后，打开终端或使用您的首选运行时执行文件。</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl laads-data-download.pl</div></pre></td></tr></table></figure>
-<p>Perl我不是特别懂，本篇主要介绍Python脚本，Shell脚本也会提一下。</p>
-<h1 id="2-使用python脚本下载"><a href="#2-使用Python脚本下载" class="headerlink" title="2 使用Python脚本下载"></a>2 使用Python脚本下载</h1><p>首先下载下来laads-data-download.py，然后放到一个文件夹里，接着打开cmd，输入如下的命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python laads-data-download.py -h</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423203851.png" alt=""></p>
-<p>这句代码的意思就是，-h是指help，也就是说关于这个Python函数的使用说明。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">laads-data-download.py [-h] -s URL -d DIR -t TOK</div></pre></td></tr></table></figure>
-<p>简单地说这个函数有几个参数需要传进去，-s就是下载源，URL就是你要下载的数据的URL路径，-d就是下载路径，也就是数据应该下载到哪个路径里，-t就是token，令牌，其实就是你的app keys。也就是说完整的运行代码应该是如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python laads-data-download.py -s https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/YOUR ORDERS ID -d Paht TO MY FILE -t MY_APP_KEYS</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423204449.png" alt=""></p>
-<p>第一个红框就是你订购数据的ID（如下图）。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423204534.png" alt=""></p>
-<p>第二个红框是你数据存放在电脑里的路径。</p>
-<p>第三个红框是你的app keys。</p>
-<p>接下来就只需要等待数据下载完即可。</p>
-<p>顺带提下Shell脚本，也是下载laads-data-download.sh文件。事实上语法都相同。但是Shell脚本呢还需要依赖‘jq’来下载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./laads-data-download.sh [-h] -s URL -d PATH -t TOKEN</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423204935.png" alt=""></p>
-<p>‘jq’的安装用命令即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install jq</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180423205035.png" alt=""></p>
-<p>等待下载结束。</p>
-<p>所以事实上，Python脚本下载其实并不难。只需要替换对应的URL、路径、App Keys即可。其他的也如此，如果你懂了就可以开始尝试了。当然笔者之前还用过另一种方式来进行批量下载。接下来可能会就这个部分也来介绍一下。另外一点就目前笔者测试结果，感觉Shell脚本和Ubuntu下载速度要明显快于Python脚本和Windows。</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
-        <p>Alipay</p>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-10T00:00:00+08:00"
+              content="2018-01-10" >
+          01-10
+        </time>
       </div>
-    
 
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:</strong>
-    Dai Shaoqing
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="https://giserdaishaoqing.github.io/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/" title="MODIS数据的简介和下载（五）——应用密钥的Python脚本下载">https://giserdaishaoqing.github.io/2018/04/23/MODIS数据的简介和下载（五）——应用密钥的Python脚本下载/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
-  </li>
-</ul>
-
-      </div>
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/MODIS/" rel="tag"># MODIS</a>
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/Shell/" rel="tag"># Shell</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/04/22/MODIS数据的简介和下载（四）——HTTPS服务下载说明/" rel="next" title="MODIS数据的简介和下载（四）——HTTPS服务下载说明">
-                <i class="fa fa-chevron-left"></i> MODIS数据的简介和下载（四）——HTTPS服务下载说明
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/18/MODIS数据的简介和下载（六）——基于浏览器模拟登陆下载的方式以及D3L Tool开发/" rel="prev" title="MODIS数据的简介和下载（六）——基于浏览器模拟登陆下载的方式以及D3L Tool开发">
-                MODIS数据的简介和下载（六）——基于浏览器模拟登陆下载的方式以及D3L Tool开发 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/2018/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2018/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2018/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
+
 
 
           </div>
@@ -692,13 +400,6 @@ MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODI
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -721,17 +422,8 @@ MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODI
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -901,22 +593,6 @@ show_date_time();
 	    
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-官方教程与说明"><span class="nav-number">1.</span> <span class="nav-text">1 官方教程与说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-应用密钥"><span class="nav-number">1.1.</span> <span class="nav-text">1 应用密钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-申请一个应用密钥"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 申请一个应用密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-我有一个应用密钥后应该怎么样呢"><span class="nav-number">1.1.2.</span> <span class="nav-text">2 我有一个应用密钥后，应该怎么样呢?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-自动化"><span class="nav-number">1.2.</span> <span class="nav-text">2 自动化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-代码示例"><span class="nav-number">1.3.</span> <span class="nav-text">3 代码示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-使用python脚本下载"><span class="nav-number">2.</span> <span class="nav-text">2 使用Python脚本下载</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -1085,10 +761,6 @@ show_date_time();
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 
