@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-08-28T08:25:40.213Z</updated>
+  <updated>2018-08-31T08:37:19.947Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用virtualenv和pip构建项目所需的独立Python环境</title>
+    <link href="https://giserdaishaoqing.github.io/2018/08/31/%E4%BD%BF%E7%94%A8virtualenv%E5%92%8Cpip%E8%BF%9B%E8%A1%8C%E5%8D%95%E7%8B%ACPython%E7%8E%AF%E5%A2%83%E5%BC%80%E5%8F%91/"/>
+    <id>https://giserdaishaoqing.github.io/2018/08/31/使用virtualenv和pip进行单独Python环境开发/</id>
+    <published>2018-08-31T07:37:00.000Z</published>
+    <updated>2018-08-31T08:37:19.947Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。</p><p><a href="https://giserdaishaoqing.github.io/2017/11/29/Python%E5%BC%80%E7%AF%87%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B%E3%80%81pip%E5%92%8Cconda/">Python开篇——简介、pip和conda</a></p><a id="more"></a><h1 id="1-为什么需要独立的python环境"><a href="#1-为什么需要独立的Python环境？" class="headerlink" title="1 为什么需要独立的Python环境？"></a>1 为什么需要独立的Python环境？</h1><p>在讲技术前，想先讲讲目的。为什么我们需要独立的Python环境？这里就借用virtualenv的文档来解释吧。</p><blockquote><p>virtualenv is a tool to create isolated Python environments.</p><p>The basic problem being addressed is one of dependencies and versions, and indirectly permissions. Imagine you have an application that needs version 1 of LibFoo, but another application requires version 2. How can you use both these applications? If you install everything into /usr/lib/python2.7/site-packages (or whatever your platform’s standard location is), it’s easy to end up in a situation where you unintentionally upgrade an application that shouldn’t be upgraded.</p><p>Or more generally, what if you want to install an application and leave it be? If an application works, any change in its libraries or the versions of those libraries can break the application.</p><p>Also, what if you can’t install packages into the global site-packages directory? For instance, on a shared host.</p><p>In all these cases, virtualenv can help you. It creates an environment that has its own installation directories, that doesn’t share libraries with other virtualenv environments (and optionally doesn’t access the globally installed libraries either).</p></blockquote><p>当你在开发or数据分析时，可能会遇上不同的需求，对所需要的包的版本不统一，譬如前一段我在开发D3L Tool的时候遇上的一个问题。当时开发的程序并不能在Win 7系统上运行，后面搜索了很久，发现时pyinstaller版本的问题。但是我又不太想把pyinstaller版本往下降。所以这个时候virtualenv就很有用了。</p><h1 id="2-使用virtualenv和pip来构建纯净和独立的python环境"><a href="#2-使用virtualenv和pip来构建纯净和独立的Python环境" class="headerlink" title="2 使用virtualenv和pip来构建纯净和独立的Python环境"></a>2 使用virtualenv和pip来构建纯净和独立的Python环境</h1><p>接下来主要来讲讲怎么操作。另外提一句这里介绍的主要是Windows下的，Linux和Mac的会有些小差别。基于的Python环境是Anaconda2 Python 2.7.12。</p><h2 id="21-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h2><p>安装部分还是pip大法好。具体就不展开了，pip的安装在前面的博客已经介绍过了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install virtualenv</div></pre></td></tr></table></figure><h2 id="22-使用virtualenv创建python环境"><a href="#2-2-使用virtualenv创建Python环境" class="headerlink" title="2.2 使用virtualenv创建Python环境"></a>2.2 使用virtualenv创建Python环境</h2><p>先选择你要创建的工程路径。用cmd进入到该文件夹里。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd your project path</div></pre></td></tr></table></figure><p>接下来有两种情况，virtualenv的使用方式其实与pip类似，它也在Python安装路径的Scripts里。因此根据你是否设置了环境变量就有两种方式运行。</p><p>情况1：将Scripts路径设置为电脑的环境变量</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">virtualenv venv #venv为你的文件名，也就是放置新的、纯净的、独立的Python环境的文件夹</div></pre></td></tr></table></figure><p>情况2： 没有设置Scripts路径为电脑的环境变量</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.../Python/Scripts/virtualenv venv #...表示Python安装路径包，根据个人不同替换，venv同上</div></pre></td></tr></table></figure><p><img src="http://pbl6hpz34.bkt.clouddn.com/1535702388110tp5vs33n.png?imageslim" alt=""></p><p>接着就开始运行了，定位到我们建立的文件夹下可以看到。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1535702457941g1z5cbcj.png?imageslim" alt=""></p><p>一共有这么几个文件。</p><p>接下来在cmd定位到项目路径，并运行如下命令。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Scripts</div><div class="line">activate</div></pre></td></tr></table></figure><p>这就进入了virtualenv的Python环境。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1535702694029os0n8zyt.png?imageslim" alt=""></p><p>关闭这个环境，只需要运行如下命令。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deactivate</div></pre></td></tr></table></figure><h2 id="23-使用pip安装包"><a href="#2-3-使用pip安装包" class="headerlink" title="2.3 使用pip安装包"></a>2.3 使用pip安装包</h2><p>其实pip安装的部分我之前已经介绍过了，不过上一篇讲得比较简单，仅仅就讲了讲最简单的pip install。而pip 安装包的时候，由于使用的是国外的地址下载包，可能会有些慢或者经常掉线，因此使用国内镜像是比较快的，另外如前文的需求，有些时候需要安装指定版本的包。这也是这次的重点。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install -i &quot;mirror&quot; numpy==version # mirror就是指国内的镜像地址，version就是指包的版本。</div></pre></td></tr></table></figure><p>主要介绍的两个参数就是如上所示了，一个是填入国内镜像地址，一个是给定指定包的版本。具体镜像地址见问候链接的第二篇文章。这里给出清华的镜像。</p><blockquote><p>清华大学镜像：<a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="external">https://pypi.tuna.tsinghua.edu.cn/simple</a></p></blockquote><p>本文参考的一些文章链接如下。</p><p><a href="https://www.cnblogs.com/liangqihui/p/8521139.html" target="_blank" rel="external">1.用virtualenv建立多个Python独立开发环境</a></p><p><a href="https://www.cnblogs.com/microman/p/6107879.html" target="_blank" rel="external">2.让PIP源使用国内镜像，提升下载速度和安装成功率</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://giserdaishaoqing.github.io/2017/11/29/Python%E5%BC%80%E7%AF%87%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B%E3%80%81pip%E5%92%8Cconda/&quot;&gt;Python开篇——简介、pip和conda&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
+    
+    
+      <category term="Python" scheme="https://giserdaishaoqing.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（十四）</title>
@@ -482,28 +505,6 @@
     
     
       <category term="Git" scheme="https://giserdaishaoqing.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R语言高清图片输出设置</title>
-    <link href="https://giserdaishaoqing.github.io/2018/03/14/R%E8%AF%AD%E8%A8%80%E9%AB%98%E6%B8%85%E5%9B%BE%E7%89%87%E8%BE%93%E5%87%BA%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://giserdaishaoqing.github.io/2018/03/14/R语言高清图片输出设置/</id>
-    <published>2018-03-13T16:00:00.000Z</published>
-    <updated>2018-07-10T00:48:12.145Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。<a id="more"></a></p><h2 id="解决方案思路rcorel-draw"><a href="#解决方案思路：R-Corel-Draw" class="headerlink" title="解决方案思路：R+Corel Draw"></a>解决方案思路：R+Corel Draw</h2><p>这也是某期刊图的修改要求，必须提供.cdr文件。当然测试后发现，.cdr输出的tif即使被压缩，也能很清晰。</p><p>这里谈谈怎么做。首先R目前是没法直接输出.cdr格式的文件的，根据网上的经验就是用emf这个格式，能够输出Corel Draw能读取的矢量文件，导入后再做些微调。</p><p>但是R输出emf没有像tiff和jpeg那样的语句，主要使用的是savePlot函数。</p><p>这里摘下R的帮助文档再来解释这个函数</p><p>Usage</p><p>savePlot(filename = “Rplot”,<br>         type = c(“wmf”, “emf”, “png”, “jpg”, “jpeg”, “bmp”,<br>                  “tif”, “tiff”, “ps”, “eps”, “pdf”),<br>         device = dev.cur(),<br>         restoreConsole = TRUE)</p><p>Arguments</p><p>filename<br>The filename under which to save the plot. Tilde-expansion (see path.expand is supported.</p><p>type<br>The type of plot, Windows metafile, PNG, JPEG, BMP (Windows bitmap format), TIFF, PostScript or PDF.</p><p>device<br>A device number of a windows device, by default the current device.</p><p>restoreConsole<br>See the ‘Details’ section of windows.</p><p>一个参数一个参数来解释吧。<br>filename：很好理解，就是你要输出的图片路径和名称，用字符串类型。如“C:/Rplot”。不必加后缀。<br>type：输出格式。<br>device：Windows设备的设备编号，默认为当前设备，这个参数。<br>restoreConsole：这个参数也是跟windows图形设备相关的。</p><p>实际使用时，后两个参数默认就可以。主要是针对前两个参数。</p><p>接下来用一个案例来展示下操作。使用的是R语言默认的mtcars数据。用plot绘图和ggplot2绘图各测试一遍。但是笔者就如网上所说在Rstudio中运行savePlot报错。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180314235637.png" alt=""></p><p>事实上这个语句只能在原生的Rgui中运行。因此将R代码存成脚本，在Rgui中直接用source调用写好的脚本即可。</p><p>plot只需直接绘图语句。而ggplot则需要多一句print语句，才能输出图片。</p><p>运行完后，打开corel draw，按下图进行操作。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315001819.png" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315001912.png" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002014.png" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002047.png" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002059.png" alt=""></p><p>这样就能把emf转变成全部可编辑的矢量了。</p><p>当然Rstudio也有个方法。就是使用复制到剪贴板的功能，然后粘贴到Corel Draw里面。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002722.png" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002815.png" alt=""></p><p>这就是将R导入到Corel Draw前期工作。相比与之前压缩得非常厉害的图片，我感觉Corel Draw输出的图片质量非常高。此外，后面搜索时，我也发现了R的一个包：<a href="https://mirrors.ustc.edu.cn/CRAN/web/packages/devEMF/devEMF.pdf" target="_blank" rel="external">devEMF: EMF Graphics Output Device</a>。可以输出emf，这样在Rstudio里也可以操作了。</p><p>参考博客：<br><a href="https://www.shengxin.ren/article/73" target="_blank" rel="external">R语言可以这么玩 |高质量图片这样导出！</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。
-    
-    </summary>
-    
-      <category term="Paper" scheme="https://giserdaishaoqing.github.io/categories/Paper/"/>
-    
-    
-      <category term="R" scheme="https://giserdaishaoqing.github.io/tags/R/"/>
     
   </entry>
   
