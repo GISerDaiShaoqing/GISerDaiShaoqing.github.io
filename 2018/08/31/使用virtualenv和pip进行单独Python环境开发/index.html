@@ -119,7 +119,7 @@ Python开篇——简介、pip和conda">
 <meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702388110tp5vs33n.png?imageslim">
 <meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702457941g1z5cbcj.png?imageslim">
 <meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702694029os0n8zyt.png?imageslim">
-<meta property="og:updated_time" content="2018-08-31T08:37:19.947Z">
+<meta property="og:updated_time" content="2018-09-01T02:32:56.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用virtualenv和pip构建项目所需的独立Python环境">
 <meta name="twitter:description" content="由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。
@@ -504,7 +504,7 @@ Python开篇——简介、pip和conda">
 <p>Also, what if you can’t install packages into the global site-packages directory? For instance, on a shared host.</p>
 <p>In all these cases, virtualenv can help you. It creates an environment that has its own installation directories, that doesn’t share libraries with other virtualenv environments (and optionally doesn’t access the globally installed libraries either).</p>
 </blockquote>
-<p>当你在开发or数据分析时，可能会遇上不同的需求，对所需要的包的版本不统一，譬如前一段我在开发D3L Tool的时候遇上的一个问题。当时开发的程序并不能在Win 7系统上运行，后面搜索了很久，发现时pyinstaller版本的问题。但是我又不太想把pyinstaller版本往下降。所以这个时候virtualenv就很有用了。</p>
+<p>当你在开发or数据分析时，可能会遇上不同的需求，对所需要的包的版本不统一，譬如前一段我在开发D3L Tool的时候遇上的一个问题。当时开发的程序并不能在Win 7系统上运行，后面搜索了很久，发现是pyinstaller版本的问题。但是我又不太想把pyinstaller版本往下降。所以这个时候virtualenv就很有用了。</p>
 <h1 id="2-使用virtualenv和pip来构建纯净和独立的python环境"><a href="#2-使用virtualenv和pip来构建纯净和独立的Python环境" class="headerlink" title="2 使用virtualenv和pip来构建纯净和独立的Python环境"></a>2 使用virtualenv和pip来构建纯净和独立的Python环境</h1><p>接下来主要来讲讲怎么操作。另外提一句这里介绍的主要是Windows下的，Linux和Mac的会有些小差别。基于的Python环境是Anaconda2 Python 2.7.12。</p>
 <h2 id="21-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h2><p>安装部分还是pip大法好。具体就不展开了，pip的安装在前面的博客已经介绍过了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install virtualenv</div></pre></td></tr></table></figure>
