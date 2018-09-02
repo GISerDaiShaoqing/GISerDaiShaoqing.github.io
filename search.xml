@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Coding and Paper Letter（十五）]]></title>
+    <url>%2F2018%2F09%2F02%2FCoding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[资源整理。 1 Coding:1.Nature Climate Change论文”Higher temperatures increase suicide rates in the United States and Mexico”的code，更高的温度会增加美国和墨西哥的自杀率。 NCC2018 论文链接 2.Nature论文”Robust relationship between air quality and infant mortality in Africa”的code，非洲空气质量和婴儿死亡率的密切关系。 HBBB2018 论文链接 3.多模式的非监督图像转换，对抗生成网络相关项目。 MUNIT 4.Predictive Soil Mapping with R书的源码，我曾经有幸在5月份上过作者的关于这方面的课程，Tomislav Hengl老师非常风趣，这本书是基于谢益辉大大的bookdown包写的，他当时还在课程上推荐谢益辉大大的包。 PredictiveSoilMapping 5.R语言包RGDALSQL,GDAL的数据库接口（DBI)。 RGDALSQL 6.R语言包spatstat，spatstat的开发者版本，关于时空数据处理的R包。 spatstat 7.来自日本Himawari卫星的数据读程序。 该实用程序读取原始的HSD格式数据，并可将其转换为更友好的格式，如NetCDF4。 Himawari HSD Reader 8.从内容来看应当是城市形态相关的研究的code。 UrbanMorphology 9.使用pycollada操纵网格数据的工具。 meshtool 10.将DTM（数字高程模型）图像转换为Collada 3D网格。 使用OpenCV和PyCollada。 DTM2MESH 11.Python开源项目ee jupyter examples，关于Google Earth Engine的Python API的样例代码。 ee jupyter examples 12.Python开源库pixel decoder，一个深度学习处理卫星影像的机器学习库。 pixel decoder 13.Python开源库altair，声明性统计可视化库。 altair 14.AGU 2017 Presentation的目录。 AGU2017 15.一个致力于地球实验室团队开发的教程，课程和其他学习材料和资源的网站。 earthlab.github.io 2 Paper:1.Ancient herders enriched and restructured African grasslands/古代牧民对非洲草原的影响和重构 发表于Nature的论文。详情见如下的公众号链接。只能说人类活动与生态环境的关系是当今热点，另外非洲这个研究区也是如此。 微信公众号推文 2.Extending RAPID model to simulate forest microwave backscattering/扩展三维光学模型RAPID模拟森林微波后向散射 发表于RSE上的论文，作者为黄华国老师，北京林业大学林业遥感（激光雷达和辐射传输模型）的专家。三维光学模型，非常不错的研究。笔者有幸加了黄老师的科学网博客，链接请见下文。 微信公众号推文 黄老师科学网博客 3.Articulating natural resources and sustainable development goals through green economy indicators: A systematic analysis/通过绿色经济指标阐明自然资源和可持续发展目标：系统分析 SDGs的一篇文章，关于指标方面的研究。 微信公众号推文 4.Location based services: ongoing evolution and research agenda/基于位置的服务：持续的发展和研究议程 我们现在生活在一个移动信息时代，它正在从根本上改变科学和社会。 基于位置的服务（LBS）根据（移动）设备和用户的位置提供信息，在这个移动信息时代起着关键作用。 本文首先回顾了过去几年LBS科学领域的不断发展和研究趋势。 为了激发LBS的进一步研究并激发集体努力，本文提出了一系列关键的研究挑战，这些挑战对推动LBS的发展至关重要，为LBS制定研究议程以“积极”塑造我们的移动信息社会的未来。 这些研究挑战涵盖了与LBS开发的核心（例如定位，建模和沟通），LBS生成数据的评估和分析相关的问题，以及随着LBS进入人们日常生活而出现的社会，道德和行为问题住。LBS是当今大数据时代的典型空间数据，也是GISer能够在大数据时代大放异彩的关键。这篇文章讲述了LBS相关的研究内容，非常值得关注。 5.Representation of Multidecadal Sahel Rainfall Variability in 20th Century Reanalyses/20世纪再分析数据中多年代萨赫勒降水变率的表征 萨赫勒地区的夏季降雨在20世纪表现出强烈的多年代际变化，造成了巨大的人类和社会经济影响。研究表明，变异性与大西洋多年代际变率有关;北大西洋的一个空间持续的暖/冷海面温度模式。在过去几年中，已经提供了几个有希望的长达一年的再分析数据集，为进一步研究导致萨赫勒观测到的低频降雨变化的动力学开辟了道路。我们发现尽管20世纪的ECMWF重新分析中有三个显示出明显的多年代际降雨变化，并且干湿周期延长，但其中两次重新分析的多年代际变化的时间发现在20日的大部分时间内表现出几乎反向的特征。世纪与观察相比。多年代雨量变化的最佳表现在ECMWF再分析资料中发现，与其他再分析资料不同，它不同化任何观测数据，并且很可能是这种不匹配的关键原因，如本文所讨论的。因此，这种再分析资料，即ERA-20CM，被推荐用于未来研究萨赫勒地区多年代降雨变率的动态及其与低频北大西洋海温的联系。多个再分析资料在某一地区的比较，再分析资料在各种研究当中的应用越来越多，结合数据同化会有很多有意思的分析结论。 6.Evaluating Different Machine Learning Methods for Upscaling Evapotranspiration from Flux Towers to the Regional Scale/评估不同机器学习方法在蒸散从通量塔到区域尺度的升尺度应用的性能 蒸发蒸腾（ET）是陆地 - 大气相互作用的重要变量，它将地表能量平衡，水和碳循环联系起来。原位技术可以准确地测量ET，但观察结果限制了空间和时间覆盖范围。建模方法已用于在广泛的空间和时间尺度上估计ET，而在区域尺度上精确模拟ET仍然是一项重大挑战。在这项研究中，我们利用机器学习算法将涡旋协方差通量塔站点的ET升尺度至区域尺度。 ET升尺度采用五种机器学习算法，包括人工神经网络，Cubist，深度信念网络，随机森林和支持向量机。机器学习方法在黑河流域36个通量塔站点（65个站点年）进行训练和测试，然后用于估算流域内每个网格单元（1 km×1 km）的ET以及期间2012-2016。人工神经网络，Cubist，随机森林和支持向量机算法在估计ET时具有几乎相同的性能，并且在样地尺度上具有比深度信念网络略低的均方根误差。随机森林算法在区域尺度上的相对不确定性略低于基于三角帽方法的其他方法。此外，机器学习方法在密集植被条件下比贫瘠土地或植被稀疏的条件下表现更好。通过机器学习方法生成的区域ET捕获了区域尺度ET的空间和时间模式。机器学习在生态学中升尺度/尺度扩展中的应用。比较有意思的研究，发表于JGR大气上。]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Consideration of Ecology and Geography</tag>
+        <tag>Summary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用virtualenv和pip构建项目所需的独立Python环境]]></title>
     <url>%2F2018%2F08%2F31%2F%E4%BD%BF%E7%94%A8virtualenv%E5%92%8Cpip%E8%BF%9B%E8%A1%8C%E5%8D%95%E7%8B%ACPython%E7%8E%AF%E5%A2%83%E5%BC%80%E5%8F%91%2F</url>
     <content type="text"><![CDATA[由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。 Python开篇——简介、pip和conda 1 为什么需要独立的Python环境？在讲技术前，想先讲讲目的。为什么我们需要独立的Python环境？这里就借用virtualenv的文档来解释吧。 virtualenv is a tool to create isolated Python environments. The basic problem being addressed is one of dependencies and versions, and indirectly permissions. Imagine you have an application that needs version 1 of LibFoo, but another application requires version 2. How can you use both these applications? If you install everything into /usr/lib/python2.7/site-packages (or whatever your platform’s standard location is), it’s easy to end up in a situation where you unintentionally upgrade an application that shouldn’t be upgraded. Or more generally, what if you want to install an application and leave it be? If an application works, any change in its libraries or the versions of those libraries can break the application. Also, what if you can’t install packages into the global site-packages directory? For instance, on a shared host. In all these cases, virtualenv can help you. It creates an environment that has its own installation directories, that doesn’t share libraries with other virtualenv environments (and optionally doesn’t access the globally installed libraries either). 当你在开发or数据分析时，可能会遇上不同的需求，对所需要的包的版本不统一，譬如前一段我在开发D3L Tool的时候遇上的一个问题。当时开发的程序并不能在Win 7系统上运行，后面搜索了很久，发现是pyinstaller版本的问题。但是我又不太想把pyinstaller版本往下降。所以这个时候virtualenv就很有用了。 2 使用virtualenv和pip来构建纯净和独立的Python环境接下来主要来讲讲怎么操作。另外提一句这里介绍的主要是Windows下的，Linux和Mac的会有些小差别。基于的Python环境是Anaconda2 Python 2.7.12。 2.1 安装安装部分还是pip大法好。具体就不展开了，pip的安装在前面的博客已经介绍过了。 1pip install virtualenv 2.2 使用virtualenv创建Python环境先选择你要创建的工程路径。用cmd进入到该文件夹里。 1cd your project path 接下来有两种情况，virtualenv的使用方式其实与pip类似，它也在Python安装路径的Scripts里。因此根据你是否设置了环境变量就有两种方式运行。 情况1：将Scripts路径设置为电脑的环境变量 1virtualenv venv #venv为你的文件名，也就是放置新的、纯净的、独立的Python环境的文件夹 情况2： 没有设置Scripts路径为电脑的环境变量 1.../Python/Scripts/virtualenv venv #...表示Python安装路径包，根据个人不同替换，venv同上 接着就开始运行了，定位到我们建立的文件夹下可以看到。 一共有这么几个文件。 接下来在cmd定位到项目路径，并运行如下命令。 12cd Scriptsactivate 这就进入了virtualenv的Python环境。 关闭这个环境，只需要运行如下命令。 1deactivate 2.3 使用pip安装包其实pip安装的部分我之前已经介绍过了，不过上一篇讲得比较简单，仅仅就讲了讲最简单的pip install。而pip 安装包的时候，由于使用的是国外的地址下载包，可能会有些慢或者经常掉线，因此使用国内镜像是比较快的，另外如前文的需求，有些时候需要安装指定版本的包。这也是这次的重点。 1pip install -i &quot;mirror&quot; numpy==version # mirror就是指国内的镜像地址，version就是指包的版本。 主要介绍的两个参数就是如上所示了，一个是填入国内镜像地址，一个是给定指定包的版本。具体镜像地址见问候链接的第二篇文章。这里给出清华的镜像。 清华大学镜像：https://pypi.tuna.tsinghua.edu.cn/simple 本文参考的一些文章链接如下。 1.用virtualenv建立多个Python独立开发环境 2.让PIP源使用国内镜像，提升下载速度和安装成功率]]></content>
@@ -436,8 +448,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -448,8 +460,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -746,8 +758,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -758,8 +770,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
