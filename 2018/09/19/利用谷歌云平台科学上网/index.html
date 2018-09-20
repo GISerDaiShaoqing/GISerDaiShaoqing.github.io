@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+
+  <meta name="keywords" content="Python,Google Cloud Platform," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="当今既是大数据时代，也是云计算时代。云平台构建已经成了诸多大数据平台建设第一步。于是各家互联网巨头们纷纷都开启了云平台服务。国内的以阿里云、腾讯云、百度云、华为云为首，国外的有AWS和谷歌。最近Google Cloud（谷歌云平台）有新用户注册就送300美刀的优惠，可使用时间为12个月！这也是本文的基础，关于Google Cloud注册就不介绍了。并不复杂，不过需要有信用卡。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用谷歌云平台科学上网">
+<meta property="og:url" content="https://giserdaishaoqing.github.io/2018/09/19/利用谷歌云平台科学上网/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="当今既是大数据时代，也是云计算时代。云平台构建已经成了诸多大数据平台建设第一步。于是各家互联网巨头们纷纷都开启了云平台服务。国内的以阿里云、腾讯云、百度云、华为云为首，国外的有AWS和谷歌。最近Google Cloud（谷歌云平台）有新用户注册就送300美刀的优惠，可使用时间为12个月！这也是本文的基础，关于Google Cloud注册就不介绍了。并不复杂，不过需要有信用卡。">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537358240338am39kt1i.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537357944435wwqjlxrp.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/15373583409963cu8s1mx.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537358472504bcpjx6fs.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537358554303iurgmo3a.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537358653187800c6xxf.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537358822980oejte69f.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/15373602928241f1anfrq.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537359018692ukry41dc.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537359582642nr93de6u.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/153736053238921jwe4c9.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537359312932vq9vbru4.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/15373612166966vobf3uo.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537361460860l68fv6b5.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362105021f8426w27.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362148667vclux70y.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362191291s669wyg8.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/15373622201941d3l56d1.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362267659ilyng76y.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362381014mqjqvf56.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362539420h6uo2ahc.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362637090nbkoaddh.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537362821339scyb72qx.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537363522619jpz20mts.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537363594475j86h8jfe.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537363606513syp56ll5.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1537363829740lbqmzlrm.png?imageslim">
+<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/15373657914501daybfd9.png?imageslim">
+<meta property="og:updated_time" content="2018-09-19T14:53:22.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用谷歌云平台科学上网">
+<meta name="twitter:description" content="当今既是大数据时代，也是云计算时代。云平台构建已经成了诸多大数据平台建设第一步。于是各家互联网巨头们纷纷都开启了云平台服务。国内的以阿里云、腾讯云、百度云、华为云为首，国外的有AWS和谷歌。最近Google Cloud（谷歌云平台）有新用户注册就送300美刀的优惠，可使用时间为12个月！这也是本文的基础，关于Google Cloud注册就不介绍了。并不复杂，不过需要有信用卡。">
+<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/1537358240338am39kt1i.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://giserdaishaoqing.github.io/2018/09/19/利用谷歌云平台科学上网/"/>
+
+
+
+
+
+  <title>利用谷歌云平台科学上网 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    	<a href="https://github.com/GISerDaiShaoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+	src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a
+	2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745
+	f677261795f3664366436642e706e67" alt="Fork me 
+	on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GISerDaiShaoqing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Urban·Ecology·GIS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2018/09/19/利用谷歌云平台科学上网/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用谷歌云平台科学上网</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-19T16:56:00+08:00">
+                2018-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index">
+                    <span itemprop="name">Coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/19/利用谷歌云平台科学上网/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/19/利用谷歌云平台科学上网/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/19/利用谷歌云平台科学上网/" class="leancloud_visitors" data-flag-title="利用谷歌云平台科学上网">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1,308
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>当今既是大数据时代，也是云计算时代。云平台构建已经成了诸多大数据平台建设第一步。于是各家互联网巨头们纷纷都开启了云平台服务。国内的以阿里云、腾讯云、百度云、华为云为首，国外的有AWS和谷歌。最近Google Cloud（谷歌云平台）有新用户注册就送300美刀的优惠，可使用时间为12个月！这也是本文的基础，关于Google Cloud注册就不介绍了。并不复杂，不过需要有信用卡。<a id="more"></a></p>
+<h1 id="1-vps搭建"><a href="#1-VPS搭建" class="headerlink" title="1 VPS搭建"></a>1 VPS搭建</h1><h2 id="1-注册"><a href="#1-注册" class="headerlink" title="1 注册"></a>1 注册</h2><p>注册我就不说了。在以下网址自行注册。</p>
+<p><a href="https://cloud.google.com" target="_blank" rel="external">注册网址</a></p>
+<h2 id="2-创建项目"><a href="#2-创建项目" class="headerlink" title="2 创建项目"></a>2 创建项目</h2><p>进入控制台后，先点击左上角红框。在弹出的对话框点击右上角红框。输入名字即可</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358240338am39kt1i.png?imageslim" alt=""></p>
+<h2 id="3-创建vm"><a href="#3-创建VM" class="headerlink" title="3 创建VM"></a>3 创建VM</h2><p>接着从左侧进入Computer Engine，点击VM。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537357944435wwqjlxrp.png?imageslim" alt=""></p>
+<p>点击创建。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/15373583409963cu8s1mx.png?imageslim" alt=""></p>
+<p>这个时候需要选地区，建议选择台湾。asia-east1-c节点（图中没有改，貌似网上都说c节点信号较好）。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358472504bcpjx6fs.png?imageslim" alt=""></p>
+<p>接下来是选机器类型，默认的是28美刀一个月的，这里选的最低配是$5一个月。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358554303iurgmo3a.png?imageslim" alt=""></p>
+<p>然后是选系统。根据自己的爱好选择，我因为已经有阿里云的Ubuntu服务器，所以我这里选的CentOS7。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358653187800c6xxf.png?imageslim" alt=""></p>
+<p>接着设置身份和API访问权限，勾选允许HTTP流量和允许HTTPS流量。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358822980oejte69f.png?imageslim" alt=""></p>
+<p>需要设置网络，创建一个外部ip地址。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/15373602928241f1anfrq.png?imageslim" alt=""></p>
+<p>接着点击创建即可。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537359018692ukry41dc.png?imageslim" alt=""></p>
+<h2 id="4-ssh链接"><a href="#4-SSH链接" class="headerlink" title="4 SSH链接"></a>4 SSH链接</h2><p>接下来可以选择在浏览器上用SSH连接直接配置服务器(很不错的选择）。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537359582642nr93de6u.png?imageslim" alt=""></p>
+<p>输入命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i</div></pre></td></tr></table></figure>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/153736053238921jwe4c9.png?imageslim" alt=""></p>
+<p>不过我还是更喜欢用Xshell来设置，Xshell连接需要先设置防火墙。按照如下找到防火墙规则。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537359312932vq9vbru4.png?imageslim" alt=""></p>
+<p>点击创建防火墙规则。输入名称，对IP设置为0.0.0.0/0，此外目标选网络里的所有实例。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/15373612166966vobf3uo.png?imageslim" alt=""></p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537361460860l68fv6b5.png?imageslim" alt=""></p>
+<p>点击创建即可。</p>
+<p>接着切换到Xshell里面。点击“工具”→“新建用户密钥生成向导”。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362105021f8426w27.png?imageslim" alt=""></p>
+<p>生成密钥参数，点击下一步。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362148667vclux70y.png?imageslim" alt=""></p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362191291s669wyg8.png?imageslim" alt=""></p>
+<p>设置一个用户名。密码看自己需求，也可以不设。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/15373622201941d3l56d1.png?imageslim" alt=""></p>
+<p>将密钥保存起来。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362267659ilyng76y.png?imageslim" alt=""></p>
+<p>回到Google Cloud Platform。在实例中找到元数据，切换到SSH密钥，然后点击修改。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362381014mqjqvf56.png?imageslim" alt=""></p>
+<p>点击添加一项，将刚刚保存的SSH密钥复制粘贴到上面，并在密钥最后增加自己设置的用户名保存即可。</p>
+<p>接着在Xshell里进行登录。新建一个连接，名称自己随意定义，主机填VM的外部ip（也就是创建静态IP的原因）。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362539420h6uo2ahc.png?imageslim" alt=""></p>
+<p>接着点击用户身份验证，使用公共密钥登录，用户密钥选择刚刚创建的那个，如果有密码还需要输入密码。即可连接。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362637090nbkoaddh.png?imageslim" alt=""></p>
+<p>登录成功。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362821339scyb72qx.png?imageslim" alt=""></p>
+<h1 id="2-科学上网配置"><a href="#2-科学上网配置" class="headerlink" title="2 科学上网配置"></a>2 科学上网配置</h1><p>Shadowsocks是当前比较受欢迎的科学上网工具。而关键就是需要海外VPS，接下来介绍如何在搭建好的Google Cloud Platform CenTos 7 上安装和配置Shadowsocks。</p>
+<h2 id="1-安装pip"><a href="#1-安装pip" class="headerlink" title="1 安装pip"></a>1 安装pip</h2><p>这里打算使用python版本的Shadowsocks，而我选的云服务器没有pip，所以必须先安装pip。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537363522619jpz20mts.png?imageslim" alt=""></p>
+<p>在命令行里输入如下命令安装pip。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;get-pip.py&quot;</div><div class="line">python get-pip.py</div></pre></td></tr></table></figure>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537363594475j86h8jfe.png?imageslim" alt=""></p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537363606513syp56ll5.png?imageslim" alt=""></p>
+<h2 id="2-安装配置shadowsocks"><a href="#2-安装配置Shadowsocks" class="headerlink" title="2 安装配置Shadowsocks"></a>2 安装配置Shadowsocks</h2><p>接下来输入如下命令安装Shadowsocks。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/1537363829740lbqmzlrm.png?imageslim" alt=""></p>
+<p>安装完成后，需要创建配置文件。输入如下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/shadowsocks.json</div></pre></td></tr></table></figure>
+<p>配置文件内容如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;server&quot;:&quot;x.x.x.x&quot;,             #你的 ss 服务器 ip</div><div class="line">  &quot;server_port&quot;:0,                #你的 ss 服务器端口</div><div class="line">  &quot;local_address&quot;: &quot;127.0.0.1&quot;,   #本地ip</div><div class="line">  &quot;local_port&quot;:0,                 #本地端口</div><div class="line">  &quot;password&quot;:&quot;password&quot;,          #连接 ss 密码</div><div class="line">  &quot;timeout&quot;:300,                  #等待超时</div><div class="line">  &quot;method&quot;:&quot;aes-256-cfb&quot;,         #加密方式</div><div class="line">  &quot;workers&quot;: 1                    #工作线程数</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来新建启动脚本文件/etc/systemd/system/shadowsocks.service。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/systemd/system/shadowsocks.service</div></pre></td></tr></table></figure>
+<p>内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=Shadowsocks</div><div class="line"></div><div class="line">[Service]</div><div class="line">TimeoutStartSec=0</div><div class="line">ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
+<p>接下来启动 shadowsocks 服务，并检查是否启动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl enable shadowsocks</div><div class="line">systemctl start shadowsocks</div><div class="line">systemctl status shadowsocks -l</div></pre></td></tr></table></figure>
+<p>如下显示说明，已经成功启动。</p>
+<p><img src="http://pbl6hpz34.bkt.clouddn.com/15373657914501daybfd9.png?imageslim" alt=""></p>
+<p>接下来是一些本文的参考链接。感谢各位大神。另外后面测试发现，上面json文件配置的ip地址用”0.0.0.0”，才不会报错。</p>
+<p>1.各类科学上网教程</p>
+<p><a href="http://best.pconline.com.cn/yuanchuang/835249.html" target="_blank" rel="external">Google Cloud谷歌云平台试用</a></p>
+<p><a href="https://blog.csdn.net/sinat_33479559/article/details/80772004" target="_blank" rel="external">腾讯云主机搭建ss过程</a></p>
+<p><a href="https://weibo.com/ttarticle/p/show?id=2309404191082681351935&amp;sudaref=www.baidu.com&amp;display=0&amp;retcode=6102" target="_blank" rel="external">如何利用谷歌云平台免费搭建一年的无敌上网通道</a></p>
+<p><a href="https://233blog.com/post/30/" target="_blank" rel="external">谷歌云 (GCP) 开放防火墙所有端口</a></p>
+<p><a href="https://blog.niclin.tw/2017/08/12/%E5%9C%A8-google-platform-%E4%B8%8A%E6%9E%B6%E8%A8%AD-shadowsocksss---bbr/" target="_blank" rel="external">在 Google platform 上架設 ShadowSocks(SS) + BBR</a></p>
+<p><a href="https://blog.csdn.net/ajiangfan/article/details/81006876" target="_blank" rel="external">Google Cloud Platform服务连接设置总结（Shadowsocks + Proxifier）</a></p>
+<p><a href="https://blog.wangjiegulu.com/2017/05/29/gcp-ssr/" target="_blank" rel="external">使用Google Cloud Platform(GCP GCE)安装SSR+BBR教程</a></p>
+<p><a href="https://morning.work/page/2015-12/install-shadowsocks-on-centos-7.html" target="_blank" rel="external">在 CentOS 7 下安装配置 shadowsocks</a></p>
+<p><a href="https://brickyang.github.io/2017/01/14/CentOS-7-%E5%AE%89%E8%A3%85-Shadowsocks-%E5%AE%A2%E6%88%B7%E7%AB%AF/" target="_blank" rel="external">CentOS 7 安装 shadowsocks 客户端</a></p>
+<p><a href="https://blog.csdn.net/wh211212/article/details/79165415" target="_blank" rel="external">CentOS 7 安装使用Shadowsocks客户端</a></p>
+<p><a href="https://blog.csdn.net/xcg132566/article/details/81415219" target="_blank" rel="external">centos7 安装ss科学上网快速配置</a></p>
+<p><a href="http://godjose.com/2017/06/14/new-article/" target="_blank" rel="external">用Google Cloud Platform搭建Shadowsocks服务教程</a></p>
+<p><a href="https://www.rxblog.xyz/0-1-shadowsocks-start/" target="_blank" rel="external">从零开始：史上最详尽Shadowsocks搭建教程</a></p>
+<p><a href="https://www.rxblog.xyz/install-shadowsocks-on-centos-7/" target="_blank" rel="external">在CENTOS 7上搭建Shadowsocks图文教程</a></p>
+<p>2.VIM语法与使用以及CenTos命令</p>
+<p><a href="http://www.runoob.com/linux/linux-vim.html" target="_blank" rel="external">Linux vi/vim</a></p>
+<p><a href="https://blog.csdn.net/leon1741/article/details/54314053" target="_blank" rel="external">vim使用教程</a></p>
+<p><a href="https://blog.csdn.net/zhihui1017/article/details/54891727" target="_blank" rel="external">CentOS7服务管理(重启,停止,自动启动命令)</a></p>
+<p>3.github上关于端口设置的issues。</p>
+<p><a href="https://github.com/shadowsocks/shadowsocks/issues/298" target="_blank" rel="external">issues298</a></p>
+<p><a href="https://github.com/shadowsocks/shadowsocks/issues/933" target="_blank" rel="external">issues933</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Dai Shaoqing
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://giserdaishaoqing.github.io/2018/09/19/利用谷歌云平台科学上网/" title="利用谷歌云平台科学上网">https://giserdaishaoqing.github.io/2018/09/19/利用谷歌云平台科学上网/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Google-Cloud-Platform/" rel="tag"># Google Cloud Platform</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/19/Hexo-Admin博客管理/" rel="next" title="博客平台、Markdown编辑器与hexo admin简介">
+                <i class="fa fa-chevron-left"></i> 博客平台、Markdown编辑器与hexo admin简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Dai Shaoqing" />
+            
+              <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GISerDaiShaoqing" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" target="_blank" title="Google Scholar">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google Scholar</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://orcid.org/0000-0003-0858-4728" target="_blank" title="ORCID">
+                    
+                      <i class="fa fa-fw fa-id-card"></i>ORCID</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.researchgate.net/profile/Shaoqing_Dai" target="_blank" title="Research Gate">
+                    
+                      <i class="fa fa-fw fa-group"></i>Research Gate</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dsq1993qingge@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.sciencenet.cn/u/GISdsq" target="_blank" title="ScienceNet">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ScienceNet</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/esa_dsq" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" title="Jianshu">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>Jianshu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://my.oschina.net/u/2424163" target="_blank" title="OSchina">
+                    
+                      <i class="fa fa-fw fa-codepen"></i>OSchina</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://yq.aliyun.com/users/index?spm=a2c4e.11155435.headeruserinfo.2.349f56e60wo7o6" target="_blank" title="Aliyunqi community">
+                    
+                      <i class="fa fa-fw fa-cloud"></i>Aliyunqi community</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://giserdaishaoqing.github.io/mycv/" target="_blank" title="Personal Academic Homepage">
+                    
+                      <i class="fa fa-fw fa-user-circle"></i>Personal Academic Homepage</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://112.74.203.220:8081/chs/index.php" title="Research Group" target="_blank">Research Group</a>
+                  </li>
+                
+              </ul>
+     <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("08/14/2016 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+            </div>
+          
+        </div>
+      </section>
+		  
+      
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+		      <div class="widget-wrap">
+		        <h3 class="widget-title">Tag Cloud</h3>
+			    <div id="myCanvasContainer" class="widget tagcloud">
+			    <canvas width="250" height="250" id="resCanvas" style="width=100%">
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			    </canvas>
+			    </div>
+	        </div>
+	    
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-vps搭建"><span class="nav-number">1.</span> <span class="nav-text">1 VPS搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-注册"><span class="nav-number">1.1.</span> <span class="nav-text">1 注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建项目"><span class="nav-number">1.2.</span> <span class="nav-text">2 创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-创建vm"><span class="nav-number">1.3.</span> <span class="nav-text">3 创建VM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-ssh链接"><span class="nav-number">1.4.</span> <span class="nav-text">4 SSH链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-科学上网配置"><span class="nav-number">2.</span> <span class="nav-text">2 科学上网配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装pip"><span class="nav-number">2.1.</span> <span class="nav-text">1 安装pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装配置shadowsocks"><span class="nav-number">2.2.</span> <span class="nav-text">2 安装配置Shadowsocks</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">180.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz',
+        appKey: '5R3loDlmeKFd1bdvCNnq065n',
+        placeholder: '~\(≧▽≦)/~来呀！快活呀！',
+        avatar:'',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
