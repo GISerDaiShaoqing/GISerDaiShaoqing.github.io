@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-09-20T03:01:53.048Z</updated>
+  <updated>2018-09-20T03:27:05.210Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>科学利用谷歌云平台</title>
-    <link href="https://giserdaishaoqing.github.io/2018/09/19/%E5%88%A9%E7%94%A8%E8%B0%B7%E6%AD%8C%E4%BA%91%E5%B9%B3%E5%8F%B0%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    <id>https://giserdaishaoqing.github.io/2018/09/19/利用谷歌云平台科学上网/</id>
+    <link href="https://giserdaishaoqing.github.io/2018/09/19/%E7%A7%91%E5%AD%A6%E5%88%A9%E7%94%A8%E8%B0%B7%E6%AD%8C%E4%BA%91%E5%B9%B3%E5%8F%B0/"/>
+    <id>https://giserdaishaoqing.github.io/2018/09/19/科学利用谷歌云平台/</id>
     <published>2018-09-19T08:56:00.000Z</published>
-    <updated>2018-09-20T03:01:53.048Z</updated>
+    <updated>2018-09-20T03:27:05.210Z</updated>
     
     <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>当今既是大数据时代，也是云计算时代。云平台构建已经成了诸多大数据平台建设第一步。于是各家互联网巨头们纷纷都开启了云平台服务。国内的以阿里云、腾讯云、百度云、华为云为首，国外的有AWS和谷歌。最近Google Cloud（谷歌云平台）有新用户注册就送300美刀的优惠，可使用时间为12个月！这也是本文的基础，关于Google Cloud注册就不介绍了。并不复杂，不过需要有信用卡。<a id="more"></a></p><h1 id="vps搭建"><a href="#VPS搭建" class="headerlink" title="VPS搭建"></a>VPS搭建</h1><h2 id="1-注册"><a href="#1-注册" class="headerlink" title="1 注册"></a>1 注册</h2><p>注册我就不说了。在以下网址自行注册。</p><p><a href="https://cloud.google.com" target="_blank" rel="external">注册网址</a></p><h2 id="2-创建项目"><a href="#2-创建项目" class="headerlink" title="2 创建项目"></a>2 创建项目</h2><p>进入控制台后，先点击左上角红框。在弹出的对话框点击右上角红框。输入名字即可</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358240338am39kt1i.png?imageslim" alt=""></p><h2 id="3-创建vm"><a href="#3-创建VM" class="headerlink" title="3 创建VM"></a>3 创建VM</h2><p>接着从左侧进入Computer Engine，点击VM。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537357944435wwqjlxrp.png?imageslim" alt=""></p><p>点击创建。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15373583409963cu8s1mx.png?imageslim" alt=""></p><p>这个时候需要选地区，建议选择台湾。asia-east1-c节点（图中没有改，貌似网上都说c节点信号较好）。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358472504bcpjx6fs.png?imageslim" alt=""></p><p>接下来是选机器类型，默认的是28美刀一个月的，这里选的最低配是$5一个月。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358554303iurgmo3a.png?imageslim" alt=""></p><p>然后是选系统。根据自己的爱好选择，我因为已经有阿里云的Ubuntu服务器，所以我这里选的CentOS7。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358653187800c6xxf.png?imageslim" alt=""></p><p>接着设置身份和API访问权限，勾选允许HTTP流量和允许HTTPS流量。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537358822980oejte69f.png?imageslim" alt=""></p><p>需要设置网络，创建一个外部ip地址。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15373602928241f1anfrq.png?imageslim" alt=""></p><p>接着点击创建即可。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537359018692ukry41dc.png?imageslim" alt=""></p><h2 id="4-ssh链接"><a href="#4-SSH链接" class="headerlink" title="4 SSH链接"></a>4 SSH链接</h2><p>接下来可以选择在浏览器上用SSH连接直接配置服务器(很不错的选择）。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537359582642nr93de6u.png?imageslim" alt=""></p><p>输入命令。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i</div></pre></td></tr></table></figure><p><img src="http://pbl6hpz34.bkt.clouddn.com/153736053238921jwe4c9.png?imageslim" alt=""></p><p>不过我还是更喜欢用Xshell来设置，Xshell连接需要先设置防火墙。按照如下找到防火墙规则。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537359312932vq9vbru4.png?imageslim" alt=""></p><p>点击创建防火墙规则。输入名称，对IP设置为0.0.0.0/0，此外目标选网络里的所有实例。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15373612166966vobf3uo.png?imageslim" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537361460860l68fv6b5.png?imageslim" alt=""></p><p>点击创建即可。</p><p>接着切换到Xshell里面。点击“工具”→“新建用户密钥生成向导”。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362105021f8426w27.png?imageslim" alt=""></p><p>生成密钥参数，点击下一步。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362148667vclux70y.png?imageslim" alt=""></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362191291s669wyg8.png?imageslim" alt=""></p><p>设置一个用户名。密码看自己需求，也可以不设。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15373622201941d3l56d1.png?imageslim" alt=""></p><p>将密钥保存起来。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362267659ilyng76y.png?imageslim" alt=""></p><p>回到Google Cloud Platform。在实例中找到元数据，切换到SSH密钥，然后点击修改。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362381014mqjqvf56.png?imageslim" alt=""></p><p>点击添加一项，将刚刚保存的SSH密钥复制粘贴到上面，并在密钥最后增加自己设置的用户名保存即可。</p><p>接着在Xshell里进行登录。新建一个连接，名称自己随意定义，主机填VM的外部ip（也就是创建静态IP的原因）。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362539420h6uo2ahc.png?imageslim" alt=""></p><p>接着点击用户身份验证，使用公共密钥登录，用户密钥选择刚刚创建的那个，如果有密码还需要输入密码。即可连接。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362637090nbkoaddh.png?imageslim" alt=""></p><p>登录成功。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1537362821339scyb72qx.png?imageslim" alt=""></p><p>可以愉快地在谷歌云平台上为所欲为了。</p>]]></content>
     
@@ -33,8 +33,6 @@
     
       <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
     
-    
-      <category term="Python" scheme="https://giserdaishaoqing.github.io/tags/Python/"/>
     
       <category term="Google Cloud Platform" scheme="https://giserdaishaoqing.github.io/tags/Google-Cloud-Platform/"/>
     
