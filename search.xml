@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Coding and Paper Letter（二十五）]]></title>
+    <url>%2F2018%2F09%2F24%2FCoding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%E4%BA%94%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[资源整理。接上篇，这一篇主要针对论文。 Paper:1.Spatial-temporal fraction map fusion with multi-scale remotely sensed images/利用多尺度遥感图像进行时空分型图融合 鉴于当前卫星传感器的空间和时间分辨率之间的共同权衡，可以应用时空数据融合方法来产生具有合成精细空间分辨率（FR）和高重复频率的融合遥感数据。需要这样的融合数据来全面了解地球表面土地覆盖动态。在这项研究中，提出了一种新颖的时空分数图融合（STFMF）模型，通过融合粗空间-精细时间和精细空间-粗时间分辨率的影像来产生一系列精细 - 空间 - 时间 - 分辨率的土地覆盖分数图。时间分数图，其可以从多尺度遥感图像生成。 STFMF有两个主要阶段。首先，使用核岭回归生成FR分数变化图。其次，使用时间加权融合模型预测用于预测日期的FR分数图。与两种建立的时空超分辨率土地覆盖映射模型和时空图像反射率融合模型的时空融合方法相比，STFMF具有以下特点和优点：（1）考虑了混合像素问题。 FR遥感图像; （2）它直接使用分型图作为输入，可以从一系列卫星图像或其他合适的数据源生成; （3）重点关注通过时间发生的分型数变化的估计，可以更准确地预测土地覆盖变化。使用从Google Earth图像模拟的合成多尺度分型数图以及合成和真实MODIS-Landsat图像进行实验，以测试所提出的STFMF方法对两种基准时空反射融合方法的性能：增强空间和时间自适应反射融合模型（ESTARFM）和灵活的时空数据融合（FSDAF）模型。在视觉和定量评估中，STFMF能够生成更准确的FR分数图并提供比ESTARFM和FSDAF更多的空间细节，特别是在土地覆盖变化较大的区域。 STFMF具有很大的潜力，可以生成具有精细空间 - 时间分辨率的精确时间序列分数图，可以支持亚像素尺度下的陆地覆盖动态研究。RSE上的雄文，时空影像融合的新模型，支持亚像元级的影像融合。跟之前笔者翻译的黄波老师的论文，思路有一定相似。 2.Dynamic monitoring the infrastructure of major ports in Sri Lanka by using multi-temporal high spatial resolution remote sensing images/利用多时空高分辨率遥感影像动态监测斯里兰卡主要港口的基础设施 斯里兰卡的科伦坡港和汉班托塔港在过渡和支持“21世纪海上丝绸之路”的航运贸易中发挥着关键作用。近年来，中国企业在科伦坡港和汉班托塔港的基础设施建设方面进行了大量投资。科伦坡港和汉班托塔港的建设进度和发展趋势一直引起中国投资企业和社会的关注。本文采用多时相高空间分辨率遥感影像监测2010年至2017年科伦坡港口和汉班托塔港口的基础设施建设情况。根据两个港口的基础设施信息解读，科伦坡国际集装箱码头和汉班托塔港已完成建设。截至2017年底，科伦坡国际集装箱码头建造了28.8公顷的集装箱堆场和32.6公顷的道路。在科伦坡国际集装箱码头的南部，为计划中的港口城市建造了62.2公顷的填海区。在汉班托塔港，在此期间建造了77公顷集装箱堆场，48公顷道路和2.9公顷的石油储存区。同时，对科伦坡港口和汉班托塔港口潜在蓄水量的分析表明，科伦坡港口的吞吐量可能每年增加300万吨，而汉班托塔港口的吞吐量将超过其设计的250万吨/年。这些分析结果可为中国投资企业和“一带一路”相关研究提供有益的参考。遥感影像监测基础设施，对地观测的典型应用。是响应一带一路的研究。 3.Activity-Space Segregation: Understanding Social Divisions in Space and Time/活动空间隔离：理解空间和时间的社会分裂 本论文提供了一种新的理论和方法框架，用于理解时空术语中的隔离，即活动空间的分离，人们在日常活动中经历的空间。该框架是一组索引，通过这些索引可以测量多个维度的活动空间隔离，并在不同城市之间进行比较。这些指数旨在捕捉有关人们经常光顾的地方，与之接触的人以及他们的行动性质的差异的社会相关信息。在设计指标时，本文扩展了现有的居住隔离区域单位指标，借鉴了怀特空间接近度指数的早期表述，并从地理和生态学文献中确定了个体活动空间的现有度量。对于每个指标，论文开发了一个估计器，可用于从样本数据中推断，并评估不同样本量和不同地理和人口条件下估计量的性能。为此，它依赖于通过移动电话应用从世界各地的志愿者收集的高分辨率活动空间轨迹的组合，以及两个美国城市的完整人口的模拟轨迹。论文得出结论，所提出的活动 - 空间隔离的区域单位测量可以使用粗略轨迹数据以最小偏差进行估计，但需要大量人员和自举偏差校正技术的实施。另一方面，可以使用来自相对较小的人类样本的粗略轨迹数据来无偏差地估计所提出的白色空间接近度指数的扩展。建议的个体活动空间测量需要高分辨率轨迹数据，但可以使用相对较小的人类样本进行无偏差估计。是一篇国外博士论文，时间地理学（方法）与社会地理学（主题）的交叉。做了一个非常不错的理论工作。 4.Stem-Leaf Segmentation and Phenotypic Trait Extraction of Individual Maize Using Terrestrial LiDAR Data/利用陆地LiDAR数据提取单个玉米的茎叶分割和表型性状 准确和高通量提取作物表型性状，作为分子育种的关键步骤，对提高产量非常重要。然而，自动茎叶分割作为许多精确表型性状提取的先决条件仍然是一个巨大的挑战。目前的工作重点是对基于2-D图像的分割的研究，其对照明和遮挡敏感。光探测和测距（LiDAR）可通过其主动激光扫描和强穿透能力获得准确的三维信息，从而突破了从二维到三维的表型分析。然而，很少有研究解决基于LiDAR的茎叶分割的问题。在本文中，我们提出了一种中值归一化矢量增长（MNVG）算法，该算法可以通过四个步骤对茎和叶进行分割，即预处理，茎生长，叶生长和后处理。 MNVG方法通过30个玉米样品进行测试，所述样品具有来自三个生长阶段的不同高度，紧密度，叶数和密度。此外，用真正分割的实例提取叶，茎和个体水平的表型特征。在泛化能力，精确度，F分数和总体准确度方面，在点级别的分割的平均准确度分别为0.92,0.93,0.92和0.93。叶，茎和个体水平的表型性状提取的准确度分别为0.81至0.95,0.64至0.97和0.96至1。据我们所知，本文提出了第一个基于LiDAR的农业领域茎叶分割和表型性状提取方法，可能有助于研究基于LiDAR的植物性状和精确农业。激光雷达在玉米提取上的应用，植物所郭庆华团队的成果，目前将激光雷达做到茎叶级别的确实少见，本文做了很不错的研究。新兴遥感技术将为未来的植被遥感应用提供更多的可能性。 5.Difference in PM2.5 Variations between Urban and Rural Areas over Eastern China from 2001 to 2015/2001年至2015年中国东部城乡PM2.5变化的差异 为了更有效地减少PM2.5的人口暴露，控制工作应针对人口稠密的城市地区。在这项研究中，我们利用卫星衍生的PM2.5数据来评估过去三个五年计划（2001-2015）期间中国东部城乡之间PM2.5变化的差异。结果表明，在“十一五”期间（2006-2010），城市地区的PM2.5浓度下降幅度小于半数以上省份的农村地区。相比之下，在“十年”和“十二五”期间（分别为2001-2005和2011-2015），大多数省份的城市地区PM2.5浓度下降幅度大于农村地区。在最近的“十二五”期间，城市地区PM2.5浓度下降幅度比北京地区高出一个级别。这些结果表明，近年来PM2.5变化的空间差异有利于减少大多数省份PM2.5的人口暴露。城乡PM2.5变化，很少去讨论具体的城乡梯度变化，这方面的研究将是未来的研究热点。 6.Evaluating the Accessibility of Healthcare Facilities Using an Integrated Catchment Area Approach/使用综合流域方法评估医疗设施的可达性 无障碍是评估服务设施分布和确定服务不足区域的主要方法。然而，传统的可达性方法主要是基于模型的，并不考虑服务的实际利用率，这可能导致结果与人们的实际行为被考虑时获得的结果不同。基于出租车GPS轨迹数据，本文提出了一种新的综合集水区（ICA），它集成了实际的人类出行行为，使用增强的两步浮动集水区（E2SFCA）方法评估中国深圳医疗设施的可达性。该方法称为E2SFCA-ICA方法。首先，提出访问概率来描述访问医疗机构的概率。然后，提出了集成基于模型的访问概率（MAP）和基于数据的访问概率（DAP）的集成访问概率（IAP）。在IAP的约束下，生成ICA并将其划分为不同的子区域。最后，将ICA和子区纳入E2SFCA方法，以评估中国深圳顶级医院的可及性。结果表明，ICA不仅减少了基于模型的集水区和基于数据的集水区之间的差异，而且还区分了核心集水区，稳定集水区，不确定集水区和医疗设施的远程集水区。该研究还发现，与集成集水区获得的可达性相比，在传统集水区获得的深圳顶级医院的可达性往往被高估，在空间中分布更加不均。将可达性分析转换为所谓的集水区来研究，可以说与传统的可达性模型研究差别较大。而且集成新的大数据。值得关注的研究。 7.Spatiotemporal Exploration and Hazard Mapping of Tropical Cyclones along the Coastline of China/中国沿海热带气旋的时空探测与危害制图 时空模式是最大的兴趣之一，并为在太空中发生的时间顺序事件提供有价值的见解。热带气旋（TC）轨道被定义为一系列连续点，并且进行了几种不同类型的分析以探索1949年至2014年期间西北太平洋和中国沿海地区的TC的时空格局。结果表明：（1）4月至8月TC的数量越来越频繁，8月至10月的TC频率越来越低，8月份几乎每年都出现高峰; （2）1949 - 2014年年度时间星团大小的平均值为52.5（天），标准差为17.0（天），平均起点为210.5天; （3）空间集群分布在两个区域：广西和广东省的边界以及闽浙边界; （4）层内方差小于层间方差，这意味着位置和季节因素是TC异质性的潜在决定因素。此外，还制作了几张代表TC危害的地图。根据得到的地图，12个沿海地区（湛江，茂名，福州，惠州，阳江，钦州，宁德，泉州，江门，南宁，漳州和杭州）的回归期不到两年，两个岛屿省份TC灾害最频繁的是海南和台湾。特别是广东，广西，福建和浙江省遭受了破坏性的TC的严重破坏。台风的时空模式研究。长时间尺度以及大区域研究。两个岛屿的台风灾害非常显著。以及闽两广地区。 8.Mangrove Canopy Density Analysis Using Sentinel-2A Imagery Satellite Data/使用Sentinel-2A图像卫星数据的红树林冠层密度分析 Teluk Jor有来自火山物质的冲积层表面沉积物。 相对平静的海浪和封闭的海滩形状支持Teluk Jor的红树林的存在。 Sentinel-2A图像具有良好的空间和光谱分辨率，可用于红树林密度研究。 样品之间的回归和Sentinel-2A的NDVI值用于分析红树林冠层密度。 采用横断面法进行野外调查，确定了红树林冠层密度。 回归分析显示野外数据和NDVI值具有相关性R = 0.7739和确定系数R2 = 0.5989。 分析结果表明，低密度面积397,900平方米，中等密度336,200平方米，高密度110,300平方米，高密度500平方米。 该研究还发现，Teluk Jor的红树林属由Rhizopora，Ceriops，Aegiceras和Sonneratia组成。哨兵卫星的红树林制图应用，哨兵卫星的发射，使得许多遥感应用研究又有了免费的新的高分辨率卫星。]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Consideration of Ecology and Geography</tag>
+        <tag>Summary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Coding and Paper Letter（二十四）]]></title>
     <url>%2F2018%2F09%2F24%2FCoding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%E5%9B%9B%EF%BC%89%2F</url>
     <content type="text"><![CDATA[资源整理。这一次内容有点多，拆为两篇，这一篇主要针对Coding。 Coding：1.R语言包geex，用于估计参数的框架和来自R中的一组无偏估计方程（即M-估计）的经验夹层协方差矩阵。 geex 2.R语言包nlmixr，用于拟合一般动态模型，药代动力学（PK）模型和药代动力学 - 药效学（PKPD）模型的R包，其具有个体数据或总体数据。 nlmixr 3.开源项目modis mpf，Python语言处理的，基于MODIS观测数据的melt pond反演。 modis mpf 4.开源项目Sentinel Granules Services,这是一个Web应用程序，它在给定点，线或多边形的情况下返回Sentinel 2的UTM数据的名称。 输入是在WKT中定义的几何。 它在PostGIS中执行简单的交集。 Sentinel Granules Service 5.开源项目rhino，为数据立方体提供了一个层，允许在基于coverage的视图和基于对象的视图之间切换。 rhino 6.开源项目temaki，用于mapbox地图的图标。 temaki 7.R语言包Leaflet.glify，功能齐全，快速渲染的基于web gl的Leaflet插件。 Leaflet.glify 8.开源项目BlenderGIS，构建Blender和GIS之间数据的桥梁。 BlenderGIS 9.开源项目search playground，Mapbox地理编码器调试工具，用于测试Mapbox地理编码器v5的内部工具。 search playground 10.jutpytelab的资源。 awesome jupyterlab 11.R语言包nonlinearTseries，非线性时间序列分析的R包。 nonlinearTseries 12.开源项目r sparsepp，sparsepp的Rcpp接口。 r sparsepp 13.开源项目sparsepp，C++项目，高效哈希映射。 sparsepp 14.R语言包hunspell,用于R的高性能Stemmer，Tokenizer和Spell Checker。 hunspell 15.Shiny项目GeoMKT，地图相关的。 GeoMKT 16.开源项目sage windows，构建与Cygwin兼容的Sage构建及其可执行安装程序和辅助文件的文件和说明。 sage windows 17.R语言包ggseg，ggplot2的拓展包，用于脑图集绘图的包。 ggseg 18.Python库openrouteservice，Python的openrouteservice（ORS）API。 openrouteservice py 19.R语言包sdmTMB，使用时空GLMM拟合地底鱼的高分辨率物种分布模型并估计范围转换指标。 sdmTMB 20.R语言包namer，用于命名R Markdown文件的块。 namer 21.开源项目jupyter tips and tricks，用于数据科学的jupyter工程。 jupyter tips and tricks 22.开源项目vid2vid，Pytorch实现了我们用于高分辨率（例如2048x1024）照片级真实视频到视频转换的方法。 vi2dvid 23.开源项目task views，用于编辑CRAN任务视图的本地副本，R语言工程。 task views 24.开源项目stats tutorials，简短的统计学教程。 stats tutorials 25.开源项目inxi，inxi是一个功能齐全的CLI系统信息工具。 它可以在大多数Linux发行版存储库中使用，也可以在BSD上运行。 inxi 26.R语言包R APSIM，包含通用实用程序函数的包，用于加载和操作APSIM输出和元文件。 R APSIM 27.Python库Synonyms，中文近义词工具包。 Synonyms 28.R语言包vdiffr，vdiffr是包测试的扩展，可以轻松测试视觉回归。 它提供了一个Shiny应用程序来管理失败的测试，并在视觉上将图形与其预期输出进行比较。 vdiffr 29.R语言包usra，无交互的GIS工具用于栅格处理与可视化。 usra 30.Python库sense，SenSE是用于有源微波域中的辐射传输（RT）建模的通用社区框架。 它在相干框架中实现了不同表面的不同散射和发射的不同现有模型，以模拟作为表面生物地球物理参数的函数的SAR后向散射系数。 sense 31.Python库ray，Ray是一个灵活的高性能分布式执行框架。 ray 32.开源项目PerceptualGAN，Pytorch实现图像处理与感知鉴别器的论文。 PerceptualGAN 33.R语言包imgw，自动下载IMGW-PIB气象/水文数据集。 imgw 34.R语言包gg2v，ggplot2的拓展包，探索使用vega渲染ggplot2图形。 gg2v 35.开源项目data vis statistics geosciences，地球科学中的数据可视化与统计，该存储库包含Python的高级本科课程的实验室部分，用于地理和空间科学家的数据可视化和统计。 实验室将在1月至5月更新，与课程相同（2018年）。 data vis statistics geosciences 36.R语言包RStoolbox，R语言里的遥感分析。 RStoolbox 37.开源项目Recent SLAM Research，跟踪SLAM前沿动态。 Recent SLAM Research 38.开源项目tps stn pytorch，具有薄板样条（TPS）的空间变压器网络（STN）的PyTorch实现。 tps stn pytorch 39.开源项目HoughCircles，用于圆检测的霍夫变换。 HoughCircles 40.R语言包PointedSDMs，这是一个使用点过程公式在R中拟合SDM的R包。 它使用INLA进行拟合，因此编写了许多函数来重新格式化Spatial数据，以便INLA可以使用它。 PointedSDMs 41.R语言包htmldeps,Shiny，R Markdown，flexdashboard，htmlwidgets和leaflet的打包HTML依赖项。 htmldeps 42.R语言包SDMTools，物种分布建模工具：用于处理与物种分布建模练习相关的数据的工具 SDMTools 43.R语言包dqrng，R的快速伪随机数发生器。 dqrng 44.R语言包bs4Dash，使用AdminLTE3启动Bootstrap 4 shinydashboard。 bs4Dash 45.QGIS插件，简单快速大气校正。 simple atmospheric correction 46.一本涵盖数据可视化基础知识的书。 dataviz 47.admb的相关开源项目。admb，是AD Model Builder的简称，支持自动微分（AD）应用于非线性统计建模和优化问题的解决方案。 R2admb adstudio admb project.github.io admb examples glmmadmb]]></content>
@@ -591,8 +603,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -603,8 +615,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -901,8 +913,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -913,8 +925,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
