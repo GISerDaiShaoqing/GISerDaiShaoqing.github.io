@@ -4,6 +4,13 @@
     <title><![CDATA[Coding and Paper Letter（二十四）]]></title>
     <url>%2F2018%2F09%2F24%2FCoding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%E5%9B%9B%EF%BC%89%2F</url>
     <content type="text"><![CDATA[资源整理。这一次内容有点多，拆为两篇，这一篇主要针对Coding。 Coding：1.R语言包geex，用于估计参数的框架和来自R中的一组无偏估计方程（即M-估计）的经验夹层协方差矩阵。 geex 2.R语言包nlmixr，用于拟合一般动态模型，药代动力学（PK）模型和药代动力学 - 药效学（PKPD）模型的R包，其具有个体数据或总体数据。 nlmixr 3.开源项目modis mpf，Python语言处理的，基于MODIS观测数据的melt pond反演。 modis mpf 4.开源项目Sentinel Granules Services,这是一个Web应用程序，它在给定点，线或多边形的情况下返回Sentinel 2的UTM数据的名称。 输入是在WKT中定义的几何。 它在PostGIS中执行简单的交集。 Sentinel Granules Service 5.开源项目rhino，为数据立方体提供了一个层，允许在基于coverage的视图和基于对象的视图之间切换。 rhino 6.开源项目temaki，用于mapbox地图的图标。 temaki 7.R语言包Leaflet.glify，功能齐全，快速渲染的基于web gl的Leaflet插件。 Leaflet.glify 8.开源项目BlenderGIS，构建Blender和GIS之间数据的桥梁。 BlenderGIS 9.开源项目search playground，Mapbox地理编码器调试工具，用于测试Mapbox地理编码器v5的内部工具。 search playground 10.jutpytelab的资源。 awesome jupyterlab 11.R语言包nonlinearTseries，非线性时间序列分析的R包。 nonlinearTseries 12.开源项目r sparsepp，sparsepp的Rcpp接口。 r sparsepp 13.开源项目sparsepp，C++项目，高效哈希映射。 sparsepp 14.R语言包hunspell,用于R的高性能Stemmer，Tokenizer和Spell Checker。 hunspell 15.Shiny项目GeoMKT，地图相关的。 GeoMKT 16.开源项目sage windows，构建与Cygwin兼容的Sage构建及其可执行安装程序和辅助文件的文件和说明。 sage windows 17.R语言包ggseg，ggplot2的拓展包，用于脑图集绘图的包。 ggseg 18.Python库openrouteservice，Python的openrouteservice（ORS）API。 openrouteservice py 19.R语言包sdmTMB，使用时空GLMM拟合地底鱼的高分辨率物种分布模型并估计范围转换指标。 sdmTMB 20.R语言包namer，用于命名R Markdown文件的块。 namer 21.开源项目jupyter tips and tricks，用于数据科学的jupyter工程。 jupyter tips and tricks 22.开源项目vid2vid，Pytorch实现了我们用于高分辨率（例如2048x1024）照片级真实视频到视频转换的方法。 vi2dvid 23.开源项目task views，用于编辑CRAN任务视图的本地副本，R语言工程。 task views 24.开源项目stats tutorials，简短的统计学教程。 stats tutorials 25.开源项目inxi，inxi是一个功能齐全的CLI系统信息工具。 它可以在大多数Linux发行版存储库中使用，也可以在BSD上运行。 inxi 26.R语言包R APSIM，包含通用实用程序函数的包，用于加载和操作APSIM输出和元文件。 R APSIM 27.Python库Synonyms，中文近义词工具包。 Synonyms 28.R语言包vdiffr，vdiffr是包测试的扩展，可以轻松测试视觉回归。 它提供了一个Shiny应用程序来管理失败的测试，并在视觉上将图形与其预期输出进行比较。 vdiffr 29.R语言包usra，无交互的GIS工具用于栅格处理与可视化。 usra 30.Python库sense，SenSE是用于有源微波域中的辐射传输（RT）建模的通用社区框架。 它在相干框架中实现了不同表面的不同散射和发射的不同现有模型，以模拟作为表面生物地球物理参数的函数的SAR后向散射系数。 sense 31.Python库ray，Ray是一个灵活的高性能分布式执行框架。 ray 32.开源项目PerceptualGAN，Pytorch实现图像处理与感知鉴别器的论文。 PerceptualGAN 33.R语言包imgw，自动下载IMGW-PIB气象/水文数据集。 imgw 34.R语言包gg2v，ggplot2的拓展包，探索使用vega渲染ggplot2图形。 gg2v 35.开源项目data vis statistics geosciences，地球科学中的数据可视化与统计，该存储库包含Python的高级本科课程的实验室部分，用于地理和空间科学家的数据可视化和统计。 实验室将在1月至5月更新，与课程相同（2018年）。 data vis statistics geosciences 36.R语言包RStoolbox，R语言里的遥感分析。 RStoolbox 37.开源项目Recent SLAM Research，跟踪SLAM前沿动态。 Recent SLAM Research 38.开源项目tps stn pytorch，具有薄板样条（TPS）的空间变压器网络（STN）的PyTorch实现。 tps stn pytorch 39.开源项目HoughCircles，用于圆检测的霍夫变换。 HoughCircles 40.R语言包PointedSDMs，这是一个使用点过程公式在R中拟合SDM的R包。 它使用INLA进行拟合，因此编写了许多函数来重新格式化Spatial数据，以便INLA可以使用它。 PointedSDMs 41.R语言包htmldeps,Shiny，R Markdown，flexdashboard，htmlwidgets和leaflet的打包HTML依赖项。 htmldeps 42.R语言包SDMTools，物种分布建模工具：用于处理与物种分布建模练习相关的数据的工具 SDMTools 43.R语言包dqrng，R的快速伪随机数发生器。 dqrng 44.R语言包bs4Dash，使用AdminLTE3启动Bootstrap 4 shinydashboard。 bs4Dash 45.QGIS插件，简单快速大气校正。 simple atmospheric correction 46.一本涵盖数据可视化基础知识的书。 dataviz 47.admb的相关开源项目。admb，是AD Model Builder的简称，支持自动微分（AD）应用于非线性统计建模和优化问题的解决方案。 R2admb adstudio admb project.github.io admb examples glmmadmb]]></content>
+      <categories>
+        <category>Personal</category>
+      </categories>
+      <tags>
+        <tag>Consideration of Ecology and Geography</tag>
+        <tag>Summary</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[PostGIS学习笔记（开篇）]]></title>
@@ -584,8 +591,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -596,8 +603,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -894,8 +901,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -906,8 +913,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
