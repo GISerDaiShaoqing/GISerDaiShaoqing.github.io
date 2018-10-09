@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://giserdaishaoqing.github.io/"/>
-  <updated>2018-10-08T16:40:26.613Z</updated>
+  <updated>2018-10-09T01:39:54.654Z</updated>
   <id>https://giserdaishaoqing.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo博客解决不蒜子统计无法显示问题</title>
+    <link href="https://giserdaishaoqing.github.io/2018/10/09/hexo%E5%8D%9A%E5%AE%A2%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
+    <id>https://giserdaishaoqing.github.io/2018/10/09/hexo博客解决不蒜子统计无法显示问题/</id>
+    <published>2018-10-09T01:00:00.000Z</published>
+    <updated>2018-10-09T01:39:54.654Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>如题，刚巧最近在统计自己各个平台博客的总阅读量问题，结果写好的代码，突然运行不出结果。后面发现博客页面底部的访客统计也有问题。于是就来考虑如何解决。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1539047414830pnbp09uy.png?imageslim" alt=""></p><a id="more"></a><h1 id="1-原因"><a href="#1-原因" class="headerlink" title="1 原因"></a>1 原因</h1><p>笔者用hexo博客和NexT主题已经有一段时间，很喜欢这个主题的简约。不蒜子统计其实在NexT集成得非常好（所以我其实也不是很懂它的原理）。突然出问题很奇怪，于是笔者第一次在百度上尝试搜索了不蒜子统计。结果出来的官网显示了一条消息。</p><p><a href="http://busuanzi.ibruce.info/" target="_blank" rel="external">不蒜子统计官网</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1539047652326jxa1vbyz.png?imageslim" alt=""></p><p>Soga!其实就是因为不蒜子统计的域名过期了，而js的引用就会有问题，果断在浏览器按下ctrl+u查看博客网页源码!</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1539047845526hcho9har.png?imageslim" alt=""></p><p>确实是域名的问题。</p><h1 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2 解决方法"></a>2 解决方法</h1><p>找到问题之后解决方法就好说了。</p><p>首先需要先找到NexT下引用不蒜子统计的方法。文件路径为/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件。</p><p>打开后如图所示。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/153904860385179mt5x5b.png?imageslim" alt=""></p><p>替换红框部分即可。替换为”<a href="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;。" target="_blank" rel="external">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;。</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1539048650109aibjw2uo.png?imageslim" alt=""></p><p>本地预览效果如下。</p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15390489790648k7ei3ai.png?imageslim" alt=""></p><p>圆满解决，参考的博客是之前参考过的文章，链接如下。</p><p><a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如题，刚巧最近在统计自己各个平台博客的总阅读量问题，结果写好的代码，突然运行不出结果。后面发现博客页面底部的访客统计也有问题。于是就来考虑如何解决。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://pbl6hpz34.bkt.clouddn.com/1539047414830pnbp09uy.png?imageslim&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://giserdaishaoqing.github.io/categories/Coding/"/>
+    
+    
+      <category term="hexo" scheme="https://giserdaishaoqing.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>如何优雅地选择一种地图变形方式</title>
@@ -459,30 +482,6 @@
     <summary type="html">
     
       &lt;p&gt;资源整理。这一期Coding内容有点多，所以将论文单独拆成另一篇。
-    
-    </summary>
-    
-      <category term="Personal" scheme="https://giserdaishaoqing.github.io/categories/Personal/"/>
-    
-    
-      <category term="Consideration of Ecology and Geography" scheme="https://giserdaishaoqing.github.io/tags/Consideration-of-Ecology-and-Geography/"/>
-    
-      <category term="Summary" scheme="https://giserdaishaoqing.github.io/tags/Summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Coding and Paper Letter（十七）</title>
-    <link href="https://giserdaishaoqing.github.io/2018/09/07/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/"/>
-    <id>https://giserdaishaoqing.github.io/2018/09/07/Coding-and-Paper-Letter（十七）/</id>
-    <published>2018-09-07T01:59:00.000Z</published>
-    <updated>2018-09-07T05:22:19.725Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理。<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding" class="headerlink" title="1 Coding:"></a>1 Coding:</h1><p>1.数据科学课程。课程、实验、教程以及code。</p><p><a href="https://github.com/rstudio-education/datascience-box" target="_blank" rel="external">datascience box</a></p><p>2.自动根据github生成你的程序员简历。只需要输入github账户名即可生成。</p><p><a href="https://github.com/resume/resume.github.com" target="_blank" rel="external">resume.github.com</a></p><p>3.R语言包av，可以结合animation或者gganimate生成mp4视频。</p><p><a href="https://github.com/jeroen/av" target="_blank" rel="external">av</a></p><p>4.Python开源项目PointProcesses，Python里点过程的简单模拟，点过程、时间点过程、时空过程，包括核密度估计。</p><p><a href="https://github.com/MatthewDaws/PointProcesses" target="_blank" rel="external">PointProcesses</a></p><p>5.用GDAL/QGIS/WebGL制作3维地图，以DEM为主。</p><p><a href="https://github.com/isaomatsunami/making-3d-map" target="_blank" rel="external">making 3d map</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1536286050241engh471k.png?imageslim" alt=""></p><p>6.R语言开源项目，使用.stl文件中的R生成以3D打印。</p><p><a href="https://github.com/lucpogo/impresion3D" target="_blank" rel="external">impresion3D</a></p><p>7.机器学习研讨会。</p><p><a href="https://github.com/amueller/ml-workshop-1-of-4" target="_blank" rel="external">ml workshop 1</a></p><p><a href="https://github.com/amueller/ml-workshop-2-of-4" target="_blank" rel="external">ml workshop 2</a></p><p><a href="https://github.com/amueller/ml-workshop-3-of-4" target="_blank" rel="external">ml workshop 3</a></p><p><a href="https://github.com/amueller/ml-workshop-4-of-4" target="_blank" rel="external">ml workshop 4</a></p><p>8.基于R和QGIS的英国房价3维可视化。</p><p><a href="https://github.com/philmikejones/datavis3d" target="_blank" rel="external">datavis3d</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/15362863898521dnsqtg4.png?imageslim" alt=""></p><p>9.R语言包ggcorrplot,ggplot2的拓展包，</p><p><a href="https://github.com/kassambara/ggcorrplot" target="_blank" rel="external">ggcorrplot</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1536286860880xgygu9hz.png?imageslim" alt=""></p><p>10.R语言周报，R语言社区的重要部分之一。更新R语言相关的各项资讯。</p><p><a href="https://github.com/rweekly/rweekly.org" target="_blank" rel="external">rweekly.org</a></p><p>11.美国环保署EPAR语言用户研讨会议程。</p><p><a href="https://github.com/eparstats/2018" target="_blank" rel="external">2018</a></p><p>12.Python机器学习书第二版代码和在线资源。</p><p><a href="https://github.com/rasbt/python-machine-learning-book-2nd-edition" target="_blank" rel="external">python machine learning book 2nd edition</a></p><p>13.R语言包facetscales，ggplot2拓展包，针对分面展示。</p><p><a href="https://github.com/zeehio/facetscales" target="_blank" rel="external">facetscales</a></p><p>14.将图片转成花。</p><p><a href="https://github.com/gaocegege/flower-power" target="_blank" rel="external">flower power</a></p><p><img src="http://pbl6hpz34.bkt.clouddn.com/1536286735470vwd6uq18.png?imageslim" alt=""></p><p>15.R语言的一些脚本用来生成贝叶斯层次模型里的不同分布。</p><p><a href="https://github.com/rasmusab/distribution_diagrams" target="_blank" rel="external">distribution diagrams</a></p><p>16.USGS-R开源项目，计算给定数据集的水文指标统计数据和每日流量的基本属性。</p><p><a href="https://github.com/USGS-R/EflowStats" target="_blank" rel="external">EflowStats</a></p><p>17.LANDIS II模型的生物量拓展模块。</p><p><a href="https://github.com/LANDIS-II-Foundation/Extension-Biomass-Succession" target="_blank" rel="external">Extension Biomass Succession</a></p><h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="https://link.springer.com/article/10.1007%2Fs11707-018-0700-5" target="_blank" rel="external">Bank gully extraction from DEMs utilizing the geomorphologic features of a loess hilly area in China/利用中国黄土丘陵区的地貌特征从DEM中提取堤坝</a></p><p>作为中国黄土高原最活跃的沟壑类型之一，河岸沟壑通常表明土壤流失和土地退化。这项研究解决了缺乏对堤坝的详细，大规模监测的问题，并提出了一种基于5米分辨率DEM的典型地形特征，提取堤坝的半自动方法。中国黄土高原林家尖流域黄土丘陵区的试验结果表明，生产精度达到87.5％ 。精度受DEM分辨率和RGD参数以及沟渠肩线精度的影响。在具有高DEM分辨率的Madigou流域中的应用证实了该方法在其他领域的可重复性。整体性能表明，银行沟渠可以在大面积上以可接受的精度提取，为土壤侵蚀，地貌和环境生态学研究提供了必要的信息。南师大汤国安老师团队的成果，从DEM提取堤坝的方法。</p><p>2.<a href="http://www.mdpi.com/2220-9964/7/8/328" target="_blank" rel="external">Method for the Analysis and Visualization of Similar Flow Hotspot Patterns between Different Regional Groups/不同区域群体间相似流热点模式的分析与可视化方法</a></p><p>可以以流的形式说明不同区域之间的相互作用。例如，人流和不同地区之间的信息之间的相互作用可以反映城市网络结构，以及城市功能和互连。大数据的普及促进了各类人员的流量数据的获取。区域交互模型的应用是基于个体流数据挖掘的总结水平，目前是一个热门的研究课题。然而，到目前为止，先前关于空间交互方法的研究主要集中在点对点和区域到区域的交互模式，以及对具有预定义邻域关系的两个区域组之间的交互热点模式的研究，即两个地区，仍然稀缺。在本研究中，提出了一种识别两个区域组之间相似交互热点模式的方法，并应用地理信息图谱方法来可视化交互模式。以中国的空中交通流量数据为例，说明所提方法的性能，以识别和分析中国各地区相互关系的区域群之间的交互热点模式。研究结果表明，该方法有效地识别了区域组之间交互流热点的模式。此外，它可以应用于分析区域群互动热点模式的挖掘中的任何流动空间。南师大汤国安老师团队的成果，关于流交互作用的数据挖掘和可视化研究。</p><p>3.<a href="https://www.sciencedirect.com/science/article/pii/S0160412018301120?via%3Dihub" target="_blank" rel="external">Estimating household air pollution exposures and health impacts from space heating in rural China/估算中国农村地区空气供暖对家庭空气污染的影响和健康影响</a></p><p>由固体燃料烹饪造成的污染（称为家庭空气污染（HAP））引起的疾病暴露和相关负担已被纳入全球疾病负担（GBD）项目的评估中。相比之下，使用固体燃料进行空间加热的HAP（在中高海拔国家普遍存在）在GBD评估中的研究较少且缺失。考虑到从北方到南方的供暖需求发生显着变化以及依赖固体燃料的大量农村人口，中国是一个理想的例子，可以在空间供暖被忽略时估算暴露偏差和疾病评估负担。在这项研究中，基于对中国农村27个田间测量研究的荟萃分析，我们得出了加热和非加热季节的室内PM2.5（空气动力学直径小于2.5μm的细颗粒物）浓度。将这一数据集与时间活动模式和使用固体燃料的家庭百分比相结合，我们评估了2010年各县人口加权年均PM2.5（PWE）暴露量和中国大陆农村HAP对健康的影响。我们发现忽略加热影响导致全国农村人口PWE估计值低估38微克/立方米（四分之四范围为16至40），北方省份存在显着的负偏差。相应地，2010年过早死亡和残疾调整生命年将分别被低估约30×103和60×104。我们的研究表明，需要将加热效应纳入中国和全球的HAP风险评估。发表在EI（Environment International)上的一篇论文，目前热门的环境健康影响研究的题目，并且是基于家庭的视角，非常不错的研究。</p><p>4.<a href="https://ascelibrary.org/doi/10.1061/%28ASCE%29UP.1943-5444.0000473" target="_blank" rel="external">Modified data-driven framework for housing market segmentation/住房市场细分的改进数据驱动框架</a></p><p>房地产市场细分在概念和经验层面都很重要，因为它反映了房价的空间异质性，提高了房价的预测准确性，并表明住房市场的动态变化。现有文献提供了一种流行的框架，称为数据驱动方法，用于基于主成分分析（PCA）和聚类分析来描绘子市场;然而，传统的框架不考虑空间异质性，并且难以平衡空间关系（即距离和拓扑关系）和属性相似性。为了解决这些局限性，本文提出了一种改进的数据驱动框架，用于通过整合地理加权主成分分析（GWPCA），空间异质性测试，基于密度的空间聚类（DBSC）算法和特征验证来描绘住房子市场。修改后的框架适用于中国深圳的住房市场细分。结果表明，改进后的框架在深圳的子市场细分中表现最佳。该框架具有重要的意义和在统计上确定住房子市场的巨大潜力，并且可以推广并应用于其他城市的住房市场。此外，可视化结果可供评估人员用于房产评估，也可由城市规划人员用于设施管理和社会平等改善与平衡。叶信岳老师团队成果，基于数据驱动方法在城市规划方面做探索，使用了大量的地理加权、空间分析针对住房市场细分。GWPCA和DBSC的结合值得关注。</p><p>5.<a href="https://www.tandfonline.com/doi/full/10.1080/13658816.2018.1504219" target="_blank" rel="external">Multi-level temporal autoregressive modelling of daily activity satisfaction using GPS-integrated activity diary data/使用GPS集成活动日记数据的日常活动满意度的多层次时间自回归建模</a></p><p>在本研究中，我们将基于网络的活动日记数据与GPS跟踪器记录的每日移动信息进行匹配，以便在2012年北京为期7天的调查中对709名居民进行抽样调查，以调查活动满意度。鉴于GPS集成日记数据的不规则时间间隔和相关的复杂依赖结构引起的复杂性，标准（空间）面板数据计量经济学方法的直接应用是不合适的。本研究开发了一种多层次的时间自回归建模方法来分析这些数据，将时间概念化为连续的，并通过时间或时空权重矩阵检查顺序相关性。此外，我们设法通过包含个体随机效应来同时模拟个体异质性，这些随机效应可以灵活地处理为独立的或依赖的。贝叶斯马尔可夫链蒙特卡罗（MCMC）算法是为模型实现而开发的。发现正序相关和个体异质性效应具有统计学意义。发生活动的场所的地理环境特征与日常活动满意度，控制一系列情境特征和个人社会人口统计特征显着相关。除了我们研究中可以想象的城市规划和发展影响之外，我们还展示了一种用于分析语义GPS轨迹数据的新颖统计方法。关美宝老师团队的关于时间地理学的成果，针对居民日常生活轨迹分析的新方法，基于时间自回归和MCMC算法，当大数据到来之后，关于人的移动轨迹的研究将会越来越重要，本文发表于IJGIS上，后续值得继续关注。</p><p>6.<a href="http://www.mdpi.com/1660-4601/15/9/1841" target="_blank" rel="external">The Neighborhood Effect Averaging Problem (NEAP): An Elusive Confounder of the Neighborhood Effect/邻里效应平均问题（NEAP）：邻里效应的难以置信的混淆因素</a></p><p>忽视人们的日常流动性和暴露于非居住环境可能导致人们暴露于环境因素的健康影响的流行病学研究中的错误结果。 本文确定并描述了一种称为邻里效应平均的现象，当检查依赖于行动的暴露（例如，空气污染）对健康的影响时，这种现象可能会显着的混淆邻近效应。 最近的几项研究为邻里效应平均问题（NEAP）提供了有力的证据。 该论文的结论是，由于观察到与人们日常活动相关的邻里效应减弱，增加生活在贫困社区的人的流动性可能有助于改善他们的健康结果。关美宝老师的通讯文章，关注的是邻里效应造成的分析不确定性，关美宝老师近年来一直在关注地理学、GIS空间分析，尤其是大数据兴起后造成的分析不确定性。对此发表过多项研究成果。</p><p>7.<a href="https://www.nature.com/articles/s41467-018-05905-y" target="_blank" rel="external">Consumption-based greenhouse gas emissions accounting with capital stock change highlights dynamics of fast-developing countries/以资本存量变化为基础的以消费为基础的温室气体排放突显了快速发展中国家的动态</a></p><p>传统的基于消费的温室气体排放核算将消费和基于生产的排放之间的差距归因于国际贸易。然而，很少有人尝试分析当前排放与未来消费之间的时间偏差，这可以通过资本存量的变化来解释。在这里，我们开发了一个动态模型，将资本存量变化纳入基于消费的统计。使用1995 - 2009年的全球数据应用新模型。我们的研究结果表明，新模型确定的消费体现的全球排放量小于传统模型。在此期间，全球资本存量所体现的排放量稳步增长。然而，资本在为具有不同发展特征的经济体制定基于消费的排放量方面起着非常不同的作用因此，与传统模型相比，动态模型为许多发达国家产生类似的基于消耗的排放估算，但它突出了快速发展中国家的动态。能源消耗和温室气体排放的研究，发表于NC，多个团队合作成果。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;资源整理。
     
     </summary>
     
