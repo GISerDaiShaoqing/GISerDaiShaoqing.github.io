@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://giserdaishaoqing.github.io/board/index.html</loc>
+    
+    <lastmod>2018-11-19T08:31:47.531Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://giserdaishaoqing.github.io/about/index.html</loc>
     
     <lastmod>2018-11-10T13:58:15.834Z</lastmod>
@@ -726,13 +733,6 @@
     <loc>https://giserdaishaoqing.github.io/2016/08/14/%E6%A1%8C%E9%9D%A2GIS%E8%BF%9E%E6%8E%A5Postgresql%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2018-07-09T06:52:47.281Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://giserdaishaoqing.github.io/board/index.html</loc>
-    
-    <lastmod>2018-05-17T01:54:12.978Z</lastmod>
     
   </url>
   
