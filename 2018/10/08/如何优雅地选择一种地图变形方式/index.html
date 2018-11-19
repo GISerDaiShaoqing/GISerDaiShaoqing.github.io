@@ -111,7 +111,7 @@
 <meta name="description" content="今天来填一下之前说了很久的坑，关于变形地图制作方法教程。本篇主要介绍五种方式制作Cartogram，至于你觉得哪一种最优雅就follow your heart了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何优雅地选择一种地图变形方式">
-<meta property="og:url" content="https://giserdaishaoqing.github.io/2018/10/08/如何优雅地选择一种地图变形方式/index.html">
+<meta property="og:url" content="https://gisersqdai.top/2018/10/08/如何优雅地选择一种地图变形方式/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="今天来填一下之前说了很久的坑，关于变形地图制作方法教程。本篇主要介绍五种方式制作Cartogram，至于你觉得哪一种最优雅就follow your heart了。">
 <meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/cartogram.gif">
@@ -168,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="https://giserdaishaoqing.github.io/2018/10/08/如何优雅地选择一种地图变形方式/"/>
+  <link rel="canonical" href="https://gisersqdai.top/2018/10/08/如何优雅地选择一种地图变形方式/"/>
 
 
 
@@ -361,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://giserdaishaoqing.github.io/2018/10/08/如何优雅地选择一种地图变形方式/">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/10/08/如何优雅地选择一种地图变形方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -546,7 +546,7 @@
 <p><a href="https://www.cnblogs.com/gisangela/p/3486897.html" target="_blank" rel="external">ArcGIS之Cartogram地图变形记</a></p>
 <p><a href="https://blog.csdn.net/u014136513/article/details/50580447" target="_blank" rel="external">ArcGIS夸张地图之Cartogram</a></p>
 <h1 id="2-qgis-cartogram插件"><a href="#2-QGIS-Cartogram插件" class="headerlink" title="2 QGIS Cartogram插件"></a>2 QGIS Cartogram插件</h1><p>事实上在QGIS也可以做变形地图，QGIS是开源桌面GIS软件中的代表。关于QGIS的这个插件，我事实上已经在前面的Coding and Paper Letter的第一篇就提到了。</p>
-<p><a href="https://giserdaishaoqing.github.io/2018/07/07/Coding%20and%20Paper%20Letter%EF%BC%881%EF%BC%89/">Coding and Paper Letter（一）</a></p>
+<p><a href="https://giserdaishaoqing.github.io/2018/07/07/Coding%20and%20Paper%20Letter%EF%BC%881%EF%BC%89/" target="_blank" rel="external">Coding and Paper Letter（一）</a></p>
 <p>当然我这里用的是QGIS 3.0.2，好像做了版本迁移。</p>
 <p><img src="http://pbl6hpz34.bkt.clouddn.com/1539008180121hwssai1q.png?imageslim" alt=""></p>
 <p>接着点击桌面界面上的图标（下图红框）。</p>
@@ -563,7 +563,7 @@
 <h1 id="3-cartogram-in-r"><a href="#3-Cartogram-in-R" class="headerlink" title="3 Cartogram in R"></a>3 Cartogram in R</h1><p>除了以上的两大桌面软件，R语言中也有Cartogram的包。最早是RCartogram（表示并不知道这个包）。还是今天随手在谷歌上搜索时，看到谢益辉大大曾经也关注过这个方面的，并介绍了这个包。</p>
 <p><a href="https://yihui.name/cn/2009/03/cartogram-as-special-maps/" target="_blank" rel="external">Cartogram：变形的地图</a></p>
 <p>我自己依旧在之前的Coding and Paper Letter介绍过相关的R包。</p>
-<p><a href="https://giserdaishaoqing.github.io/2018/07/08/Coding%20and%20Paper%20Letter%EF%BC%882%EF%BC%89/">Coding and Paper Letter（二）</a></p>
+<p><a href="https://giserdaishaoqing.github.io/2018/07/08/Coding%20and%20Paper%20Letter%EF%BC%882%EF%BC%89/" target="_blank" rel="external">Coding and Paper Letter（二）</a></p>
 <p>首先是安装R包。这里就不具体写地址了，如果想了解请点击上面的博客链接。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">'cartogram'</span>)</div></pre></td></tr></table></figure>
 <p>接下来就是开始撸一波代码了。</p>
@@ -580,7 +580,7 @@
 <p>点击红框部分即可实现Cartogram。</p>
 <p><img src="http://pbl6hpz34.bkt.clouddn.com/1539009679686kbixdhzs.png?imageslim" alt=""></p>
 <p>对比上面的内容，就可以发现有所差距了。这里其实只是利用地理位置和大小重新渲染的气泡图。因此这也让我想到了类似的geofacet。geofacet是ggplot2的拓展包，专门用于地理分面，依旧在Coding and Paper Letter介绍过，详情见下面的博客。</p>
-<p><a href="https://giserdaishaoqing.github.io/2018/09/16/Coding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89/">Coding and Paper Letter（二十一）</a></p>
+<p><a href="https://giserdaishaoqing.github.io/2018/09/16/Coding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89/" target="_blank" rel="external">Coding and Paper Letter（二十一）</a></p>
 <p>不过目前为止geofacet只支持美国的州进行可视化，这里就没有选用geofacet进行可视化了。</p>
 
       
@@ -626,7 +626,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://giserdaishaoqing.github.io/2018/10/08/如何优雅地选择一种地图变形方式/" title="如何优雅地选择一种地图变形方式">https://giserdaishaoqing.github.io/2018/10/08/如何优雅地选择一种地图变形方式/</a>
+    <a href="https://gisersqdai.top/2018/10/08/如何优雅地选择一种地图变形方式/" title="如何优雅地选择一种地图变形方式">https://gisersqdai.top/2018/10/08/如何优雅地选择一种地图变形方式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
