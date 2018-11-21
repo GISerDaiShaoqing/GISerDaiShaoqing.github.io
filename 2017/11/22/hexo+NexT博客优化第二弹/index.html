@@ -116,15 +116,15 @@
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="最近对hexo和NexT博客又做了一次优化。主要干了三件事。
 博客地址">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122143819.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122143741.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122160606.jpg">
-<meta property="og:updated_time" content="2018-07-09T13:55:57.957Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122143819.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122143741.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122160606.jpg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+NexT博客优化第二弹">
 <meta name="twitter:description" content="最近对hexo和NexT博客又做了一次优化。主要干了三件事。
 博客地址">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122143819.jpg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122143819.jpg">
 
 
 
@@ -494,9 +494,9 @@
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>最近对hexo和NexT博客又做了一次优化。主要干了三件事。</p>
-<p><a href="https://giserdaishaoqing.github.io/" target="_blank" rel="external">博客地址</a><a id="more"></a> </p>
+<p><a href="https://gisersqdai.top/">博客地址</a><a id="more"></a> </p>
 <p>顶部加载条实现：</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122143819.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122143819.jpg" alt=""></p>
 <p>这个如果用的是比较新的NexT主题，只需要在配置文件里面进行修改就可以了。旧的话，就需要对/next/layout/_partials/head.swig文件做些修改，添加对应的代码。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/pace/1.0.2/pace.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">.pace .pace-progress &#123;</div><div class="line">background: #1E92FB; /*进度条颜色*/</div><div class="line">height: 3px;</div><div class="line">&#125;</div><div class="line">.pace .pace-progress-inner &#123;</div><div class="line">box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/</div><div class="line">&#125;</div><div class="line">.pace .pace-activity &#123;</div><div class="line">border-top-color: #1E92FB;    /*上边框颜色*/</div><div class="line">border-left-color: #1E92FB;    /*左边框颜色*/</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>具体的可以点击上次那篇推荐的文章。</p>
@@ -512,9 +512,9 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&#123;# Blogroll #&#125;</div><div class="line">&#123;% if theme.links %&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll motion-element &#123;&#123; "</span><span class="attr">links-of-blogroll-</span>" + <span class="attr">theme.links_layout</span> | <span class="attr">default</span>('<span class="attr">inline</span>') &#125;&#125;"&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-title"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa  fa-fw fa-&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">      &#123;&#123; theme.links_title &#125;&#125;&amp;nbsp;</div><div class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa  fa-fw fa-&#123;&#123; theme.links_icon | default('globe') | lower &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-list"</span>&gt;</span></div><div class="line">      &#123;% for name, link in theme.links %&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"links-of-blogroll-item"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; link &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; name &#125;&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      &#123;% endfor %&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">     &#123;% include '../_custom/sidebar.swig' %&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"> &#123;% endif %&#125;</div></pre></td></tr></table></figure>
 <p>觉得需要调整颜色的还可以在/next/source/css/_custom/custom.styl加入如下的语句。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 自定义的侧栏时间样式</div><div class="line">#days &#123;</div><div class="line">   display: block;</div><div class="line">   color: rgb(7, 179, 155);</div><div class="line">   font-size: 13px;</div><div class="line">   margin-top: 15px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122143741.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122143741.jpg" alt=""></p>
 <p>另外参照着增加了Readme，增加了一些图标等。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171122160606.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171122160606.jpg" alt=""></p>
 <p>有找到了几篇还不错的文章。以及本次优化参考的主要文章链接。</p>
 <p><a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#更新提示（可以最后看）" target="_blank" rel="external">打造个性超赞博客Hexo+NexT+GithubPages的超深度优化</a></p>
 <p><a href="https://leaferx.online/2017/02/05/EnableTOConMobile/" target="_blank" rel="external">在移动设备下启用NexT主题的目录页面和回到顶部按钮</a></p>

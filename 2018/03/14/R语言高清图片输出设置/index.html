@@ -114,19 +114,19 @@
 <meta property="og:url" content="https://gisersqdai.top/2018/03/14/R语言高清图片输出设置/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180314235637.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315001819.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315001912.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002014.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002047.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002059.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002722.png">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002815.png">
-<meta property="og:updated_time" content="2018-07-10T00:48:12.145Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180314235637.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315001819.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315001912.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002014.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002047.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002059.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002722.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002815.png">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言高清图片输出设置">
 <meta name="twitter:description" content="以ggplot2等包为基础的R语言可视化是科研人员非常喜爱的一个方式，不过我也在这个上遇到了些问题。就是导出高分辨率的图片之后，插入到word里，就显得模糊不清（压缩得非常厉害）。如果不压缩的话，word动辄100M以上。最近刚好有了一个解决方式，就来介绍下。">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180314235637.png">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180314235637.png">
 
 
 
@@ -510,19 +510,19 @@
 <p>一个参数一个参数来解释吧。<br>filename：很好理解，就是你要输出的图片路径和名称，用字符串类型。如“C:/Rplot”。不必加后缀。<br>type：输出格式。<br>device：Windows设备的设备编号，默认为当前设备，这个参数。<br>restoreConsole：这个参数也是跟windows图形设备相关的。</p>
 <p>实际使用时，后两个参数默认就可以。主要是针对前两个参数。</p>
 <p>接下来用一个案例来展示下操作。使用的是R语言默认的mtcars数据。用plot绘图和ggplot2绘图各测试一遍。但是笔者就如网上所说在Rstudio中运行savePlot报错。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180314235637.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180314235637.png" alt=""></p>
 <p>事实上这个语句只能在原生的Rgui中运行。因此将R代码存成脚本，在Rgui中直接用source调用写好的脚本即可。</p>
 <p>plot只需直接绘图语句。而ggplot则需要多一句print语句，才能输出图片。</p>
 <p>运行完后，打开corel draw，按下图进行操作。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315001819.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315001912.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002014.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002047.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002059.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315001819.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315001912.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002014.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002047.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002059.png" alt=""></p>
 <p>这样就能把emf转变成全部可编辑的矢量了。</p>
 <p>当然Rstudio也有个方法。就是使用复制到剪贴板的功能，然后粘贴到Corel Draw里面。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002722.png" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180315002815.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002722.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180315002815.png" alt=""></p>
 <p>这就是将R导入到Corel Draw前期工作。相比与之前压缩得非常厉害的图片，我感觉Corel Draw输出的图片质量非常高。此外，后面搜索时，我也发现了R的一个包：<a href="https://mirrors.ustc.edu.cn/CRAN/web/packages/devEMF/devEMF.pdf" target="_blank" rel="external">devEMF: EMF Graphics Output Device</a>。可以输出emf，这样在Rstudio里也可以操作了。</p>
 <p>参考博客：<br><a href="https://www.shengxin.ren/article/73" target="_blank" rel="external">R语言可以这么玩 |高质量图片这样导出！</a></p>
 

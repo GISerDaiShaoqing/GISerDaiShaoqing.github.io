@@ -116,15 +116,15 @@ Python开篇——简介、pip和conda">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。
 Python开篇——简介、pip和conda">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702388110tp5vs33n.png?imageslim">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702457941g1z5cbcj.png?imageslim">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702694029os0n8zyt.png?imageslim">
-<meta property="og:updated_time" content="2018-09-01T02:32:56.084Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/1535702388110tp5vs33n.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1535702457941g1z5cbcj.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1535702694029os0n8zyt.png?imageslim">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用virtualenv和pip构建项目所需的独立Python环境">
 <meta name="twitter:description" content="由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。
 Python开篇——简介、pip和conda">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/1535702388110tp5vs33n.png?imageslim">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1535702388110tp5vs33n.png?imageslim">
 
 
 
@@ -494,7 +494,7 @@ Python开篇——简介、pip和conda">
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>由于最近刚好有个测试需求，来讲一讲如何使用virtualenv和pip构建项目所需的独立Python环境。关于pip的介绍之前已有一篇博客，链接在下面。今天对pip的介绍主要是关于其他参数。</p>
-<p><a href="https://giserdaishaoqing.github.io/2017/11/29/Python%E5%BC%80%E7%AF%87%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B%E3%80%81pip%E5%92%8Cconda/" target="_blank" rel="external">Python开篇——简介、pip和conda</a></p>
+<p><a href="https://gisersqdai.top/2017/11/29/Python%E5%BC%80%E7%AF%87%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B%E3%80%81pip%E5%92%8Cconda/">Python开篇——简介、pip和conda</a></p>
 <a id="more"></a>
 <h1 id="1-为什么需要独立的python环境"><a href="#1-为什么需要独立的Python环境？" class="headerlink" title="1 为什么需要独立的Python环境？"></a>1 为什么需要独立的Python环境？</h1><p>在讲技术前，想先讲讲目的。为什么我们需要独立的Python环境？这里就借用virtualenv的文档来解释吧。</p>
 <blockquote>
@@ -515,14 +515,14 @@ Python开篇——简介、pip和conda">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">virtualenv venv #venv为你的文件名，也就是放置新的、纯净的、独立的Python环境的文件夹</div></pre></td></tr></table></figure>
 <p>情况2： 没有设置Scripts路径为电脑的环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.../Python/Scripts/virtualenv venv #...表示Python安装路径包，根据个人不同替换，venv同上</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/1535702388110tp5vs33n.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1535702388110tp5vs33n.png?imageslim" alt=""></p>
 <p>接着就开始运行了，定位到我们建立的文件夹下可以看到。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/1535702457941g1z5cbcj.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1535702457941g1z5cbcj.png?imageslim" alt=""></p>
 <p>一共有这么几个文件。</p>
 <p>接下来在cmd定位到项目路径，并运行如下命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Scripts</div><div class="line">activate</div></pre></td></tr></table></figure>
 <p>这就进入了virtualenv的Python环境。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/1535702694029os0n8zyt.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1535702694029os0n8zyt.png?imageslim" alt=""></p>
 <p>关闭这个环境，只需要运行如下命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deactivate</div></pre></td></tr></table></figure>
 <h2 id="23-使用pip安装包"><a href="#2-3-使用pip安装包" class="headerlink" title="2.3 使用pip安装包"></a>2.3 使用pip安装包</h2><p>其实pip安装的部分我之前已经介绍过了，不过上一篇讲得比较简单，仅仅就讲了讲最简单的pip install。而pip 安装包的时候，由于使用的是国外的地址下载包，可能会有些慢或者经常掉线，因此使用国内镜像是比较快的，另外如前文的需求，有些时候需要安装指定版本的包。这也是这次的重点。</p>

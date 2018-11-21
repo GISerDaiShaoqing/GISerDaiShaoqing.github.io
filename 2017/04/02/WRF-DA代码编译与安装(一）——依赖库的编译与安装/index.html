@@ -118,19 +118,19 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 <meta property="og:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。
 WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。
 二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004105.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004133.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004140.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004942.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401005306.jpg">
-<meta property="og:updated_time" content="2018-07-09T07:23:00.514Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004105.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004133.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004140.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004942.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401005306.jpg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
 <meta name="twitter:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。
 WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。
 二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg">
 
 
 
@@ -514,20 +514,20 @@ WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报�
 <p><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="external">https://www.ubuntu.com/download/desktop</a></p>
 </blockquote>
 <p>WRF-DA编译与安装主要参照官方提供的ppt和文档（地址文末会贴出）。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg" alt=""></p>
 <p>首先看下WRF-DA编译与安装的需求。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004105.jpg" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004133.jpg" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004140.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004105.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004133.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004140.jpg" alt=""></p>
 <p>上面提到了需求如下：<br>1.Linux/Mac系统，基于Unix或Linux的系统<br>2.（3DVAR）三维变分的案例内存占用不大，大的（4DVAR）四维变分内存消耗较大。<br>3.支持C和Fortran的编译器（ifort/icc, gfortran/gcc,pgf90/pgcc）<br>4..需要的一些库，类似于WRF。包括：Zlib，netCDF C/Fortran，MPI（MPICH），BUFR，CRTM，RTTOV，HDF5。<br>系统已经安装完毕，而内存部分目前暂时不考虑。接下来看C和Fortran的编译器。<br>Ubuntu内置了gcc的编译器。可以通过命令来查看。</p>
 <pre><code>~$ gcc -v
 </code></pre><p>结果如下：</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401004942.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004942.jpg" alt=""></p>
 <p>接下来安装gfortran，也是通过命令进行安装。</p>
 <pre><code>~$ sudo apt-get install gfortran
 </code></pre><p>通过命令查看是否安装成功。</p>
 <pre><code>~$ gfortran -v
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170401005306.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401005306.jpg" alt=""></p>
 <p>接下来是几个库的下载与安装。<br>zlib：</p>
 <blockquote>
 <p><a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a></p>

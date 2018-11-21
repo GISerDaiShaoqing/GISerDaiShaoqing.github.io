@@ -114,16 +114,16 @@
 <meta property="og:url" content="https://gisersqdai.top/2017/10/30/WRFDA与WRFDA-4DVAR的编译安装/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。参考文档">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015163446.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015164202.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015165205.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015171247.jpg">
-<meta property="og:updated_time" content="2018-07-09T12:56:22.824Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163446.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015164202.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015165205.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015171247.jpg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRFDA与WRFDA-4DVAR的编译安装">
 <meta name="twitter:description" content="前面介绍过WRFDA的安装教程了。这次主要是跟着前面的WRF安装程序再次安装下来。参考文档">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg">
 
 
 
@@ -499,26 +499,26 @@
 <pre><code>gunzip WRFDA_V3.9.1.tar.gz
 tar -xf WRFDA_V3.9.1.tar.gz
 ./configure wrfda
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg" alt=""></p>
 <p>确实显示了hdf5没有设置环境变量。所以编译出来应该是无法使用这个数据格式同化的。这里依旧选择34。<br>接下来可以开始编译。</p>
 <pre><code>./compile all_wrfvar &gt;&amp; compile.out
 </code></pre><p>接着等待编译完成。用如下的命令查看生成的exe。</p>
 <pre><code>ls -l var/build/*exe var/obsproc/src/obsproc.exe
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015163446.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163446.jpg" alt=""></p>
 <h1 id="2-wrfda-4dvar编译安装"><a href="#2-WRFDA-4DVAR编译安装" class="headerlink" title="2 WRFDA-4DVAR编译安装"></a>2 WRFDA-4DVAR编译安装</h1><p>WRFDA-4DVAR就是运行四维变分程序同化的模块。至于这个的要求也在之前写WRFDA安装的文章里有介绍。可以翻到前面的博客查看。要安装WRFDA-4DVAR，必须先安装<a href="http://www2.mmm.ucar.edu/wrf/src/WRFPLUS_V3.9.1.tar.gz" target="_blank" rel="external">WRFPLUS</a>。</p>
 <pre><code>gunzip WRFPLUSV3.9.1.tar.gz
 tar -xf WRFPLUSV3.9.1.tar
 cd WRFPLUSV3
 ./configure wrfplus
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015164202.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015164202.jpg" alt=""></p>
 <p>用下面的命令查询生成的exe。</p>
 <pre><code>ls -ls main/*.exe
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015165205.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015165205.jpg" alt=""></p>
 <p>接着设置环境变量。</p>
 <pre><code>export WRFPLUS_DIR=/home/Build_WRF/WRFPLUSV3
 </code></pre><p>生成编译的文件。</p>
 <pre><code>./configure 4dvar
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015171247.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015171247.jpg" alt=""></p>
 <p>开始编译</p>
 <pre><code>./compile all_wrfvar &gt;&amp; compile.out
 ls -ls var/build/*.exe var/obsproc/*.exe

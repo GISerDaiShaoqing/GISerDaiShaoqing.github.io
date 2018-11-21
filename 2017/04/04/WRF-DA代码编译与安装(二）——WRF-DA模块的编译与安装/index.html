@@ -114,17 +114,17 @@
 <meta property="og:url" content="https://gisersqdai.top/2017/04/04/WRF-DA代码编译与安装(二）——WRF-DA模块的编译与安装/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404193132.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404203522.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404134452.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404184523.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404202349.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170406002555.jpg">
-<meta property="og:updated_time" content="2018-07-09T07:28:21.816Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404193132.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404203522.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404134452.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404184523.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404202349.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170406002555.jpg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装">
 <meta name="twitter:description" content="上一篇已经将所有WRF-DA模块所需要的依赖库都编译安装成功。接下来的步骤就是WRF-DA模块的编译与安装。">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404193132.jpg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404193132.jpg">
 
 
 
@@ -505,19 +505,19 @@ export hdf5=/usr/local/hdf5/
 export rttov=/usr/rttov/
 ./configure wrfda
 </code></pre><p>然后出现了很多选项。<br>选择 x86_64 Linux, gfortran compiler with gcc   (serial)，键入32，回车。<br>32到35分别代表<br>32为serial 表示串行计算； 33为smpar 表示内存共享并行计算(shared memory option)，即使用openMP，大部分多核电脑都支持这项功能； 34为dmpar 表示分布式并行计算(distributed memory option)，即使用MPI 进行并行计算，主要用在计算集群，单个电脑就没必要用了； 35为dm+sm 表示同时使用openMP与MPI两种并行方式. 根据实际需要选择即可，最保险的方法就是选择 serial，不过这样编译出来的程序运行最慢（引自xg1990的博客）。笔者初步测试，选择串行计算的版本，而且根据官方文档和编译结果，其他模式还需要有其他相关的依赖库。选择完编译选项后，会出现提示选择嵌套选项，一般就选 basic 选项即可。当然，这边编译器不同的话，序号也有所不同。同时官方文档已声明3.8.1版本不支持dm和dm+sm版本。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404193132.jpg" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404203522.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404193132.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404203522.jpg" alt=""></p>
 <p>搞定之后，看到一条振奋人心的消息。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404134452.jpg" alt=""></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404184523.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404134452.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404184523.jpg" alt=""></p>
 <p>接下来，就输入如下命令：</p>
 <pre><code>./compile all_wrfvar&gt;&amp;checkwrfda.log
 </code></pre><p>然后等它编译完成就好了。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170404202349.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170404202349.jpg" alt=""></p>
 <p>当然，到这一步我还是有问题，因为我只编译安装了43个exe，完全成功应该有44个exe。并且发现这个缺少的exe是主程序，da_wfrda.exe。<br>查看生成exe的命令。</p>
 <pre><code>ls -l var/build/*exe var/obsproc/src/obsproc.exe
 </code></pre><p>接着就回头去看log文件以及官方编译要求。<br>发现大部分是路径错误。于是重新配置安装依赖库，并将WRF所需的其他库一并安装，重新编译。终于成功。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170406002555.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170406002555.jpg" alt=""></p>
 <p>以上就是WRF-DA模块的编译与安装。<br>后面会更新WRF主程序的编译与安装方面的内容（具体时间待定）。<br>最后再次感谢以下博客文档的帮助。</p>
 <blockquote>
 <p> <a href="https://wenku.baidu.com/view/58851bc269eae009591bec0a.html" target="_blank" rel="external">https://wenku.baidu.com/view/58851bc269eae009591bec0a.html</a><br><a href="https://nwpsaf.eu/site/software/rttov/rttov-v12/" target="_blank" rel="external">https://nwpsaf.eu/site/software/rttov/rttov-v12/</a><br><a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html</a><br><a href="https://xg1990.com/blog/archives/190" target="_blank" rel="external">https://xg1990.com/blog/archives/190</a><br> <a href="http://blog.csdn.net/luoying_1993/article/details/53228473" target="_blank" rel="external">http://blog.csdn.net/luoying_1993/article/details/53228473</a><br> <a href="https://wenku.baidu.com/view/57e27fd14a7302768e9939f4.html?re=view" target="_blank" rel="external">https://wenku.baidu.com/view/57e27fd14a7302768e9939f4.html?re=view</a><br> <a href="http://www2.mmm.ucar.edu/wrf/users/wrfda/Docs/user_guide_V3.8.1/users_guide_chap6.htm#_Installing_WRF-Var" target="_blank" rel="external">http://www2.mmm.ucar.edu/wrf/users/wrfda/Docs/user_guide_V3.8.1/users_guide_chap6.htm#_Installing_WRF-Var</a></p>

@@ -114,23 +114,23 @@
 <meta property="og:url" content="https://gisersqdai.top/2017/06/13/应用统计学与R语言实现学习笔记（九）——线性回归/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot2.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot3.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot4.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot5.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot6.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot7.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot8.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot9.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot10.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot11.jpeg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/plot12.jpeg">
-<meta property="og:updated_time" content="2018-07-09T08:46:22.594Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot2.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot3.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot4.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot5.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot6.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot7.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot8.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot9.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot10.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot11.jpeg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot12.jpeg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（九）——线性回归">
 <meta name="twitter:description" content="Chapter 9 Linear Regression本篇是第九章，内容是回归分析（主要以线性回归为主）。回归分析是数理统计、数理分析中最基础（也可以说是最重要）的一个分析，所以这一章内容相对来说也较多。">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/plot.jpeg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/plot.jpeg">
 
 
 
@@ -506,7 +506,7 @@
 </ul>
 </blockquote>
 <p>相关关系包括了线性相关（正相关、负相关）、非线性相关、完全相关（正相关、负相关）、不相关。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot.jpeg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot.jpeg" alt=""></p>
 <p>除了如上的图，可以看下面的链接——关于相同统计量不同数据的一篇外文。</p>
 <blockquote>
 <p><a href="https://www.autodeskresearch.com/publications/samestats" target="_blank" rel="external">https://www.autodeskresearch.com/publications/samestats</a></p>
@@ -631,7 +631,7 @@
 </blockquote>
 <p>其实在R语言里主要用predict.lm函数来进行区间估计。代码样例如下：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">con&lt;-predict.lm(modele,h,interval=<span class="string">"confidence"</span>,level=<span class="number">0.95</span>)</div></pre></td></tr></table></figure></p>
 <p>其中interval控制是置信区间（参数填confidence）、预测区间（参数填prediction）或者是不做区间估计，level是置信水平，接着用R绘制一个简单的回归和置信区间的图，这里先给出如何绘制置信区间band的代码，完整代码还是老规矩，在这一部分笔记写完后给出。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">polygon(c(h[,<span class="number">1</span>], rev(h[,<span class="number">1</span>])), c(con[,<span class="number">3</span>], rev(con[,<span class="number">2</span>])),border=<span class="string">"red"</span>,lwd=<span class="number">1</span>,lty = c(<span class="string">"dashed"</span>, <span class="string">"solid"</span>))</div></pre></td></tr></table></figure></p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot2.jpeg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot2.jpeg" alt=""></p>
 <h3 id="4-残差分析"><a href="#4-残差分析" class="headerlink" title="4 残差分析"></a>4 残差分析</h3><p><strong>残差(residual)</strong>——因变量的观测值与根据估计的回归方程求出的预测值之差，用e表示。<br>$$e_i=y_i-\hat y_i$$<br>反映了用估计的回归方程去预测而引起的误差。<br><strong>残差检验的目的</strong></p>
 <blockquote>
 <ul>
@@ -673,7 +673,7 @@
 <p><strong>序列相关（自相关）</strong><br>当数据是按时间顺序采集的，有可能引起误差项之间的相关(Serial correlation,autocorrelation)。<br>这里介绍一个相关的杜宾-瓦特森(Durbin-Watson)检验统计量：<br>$$ d=\frac{\sum_{t=2}^n(e_t-e_{t-1})^2}{\sum_{t=1}^ne_t^2} $$<br>是否遗漏了重要的对因变量有时序影响的自变量，有时可通过引入度量观测次数的自变量解决该问题。这部分属于时间序列分析的范畴，这里就不进一步阐述了。</p>
 <p>在R语言中，线性回归方程残差图绘制非常简单。模型拟合过程会自动给出四个残差可视化相关的图。绘制方法如下：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">layout(matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>),nrow=<span class="number">2</span>,byrow=<span class="literal">T</span>))</div><div class="line">plot(modele)</div></pre></td></tr></table></figure></p>
 <p>结果如图</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot3.jpeg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot3.jpeg" alt=""></p>
 <p><strong>异常值(outlier)与识别</strong><br>如果某一个点与其他点所呈现的趋势不相吻合，这个点就有可能是异常点。</p>
 <blockquote>
 <ul>
@@ -719,7 +719,7 @@
 </ul>
 </blockquote>
 <p>二元回归方程的几何表达——回归面。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot4.jpeg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot4.jpeg" alt=""></p>
 <p><strong>估计的多元回归的方程(estimated multiple regression equation)</strong><br>用样本统计量$b_0,b_1,b_2,\cdots,b_p$估计回归方程中的参数$\beta_0,\beta_1,\beta_2,\cdots,\beta_p$时得到的方程。一般形式为。<br>$$\hat y=b_0+b_1x_1+b_2x_2+\cdots+b_px_p$$<br><strong>参数的最小二乘法</strong><br>使因变量的观察值与估计值之间的离差平方和达到最小来求得$b_0,b_1,b_2,\cdots,b_p$，即：<br>$$argmin Q(b_0,b_1,b_2,\cdots,b_p)=\sum_{i=1}^n(y_i-\hat y_i)^2=\sum_{i=1}^ne_i^2$$<br>求解各回归参数的标准方程如下：<br>$$ \begin{cases}\left. \frac{\partial Q}{\partial \beta_0} \right| _{\beta_0=b_0}=0\\\left. \frac{\partial Q}{\partial \beta_i} \right| _{\beta_i=b_i}=0(i=1,2,\cdots,p)\end{cases} $$<br><strong>多重判定系数(multiple coefficient of determination)</strong><br>回归平方和占总平方和的比例，计算公式为<br>$$ R^2=\frac{\sum_{i=1}^n(\hat y_i-\bar y)^2}{\sum_{i=1}^n(y_i-\bar y)^2}=\frac{SSR}{SST}=1-\frac{SSE}{SST} $$<br>因变量取值的变差中， 能被估计的多元回归方程所解释的比例。<br><strong>修正多重判定系数(adjusted multiple coefficient of determination)</strong><br>用样本容量n和自变量的个数p去修正$R^2$得到。计算公式为<br>$$R_a^2=1-(1-R^2)\times\frac{n-1}{n-p-1}$$<br>避免增加自变量而高估$R^2$，意义与$R^2$类似，数值小于$R^2$。<br><strong>估计标准误差s</strong><br>对误差项ε的标准差σ的一个估计值。衡量多元回归方程的拟合优度。计算公式为<br>$$ s=\sqrt{\frac{\sum_{i=1}^n(y_i-\hat y_i)^2}{n-p-1}}=\sqrt{\frac{SSE}{n-p-1}}=\sqrt{MSE} $$<br><strong>线性关系检验</strong><br>检验因变量与所有自变量之间的线性关系是否显著，也被称为总体的显著性检验。检验方法是将回归均方和(MSR)同离差均方和(MSE)加以比较，应用F检验来分析二者之间的差别是否显著。</p>
 <blockquote>
 <ul>
@@ -745,7 +745,7 @@
 <p><strong>检测多重共线性(Variance Inflationary Factor)</strong><br>VIF (variance inflation factor) 用以测量如果自变量相关对估计的回归系数的变异程度的影响。<br>$VIF_j$的定义:<br>$$VIF_j=\frac{1}{1-R_j^2}$$<br>$R_2^j$是第j个自变量对其它自变量进行回归的判定系数。VIF=1表示所对应自变量与其它自变量无线性关系。VIF值越大，多重共线性越严重。如果$VIF_j$&gt;5，$x_j$与其它自变量高度相关。<br><strong>多重共线性(问题的处理)</strong><br>将一个或多个相关的自变量从模型中剔除，使保留的自变量尽可能不相关。<br>如果要在模型中保留所有的自变量，则应避免根据t统计量对单个参数进行检验，对因变量值的推断(估计或预测)的限定在自变量样本值的范围内。</p>
 <h3 id="7-定性自变量的回归"><a href="#7-定性自变量的回归" class="headerlink" title="7 定性自变量的回归"></a>7 定性自变量的回归</h3><p><strong>虚拟变量(dummy variable)</strong><br>定性自变量————只有两个水平的定性自变量或有两个以上水平的定性自变量。<br>虚拟变量——用数字代码表示的定性自变量。<br>虚拟变量的取值为0，1。<br><strong>虚拟变量的个数</strong><br>当定性自变量只有两个水平时，可在回归中引入一个虚拟变量。一般而言，如果定性自变量有k个水平，需要在回归中模型中引进k-1个虚拟变量。<br>当定性自变量只有两个水平并引进虚拟变量时，回归方程可写$E(y)=\beta_0+ \beta_1x$。当指定虚拟变量0，1时,$\beta_0$总是代表与虚拟变量值0所对应的那个分类变量水<br>平的平均值；$\beta_1$总是代表与虚拟变量值1所对应的那个分类变量水平的平均响应与虚拟变量值0所对应的那个分类变量水平的平均值的差值，即平均值的差值=$(\beta_0+\beta_1)-\beta_0=\beta_1$<br>当定性自变量超过两个水平（假定三个水平）并引进虚拟变量时，回归方程可写$E(y)=\beta_0+ \beta_1x_1+\beta_2x_2$。<br>方差分析同样可以通过引入虚拟变量做回归分析。</p>
 <h3 id="8-非线性回归"><a href="#8-非线性回归" class="headerlink" title="8 非线性回归"></a>8 非线性回归</h3><p><strong>（1）二阶回归模型(Quadratic Regression Model)</strong>——当散点图如下所示，可考虑二次回归模型。<br>$$y_i=\beta_0+\beta_1x_i+\beta_2x_i^2+\varepsilon$$</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot5.jpeg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot5.jpeg" alt=""></p>
 <p><strong>二阶回归模型的显著性检验</strong></p>
 <blockquote>
 <ul>
@@ -767,15 +767,15 @@
 <p><strong>（3）其他非线性回归</strong><br>因变量y与x之间不是线性关系，可通过变量代换转换成线性关系，用最小二乘法求出参数的估计值。但是并非所有的非线性模型都可以化为线性模型。</p>
 <blockquote>
 <ul>
-<li><p>双曲线<br>基本形式：$y=\frac{x}{\alpha x+\beta}$<br>线性化方法：$令y’=\frac{1}{y}，x’=\frac{1}{x}，则有y’=\alpha+\beta x’$<br><img src="http://pbl6hpz34.bkt.clouddn.com/plot6.jpeg" alt=""></p>
+<li><p>双曲线<br>基本形式：$y=\frac{x}{\alpha x+\beta}$<br>线性化方法：$令y’=\frac{1}{y}，x’=\frac{1}{x}，则有y’=\alpha+\beta x’$<br><img src="http://blog.gisersqdai.top/plot6.jpeg" alt=""></p>
 </li>
-<li><p>幂函数曲线<br>基本形式：$y=\alpha x^\beta$<br>线性化方法：$两端取对数得：lgy=lg\alpha+\beta lgx，y’=lgy，x’=lgx，则有y’=lg\alpha+\beta x’$<br><img src="http://pbl6hpz34.bkt.clouddn.com/plot7.jpeg" alt=""></p>
+<li><p>幂函数曲线<br>基本形式：$y=\alpha x^\beta$<br>线性化方法：$两端取对数得：lgy=lg\alpha+\beta lgx，y’=lgy，x’=lgx，则有y’=lg\alpha+\beta x’$<br><img src="http://blog.gisersqdai.top/plot7.jpeg" alt=""></p>
 </li>
-<li><p>对数曲线<br>基本形式：$y=\alpha+\beta lnx$<br>线性化方法：$x’=lnx，则有y’=\alpha+\beta x’$<br><img src="http://pbl6hpz34.bkt.clouddn.com/plot8.jpeg" alt=""></p>
+<li><p>对数曲线<br>基本形式：$y=\alpha+\beta lnx$<br>线性化方法：$x’=lnx，则有y’=\alpha+\beta x’$<br><img src="http://blog.gisersqdai.top/plot8.jpeg" alt=""></p>
 </li>
-<li><p>指数曲线<br>基本形式：$y=\alpha^{\beta x}$<br>线性化方法：$两端取对数得：lny=ln\alpha+\beta x，y’=lny，则有y’=ln\alpha+\beta x$<br><img src="http://pbl6hpz34.bkt.clouddn.com/plot9.jpeg" alt=""></p>
+<li><p>指数曲线<br>基本形式：$y=\alpha^{\beta x}$<br>线性化方法：$两端取对数得：lny=ln\alpha+\beta x，y’=lny，则有y’=ln\alpha+\beta x$<br><img src="http://blog.gisersqdai.top/plot9.jpeg" alt=""></p>
 </li>
-<li>S型曲线<br>基本形式：$y=\frac{1}{\alpha+\beta e^{-x}}$<br>线性化方法：$令y’=1/y，x’=e^{-x}，则有y’=\alpha+\beta x’$<br><img src="http://pbl6hpz34.bkt.clouddn.com/plot10.jpeg" alt=""></li>
+<li>S型曲线<br>基本形式：$y=\frac{1}{\alpha+\beta e^{-x}}$<br>线性化方法：$令y’=1/y，x’=e^{-x}，则有y’=\alpha+\beta x’$<br><img src="http://blog.gisersqdai.top/plot10.jpeg" alt=""></li>
 </ul>
 </blockquote>
 <h3 id="9-建立回归模型"><a href="#9-建立回归模型" class="headerlink" title="9 建立回归模型"></a>9 建立回归模型</h3><p>得到描述因变量与一个或一个以上自变量之间关系的估计的回归方程。目的是建立一个基于最好自变量集合的模型。找到一个适合的描述变量关系之间关系的函数。选择模型应包含的变量。</p>
@@ -861,9 +861,9 @@
 <p>为了提供一个简练的总结，回归过程中舍弃了一些信息。<br>有时一些重要的特征也舍弃了——看图形表示可以告诉我们是否有问题。</p>
 </blockquote>
 <h3 id="11-logistic-回归"><a href="#11-Logistic-回归" class="headerlink" title="11 Logistic 回归"></a>11 Logistic 回归</h3><p>Logistic回归提出的目的是为了解决二值化数据的回归问题。那么为什么简单线性回归模型不适合二值化数据的回归呢？详细原因可见如下图。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot11.jpeg" alt=""> </p>
+<p><img src="http://blog.gisersqdai.top/plot11.jpeg" alt=""> </p>
 <p>二值化变量是“yes”或者”no”的数据。可以被编码为1和0，也就是说不会有其他的变异数值。所以对于这种情况模型的要求是：模型的边界为0和1，模型可以输出的是一个在这类或者另一类的概率。我们想要的是一个实际值落入这类或者另一类的概率大小。而理想的模型是很好的估计0和1，或者换句话说，结果是0或1。所以解决方案就是Logistic回归。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/plot12.jpeg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot12.jpeg" alt=""></p>
 <p>Logistic的基本形式为<br>$$ \pi_i’=ln(\frac{\pi_i}{1-\pi_i})=\beta_0+\beta_1x_i $$<br>通过观测值估计$n_i$的概率$p_i$，并且用$ln(\frac{p_i}{1-p_i})$估计。<br>典型案例：<br>城市增长问题，城市化预测模拟，</p>
 <p><strong>常见的问题</strong></p>
 <blockquote>

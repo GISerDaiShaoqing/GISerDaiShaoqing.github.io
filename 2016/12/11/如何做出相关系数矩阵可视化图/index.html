@@ -114,21 +114,21 @@
 <meta property="og:url" content="https://gisersqdai.top/2016/12/11/如何做出相关系数矩阵可视化图/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="如何做出相关系数矩阵可视化图">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/2.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/3.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/4.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/5.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/6.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/7.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/8.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/9.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/10.jpg">
-<meta property="og:updated_time" content="2018-07-09T07:03:01.398Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/1.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/2.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/3.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/4.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/5.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/6.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/7.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/8.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/9.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/10.jpg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何做出相关系数矩阵可视化图">
 <meta name="twitter:description" content="如何做出相关系数矩阵可视化图">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/1.jpg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1.jpg">
 
 
 
@@ -499,28 +499,28 @@
       
         <script src="\assets\js\APlayer.min.js"> </script><p>如何做出相关系数矩阵可视化图<a id="more"></a> </p>
 <pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">"psych"</span>)</div><div class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></div><div class="line"><span class="keyword">library</span>(psych)</div><div class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></div><div class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></div><div class="line">head(iris)<span class="comment">#查看下数据集前五行</span></div><div class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></div><div class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></div><div class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></div><div class="line">corrplot(cormat$r)</div></pre></td></tr></table></figure>
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/1.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/1.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;)
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/2.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/2.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method = &quot;number&quot;)
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/3.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/3.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/4.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/4.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/5.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/5.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/6.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/6.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/7.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/7.jpg" alt=""></p>
 <pre><code>#含显著性检验的相关系数矩阵可视化
 cormatp&lt;-cormat$p#单独取出p值矩阵
 cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
 corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/8.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/8.jpg" alt=""></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/9.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/9.jpg" alt=""></p>
 <pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://pbl6hpz34.bkt.clouddn.com/10.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/10.jpg" alt=""></p>
 
       
     </div>

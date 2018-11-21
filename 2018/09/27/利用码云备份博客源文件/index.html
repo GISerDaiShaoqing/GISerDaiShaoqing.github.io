@@ -114,15 +114,15 @@
 <meta property="og:url" content="https://gisersqdai.top/2018/09/27/利用码云备份博客源文件/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="本期来讲讲自己搭建的hexo博客以及个人网站的源文件备份问题。Github是国际的代码托管平台，非常丰富的开源代码库，但是目前私有库是收费的，而码云是开源中国的Git代码托管平台，支持免费的私有库。因此，利用码云来备份博客或者个人网站源文件是非常不错的选择。">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1538057958418snvyhzi1.png?imageslim">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1538058388444h9m0mlb6.png?imageslim">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/153805861249244qsienr.png?imageslim">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/1538058825932bedbkf9u.png?imageslim">
-<meta property="og:updated_time" content="2018-09-27T14:37:31.038Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/1538057958418snvyhzi1.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1538058388444h9m0mlb6.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/153805861249244qsienr.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1538058825932bedbkf9u.png?imageslim">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用码云备份博客源文件">
 <meta name="twitter:description" content="本期来讲讲自己搭建的hexo博客以及个人网站的源文件备份问题。Github是国际的代码托管平台，非常丰富的开源代码库，但是目前私有库是收费的，而码云是开源中国的Git代码托管平台，支持免费的私有库。因此，利用码云来备份博客或者个人网站源文件是非常不错的选择。">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/1538057958418snvyhzi1.png?imageslim">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1538057958418snvyhzi1.png?imageslim">
 
 
 
@@ -499,22 +499,22 @@
 </blockquote>
 <p>事实上有很多中国大公司在码云上也有分支，也比较稳定。表示对其支持。</p>
 <h1 id="2-将源文件托管到码云的私有仓库"><a href="#2-将源文件托管到码云的私有仓库" class="headerlink" title="2 将源文件托管到码云的私有仓库"></a>2 将源文件托管到码云的私有仓库</h1><p>码云的注册我就不提了。在登陆之后，首先是先新建一个私有的仓库。名字描述什么的自己填写。另外我打算后面再增加README的内容。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/1538057958418snvyhzi1.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1538057958418snvyhzi1.png?imageslim" alt=""></p>
 <p>接下来就是定位到具体的源文件的路径了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd your file path</div></pre></td></tr></table></figure>
 <p>关于Git这个分布式版本控制工具，其实是支持多用户配置的，所以并不需要担心跟Github的冲突。Git 可以为每个项目设定不同的配置信息。因此我们在这里重新配置信息和内容。首先必须先初始化。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/1538058388444h9m0mlb6.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1538058388444h9m0mlb6.png?imageslim" alt=""></p>
 <p>接着就是配置用户信息。如果加上-global为全局用户信息配置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config user.name yourname</div><div class="line">git config user.email your email</div></pre></td></tr></table></figure>
 <p>配置完成后，复制该部分的SSH地址。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/153805861249244qsienr.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/153805861249244qsienr.png?imageslim" alt=""></p>
 <p>接着建立文件夹和远程仓库的连接。这里注意将名字设置为gitee区别于github通用的origin。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add gitee git@your.git</div></pre></td></tr></table></figure>
 <p>接下来只需很愉快的push三部曲了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add ./-A</div><div class="line">git commit -m &quot;your message&quot;</div><div class="line">git push -u gitee master</div></pre></td></tr></table></figure>
 <p>即可发现你的源文件主要部分上传成功。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/1538058825932bedbkf9u.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1538058825932bedbkf9u.png?imageslim" alt=""></p>
 <p>最后给出一些参考的资料。</p>
 <p><a href="https://blog.csdn.net/bit_girl/article/details/53560885" target="_blank" rel="external">git 查看/修改用户名、密码</a></p>
 <p><a href="https://www.cnblogs.com/joyang/p/4922441.html" target="_blank" rel="external">配置Git</a></p>

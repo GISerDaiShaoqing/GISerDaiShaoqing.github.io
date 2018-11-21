@@ -114,16 +114,16 @@
 <meta property="og:url" content="https://gisersqdai.top/2017/04/09/在Ubuntu中安装R的几种方式总结/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409153415.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409155836.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409161538.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409163009.jpg">
-<meta property="og:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409203011.jpg">
-<meta property="og:updated_time" content="2018-07-09T07:31:12.696Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409153415.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409155836.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409161538.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409163009.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409203011.jpg">
+<meta property="og:updated_time" content="2018-11-21T02:28:08.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Ubuntu中安装R的几种方式总结">
 <meta name="twitter:description" content="近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。">
-<meta name="twitter:image" content="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409153415.jpg">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409153415.jpg">
 
 
 
@@ -493,7 +493,7 @@
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>近来笔者由于研究需要，开始研究Linux系统，并动手安装了VMware和Ubuntu软件。<a id="more"></a> 因缘际会（主要是自己开始入坑Github）发现之前在Windows下安装失败的一个R包bignmf无法安装原因。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409153415.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409153415.jpg" alt=""></p>
 <p>这个包只能在Ubuntu上测试运行。所以之前在windows上根本无法编译和安装。所以笔者打算在Ubuntu上安装R并安装这个包进行使用。<br>这里简单解释下bignmf包的用处，它是基于Rcpp和RcppEigen两个包，通过底层C++代码调用实现的一个R包，实现的算法是NMF（Nonnegative Matrix Factorization，非负矩阵分解)，作者是爱荷华州立大学的潘岚峰大神。当然R本身自带也有NMF包，不过语法不是很友好的感觉，此外最近笔者也发现了另外的可以在windows上运行的NMF的R包，NMF的理论和应用方面，包括bignmf的编译安装，后面有时间会更新（先挖坑），这里不做详细介绍。<br>回到本篇的主要目的，如何在Ubuntu中安装R。<br>这里提供三个方法：1.Linux安装软件的普遍方法——命令行；2.新立得软件包；3.从官网下载R语言环境源码，自行编译安装。<br>1.基于命令行的方法<br>首先先进入/etc/apt/sources.list，变换软件源，同时进入管理员权限</p>
 <pre><code>cd /etc/apt/
 gedit sources.list
@@ -503,7 +503,7 @@ gedit sources.list
 <p><a href="https://cran.r-project.org/mirrors.html" target="_blank" rel="external">https://cran.r-project.org/mirrors.html</a></p>
 </blockquote>
 <p>而ubuntu xenial则是根据ubuntu版本确定的。我的是16.04，所以是xenial。具体的看官方说明，文末贴链接。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409155836.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409155836.jpg" alt=""></p>
 <p>完了之后先更新下软件源。就可以开始安装R了。如果我们需要自行编译R包并且安装的话，就需要在安装r-base-dev。不过笔者测试过，3.3.3版本的r-base自带了r-base-dev。所以不需要进行额外安装。</p>
 <pre><code>apt-get update
 apt-get install r-base
@@ -512,9 +512,9 @@ apt-get install r-base-dev
 <pre><code>apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 deb https://&lt;my.favorite.ubuntu.mirror&gt;/ trusty-backports main restricted universe
 </code></pre><p>完了之后，在命令行里敲入r，出现下面的页面说明安装成功。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409161538.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409161538.jpg" alt=""></p>
 <p>2.基于新立得软件管理包<br>新立得软件管理包是Linux下的神器，可以很方便的管理各类软件和依赖库等（上篇提到的WRF-DA模块编译依赖库有些是用这个安装的，具体过程等介绍WRF安装时补充）。当然一开始我没在我的Ubuntu软件里找到新立得。后面仔细翻了下软件列表。发现了这个软件——Synaptic Package Manager，这个就是新立得软件管理包了。启动它，搜索r-base，如图，右击标记安装，然后应用。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409163009.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409163009.jpg" alt=""></p>
 <p>3.基于自行编译的方法<br>自行编译的方法，笔者没有具体尝试。但是看了下官方文档。大致的流程如下：<br>官方推荐是组织一个文件夹进行安装，一级文件夹为R_Home，然后把源码解压到R_Home下面，并在下面建立src, doc等多个二级文件夹。<br>然后回到R_Home文件夹。以管理员身份进入。</p>
 <pre><code>./configure
 make
@@ -528,7 +528,7 @@ make prefix=/path/to/here install
 </code></pre><p>具体可以见官方文档（链接见文末）<br>在R装好的情况下，为了写代码方便，推荐安装R最好的IDE，Rstudio。<br>这边Rstudio的安装就不展开讲了。下载好deb安装文件，直接加命令行安装即可。</p>
 <pre><code>dpkg -i rstudio-1.0.136-amd64.deb
 </code></pre><p>在Linux中用Rstudio简单画个散点图。</p>
-<p><img src="http://pbl6hpz34.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170409203011.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170409203011.jpg" alt=""></p>
 <p>R语言linux安装官方文档：</p>
 <blockquote>
 <p><a href="https://cran.r-project.org/bin/linux/ubuntu/README" target="_blank" rel="external">https://cran.r-project.org/bin/linux/ubuntu/README</a></p>
