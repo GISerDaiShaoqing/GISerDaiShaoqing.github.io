@@ -126,7 +126,7 @@
 <meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170911203556.jpg">
 <meta property="og:image" content="http://blog.gisersqdai.top/twoclassification.jpg">
 <meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170911211130.jpg">
-<meta property="og:updated_time" content="2018-11-21T02:28:08.319Z">
+<meta property="og:updated_time" content="2019-01-10T14:33:31.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现学习笔记（十一）——判别分析">
 <meta name="twitter:description" content="Chapter 11 Discriminant Analysis笔者最近任务繁重，断更了一顿时间，最近会开始慢慢把这个系列写完。本篇是第十一章，内容是判别分析。">
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  5,075
+                  5,097
                 </span>
               
 
@@ -647,15 +647,20 @@
 <p>距离常选用马氏距离——假设$\mu_1,\mu_2,\Sigma_1,\Sigma_2$分别为$G_1和G_2$的均值向量和协方差阵，则点$x$到$G_i$的马氏距离为<br>$$ d^2(x,G_i)=(x-μ_i)’(\Sigma_i)^{-1}(x-μ_i) $$<br>马氏距离的好处是可以克服变量之间的相关性干扰，并且消除各变量量纲的影响。</p>
 <blockquote>
 <ul>
-<li>$\Sigma_1=\Sigma_2=\Sigma$<br>定义：<br>$$ \begin{aligned}<br>d^2(x,G_1)-d^2(x,G_2) &amp; =(x-\mu_1)’\Sigma^{-1}(x-\mu_1)-(x-\mu_2)’\Sigma^{-1}(x-\mu_2) \ &amp;=-2[x-(\mu_1+\mu_2)/2]’\Sigma^{-1}(\mu_1-\mu_2) \end{aligned} $$<br>令：$ \bar\mu=(\mu_1+\mu_2)/2, \alpha=\Sigma^{-1}(\mu_1-\mu_2),W(x)=(x-\bar\mu)’\alpha=\alpha’(x-\bar\mu) $<br>判别规则：<br>如果W(x)&gt;0，d(x,$G_1$) &lt; d(x,$G_2$)则$x\in G_1$<br>如果W(x)<0，d(x,$g_,1$)> d(x,$G_2$)则$x\in G_2$<br>如果W(x)=0，d(x,$G_1$) = d(x,$G_2$)则待判。<br>称W(x)为判别函数(discriminant function)，α为判别系数。<br>当$\mu_1,\mu_2,\Sigma$未知时，可通过样本来估计。<br>$ x_1^{(i)},\cdots,x_{n_i}^{(i)} $为来自$G_i$的样本(i=1,2)。<br>$$ \hat\mu^{(i)}=\frac{1}{n_i}\sum_{k=1}^{n_2}x_k^{(i)}=\bar x^{(i)},\hat \Sigma=\frac{1}{n_1+n_2-2}(S_1+S_2), $$<br>$$ S_i=\sum_{t=1}^{n_i}(x_t^{(i)}-\bar x^{(i)})(x_t^{(i)}-\bar x^{(i)})’,\bar x=\frac{1}{2}(\bar x^{(1)}+\bar x^{(2)}) $$<br>判别函数为$W(x)=(x-\bar x)’\Sigma^{-1}(\bar x^{(1)}-\bar x^{(2)})$</0，d(x,$g_,1$)></li>
+<li>$\Sigma_1=\Sigma_2=\Sigma$<br>定义：<br>$$ \begin{aligned}<br>d^2(x,G_1)-d^2(x,G_2) &amp; =(x-\mu_1)’\Sigma^{-1}(x-\mu_1)-(x-\mu_2)’\Sigma^{-1}(x-\mu_2) \ &amp;=-2[x-(\mu_1+\mu_2)/2]’\Sigma^{-1}(\mu_1-\mu_2) \end{aligned} $$<br>令：$ \bar\mu=(\mu_1+\mu_2)/2, \alpha=\Sigma^{-1}(\mu_1-\mu_2) $,<br>所以$ W(x)=(x-\bar\mu)’\alpha=\alpha’(x-\bar\mu) $<br>判别规则：<br>如果W(x)&gt;0，d(x,$G_1$) &lt; d(x,$G_2$)则$x\in G_1$<br>如果W(x)<0，d(x,$g_,1$)> d(x,$G_2$)则$x\in G_2$<br>如果W(x)=0，d(x,$G_1$) = d(x,$G_2$)则待判。<br>称W(x)为判别函数(discriminant function)，α为判别系数。<br>当$\mu_1,\mu_2,\Sigma$未知时，可通过样本来估计。<br>$ x_1^{(i)},\cdots,x_{n_i}^{(i)} $为来自$G_i$的样本(i=1,2)。<br>根据样本估计总体，有如下公式：<br>$$ \hat\mu^{(i)}=\frac{1}{n_i}\sum_{k=1}^{n_2}x_k^{(i)}=\bar x^{(i)},\hat \Sigma=\frac{1}{n_1+n_2-2}(S_1+S_2), $$<br>$$ S_i=\sum_{t=1}^{n_i}(x_t^{(i)}-\bar x^{(i)})(x_t^{(i)}-\bar x^{(i)})’,\bar x=\frac{1}{2}(\bar x^{(1)}+\bar x^{(2)}) $$</0，d(x,$g_,1$)></li>
+</ul>
+</blockquote>
+<p>因此最后的判别函数为$W(x)=(x-\bar x)’\hat \Sigma^{-1}(\bar x^{(1)}-\bar x^{(2)})$</p>
+<blockquote>
+<ul>
 <li>$\Sigma_1 \neq \Sigma_2$<br>判别函数为二次函数<br>$W(x)=d^2(x,G_2)-d^2(x,G_1)=(x-\mu_2)’\Sigma_2^{-1}(x-\mu_2)-(x-\mu_1)’\Sigma_2^{-1}(x-\mu_1)$<br>按照距离最近原则，判别准则为：<br>如果W(x)&gt;0即d(x,$G_1$) &lt; d(x,$G_2$)则$x\in G_1$<br>如果W(x)<0即d(x,$g_,1$)> d(x,$G_2$)则$x\in G_2$<br>如果W(x)=0即d(x,$G_1$) = d(x,$G_2$)则待判。</0即d(x,$g_,1$)></li>
 </ul>
 </blockquote>
 <p><strong>多总体情况</strong></p>
 <blockquote>
 <ul>
-<li>多总体情况：协方差相同<br>假设有k个总体$G_1,G_2,\cdots,G_k$，它们的均值向量分别为$\mu_1,\mu_2,\cdots,\mu_k$,协方差阵为$\Sigma$，类似于两总体的讨论，判别函数为：<br>$W_{ij}(x)=[x-(\mu_1+\mu_2)/2]’\Sigma^{-1}(\mu_i-\mu_j),i,j=1,\cdots,k$<br>判别规则：<br>如果存在i，对所有j≠i，有$W_{ij}(x)&gt;0$，则$x\in G_i$，否则待判。<br>如果服从多元正态分布，且各组协方差相同<br>$\begin{aligned} d^2(x,G_i)&amp; =(x-\mu_i)’\Sigma^{-1}(x-\mu_i) \ &amp; =x’\Sigma^{-1}x-2(x’\Sigma^{-1}\mu_i-\mu_i’\Sigma^{-1}\mu_i/2) \ &amp; =x’\Sigma^{-1}x-f_i(x)\end{aligned}$<br>在所有的$f_i(x)$中，哪个$f_i(x)$的值大，x到相应的组i的马氏距离小，判$x\in G_i$</li>
-<li>多总体情况：协方差不等<br>假设有k个总体$G_1,G_2,\cdots,G_k$，它们的均值向量分别为$\mu_1,\mu_2,\cdots,\mu_k$,协方差阵为$\Sigma_1,\Sigma_2,\cdots,\Sigma_k$，类似于两总体的讨论，判别函数为：<br>$W(x)=(x-\mu_j)’\Sigma_j^{-1}(x-\mu_j)-(x-\mu_i)’\Sigma_i^{-1}(x-\mu_i),i,j=1,\cdots,k$<br>判别规则：<br>如果存在i，对所有j≠i，有$W_{ij}(x)&gt;0$，则$x\in G_i$，否则待判。<br>如果总体均值、协方差未知，用样本均值、协方差估计。</li>
+<li>多总体情况：协方差相同<br>假设有k个总体$G_1,G_2,\cdots,G_k$，它们的均值向量分别为$\mu_1,\mu_2,\cdots,\mu_k$,协方差阵为$\Sigma$，类似于两总体的讨论，判别函数为：<br>$W_{ij}(x)=[x-(\mu_i+\mu_j)/2]’\Sigma^{-1}(\mu_i-\mu_j),i,j=1,\cdots,k$<br>判别规则：<br>如果存在i，对所有j≠i，有$W_{ij}(x)&gt;0$，则$x\in G_i$，否则待判。<br>如果服从多元正态分布，且各组协方差相同<br>$\begin{aligned} d^2(x,G_i)&amp; =(x-\mu_i)’\Sigma^{-1}(x-\mu_i) \ &amp; =x’\Sigma^{-1}x-2(x’\Sigma^{-1}\mu_i-\mu_i’\Sigma^{-1}\mu_i/2) \ &amp; =x’\Sigma^{-1}x-f_i(x)\end{aligned}$<br>在所有的$f_i(x)$中，哪个$f_i(x)$的值大，x到相应的组i的马氏距离小，判$x\in G_i$</li>
+<li>多总体情况：协方差不等<br>假设有k个总体$G_1,G_2,\cdots,G_k$，它们的均值向量分别为$\mu_1,\mu_2,\cdots,\mu_k$,协方差阵为$\Sigma_1,\Sigma_2,\cdots,\Sigma_k$，类似于两总体的讨论，判别函数为：<br>$W_{ij}(x)=(x-\mu_j)’\Sigma_j^{-1}(x-\mu_j)-(x-\mu_i)’\Sigma_i^{-1}(x-\mu_i),i,j=1,\cdots,k$<br>判别规则：<br>如果存在i，对所有j≠i，有$W_{ij}(x)&gt;0$，则$x\in G_i$，否则待判。<br>如果总体均值、协方差未知，用样本均值、协方差估计。</li>
 <li>若总体不服从正态分布，直接从马氏距离来做判别分析，失去了概率意义，仅仅是一直观的经验判断而已，可能偏误较大。</li>
 </ul>
 </blockquote>
@@ -923,7 +928,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">107</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1101,7 +1106,7 @@ show_date_time();
 		        <h3 class="widget-title">Tag Cloud</h3>
 			    <div id="myCanvasContainer" class="widget tagcloud">
 			    <canvas width="250" height="250" id="resCanvas" style="width=100%">
-			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">44</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">43</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">44</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">43</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
 			    </canvas>
 			    </div>
 	        </div>
@@ -1137,7 +1142,7 @@ show_date_time();
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1151,7 +1156,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">256.6k</span>
+    <span title="Site words total count">257.8k</span>
   
 </div>
 
