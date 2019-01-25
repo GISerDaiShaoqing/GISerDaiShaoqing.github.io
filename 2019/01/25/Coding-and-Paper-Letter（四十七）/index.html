@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+
+  <meta name="keywords" content="Consideration of Ecology and Geography,Summary," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="资源整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding and Paper Letter（四十七）">
+<meta property="og:url" content="https://gisersqdai.top/2019/01/25/Coding-and-Paper-Letter（四十七）/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="资源整理。">
+<meta property="og:image" content="http://blog.gisersqdai.top/1548386805875nsbfudt3.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15483870056652iwe3u85.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1548387104141d8aezhsa.png">
+<meta property="og:updated_time" content="2019-01-25T08:52:58.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coding and Paper Letter（四十七）">
+<meta name="twitter:description" content="资源整理。">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1548386805875nsbfudt3.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gisersqdai.top/2019/01/25/Coding-and-Paper-Letter（四十七）/"/>
+
+
+
+
+
+  <title>Coding and Paper Letter（四十七） | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    	<a href="https://github.com/GISerDaiShaoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+	src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a
+	2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745
+	f677261795f3664366436642e706e67" alt="Fork me 
+	on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GISerDaiShaoqing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Urban·Ecology·GIS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/01/25/Coding-and-Paper-Letter（四十七）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Coding and Paper Letter（四十七）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T10:53:00+08:00">
+                2019-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Personal/" itemprop="url" rel="index">
+                    <span itemprop="name">Personal</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/25/Coding-and-Paper-Letter（四十七）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/25/Coding-and-Paper-Letter（四十七）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/25/Coding-and-Paper-Letter（四十七）/" class="leancloud_visitors" data-flag-title="Coding and Paper Letter（四十七）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  4,761
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>资源整理。<a id="more"></a></p>
+<h1 id="1-coding"><a href="#1-Coding" class="headerlink" title="1 Coding:"></a>1 Coding:</h1><p>1.Rstudio2019年会，Tidyverse中的数据科学材料，两天的研讨会。</p>
+<p><a href="https://github.com/AmeliaMN/data-science-in-tidyverse" target="_blank" rel="external">data science in tidyverse</a></p>
+<p>2.推荐系统示例与实践。</p>
+<p><a href="https://github.com/Microsoft/Recommenders" target="_blank" rel="external">Recommenders</a></p>
+<p>3.R语言包fsttable，用于以fst格式存储的快速磁盘数据表的接口。</p>
+<p><a href="https://github.com/fstpackage/fsttable" target="_blank" rel="external">fsttable</a></p>
+<p>4.Point Cloud Library（PCL）是一个独立的大型开放项目，用于2D/3D图像和点云处理。</p>
+<p><a href="https://github.com/PointCloudLibrary/pcl" target="_blank" rel="external">pcl</a></p>
+<p>5.120个数据科学面试问题的答案。</p>
+<p><a href="https://github.com/kojino/120-Data-Science-Interview-Questions" target="_blank" rel="external">120 Data Science Interview Questions</a></p>
+<p>6.cesm，通用地球系统模型，目前比较流行的一种陆面系统模型。</p>
+<p><a href="https://github.com/ESCOMP/cesm" target="_blank" rel="external">cesm</a></p>
+<p>7.美国开放的citygml数据。</p>
+<p><a href="https://github.com/opencitymodel/opencitymodel" target="_blank" rel="external">opencitymodel</a></p>
+<p>8.R语言包xgboostExplainer，使xgboost模型完全可解释。</p>
+<p><a href="https://github.com/AppliedDataSciencePartners/xgboostExplainer" target="_blank" rel="external">xgboostExplainer</a></p>
+<p>9.数据可视化课程。</p>
+<p><a href="https://github.com/katossky/dataviz" target="_blank" rel="external">dataviz</a></p>
+<p>10.R语言包landscapetools，用于执行一些景观分析的操作（主要是转换格式类）。</p>
+<p><a href="https://github.com/ropensci/landscapetools" target="_blank" rel="external">landscapetools</a></p>
+<p><img src="http://blog.gisersqdai.top/1548386805875nsbfudt3.png" alt=""></p>
+<p>11.基于CFFI的Python的cairo桥接。</p>
+<p><a href="https://github.com/Kozea/cairocffi" target="_blank" rel="external">cairocffi</a></p>
+<p>12.Julia库DynamicalSystems，用于探索混沌和非线性动力学。</p>
+<p><a href="https://github.com/JuliaDynamics/DynamicalSystems.jl" target="_blank" rel="external">DynamicalSystems.jl</a></p>
+<p>13.Shiny工程，邻里多样性。</p>
+<p><a href="https://github.com/walkerke/neighborhood_diversity" target="_blank" rel="external">neighborhood diversity</a></p>
+<p><img src="http://blog.gisersqdai.top/15483870056652iwe3u85.png" alt=""></p>
+<p>14.R语言包tidycensus，允许用户使用美国人口普查局的十年期人口普查和五年美国社区API接口，并返回整齐的data.frame，可选择包括简单的地理要素。</p>
+<p><a href="https://github.com/walkerke/tidycensus" target="_blank" rel="external">tidycensus</a></p>
+<p><img src="http://blog.gisersqdai.top/1548387104141d8aezhsa.png" alt=""></p>
+<p>15.R语言包dapr，无依赖性的类似purrr的apply/map/iterate函数。</p>
+<p><a href="https://github.com/mkearney/dapr" target="_blank" rel="external">dapr</a></p>
+<p>16.Pentaho数据集成（ETL）</p>
+<p><a href="https://github.com/pentaho/pentaho-kettle" target="_blank" rel="external">pentaho kettle</a></p>
+<p>17.R语言中空间数据的学习课程，主要是swirl包。</p>
+<p><a href="https://github.com/joheisig/Spatial_Data_in_R" target="_blank" rel="external">Spatial Data in R</a></p>
+<p>18.研讨会网页模板渲染。</p>
+<p><a href="https://github.com/carpentries/workshop-template" target="_blank" rel="external">workshop template</a></p>
+<p>19.图神经网络论文。</p>
+<p><a href="https://github.com/thunlp/GNNPapers" target="_blank" rel="external">GNNPapers</a></p>
+<p>20.自动区分C++的工具。</p>
+<p><a href="https://github.com/autodiff/autodiff" target="_blank" rel="external">autodiff</a></p>
+<p>21.Julia库RecurrenceAnalysis，供了计算递归图并在递归量化分析框架内进行探索的工具。</p>
+<p><a href="https://github.com/JuliaDynamics/RecurrenceAnalysis.jl" target="_blank" rel="external">RecurrenceAnalysis.jl</a></p>
+<p>22.创建具有GPU启用节点的小型slurm集群的步骤。</p>
+<p><a href="https://github.com/mknoxnv/ubuntu-slurm" target="_blank" rel="external">ubuntu slurm</a></p>
+<p>23.城市增长模型。</p>
+<p><a href="https://github.com/JusteRaimbault/UrbanGrowth-model" target="_blank" rel="external">UrbanGrowth model</a></p>
+<p>24.Python库PySimpleGUI，用于构建GUI界面的库。</p>
+<p><a href="https://github.com/PySimpleGUI/PySimpleGUI" target="_blank" rel="external">PySimpleGUI</a></p>
+<p>25.简单易用用于标注fast-cnn训练所需图片的Python程序。</p>
+<p><a href="https://github.com/yulongpo/label-picture" target="_blank" rel="external">label picture</a></p>
+<p>26.Tidyverse训练研讨会的材料。</p>
+<p><a href="https://github.com/rstudio-education/teach-tidy" target="_blank" rel="external">teach tidy</a></p>
+<p>27.R语言包geospark，通过geospark scala包将sf带入spark。</p>
+<p><a href="https://github.com/harryprince/geospark" target="_blank" rel="external">geospark</a></p>
+<p>28.有用的函数、教程以及其他Python相关材料。</p>
+<p><a href="https://github.com/rasbt/python_reference" target="_blank" rel="external">python reference</a></p>
+<p>29.Python库numexpr，用于Python，NumPy，PyTables，pandas，bcolz等的快速数值求解。</p>
+<p><a href="https://github.com/pydata/numexpr" target="_blank" rel="external">numexpr</a></p>
+<p>30.R语言包opencage，Opencage API的R语言接口。</p>
+<p><a href="https://github.com/ropensci/opencage" target="_blank" rel="external">opencage</a></p>
+<h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="https://www.sciencedirect.com/science/article/pii/S1201971218345156?via%3Dihub" target="_blank" rel="external">Spatiotemporal patterns and determinants of dengue at county level in China from 2005-2017/2005-2017年中国县级登革热的时空格局和决定因素</a></p>
+<p>目的：确定登革热病例的高风险时空聚类，探讨相关的危险因素。方法：2005-2017年每月土着登革热病例在县一级汇总。使用SaTScan9.4.4和Arcgis10.3.0，使用时空聚类分析来探索登革热分布特征。此外，使用Maxent 3.3.1软件中的生态位模型分析了登革热暴发的影响因素和潜在高风险区域。结果：我们发现了登革热病例的异质性时空分布模式。确定的初级集群高风险区域覆盖广东省13个县，次要集群包括云南省14个县。此外，气象和环境因素与登革热爆发之间存在非线性关联，年平均最低气温，土地覆盖和年平均降水量分别为8.5％~57.1％，6.7％~38.3％和3.2％~40.4％。结论：登革热暴发的高危地区主要分布在广东和云南省，这些地区受温度，降水和土地覆盖等环境和气象因素的影响很大。健康地理的一篇文章，主要分析登革热的影响因素，由于登革热受蚊虫传播，因此在湿热的环境下容易爆发，与自然因子有很好的关联。这篇应该用的依旧是时空扫描统计方法以及最大熵模型。</p>
+<p>2.<a href="https://www.nature.com/articles/s41562-018-0521-2" target="_blank" rel="external">Air pollution lowers Chinese urbanites’expressed happiness on social media/空气污染降低了中国城市居民在社交媒体上的幸福感</a></p>
+<p>中国较重的空气污染可能导致城市人口表达出较低的幸福感。为了测试这一说法，我们根据中国最大的微博平台新浪微博上2.1亿条带有地理标记的微博内容的情绪构建了每日城市级幸福感指标，并研究了其相对于每天本地空气的动态质量指数和PM2.5浓度（直径等于或小于2.5μm的细颗粒物质，中国城市中最突出的空气污染物）。利用2014年144个中国城市的每天数据，我们的结果表明，PM2.5浓度（或空气质量指数）增加一个标准差会导致幸福指数的0.043（或0.046）标准差减少。人们在周末，假日和极端天气条件下遭受更多的痛苦。女性群体的幸福感相对于普通城市（无论是空气清净或者是污染严重的）居民对空气污染更为敏感。社交媒体数据为中国政府提供了关于生活质量提高的实时反馈意见。发表于Nature Human Behavior的文章，来自于清华大学郑思齐老师、地理所王江浩老师的成果，社交媒体地理学的一篇应用案例，非常有意思的研究。三个关键信息，一是这种方法在大数据时代的可能性，二是空气污染对于居民的影响，三是女性可以做为一个脆弱性人群的分析。当然我觉得关于新浪微博数据的代表性问题也是可以讨论的。</p>
+<p>3.<a href="https://www.mdpi.com/2071-1050/11/2/513" target="_blank" rel="external">Impacts of Urban Green Landscape Patterns on Land Surface Temperature: Evidence from the Adjacent Area of Olympic Forest Park of Beijing, China/城市绿地景观格局对地表温度的影响 - 来自北京奥林匹克森林公园周边地区的证据</a></p>
+<p>城市绿地被认为是缓解城市热岛（UHI）的生态措施。然而，很少有研究调查城市公园相邻区域的降温效果;作为从绿色空间到硬化表面的过渡区域，发生更复杂的热交换，值得更多关注。本文考察了北京奥林匹克森林公园城市绿化模式与周边地区降温效应的关系。结果表明，林地和水体分别可以降低6.51％和12.82％的不透水表面温度。绿地率每增加10％，地表温度下降0.4°C，距森林公园距离每公里增加，地表温度上升0.15°C。绿色空间图案的聚集指数（AI）和最大斑块指数（LPI）与表面温度呈现强烈的负相关。这项研究证实了城市公园相邻区域的降温效果，并突出了它们对城市绿化模式的依赖。因此，我们不仅要开发更多的绿地，还要在有限的城市土地上科学规划其空间结构，以提高降温效果。关注在公园这种大型绿地对于LST的影响。</p>
+<p>4.<a href="http://iopscience.iop.org/article/10.1088/1748-9326/aa84bd/meta" target="_blank" rel="external">Observed long-term greening of alpine vegetation - A case study in the French Alps/观察高山植被绿化的长期过程-法国阿尔卑斯山的一个案例研究</a></p>
+<p>我们将来自多个来源（MODIS，Landsat-5,7,8）的图像与土地覆盖数据相结合，以测试温带高山地区Ecrins国家公园的植被长期（1984-2015）绿化或褐变趋势。近期气候变化和国内放牧实践的背景。我们发现，在过去16年（2000-2015），Ecrins国家公园中超过一半（56％）的峰值归一化植被指数（NDVI max）显着增加。重要的是，NDVI max的最大比例增加发生在高海拔（&gt; 2500 m）的岩石栖息地。虽然MODIS和Landsat检测到的NDVI最大变化方向的空间一致性很高（76％重叠），但对数响应比值之间的相关性具有中等强度（约0.3）。在上述树线栖息地的背景下，我们发现1984年至2000年间NDVI max的比例增加高于2000年至2015年，表明近十年来绿化动态减缓。 2000年之前加速绿化的时机恰逢1980年代和1990年代发生的无雪增长度日数明显增加。在草原和低灌木栖息地的情况下，我们没有发现放牧对绿化趋势的负面影响的证据，可能是由于研究区域通常发现的低放牧强度。我们提出，更长和更温暖的生长季节的出现使得高海拔植物群落能够产生更多的生物量，并且还允许植物定居以前以长期积雪为特征的栖息地。在高山环境中提高植物生产力对生物多样性轨迹和山地景观中的生态系统服务具有潜在影响。欧洲阿尔卑斯山区代表性地区长期绿化趋势的证据为进一步研究高山景观绿化机制奠定了基础。利用多源遥感影像来分析长时间的greening，这类研究前段时间傅伯杰院士团队也发过一篇。事实上应该还是由于气候变化导致的一些冰雪融化产生的环境效应。</p>
+<p>5.<a href="https://www.mdpi.com/2072-4292/11/1/7" target="_blank" rel="external">Exploring Bamboo Forest Aboveground Biomass Estimation Using Sentinel-2 Data/利用Sentinel-2数据探索竹林地上生物量估算</a></p>
+<p>由于生长迅速和收获轮伐期短，竹林在碳循环和地方经济发展中发挥着重要作用。在过去二十年中，准确估算竹林地上生物量（AGB）已引起越来越多的关注。然而，由于对竹林生长特征与遥感数据之间机制的认识不足，基于遥感的竹林AGB估算具有挑战性。本研究的目的是检查不同日期的年度和年度竹林的遥感特征及其AGB估算性能。本研究利用多个Sentinel-2数据，考虑了中国和中国竹林生长特征的独特特征，探讨了中国浙江省竹林的AGB估算。结合野外调查数据和Sentinel-2光谱响应（光谱带和植被指数）和纹理图像，随机森林被用于识别AGB估计的关键变量。结果表明：（1）年际和年年竹林的光谱特征差别很大，特别是在红边2和近红外波长（NIR2）（740-865 nm）之间的波长，使得分开的年度和年度竹林; （2）同年竹林具有相似的光谱特征，尽管AGB从40 Mgha-1增加到高达90 Mgha-1，这意味着光学传感器数据不能有效模拟年际竹AGB; （3）年度竹AGB与4月图像中的红色和短波红外（SWIR）光谱带有显着关系，7月图像中红色边缘2，但AGB饱和度问题的估计精度差; （4）分层显着改善了年度竹AGB估算，但不是同比，建议使用4月图像进行非分层; （5）当AGB大于70 Mgha-1时，Sentinel-2数据无法解决竹AGB数据饱和问题，类似于其他光学传感器数据，如Landsat。未来应该进行更多的研究，以将多个源 - 遥感数据（例如，激光雷达，光学传感器数据）和辅助数据（例如，土壤，地形） - 集成到AGB建模中以改进估计。使用可以有效提取树密度信息的非常高的空间分辨率图像可以改善竹子AGB估计并产生新的见解。基于哨兵卫星的竹林AGB估计，有很多卓有成效的地面调查工作结合了遥感估算，从遥感光谱上分析也较为深入，提出的展望和未来研究方向值得关注。</p>
+<p>6.<a href="http://www.mdpi.com/2072-4292/11/2/164" target="_blank" rel="external">Classification of Land Cover, Forest, and Tree Species Classes with ZiYuan-3 Multispectral and Stereo Data/用资源3号多光谱和立体数据分类土地覆盖，森林和树种</a></p>
+<p>高空间分辨率图像的全球可用性使得树种分布成为可能，以便更好地管理森林资源。以前的研究主要集中在绘制单一树种，但往往需要有关各种树木，尤其是人工林的空间分布的信息。该研究旨在确定适用于土地覆盖，森林和树种分类的变量和算法。使用双时间资源3号多光谱和立体图像。通过对包括最大似然分类器（MLC），k-的六种分类算法的比较分析，检查来自多光谱图像的光谱响应和纹理，来自双时间立体图像的冠层高度特征以及来自立体衍生的数字表面模型数据的斜率和高度。最近邻（kNN），决策树（DT），随机森林（RF），人工神经网络（ANN）和支持向量机（SVM）。结果表明，与单独的光谱带相比，使用多个源数据 - 光谱带，植被指数，纹理和地形因子 - 显着提高了土地覆盖和森林分类准确度，土地覆盖等级的最高总体准确度为84.5％。来自SVM，以及89.2％的森林类，来自MLC。与单季光谱图像相比，叶片和叶片季节性图像的组合进一步提高了土地覆盖类别的分类准确度7.8％至15.0％，森林类别的分类准确度提高了6.0％至11.8％。与单独的光谱图像相比，多个源数据的组合还将土地覆盖分类提高了3.7％至15.5％，森林分类提高了1.0％至12.7％。当仅使用光谱数据时，MLC提供了比机器学习算法更好的土地覆盖和森林分类准确度。但是，当使用多个数据源时，一些机器学习方法（如RF和SVM）提供了比MLC更好的性能。在多个源数据中进一步增加冠层高度特征对改善土地覆盖或森林分类没有影响或影响有限，但提高了一些树种如桦树和蒙古苏格兰松的分类准确度。考虑到树种分类，中国松，蒙古苏格兰松，红松，白杨和榆树等阔叶树的分类精度超过92％，落叶松和桦树的准确度相对较低，分别为87.3％和84.5％。然而，这些高分类精度来自不同的数据源和分类算法，并且没有一种分类算法为所有树种类提供最佳准确度。该研究表明相同的数据源和分类算法无法为不同的土地覆盖类别提供最佳分类结果。有必要使用基于专家的方法或基于分层的分类方法开发综合分类程序，该方法可以为每个树种类使用特定的数据变量和算法。基于国产资源3号卫星的土地覆盖、森林和树种分类研究，尤其是本身资源三号属于测绘卫星，可以提供多角度立体像对，不仅仅是遥感影像也能提供DEM的数据，对国产卫星数据的挖掘。</p>
+<p>7.<a href="http://www.mdpi.com/2072-4292/11/2/182" target="_blank" rel="external">Spatial Patterns of Land Surface Temperature and Their Influencing Factors: A Case Study in Suzhou, China/地表温度空间格局及其影响因素 - 以苏州市为例</a></p>
+<p>地表温度（LST）是区域和全球范围内的基本地球表层参数。在1996年，2004年和2016年的春季和夏季，我们使用7张Landsat图像在苏州市获得LST，并检查了影响LST模式的空间因素。候选空间因素包括（1）土地覆盖指数，如归一化差异建立指数（NDBI），归一化差异植被指数（NDVI）和归一化差异水指数（NDWI），（2）邻近因子如到市中心，市中心和主要道路的距离，以及（3）LST位置。我们的研究结果表明，随着时间的推移，表面城市热岛（SUHI）的强度不断增加，SUHI的空间分布在两个季节之间是不同的。苏州的SUHI主要分布在市中心，1996年，但在2004年和2016年扩展到近郊区，并在SUHI的最高水平上大幅扩张。我们基于缓冲区的梯度分析表明，随着到苏州市中心的距离，LST以对数方式衰减或线性衰减。由广义加性模型（GAMs）推断，LST与候选因子之间存在强关系，其中主导因子是NDBI，其次是NDWI和NDVI。虽然土地覆盖指数是LST的主导因素，但空间接近度和位置也对LST和SUHI产生了实质性影响。这项工作提高了我们对SUHI及其在苏州的影响的理解，并有助于政策制定者制定减轻SUHI影响的对策。城市热岛与相关因子的分析，其实诸如此类的文章这几年热岛研究不断，但是对这些研究也有值得讨论的点。</p>
+<p>8.<a href="https://www.mdpi.com/2072-4292/11/2/183" target="_blank" rel="external">Model Simulation and Prediction of Decadal Mountain Permafrost Distribution Based on Remote Sensing Data in the Qilian Mountains from the 1990s to the 2040s/基于遥感数据的20世纪90年代至2040年代祁连山年代际山多年冻土分布模拟模拟与预测</a></p>
+<p>基于遥感数据解释的结果，本文旨在模拟和预测祁连山区20世纪90年代至2040年代受年平均气温（MDAT）影响的山地多年冻土分布变化。基于遥感影像，可视化地解释基准地图以从20世纪90年代获得山地永久冻土分布。通过比较和估计，使用基准地图，地形和土地覆盖因子以及20世纪90年代的MDAT数据构建逻辑回归模型（LRM）。根据气象站的调查数据预测2010年至2040年代的MDAT数据。利用LRM，MDAT数据和因子，模拟和预测了20世纪90年代至2040年代的十年山地永久冻土分布的概率（p）。根据p值，永久冻土分布状态被分类为“永久冻土可能”（p&gt; 0.7），“永久冻土可能”（0.7≥p≥0.3）和“永久冻土不可能”（p &lt;0.3）。从20世纪90年代到2040年代，“永久冻土可能”类型主要降级为“永久冻土可能”类型，总面积从73.5×103 km2变为66.5×103 km2。 “永久冻土可能”类型主要降级为“不可能永久冻土”，退化面积为6.5×103 km2，占总面积的21.3％。同时，模拟结果的准确性可以达到约90％，这是通过基于遥感数据解释结果的20世纪90年代，2000年代和2010年的模拟结果的验证来确定的。本研究为了解长期以来气温上升所影响的山地多年冻土分布变化提供了一种方法，可用于研究其他具有相似地形和气候条件的山区。利用遥感数据和回归模型解译和模拟冻土长时间序列空间分布。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Dai Shaoqing
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://gisersqdai.top/2019/01/25/Coding-and-Paper-Letter（四十七）/" title="Coding and Paper Letter（四十七）">https://gisersqdai.top/2019/01/25/Coding-and-Paper-Letter（四十七）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Consideration-of-Ecology-and-Geography/" rel="tag"># Consideration of Ecology and Geography</a>
+          
+            <a href="/tags/Summary/" rel="tag"># Summary</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/Coding-and-Paper-Letter（四十六）/" rel="next" title="Coding and Paper Letter（四十六）">
+                <i class="fa fa-chevron-left"></i> Coding and Paper Letter（四十六）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Dai Shaoqing" />
+            
+              <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">112</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GISerDaiShaoqing" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" target="_blank" title="Scholar">
+                    
+                      <i class="fa fa-fw fa-google"></i>Scholar</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://orcid.org/0000-0003-0858-4728" target="_blank" title="ORCID">
+                    
+                      <i class="fa fa-fw fa-id-card"></i>ORCID</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.researchgate.net/profile/Shaoqing_Dai" target="_blank" title="RG">
+                    
+                      <i class="fa fa-fw fa-group"></i>RG</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dsq1993qingge@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.sciencenet.cn/u/GISdsq" target="_blank" title="ScienceNet">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ScienceNet</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/esa_dsq" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" title="Jianshu">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>Jianshu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://my.oschina.net/u/2424163" target="_blank" title="OSchina">
+                    
+                      <i class="fa fa-fw fa-codepen"></i>OSchina</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://yq.aliyun.com/u/sqdaigiser" target="_blank" title="Aliyunqi">
+                    
+                      <i class="fa fa-fw fa-cloud"></i>Aliyunqi</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gisersqdai.top/mycv/" target="_blank" title="CV">
+                    
+                      <i class="fa fa-fw fa-user-circle"></i>CV</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://112.74.203.220:8081/chs/index.php" title="Research Group" target="_blank">Research Group</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee" target="_blank">Gitee</a>
+                  </li>
+                
+              </ul>
+     <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("08/14/2016 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+            </div>
+          
+        </div>
+      </section>
+		  
+      
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+		      <div class="widget-wrap">
+		        <h3 class="widget-title">Tag Cloud</h3>
+			    <div id="myCanvasContainer" class="widget tagcloud">
+			    <canvas width="250" height="250" id="resCanvas" style="width=100%">
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">49</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">48</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			    </canvas>
+			    </div>
+	        </div>
+	    
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-coding"><span class="nav-number">1.</span> <span class="nav-text">1 Coding:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-paper"><span class="nav-number">2.</span> <span class="nav-text">2 Paper:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">279.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+<div class="BbeiAn-info">
+闽ICP备 -
+<a target="_blank"  href="http://www.miitbeian.gov.cn/">18026025号</a>
+</a>|
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021302000273" style="color:#f0d784;text-decoration:none;padding-left:30px;background:url(http://science.gisersqdai.top/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png) no-repeat left center" rel="nofollow">闽公网安备 35021302000273号</a>
+</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz',
+        appKey: '5R3loDlmeKFd1bdvCNnq065n',
+        placeholder: '~\(≧▽≦)/~来呀！快活呀！',
+        avatar:'',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
