@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gisersqdai.top/"/>
-  <updated>2019-01-27T12:56:23.362Z</updated>
+  <updated>2019-01-31T15:24:25.016Z</updated>
   <id>https://gisersqdai.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding and Paper Letter（四十九）</title>
+    <link href="https://gisersqdai.top/2019/01/31/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E4%B9%9D%EF%BC%89/"/>
+    <id>https://gisersqdai.top/2019/01/31/Coding-and-Paper-Letter（四十九）/</id>
+    <published>2019-01-31T14:06:00.000Z</published>
+    <updated>2019-01-31T15:24:25.016Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>资源整理。预计是春节前最后一次更文了。<a id="more"></a></p><h1 id="1-coding"><a href="#1-Coding" class="headerlink" title="1 Coding:"></a>1 Coding:</h1><p>1.R语言包satin，构建shiny仪表盘的框架。</p><p><a href="https://github.com/ramnathv/satin" target="_blank" rel="external">satin</a></p><p>2.R语言包vein，自下而上估计的车辆排放量清单模型。</p><p><a href="https://github.com/atmoschem/vein" target="_blank" rel="external">vein</a></p><p><img src="http://blog.gisersqdai.top/15489439177794t8ruft4.png" alt=""></p><p>3.微信小程序优秀教程、轮子、开源项目资源汇总。</p><p><a href="https://github.com/MasterStudio/MasterWechatApp" target="_blank" rel="external">MasterWechatApp</a></p><p>4.shiny企业级仪表盘。</p><p><a href="https://github.com/sol-eng/db-dashboard" target="_blank" rel="external">db dashboard</a></p><p>5.R语言包Rweixin，R语言与微信公众号接口。</p><p><a href="https://github.com/Lchiffon/Rweixin" target="_blank" rel="external">Rweixin</a></p><p>6.一个R语言与微信公众号接口的实践。</p><p><a href="https://github.com/Lchiffon/Example-for-R-Weixin" target="_blank" rel="external">Example for R Weixin</a></p><p>7.Fluent Python一书的示例代码。</p><p><a href="https://github.com/fluentpython/example-code" target="_blank" rel="external">example code</a></p><p>8.Sentinel-2影像的超分辨率学习（全球适用的深度神经网络）。</p><p><a href="https://github.com/lanha/DSen2" target="_blank" rel="external">DSen2</a></p><p>9.一个可视化全球天气状况的项目。</p><p><a href="https://github.com/cambecc/earth" target="_blank" rel="external">earth</a></p><p>10.R语言包STRbook，C.K. Wikle, A. Zammit-Mangion和N. Cressie的用R做时空统计书的支撑材料。</p><p><a href="https://github.com/andrewzm/STRbook" target="_blank" rel="external">STRbook</a></p><p>11.从AWS上Sentinel公共数据集库创建Landsat时空数据目录（STAC）。</p><p><a href="https://github.com/sat-utils/sat-stac-sentinel" target="_blank" rel="external">sat stac sentinel</a></p><p>12.在AWS上创建来自Sentinel1的STAC目录。</p><p><a href="https://github.com/scottyhq/sat-stac-sentinel1" target="_blank" rel="external">sat stac sentinel1</a></p><p>13.收集实时公交数据并将其处理为追溯的GTFS。</p><p><a href="https://github.com/SAUSy-Lab/retro-gtfs" target="_blank" rel="external">retro gtfs</a></p><p>14.R语言包credentials，用于管理SSH和Git凭据的工具。</p><p><a href="https://github.com/r-lib/credentials" target="_blank" rel="external">credentials</a></p><p>15.地理数据科学。</p><p><a href="https://github.com/darribas/gds18" target="_blank" rel="external">gds18</a></p><p>16.从文件结构看，EGU 2018的内容。这是一组jupyter笔记本，具有与访问和使用数据服务相关的各种教程，信息。</p><p><a href="https://github.com/earthserver-eu/jupyter_notebooks" target="_blank" rel="external">jupyter notebook</a></p><p>17.Python机器学习实践。</p><p><a href="https://github.com/SaretMagnoslove/Practical_Machine_Learning_with_python" target="_blank" rel="external">Practical Machine Learning with python</a></p><p>18.Python库plotnn，从keras模型绘制神经网络可视化。</p><p><a href="https://github.com/deephyper/plotnn" target="_blank" rel="external">plotnn</a></p><p><img src="http://blog.gisersqdai.top/1548945803354ck3tkry6.png" alt=""></p><p>19.从卷积神经网络的推广到图形结构数据的Graph CNN实现论文。</p><p><a href="https://github.com/sapan/graph_cnn" target="_blank" rel="external">graph cnn</a></p><p>20.提供使用PySpark的基本算法。</p><p><a href="https://github.com/mahmoudparsian/pyspark-tutorial" target="_blank" rel="external">pyspark tutorial</a></p><p>21.R语言包whiteboxR，用于地理空间分析的whitebox软件相关的R包。</p><p><a href="https://github.com/giswqs/whiteboxR" target="_blank" rel="external">whiteboxR</a></p><p>22.可扩展的R机器学习。</p><p><a href="https://github.com/CODAIT/r4ml" target="_blank" rel="external">r4ml</a></p><p>23.R语言包ggisoband，为isoband库提供了一个ggplot2接口，该接口可以生成包含高程数据的规则间隔网格的等高线（等值线）和等高线多边形（等边线）。</p><p><a href="https://github.com/clauswilke/ggisoband" target="_blank" rel="external">ggisoband</a></p><p><img src="http://blog.gisersqdai.top/1548946533023zpmfwduu.png" alt=""></p><p>24.Python工具，用于地理配置网络摄像头图像并将其投影到地图坐标中。</p><p><a href="https://github.com/SebBuchelt/georef_webcam" target="_blank" rel="external">georef webcam</a></p><p>25.R语言包Vizumap，用于可视化空间数据不确定性。</p><p><a href="https://github.com/pkuhnert/Vizumap" target="_blank" rel="external">Vizumap</a></p><h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="https://ieeexplore.ieee.org/document/8469032" target="_blank" rel="external">A New Cloud Detection Method Supported By GlobeLand30 Data set/GlobeLand30数据集支持新的云检测方法</a></p><p>就传统的阈值方法而言，均匀阈值用于遥感图像的云检测;然而，由于复杂的表面结构和云状态，这种方法通常难以有效地实现图像的高精度云检测。为了解决这个问题，提出了一种基于全球土地覆盖数据的新的云检测算法。具体而言，采用具有全球覆盖的高空间分辨率30米全球陆地覆盖数据集作为图像反演的背景信息，进一步支持遥感影像中的云检测。土地覆盖类型发生变化时，阈值设置可能会有所不同。这种算法可以有效地提高薄/破云的云像素识别精度，即使在明亮区域也是如此。此外，Landsat 5数据用于基于该算法执行云检测实验。在考虑土地覆盖类型变化特征的情况下设定阈值。表现出时空变化的土地覆盖的阈值（例如植被）因纬度和时间而不同。此外，还选择了六种常见的土地覆盖类型进行云探测实验。然后，通过视觉解释进行验证，表明该算法能够达到高云检测精度，云覆盖的总RMSE为4.44％。最后，云和晴空像素的一般准确度分别为86.5％和98.7％。基于GlobalLand30的云检测，GlobalLand30的新应用。</p><p>2.<a href="https://ieeexplore.ieee.org/document/8126884" target="_blank" rel="external">A comparison of the cloud detection results between the UDTCDA mask and MOD35 cloud products/比较UDTCDA掩码和MOD35云产品之间的云检测结果</a></p><p>UDTCDA（通用动态阈值云检测算法）是最近提出的一种新的云检测方法。该云检测方法由从MODIS表面反射率积（MOD09）获得的先验表面反射率支持。使用可见到近红外波长的四个波段的反射来检测混浊像素。因为在地面上存在先验参考数据，所以可以从清晰像素中很好地检测到薄云和分数云的像素。 MOD35是MODIS云面罩产品，结合使用反射率和亮度温度来确定250m和1km分辨率的云像素。可见光，近红外和热红外波段中的36个波段中的22个用于创建高质量的云蒙版。视觉解释和CALIPSO数据比较的方法用于评估两种云检测算法。新的云检测算法与MODIS产品的比较结果。</p><p>3.<a href="https://www.tandfonline.com/doi/abs/10.1080/15567036.2018.1539136?journalCode=ueso20" target="_blank" rel="external">Relationship between PM 2.5 adsorption and leaf surface morphology in ten urban tree species in Shenyang, China/沈阳市10种城市树种PM 2.5吸附与叶片表面形态的关系</a></p><p>本研究采用沈阳市10种树种叶片吸附直径<2.5μm（pm2.5）的颗粒物质。使用气溶胶发生器定量测定pm2.5吸附容量。原子力显微镜用于确定叶片表面的微观形态特征，包括粗糙度参数和树叶的pm2.5吸收机制。结果表明，不同月份pm2.5吸附量与pm2.5浓度呈正相关：10月（0.618±0.16μg·cm -2）=""> 9月（0.514±0.14μg·cm -2）&gt; 7月（0.509±0.14） μg·cm -2）&gt; 8月（0.487±0.12μg·cm -2）&gt; 6月（0.464±0.08μg·cm -2）&gt; 5月（0.359±0.08μg·cm -2）。叶片的PM2.5吸收能力较高，其中折叠的叶片被细毛覆盖，因为它们很粗糙，叶片表面有许多突起和填充物。叶面光滑，气孔密度低，气孔开放的树种吸附PM2.5的能力较弱。根据PM2.5单位叶面积吸附量对叶片的平均粗糙度进行排序，叶片粗糙度与PM2.5单位叶面积吸附量显着相关（R²= 0.706）。应选择具有叶表面形态的树种，以促进PM2.5和其他颗粒（如油松和侧柏）的吸收，以改善城市森林对空气质量的环境影响。定量化分析树种滞尘效果的微观研究，比较有意思的研究，之前也有推荐过几篇类似的文章。</2.5μm（pm2.5）的颗粒物质。使用气溶胶发生器定量测定pm2.5吸附容量。原子力显微镜用于确定叶片表面的微观形态特征，包括粗糙度参数和树叶的pm2.5吸收机制。结果表明，不同月份pm2.5吸附量与pm2.5浓度呈正相关：10月（0.618±0.16μg·cm></p><p>4.<a href="https://www.sciencedirect.com/science/article/pii/S0016706113000931?via%3Dihub" target="_blank" rel="external">Uncertainty quantification of soil property maps with statistical expert elicitation/用统计专家引出的土壤属性图的不确定性量化</a></p><p>准确性评估和不确定性分析是各种科学学科中数据和数据分析质量的关键。对于土壤科学，重要的是量化用于环境和农业生态研究和决策的土壤图的准确性。但是，许多土壤图不提供有关相关精度的信息。对于这些地图，可以通过独立验证来评估准确性，但这需要额外的实地工作来收集验证数据，并且不提供地图不确定性的完整概率描述，例如不确定性传播分析所要求的。相反，在本研究中，我们的目的是使用来自多位专家的知识来量化土壤属性图中的准确性和空间不确定性。所讨论的土壤性质图是英国East Anglian Chalk地区的田间容量（SWFC）的土壤容积容积图。使用正式的统计专家启发程序提取多位专家关于遗留土壤图错误的概率模型描述的知识。应用基于网络的变异函数启发工具从专家那里获得该地图误差的边际概率分布和空间相关性。引出的结果表明，SWFC在研究区域的空间误差以多元正态随机函数为特征。随机函数的变异函数是Matérn模型，其中nugget = 0.45％2，部分sill = 54.6％2，范围= 25,400 m，kappa = 0.40。结果表明，专家及其提供的知识在量化空间不确定性方面具有重要价值，因此可填补缺乏土壤性质图准确性信息的空白。定量化土壤属性图的空间不确定性，利用了专家知识估计空间不确定性，这是一个新的不确定性估计方法，值得关注。</p><p>5.<a href="https://www.mdpi.com/1660-4601/16/3/339" target="_blank" rel="external">Poisson-Gamma Mixture Spatially Varying Coefficient Modeling of Small-Area Intestinal Parasites Infection/Poisson-Gamma混合空间变化系数模型的小区域肠道寄生虫感染</a></p><p>了解人口因素对肠寄生虫感染的时空变化的空间变化影响对于公共卫生干预和监测非常重要。本文提出了一种分层贝叶斯空间变异系数模型，以评估人口因素对加纳肠道寄生虫发病率的影响。该模型依赖于地区卫生信息管理系统收集的发病率数据。我们开发了Poisson和Poisson-gamma空间变化系数模型。我们使用人口统计因素，不安全的饮用水，不安全的厕所和不安全的液体废物处理作为模型协变量。使用集成的嵌套拉普拉斯近似（INLA）拟合模型。肠道寄生虫感染的总体风险估计为每100人10.9，在区域特定的后验风险估计中具有广泛的空间变化。不安全饮用水，不安全厕所和不安全的液体废物处理的乘法效应增加的实质性空间变化发生在肠道寄生虫风险的变化上。结构化的残余空间变化广泛地支配着非结构化组件，这表明未解释的风险因素在空间上是连续的。该研究得出结论，后风险的空间分布和相关的超越概率图对于监测和控制肠道寄生虫至关重要。利用空间统计分析模型分析人口对于肠道微生物寄生物的影响。并利用了一些环境协变量分析感染风险。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;资源整理。预计是春节前最后一次更文了。
+    
+    </summary>
+    
+      <category term="Personal" scheme="https://gisersqdai.top/categories/Personal/"/>
+    
+    
+      <category term="Consideration of Ecology and Geography" scheme="https://gisersqdai.top/tags/Consideration-of-Ecology-and-Geography/"/>
+    
+      <category term="Summary" scheme="https://gisersqdai.top/tags/Summary/"/>
+    
+  </entry>
   
   <entry>
     <title>Coding and Paper Letter（四十八）</title>
@@ -470,29 +494,6 @@
       <category term="Consideration of Ecology and Geography" scheme="https://gisersqdai.top/tags/Consideration-of-Ecology-and-Geography/"/>
     
       <category term="Summary" scheme="https://gisersqdai.top/tags/Summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客解决不蒜子统计无法显示问题</title>
-    <link href="https://gisersqdai.top/2018/10/09/hexo%E5%8D%9A%E5%AE%A2%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
-    <id>https://gisersqdai.top/2018/10/09/hexo博客解决不蒜子统计无法显示问题/</id>
-    <published>2018-10-09T01:00:00.000Z</published>
-    <updated>2018-11-21T02:28:08.234Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>如题，刚巧最近在统计自己各个平台博客的总阅读量问题，结果写好的代码，突然运行不出结果。后面发现博客页面底部的访客统计也有问题。于是就来考虑如何解决。</p><p><img src="http://blog.gisersqdai.top/1539047414830pnbp09uy.png?imageslim" alt=""></p><a id="more"></a><h1 id="1-原因"><a href="#1-原因" class="headerlink" title="1 原因"></a>1 原因</h1><p>笔者用hexo博客和NexT主题已经有一段时间，很喜欢这个主题的简约。不蒜子统计其实在NexT集成得非常好（所以我其实也不是很懂它的原理）。突然出问题很奇怪，于是笔者第一次在百度上尝试搜索了不蒜子统计。结果出来的官网显示了一条消息。</p><p><a href="http://busuanzi.ibruce.info/" target="_blank" rel="external">不蒜子统计官网</a></p><p><img src="http://blog.gisersqdai.top/1539047652326jxa1vbyz.png?imageslim" alt=""></p><p>Soga!其实就是因为不蒜子统计的域名过期了，而js的引用就会有问题，果断在浏览器按下ctrl+u查看博客网页源码!</p><p><img src="http://blog.gisersqdai.top/1539047845526hcho9har.png?imageslim" alt=""></p><p>确实是域名的问题。</p><h1 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2 解决方法"></a>2 解决方法</h1><p>找到问题之后解决方法就好说了。</p><p>首先需要先找到NexT下引用不蒜子统计的方法。文件路径为/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件。</p><p>打开后如图所示。</p><p><img src="http://blog.gisersqdai.top/153904860385179mt5x5b.png?imageslim" alt=""></p><p>替换红框部分即可。替换为”<a href="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;。" target="_blank" rel="external">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;。</a></p><p><img src="http://blog.gisersqdai.top/1539048650109aibjw2uo.png?imageslim" alt=""></p><p>本地预览效果如下。</p><p><img src="http://blog.gisersqdai.top/15390489790648k7ei3ai.png?imageslim" alt=""></p><p>圆满解决，参考的博客是之前参考过的文章，链接如下。</p><p><a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="external">hexo的next主题个性化教程：打造炫酷网站</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如题，刚巧最近在统计自己各个平台博客的总阅读量问题，结果写好的代码，突然运行不出结果。后面发现博客页面底部的访客统计也有问题。于是就来考虑如何解决。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://blog.gisersqdai.top/1539047414830pnbp09uy.png?imageslim&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Coding" scheme="https://gisersqdai.top/categories/Coding/"/>
-    
-    
-      <category term="hexo" scheme="https://gisersqdai.top/tags/hexo/"/>
     
   </entry>
   
