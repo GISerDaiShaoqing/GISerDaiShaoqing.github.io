@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[用Ubuntu和RStudio Server搭建一个R语言的云平台]]></title>
+    <url>%2F2019%2F04%2F15%2F%E7%94%A8Ubuntu%E5%92%8CRStudio-Server%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAR%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%91%E5%B9%B3%E5%8F%B0%2F</url>
+    <content type="text"><![CDATA[前一段介绍过利用Windows系统的Ubuntu子系统搭建数据科学平台，此番来介绍下除了jupyter之外的另外一个数据科学神器：RStudio Server。同时基于Ubuntu和RStudio Server搭建一个R语言的云平台，用于数据分析。 1 RStudio Server简介 RStudio Server 是 RStudio 公司打造的一款基于 Web 的开源编辑器。在实际的工程中，我们的服务器大多是基于Linux的，比如常见的 ubuntu、centos 等。这些操作系统有时并不提供图形化界面，这时候RStudio的服务器版本就派上用场了。启动RStudio Server后，进入在浏览器中进入某一个页面后就可以像桌面版一样使用RStudio编辑器。当R的代码在服务器上出现bug了，线上的hotfix是在所难免的，这时候就需要用到 RStudio Server。–百度百科。 事实上就是一个Web版的RStudio。 2 R语言云平台搭建闲话少说，就来搭建平台吧。首先，这次我是在我自己的办公室的工作站上搭建，因此受到局域网限制，我主要是方便于使用办公室的工作站，某种意义上是个伪云平台。如果真的想搭建一个网络访问式的，必须购买服务器。阿里云等都是可以的。其次除了搭建平台外，由于平常主要在做一些空间分析类的处理，因此搭建完成后还会有一个小的样例代码就当是hello world。 事实上平时使用工作站时，通常就是利用笔记本和XShell连接，然后就开始像六指琴魔一样疯狂敲击键盘，尤其是vim之类的编辑器。 当然有些时候我们需要所见即所得的分析。因此搭建一个平台的需求就出来了。现在Xshell搭建平台。第一步是事实上是安装基础的R语言。这一步我们之前的博客已经介绍过了，不了解的同学可以看一下这篇博客。 在Ubuntu中安装R的几种方式总结 接着就安装gdebi-core。在Xshell里输入如下代码。 1sudo apt-get install gdebi-core 接着下载RStudio Server的deb文件。 1wget https://download2.rstudio.org/rstudio-server-1.1.447-amd64.deb 下载完毕后，用gdebi安装并运行即可。 1sudo gdebi rstudio-server-1.1.447-amd64.deb 可以输入命令查看后台RStudio Server运行情况。 1ps -fel | grep rstudio-server 这里不建议用root账户来使用RStudio，类似之前搭建WSL里的数据科学环境，这里添加一个普通用户来使用。 1sudo adduser rstudio 接着就需要输入密码，根据自己需求输入密码，这就是等等页面里需要输入的用户和密码。这一步结束之后，可以直接打开对应的IP地址加上8787，RStudio默认在8787端口运行。 http://:8787 http://192.81.132.143:8787/auth-sign-in 登陆即可。 3 Hello World当然需求展示一下一个栅格数据。基于raster包，R语言里的神包。因此需要先安装raster，而此包又依赖于rgdal，而rgdal则要求必须安装GDAL。GDAL版本也有要求，因此这一块配置也是个需要花费一些功夫的地方。当然GDAL本身就是一个很棒的开源GIS库。这里就列一下资源。关于GDAL安装配置等以后找个时间专门讲。 123library(raster)filerall &lt;- raster("/home/Workspace/python/Xiamenair/data/pm25halfyear.tif")spplot(filerall) 参考资料： Configure Rstudio Server on Ubuntu 16.04 Urban Data Science — Ex 1: Tools python GDAL 2.1 installation on Ubuntu 16.04 python GDAL 2.1 installation on Ubuntu 16.04 How To Install GDAL/OGR Packages on Ubuntu Rstudio-server的安装与使用 在Ubuntu升级R版本]]></content>
+      <tags>
+        <tag>R</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Coding and Paper Letter（六十三）]]></title>
     <url>%2F2019%2F04%2F15%2FCoding-and-Paper-Letter%EF%BC%88%E5%85%AD%E5%8D%81%E4%B8%89%EF%BC%89%2F</url>
     <content type="text"><![CDATA[资源整理。 1 Coding:1.USGS StreamStats客户端应用，基于typescript。 StreamStats 2.与ngraph.louvain类似，此模块使用Louvain方法检测图形中的聚类。 ngraph.louvain.native 3.R语言包fastlmm，分形光谱变换线性混合模型。 fastlmm 4.R语言包bigFastlm，重新实现RcppEigen的fastLm函数用于big.matrix对象的快速内存线性模型拟合。 bigFastlm 5.浙江大学课程攻略共享计划。 zju icicles 6.开源的自然语言处理研究库，基于Pytorch构建。 allennlp 7.R语言包ordinal，序数数据的回归模型。 ordinal 8.西部山区湖泊数据库。 WML database 9.用于跟踪自然语言处理（NLP）进度的存储库，包括数据集和最常见的NLP任务的当前最新技术。 NLP progress 10.Python库sklearn bayes，使用scikit-learn API进行贝叶斯机器学习。 sklearn bayes 11.用于R中可重复研究的可靠资源列表包括不同工具的比较表。 awesome reproducible R 12.R语言包nomnoml，为nomnoml提供了一个R接口，这是一个基于语法和可定制样式绘制时髦UML图的工具。 nomoml 13.Pardiso.jl包提供了使用Julia语言的PARDISO 5.0和Intel MKL PARDISO的界面。 如果没有PARDISO的有效许可证或安装了MKL库，则无法使用Pardiso.jl。 此软件包是免费提供的，绝不会替换或更改链接库的任何功能。 Pardiso 14.用于基因组预测的分布式AI-REML最佳线性无偏预测框架，包括逐环境交互。该软件已在手稿针对中进行了描述和验证：通过逐个环境的相互作用进行大规模基因组预测。 Needles 15.任意模糊核的深度即插即用超分辨率重建，CVPR2019论文。 DPSR 16.发现并安装有用的RStudio插件。 addinslist 17.Hugo的whisper主题。 hugo whisper theme 18.R语言的torch，深度学习的库。 torch 19.R语言包textfeatures，用于从字符对象中提取有用功能的简单包。 textfeatures 20.Kaggle 项目实战（教程） = 文档 + 代码 + 视频（欢迎参与）。 kaggle 21.结构化算法刷题训练指南。 awesome algorithm 22.Machine Learning Mastery 博客文章翻译 ml mastery zh 23.AiLearning：机器学习 - 机器学习 - ML，深度学习 - DeepLearning - DL，自然语言处理NLP。 AiLearning 24.Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方来源。 docker images 25.深入学习，Berkeley STAT 157（2019年春季）教科书。 使用代码，数学和讨论。 d2l en 26.Open Long-Tailed Recognition（OLTR）是作者重新实现的长尾识别器，“”Large-Scale Long-Tailed Recognition in an Open World”作者：Ziwei Liu, Zhongqi Miao, Xiaohang Zhan, Jiayun Wang, Boqing Gong, Stella X. Yu (CUHK &amp; UC Berkeley / ICSI)。参加IEEE计算机视觉与模式识别会议（CVPR）2019，口头报告。 OpenLongTailRecognition OLTR 27.“具有缺失值的Logistic回归的随机逼近EM”的代码和实现。 miSAEM logReg 28.隐式重启Arnoldi方法，原生Julia实现。 ArnoldiMethod.jl 29.R语言包StanSensitivity，用于在Stan中自动生成局部灵敏度测量的工具。 StanSensitivity 30.R语言包rtemis，高级机器学习研究和应用的平台。rtemis的目标是使数据科学无障碍且高效，同时不影响灵活性。 rtemis 31.R语言包zipcodes，提供美国40569个邮政编码的城市，县，州，县FIPS代码和州FIPS代码。 zipcodes 32.pytrec eval是Python的信息检索评估工具 pytrec eval 33.R中学习和使用GAM的资源。 gam resources 34.R语言包printr，这是knitr的配套包。 printr 35.使用hadoop，flume，hive和R（igraph）的twitter数据的社会网络分析。 tweetonomy 36.R语言包vitae，使用简单的R Markdown创建和维护简历或简历。 它提供了一系列LaTeX模板，以及向文档添加内容的有用功能。 vitae 37.PlusCal中的算法示例，Lamport的TLA +的算法语言。 PluCal Exmamples 38.关于贝叶斯建模的因果推断的论文。 causal bayes 39.该存储库是ASPRS LAS工作组（LWG）的官方协作编辑环境。 我们负责维护ASPRS LAS规范，这是遥感行业最广泛使用的点云数据文件格式。 LAS 40.Python中天文时间序列的通用工具。 gatspy 41.关于R的本科课程的幻灯片。 Intro to R Reader 42.Python库imcmc，用于将2d图像转换为概率分布，然后从中进行采样以创建图像和GIF。 现在，它最适用于徽标和基于形状的图像。 imcmc 2 Paper:1.A Remote Sensing Data Based Artificial Neural Network Approach for Predicting Climate-Sensitive Infectious Disease Outbreaks: A Case Study of Human Brucellosis/基于遥感数据的人工神经网络预测气候敏感传染病爆发：人类布鲁氏菌病的个案研究 遥感技术可以准确地捕捉环境特征，并与环境建模方法一起帮助预测气候敏感的传染病爆发。布鲁氏菌病在驯养动物和人类中仍然在世界范围内猖獗。本研究使用人类布鲁氏菌病（HB）作为测试案例，以确定疾病的重要环境决定因素并预测其爆发。利用年度县级HB病例数据和37个环境变量数据开发了一种新的人工神经网络（ANN）模型，可能与中国内蒙古的HB相关。 2006年至2008年的数据用于培训，验证和测试模型，而2009-2010的数据用于评估模型的性能。增强植被指数被确定为HB发生率的最重要预测因子，其次是地表温度和其他与温度和降水相关的变量。基于这些预测因子对HB的合适生态位进行建模。在模型开发和评估阶段，模型估计与HB报告的报告数量一致。该研究表明，可以使用人工神经网络模型和从卫星数据获得的环境变量，以合理的准确度预测HB爆发。该研究加深了对HB环境决定因素的理解，并推进了预测气候敏感性传染病爆发的方法。基于遥感与传染病爆发的研究。首先考虑到了疾病的基本病理，接着考虑了比较容易影响疾病的几个以及容易从卫星影像获取的环境变量，基于神经网络方法预测疾病爆发，很不错的健康地理研究。 2.Quantifying the effects of using detailed spatial demographic data on health metrics: a systematic analysis for the AfriPop, AsiaPop, and AmeriPop projects/量化使用详细的空间人口统计数据对健康指标的影响：对AfriPop，AsiaPop和AmeriPop项目的系统分析 千年发展目标（MDGs）促使人们扩大了获得健康指标的方法，以衡量实现这些目标的进展情况。 准确的测量应考虑到各国健康风险的高度空间异质性，促使开发复杂的制图技术以绘制风险并对其进行建模。 将这些风险转换为相关的基于人口的指标需要有关人口空间分布和属性的同样详细信息。 然而，缺乏关于年龄和性别构成的空间信息，促使许多健康指标研究忽视了国家以外存在的实质性人口变化，仅仅应用了国家层面的调整。柳叶刀上的一篇文章，提出了高空间分辨率人口数据对健康研究的重要性。 3.Estimating the heights and diameters at breast height of trees in an urban park and along a street using mobile LiDAR/使用移动LiDAR估算城市公园和街道树木胸径的高度和直径 由于树木可以对城市生态系统中的局部环境产生积极影响，因此测量其形态特征非常重要，例如胸径（DBH）的高度和直径。但是，为每棵树测量这些数据是一个耗时的过程，需要大量的人力。在这项研究中，我们研究了使用移动LiDAR估算城市街道和城市公园的树高和胸径的可行性。我们将移动LiDAR装置的测量结果与城市公园和街道中树高和胸径的现场测量结果进行了比较。应用高度 - 地面和Pratt圆拟合方法分别计算树高和DBH。 LiDAR估计的树高度虽然略有低估，但非常准确，街道树的均方根误差为0.359 m，公园树的均方根误差为0.462 m。另一方面，估计的DBH是中等准确和高估的，街道树的均方根误差为3.77厘米，公园树的均方根误差为8.95厘米。公园内密集种植的树木和城市地区的障碍物会导致“阴影”（没有数据的区域），从而降低准确性。不规则的干线形状和不包括每个干线的完整数据点覆盖的扫描数据是导致错误的原因。尽管存在这些错误，但本研究强调了使用移动地面激光雷达平台获得的树木测量的潜力，可以从基于点的位置扩展到邻域规模和城市规模的清单。利用移动地面激光雷达测量城市森林的胸径高度和直径，树木胸径本身就是生物量（碳储量）的一个重要变量。这样有利于评估城市森林在碳循环中的作用。 4.Exploring the impacts of anthropogenic emission sectors on PM2.5 and human health in South and East Asia/探讨人为排放部门对东亚和东亚PM2.5和人类健康的影响 为了改善亚洲空气质量差并提供有效的减排战略，了解不同污染源的贡献及其相关的人类健康负担至关重要。在这项研究中，我们使用WRF-Chem区域大气模型来探索空气质量和人类健康益处，以消除七个不同的人为部门（运输，工业，航运，农业，能源生产，住宅燃烧和开放生物质燃烧）的排放2014年南亚和东亚。我们根据该地区空气质量监测站的测量结果评估WRF-Chem，并发现该模型记录了PM2.5的空间分布和大小（该地区颗粒物质浓度为2.5）。最大的人类健康益处通过消除住宅或工业排放来实现，分别在印度，中国和东南亚避免467 000（409 000-542 000）或283 000（95UI：226 000-358 000）年度过早死亡;避免防火28 000（95UI：24 000-32 000）该地区的年度过早死亡率。我们将我们的结果与之前的行业特定排放研究进行比较。根据这些研究，住宅排放是印度颗粒污染的主要原因，多模型对人口加权年平均PM2.5的平均贡献为42％。住宅和工业排放在中国占主导地位，两个部门的多模型平均贡献率为人口加权年平均PM2.5。未来的工作应侧重于确定住宅，工业和开放式生物质燃烧排放部门中最有效的选择，以改善整个南亚和东亚的空气质量。基于WRFF-Chem做的PM2.5分布，接着与不同部门的排放清单进行分析，结合人口暴露，分析了健康效应以及减排的重点部门。 5.Local-scale landslide susceptibility mapping using the B-GeoSVC model/使用B-GeoSVC模型进行局部尺度滑坡敏感性绘图 局部尺度的滑坡敏感性绘图（LSM）为决策和规划提供了详细信息。由于忽略了空间异质性，大多数已发布的滑坡敏感性图缺乏局部尺度的可靠信息。为了丰富LSM的局部尺度信息，需要针对局部空间异质性的多种信息融合方法和控制因子的区域趋势。然而，还没有为LSM提出信息融合方法。在本文中，我们在LSM的分层贝叶斯框架下开发了一种新的集成统计方法，名为B-GeoSVC。具体而言，该模型应用GeoDetector方法拟合控制因子的区域趋势，并采用空间变异系数（SVC）模型来拟合每个控制因子的局部空间异质性。然后，区域趋势和局部空间异质性信息融合在分层贝叶斯框架内。 B-GeoSVC模型使用来自中国杜文盆地的数据进行验证，该盆地位于受2008年5月12日MS 4.0汶川地震影响的中部地区。在交叉验证实验中，预测准确率为B-GeoSVC模型为86.09％，曲线下面积为0.93，这表明B-GeoSVC模型能够实现相对准确的局部尺度LSM，并提供比传统区域尺度LSM更丰富的局部信息。更重要的是，不仅可以将B-GeoSVC模型用作融合滑坡测绘的区域和地方尺度信息的一般解决方案，而且还可以为更广泛的地球科学和空间统计提供新的见解。基于Geodtector加上分层贝叶斯框架，开发了一个B-GeoSVC模型，对滑坡进行预测，实现滑坡制图。考虑了空间异质性的该模型，精度更高，融合了多源信息，这种思想也可以借鉴到其他方面研究中。 6.Joint treatment of point measurement, sampling and neighborhood uncertainty in space-time rainfall mapping/时空降雨制图中点测量，采样和邻域不确定性的联合处理 各种水文研究都强调了准确表示降雨空间结构的重要性。人们还普遍承认，需要考虑降雨量输入的不确定性。常见方法侧重于计算降雨量估算中的点测量或采样不确定性。我们提出了一种方法，共同考虑影响降雨时空制图的三个不确定性来源：点测量，采样和邻域不确定性。据我们所知，任何先前的降雨不确定性分析都没有包括邻域不确定性。我们在丹麦西部（1055平方公里）的一个集水区以2公里x 2公里的空间分辨率生成了400个日降雨量场的集合。我们方法的核心是顺序高斯模拟（SGS）技术。结果表明我们的方法能够重现降雨分布的关键统计特征。我们研究了不同空间（网格和流域）和时间支持（一天，一个月，五年）对总体不确定性的影响。我们还量化了每个不确定性来源对降雨场不确定性的影响。最后，我们将模拟结果与专家启发研究的结果进行了比较。我们发现，5年内平均流域降雨量的专家引发不确定性远大于我们研究中的量化（CV为1.1％对5％）。测量雨量的5年平均值发现了更大的差异，其中专家引发导致的值高出一个数量级（CV为0.2％对2％）。讨论了这种差距的可能原因。降雨制图的不确定性分析，非常有意思的一个研究，首先是分析了三个不确定性源，接着模拟一个数据并分析不确定性同时与专家启发研究的结果进行不确定性对比。空间数据不确定性分析的一个很好的样例研究。 7.Fine particulate (PM2.5) dynamics before and after China’s “Reform and Opening up” policy in Shenzhen/中国“深圳改革开放”政策前后的细颗粒物（PM2.5）动态 了解城市化与空气污染之间的权衡可以为城市可持续发展提供重要的见解。由于PM2.5记录的可用性，PM2.5在中国的这种情况非常罕见。因此，我们根据PM2.5是PM10的主要成分，PM2.5与深圳气象能见度具有显着关系来估算1973-2017年深圳长时间PM2.5浓度。我们发现深圳的PM2.5浓度经历了倒U型变化，缓慢增加，快速增加，保持高水平，缓慢减少和快速减少的五个不同阶段。深圳的PM2.5浓度动态并未完全遵循EKC的倒U形而是M形。这项研究的结果不仅为中国其他城市提供了一个实例，而且还建议中低收入国家的其他城市通过更好地关注发展与污染之间的权衡来发展。 分析了深圳PM2.5的变化，尤其是改革开放前后，这次的EKC终于不再是喜闻乐见的倒U形而是M形，也是一个比较有意思的点。 8.Investigating the differentiated impacts of socioeconomic factors and urban forms on CO2 emissions: Empirical evidence from Chinese cities of different developmental levels/调查社会经济因素和城市形态对二氧化碳排放的差异影响：来自不同发展水平的中国城市的经验证据 为减少人类活动中广泛存在的二氧化碳（CO2）排放，以往的研究非常重视城市社会经济发展，城市形态和二氧化碳排放之间的关系，并通过有效的城市空间规划提供相关的减排政策。然而，是否以及如何影响二氧化碳排放水平的城市形态的不同特征（如紧凑性）仍然存在争议，特别是考虑到城市的不同发展水平。因此，本研究旨在综合探讨社会经济因素和城市形态如何共同影响二氧化碳排放，同时考虑到中国五个城市层级发展水平的差异。首先，每个城市的二氧化碳排放来自省级能源统计，辐射校准的夜间灯光遥感影像和基于分解模型的人口分布数据。然后，分别从城市统计和土地利用数据中获取一组代表社会经济因素和城市形态的变量。在从1995年到2015年获得这五个城市层级的平衡数据集之后，最终应用面板数据分析来评估社会经济因素和城市形态在不同发展阶段对二氧化碳排放的影响。估算结果表明，经济发展，人口增长和城市土地扩张是加速城市二氧化碳排放的重要因素。此外，由于所有城市层级的潜在运输需求增加，城市土地使用的不规则或分散结构可能导致更多的二氧化碳排放。值得注意的是，城市核心区域日益集中的模式被发现会增加一线城市的二氧化碳排放量，但会促进其他四个城市层级的二氧化碳排放量的减少。具有紧凑和多核模式的城市空间发展被认为与较低水平的二氧化碳排放密切相关。这些结果突出了城市发展水平对于减缓二氧化碳排放的决策的重要性，并从社会经济发展和城市空间规划的角度为建设低碳城市提供科学支持。利用面板数据分析二氧化碳排放的影响。基于统计年鉴数据、夜间灯光遥感以及人口数据得到的。给出了一些宏观意义的减排政策。]]></content>
@@ -1132,8 +1141,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -1144,8 +1153,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -1442,8 +1451,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -1454,8 +1463,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>Ubuntu</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
