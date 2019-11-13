@@ -136,7 +136,8 @@ Python实现带南海九段线分位数地图完整可视化版本（附代码�
 <meta property="og:image" content="http://blog.gisersqdai.top/1573578370428mal4y8y3.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1573578459331inff0rs0.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1573579441909ikprsyth.png">
-<meta property="og:updated_time" content="2019-11-12T17:28:30.204Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/15736114026638ki0bnu5.png">
+<meta property="og:updated_time" content="2019-11-13T02:16:47.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带南海九段线分位数地图可视化（R语言版）">
 <meta name="twitter:description" content="今天带来一篇承诺虾神的可视化博客。内容是使用R语言进行带南海九段线分位数地图可视化。虾神的原博文地址如下（Python版）。
@@ -475,7 +476,7 @@ Python实现带南海九段线分位数地图完整可视化版本（附代码�
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3,108
+                  3,261
                 </span>
               
 
@@ -491,7 +492,7 @@ Python实现带南海九段线分位数地图完整可视化版本（附代码�
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  12
+                  13
                 </span>
               
             </div>
@@ -571,10 +572,13 @@ Python实现带南海九段线分位数地图完整可视化版本（附代码�
 <p>地图目前相较于虾神的图（标注不考虑），最关键的差距就是图例了。这里使用polygon和text来绘制图例。polygon是绘制多边形，首先需要给出组成x和y的多边形坐标，border是线的颜色，col是多边形填充颜色。text是根据坐标标注文字。x,y是点坐标，字符串是标注内容。当然生成多边形坐标以及标注文字坐标依旧使用了bbox，这里可以根据具体地图替换主要改变前面的系数:1.1还有后面的加数灵活绘制。效果如图。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">polygon(x = c(rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))), <span class="number">7</span>), </div><div class="line">              seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))), </div><div class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">6</span>, </div><div class="line">                  <span class="number">1</span>),</div><div class="line">              rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">6</span>, <span class="number">7</span>),</div><div class="line">              seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">5</span>, </div><div class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))), </div><div class="line">                  -<span class="number">1</span>)),</div><div class="line">        y = c(seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))), </div><div class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])))+<span class="number">3</span>, </div><div class="line">                  <span class="number">0.5</span>), </div><div class="line">              rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])))+<span class="number">3</span>, <span class="number">7</span>),</div><div class="line">              seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])))+<span class="number">2.5</span>, </div><div class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))), </div><div class="line">                  -<span class="number">0.5</span>),</div><div class="line">              rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))), <span class="number">7</span>)), </div><div class="line">        border = <span class="string">'black'</span>,</div><div class="line">        col = <span class="string">'white'</span>)</div><div class="line">text(x = round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">10</span>, </div><div class="line">     y = (round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))) + </div><div class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))) + <span class="number">3</span>)/<span class="number">2</span>, <span class="string">"无数据"</span>)</div></pre></td></tr></table></figure>
 <p><img src="http://blog.gisersqdai.top/1573578370428mal4y8y3.png" alt=""></p>
-<p>后续就一步步添加图例，再加上箱线图就可以得到虾神的效果图了。箱线图绘制是R语言中比较简单的，使用boxplot即可，这里不赘述。</p>
+<p>后续就一步步添加图例，再加上箱线图就可以得到虾神的效果图了。箱线图绘制是R语言中比较简单的，使用boxplot即可。</p>
 <p><img src="http://blog.gisersqdai.top/1573578459331inff0rs0.png" alt=""></p>
-<p>当然我们也可以做一版，原理同上面一样，也是设置par，把九段线部分重绘制一遍。结果如图。</p>
+<p>当然我们也可以做一版有小窗的，原理同上面一样，也是设置par，把九段线部分重绘制一遍。结果如图。</p>
 <p><img src="http://blog.gisersqdai.top/1573579441909ikprsyth.png" alt=""></p>
+<p>最后虾神要求的，箱线图+点绘图。这里也描述下。由于只针对单年数据所有省份箱线图，先设置一个类别字段让所有省份数据都相同，设置为1，然后以这个字段来绘制boxplot箱线图。加上点的思路就是以设置的类别字段作为x，外汇收入为y，颜色与地图相同。代码如下。详细意义就不阐述了。详情可参见boxplot的文档。效果最后如图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chinau$boxu &lt;- <span class="number">1</span></div><div class="line"></div><div class="line">boxplot(y2008 ~ boxu, data = as.data.frame(chinau))</div><div class="line">points(factor(chinau$boxu), chinau$y2008, col = chinau$col, pch = <span class="number">16</span>)</div></pre></td></tr></table></figure>
+<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png" alt=""></p>
 <p>打完收工，至于动图，由于R语言做动图会牵扯到另外一个软件，我们就等下一篇博客再水——呸，再介绍。所有的代码后面会公开给大家。请稍安勿躁。本文所有使用数据来自于虾神Github，解释权由他说了算。最后一句——bbox牛逼。</p>
 
       
@@ -974,7 +978,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">418.0k</span>
+    <span title="Site words total count">418.1k</span>
   
 </div>
 
