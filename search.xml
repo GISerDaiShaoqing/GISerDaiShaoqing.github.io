@@ -3,12 +3,13 @@
   <entry>
     <title><![CDATA[阿里云安装nginx配置网站]]></title>
     <url>%2F2019%2F12%2F01%2F%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85nginx%E9%85%8D%E7%BD%AE%E7%BD%91%E7%AB%99%2F</url>
-    <content type="text"><![CDATA[本期带来一篇最近在阿里云服务器上折腾nginx配置网站的教程。 1 nginx简介nginx是一个轻量级的web服务器，我的认知，这东西跟负载平衡不分家。这里抄下度娘简介。 Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。——百度百科 接下来给出官网。 2 阿里云安装nginx这里就不多说阿里云服务器的相关内容了，笔者长期有租用一台用于数据处理等工作。系统是Ubuntu 14.02，这里选用Xshell连接服务器进行一系列操作，并用Xftp来上传下载文件。这里安装nginx有两种方式，一种是apt-get的安装，但是这种安装一般不是最新版本。如果想要最新版本，就推荐下载源码，自行编译安装。这里我们就不使用最新版本了。至于编译安装的可以在网上搜索教程，关键就是先安装几个关键依赖库openssl，zlib，pcre，同时编译安装也比较自由，可以在自己定义的路径里安装。 12apt-get updateapt-get install nginx 如果apt-get报错如图的话。并且无法安装任何软件包的话，就必须执行第一行update的命令行。 执行完update命令行，如图。 接着执行安装语句。键盘敲入y即可安装。 安装成功后，可以键入如下命令检测。 1nginx -v 说起来这版本确实旧。目前官网最新版本为1.17。 3 配置nginx我们首先了解下nginx的目录，默认安装的目录主要在/etc文件夹下。 这个时候，只需要在命令行里敲入nginx，即运行了nginx。 1nginx 由于我的阿里云之前只打开了22端口用于Xshell连接，这里就多打开默认的80端口访问网站。打开阿里云官网，登录账户，点击云服务器ECS，如图点击安全组。 接着在主面板点击配置规则。 然后点击添加安全组规则，按如图所示填写页面的80端口。0.0.0.0/0表示任意ip可以访问。 接下来把服务器ip地址放到浏览器中，即可发现跳转到nginx的欢迎页面。 接下来只需要把网页放到服务器中的指定位置即可，再针对配置文件做修改。有域名的条件下，可以把域名和自己服务器关联起来做解析。 这个版本的nginx的文件配置不是nginx目录下的nginx.conf，而是site-available文件夹下的default。这里给出一个测试的配置。 root是网站的路径。这里采用二级域名来控制，所以还得去配置域名。具体的教程可以看后面的参考链接。这里就不赘述了。 4 基本命令以及错误这里的一些命令主要是开启nginx，关闭，重启，关闭所有nginx。 123456# 关闭nginx -s stop# 查询80端口占用netstat -ntpl | grep 80# 杀死所有nginx进程killall nginx 详细的命令可以参考后面的链接。 另外我在启东nginx时报了两次80端口占用的信息。 这个应该是多启动了一次nginx（猜想）。此外网上也有不少人遇到第二个端口ipv6占用问题，真正的措施并不是kill掉所有nginx，而是配置文件中的修改。这些参考链接我一并列出，有需要者自行取用。 参考链接: 1.Nginx安装以及解决运行时端口被占用问题 2.nginx的启动和关闭 3.nginx - nginx: [emerg] bind() to [::]:80 failed (98: Address already in use) 4.Hugo 与 nginx 结合使用 5.解决nginx: [emerg] bind() to [::]:80 failed (98: Address already in use) 6.把域名和IP地址绑定后，利用域名+端口号访问自己搭建的网站 7.Nginx停止服务和各种命令]]></content>
+    <content type="text"><![CDATA[本期带来一篇最近在阿里云服务器上折腾nginx配置网站的教程。 1 nginx简介nginx是一个轻量级的web服务器，我的认知，这东西跟负载平衡不分家。这里抄下度娘简介。 Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。——百度百科 接下来给出官网。 2 阿里云安装nginx这里就不多说阿里云服务器的相关内容了，笔者长期有租用一台用于数据处理等工作。系统是Ubuntu 14.02，这里选用Xshell连接服务器进行一系列操作，并用Xftp来上传下载文件。这里安装nginx有两种方式，一种是apt-get的安装，但是这种安装一般不是最新版本。如果想要最新版本，就推荐下载源码，自行编译安装。这里我们就不使用最新版本了。至于编译安装的可以在网上搜索教程，关键就是先安装几个关键依赖库openssl，zlib，pcre，同时编译安装也比较自由，可以在自己定义的路径里安装。 12apt-get updateapt-get install nginx 如果apt-get报错如图的话。并且无法安装任何软件包的话，就必须执行第一行update的命令行。 执行完update命令行，如图。 接着执行安装语句。键盘敲入y即可安装。 安装成功后，可以键入如下命令检测。 1nginx -v 说起来这版本确实旧。目前官网最新版本为1.17。 3 配置nginx我们首先了解下nginx的目录，默认安装的目录主要在/etc文件夹下。 这个时候，只需要在命令行里敲入nginx，即运行了nginx。 1nginx 由于我的阿里云之前只打开了22端口用于Xshell连接，这里就多打开默认的80端口访问网站。打开阿里云官网，登录账户，点击云服务器ECS，如图点击安全组。 接着在主面板点击配置规则。 然后点击添加安全组规则，按如图所示填写页面的80端口。0.0.0.0/0表示任意ip可以访问。 接下来把服务器ip地址放到浏览器中，即可发现跳转到nginx的欢迎页面。 接下来只需要把网页放到服务器中的指定位置即可，再针对配置文件做修改。有域名的条件下，可以把域名和自己服务器关联起来做解析。 这个版本的nginx的文件配置不是nginx目录下的nginx.conf，而是site-available文件夹下的default。这里给出一个测试的配置。 root是网站的路径。这里采用二级域名来控制，所以还得去配置域名。具体的教程可以看后面的参考链接。这里就不赘述了。 4 基本命令以及错误这里的一些命令主要是开启nginx，关闭，重启，关闭所有nginx。 123456# 关闭nginx -s stop# 查询80端口占用netstat -ntpl | grep 80# 杀死所有nginx进程killall nginx 详细的命令可以参考后面的链接。 另外我在启动nginx时报了两次80端口占用的信息。 这个应该是多启动了一次nginx（猜想）。此外网上也有不少人遇到第二个端口ipv6占用问题，真正的措施并不是kill掉所有nginx，而是配置文件中的修改。这些参考链接我一并列出，有需要者自行取用。 参考链接: 1.Nginx安装以及解决运行时端口被占用问题 2.nginx的启动和关闭 3.nginx - nginx: [emerg] bind() to [::]:80 failed (98: Address already in use) 4.Hugo 与 nginx 结合使用 5.解决nginx: [emerg] bind() to [::]:80 failed (98: Address already in use) 6.把域名和IP地址绑定后，利用域名+端口号访问自己搭建的网站 7.Nginx停止服务和各种命令]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
         <tag>Shell</tag>
+        <tag>Ubuntu</tag>
         <tag>Web</tag>
         <tag>Aliyun</tag>
       </tags>
@@ -1185,8 +1186,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1197,8 +1198,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1495,8 +1496,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1507,8 +1508,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>WRF</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
