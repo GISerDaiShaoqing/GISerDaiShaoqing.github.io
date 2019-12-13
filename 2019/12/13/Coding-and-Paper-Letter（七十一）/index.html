@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+
+  <meta name="keywords" content="Summary," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这个系列有点久没更新，最近事情比较多。后面会继续坚持资源整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding and Paper Letter（七十一）">
+<meta property="og:url" content="https://gisersqdai.top/2019/12/13/Coding-and-Paper-Letter（七十一）/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="这个系列有点久没更新，最近事情比较多。后面会继续坚持资源整理。">
+<meta property="og:image" content="http://blog.gisersqdai.top/1576241642240idau2ln9.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15762513904704xoe0z7j.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1576251418026kt18q2pd.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1576251736610pqmthr6v.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1576252107627nfqgm2tn.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15762526992876h27bl7d.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1576252999393w53w9g60.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1576253352719szwwblhp.png">
+<meta property="og:updated_time" content="2019-12-13T16:47:36.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coding and Paper Letter（七十一）">
+<meta name="twitter:description" content="这个系列有点久没更新，最近事情比较多。后面会继续坚持资源整理。">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1576241642240idau2ln9.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gisersqdai.top/2019/12/13/Coding-and-Paper-Letter（七十一）/"/>
+
+
+
+
+
+  <title>Coding and Paper Letter（七十一） | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    	<a href="https://github.com/GISerDaiShaoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+	src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a
+	2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745
+	f677261795f3664366436642e706e67" alt="Fork me 
+	on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GISerDaiShaoqing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Urban·Ecology·GIS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/12/13/Coding-and-Paper-Letter（七十一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Coding and Paper Letter（七十一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-13T20:51:00+08:00">
+                2019-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CPL/" itemprop="url" rel="index">
+                    <span itemprop="name">CPL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/13/Coding-and-Paper-Letter（七十一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/13/Coding-and-Paper-Letter（七十一）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/13/Coding-and-Paper-Letter（七十一）/" class="leancloud_visitors" data-flag-title="Coding and Paper Letter（七十一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6,765
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  25
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p>这个系列有点久没更新，最近事情比较多。后面会继续坚持资源整理。<a id="more"></a>  </p>
+<h1 id="1-coding"><a href="#1-Coding" class="headerlink" title="1 Coding:"></a>1 Coding:</h1><p>1.R语言包ggcorrplot2，ggplot2的拓展包，类似于corrplot包的功能，用于绘制相关系数图。在这个系列的第十七篇里有另一个相关的包，有兴趣的同学可以做下比较。</p>
+<p><a href="https://github.com/caijun/ggcorrplot2" target="_blank" rel="external">ggcorrplot2</a></p>
+<p><img src="http://blog.gisersqdai.top/1576241642240idau2ln9.png" alt=""></p>
+<p>2.R代码的分析，可重现研究与审查。</p>
+<p><a href="https://github.com/duncantl/CodeDepends" target="_blank" rel="external">CodeDepends</a></p>
+<p>3.简化你的ONNX模型，ONNX在本系列的六十二篇里有提到相关的平台。ONNX是指Open Neural Network Exchange（ONNX，开放神经网络交换）格式，是一个用于表示深度学习模型的标准，可使模型在不同框架之间进行转移。</p>
+<p><a href="https://github.com/daquexian/onnx-simplifier" target="_blank" rel="external">onnx simplifier</a></p>
+<p>4.R语言包quizlite，目标是生成轻量级测验。</p>
+<p><a href="https://github.com/ropenscilabs/quizlite" target="_blank" rel="external">quizlite</a></p>
+<p>5.开放研究网络（OTN）是一个全球性的，分散的研究人员和机构团体，欢迎任何致力于标准化和整合所有生物特征数据的人员。 我们以开放科学的原则为指导，特别是开放方法，开放源代码和开放数据。</p>
+<p><a href="https://github.com/open-traits-network/open-traits-network.github.io" target="_blank" rel="external">open traits network.github.io</a></p>
+<p>6.其目的是记录以前在OzUnconf事件中创建的数据集，以及其他有趣且独特的澳大利亚数据集和资源。</p>
+<p><a href="https://github.com/ropenscilabs/OZdatasets" target="_blank" rel="external">OZdatasets</a></p>
+<p>7.构建一个模型用于识别卫星影像中的作物损失。Python代码。</p>
+<p><a href="https://github.com/radiantearth/crop-loss-EPAR" target="_blank" rel="external">crop loss EPAR</a></p>
+<p>8.机器学习用于全球发展。Radiant Earth Foundation是一个非营利组织，其使命是改善开放地理空间资源的发现，访问，交付和应用，以支持全球开发社区（GDC）。 通过与开发社区，商业和学术专家合作，Radiant Earth Foundation通过集成和利用最新的Earth Observation（EO）和Machine Learning（ML）技术来实现这些目标。</p>
+<p><a href="https://github.com/radiantearth/ml4gd" target="_blank" rel="external">ml4gd</a></p>
+<p>9.regl通过删除尽可能多的共享状态来简化WebGL编程。 为此，它将WebGL API替换为两个基本抽象，资源和命令。</p>
+<p><a href="https://github.com/regl-project/regl" target="_blank" rel="external">regl</a></p>
+<p>10.R语言包Metrics，用于评估机器学习算法精度的各类指标计算。</p>
+<p><a href="https://github.com/mfrasco/Metrics" target="_blank" rel="external">Metrics</a></p>
+<p>11.R语言包cgraph，允许在R中创建，评估和区分计算图。计算图是通过其（基本）运算分解的多元函数的图形表示。 图中的节点表示数组，而边表示数组之间的依存关系。 将功能表示为计算图的优点在于，这可以通过自动微分来区分功能。 “ cgraph”软件包支持各种功能，包括基本算术，三角函数和线性代数函数。 它通过反向自动微分来区分计算图。 该软件包的灵活体系结构使其可用于解决各种问题，包括局部灵敏度分析，基于梯度的优化和机器学习。</p>
+<p><a href="https://github.com/triepels/cgraph" target="_blank" rel="external">cgraph</a></p>
+<p>12.可以在git提交信息中心插入表情。</p>
+<p><a href="https://github.com/carloscuesta/gitmoji" target="_blank" rel="external">gitmoji</a></p>
+<p>13.R语言包cubelyr，数据立方体dplyr后端。</p>
+<p><a href="https://github.com/hadley/cubelyr" target="_blank" rel="external">cubelyr</a></p>
+<p>14.一个实现数据和ML管道软件工程最佳实践的Python库。</p>
+<p><a href="https://github.com/quantumblacklabs/kedro" target="_blank" rel="external">kedro</a></p>
+<p>15.使用朴素贝叶斯，SVM，CNN，LSTM等对推文进行情感分析。</p>
+<p><a href="https://github.com/abdulfatir/twitter-sentiment-analysis" target="_blank" rel="external">twitter sentiment analysis</a></p>
+<p>16.pygeoapi提供了地理空间数据的API。</p>
+<p><a href="https://github.com/geopython/pygeoapi" target="_blank" rel="external">pygeoapi</a></p>
+<p>17.pkuseg：一个多领域中文分词工具包。</p>
+<p><a href="https://github.com/lancopku/pkuseg-python" target="_blank" rel="external">pkuseg python</a></p>
+<p>18.R语言包d3.format，R的d3格式接口。</p>
+<p><a href="https://github.com/dreamRs/d3.format" target="_blank" rel="external">d3.format</a></p>
+<p><img src="http://blog.gisersqdai.top/15762513904704xoe0z7j.png" alt=""></p>
+<p>19.斯坦福地震数据集（STEAD）：用于AI的地震信号全球数据集。</p>
+<p><a href="https://github.com/smousavi05/STEAD" target="_blank" rel="external">STEAD</a></p>
+<p><img src="http://blog.gisersqdai.top/1576251418026kt18q2pd.png" alt=""></p>
+<p>20.AGU 2019秋季会议的研讨会材料“Best Practices for Developing and Sustaining Your Open-Source Research Software”。</p>
+<p><a href="https://github.com/agu-ossi/2019-agu-oss" target="_blank" rel="external">2019 agu oss</a></p>
+<p>21.这些课程材料涵盖了2019年秋季在哥本哈根大学下半年IT课程。</p>
+<p><a href="https://github.com/mszell/introdatasci" target="_blank" rel="external">introdatasci</a></p>
+<p>22.R语言包agroenv，使用各种数据源从地理坐标中反演土壤和气候数据。</p>
+<p><a href="https://github.com/picasa/agroenv" target="_blank" rel="external">agroenv</a></p>
+<p>23.PyTorch Elastic（torchelastic）是一个框架，使分布式培训作业能够以容错和弹性的方式执行。 它提供了原语和接口供您编写分布式PyTorch作业，以便可以弹性地在多台机器上运行； 也就是说，只要存在最小数量的工作人员，您的分布式工作就可以启动，并且可以增长到最大数量的工作人员而无需停止或重新启动。</p>
+<p><a href="https://github.com/pytorch/elastic" target="_blank" rel="external">elastic</a></p>
+<p>24.R语言包tvthemes，基于您喜欢的电视节目的ggplot2主题和调色板。</p>
+<p><a href="https://github.com/Ryo-N7/tvthemes" target="_blank" rel="external">tvthemes</a></p>
+<p><img src="http://blog.gisersqdai.top/1576251736610pqmthr6v.png" alt=""></p>
+<p>25.Colby R用户组午餐会演讲。</p>
+<p><a href="https://github.com/mgimond/rug_2019_12" target="_blank" rel="external">rug 2019 12</a></p>
+<p>26.包含NeurIPS 2019论文《使用贝叶斯原理的实践深度学习》的代码。</p>
+<p><a href="https://github.com/team-approx-bayes/dl-with-bayes" target="_blank" rel="external">dl with bayes</a></p>
+<p>27.R语言包hdme，包含针对高维测量误差问题（变量误差）的惩罚回归方法。</p>
+<p><a href="https://github.com/osorensen/hdme" target="_blank" rel="external">hdme</a></p>
+<p>28.R语言包Polymer，目标是提供灵活且直观的overlay方法（熟悉GIS工作流），但具有任意数量的输入层。</p>
+<p><a href="https://github.com/mdsumner/polymer" target="_blank" rel="external">polymer</a></p>
+<p><img src="http://blog.gisersqdai.top/1576252107627nfqgm2tn.png" alt=""></p>
+<p>29.用于深度学习的AutoML工具包。</p>
+<p><a href="https://github.com/awslabs/autogluon" target="_blank" rel="external">autogluon</a></p>
+<p>30.R语言包writexl，便携式，轻量级的数据框，用于xlsx导出器以用于R</p>
+<p><a href="https://github.com/ropensci/writexl" target="_blank" rel="external">writexl</a></p>
+<p>31.OpenGL教程。</p>
+<p><a href="https://github.com/opengl-tutorials/ogl" target="_blank" rel="external">ogl</a></p>
+<p>32.R语言包networkdata，该软件包包含各种不同的网络数据集（全部为igraph格式）。</p>
+<p><a href="https://github.com/schochastics/networkdata" target="_blank" rel="external">networkdata</a></p>
+<p>33.带有Runcharter for Performance信号项目的Shiny App。</p>
+<p><a href="https://github.com/royal-free-london/RunCharter_Shiny" target="_blank" rel="external">RunCharter Shiny</a></p>
+<p>34.二维码生成器。</p>
+<p><a href="https://github.com/kivy-garden/qrcode" target="_blank" rel="external">qrcode</a></p>
+<p>35.本项目用于存放论文：基于远程监督的人物属性抽取研究 的实验数据。</p>
+<p><a href="https://github.com/MAJIN123/Distant-Supervision-for-Person-Attribute-Extraction" target="_blank" rel="external">Distant Supervision for Person Attribute Extraction</a></p>
+<p>36.R语言包googlesheet4，Google Spreadsheets R API（重新启动googlesheets程序包）。</p>
+<p><a href="https://github.com/tidyverse/googlesheets4" target="_blank" rel="external">googlesheets4</a></p>
+<p>37.可视化工具箱，用于精美且发表的图片。</p>
+<p><a href="https://github.com/easystats/see" target="_blank" rel="external">see</a></p>
+<p><img src="http://blog.gisersqdai.top/15762526992876h27bl7d.png" alt=""></p>
+<p>38.栅格数据工具，包括地球物理应用程序和数字高程模型。</p>
+<p><a href="https://github.com/gwlucastrig/gridfour" target="_blank" rel="external">gridfour</a></p>
+<p>39.PySAL项目的Docker容器。</p>
+<p><a href="https://github.com/pysal/docker" target="_blank" rel="external">docker</a></p>
+<p>40.为Leaflet提供漂亮的动画标记聚类功能，Leaflet是用于交互式地图的JS库。</p>
+<p><a href="https://github.com/Leaflet/Leaflet.markercluster" target="_blank" rel="external">Leaflet.markercluster</a></p>
+<p><img src="http://blog.gisersqdai.top/1576252999393w53w9g60.png" alt=""></p>
+<p>41.用于Intake的Geopandas插件。</p>
+<p><a href="https://github.com/intake/intake_geopandas" target="_blank" rel="external">intake geopandas</a></p>
+<p>42.libpysal的网络测试数据集。</p>
+<p><a href="https://github.com/sjsrey/newHaven" target="_blank" rel="external">newHaven</a></p>
+<p>43.pysal-mgwr的测试数据集。</p>
+<p><a href="https://github.com/sjsrey/clearwater" target="_blank" rel="external">clearwater</a></p>
+<p>44.R语言包causalTree，causalTree函数可建立回归模型并返回一个rpart对象，该对象是rpart包派生的对象，在由Breiman，Friedman，Olshen和Stone编写的CART（分类和回归树）中实现了许多想法。 像rpart一样，causalTree分两个阶段构建二进制回归树模型，但着重于估计异构因果效应。</p>
+<p><a href="https://github.com/susanathey/causalTree" target="_blank" rel="external">causalTree</a></p>
+<p>45.“ Python机器学习（第3版）”书代码存储库。</p>
+<p><a href="https://github.com/rasbt/python-machine-learning-book-3rd-edition" target="_blank" rel="external">python machine learning book 3rd edition</a></p>
+<p>46.EPFL硕士课程“数据科学网络之旅”的材料，2019年版。</p>
+<p><a href="https://github.com/mdeff/ntds_2019" target="_blank" rel="external">ntds 2019</a></p>
+<p>47.R语言包ggfittext，ggfittext提供了一个ggplot2 geom，用于将文本放入框中。</p>
+<p><a href="https://github.com/wilkox/ggfittext" target="_blank" rel="external">ggfittext</a></p>
+<p><img src="http://blog.gisersqdai.top/1576253352719szwwblhp.png" alt=""></p>
+<p>48.“使用R学习统计信息”的源文件。</p>
+<p><a href="https://github.com/djnavarro/rbook" target="_blank" rel="external">rbook</a></p>
+<p>49.Beamer风格的幻灯片模板集。包含了PowerPoint和Keynote两套格式。</p>
+<p><a href="https://github.com/wzpan/BeamerStyleSlides" target="_blank" rel="external">BeamerStyleSlides</a></p>
+<p>50.使用句法依存分析抽取事实三元组。</p>
+<p><a href="https://github.com/twjiang/fact_triple_extraction" target="_blank" rel="external">fact triple extraction</a></p>
+<p>51.这实现了用于NLU任务的联合意图检测和空缺填充的循环模型。</p>
+<p><a href="https://github.com/SNUDerek/multiLSTM" target="_blank" rel="external">multiLSTM</a></p>
+<p>52.基于法律裁判文书的事件抽取及其应用。</p>
+<p><a href="https://github.com/zhang17173/Event-Extraction" target="_blank" rel="external">Event Extraction</a></p>
+<h1 id="2-paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a href="https://www.sciencedirect.com/science/article/pii/S0048969719318200?via%3Dihub" target="_blank" rel="external">Land Use Regression models for 60 volatile organic compounds: Comparing Google Point of Interest (POI) and city permit data/60种挥发性有机物的土地利用回归模型：比较Google Point of Interest（POI）和城市许可数据</a></p>
+<p>挥发性有机化合物（VOC）的土地使用回归（LUR）模型通常关注土地使用（例如工业区）或运输设施（例如道路）；在这里，我们结合了城市许可数据和Google Point of Interest（POI）数据中的区域来源（例如加油站），以比较模型的效果。我们使用了来自美国明尼苏达州明尼阿波利斯市的50个基于社区的采样地点（2013-2015年）的测量结果，为60个VOC建立了LUR模型。我们使用了三组自变量：（1）具有土地利用和运输变量的基本案例模型；（2）从本地营业许可数据中添加区域源变量的模型；（3）使用Google POI数据作为区域源的模型。带有Google POI数据的模型效果最好；例如，与许可数据模型（0.42; 0.37）相比，总VOC（TVOC）模型具有更好的拟合优度和基本模型。在小规模缓冲区大小（例如25 m–500 m）的60个VOC中，在超过三分之二的模型中选择了区域源变量。我们的工作表明，可以使用基于社区的抽样来开发VOC LUR模型，并且可以通过添加根据业务许可和Google POI数据衡量的区域来源来改进模型。分析VOC的LUR模型，VOC事实上是很难进行遥感反演和站点监测，但是同时VOC又是各类空气污染的来源之一，这篇文章基于当前的地图大数据结合城市许可（这里没有详细看具体数据，猜测可能类似国内的规划许可）进行LUR建模。对于未来的空气污染制图研究很有意义。</p>
+<p>2.<a href="https://www.researchgate.net/publication/337879658_A_Novel_Framework_to_Automatically_Fuse_Multiplatform_LiDAR_Data_in_Forest_Environments_Based_on_Tree_Locations" target="_blank" rel="external">A Novel Framework to Automatically Fuse Multiplatform LiDAR Data in Forest Environments Based on Tree Locations/基于树位置的森林环境中自动融合多平台LiDAR数据的新框架</a></p>
+<p>新兴的近地光探测和测距（LiDAR）平台[例如，地面，背包，移动和无人机（UAV）]已显示出巨大的森林资源潜力。但是，不同的LiDAR平台在数据覆盖范围或捕获树冠下信息方面都有局限性。多平台LiDAR数据的融合是该问题的潜在解决方案。由于森林的复杂性和不规则性以及森林林冠下的定位信息不准确，当前的多平台数据融合仍需要大量的人工工作。在本文中，我们基于每个森林都有唯一的树分布模式的假设，提出了一个自动的多平台LiDAR数据校正框架。提议的框架包括五个步骤，即，单个树分割，不规则三角网（TIN）生成，TIN匹配，粗校正和精校正。 TIN匹配是从多平台LiDAR数据中找到相应树对的必要步骤，它使用基于由单个树位置组成的三角形相似度的投票策略。通过融合背包和无人机LiDAR数据以及融合针叶林中的多扫描陆地LiDAR数据来验证所提出的框架。结果表明，两种配准实验均可以达到令人满意的数据配准精度。此外，当单个树的分割精度高于80％时，提出的框架对单个树的分割错误不敏感。我们认为，提出的框架有可能提高在森林环境中准确注册多平台LiDAR数据的效率。索引-森林，多平台光检测和测距（LiDAR），校正，树木位置。植物所郭庆华老师团队的成果，关于新的多平台LiDAR数据融合校正。LiDAR数据将在未来发挥更多作用。</p>
+<p>3.<a href="https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-019-7740-y" target="_blank" rel="external">Spatial association between outdoor air pollution and lung cancer incidence in China/中国室外空气污染与肺癌发病率的空间联系</a></p>
+<p>背景：肺癌是中国最常见的癌症。先前的研究表明，肺癌的发病率表现出显着的空间异质性，并且肺癌与室外空气污染有关。然而，中国室外空气污染与肺癌发病率之间的非线性空间联系仍不清楚。方法：本研究分析了2013年中国207个县市男性和女性肺癌发病率与每年PM2.5，PM10，SO2，NO2，CO和O3浓度之间的关系。 GeoDetector q统计量用于检查室外空气污染与肺癌发生率之间的非线性空间关联。结果：在室外空气污染与肺癌发病率之间的空间关联中发现了明显的空间和人口性别异质性。在六种选定的污染物中，二氧化硫对华北地区的肺癌影响最大（女性为q = 0.154）。在南部，每种污染物对男性或女性的影响均显着，南部的平均q值为0.181，大于北部的平均q值（q = 0.154）。此外，污染物对肺癌有明显的非线性相互作用。在华北地区，SO2和PM2.5之间的相互作用是主要的相互作用，男性的q值为0.207，女性的q值为0.334。在南部，主要的交互作用因子在男性的SO2和O3之间以及在女性的SO2和CO之间，q值分别为0.45、0.232。在华南或华北地区，吸烟是导致男性肺癌的重要因素，其q值分别为0.143和0.129，吸烟与空气污染物之间的相互作用增加了这种风险。结论：这项研究表明，在中国北方应该关注SO2和PM2.5对肺癌的影响，而在南方，应该更加关注O3和CO的影响以及它们与SO2的相互作用。在华北和华南地区，吸烟（尤其是男性）仍然是肺癌的重要危险因素。地理所王劲峰老师团队的成果，分析了空气污染与肺癌发病率的研究。交互因子以及性别对于肺癌的影响有明显的异质性。</p>
+<p>4.<a href="https://link.springer.com/article/10.1007%2Fs11356-019-06408-z" target="_blank" rel="external">The lag effect of water pollution on the mortality rate for esophageal cancer in a rapidly industrialized region in China/水污染对中国快速工业化地区食管癌死亡率的滞后效应</a></p>
+<p>淮河流域（位于中国东部）拥有1.8亿人口，是中国食道癌（EC）死亡的最高风险。一些研究发现，饮用水中的污染物是消化系统癌症的主要危险因素。但是，历史时期的水污染对当前欧共体死亡率的影响尚不清楚。收集了2004年淮河流域11个县的EC死亡率数据，并使用了1987年至2004年该地区的地表水质量数据。分别从线性和非线性角度，采用Pearson相关性和GeoDetector q统计量来探讨不同滞后时段水污染与EC死亡率之间的关系。该研究表明该地区EC死亡率的空间异质性。下游的EC死亡率显着高于其他地区。在中游，主流以北地区的平均死亡率低于该地区以南地区。在上游，主流以北地区的死亡率高于南部地区。历史格局是在水污染的影响下形成的。 1996年，1997年和1998年对EC死亡率具有最强的线性或非线性影响，其中Pearson相关系数和q统计量最高，分别为0.79和0.89。在过去的20年中，快速的工业化已经引起了环境问题，并带来了相关的健康风险。研究表明，目前的EC死亡率主要是由前8年的水污染引起的。这些发现提供了关于污染对EC死亡率造成影响的滞后时间的知识，并且可以有助于控制和预防食道癌。地理所王劲峰老师团队的成果，分析了污染对健康和死亡率的滞后效应，是一个非常有意思的研究。</p>
+<p>5.<a href="https://www.sciencedirect.com/science/article/pii/S1353829219306355?via%3Dihub" target="_blank" rel="external">Spatial Lifecourse Epidemiology Reporting Standards (ISLE-ReSt) statement/空间生命过程流行病学报告标准（ISLE-ReSt）声明</a></p>
+<p>空间生命过程流行病学是一个跨学科领域，它利用先进的空间，基于位置的人工智能技术来研究环境，行为，社会心理和生物学因素对健康相关状态和事件及其潜在机制的长期影响。随着越来越多的研究报告来自该领域的研究结果，以及迫切需要基于最强科学的公共卫生和政策决策，在空间生命周期流行病学研究报告中的透明度和清晰度至关重要。由国际空间生命历程流行病学倡议（ISLE）支持的工作队确定了在这一领域的指导需求，并制定了《空间生命历程流行病学报告标准》（ISLE-ReSt）声明。目的是提供一份建议清单，以改善和更一致地报告空间生命历程流行病学研究。加强针对队列研究的流行病学观察研究报告（STROBE）声明被确定为提供考虑纳入的初始项目的适当起点。然后整合了空间数据和方法的报告标准，以形成报告建议的单个综合清单。我们的方法的优势在于，我们的国际和跨学科团队由内容专家和贡献者组成，他们代表各种相关的科学惯例，并且我们遵守制定报告准则的国际准则。随着在空间生命过程流行病学中使用的基于空间，基于位置的人工智能技术的迅速发展，从发布之日起至少每隔2至3年就要重新审视和适应ISLE-ReSt。团队的成果，关于ISLE的标准声明。</p>
+<p>6.<a href="https://www.nature.com/articles/s41467-019-13462-1" target="_blank" rel="external">Global urban expansion offsets climate-driven increases in terrestrial net primary productivity/全球城市扩张抵消了气候驱动的陆地净初级生产力的增长</a></p>
+<p>全球城市化速度正在加快； 然而，数据限制远远不能对全球城市扩张或其对地面净初级生产力（NPP）的影响做出可靠的估计。 在此，我们使用高分辨率的全球土地利用/覆盖数据集（GlobeLand30），显示了2000年至2010年期间，全球城市区域平均每年以5694 km2的速度增长。过去十年中，城市的快速扩张反过来又减少了全球 陆地NPP，每年净损失22.4 Tg碳（Tg C year-1）。 尽管与全球陆地NPP和化石燃料碳的总排放量相比很小，但城市化导致的NPP减少抵消了同期气候驱动的增加（73.6 Tg C year-1）的30％。 我们的发现突出表明，迫切需要制定全球战略来应对城市扩张，增加自然碳汇和提高农业生产率。中山大学刘小平教授团队成果，分析了城市化对于NPP影响的分析，这一块也是全球变化生态学的重点研究对象。发表在NC上的牛文。后期有机会将详细介绍。</p>
+<p>7.<a href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019JD031907" target="_blank" rel="external">Introduction to the Water‐Soil‐Air‐Plant‐Human Nexus: Modeling and Observing Complex Land Surface Systems at River Basin Scale/水，土壤，空气，植物，人的联系简介：流域尺度上复杂的地表系统的建模和观测</a></p>
+<p>复杂的人类-自然系统的双向耦合可以称为水-土壤-空气-植物-人类的联系，并且这种联系的综合研究已经在世界许多流域中进行。 本期专刊报道了在流域尺度上对水，土壤，空气，植物，人的关系的建模，观察和理解的贡献，特别是来自“黑河流域生态水文过程综合研究”计划的贡献。 本文重点介绍了主要结果，作为对本期特刊的介绍。西北院、青藏所李新老师团队的成果，分析多要素耦合的流域尺度地表系统建模分析。是一个很不错的样例研究。</p>
+<p>8.<a href="https://www.mdpi.com/2072-4292/11/24/2969/htm" target="_blank" rel="external">Combining Measurements of Built-up Area, Nighttime Light, and Travel Time Distance for Detecting Changes in Urban Boundaries: Introducing the BUNTUS Algorithm/结合建筑面积，夜间光和出行时间距离的测量值，以检测城市边界的变化：BUNTUS算法的引入</a></p>
+<p>本文介绍了一种新的算法（BUNTUS-累积，夜间照明和城市规模出行时间），该算法使用遥感技术来划定城市边界。该论文是对城市化在改变化石燃料排放中的作用的更大研究的一部分。该方法结合了土地覆盖，夜间照明和行进时间的估计，以对连续的城市区域进行分类。该方法是自动的，全局的，并使用具有足够持续时间的数据集来建立趋势。使用来自Landsat-8 OLI图像的地面真实场进行的验证显示，总体准确度为60％至95％。因此，这种方法能够描述空间分布并给出城市范围的详细信息。我们以澳大利亚布里斯班，澳大利亚墨尔本和中国北京为例演示了该方法。新方法符合研究城市排放总体趋势的标准。ASU的Gurney团队的研究，利用工农多源遥感数据来进行城市分类，以支撑后续的碳排放研究。</p>
+<p>9.<a href="https://www.earth-syst-sci-data-discuss.net/essd-2019-154/" target="_blank" rel="external">The Vulcan Version 3.0 High-Resolution Fossil Fuel CO2Emissions for the United States/美国的Vulcan版本3.0高分辨率化石燃料CO2排放</a></p>
+<p>在考虑到减少温室气体排放的机会时，除了向决策者提供相关信息外，在精细的空间和时间尺度上量化的温室气体排放估算已经成为新的多约束通量信息系统的重要组成部分。 Vulcan项目致力于估算整个美国景观在空间和时间尺度上自下而上的化石燃料排放量和水泥生产中的CO2排放量（FFCO2）同时满足科学和政策需求。在这里，我们报告了Vulcan排放的3.0版，该版本量化了美国在FFCO2的排放量，其空间分辨率为1 km×1 km，每小时的时间分辨率为2010-2015年。我们提供了更新方法，数据源，结果以及与全局网格化FFCO2数据产品的比较的完整描述。我们估计2011年的FFCO2排放为1589.3 TgC，95％的置信区间为1299/1917 TgC（+18.3％/ − 20.6％），这意味着~~ 10的单西格玛不确定性％。我们发现，在以电力生产和工业为主的州，人均FFCO2排放较大，而在以道路和住宅/商业建筑为主的州，人均FFCO2排放较小。美国FFCO2排放的质心（CoM）位于密苏里州，其平均季节性沿NE / SW近椭圆路径移动。与ODIAC相比，全球有网格的FFCO2排放量估算值显示出总排放量（2011年为100.1 TgC）和空间格局都有很大差异。两个数据乘积之间的空间相关性为0.38，单个网格单元规模的平均绝对差为80.04％。 Vulcan v3.0 FFCO2排放数据产品可立即对美国每个城市的排放进行高分辨率估算，为计划开发自我报告的城市节省了大量时间和精力城市清单。可以从Oak Ridge国家实验室的数据存储库下载Vulcan v3.0年度网格化排放数据产品（<a href="https://doi.org/10.3334/ORNLDAAC/1741，Gurney等，2019）。ASU的Gurney团队的研究，知名碳排放产品Vulcan的3.0版本，并进行了大量分析。数据是开放的，同时这套数据质量非常高，以后有机会来介绍。" target="_blank" rel="external">https://doi.org/10.3334/ORNLDAAC/1741，Gurney等，2019）。ASU的Gurney团队的研究，知名碳排放产品Vulcan的3.0版本，并进行了大量分析。数据是开放的，同时这套数据质量非常高，以后有机会来介绍。</a></p>
+<p>10.<a href="https://link.springer.com/article/10.1007%2Fs11205-019-02188-8" target="_blank" rel="external">Construction of the Scale-Specific Resilience Index to Facilitate Multiscale Decision Making in Disaster Management: A Case Study of the 2015 Nepal Earthquake/特定尺度恢复力指数的构建，以促进灾害管理中的多尺度决策：以2015年尼泊尔地震为例</a></p>
+<p>许多学者主张使用经验证据来评估跨尺度和随时间变化的恢复力。因此，我们使用2015年尼泊尔地震发生后不久从2015年8月至2015年12月每月收集的有关个人对救灾观念的调查数据进行案例研究。我们基于一组变量构建了特定尺度的恢复力指数（SSRI），这些变量在不同的空间规模上以及随时间推移针对调查数据进行了单独验证。回归结果表明，与家庭结构，产业多样性，社区资本，可及性和紧急服务相关的变量均已通过地区和街道两级的调查数据，与种族多样性和应急能力相关的变量进行了验证。营地仅在地区级别得到验证，地震经历变量仅在分区级别得到验证。因此，为了获得最佳模型，我们使用六个经过验证的变量在地区一级构建SSRI，并使用七个变量（包括与家庭财产的脆弱性和平均海拔高度相关的变量）在分区一级构建SSRI。通过2015年尼泊尔地震后调查的救济分数，通过多级回归模型验证了SSRI分数。结果表明，基于已验证变量的SSRI得分与地区和分区级别的调查数据具有良好的相关性和预期关系，并且胜过综合应变能力指数，后者考虑了所有变量，无论其单独的验证结果如何。用于构造SSRI的方法有助于在实际案例中识别跨空间尺度和随时间变化的多维弹性指标的贡献，还提供易于理解并适用于多尺度决策过程的特定尺度的弹性的指标得分。恢复力是近些年来生态学和灾害学方面一个重要的理念，可以理解为从受破坏状态恢复到常规状态所需要的时间或者相关指标。这是一个典型的案例研究，对这个恢复力的测算，有相关的研究可以进行参考。</p>
+<p>11.<a href="https://www.sciencedirect.com/science/article/pii/S0959652619313538?via%3Dihub" target="_blank" rel="external">Towards feasibility of photovoltaic road for urban traffic-solar energy estimation using street view image/利用街景图像估算光伏道路在城市交通太阳能中的可行性</a></p>
+<p>一个可持续发展的城市依赖可再生能源，从而促进了电动汽车的发展。为了支持电动车辆，提出了在行驶时对车辆充电的概念。在这种情况下，在城市道路上建造太阳能电池板是一项具有巨大益处的创新选择，而准确计算道路光伏发电量是前提。在本文中，我们提出了一种新颖的框架，用于预测和计算可从道路收集的太阳辐射和电能。收集Google街景图像以测量道路的天空障碍，并将其与太阳辐射模型集成在一起以估计辐射接收能力。除天空障碍外，我们在计算中还考虑了交通状况和天气情况的影响。根据我们的工作，可以得出一年中不同时间的辐射图，以分析道路的光伏分布。为了测试我们框架的可行性，我们以波士顿为例。结果表明，波士顿的道路可以为城市中所有未来的电动汽车产生大量的电力。而且，穿过波士顿的主要道路具有更好的发电潜力，并且交通状况的影响是有限的。我们的计算框架证实，将太阳能电池板用作路面是城市电力的巨大补充，并具有为行驶中的汽车充电的独特功能。街景图像分析的一个应用，估算光伏道路的可行性。非常有意思的研究。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Dai Shaoqing
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://gisersqdai.top/2019/12/13/Coding-and-Paper-Letter（七十一）/" title="Coding and Paper Letter（七十一）">https://gisersqdai.top/2019/12/13/Coding-and-Paper-Letter（七十一）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Summary/" rel="tag"># Summary</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/01/阿里云安装nginx配置网站/" rel="next" title="阿里云安装nginx配置网站">
+                <i class="fa fa-chevron-left"></i> 阿里云安装nginx配置网站
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Dai Shaoqing" />
+            
+              <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">140</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GISerDaiShaoqing" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" target="_blank" title="Scholar">
+                    
+                      <i class="fa fa-fw fa-google"></i>Scholar</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://orcid.org/0000-0003-0858-4728" target="_blank" title="ORCID">
+                    
+                      <i class="fa fa-fw fa-id-card"></i>ORCID</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.researchgate.net/profile/Shaoqing_Dai" target="_blank" title="RG">
+                    
+                      <i class="fa fa-fw fa-group"></i>RG</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dsq1993qingge@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.sciencenet.cn/u/GISdsq" target="_blank" title="ScienceNet">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ScienceNet</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/esa_dsq" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" title="Jianshu">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>Jianshu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://my.oschina.net/u/2424163" target="_blank" title="OSchina">
+                    
+                      <i class="fa fa-fw fa-codepen"></i>OSchina</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://yq.aliyun.com/u/sqdaigiser" target="_blank" title="Aliyunqi">
+                    
+                      <i class="fa fa-fw fa-cloud"></i>Aliyunqi</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gisersqdai.top/mycv/" target="_blank" title="CV">
+                    
+                      <i class="fa fa-fw fa-user-circle"></i>CV</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://gisersqdai.top/D3LTool/" title="D3L Tool of NASA Satellite" target="_blank">D3L Tool of NASA Satellite</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee" target="_blank">Gitee</a>
+                  </li>
+                
+              </ul>
+     <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("08/14/2016 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+            </div>
+          
+        </div>
+      </section>
+		  
+      
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+		      <div class="widget-wrap">
+		        <h3 class="widget-title">Tag Cloud</h3>
+			    <div id="myCanvasContainer" class="widget tagcloud">
+			    <canvas width="250" height="250" id="resCanvas" style="width=100%">
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aliyun/">Aliyun</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">72</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			    </canvas>
+			    </div>
+	        </div>
+	    
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-coding"><span class="nav-number">1.</span> <span class="nav-text">1 Coding:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-paper"><span class="nav-number">2.</span> <span class="nav-text">2 Paper:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">426.0k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+<div class="BbeiAn-info">
+闽ICP备 -
+<a target="_blank"  href="http://beian.miit.gov.cn/">18026025号</a>
+</a>|
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021302000273" style="color:#f0d784;text-decoration:none;padding-left:30px;background:url(http://science.gisersqdai.top/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png) no-repeat left center" rel="nofollow">闽公网安备 35021302000273号</a>
+</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz',
+        appKey: '5R3loDlmeKFd1bdvCNnq065n',
+        placeholder: '~\(≧▽≦)/~来呀！快活呀！',
+        avatar:'',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
