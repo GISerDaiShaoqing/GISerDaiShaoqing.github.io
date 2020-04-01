@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>GISerDaiShaoqing&#39;s Blog</title>
   
-  <subtitle>Urban·Ecology·GIS</subtitle>
+  <subtitle>Health·Urban·Ecology·GIS</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gisersqdai.top/"/>
@@ -335,9 +335,9 @@
       <category term="Linux" scheme="https://gisersqdai.top/categories/Linux/"/>
     
     
-      <category term="R" scheme="https://gisersqdai.top/tags/R/"/>
-    
       <category term="Python" scheme="https://gisersqdai.top/tags/Python/"/>
+    
+      <category term="R" scheme="https://gisersqdai.top/tags/R/"/>
     
       <category term="Ubuntu" scheme="https://gisersqdai.top/tags/Ubuntu/"/>
     
