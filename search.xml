@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[WSL数据科学环境使用小记]]></title>
+    <url>%2F2020%2F04%2F09%2FWSL%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[之前在笔记本上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的两个小问题。 用Ubuntu和RStudio Server搭建一个R语言的云平台 1 WSL挂载移动硬盘最近在处理全国公里级别的栅格数据，这类数据量比较大，我准备直接从移动硬盘里进行读取处理，然后就发现了一个小问题，WSL无法直接读取硬盘的地址。WSL可以直接读取电脑的本地磁盘，路径为/mnt/下面的各个盘符对应的文件夹。本身Linux系统操作移动硬盘也需要先进行挂载。这里就来讲解下如何在WSL下进行挂载。 首先我们先确定移动硬盘在电脑里显示为什么盘符，我这里是M盘。首先定位到/mnt文件夹新建一个对应的m文件夹。 1sudo mkdir /mnt/m 下一步直接挂载硬盘，输入如下的命令。 1sudo mount -t drvfs M: /mnt/m 这就大功搞成了，输入ls -l即可显示出硬盘文件夹内容。 不过后面如果要退出硬盘还需要执行如下命令，否则硬盘会一直被占用。 1sudo umount /mnt/m 2 RStudio Server plot字体显示第二个问题是关于在RStudio Server上绘图是数字无法显示。 查询谷歌结果，发现是字体以及账户权限的问题。按照如下命令操作问题解决。打开一个终端。 12su -chmod -Rf 777 /usr/share/fonts/* 运行完毕，完美解决。 注，最好重启RStudio Server。 参考链接： Windows Subsystem for Linux （WSL）挂载移动硬盘U盘 HowTo: Fix Pango-WARNING: failed to create cairo scaled font]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>Ubuntu</tag>
+        <tag>Windows 10</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[R语言实现voronoi treemap可视化]]></title>
     <url>%2F2020%2F03%2F31%2FR%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0voronoi-treemap%E5%8F%AF%E8%A7%86%E5%8C%96%2F</url>
     <content type="text"><![CDATA[今天带来一篇承诺虾神的R语言可视化博客。关于voronoi treemap的可视化。 1 任务布置过程感谢虾神，刀爷和魄爷实名出镜。 事实上这是刀爷看到澎湃美数课发的一篇推送文章其中一张图产生的疑问，感兴趣的可以点击原文。 刀爷问的是如何实现上图的可视化，这就是任务布置的由来。 2 voronoi treemap简介事实上这个可视化方式我曾经在我博客的资源整理系列介绍过，分别是该系列的第二十篇和第二十一篇，因此我很迅速找到了可以实现的开源代码库，链接在下面。 R package: voronoiTreemap d3-voronoi-treemap 这个可视化方式英文为voronoi treemap。事实上是voronoi图与矩形树图两种可视化方式的结合。GIS的同学比较熟悉voronoi图，这个图就是泰森多边形。矩形树图即为下图的形式，可以说是一种复合可视化。 3 voronoi treemap的R语言可视化实现我博客里介绍的实现方式有两种，但是这两种方式事实上都是基于d3这个javascript可视化大杀器做的。一个直接用javascript编程实现，另一个则是有人封装成了R包可以直接调用。由于我比较熟悉R语言，所以这里就以R语言实现可视化进行介绍。当然除此之外github上也有不少其他方式实现的，感兴趣的同学可以直接在github上搜索voronoi treemap。 所有R语言可视化的第一步，装包。 如果不想用最新版，可以直接在cran上装，使用如下的命令。 1install.packages('voronoitreemap') 如果想用最新版，则需要使用devtools安装。 12library('devtools')install_github('uRosConf/voronoiTreemap') 接下来第二步，跑hello world。这个R包提供了两个样例数据，一个是ExampleGDP，另一个是canada。然后这个R包开发是为了开发R语言的Shiny应用做准备。Shiny是R语言中的web开发包，可以通过R语言实现一个web应用。这因此这个包内置了一个简单的Shiny app。所以首先先用这个来跑hello world。 1vt_app() 当然执行如上的命令以后，浏览器会自动打开页面。 接下来只要在下拉框里选择对应的下拉框选项，即可显示可视化结果。 可以在本地浏览器简单进行交互了。当然这是简单的hello world探索，下一步我们讨论如何使用自己的数据来实现可视化。首先来查看数据结构以及相关函数。这里的数据结构以ExampleGDP为例。 这个包的主要函数包括以下几个。 1234vt_input_from_df: easy data input as a data framevt_export_json: export to jsonvt_d3: create an htmlwidgetvt_app: start a shiny to create a Voronoi treemap 第一个函数是将数据框转换作为Voronoitreemap的输入，第二个函数是将输入函数输出为json文件，也就是d3库可以读取与可视化的数据。第三个函数是创建html的widget。第四个函数就是创建一个shiny app。这个包对输入的数据框有具体的要求，必须是特定格式的数据框（也就是与ExampleGDP的数据组织必须完全一样）。满足以下要求： h1只有一个类别的总数据； color是16进制的字符串； code是h3对应的简写； 所有数据的weight加起来等于100； 数据框变量名与样例数据一致； 除了weight以外的五列数据必须都是字符型。 我们以中国大陆区域的疫情数据做测试。h1就是China，h2为东中西部省份，h3为大陆地区31个省级行政区，weight为确诊病例数据的全国占比。这里以约翰霍普金斯大学的数据做示例进行处理。 首先是读取约翰霍普金斯大学的相关数据，可以直接读取github上的csv文件。然后提取出大陆地区31个省级行政区，然后做数据类型转换等前期处理，最后得到一个这样子的数据框。 最后将数据转换为json并可视化即可。 12covid19cnjson &lt;- vt_export_json(vt_input_from_df(covid19vtmp))vt_d3(covid19cnjson) 由于湖北省数据较多，其他省份数据不够显著。单纯按照东中西的分类不是很准确，这里选择排除疫情暴发源地省份的湖北省再进行可视化，结果如图。 可以发现东部和中部省份相比于西部有更多的确诊病例。这个结果也比较好解释，中部与武汉的联系较为紧密，主要是空间距离上相近。而东部则是中国经济发达区域，可以描述为经济距离近。 这部分的代码，这里就放一个截图，如果想要代码文件的，可以与我邮件联系。或者关注我的github，我后续会将代码放到上面。]]></content>
@@ -154,8 +167,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>R</tag>
+        <tag>Python</tag>
         <tag>Ubuntu</tag>
       </tags>
   </entry>
@@ -414,8 +427,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>R</tag>
+        <tag>Python</tag>
         <tag>Ubuntu</tag>
         <tag>Windows 10</tag>
       </tags>
