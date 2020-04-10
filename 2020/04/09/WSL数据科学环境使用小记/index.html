@@ -107,24 +107,24 @@
 
 
 
-<meta name="description" content="之前在笔记本上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。
+<meta name="description" content="之前在笔记本和阿里云上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。
 用Ubuntu和RStudio Server搭建一个R语言的云平台
 阿里云配置Rstudio Server数据科学环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WSL数据科学环境使用小记">
 <meta property="og:url" content="https://gisersqdai.top/2020/04/09/WSL数据科学环境使用小记/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
-<meta property="og:description" content="之前在笔记本上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。
+<meta property="og:description" content="之前在笔记本和阿里云上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。
 用Ubuntu和RStudio Server搭建一个R语言的云平台
 阿里云配置Rstudio Server数据科学环境">
 <meta property="og:image" content="http://blog.gisersqdai.top/1586444190701b1t447by.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1586444770531y07emnjq.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/158645093942185k58jip.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1586520678109q27z9qnd.png">
-<meta property="og:updated_time" content="2020-04-10T12:17:52.013Z">
+<meta property="og:updated_time" content="2020-04-10T12:31:30.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WSL数据科学环境使用小记">
-<meta name="twitter:description" content="之前在笔记本上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。
+<meta name="twitter:description" content="之前在笔记本和阿里云上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。
 用Ubuntu和RStudio Server搭建一个R语言的云平台
 阿里云配置Rstudio Server数据科学环境">
 <meta name="twitter:image" content="http://blog.gisersqdai.top/1586444190701b1t447by.png">
@@ -472,7 +472,7 @@ WIDGET = {FID: '839cdWVP67'}
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  554
+                  589
                 </span>
               
 
@@ -509,7 +509,7 @@ WIDGET = {FID: '839cdWVP67'}
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>之前在笔记本上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>之前在笔记本和阿里云上搭载了WSL数据科学环境，关于环境搭建的博文日志如下。本文记录一下使用过程中遇到的几个小问题。</p>
 <p><a href="http://gisersqdai.top/2019/04/15/%E7%94%A8Ubuntu%E5%92%8CRStudio-Server%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAR%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%91%E5%B9%B3%E5%8F%B0/">用Ubuntu和RStudio Server搭建一个R语言的云平台</a></p>
 <p><a href="http://gisersqdai.top/2020/01/01/%E9%98%BF%E9%87%8C%E4%BA%91%E9%85%8D%E7%BD%AERstudio-Server%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%8E%AF%E5%A2%83/">阿里云配置Rstudio Server数据科学环境</a></p>
 <a id="more"></a>
@@ -529,7 +529,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>运行完毕，完美解决。</p>
 <p><img src="http://blog.gisersqdai.top/158645093942185k58jip.png" alt=""></p>
 <p>注，最好重启RStudio Server。</p>
-<h1 id="3-rstudio-server多人协作设置"><a href="#3-RStudio-Server多人协作设置" class="headerlink" title="3 RStudio Server多人协作设置"></a>3 RStudio Server多人协作设置</h1><p>只需要按照如下命令设置即可。groupname和username自行设计。</p>
+<h1 id="3-rstudio-server多人协作设置"><a href="#3-RStudio-Server多人协作设置" class="headerlink" title="3 RStudio Server多人协作设置"></a>3 RStudio Server多人协作设置</h1><p>最近刚好有一个云平台多人协作的需求，因此在阿里云的Rstudio Server上进行设置。只需要按照如下命令设置即可。groupname和username自行设计。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo groupadd groupname</div><div class="line">sudo useradd username -g groupname</div><div class="line">sudo passwd username</div><div class="line">sudo adduser username sudo</div><div class="line">sudo mkdir/home/username</div><div class="line">sudo chown -R username:groupname /home/username</div></pre></td></tr></table></figure>
 <p>如果后续想删除用户组和用户，按照如下命令设置即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo groupdel groupname</div><div class="line">sudo userdel username</div></pre></td></tr></table></figure>
