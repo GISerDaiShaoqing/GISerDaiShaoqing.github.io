@@ -133,7 +133,7 @@
 <meta property="og:image" content="http://blog.gisersqdai.top/1539009307957qbkjjq4h.png?imageslim">
 <meta property="og:image" content="http://blog.gisersqdai.top/15390096437384wmjmbak.png?imageslim">
 <meta property="og:image" content="http://blog.gisersqdai.top/1539009679686kbixdhzs.png?imageslim">
-<meta property="og:updated_time" content="2019-12-18T08:36:19.450Z">
+<meta property="og:updated_time" content="2020-04-17T09:25:05.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何优雅地选择一种地图变形方式">
 <meta name="twitter:description" content="今天来填一下之前说了很久的坑，关于变形地图制作方法教程。本篇主要介绍五种方式制作Cartogram，至于你觉得哪一种最优雅就follow your heart了。">
@@ -557,7 +557,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>感谢下两篇相关内容的博客。</p>
 <p><a href="https://www.cnblogs.com/gisangela/p/3486897.html" target="_blank" rel="external">ArcGIS之Cartogram地图变形记</a></p>
 <p><a href="https://blog.csdn.net/u014136513/article/details/50580447" target="_blank" rel="external">ArcGIS夸张地图之Cartogram</a></p>
-<h1 id="2-qgis-cartogram插件"><a href="#2-QGIS-Cartogram插件" class="headerlink" title="2 QGIS Cartogram插件"></a>2 QGIS Cartogram插件</h1><p>事实上在QGIS也可以做变形地图，QGIS是开源桌面GIS软件中的代表。关于QGIS的这个插件，我事实上已经在前面的Coding and Paper Letter的第一篇就提到了。</p>
+<h1 id="3-qgis-cartogram插件"><a href="#3-QGIS-Cartogram插件" class="headerlink" title="3 QGIS Cartogram插件"></a>3 QGIS Cartogram插件</h1><p>事实上在QGIS也可以做变形地图，QGIS是开源桌面GIS软件中的代表。关于QGIS的这个插件，我事实上已经在前面的Coding and Paper Letter的第一篇就提到了。</p>
 <p><a href="https://gisersqdai.top/2018/07/07/Coding%20and%20Paper%20Letter%EF%BC%881%EF%BC%89/">Coding and Paper Letter（一）</a></p>
 <p>当然我这里用的是QGIS 3.0.2，好像做了版本迁移。</p>
 <p><img src="http://blog.gisersqdai.top/1539008180121hwssai1q.png?imageslim" alt=""></p>
@@ -572,7 +572,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>变形地图结果会自动生成在列表里，如果需要保存，只需要右击保存文件即可。</p>
 <p><img src="http://blog.gisersqdai.top/1539008446120g56yzat4.png?imageslim" alt=""></p>
 <p><img src="http://blog.gisersqdai.top/1539008520958lo6ow5k9.png?imageslim" alt=""></p>
-<h1 id="3-cartogram-in-r"><a href="#3-Cartogram-in-R" class="headerlink" title="3 Cartogram in R"></a>3 Cartogram in R</h1><p>除了以上的两大桌面软件，R语言中也有Cartogram的包。最早是RCartogram（表示并不知道这个包）。还是今天随手在谷歌上搜索时，看到谢益辉大大曾经也关注过这个方面的，并介绍了这个包。</p>
+<h1 id="4-cartogram-in-r"><a href="#4-Cartogram-in-R" class="headerlink" title="4 Cartogram in R"></a>4 Cartogram in R</h1><p>除了以上的两大桌面软件，R语言中也有Cartogram的包。最早是RCartogram（表示并不知道这个包）。还是今天随手在谷歌上搜索时，看到谢益辉大大曾经也关注过这个方面的，并介绍了这个包。</p>
 <p><a href="https://yihui.name/cn/2009/03/cartogram-as-special-maps/" target="_blank" rel="external">Cartogram：变形的地图</a></p>
 <p>我自己依旧在之前的Coding and Paper Letter介绍过相关的R包。</p>
 <p><a href="https://gisersqdai.top/2018/07/08/Coding%20and%20Paper%20Letter%EF%BC%882%EF%BC%89/">Coding and Paper Letter（二）</a></p>
@@ -586,7 +586,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p><img src="http://blog.gisersqdai.top/1539009269605e9tb3f8p.png?imageslim" alt=""></p>
 <p><img src="http://blog.gisersqdai.top/1539009307957qbkjjq4h.png?imageslim" alt=""></p>
 <p>至于结果保存成文件的话，需要用到其他空间数据的包。</p>
-<h1 id="4-geoda和geofacet"><a href="#4-GeoDa和geofacet" class="headerlink" title="4 GeoDa和geofacet"></a>4 GeoDa和geofacet</h1><p>接下来的两种可视化方式，虽然也能被称为Cartogram，但是并非真正意义的Cartogram。</p>
+<h1 id="5-geoda和geofacet"><a href="#5-GeoDa和geofacet" class="headerlink" title="5 GeoDa和geofacet"></a>5 GeoDa和geofacet</h1><p>接下来的两种可视化方式，虽然也能被称为Cartogram，但是并非真正意义的Cartogram。</p>
 <p>GeoDa是一个专门用于空间统计的软件，后面可能还会做些介绍。这里就单刀直入。在GeoDa打开数据后。</p>
 <p><img src="http://blog.gisersqdai.top/15390096437384wmjmbak.png?imageslim" alt=""></p>
 <p>点击红框部分即可实现Cartogram。</p>
@@ -966,7 +966,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-cartogram简介"><span class="nav-number">1.</span> <span class="nav-text">1 Cartogram简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-arcgis-cartogram-toolbox"><span class="nav-number">2.</span> <span class="nav-text">2 ArcGIS Cartogram Toolbox</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-qgis-cartogram插件"><span class="nav-number">3.</span> <span class="nav-text">2 QGIS Cartogram插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-cartogram-in-r"><span class="nav-number">4.</span> <span class="nav-text">3 Cartogram in R</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-geoda和geofacet"><span class="nav-number">5.</span> <span class="nav-text">4 GeoDa和geofacet</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-cartogram简介"><span class="nav-number">1.</span> <span class="nav-text">1 Cartogram简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-arcgis-cartogram-toolbox"><span class="nav-number">2.</span> <span class="nav-text">2 ArcGIS Cartogram Toolbox</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-qgis-cartogram插件"><span class="nav-number">3.</span> <span class="nav-text">3 QGIS Cartogram插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-cartogram-in-r"><span class="nav-number">4.</span> <span class="nav-text">4 Cartogram in R</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-geoda和geofacet"><span class="nav-number">5.</span> <span class="nav-text">5 GeoDa和geofacet</span></a></li></ol></div>
             
 
           </div>
