@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Google Earth Engine,NPP VIIRS," />
+  <meta name="keywords" content="R,Google Earth Engine,NPP VIIRS," />
 
 
 
@@ -109,10 +109,11 @@
 
 <meta name="description" content="失踪人口回归+爷青回，本篇介绍下Suomi NPP VIIRS夜间灯光遥感数据下载。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Suomi NPP VIIRS夜间灯光遥感数据简介与下载">
-<meta property="og:url" content="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/index.html">
+<meta property="og:title" content="Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取">
+<meta property="og:url" content="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing's Blog">
 <meta property="og:description" content="失踪人口回归+爷青回，本篇介绍下Suomi NPP VIIRS夜间灯光遥感数据下载。">
+<meta property="og:image" content="http://blog.gisersqdai.top/1599598643361md1strze.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1599509938887qx8wqa5s.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/15995104869663etkpm0k.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1599510594666dxmym0gk.png">
@@ -128,11 +129,13 @@
 <meta property="og:image" content="http://blog.gisersqdai.top/15995178511970trlxede.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1599518806811tghzzn76.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1599518460569yn7ranlk.png">
-<meta property="og:updated_time" content="2020-09-08T00:09:34.127Z">
+<meta property="og:image" content="http://blog.gisersqdai.top/1599594677581fruhd7c1.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1599598714348maibxtc5.png">
+<meta property="og:updated_time" content="2020-09-08T21:02:29.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Suomi NPP VIIRS夜间灯光遥感数据简介与下载">
+<meta name="twitter:title" content="Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取">
 <meta name="twitter:description" content="失踪人口回归+爷青回，本篇介绍下Suomi NPP VIIRS夜间灯光遥感数据下载。">
-<meta name="twitter:image" content="http://blog.gisersqdai.top/1599509938887qx8wqa5s.png">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1599598643361md1strze.png">
 
 
 
@@ -162,7 +165,7 @@
 
 
 
-  <link rel="canonical" href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/"/>
+  <link rel="canonical" href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/"/>
 
 
 
@@ -178,7 +181,7 @@
 
 
 
-  <title>Suomi NPP VIIRS夜间灯光遥感数据简介与下载 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -378,7 +381,7 @@ WIDGET = {FID: '839cdWVP67'}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
@@ -395,7 +398,7 @@ WIDGET = {FID: '839cdWVP67'}
 
         
         
-          <h1 class="post-title" itemprop="name headline">Suomi NPP VIIRS夜间灯光遥感数据简介与下载</h1>
+          <h1 class="post-title" itemprop="name headline">Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取</h1>
         
 
         <div class="post-meta">
@@ -448,8 +451,8 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/" itemprop="commentCount"></span>
+                <a href="/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -457,7 +460,7 @@ WIDGET = {FID: '839cdWVP67'}
 
           
           
-             <span id="/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/" class="leancloud_visitors" data-flag-title="Suomi NPP VIIRS夜间灯光遥感数据简介与下载">
+             <span id="/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/" class="leancloud_visitors" data-flag-title="Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -487,7 +490,7 @@ WIDGET = {FID: '839cdWVP67'}
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1,850
+                  2,411
                 </span>
               
 
@@ -503,7 +506,7 @@ WIDGET = {FID: '839cdWVP67'}
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  7
+                  9
                 </span>
               
             </div>
@@ -525,9 +528,17 @@ WIDGET = {FID: '839cdWVP67'}
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>失踪人口回归+爷青回，本篇介绍下Suomi NPP VIIRS夜间灯光遥感数据下载。</p>
+<p><img src="http://blog.gisersqdai.top/1599598643361md1strze.png" alt=""></p>
 <a id="more"></a> 
 <h1 id="1-夜间灯光遥感数据简介"><a href="#1-夜间灯光遥感数据简介" class="headerlink" title="1 夜间灯光遥感数据简介"></a>1 夜间灯光遥感数据简介</h1><p>夜间灯光遥感数据就是指利用遥感技术捕捉夜晚地球上的灯光分布状况，可以有效反映人类活动的空间分布，因此常用于各类社会经济数据方面的遥感反演。这方面应用的知名案例包括武汉大学李德仁院士与李熙老师利用夜间灯光监测叙利亚战争状况，斯坦福大学利用夜间灯光与机器学习算法识别全球贫困人群等。</p>
 <p>当前常用的夜间灯光遥感数据主要是两个卫星，一个是DMSP(Defense Meteorological Sate-llite Program)是美国国防部的极轨卫星计划，传感器空间分辨率为3000 m，生产的夜光遥感产品空间分辨率通常为1000 m，同时DMPS夜光遥感数据是当前最长时间序列的夜光遥感数据（自1992-2013），可以提供长时间序列连续的夜光遥感监测。另一个则是2011年发射的新一代对地观测卫星Suomi NPP，该卫星搭载的可见光/红外辐射成像仪（Visible Infrared Imaging Radiometer Suit，VIIRS）能够获取新的夜间灯光遥感影像(Day/Night Band，DNB波段)，空间分辨率也提高到750 m（以下简称NPP-DNB），生产的夜间灯光遥感产品空间分辨率通常为500 m。这两个卫星以外，还有一些其他相关的夜间灯光卫星，但是数据较少，且不易获取。值得注意的是，2018年中国也发射了自己的首颗专业夜间灯光卫星（由武汉大学设计与发射）——珞珈一号。</p>
+<p>另外这里推荐几篇相关的夜间灯光遥感文章。第一篇是我参与的一篇RSE论文翻译。第二篇是RSE最新的夜间灯光遥感综述文章。</p>
+<ul>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzA3ODM2NjAxMA==&amp;mid=2650111174&amp;idx=1&amp;sn=e438284e6b0dc03f025d32379352a0b9&amp;chksm=87420893b0358185a3c438fe0dc9037ea9efe5d014ffe332a68e3cc735e1997fc2aed4bb6983&amp;mpshare=1&amp;scene=23&amp;srcid=0815S4UZ2InhSO338mlXGuSb#rd" target="_blank" rel="external">有GIS有意思︱运用夜灯与社交数据一眼识破北上渝三城多中心结构</a></p>
+</li>
+<li><p><a href="https://www.sciencedirect.com/science/article/pii/S0034425719304626" target="_blank" rel="external">Remote sensing of night lights: A review and an outlook for the future</a></p>
+</li>
+</ul>
 <h1 id="2-夜间灯光遥感数据下载"><a href="#2-夜间灯光遥感数据下载" class="headerlink" title="2 夜间灯光遥感数据下载"></a>2 夜间灯光遥感数据下载</h1><h2 id="1-年和月尺度产品下载"><a href="#1-年和月尺度产品下载" class="headerlink" title="1 年和月尺度产品下载"></a>1 年和月尺度产品下载</h2><p>DMSP夜间灯光遥感数据提供年尺度产品下载。由于该卫星存在过饱和效应，NOAA为此发布了多套去饱和的校正影像，关于DMSP夜间灯光遥感数据的详细介绍可以参考ENVI/IDL的博客：<a href="http://blog.sina.com.cn/s/blog_764b1e9d0100y2bl.html#cmt_2215472" target="_blank" rel="external">DMSP卫星介绍和数据下载</a>。</p>
 <p>DMSP夜间灯光遥感数据年尺度产品下载地址：<a href="https://ngdc.noaa.gov/eog/dmsp.html" target="_blank" rel="external">https://ngdc.noaa.gov/eog/dmsp.html</a></p>
 <p>NPP夜间灯光遥感数据提供了年，月和日尺度数据下载。其中年和月的数据为合成产品，经过一定校正处理和合成。当前NPP夜间灯光遥感数据的年产品和月产品合成工作由科罗拉多矿业大学承担。NPP夜间灯光遥感数据的年产品和月产品下载链接，其中月产品数据存在3个月滞后期。</p>
@@ -566,16 +577,8 @@ WIDGET = {FID: '839cdWVP67'}
 <p><img src="http://blog.gisersqdai.top/1599517534585yg906ht2.png" alt=""></p>
 <p>然后把选择的文件拖拽到左边的本地文件夹即可下载。</p>
 <p><img src="http://blog.gisersqdai.top/15995178511970trlxede.png" alt=""></p>
-<p>NPP夜间灯光遥感数据用户文档。</p>
-
-
-	<div class="row">
-    <embed src="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<p>NPP夜间灯光遥感数据初学者文档。</p>
+<p>NPP夜间灯光遥感数据用户文档：<a href="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf" target="_blank" rel="external">https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf</a></p>
+<p>NPP夜间灯光遥感数据初学者slides。</p>
 
 
 	<div class="row">
@@ -596,7 +599,20 @@ WIDGET = {FID: '839cdWVP67'}
 <h2 id="2-日尺度hdf5数据读取与可视化envi"><a href="#2-日尺度hdf5数据读取与可视化（ENVI）" class="headerlink" title="2 日尺度hdf5数据读取与可视化（ENVI）"></a>2 日尺度hdf5数据读取与可视化（ENVI）</h2><p>关于用ENVI读取日尺度hdf5数据的方式，详情参见以下ENVI/IDL博客与L3HARRIS。</p>
 <p><a href="http://blog.sina.com.cn/s/blog_764b1e9d0102zzvk.html#cmt_5F0C3F16-B7EC438A-17C53590C-83A-8D3" target="_blank" rel="external">夜光遥感数据处理 </a></p>
 <p><a href="https://www.harrisgeospatial.com/docs/OpenNPPVIIRS_Data.html" target="_blank" rel="external">NPP VIIRS Datasets</a></p>
-<p>这里也提供一些转换NASA的hdf5夜光相关数据的代码。</p>
+<h2 id="3-日尺度hdf5数据读取与可视化r语言"><a href="#3-日尺度hdf5数据读取与可视化（R语言）" class="headerlink" title="3 日尺度hdf5数据读取与可视化（R语言）"></a>3 日尺度hdf5数据读取与可视化（R语言）</h2><p>这里也介绍下如何在R语言里读取hdf5以及转换格式。基础的两个包分别为raster和rhdf5。其中rhdf5必须通过BioManager包安装。这里是安装命令。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">install.packages(<span class="string">'raster'</span>)</div><div class="line">install.packages(<span class="string">'BioManager'</span>)</div><div class="line">BioManager::install(<span class="string">'rhdfr'</span>)</div></pre></td></tr></table></figure>
+<p>hdf5是一个在科学计算领域有广泛应用的数据格式，可以理解为多个文件夹压缩而成的格式。对于这类文件读取，首先需要先了解文件的结构才能读取。这里采用的命令就是h5ls。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">h5ls(filename)</div></pre></td></tr></table></figure>
+<p>filename为hdf5文件名。如下图所示给出了NPP夜间灯光遥感数据hdf5文件的具体结构。</p>
+<p><img src="http://blog.gisersqdai.top/1599594677581fruhd7c1.png" alt=""></p>
+<p>我们所需要用到的属性包括All_Data/VIIRS-DNB-GEO_All/下的Longitude和Latitude，以及All_Data/VIIRS-DNB-SDR_All/下的radiance，即夜间灯光DNB波段值。利用h5read函数读取这几个数据，命令行如下。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dnblat &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-GEO_All/Latitude'</span>)</div><div class="line">dnblon &lt;- h5read(<span class="string">"filename, 'All_Data/VIIRS-DNB-GEO_All/Longitude')</span></div><div class="line">dnbrad &lt;- h5read(filename, 'All_Data/VIIRS-DNB-SDR_All/Radiance')</div></pre></td></tr></table></figure>
+<p>这样即得到了夜间灯光遥感数据矩阵形式存储的经度，纬度以及波段值。接下来将三个矩阵组合成一个栅格即可。根据这样即可得到一个栅格数据。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">radpts &lt;- cbind(long = as.vector(dnblon), lat = as.vector(dnblat), rad = as.vector(dnbrad))</div><div class="line">radpts &lt;- data.frame(radpts)</div><div class="line">colnames(radpts) &lt;- c(<span class="string">"x"</span>, <span class="string">"y"</span>, <span class="string">"radiance"</span>)</div><div class="line">e &lt;- extent(randpts[, (<span class="number">1</span>:<span class="number">2</span>)])</div><div class="line">r &lt;- raster(e, ncol = ncol(dnbrad), nrow = nrow(dnbrad), crs = <span class="string">"+proj=longlat + datum=WGS84"</span>)</div><div class="line">radr &lt;- rasterize(radpts[, (<span class="number">1</span>:<span class="number">2</span>), r, radpts[,<span class="number">3</span>], fun = mean)</div></pre></td></tr></table></figure>
+<p>简单可视化结果如图。</p>
+<p><img src="http://blog.gisersqdai.top/1599598714348maibxtc5.png" alt=""></p>
+<p>另外可以看到这个DNB波段值数值较小，是经过缩放的，需要乘以10的9次方使得DNB波段值呈现正常范围。当然日尺度的数据由于云，月相等因素的影响，质量还有待提升。</p>
+<p>这里也提供一些转换NASA的hdf5夜间灯光遥感相关数据的代码。</p>
 <p><a href="https://git.earthdata.nasa.gov/projects/LPDUR/repos/nasa-viirs/browse/scripts/VIIRS_HDF5toGeoTIFF.R" target="_blank" rel="external">VIIRS_HDF5toGeoTIFF.R</a></p>
 <p><a href="https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viirs-surface-reflectance-data/" target="_blank" rel="external">Working with Daily NASA VIIRS Surface Reflectance Data</a></p>
 <p>参考链接：</p>
@@ -652,7 +668,7 @@ WIDGET = {FID: '839cdWVP67'}
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/" title="Suomi NPP VIIRS夜间灯光遥感数据简介与下载">https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载/</a>
+    <a href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/" title="Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取">https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -666,6 +682,8 @@ WIDGET = {FID: '839cdWVP67'}
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
           
             <a href="/tags/Google-Earth-Engine/" rel="tag"># Google Earth Engine</a>
           
@@ -970,7 +988,7 @@ show_date_time();
 		        <h3 class="widget-title">Tag Cloud</h3>
 			    <div id="myCanvasContainer" class="widget tagcloud">
 			    <canvas width="150" height="150" id="resCanvas" style="width=100%">
-			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Academic/">Academic</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aliyun/">Aliyun</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth-Engine/">Google Earth Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Himawari/">Himawari</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPP-VIIRS/">NPP VIIRS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">36</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shiny/">Shiny</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">86</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Academic/">Academic</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aliyun/">Aliyun</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth-Engine/">Google Earth Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Himawari/">Himawari</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPP-VIIRS/">NPP VIIRS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">37</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shiny/">Shiny</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">86</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
 			    </canvas>
 			    </div>
 	        </div>
@@ -986,7 +1004,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-夜间灯光遥感数据简介"><span class="nav-number">1.</span> <span class="nav-text">1 夜间灯光遥感数据简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-夜间灯光遥感数据下载"><span class="nav-number">2.</span> <span class="nav-text">2 夜间灯光遥感数据下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-年和月尺度产品下载"><span class="nav-number">2.1.</span> <span class="nav-text">1 年和月尺度产品下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-日尺度产品下载"><span class="nav-number">2.2.</span> <span class="nav-text">2 日尺度产品下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-npp夜间灯光遥感数据读取与可视化"><span class="nav-number">3.</span> <span class="nav-text">3 NPP夜间灯光遥感数据读取与可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-google-earth-engine"><span class="nav-number">3.1.</span> <span class="nav-text">1 Google Earth Engine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-日尺度hdf5数据读取与可视化envi"><span class="nav-number">3.2.</span> <span class="nav-text">2 日尺度hdf5数据读取与可视化（ENVI）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-夜间灯光遥感数据简介"><span class="nav-number">1.</span> <span class="nav-text">1 夜间灯光遥感数据简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-夜间灯光遥感数据下载"><span class="nav-number">2.</span> <span class="nav-text">2 夜间灯光遥感数据下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-年和月尺度产品下载"><span class="nav-number">2.1.</span> <span class="nav-text">1 年和月尺度产品下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-日尺度产品下载"><span class="nav-number">2.2.</span> <span class="nav-text">2 日尺度产品下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-npp夜间灯光遥感数据读取与可视化"><span class="nav-number">3.</span> <span class="nav-text">3 NPP夜间灯光遥感数据读取与可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-google-earth-engine"><span class="nav-number">3.1.</span> <span class="nav-text">1 Google Earth Engine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-日尺度hdf5数据读取与可视化envi"><span class="nav-number">3.2.</span> <span class="nav-text">2 日尺度hdf5数据读取与可视化（ENVI）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-日尺度hdf5数据读取与可视化r语言"><span class="nav-number">3.3.</span> <span class="nav-text">3 日尺度hdf5数据读取与可视化（R语言）</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1020,7 +1038,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">552.4k</span>
+    <span title="Site words total count">553.0k</span>
   
 </div>
 
