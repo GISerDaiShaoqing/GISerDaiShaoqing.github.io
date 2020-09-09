@@ -131,7 +131,7 @@
 <meta property="og:image" content="http://blog.gisersqdai.top/1599518460569yn7ranlk.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1599594677581fruhd7c1.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1599598714348maibxtc5.png">
-<meta property="og:updated_time" content="2020-09-08T21:23:44.934Z">
+<meta property="og:updated_time" content="2020-09-09T13:23:56.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Suomi NPP VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取">
 <meta name="twitter:description" content="失踪人口回归+爷青回，本篇介绍下Suomi NPP VIIRS夜间灯光遥感数据下载。">
@@ -606,7 +606,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>filename为hdf5文件名。如下图所示给出了NPP夜间灯光遥感数据hdf5文件的具体结构。</p>
 <p><img src="http://blog.gisersqdai.top/1599594677581fruhd7c1.png" alt=""></p>
 <p>我们所需要用到的属性包括All_Data/VIIRS-DNB-GEO_All/下的Longitude和Latitude，以及All_Data/VIIRS-DNB-SDR_All/下的radiance，即夜间灯光DNB波段值。利用h5read函数读取这几个数据，命令行如下。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dnblat &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-GEO_All/Latitude'</span>)</div><div class="line">dnblon &lt;- h5read(<span class="string">"filename, 'All_Data/VIIRS-DNB-GEO_All/Longitude')</span></div><div class="line">dnbrad &lt;- h5read(filename, 'All_Data/VIIRS-DNB-SDR_All/Radiance')</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dnblat &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-GEO_All/Latitude'</span>)</div><div class="line">dnblon &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-GEO_All/Longitude'</span>)</div><div class="line">dnbrad &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-SDR_All/Radiance'</span>)</div></pre></td></tr></table></figure>
 <p>这样即得到了夜间灯光遥感数据矩阵形式存储的经度，纬度以及波段值。接下来将三个矩阵组合成一个栅格即可。根据如下代码即可得到一个栅格数据。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">radpts &lt;- cbind(long = as.vector(dnblon), lat = as.vector(dnblat), rad = as.vector(dnbrad))</div><div class="line">radpts &lt;- data.frame(radpts)</div><div class="line">colnames(radpts) &lt;- c(<span class="string">"x"</span>, <span class="string">"y"</span>, <span class="string">"radiance"</span>)</div><div class="line">e &lt;- extent(randpts[, (<span class="number">1</span>:<span class="number">2</span>)])</div><div class="line">r &lt;- raster(e, ncol = ncol(dnbrad), nrow = nrow(dnbrad), crs = <span class="string">"+proj=longlat + datum=WGS84"</span>)</div><div class="line">radr &lt;- rasterize(radpts[, (<span class="number">1</span>:<span class="number">2</span>), r, radpts[,<span class="number">3</span>], fun = mean)</div></pre></td></tr></table></figure>
 <p>简单可视化结果如图。</p>
