@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+
+  <meta name="keywords" content="R,Theory," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GISerDaiShaoqing's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Chapter 4 Sampling And Sample Distribution本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布">
+<meta property="og:url" content="https://gisersqdai.top/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing's Blog">
+<meta property="og:description" content="Chapter 4 Sampling And Sample Distribution本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。">
+<meta property="og:image" content="http://blog.gisersqdai.top/ndplot2.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/ndplot.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/ndplot3.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/ndplot4.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/ndplot5.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170506153952.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/Rplot6.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/Rplot7.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/Rplot8.png">
+<meta property="og:updated_time" content="2019-12-18T08:18:32.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布">
+<meta name="twitter:description" content="Chapter 4 Sampling And Sample Distribution本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/ndplot2.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gisersqdai.top/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/"/>
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96744ec9"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+  <title>应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布 | GISerDaiShaoqing's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+      <a href="https://github.com/GISerDaiShaoqing" class="github-corner" aria-label="View source on GitHub"><svg width="80" 
+      height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; 
+      border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z">
+      </path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,
+      72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" 
+      fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 
+      C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 
+      143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 
+      C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 
+      206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 
+      156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body">
+      </path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes 
+      octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
+      @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GISerDaiShaoqing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Health·Urban·Ecology·GIS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Board
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+<!-- climate -->
+<script type="text/javascript">
+WIDGET = {FID: '839cdWVP67'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dai Shaoqing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T00:00:00+02:00">
+                2017-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
+                    <span itemprop="name">Applied Statistics</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/" class="leancloud_visitors" data-flag-title="应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  5,388
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="chapter-4-sampling-and-sample-distribution"><a href="#Chapter-4-Sampling-And-Sample-Distribution" class="headerlink" title="Chapter 4 Sampling And Sample Distribution"></a>Chapter 4 Sampling And Sample Distribution</h1><p>本篇是第四章，内容主要是抽样方法与抽样分布。这一章内容比较多（从抽样方法一直到许多分布函数，尤其是介绍了四个重要分布——正态分布、卡方分布、t分布、F分布，以及部分统计推断的内容）。<a id="more"></a> </p>
+<h3 id="1抽样方法"><a href="#1-抽样方法" class="headerlink" title="1.抽样方法"></a>1.抽样方法</h3><p>抽样调查的概念前面已经有所涉及到，这里就不详述了。大部分情况下，普查是不太可能的，所以抽样调查是科学研究中应用最为广泛的收集数据的方法。但是正如前面在谈论precision和accuracy问题的时候说的，我们希望数据的质量是Low Bias and Low Variance，抽样调查的样本既能很好地代表总体（非抽样误差小），同时多次抽样的话，也希望抽样的样本大致都接近，降低抽样误差。所以从统计学诞生至今，已经提出了很多的抽样方法。可以说并没有任何一种方法能完全避免这些误差，这些方法需要根据具体情境具体使用。<br>总的来说，抽样方法可以分为两大类：概率抽样与非概率抽样。<br>概率抽样包括了：</p>
+<blockquote>
+<ul>
+<li>简单随机抽样 </li>
+<li>系统抽样</li>
+<li>分层抽样</li>
+<li>整群抽样</li>
+<li>多阶段抽样</li>
+</ul>
+</blockquote>
+<p>概率抽样是根据一个已知的概率来抽取样本单位（也称为随机抽样），概率抽样要求按照一定的概率随机抽取样本，也就是说每个样本都有一定的机会被抽中，同时每个样本被抽中的概率是可以已知或计算出来的，而当运用概率抽样的样本进行参数估计的时候必须考虑样本被抽中的概率（某种程度来说感觉类似贝叶斯，先验概率和后验概率的问题）。<br>简单随机抽样——从总体N个单位里抽出n个单位作为样本（可以重复抽样，也可以不重复抽样），最常用的抽样方式，参数估计和假设检验主要依据的就是简单随机样本。<br>系统抽样——将总体中的所有单位(抽样单位)按一定顺序排列， 在规定的范围内随机地抽取一个单位作为初始单位， 然后按事先规定好的规则确定其他样本单位（先从数字1到k之间随机抽取一个数字r作为初始单位，以后依次取r+k， r+2k…等单位）。<br>分层抽样——将总体单位按某种特征或某种规则划分为不同的层(Strata)， 然后从不同的层中独立、 随机地抽取样本。<br>整群抽样——将总体中若干个单位合并为组(群)， 抽样时直接抽取群， 然后对中选群中的所有单位全部实施调查。<br>多阶段抽样——先抽取群， 但并不是调查群内的所有单位， 而是再进行一步抽样，从选中的群中抽取出若干个单位进行调查（群是初级抽样单位，第二阶段抽取的是最终抽样单位。将该方法推广， 使抽样的段数增多， 就称为多阶段抽样）<br>非概率抽样包括了：</p>
+<blockquote>
+<ul>
+<li>方便抽样</li>
+<li>判断抽样</li>
+<li>自愿样本</li>
+<li>滚雪球抽样</li>
+<li>配额抽样</li>
+</ul>
+</blockquote>
+<p>非概率抽样则不是按照随机的原则选取样本，而是根据研究的具体需求选取调查样本。<br>方便抽样——研究员依据方便的原则选取对应的样本。<br>判断抽样——研究员根据自己的判断选择样本。<br>自愿样本——被调查者自愿参加调查提供信息。举个跟地学相关的例子——志愿地理信息（Volunteer Geographcial Information,VGI），是指利用工具创建、组装和传播个人资源提供的地理数据，像社交媒体中的签到。<br>滚雪球抽样——首先选择一组进行调查，让调查者提供另外一些属于调查总体的调查对象，然后持续下去。<br>配额抽样——先将体中的所有单位按一定的标志（变量） 分为若干类， 然后在每个类中采用方便抽样或判断抽样的方式选取样本单位。<br>总的来说，各种抽样方式各有各有的优缺点，根据研究具体情况进行选择。而实际研究中简单随机抽样的应用更多些，这边提供R语言中做简单随机抽样的代码示例。</p>
+<pre><code>#N表示总体的数据，n为抽样单位，replace=FALSE代表不重复抽样，replace=TRUE代表重复抽样。
+n&lt;-sample(N,n,replace = FALSE)
+</code></pre><h3 id="2正态分布"><a href="#2-正态分布" class="headerlink" title="2.正态分布"></a>2.正态分布</h3><p>正态分布由高斯作为描述误差相对频数分布的模型而提出的：</p>
+<blockquote>
+<ul>
+<li>描述连续型随机变量的最重要的分布</li>
+<li>许多现象都可以由正态分布来描述</li>
+<li>可用于近似离散型随机变量的分布</li>
+<li>经典统计推断的基础</li>
+</ul>
+</blockquote>
+<p>正态分布的意义，多多少少大家都有了解，这里就不再详述了。<br>随机变量服从$$ X\sim N  (\mu,\sigma^2) $$<br>则X的概率密度函数为<br>$$ f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2} -\infty&lt;x&lt;\infty $$<br>这就是正态分布的概率密度函数。<br>正态分布具有如下性质：</p>
+<blockquote>
+<ul>
+<li>关于x=μ的钟形对称性质，峰值在x=μ处。</li>
+<li>均值和标准差一旦决定，该分布形式也就决定了。</li>
+<li>均值决定分布函数位置，标准差决定函数的扁平程度。</li>
+<li>X轴两侧无限延伸，f(x)无限逼近x轴,但理论上不可能相交。</li>
+<li>正态随机变量在特定区间上的取值概率由正态曲线下的面积给出，而且其曲线下的总面积等于1</li>
+</ul>
+</blockquote>
+<p>下图给出了两个图（一个是用核密度生成的曲线，一个是正态分布概率密度函数）来说明以上的部分性质（具体实现的R语言代码会在笔记写完后给出）。</p>
+<p><img src="http://blog.gisersqdai.top/ndplot2.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/ndplot.jpg" alt=""></p>
+<p>标准正态分布就是指均值为0，标准差为1的正态分布。通过标准正态分布可以很方便地求算各种概率，所以实际应用中，往往将正态分布数据通过标准化的方式转化为标准正态分布求解具体概率。<br>即令<br>$$ Z=\frac{x-\mu}{\sigma} $$<br>则Z服从标准正态分布。<br>那么如何检验数据的正态性呢？一般有以下几种方法：</p>
+<blockquote>
+<ul>
+<li>对数据画出频数分布的直方图或茎叶图（若数据近似服从正态分布， 则图形的形状与上面给出的正态曲线应该相似）。</li>
+<li>求出样本数据的四分位差和标准差， 然后二者计算比值。 若数据近似服从正态分布，则有<br>$$ Q_d/s\approx1/3 $$</li>
+<li>拟合优度检验</li>
+</ul>
+</blockquote>
+<p>一般可以通过画这个图来进行检验（代码同在笔记写完后给出）。</p>
+<p><img src="http://blog.gisersqdai.top/ndplot3.jpg" alt=""></p>
+<p>或者计算四分位差和标准差比值。<br>这里给出这个方法的R语言实现(用户自编函数）。</p>
+<pre><code>Normaltestindex&lt;-function(x) { 
+    q=fivenum(x)
+    Qd=q[4]-q[2]
+    s=sd(x)
+    Normaltestindex=Qd/s
+    cat(&quot;The Qd/s&quot;, Normaltestindex)
+    }
+</code></pre><p>拟合优度检验是后面章节内容，这里不详述。<br>正态分布在各样本相互前提下存在线性可加性。<br>$$ x_i\sim N(\mu_i,\sigma_i)，且x_i相互独立，则<br>\Sigma a_ix_i\sim N(\Sigma a_i\mu_i,\Sigma a_i^2\sigma_i^2)$$<br>同时样本量够大情况下，n个独立随机变量之和服从正态分布。</p>
+<h3 id="3三种不同性质的分布"><a href="#3-三种不同性质的分布" class="headerlink" title="3.三种不同性质的分布"></a>3.三种不同性质的分布</h3><p>统计量(statistic)——样本来自总体，必然携带有反映总体性质的各种信息。统计的基本任务就是通过对样本的研究来对总体的未知参数或分布类型作出估计，对有关总体的假设作出推断。样本是进行统计推断的依据。但在实际应用时，一般不是直接使用样本本身，而是对样本进行整理和加工, 即针对具体问题构造适当的函数—统计量， 利用这些函数来进行统计推断，揭示总体的统计特性。事实上统计量把分散在样本中的总体信息按需要集中在一个函数上，使该函数能反映总体方面的信息。<br>概念很拗口，总结起来就是，我懒得分析（也没法分析，因为有些总体无法穷尽）总体的分布，我就偷懒地先抽样，并且认为样本能够代表总体特征，再偷懒地计算某些指标，这些指标可以反映样本数据分布特征，这些指标就叫统计量，然后再用统计量去推出（猜）总体的分布特征（第一章提到了，应该叫参数）——果然“懒”才是人类进步的动力。<br>当然这里要区分两个概念——统计量与观察值。<br>$$ 假设X_1,X_2, \cdots ,X_n是来自总体X的样本, x_1,x_2,\cdots ,x_n为其样本值, $$<br>$$则称不含任何总体分布中未知参数的函数g(X_1,X_2,\cdots,X_n)为统计量，相应实数g(x_1,x_2,\cdots,x_n)为观察值 $$<br>如何理解这二者区别呢？其实这里把样本看成了一组随机变量，因为在未抽样前，样本观察值未知，样本就是个随机变量（所以一般来说统计推断的基础是简单随机抽样），但是抽样之后，样本就是一组确定的观察值，这也可以说是样本的二重性。<br>常用的统计量包括了样本均值、样本方差、样本标准差、样本k阶原点矩、样本k阶中心距（具体公式的话，文末附录给出）。<br>从前面提到的统计推断基础是简单随机抽样，也就是要求样本是简单随机样本，那么简单随机样本又是什么呢？<br>首先随机样本的概念：<br>$$ 随机抽取的n个个体的集合(X_1,X_2, \cdots ,X_n),n为样本容量。 $$<br>而简单随机样本则需要在随机样本的前提上满足以下两个条件：</p>
+<blockquote>
+<ul>
+<li>随机性：总体中每个个体都有同等机会被选到样本中,即<br>$$ X_i 与X同分布$$</li>
+<li>独立性：样本中每个个体的选取不影响其他个体的选取，即<br>$$ X_1,X_2, \cdots ,X_n是相互独立的随机变量 $$</li>
+</ul>
+</blockquote>
+<p>接下来是标题提到的三种不同性质的分布：总体分布、样本分布、抽样分布。</p>
+<blockquote>
+<ul>
+<li>总体分布——总体中各元素的观察值所形成的分布，分布通常是未知的，可以假定它服从某种分布。</li>
+<li>样本分布——一个样本中各观察值的分布，也称经验分布，当样本容量 n 逐渐增大时，样本分布逐<br>渐接近总体的分布。</li>
+<li>抽样分布——样本统计量的概率分布， 是一种理论分布，又称为诱导分布，在重复选取容量为n 的样本时，由该统计量的所有可能取值形成的相对频数分布，随机变量是样本统计量（样本函数，如样本均值，样本比例，样本方差等），结果来自容量相同的所有可能样本，提供了样本统计量长远而稳定的信息，是进行推断的理论基础，也是抽样推断科学性的重要依据（ 点估计、 置信区间、假设推断等）。</li>
+</ul>
+</blockquote>
+<p>用一个简单的例子来说明三者的区别。<br>假设总体N=4，随机变量X=年龄。<br>总体分布如下，均值为21，方差为2.236。这里提醒用R语言做统计的同学，R语言默认的var和sd都是求样本的标准差（分母是n-1和n的差别），当你的数据是总体时，建议另外计算，或者可以使用我下面的自编函数（给了个标准差的样例，方差的会在笔记写完后给出）。</p>
+<pre><code>Populationsd&lt;-function(x){
+    n=length(x)
+    m=mean(x)
+    Psd=sqrt(sum((x-m)^2)/n)
+    cat(&quot;The Standard deviation of Population : &quot;,Psd)
+    }
+</code></pre><p><img src="http://blog.gisersqdai.top/ndplot4.jpg" alt=""></p>
+<p>建立n=2的抽样分布，样本均值分布如下，均值为21，方差为1.58</p>
+<p><img src="http://blog.gisersqdai.top/ndplot5.jpg" alt=""></p>
+<p>可以发现总体分布是均匀分布，而样本均值的抽样分布却呈现了近似正态分布，均值是相同的，但是方差却有差异。<br>根据总体分布以及样本容量可以将抽样分布分为以下三类：</p>
+<blockquote>
+<ul>
+<li>精确抽样分布：当总体分布已知时，如果对任一自然数都能导出统计量分布的显示表达式，这样的抽样分布称为精确抽样分布（对小样本的统计推断特别有用，大多数是在正态总体下得到的， t分布、 F分布等）。</li>
+<li>渐近抽样分布：样本量无限大时统计量的极限分布（大样本问题）。</li>
+<li>近似抽样分布：注意获得近似分布的条件（用统计量的前二阶矩当作正态分布的前二阶矩获得<br>正态近似，随机模拟法获得统计量的近似分布）。</li>
+</ul>
+</blockquote>
+<h3 id="4一个总体样本统计量的抽样分布"><a href="#4-一个总体样本统计量的抽样分布" class="headerlink" title="4.一个总体样本统计量的抽样分布"></a>4.一个总体样本统计量的抽样分布</h3><p>样本均值的抽样分布——在重复选取容量为 n 的样本时，由样本均值的所有可能取值形成的相对频数分布（一种理论概率分布，推断总体均值的理论基础）。</p>
+<blockquote>
+<ul>
+<li>正态总体均值抽样分布——精确分布（均值无偏）。</li>
+<li>样本均值的中心极限定理——渐进分布。<br>中心极限定理：<br>$$设从均值为\mu， 方差为\sigma^2的一个任意总体中抽取容量为n的样本，$$ $$ 当n充分大时，样本均值的抽样分布近似服从均值为\mu、 方差为\sigma^2/n的正态分布 $$</li>
+</ul>
+</blockquote>
+<p>用一张图来说明这个定理（摘自参考书目1：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.）。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170506153952.jpg" alt=""></p>
+<p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$</p>
+<p>总结来说，总体分布为正态分布的话，抽样分布也是正态分布，总体分布为非正态分布的话，大样本情况下也是近似正态分布，小样本则为非正态分布。</p>
+<p>除了均值之外，实际生活中比例也是一个很重要的参数。<br>比例——总体（或样本）中具有某种属性的单位与全部单位总数之比（如不同性别的人与全部人数之比，合格品(或不合格品) 与全部产品总数之比）<br>总体比例可表示为<br>$$ p=\frac{N_0}{N},1-p=\frac{N_1}{N} $$<br>样本比例可表示为<br>$$ p=\frac{n_0}{n},1-p=\frac{n_1}{n} $$<br>样本比例的抽样分布——在重复选取容量为n的样本时，由样本比例的所有可能取值形成的相对频数分布。</p>
+<blockquote>
+<ul>
+<li>一种理论概率分布。</li>
+<li>当样本容量很大时（满足np≥5, n(1-p)≥5)，样本比例的抽样分布可用正态分布近似。</li>
+<li>推断总体比例p的理论基础。</li>
+</ul>
+</blockquote>
+<p>类似于均值的抽样分布我们可以得到样本比例的数学期望和方差：<br>数学期望：<br>$$ E(\bar p) =p $$<br>方差：</p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n} （重复抽样）,$$ </p>
+<p>$$ \sigma_{\bar x}^2=\frac{p(1-p)}{n}\frac{N-n}{N-1} （不重复抽样）$$</p>
+<p>接下来介绍一个重要的分布——卡方分布。<br>$$ 若随机变量\xi_1,\xi_2,\cdots,\xi_n是n个相互独立的标准正态变量（独立同分布于标准正态分布），$$ $$ 则这n个随机变量的平方和Y=\Sigma\xi_i^2构成的随机变量的分布称为自由度为n的\chi^2分布（chi-square distribution），$$ $$ 记为\chi^2(n)分布 $$<br>卡方分布的性质和特点如下：</p>
+<blockquote>
+<ul>
+<li>分布的变量值始终为正</li>
+<li>分布的形状取决于其自由度n的大小， 通常为不对称的单峰右偏（ 正偏） 分布， 但随着自由度<br>的增大逐渐趋于对称， 当n&gt;30时， 接近正态分布</li>
+<li>期望为：<br>$$ E(\chi^2)=n，$$<br>方差为：<br>$$ D(\chi^2)=2n (n为自由度) $$</li>
+<li>可加性：<br>$$ 若U和V为两个独立的\chi^2分布随机变量，U\sim \chi^2(n_1)， V\sim \chi^2(n_2), $$ $$则U+V这一随机变量服从自由度为n_1+n_2的\chi^2分布$$</li>
+</ul>
+</blockquote>
+<p>卡方分布的性质可以根据这张图来看。</p>
+<p><img src="http://blog.gisersqdai.top/Rplot6.png" alt=""></p>
+<p>卡方分布一般用于样本方差的分布的计算。<br>样本方差的分布——在重复选取容量为n的样本时， 由样本方差的所有可能取值形成的相对频数分布。<br>对于来自正态总体的简单随机样本，则比值<br>$$ \frac{(n-1)s^2}{\sigma^2} $$<br>该比值的抽样分布服从<br>$$ 自由度为(n-1)的\chi^2分布，即 \frac{(n-1)s^2}{\sigma^2}\sim \chi^2(n-1) $$</p>
+<p>接着再介绍一个耳熟能详的t分布。t 分布是类似正态分布的一种对称分布， 它通常要比正态分布平坦和分散。<br>t分布的性质和特点如下：</p>
+<blockquote>
+<ul>
+<li>自由度为1的t 分布为柯西分布，期望值不存在。</li>
+<li>n&gt;1时，期望值为0。</li>
+<li>n&gt;2时，方差存在，为n/(n-2)。</li>
+<li>随着自由度的增大，分布也逐渐趋于标准正态分布。（t 分布的极限为标准正态分布，当n&gt;30时， t 分布可用标准正态分布近似）</li>
+</ul>
+</blockquote>
+<p>t分布的性质可以根据这张图来看。</p>
+<p><img src="http://blog.gisersqdai.top/Rplot7.png" alt=""></p>
+<p>t分布的应用是在求样本均值与样本标准差之比上<br>样本均值与样本标准差之比的分布为：<br>$$ t=\frac{\bar x-\mu}{s/\sqrt{n}}\sim t(n-1) $$<br>自由度为(n-1)的t 分布</p>
+<h3 id="5两个总体样本统计量的抽样分布"><a href="#5-两个总体样本统计量的抽样分布" class="headerlink" title="5.两个总体样本统计量的抽样分布"></a>5.两个总体样本统计量的抽样分布</h3><p>其实从前面第4点内容可以看出，其实实际应用中，均值、比例、方差的估计是比较多的，因此这三个总体样本统计量的抽样分布特别提出来了。而第4点讨论的是一个总体的，两个总体的也可以类比，道理是一样的。<br>两个样本均值之差的抽样分布：</p>
+<blockquote>
+<ul>
+<li>两个总体均为正态分布，即<br>$$ X_1\sim N(\mu_1,\sigma_1^2) ,X_2\sim N(\mu_2,\sigma_2^2)$$</li>
+<li>两个样本均值之差的抽样分布服从正态分布，其分布的数学期望为两个总体均值之差：<br>$$ E(\bar x_1-\bar x_2)=\mu_1-\mu_2 $$</li>
+<li>方差为各自的方差之和：<br>$$ \sigma_{\bar x_1-\bar x_2}^2=\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2} $$</li>
+</ul>
+</blockquote>
+<p>两个样本比例之差的抽样分布：</p>
+<blockquote>
+<ul>
+<li>两个总体都服从二项分布。</li>
+<li>分别从两个总体中抽取容量为$n_1$和$n_2$的独立样本，当两个样本都为大样本时，两个样本比例之差的抽样分布可用正态分布来近似。</li>
+<li>分布的数学期望为：<br>$$ E(\bar p_1-\bar p_2)=p_1-p_2 $$</li>
+<li>方差为各自方差之和：<br>$$ \sigma_{\bar p_1-\bar p_2}^2=\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2} $$</li>
+</ul>
+</blockquote>
+<p>最后的最后，我们来介绍本片的最后一个重要的分布——F分布。<br>F分布：<br>$$ 设若U为服从自由度为n_1的\chi^2分布，即U\sim \chi^2(n_1), $$ $$ V为服从自由度为n_2的\chi^2分布，即V\sim \chi^2(n_2),且U与V相互独立, $$ $$ F=\frac{U/n_1}{V/n_2},F服从自由度n_1和n_2的F分布, $$ $$记为 F\sim F(n_1,n_2) $$<br>不同自由度下的F分布</p>
+<p><img src="http://blog.gisersqdai.top/Rplot8.png" alt=""></p>
+<p>两个样本方差比的抽样分布：</p>
+<blockquote>
+<ul>
+<li>两个总体都为正态分布，即<br>$$ X_1\sim N(\mu_1,\sigma_1^2), X_2\sim N (\mu_2,\sigma_2^2） $$</li>
+<li>从两个总体中分别抽取容量为$n_1$和$n_2$的独立样本。</li>
+<li>两个样本方差比的抽样分布， 服从分子自由度$(n_1-1)$， 分母自由度为$(n_2-1)$的F分布， 即<br>$$ \frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2}\sim F(n_1-1,n_2-1) $$</li>
+</ul>
+</blockquote>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>常用统计量公式<br>样本均值：<br>$$ \bar X=\frac{1}{n} \sum_{i=1}^n{X_i} $$</p>
+<p>样本方差：<br>$$ S^2=\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2 $$</p>
+<p>样本标准差：<br>$$ S=\sqrt{\frac{1}{n-1} \sum_{i=1}^n(X_i-\bar X)^2} $$</p>
+<p>样本k阶原点矩：</p>
+<p>$$ A<em>k=\frac{1}{n} \sum</em>{i=1}^nX_i^k (k=1,2,\cdots) $$</p>
+<p>样本k阶中心矩：</p>
+<p>$$ B<em>k=\frac{1}{n} \sum</em>{i=1}^n(X_i-\bar X)^k (k=1,2,\cdots) $$</p>
+<p>各统计量的观察值：</p>
+<p>$$ \bar x=\frac{1}{n} \sum_{i=1}^n{x_i} $$</p>
+<p>$$ s^2=\frac{1}{n-1} \sum_{i=1}^n(x_i-\bar x)^2 $$</p>
+<p>$$ a<em>k=\frac{1}{n}\sum</em>{i=1}^nx_i^k (k=1,2,\cdots) $$</p>
+<p>$$ b<em>k=\frac{1}{n} \sum</em>{i=1}^n(x_i-\bar x)^k (k=1,2,\cdots) $$</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Dai Shaoqing
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://gisersqdai.top/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/" title="应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布">https://gisersqdai.top/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/Theory/" rel="tag"># Theory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/05/应用统计学与R语言实现学习笔记（三）——描述性统计/" rel="next" title="应用统计学与R语言实现学习笔记（三）——描述性统计">
+                <i class="fa fa-chevron-left"></i> 应用统计学与R语言实现学习笔记（三）——描述性统计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/" rel="prev" title="应用统计学与R语言实现学习笔记（五）——参数估计">
+                应用统计学与R语言实现学习笔记（五）——参数估计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Dai Shaoqing" />
+            
+              <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">172</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GISerDaiShaoqing" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" target="_blank" title="Scholar">
+                    
+                      <i class="fa fa-fw fa-google"></i>Scholar</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://orcid.org/0000-0003-0858-4728" target="_blank" title="ORCID">
+                    
+                      <i class="fa fa-fw fa-id-card"></i>ORCID</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.researchgate.net/profile/Shaoqing_Dai" target="_blank" title="RG">
+                    
+                      <i class="fa fa-fw fa-group"></i>RG</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dsq1993qingge@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.sciencenet.cn/u/GISdsq" target="_blank" title="ScienceNet">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ScienceNet</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/esa_dsq" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/8bfccfb12c0d" target="_blank" title="Jianshu">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>Jianshu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://my.oschina.net/u/2424163" target="_blank" title="OSchina">
+                    
+                      <i class="fa fa-fw fa-codepen"></i>OSchina</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://yq.aliyun.com/u/sqdaigiser" target="_blank" title="Aliyunqi">
+                    
+                      <i class="fa fa-fw fa-cloud"></i>Aliyunqi</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gisersqdai.top/mycv/" target="_blank" title="CV">
+                    
+                      <i class="fa fa-fw fa-user-circle"></i>CV</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/dai-shao-qing-84" target="_blank" title="Zhihu">
+                    
+                      <i class="fa fa-fw fa-reply-all"></i>Zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gitee.com/Daishaoqing_EGIS93" target="_blank" title="Gitee">
+                    
+                      <i class="fa fa-fw fa-codiepie"></i>Gitee</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://gisersqdai.top/D3LTool/" title="D3L Tool of NASA Satellite" target="_blank">D3L Tool of NASA Satellite</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://covid19.gisersqdai.top/en-us/" title="Awesome COVID-19" target="_blank">Awesome COVID-19</a>
+                  </li>
+                
+              </ul>
+     <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("08/14/2016 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=7naufgeQBTlXfZFr80nKqskPfIaDLjMPLR6MRVljrwI"></script>
+            </div>
+          
+                    <!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </section>
+		  
+      
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+		  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+		      <div class="widget-wrap">
+		        <h3 class="widget-title">Tag Cloud</h3>
+			    <div id="myCanvasContainer" class="widget tagcloud">
+			    <canvas width="150" height="150" id="resCanvas" style="width=100%">
+			      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Academic/">Academic</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aliyun/">Aliyun</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/">Consideration of Ecology and Geography</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth-Engine/">Google Earth Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Himawari/">Himawari</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPP-VIIRS/">NPP VIIRS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-health/">Public health</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a><span class="tag-list-count">38</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shiny/">Shiny</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a><span class="tag-list-count">90</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/">Theory</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/">Windows 10</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/">hugo</a><span class="tag-list-count">1</span></li></ul>
+			    </canvas>
+			    </div>
+	        </div>
+	    
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-4-sampling-and-sample-distribution"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 Sampling And Sample Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1抽样方法"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.抽样方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2正态分布"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.正态分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3三种不同性质的分布"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.三种不同性质的分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4一个总体样本统计量的抽样分布"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.一个总体样本统计量的抽样分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5两个总体样本统计量的抽样分布"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.两个总体样本统计量的抽样分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录"><span class="nav-number">1.0.6.</span> <span class="nav-text">附录</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">600.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a></div>
+<div class="BbeiAn-info">
+闽ICP备 -
+<a target="_blank"  href="http://beian.miit.gov.cn/">18026025号</a>
+</a>|
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35021302000273" style="color:#f0d784;text-decoration:none;padding-left:30px;background:url(http://science.gisersqdai.top/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png) no-repeat left center" rel="nofollow">闽公网安备 35021302000273号</a>
+</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站访问数 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: false,
+        appId: 'oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz',
+        appKey: '5R3loDlmeKFd1bdvCNnq065n',
+        placeholder: '~\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz", "5R3loDlmeKFd1bdvCNnq065n");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  <!-- calendar widget -->
+
+
+    <script src="/lib/CloudCalendar/CloudCalendar.js"></script>
+    <script src="/lib/CloudCalendar/languages.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN', 
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+</html>
