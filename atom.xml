@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gisersqdai.top/"/>
-  <updated>2023-07-13T21:14:58.071Z</updated>
+  <updated>2023-07-13T22:21:36.467Z</updated>
   <id>https://gisersqdai.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客修复</title>
+    <link href="https://gisersqdai.top/2023/07/13/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/"/>
+    <id>https://gisersqdai.top/2023/07/13/Hexo博客修复/</id>
+    <published>2023-07-13T20:57:00.000Z</published>
+    <updated>2023-07-13T22:21:36.467Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>由于过去一段时间比较忙，后续电脑内存盘更替等原因，停更了很久。最近总算重新修复了下博客</p><a id="more"></a><h1 id="1-hexo博客外链文件无法显示"><a href="#1-Hexo博客外链文件无法显示" class="headerlink" title="1 Hexo博客外链文件无法显示"></a>1 Hexo博客外链文件无法显示</h1><p>由于断更很久，一直没更新，这次重新deploy以后，发现博客内大量图片以及部分文件都无法显示。在网上查询以后发现本质原因是，Github Pages网页已经全部强制支持https，但是我博客的图床是基于七牛云存储的，还是http，导致无法显示，包括音乐文件等。在网上搜索以后发现了部分解决方案。</p><p>总结了下基本思路就是使用https外链的图床。比较可行的方案有三种，第一种是升级七牛云的图床外链到https服务（这个需要根据流量算钱）。第二种是找其他https外链的图床。第三种是借用github作为图床，这个是基于hexo主题框架里设置的资源文件夹（详情见第6和第7篇参考解决方案链接）。核心需要对每篇博客建立对应的md文件和文件夹（然后把图片全部放到文件夹里）。</p><p>升级七牛云的图床外链的核心是要申请域名对应的SSL的证书。由于我用的是我阿里云的二级域名，所以本质上是现在阿里云申请对应的免费SSL证书，然后上传到七牛云上。然后把绑定的域名全部升级为https服务。就能访问大部分内容了。</p><p><img src="https://blog.gisersqdai.top/20230714001344.png" alt=""></p><p><img src="https://blog.gisersqdai.top/20230714001555.png" alt=""></p><p>参考解决方案链接</p><p><a href="https://www.zhihu.com/question/54200738/answer/2246735570" target="_blank" rel="external">1.hexo 插入七牛外链图片，网页图片无法显示?</a></p><p><a href="http://30daydo.com/article/44296" target="_blank" rel="external">2.hexo使用七牛图床 放到github pages上无法显示</a></p><p><a href="https://gaolileo.com/posts/35259.html" target="_blank" rel="external">3.Hexo+Github静态网站使用七牛云图床+PicGO+Typora自动上传图片并替换链接，详细配置流程</a></p><p><a href="https://gaolileo.com/posts/31854.html" target="_blank" rel="external">4.解决Hexo+GitHub+七牛云图床+PicGO+Typora自动上传图片时，Chrome浏览器默认https请求，图片无法显示的问题</a></p><p><a href="https://www.cnblogs.com/mastermao/p/16751634.html" target="_blank" rel="external">5.MinIO搭建本地图床</a></p><p><a href="https://hexo.io/zh-cn/docs/asset-folders" target="_blank" rel="external">6.Hexo文档-资源文件夹</a></p><p><a href="https://www.ngui.cc/el/2964279.html?action=onClick#google_vignette" target="_blank" rel="external">7.Hexo上传的图片在网页上无法显示的解决办法</a></p><h1 id="2-hexo博客deploy到github上全是空文件网页"><a href="#2-Hexo博客deploy到github上全是空文件网页" class="headerlink" title="2 Hexo博客deploy到github上全是空文件网页"></a>2 Hexo博客deploy到github上全是空文件网页</h1><p>另外这次一开始配置的时候，发现有一次deploy到github上全是空文件。后面搜索网页发现是nodejs的版本太高了。</p><p>参考链接</p><p><a href="https://www.cnblogs.com/hujesse4/p/15861338.html" target="_blank" rel="external">1.使用hexo搭建博客部署到github 页面为空.</a></p><p><a href="https://blog.tcs-y.com/2020/04/26/hexo-index-0kb/" target="_blank" rel="external">2.解决hexo generate 生成的时候index.html为0kb空白的问题</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于过去一段时间比较忙，后续电脑内存盘更替等原因，停更了很久。最近总算重新修复了下博客&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Coding" scheme="https://gisersqdai.top/categories/Coding/"/>
+    
+    
+      <category term="hexo" scheme="https://gisersqdai.top/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算</title>
@@ -467,31 +489,6 @@
     
     
       <category term="Summary" scheme="https://gisersqdai.top/tags/Summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统</title>
-    <link href="https://gisersqdai.top/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://gisersqdai.top/2020/03/10/译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统/</id>
-    <published>2020-03-10T08:58:00.000Z</published>
-    <updated>2020-03-10T15:22:52.461Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>今天带来跟新冠肺炎疫情相关的另一篇论文——关于约翰霍普金斯大学开发的疫情追踪可视化系统。该文章已发表于The Lancet Infectious Disease，由两位中国博士生领衔开发。</p><p><a href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30120-1/fulltext" target="_blank" rel="external">本文原始链接</a></p><p><img src="http://blog.gisersqdai.top/1583831953237niuuahyq.png" alt=""></p><p>系统开发由<a href="https://systems.jhu.edu/" target="_blank" rel="external">Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU)</a>完成。</p><a id="more"></a><h1 id="1-文章相关信息"><a href="#1-文章相关信息" class="headerlink" title="1 文章相关信息"></a>1 文章相关信息</h1><p><a href="https://www.thelancet.com/action/showPdf?pii=S1473-3099%2820%2930120-1" target="_blank" rel="external">The Lancet Infectious Disease OA pdf</a></p><p>Title: An interactive web-based dashboard to track COVID-19 in real time</p><p>题目: 一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统</p><p>Author: </p><blockquote><ul><li>Ensheng Dong-1</li><li>Hongru Du-1, </li><li>Lauren Gardner-1</li></ul></blockquote><p><em>注: 作者姓名-后的数字代表对应的单位</em></p><p>Affiliation: </p><blockquote><ul><li>1 Department of Civil and Systems Engineering, Johns Hopkins University, Baltimore, MD 21218, USA</li></ul></blockquote><p>联系原作者方式: l.gardner@jhu.edu</p><p>引用：</p><blockquote><p>Dong E, Du H, Gardner L. An interactive web-based dashboard to track COVID-19 in real time. Lancet Infect Dis; published online Feb 19. <a href="https://doi.org/10.1016/S1473-3099(20)30120-1" target="_blank" rel="external">https://doi.org/10.1016/S1473-3099(20)30120-1</a>.</p></blockquote><h1 id="2-正文翻译"><a href="#2-正文翻译" class="headerlink" title="2 正文翻译"></a>2 正文翻译</h1><p>在2019年12月，一个不明原因肺炎的局部暴发在中国湖北武汉发生，并且该肺炎的病原体快速地被认定为一种新型的冠状病毒，目前被命名为严重急性呼吸综合征冠状病毒2（SARS-CoV-2）。该疫情的暴发目前已经蔓延到中国大陆的每个省份以及27个其他国家和区域，截止至2020年2月17日已经有超过70 000人被确诊。为了应对这个仍在持续的公共卫生突发事件，作者开发了一个在线的交互式仪表盘用于实时可视化和追踪2019新型冠状病毒疫情（COVID-19）的确诊病例，该系统托管在美国马里兰州巴尔的摩市约翰霍普金斯大学的系统科学与工程中心上。这个仪表盘在1月22日第一次公开分享，描述了所有疫情影响国家COVID-19确诊病例，死亡病例与康复病例的地理位置与数量。开发这个仪表盘是为了提供给研究者，公共卫生当局以及公众用户一个用户友好型的工具用以追踪疫情。所有收集和展示的数据都是可以免费获取的，原始数据最初是通过Google表格存储，现在是通过GitHub仓库以及仪表板的功能层（现在包含在Esri Living Atlas中）存储。</p><p>这个仪表盘报告了中国省级级别的病例，美国，澳大利亚和加拿大城市级别的病例，其他国家是国家级的病例。在1月22到31号，所有数据收集和处理都是手动完成的，而更新通常是每天（美国东部时间）早，晚进行两次。随着疫情的发展，手动处理流程变得不可持续。 因此在2月1日后，作者采用了半自动化的实时数据流策略。他们的原始数据源包括DXY（丁香园），由中国医学界成员运营的在线平台，该平台汇总了本地媒体和政府报告，以近实时地在中国省级和其他国家/地区提供了累计的COVID-19病例总数。每隔15分钟，DXY将更新中国所有省份以及其他受影响国家和地区的累计病例数。对于中国大陆以外的国家和地区（包括香港，澳门和台湾），我们发现DXY累积病例数经常落后于其他来源；因此，我们会在发现新病例的全天手动更新这些病例号。为了确定新的案例，我们监视各种Twitter摘要，在线新闻服务以及通过仪表盘发送的直接信息。在手动更新仪表板之前，我们先与区域和地方卫生部门确认病例编号，这些部门包括中国，台湾和欧洲的各个疾病预防控制中心（CDC），香港卫生署，澳门政府和世卫组织以及城市和州级卫生当局。对于我们在2月1日开始报告的美国，澳大利亚和加拿大的城市级病例报告，我们依靠美国疾病预防控制中心，加拿大政府，澳大利亚政府卫生部以及各州或领地的卫生部门。所有数据更新（针对中国大陆以外的国家和地区）均由约翰霍普金斯大学的团队进行协调。</p><p>仪表盘上报告的病例数据分别与中国大陆内部和外部的中国每日CDC3和WHO状况报告2一致（图）。 此外，仪表盘在获取新国家或地区中首次报告的COVID-19病例的时效性较强。 除澳大利亚，香港和意大利外，约翰霍普金斯大学CSSE报告了世卫组织之前的新感染国家，而香港和意大利则在相应的世卫组织情况报告的几小时内报告了这一情况。</p><p><img src="https://marlin-prod.literatumonline.com/cms/attachment/b9736dbb-2746-4a1b-8780-3c8377173bd7/gr1.jpg" alt=""></p><p>图. 不同数据源的COVID-19确诊案例比较。</p><p>考虑到迄今为止该仪表盘的受欢迎程度和影响，作者计划在整个COVID-19疫情暴发的过程中继续托管和管理该工具，并增强其功能以建立一个常规工具来监测和预测未来爆发。 作者认为他们的努力对于在爆发的早期阶段帮助建模工作和控制措施是至关重要的。</p><h1 id="3-相关资源网站与博客"><a href="#3-相关资源网站与博客" class="headerlink" title="3 相关资源网站与博客"></a>3 相关资源网站与博客</h1><p>除了上述论文以外，约翰霍普金斯大学还有一些相关资源。包括论文通讯作者发表的一篇博客——关于COVID-19的输入风险与预测的文章。</p><p><a href="https://systems.jhu.edu/research/public-health/ncov-model-2/" target="_blank" rel="external">Update January 31: Modeling the Spreading Risk of 2019-nCoV</a></p><p>关于这个仪表盘可视化系统介绍的博文。</p><p><a href="https://systems.jhu.edu/research/public-health/ncov/" target="_blank" rel="external">Mapping 2019-nCoV</a></p><p>约翰霍普金斯大学冠状病毒资源中心，涵盖冠状病毒相关的各类资源：报道，预防，问答形式等。</p><p><a href="https://coronavirus.jhu.edu/" target="_blank" rel="external">Johns Hopkins University &amp; Medicine CORONAVIRUS RESOURCE CENTER</a></p><p>上周这两位作者做了一个线上讲座“【霍普金斯沙龙·2020·II】大数据AI技术应对新型冠状病毒的危机”。不过比较可惜，因为时差原因，我就没有听到具体的讲座内容。另外esri中国的B站账户也更新了一期公开课。介绍了几个相关的基于ArcGIS dashboard搭建的系统。</p><h1 id="4-个人认识"><a href="#4-个人认识" class="headerlink" title="4 个人认识"></a>4 个人认识</h1><p>最近见到的疫情平台比较多，事实上约翰霍普金斯大学的这个系统整体而言还是做得不错的，从响应，界面UI设计，数据可靠性等来说都是比较不错的一个平台，有很浓厚的ArcGIS风格。</p><p>当然目前GIS在空间流行病学和这个领域的应用大部分也都是地图可视化，比较进一步发展的是个人时空轨迹追踪。对防控起到了一定作用，但仍有很多可以做也还没做的部分。希望未来可以在这一步有所发展。毕竟空间统计最早起源于流行病学——伦敦霍乱地图。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天带来跟新冠肺炎疫情相关的另一篇论文——关于约翰霍普金斯大学开发的疫情追踪可视化系统。该文章已发表于The Lancet Infectious Disease，由两位中国博士生领衔开发。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30120-1/fulltext&quot;&gt;本文原始链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://blog.gisersqdai.top/1583831953237niuuahyq.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;系统开发由&lt;a href=&quot;https://systems.jhu.edu/&quot;&gt;Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU)&lt;/a&gt;完成。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Translation" scheme="https://gisersqdai.top/categories/Translation/"/>
-    
-    
-      <category term="Academic" scheme="https://gisersqdai.top/tags/Academic/"/>
     
   </entry>
   
