@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://blog.gisersqdai.top/16159777122701p41nghc.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1615978588167uvlw85jh.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/161597902918550635d2t.png">
-<meta property="og:updated_time" content="2021-06-10T09:36:08.775Z">
+<meta property="og:updated_time" content="2023-07-13T21:09:07.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算">
 <meta name="twitter:description" content="本期是之前做的应用统计学与R语言实现笔记的番外篇四，本期主要关注两个问题，一个是重新利用R的bookdown包创建新的电子书，另一个是计算公共卫生当中一个比较常见的指标OR值。">
@@ -556,7 +556,7 @@ WIDGET = {FID: '839cdWVP67'}
 </blockquote>
 <p>具体错误这里也说明下。原公式如下：</p>
 <p>样本方差：</p>
-<p>$$s^2=\frac{\sum_{i=1}^N (x<em>i-\mu)^2}{n-1}$$ 或 $$s^2=\frac{\sum</em>{i=1}^k (M_i-\mu)^2f_i}{n-1}$$</p>
+<p>$$ s^2=\frac{\sum_{i=1}^N (x<em>i-\mu)^2}{n-1}$$ 或 $$s^2=\frac{\sum</em>{i=1}^k (M_i-\mu)^2f_i}{n-1} $$</p>
 <p>样本标准差：</p>
 <p>$$s=\sqrt {\frac{\sum_{i=1}^N (x<em>i-\mu)^2}{n-1}}$$ 或 $$s=\sqrt{\frac{\sum</em>{i=1}^k (M_i-\mu)^2f_i}{n-1}}$$</p>
 <p>这里用$\mu$是不对的，$\mu$虽然可以指代统计学中的均值，但是$\mu$是代表总体均值。而严格来说，样本均值通常只是近似总体均值，因此必须作区分，故常用$\bar x$来做为样本均值。故修改后公式为</p>
@@ -567,7 +567,7 @@ WIDGET = {FID: '839cdWVP67'}
 <h1 id="3-or值计算"><a href="#3-OR值计算" class="headerlink" title="3 OR值计算"></a>3 OR值计算</h1><p>由于我目前主要从事健康地理学方面的研究，最近碰上了一个基础的OR值计算问题。首先OR值的全称是odds ratio值，这是公共卫生领域的一个专业名词。这里给出Encyclopedia of Public Health的定义。</p>
 <blockquote>
 <p>The odds ratio (OR) provides a measure of the strength of relationship between two variables, most commonly an exposure and a dichotomous outcome. It is most commonly used in a case control study where it is defined as “the ratio of the odds of being exposed in the group with the outcome to the odds of being exposed in the group without the outcome.” </p>
-<p>This concept can be extended to a situation with multiple levels of exposure (e.g., low, moderate, or high exposure to an environmental containment). One exposure level is assigned as the “reference” level. For each of the remaining exposure levels, one divides the odds of that exposure level in the outcome positive group (compared with the<br>reference level) by the odds of that exposure level in the outcome negative group.</p>
+<p>This concept can be extended to a situation with multiple levels of exposure (e.g., low, moderate, or high exposure to an environmental containment). One exposure level is assigned as the “reference” level. For each of the remaining exposure levels, one divides the odds of that exposure level in the outcome positive group (compared with the reference level) by the odds of that exposure level in the outcome negative group.</p>
 <p>The OR ranges in value from 0 to infinity. Values close to 1.0 indicate no relationship between the exposure and the outcome. Values less than 1.0 suggest a protective effect, while values greater than 1.0 suggest a causative or adverse effect of exposure.</p>
 </blockquote>
 <p>这里简单翻译一下，OR值是用来度量两个变量之间关系强度的指标，常见于暴露水平与二分的健康结局变量。最常用在案例对照研究。OR被定义为“组中暴露患病几率与暴露未患病几率的比值”。这个概念通常可以拓展到多水平暴露指标，通常定义某一类别的暴露水平为参考水平，对于剩余的暴露水平，则除以该参考水平的暴露几率用来进行比较。这里要先给出odds的定义。odds，称为几率、比值、比数，是指某事件发生的可能性(概率)与不发生的可能性（概率）之比。用p表示事件发生的概率，则：odds = p/(1-p)。OR值的公共卫生意义如下：范围从0到无穷大。接近1.0的值表示暴露与结果之间没有关系。小于1.0的值表示保护作用，而大于1.0的值表示暴露的致病性或不利影响。</p>
