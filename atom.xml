@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gisersqdai.top/"/>
-  <updated>2024-05-06T12:21:09.622Z</updated>
+  <updated>2024-05-06T12:53:25.608Z</updated>
   <id>https://gisersqdai.top/</id>
   
   <author>
@@ -21,18 +21,16 @@
     <link href="https://gisersqdai.top/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D%E6%97%A5%E5%8E%86%E4%BA%91%E4%BB%A5%E5%8F%8Aleancloud%E6%98%BE%E7%A4%BA%E8%AE%BF%E5%AE%A2/"/>
     <id>https://gisersqdai.top/2024/05/06/Hexo博客修复日历云以及leancloud显示访客/</id>
     <published>2024-05-06T12:19:00.000Z</published>
-    <updated>2024-05-06T12:21:09.622Z</updated>
+    <updated>2024-05-06T12:53:25.608Z</updated>
     
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>参考资料:</p><blockquote><ul><li><a href="https://blog.csdn.net/Yaoyao2024/article/details/132123525" target="_blank" rel="noopener">【Git】保姆级详解：Git配置SSH Key（密钥和公钥）到github</a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p><img src="http://blog.gisersqdai.top/17150000006089qv9ylpp.png" alt=""></p><p>参考资料:</p><blockquote><ul><li><a href="https://blog.csdn.net/Yaoyao2024/article/details/132123525" target="_blank" rel="noopener">【Git】保姆级详解：Git配置SSH Key（密钥和公钥）到github</a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;p&gt;参考资料:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/Yaoyao2024/article/detai
+        &lt;script src=&quot;&#92;assets&#92;js&#92;APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;p&gt;&lt;img src=&quot;http://blog.gisersqdai.top/17150000006089qv9ylpp.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;参考资料:&lt;/p
       
     
     </summary>
@@ -393,9 +391,9 @@
     
       <category term="R" scheme="https://gisersqdai.top/tags/R/"/>
     
-      <category term="Shiny" scheme="https://gisersqdai.top/tags/Shiny/"/>
-    
       <category term="Academic" scheme="https://gisersqdai.top/tags/Academic/"/>
+    
+      <category term="Shiny" scheme="https://gisersqdai.top/tags/Shiny/"/>
     
       <category term="Aliyun" scheme="https://gisersqdai.top/tags/Aliyun/"/>
     
