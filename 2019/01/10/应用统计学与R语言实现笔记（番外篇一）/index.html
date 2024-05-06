@@ -183,7 +183,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -206,7 +206,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -362,20 +362,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/01/10/应用统计学与R语言实现笔记（番外篇一）/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -418,7 +418,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -506,19 +506,19 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="http://gisersqdai.top/2017/09/11/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90/">应用统计学与R语言实现学习笔记（十一）——判别分析</a></p>
 <a id="more"></a>
 <h1><span id="1-两位细心的读者">1 两位细心的读者</span></h1><p>这里要感谢两位非常细心的读者，第一位是Accelerator。</p>
-<p><img src="http://blog.gisersqdai.top/1547125655053dd5wg6zn.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1547125655053dd5wg6zn.png" alt></p>
 <p>第二位是位来自UESTC的大三本科小鲜肉。</p>
-<p><img src="http://blog.gisersqdai.top/15471257935756s8rz88e.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15471257935756s8rz88e.png" alt></p>
 <p>这两位细心的读者对博客中的一些公式提出了一些问题。对此，作为作者表示非常衷心的感谢。也说声抱歉，由于家里和学习上的事情，一直耽搁着没有好好修改。接下来主要针对这些部分来谈谈。</p>
 <h1><span id="2-主要问题及解决">2 主要问题及解决</span></h1><h2><span id="1-accelerator的问题">1 Accelerator的问题。</span></h2><p>关于这个下标确实是我这边的问题，出现了错误，目前已订正。</p>
 <h2><span id="2-来自uestc大三小鲜肉的问题">2 来自UESTC大三小鲜肉的问题</span></h2><p>这位小鲜肉非常仔细阅读了博客，并且提出了如下的几个问题。</p>
 <p>1.这两张图是一个问题，主要是两总体协方差相等情况下的推导过程。</p>
-<p><img src="http://blog.gisersqdai.top/1547125971999asvqpwcj.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/1547129977141mmgw8iul.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1547125971999asvqpwcj.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/1547129977141mmgw8iul.png" alt></p>
 <p>2.这张图是关于W的下标问题。</p>
-<p><img src="http://blog.gisersqdai.top/1547130110830qml0wkdv.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1547130110830qml0wkdv.png" alt></p>
 <p>3.单位向量与投影的问题。</p>
-<p><img src="http://blog.gisersqdai.top/15471301669658lmi9ku3.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15471301669658lmi9ku3.png" alt></p>
 <p>由于这位童鞋问题较多且细致，故针对此一一回答。</p>
 <p>第一个部分的推导问题，事实上这位童鞋的理解并没有问题，代换也是没有问题的，他的理解没有错，而我这边主要有个地方写的不对，就是关于总体的协方差与样本估计的协方差符号搞混了。其他的只是符号选用的不同，实质是一样的。为了确保大家这部分不会有其他问题，我在这里重新整理和推导一下。</p>
 <blockquote>
@@ -686,7 +686,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1570,7 +1570,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

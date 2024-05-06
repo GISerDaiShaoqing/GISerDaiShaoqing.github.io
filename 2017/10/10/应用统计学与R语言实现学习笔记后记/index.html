@@ -192,7 +192,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -215,7 +215,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -371,20 +371,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/10/10/应用统计学与R语言实现学习笔记后记/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -427,7 +427,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -524,26 +524,26 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="https://www.gitbook.com" target="_blank" rel="noopener">gitbook官网</a></p>
 </blockquote>
 <p>也可以使用gitbook editor。<br>gitbook可以与github关联，直接将仓库的markdown文档发布成电子书。为了方便管理，选择在github上搭建电子书整体内容，然后push到github上，同时同步到gitbook中。首先用github登录gitbook。接着在github上创建一个新的仓库。只保留markdown文档和文件夹。gitbook的关键是需要SUMMARY的markdown文档，这个文件是用来组织书的框架。如下图。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009195544.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009195544.jpg" alt></p>
 <p>README的前言其实就是上面的后记，想说的话大体相同。只不过时间先后问题导致成了前言和后记。其他的是链接各章节。<br>接着看一下github上仓库项目结构（初步构成）。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009195812.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009195812.jpg" alt></p>
 <p>因为在线渲染电子书速度较慢，我们可以在本地进行渲染和修改。目前只需将仓库先克隆到本地。接着安装gitbook（基于node.js）。<br>因为gitbook是基于node.js的，先查看是否安装了node.js。</p>
 <pre><code>node -v
 npm -v
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009200222.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009200222.jpg" alt></p>
 <p>接着输入命令，安装gitbook。</p>
 <pre><code>npm install gitbook-cli -g
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009200353.jpg" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009200648.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009200353.jpg" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009200648.jpg" alt></p>
 <p>接下来在github上先安装gitbook的拓展应用。并选择应用的仓库范围（可以选择所有仓库，也可以只选择对应的仓库）</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009201758.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009201758.jpg" alt></p>
 <p>这样在gitbook上创建新书的时候，可以选择github的模板，直接导入书籍的仓库，并且后面可以自动同步。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009202204.jpg" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009202418.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009202204.jpg" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009202418.jpg" alt></p>
 <p>在gitbook的setting中设置，默认生成pdf，mobi，epub的电子书供下载，选择MIT许可证。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009202620.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009202620.jpg" alt></p>
 <p>gitbook可以通过book.json这个文件来控制生成电子书的一些具体定制化的需求。我的设置如下，因为用到了流程图和大量数学公式，就多加了katex和mermaid的插件。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009210515.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171009210515.jpg" alt></p>
 <p>首先通过命令行，定位到克隆到本地书籍的路径。</p>
 <pre><code>gitbook install
 </code></pre><p>先安装插件。<br>接着渲染一下。</p>
@@ -551,14 +551,14 @@ npm -v
 </code></pre><p>最后本地服务器运行。</p>
 <pre><code>gitbook serve
 </code></pre><p>在浏览器网址输入localhost:4000。<br>即可查看。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010151516.jpg" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010151546.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010151516.jpg" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010151546.jpg" alt></p>
 <p>执行gitbook build的时候可能会有各种报错，根据报错信息一个一个修改。目前发现似乎gitbook不太支持mathjax。而且公式里面不能有中文及中文标点符号，而且原来在博客上，两个$是表示数学符号，但是不是自己占一行。四个 $是表示独立的公式，必须另起一行。但是katex只认四个$。所以进行了一番较多修改，流程图目前也一直无法显示。mermaid跟我博客的流程图插件也不相同。我用的是flowchart，但是安装了似乎也不显示。最后就先用截图来表示了。<br>全部搞定后直接push到github上。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010153106.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010153106.jpg" alt></p>
 <p>发现gitbook上没有完全同步。可以从setting里面设置。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010192011.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010192011.jpg" alt></p>
 <p>OK，大工告成，接下来只需等它在线渲染成功就可以了。<br>PDF版本。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010192441.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171010192441.jpg" alt></p>
 <p>每每看到封面的熊本分分钟出戏。。。</p>
 <p>在线网址访问网址：<br><a href="https://giserdaishaoqing.gitbooks.io/note-of-applied-statistics-with-r-book/content/" target="_blank" rel="noopener">应用统计学与R语言实现学习笔记</a></p>
 <p>有兴趣的同学可以下载这本电子书，也可以在评论留邮箱，可以发送给大家。</p>
@@ -726,7 +726,7 @@ npm -v
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1610,7 +1610,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

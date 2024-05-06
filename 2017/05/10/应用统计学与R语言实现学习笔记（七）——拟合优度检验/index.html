@@ -179,7 +179,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -202,7 +202,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -358,20 +358,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/05/10/应用统计学与R语言实现学习笔记（七）——拟合优度检验/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -414,7 +414,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -530,7 +530,7 @@ WIDGET = {FID: '839cdWVP67'}
 <li>也被称为交叉表。</li>
 </ul>
 </blockquote>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170514170437.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170514170437.jpg" alt></p>
 <p>一般在R中，使用Table函数即可生成两个特征（分类变量）的联立表，xtabs则是根据公式创立联立表，prop.table则可以直接计算出比例。<br>联立表如何做独立性检验呢？首先提出假设（这里不详述，相信大家应该懂怎么建立了），接着计算期望的联立表每个单元格的期望频次。<br>$$ e_{ij}=\frac{(i^{th} Rowtotal)(j^{th} Columtotal)}{Total SampleSize}。 $$<br>接着就可以对比实际频次和期望频次，然后我们用卡方（chi-square)统计量进行检验。<br>$$ \chi^2=\sum_{i=1}^n\sum_{j=1}^m\frac{(f_{ij}-e_{ij})^2}{e_{ij}} with, df=(n-1)(m-1)。 $$<br>n为行数，m为列数，$f_{ij}$,$e_{ij}$分别为第i行和第j列的$单元格_{ij}$实际频次和期望频次。<br>当然这个方法也可以用来检验顺序变量和分类变量。方法类似，这里不赘述。</p>
 <h3><span id="3概率分布">3.概率分布</span></h3><p>拟合优度检验的最重要的应用其实是探测一个数据具体的概率分布。<br>当然探测数据分布的第一方式——是可见即可得的可视化。主要包括前面提到过的直方图和QQ图。<br>QQ图——Quantile-Quantile Plots（分位数图）：</p>
 <blockquote>
@@ -552,7 +552,7 @@ WIDGET = {FID: '839cdWVP67'}
 </ul>
 </blockquote>
 <p>接着用R语言实现<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#QQ plot</span></span><br><span class="line"><span class="comment">#generation of random number that fall in normal distribution</span></span><br><span class="line">a&lt;-rnorm(<span class="number">200</span>,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot</span></span><br><span class="line">jpeg(<span class="string">"plot1.jpg"</span>,width = <span class="number">5000</span>,height = <span class="number">4000</span>,units = <span class="string">"px"</span>,res = <span class="number">1000</span>)</span><br><span class="line">qqnorm(a)</span><br><span class="line">qqline(a,col=<span class="string">"red"</span>)</span><br><span class="line">dev.off()</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://blog.gisersqdai.top/plot1.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/plot1.png" alt></p>
 <p>除了QQ图之外，另外一类方法就是通过统计方法——拟合优度检验来探测数据是否正态分布。<br>以正态分布为例。<br>过程：</p>
 <blockquote>
 <ul>
@@ -726,7 +726,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1610,7 +1610,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

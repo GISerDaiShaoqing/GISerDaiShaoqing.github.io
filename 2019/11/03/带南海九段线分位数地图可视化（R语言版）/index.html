@@ -195,7 +195,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -218,7 +218,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -374,20 +374,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/11/03/带南海九段线分位数地图可视化（R语言版）/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -430,7 +430,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -518,17 +518,17 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="https://blog.csdn.net/allenlu2008/article/details/102693850" target="_blank" rel="noopener">Python实现带南海九段线分位数地图完整可视化版本（附代码及数据）</a></p>
 <p><a href="https://blog.csdn.net/allenlu2008/article/details/102693859" target="_blank" rel="noopener">1999-2017年中国各省旅游外汇收入分析及可视化（附代码及数据）</a></p>
 <p><a href="https://github.com/allenlu2008/PythonDemo" target="_blank" rel="noopener">数据及代码github地址</a></p>
-<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png" alt></p>
 <a id="more"></a> 
 <h1><span id="1-数据下载">1 数据下载</span></h1><p>虾神把代码和数据放在了github上，没接触过github的人可能对如何下载不太熟悉，这里也简单介绍下两种方式。如果想进一步了解git这种神器的可以安装git，然后按第一种方式下载（以下介绍默认已安装git bash）。而第二种方式则完全不用了解git方面的内容。</p>
 <h2><span id="1-git-clone">1 git clone</span></h2><p>首先新建一个你放数据和分析的文件夹。然后先点击浏览虾神提供的github地址，在页面中点击clone or download，即跳出如下的页面，复制https的地址。</p>
-<p><img src="http://blog.gisersqdai.top/1572747798533ez7u03ip.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1572747798533ez7u03ip.png" alt></p>
 <p>然后右击打开git bash。敲入命令行。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/allenlu2008/PythonDemo.git</span><br></pre></td></tr></table></figure>
 <p>然后敲击回车，即可发现开始下载。当然由于虾神这个仓库内容比较多，是一个比较漫长的下载过程。</p>
-<p><img src="http://blog.gisersqdai.top/1572748031407kpp503rm.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1572748031407kpp503rm.png" alt></p>
 <h2><span id="2-直接下载download-zip">2 直接下载（Download ZIP）</span></h2><p>第二种方式依旧是点击clone or download。这回是点击Download ZIP。</p>
-<p><img src="http://blog.gisersqdai.top/1572748235199712mvpe0.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1572748235199712mvpe0.png" alt></p>
 <p>接下来就进入传统的浏览器点击下载存储文件的范畴了。后续就不阐述了。</p>
 <h1><span id="2-r语言可视化">2 R语言可视化</span></h1><h2><span id="1-所需包的安装">1 所需包的安装</span></h2><p>由于R语言需要一些包的支持才能实现读取空间数据和可视化。具体这块前面有博客介绍过。这里不详述。</p>
 <p><a href="http://gisersqdai.top/2017/04/24/R%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%8F%96%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BB%A5%E5%8F%8AArcGIS%E4%B8%ADOLS%E5%B7%A5%E5%85%B7%E5%9B%9E%E5%BD%92%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96R%E8%AF%AD%E8%A8%80%E7%89%88/">R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版</a></p>
@@ -542,45 +542,45 @@ WIDGET = {FID: '839cdWVP67'}
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colspic &lt;- colorRampPalette(c(<span class="string">"#f38181"</span>, <span class="string">"#fce38a"</span>, <span class="string">"#eaffd0"</span>, <span class="string">"#95e1d3"</span>))(length(box)+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <p>以上就是主要的准备工作，接下来就进行可视化语句就行了。不过这是基于spplot系统的绘制地图准备工作，如果是基于plot还会多一步，后面会说。这里先关注如何用spplot来绘制地图。先放代码和结果再来解释。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spplot(chinau, zcol = <span class="string">"plot"</span>, scales = list(draw = <span class="literal">T</span>), </span><br><span class="line">       main = <span class="string">"2008年中国各省国际旅游外汇收入分位数专题图\n数据来源:国家统计局"</span>, col.regions = colspic,</span><br><span class="line">       at = seq(<span class="number">1</span>, <span class="number">7</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1573575983954lb17xwwr.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573575983954lb17xwwr.png" alt></p>
 <p>等一等，为什么有X。</p>
-<p><img src="http://blog.gisersqdai.top/1573576019369jc6xwsfz.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573576019369jc6xwsfz.png" alt></p>
 <p>其实我后面画的时候发现这个系统画这个图感觉乱七八糟很麻烦，连画九段线也有很多毛病，所以就只是先展示下spplot怎么绘图，后面有空再来水一篇博——啊呸，说错了，再来写一篇博客。前面那个结果图是有问题的，仅仅是教学示意，一定要加上九段线，因为我们中国一点都不能少！！！</p>
 <p>先来讲spplot的语法，首先第一个参数是绘图的矢量或栅格数据（这里是chinau），zcol表示要用来映射颜色的字段（选用了之前的plot字段，即参照分位数的分类），scales = list(draw = T)意思是要把经纬度标出来，如果是F就不标。main是填标题，at是映射字段的绘制数值。其他参数详情参见文档或者等以后我来水——呸，我来介绍。</p>
 <p>这里也展示下ClassInt分类的结果。当然也是教学用，没有画九段线。</p>
-<p><img src="http://blog.gisersqdai.top/157357645093749azagil.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/157357645093749azagil.png" alt></p>
 <p>接下来进入plot系统的正经实现效果。首先就如虾神博客效果，我们知道本次实现的可视化本身就是一个拼图操作，所以先需要用par函数来分割绘图位置。par函数的参数十分丰富。这次主要用两个，一个是fig，一个是new。代码如下。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par(fig = c(<span class="number">0</span>, <span class="number">0.3</span>, <span class="number">0</span>, <span class="number">1</span>), new = <span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
 <p>fig的参数是一个向量，形式是(x1,x2,y1,y2)，这个向量是以画布左下角为原点，其实表示的就是接下来绘制的图片占据图片位置和大小。按照这里的代码，接下来绘制的图是占画布横轴的前面30%，纵轴的全部。new是表示允许叠加新的图，这样才能把两个图画在一个画布上。解释得有点绕口，但是如果你自己尝试画个图就能理解，所以我就不继续展开了。</p>
 <p>接下来先将plot绘制地图的关键做一些简要介绍，这里需要先在plot函数可视化前，做一个准备工作。即新建一个字段col，把颜色映射到这个字段上（字段值是颜色的十六进制），也是用ifelse的方法。做完之后就可以开始做可视化。</p>
 <p>由于虾神给的九段线数据是只有九段线那块区域，数据经纬度范围与省份数据不相同，所以可视化的第一步首先要计算一个能包含这两个数据的数据经纬度范围。这里就需要bbox了。</p>
 <p>你说的是这个bbox？</p>
-<p><img src="http://blog.gisersqdai.top/15735772330686snexyo2.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15735772330686snexyo2.png" alt></p>
 <p>还是这个bbox？</p>
-<p><img src="http://blog.gisersqdai.top/1573577270392w2ar11k0.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573577270392w2ar11k0.png" alt></p>
 <p>或者是这个？</p>
-<p><img src="http://blog.gisersqdai.top/1573577304330beim62jt.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573577304330beim62jt.png" alt></p>
 <p>哦，对不起，串戏了。是这个。</p>
-<p><img src="http://blog.gisersqdai.top/1573577348719h9h870zo.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573577348719h9h870zo.png" alt></p>
 <p>这个函数可以把空间数据的坐标范围返回给我们。这样子就可以通过简单的计算得到包含两个数据的经纬度范围。当然我把所有的代码都连在了一行，所以看起来比较复杂。这个函数首先先绘制九段线，同时，绘制的数据范围是包含两个数据的。xlim和ylim是表示绘制的数据范围，需要的是一个二元向量（如c(20,30），即表示绘制经（纬）度的范围是20到30）。main跟spplot一样是标题。axes表示不需要画任何坐标轴。这样子结果如图。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plot(jdx, </span><br><span class="line">     xlim = c(min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])), max(c(bbox(chinau)[<span class="number">1</span>,<span class="number">2</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">2</span>]))),</span><br><span class="line">     ylim = c(min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])), max(c(bbox(chinau)[<span class="number">2</span>,<span class="number">2</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">2</span>]))), </span><br><span class="line">     main = <span class="string">'2008年中国各省国际旅游外汇收入分位数专题图\n数据来源:国家统计局'</span>,</span><br><span class="line">     axes = <span class="literal">F</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1573577644167cz6kdxu8.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573577644167cz6kdxu8.png" alt></p>
 <p>现在先把省份的数据绘制上去就能得到基本的地图。col是颜色映射的字段，add表示可以把新的图绘制到原来的图上，相当于PS的叠加一个新图层。这样我们就看到了基本的图形。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(chinau, col = chinau$col, add = <span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1573577724315jjp2cjhz.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573577724315jjp2cjhz.png" alt></p>
 <p>上面的图很单调，需要格网做点缀。这个时候就需要另外一个函数axis了。axis的第一个参数是side，取值为1（下）,2（左）,3（上）,4（右），意思就是画上下左右的四条坐标轴。at表示要绘制的刻度值范围，tck是表示刻度值的长度，0的话是不标刻度，1的话是网格线，默认为-0.01，col是颜色。这里再次用到了bbox，这是为了划分网格，这里采用的是10经度为划分标准。当然我还加上了四条轴，具体的代码后面会分享。这里就不详述了，主要阐述函数用法。结果如图，越来越接近虾神效果图了。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">axis(<span class="number">1</span>, at = seq(round(min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))-<span class="number">10</span>), </span><br><span class="line">                 round(max(c(bbox(chinau)[<span class="number">1</span>,<span class="number">2</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">2</span>]))+<span class="number">10</span>),</span><br><span class="line">                 <span class="number">10</span>), </span><br><span class="line">     tck = <span class="number">1</span>, col = <span class="string">'grey'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1573578026456z9mao9rl.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573578026456z9mao9rl.png" alt></p>
 <p>地图目前相较于虾神的图（标注不考虑），最关键的差距就是图例了。这里使用polygon和text来绘制图例。polygon是绘制多边形，首先需要给出组成x和y的多边形坐标，border是线的颜色，col是多边形填充颜色。text是根据坐标标注文字。x,y是点坐标，字符串是标注内容。当然生成多边形坐标以及标注文字坐标依旧使用了bbox，这里可以根据具体地图替换主要改变前面的系数:1.1还有后面的加数灵活绘制。效果如图。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">polygon(x = c(rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))), <span class="number">7</span>), </span><br><span class="line">              seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))), </span><br><span class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">6</span>, </span><br><span class="line">                  <span class="number">1</span>),</span><br><span class="line">              rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">6</span>, <span class="number">7</span>),</span><br><span class="line">              seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">5</span>, </span><br><span class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>]))), </span><br><span class="line">                  -<span class="number">1</span>)),</span><br><span class="line">        y = c(seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))), </span><br><span class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])))+<span class="number">3</span>, </span><br><span class="line">                  <span class="number">0.5</span>), </span><br><span class="line">              rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])))+<span class="number">3</span>, <span class="number">7</span>),</span><br><span class="line">              seq(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>])))+<span class="number">2.5</span>, </span><br><span class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))), </span><br><span class="line">                  -<span class="number">0.5</span>),</span><br><span class="line">              rep(round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))), <span class="number">7</span>)), </span><br><span class="line">        border = <span class="string">'black'</span>,</span><br><span class="line">        col = <span class="string">'white'</span>)</span><br><span class="line">text(x = round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">1</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">1</span>,<span class="number">1</span>])))+<span class="number">10</span>, </span><br><span class="line">     y = (round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))) + </span><br><span class="line">                  round(<span class="number">1.1</span>*min(c(bbox(chinau)[<span class="number">2</span>,<span class="number">1</span>], bbox(jdx)[<span class="number">2</span>,<span class="number">1</span>]))) + <span class="number">3</span>)/<span class="number">2</span>, <span class="string">"无数据"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1573578370428mal4y8y3.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573578370428mal4y8y3.png" alt></p>
 <p>后续就一步步添加图例，再加上箱线图就可以得到虾神的效果图了。箱线图绘制是R语言中比较简单的，使用boxplot即可。</p>
-<p><img src="http://blog.gisersqdai.top/1573578459331inff0rs0.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573578459331inff0rs0.png" alt></p>
 <p>当然我们也可以做一版有小窗的，原理同上面一样，也是设置par，把九段线部分重绘制一遍。结果如图。</p>
-<p><img src="http://blog.gisersqdai.top/1573579441909ikprsyth.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1573579441909ikprsyth.png" alt></p>
 <p>最后虾神要求的，箱线图+点绘图。这里也描述下。由于只针对单年数据所有省份箱线图，先设置一个类别字段让所有省份数据都相同，设置为1，然后以这个字段来绘制boxplot箱线图。加上点的思路就是以设置的类别字段作为x，外汇收入为y，颜色与地图相同。代码如下。详细意义就不阐述了。详情可参见boxplot的文档。效果最后如图。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chinau$boxu &lt;- <span class="number">1</span></span><br><span class="line"></span><br><span class="line">boxplot(y2008 ~ boxu, data = as.data.frame(chinau))</span><br><span class="line">points(factor(chinau$boxu), chinau$y2008, col = chinau$col, pch = <span class="number">16</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png" alt></p>
 <p>打完收工，至于动图，由于R语言做动图会牵扯到另外一个软件，我们就等下一篇博客再水——呸，再介绍。所有的代码后面会公开给大家。请稍安勿躁。本文所有使用数据来自于虾神Github，解释权由他说了算。最后一句——bbox牛逼。</p>
 
       
@@ -735,7 +735,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1619,7 +1619,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

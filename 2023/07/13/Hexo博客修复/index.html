@@ -179,7 +179,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -202,7 +202,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -358,20 +358,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2023/07/13/Hexo博客修复/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -414,7 +414,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -503,8 +503,8 @@ WIDGET = {FID: '839cdWVP67'}
 <h1><span id="1-hexo博客外链文件无法显示">1 Hexo博客外链文件无法显示</span></h1><p>由于断更很久，一直没更新，这次重新deploy以后，发现博客内大量图片以及部分文件都无法显示。在网上查询以后发现本质原因是，Github Pages网页已经全部强制支持https，但是我博客的图床是基于七牛云存储的，还是http，导致无法显示，包括音乐文件等。在网上搜索以后发现了部分解决方案。</p>
 <p>总结了下基本思路就是使用https外链的图床。比较可行的方案有三种，第一种是升级七牛云的图床外链到https服务（这个需要根据流量算钱）。第二种是找其他https外链的图床。第三种是借用github作为图床，这个是基于hexo主题框架里设置的资源文件夹（详情见第6和第7篇参考解决方案链接）。核心需要对每篇博客建立对应的md文件和文件夹（然后把图片全部放到文件夹里）。</p>
 <p>升级七牛云的图床外链的核心是要申请域名对应的SSL的证书。由于我用的是我阿里云的二级域名，所以本质上是现在阿里云申请对应的免费SSL证书，然后上传到七牛云上。然后把绑定的域名全部升级为https服务。就能访问大部分内容了。</p>
-<p><img src="https://blog.gisersqdai.top/20230714001344.png" alt=""></p>
-<p><img src="https://blog.gisersqdai.top/20230714001555.png" alt=""></p>
+<p><img src="https://blog.gisersqdai.top/20230714001344.png" alt></p>
+<p><img src="https://blog.gisersqdai.top/20230714001555.png" alt></p>
 <p>参考解决方案链接</p>
 <p><a href="https://www.zhihu.com/question/54200738/answer/2246735570" target="_blank" rel="noopener">1.hexo 插入七牛外链图片，网页图片无法显示?</a></p>
 <p><a href="http://30daydo.com/article/44296" target="_blank" rel="noopener">2.hexo使用七牛图床 放到github pages上无法显示</a></p>
@@ -670,7 +670,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1554,7 +1554,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

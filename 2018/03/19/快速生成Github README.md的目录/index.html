@@ -181,7 +181,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -204,7 +204,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -360,20 +360,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/03/19/快速生成Github README.md的目录/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -416,7 +416,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -504,7 +504,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="https://github.com/guodongxiaren/README/blob/master/README.md" target="_blank" rel="noopener">GFM教程</a></p>
 <p><a href="http://blog.csdn.net/kaitiren/article/details/38513715" target="_blank" rel="noopener">GFM教程博客地址</a></p>
 <p>事实上大部分和普通Markdown还是类似的，但是目录的语法差别蛮大，刚好对于笔者而言，最近需要在Github上文档上建立目录来使用，但是又不想写GFM的语法。这个时候刚好搜索到了一些可以用的开源代码。这里简单介绍一个目前使用的方法。<a id="more"></a></p>
-<h1><span id="1-github百度搜索结果">1 Github+百度搜索结果</span></h1><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319200142.png" alt=""></p>
+<h1><span id="1-github百度搜索结果">1 Github+百度搜索结果</span></h1><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319200142.png" alt></p>
 <p>事实上解决方案还蛮多的（Github大法好）。</p>
 <p>当时还在百度上搜索了下，找到了这个方案。</p>
 <p><a href="https://github.com/sk1418/ghtoc" target="_blank" rel="noopener">ghtoc Github地址（pyhon）</a></p>
@@ -512,7 +512,7 @@ WIDGET = {FID: '839cdWVP67'}
 <h1><span id="2-解决方案gh-md-toc">2 解决方案：gh-md-toc</span></h1><p>后面发现了gh-md-toc这个神器。</p>
 <p><a href="https://github.com/ekalinin/github-markdown-toc" target="_blank" rel="noopener">gh-md-toc Github地址</a></p>
 <p>但是这个东西在Mac和Linux很友好，windows似乎不那么友好。不过这里也给了windows的解决方案。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319202424.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319202424.png" alt></p>
 <p>就是github-markdown-toc.go。</p>
 <p><a href="https://github.com/ekalinin/github-markdown-toc.go" target="_blank" rel="noopener">github-markdown-toc.go Github地址</a></p>
 <p>如果你有GO语言（又是你）的编译环境，可以尝试自己编译，如果没有，可以直接下载编译好的二进制文件。</p>
@@ -520,10 +520,10 @@ WIDGET = {FID: '839cdWVP67'}
 <p>下载下来之后，发现没有后缀名无法识别，实际上这是个exe文件，所以只需要暴力地在后面加上.exe就可以开始愉快使用了。</p>
 <p>首先将README.md文档复制到gh-md-toc.exe的根目录下。</p>
 <p>接着按住shift键同时右击。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319202953.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319202953.png" alt></p>
 <p>打开Powershell窗口后，直接键入。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gh-md-toc.exe README.md</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319203126.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180319203126.png" alt></p>
 <p>接下来只需将这段话复制粘贴到README.md里面即可。</p>
 
       
@@ -678,7 +678,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1562,7 +1562,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

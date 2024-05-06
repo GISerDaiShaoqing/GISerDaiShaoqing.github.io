@@ -179,7 +179,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -202,7 +202,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -358,20 +358,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/03/10/译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -414,7 +414,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Translation/" itemprop="url" rel="index">
                     <span itemprop="name">Translation</span>
                   </a>
@@ -500,7 +500,7 @@ WIDGET = {FID: '839cdWVP67'}
       
         <script src="\assets\js\APlayer.min.js"> </script><p>今天带来跟新冠肺炎疫情相关的另一篇论文——关于约翰霍普金斯大学开发的疫情追踪可视化系统。该文章已发表于The Lancet Infectious Disease，由两位中国博士生领衔开发。</p>
 <p>[本文原始链接][url]<br>[url]:<a href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30120-1/fulltext" target="_blank" rel="noopener">https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30120-1/fulltext</a></p>
-<p><img src="http://blog.gisersqdai.top/1583831953237niuuahyq.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1583831953237niuuahyq.png" alt></p>
 <p>系统开发由<a href="https://systems.jhu.edu/" target="_blank" rel="noopener">Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU)</a>完成。</p>
 <a id="more"></a>
 <h1><span id="1-文章相关信息">1 文章相关信息</span></h1><p><a href="https://www.thelancet.com/action/showPdf?pii=S1473-3099%2820%2930120-1" target="_blank" rel="noopener">The Lancet Infectious Disease OA pdf</a></p>
@@ -529,7 +529,7 @@ WIDGET = {FID: '839cdWVP67'}
 <h1><span id="2-正文翻译">2 正文翻译</span></h1><p>在2019年12月，一个不明原因肺炎的局部暴发在中国湖北武汉发生，并且该肺炎的病原体快速地被认定为一种新型的冠状病毒，目前被命名为严重急性呼吸综合征冠状病毒2（SARS-CoV-2）。该疫情的暴发目前已经蔓延到中国大陆的每个省份以及27个其他国家和区域，截止至2020年2月17日已经有超过70 000人被确诊。为了应对这个仍在持续的公共卫生突发事件，作者开发了一个在线的交互式仪表盘用于实时可视化和追踪2019新型冠状病毒疫情（COVID-19）的确诊病例，该系统托管在美国马里兰州巴尔的摩市约翰霍普金斯大学的系统科学与工程中心上。这个仪表盘在1月22日第一次公开分享，描述了所有疫情影响国家COVID-19确诊病例，死亡病例与康复病例的地理位置与数量。开发这个仪表盘是为了提供给研究者，公共卫生当局以及公众用户一个用户友好型的工具用以追踪疫情。所有收集和展示的数据都是可以免费获取的，原始数据最初是通过Google表格存储，现在是通过GitHub仓库以及仪表板的功能层（现在包含在Esri Living Atlas中）存储。</p>
 <p>这个仪表盘报告了中国省级级别的病例，美国，澳大利亚和加拿大城市级别的病例，其他国家是国家级的病例。在1月22到31号，所有数据收集和处理都是手动完成的，而更新通常是每天（美国东部时间）早，晚进行两次。随着疫情的发展，手动处理流程变得不可持续。 因此在2月1日后，作者采用了半自动化的实时数据流策略。他们的原始数据源包括DXY（丁香园），由中国医学界成员运营的在线平台，该平台汇总了本地媒体和政府报告，以近实时地在中国省级和其他国家/地区提供了累计的COVID-19病例总数。每隔15分钟，DXY将更新中国所有省份以及其他受影响国家和地区的累计病例数。对于中国大陆以外的国家和地区（包括香港，澳门和台湾），我们发现DXY累积病例数经常落后于其他来源；因此，我们会在发现新病例的全天手动更新这些病例号。为了确定新的案例，我们监视各种Twitter摘要，在线新闻服务以及通过仪表盘发送的直接信息。在手动更新仪表板之前，我们先与区域和地方卫生部门确认病例编号，这些部门包括中国，台湾和欧洲的各个疾病预防控制中心（CDC），香港卫生署，澳门政府和世卫组织以及城市和州级卫生当局。对于我们在2月1日开始报告的美国，澳大利亚和加拿大的城市级病例报告，我们依靠美国疾病预防控制中心，加拿大政府，澳大利亚政府卫生部以及各州或领地的卫生部门。所有数据更新（针对中国大陆以外的国家和地区）均由约翰霍普金斯大学的团队进行协调。</p>
 <p>仪表盘上报告的病例数据分别与中国大陆内部和外部的中国每日CDC3和WHO状况报告2一致（图）。 此外，仪表盘在获取新国家或地区中首次报告的COVID-19病例的时效性较强。 除澳大利亚，香港和意大利外，约翰霍普金斯大学CSSE报告了世卫组织之前的新感染国家，而香港和意大利则在相应的世卫组织情况报告的几小时内报告了这一情况。</p>
-<p><img src="https://marlin-prod.literatumonline.com/cms/attachment/b9736dbb-2746-4a1b-8780-3c8377173bd7/gr1.jpg" alt=""></p>
+<p><img src="https://marlin-prod.literatumonline.com/cms/attachment/b9736dbb-2746-4a1b-8780-3c8377173bd7/gr1.jpg" alt></p>
 <p>图. 不同数据源的COVID-19确诊案例比较。</p>
 <p>考虑到迄今为止该仪表盘的受欢迎程度和影响，作者计划在整个COVID-19疫情暴发的过程中继续托管和管理该工具，并增强其功能以建立一个常规工具来监测和预测未来爆发。 作者认为他们的努力对于在爆发的早期阶段帮助建模工作和控制措施是至关重要的。</p>
 <h1><span id="3-相关资源网站与博客">3 相关资源网站与博客</span></h1><p>除了上述论文以外，约翰霍普金斯大学还有一些相关资源。包括论文通讯作者发表的一篇博客——关于COVID-19的输入风险与预测的文章。</p>
@@ -694,7 +694,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1578,7 +1578,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

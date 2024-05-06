@@ -188,7 +188,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -211,7 +211,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -367,20 +367,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/03/31/R语言实现voronoi-treemap可视化/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -423,7 +423,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -508,18 +508,18 @@ WIDGET = {FID: '839cdWVP67'}
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>今天带来一篇承诺虾神的R语言可视化博客。关于voronoi treemap的可视化。</p>
-<p><img src="http://blog.gisersqdai.top/1585691313891zze9i6j1.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585691313891zze9i6j1.png" alt></p>
 <a id="more"></a> 
 <h1><span id="1-任务布置过程">1 任务布置过程</span></h1><p>感谢虾神，刀爷和魄爷实名出镜。</p>
-<p><img src="http://blog.gisersqdai.top/1585676918746yfxz9bdm.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585676918746yfxz9bdm.png" alt></p>
 <p>事实上这是刀爷看到澎湃美数课发的一篇推送文章其中一张图产生的疑问，感兴趣的可以点击<a href="https://mp.weixin.qq.com/s/uEKyhOH5TnJ9YXEnoVvKmg" target="_blank" rel="noopener">原文</a>。</p>
-<p><img src="http://blog.gisersqdai.top/1585677395683g3zqnjtb.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585677395683g3zqnjtb.png" alt></p>
 <p>刀爷问的是如何实现上图的可视化，这就是任务布置的由来。</p>
 <h1><span id="2-voronoi-treemap简介">2 voronoi treemap简介</span></h1><p>事实上这个可视化方式我曾经在我博客的<a href="http://gisersqdai.top/categories/CPL/">资源整理系列</a>介绍过，分别是该系列的第二十篇和第二十一篇，因此我很迅速找到了可以实现的开源代码库，链接在下面。</p>
 <p><a href="https://github.com/uRosConf/voronoiTreemap" target="_blank" rel="noopener">R package: voronoiTreemap</a></p>
 <p><a href="https://github.com/Kcnarf/d3-voronoi-treemap" target="_blank" rel="noopener">d3-voronoi-treemap</a></p>
 <p>这个可视化方式英文为voronoi treemap。事实上是voronoi图与矩形树图两种可视化方式的结合。GIS的同学比较熟悉voronoi图，这个图就是泰森多边形。矩形树图即为下图的形式，可以说是一种复合可视化。</p>
-<p><img src="http://blog.gisersqdai.top/1585677958079t8diqt7w.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585677958079t8diqt7w.png" alt></p>
 <h1><span id="3-voronoi-treemap的r语言可视化实现">3 voronoi treemap的R语言可视化实现</span></h1><p>我博客里介绍的实现方式有两种，但是这两种方式事实上都是基于d3这个javascript可视化大杀器做的。一个直接用javascript编程实现，另一个则是有人封装成了R包可以直接调用。由于我比较熟悉R语言，所以这里就以R语言实现可视化进行介绍。当然除此之外github上也有不少其他方式实现的，感兴趣的同学可以直接在github上搜索voronoi treemap。</p>
 <p>所有R语言可视化的第一步，装包。</p>
 <p>如果不想用最新版，可以直接在cran上装，使用如下的命令。</p>
@@ -529,11 +529,11 @@ WIDGET = {FID: '839cdWVP67'}
 <p>接下来第二步，跑hello world。这个R包提供了两个样例数据，一个是ExampleGDP，另一个是canada。然后这个R包开发是为了开发R语言的Shiny应用做准备。Shiny是R语言中的web开发包，可以通过R语言实现一个web应用。这因此这个包内置了一个简单的Shiny app。所以首先先用这个来跑hello world。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vt_app()</span><br></pre></td></tr></table></figure>
 <p>当然执行如上的命令以后，浏览器会自动打开页面。</p>
-<p><img src="http://blog.gisersqdai.top/1585686031997prkkgr65.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585686031997prkkgr65.png" alt></p>
 <p>接下来只要在下拉框里选择对应的下拉框选项，即可显示可视化结果。</p>
-<p><img src="http://blog.gisersqdai.top/1585686124944iktomxzd.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585686124944iktomxzd.png" alt></p>
 <p>可以在本地浏览器简单进行交互了。当然这是简单的hello world探索，下一步我们讨论如何使用自己的数据来实现可视化。首先来查看数据结构以及相关函数。这里的数据结构以ExampleGDP为例。</p>
-<p><img src="http://blog.gisersqdai.top/1585687997759tjbpgv9n.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585687997759tjbpgv9n.png" alt></p>
 <p>这个包的主要函数包括以下几个。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vt_input_from_df: easy data input as a data frame</span><br><span class="line">vt_export_json: export to json</span><br><span class="line">vt_d3: create an htmlwidget</span><br><span class="line">vt_app: start a shiny to create a Voronoi treemap</span><br></pre></td></tr></table></figure>
 <p>第一个函数是将数据框转换作为Voronoitreemap的输入，第二个函数是将输入函数输出为json文件，也就是d3库可以读取与可视化的数据。第三个函数是创建html的widget。第四个函数就是创建一个shiny app。这个包对输入的数据框有具体的要求，必须是特定格式的数据框（也就是与ExampleGDP的数据组织必须完全一样）。满足以下要求：</p>
@@ -547,15 +547,15 @@ WIDGET = {FID: '839cdWVP67'}
 </ul>
 <p>我们以中国大陆区域的疫情数据做测试。h1就是China，h2为东中西部省份，h3为大陆地区31个省级行政区，weight为确诊病例数据的全国占比。这里以约翰霍普金斯大学的数据做示例进行处理。</p>
 <p>首先是读取约翰霍普金斯大学的相关数据，可以直接读取github上的csv文件。然后提取出大陆地区31个省级行政区，然后做数据类型转换等前期处理，最后得到一个这样子的数据框。</p>
-<p><img src="http://blog.gisersqdai.top/1585691028151vkmt6x7n.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585691028151vkmt6x7n.png" alt></p>
 <p>最后将数据转换为json并可视化即可。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">covid19cnjson &lt;- vt_export_json(vt_input_from_df(covid19vtmp))</span><br><span class="line">vt_d3(covid19cnjson)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1585691105579xodgj8zh.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585691105579xodgj8zh.png" alt></p>
 <p>由于湖北省数据较多，其他省份数据不够显著。单纯按照东中西的分类不是很准确，这里选择排除疫情暴发源地省份的湖北省再进行可视化，结果如图。</p>
-<p><img src="http://blog.gisersqdai.top/1585691313891zze9i6j1.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585691313891zze9i6j1.png" alt></p>
 <p>可以发现东部和中部省份相比于西部有更多的确诊病例。这个结果也比较好解释，中部与武汉的联系较为紧密，主要是空间距离上相近。而东部则是中国经济发达区域，可以描述为经济距离近。</p>
 <p>这部分的代码，这里就放一个截图，如果想要代码文件的，可以与我邮件联系。或者关注<a href="https://github.com/GISerDaiShaoqing" target="_blank" rel="noopener">我的github</a>，我后续会将代码放到上面。</p>
-<p><img src="http://blog.gisersqdai.top/15856915102373b6sfd8p.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15856915102373b6sfd8p.png" alt></p>
 
       
     </div>
@@ -709,7 +709,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1593,7 +1593,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

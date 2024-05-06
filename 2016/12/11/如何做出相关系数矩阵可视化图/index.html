@@ -187,7 +187,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -210,7 +210,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -366,20 +366,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2016/12/11/如何做出相关系数矩阵可视化图/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -422,7 +422,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -508,28 +508,28 @@ WIDGET = {FID: '839cdWVP67'}
       
         <script src="\assets\js\APlayer.min.js"> </script><p>如何做出相关系数矩阵可视化图<a id="more"></a> </p>
 <pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"psych"</span>)</span><br><span class="line">install.packages(<span class="string">"corrplot"</span>)<span class="comment">#安装包，如果已安装，请略过</span></span><br><span class="line"><span class="keyword">library</span>(psych)</span><br><span class="line"><span class="keyword">library</span>(corrplot)<span class="comment">#载入两个包</span></span><br><span class="line">data(iris)<span class="comment">#机器学习常用神奇数据集——鸢尾花数据集</span></span><br><span class="line">head(iris)<span class="comment">#查看下数据集前五行</span></span><br><span class="line">irisnew&lt;-iris[,-<span class="number">5</span>]<span class="comment">#去除第五列种类变量</span></span><br><span class="line">cormat&lt;-corr.test(irisnew)<span class="comment">#相关系数分析及显著性检验</span></span><br><span class="line"><span class="comment">#最简单的相关系数矩阵可视化</span></span><br><span class="line">corrplot(cormat$r)</span><br></pre></td></tr></table></figure>
-</code></pre><p><img src="http://blog.gisersqdai.top/1.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/1.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;)
-</code></pre><p><img src="http://blog.gisersqdai.top/2.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/2.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method = &quot;number&quot;)
-</code></pre><p><img src="http://blog.gisersqdai.top/3.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/3.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method = &quot;shade&quot;)
-</code></pre><p><img src="http://blog.gisersqdai.top/4.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/4.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method=&quot;ellipse&quot;)
-</code></pre><p><img src="http://blog.gisersqdai.top/5.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/5.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method = &quot;pie&quot;)
-</code></pre><p><img src="http://blog.gisersqdai.top/6.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/6.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;)
-</code></pre><p><img src="http://blog.gisersqdai.top/7.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/7.jpg" alt></p>
 <pre><code>#含显著性检验的相关系数矩阵可视化
 cormatp&lt;-cormat$p#单独取出p值矩阵
 cormatp[upper.tri(cormatp)]=0#设置p值矩阵上三角等于0
 corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://blog.gisersqdai.top/8.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/8.jpg" alt></p>
 <pre><code>corrplot(cormat$r,method=&quot;square&quot;,type=&quot;full&quot;,title = &quot;Correlation of iris&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://blog.gisersqdai.top/9.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/9.jpg" alt></p>
 <pre><code>corrplot.mixed(cormat$r,upper = &quot;square&quot;,lower = &quot;number&quot;,diag = &quot;u&quot;,tl.cex=1.5,tl.pos = &quot;lt&quot;,number.cex=1,p.mat=cormatp,sig.level=0.05,insig=c(&quot;pch&quot;))
-</code></pre><p><img src="http://blog.gisersqdai.top/10.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/10.jpg" alt></p>
 
       
     </div>
@@ -674,7 +674,7 @@ corrplot(cormat$r,method=&quot;square&quot;,type=&quot;lower&quot;,title = &quot
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1542,7 +1542,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

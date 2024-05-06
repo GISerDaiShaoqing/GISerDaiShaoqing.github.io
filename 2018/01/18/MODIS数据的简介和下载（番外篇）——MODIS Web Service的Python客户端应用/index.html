@@ -185,7 +185,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -208,7 +208,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -364,20 +364,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/01/18/MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -420,7 +420,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/RS/" itemprop="url" rel="index">
                     <span itemprop="name">RS</span>
                   </a>
@@ -509,11 +509,11 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="https://gisersqdai.top/2017/04/14/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88FTP%EF%BC%89/">MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）</a></p>
 <p><a href="https://gisersqdai.top/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/">MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）</a></p>
 <p>之前有小伙伴在评论区问过我，说Matlab客户端不能用了，前一段笔者自己使用的时候发现R的客户端也挂了，去官网一看，发现MODIS官网更新了产品版本，原来的这些客户端都不支持了。当时仅剩一个Python版本的客户端（不过好消息是最近又把各个语言的客户端都更新了，习惯用Matlab或者R的同学可以继续使用）。<a id="more"></a></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118105527.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118105527.png" alt></p>
 <p><a href="https://modis.ornl.gov/data/modis_webservice.html" target="_blank" rel="noopener">Web Service客户端下载地址</a></p>
 <p>Matlab只需要解压即可，R的MODISTools包则需要下载下来离线安装（我会把新的客户端的文件：R、Matlab、Python放到网盘共享，大家也可以在文末找链接）。</p>
 <p>今天重点还是讲Python的客户端，点击开Python客户端下载之后是一个网页显示的文本文件。本文的Python环境是基于Anaconda的2.7.12。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118105938.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118105938.png" alt></p>
 <p>将页面复制下来，存成Python文件。另外还需要安装SUDS的模块，通过pip就可以安装（前面的博客已经介绍过pip）。</p>
 <p><a href="https://gisersqdai.top/2017/11/29/Python%E5%BC%80%E7%AF%87%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B%E3%80%81pip%E5%92%8Cconda/">Python开篇——简介、pip和conda</a></p>
 <p>只需要在cmd里运行pip install suds（确保你的pip在系统变量路径里）</p>
@@ -524,15 +524,15 @@ WIDGET = {FID: '839cdWVP67'}
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line">sys.path.append(<span class="string">"MODIS Web Service的Python客户端所在路径"</span>)</span><br><span class="line"><span class="keyword">import</span> MODISWeb</span><br></pre></td></tr></table></figure>
 <p>最后import 下载的MODIS Web Service的python文件名（我这里用的MODISWeb）即可。</p>
 <p>使用的方式与前文的MODIS和R的客户端大体相同。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118112030.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118113154.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118120606.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118112030.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118113154.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118120606.png" alt></p>
 <p>因为LAI是8天合成数据，我们想通过已有的数据进行拟合，对时间序列做个简单的预测。这里用线性回归模型进行拟合。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118120812.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180118120812.png" alt></p>
 <p>这里使用了sklearn里面的线性模型来训练拟合线性回归模型。</p>
 <p>绘制回归图。</p>
-<p><img src="http://blog.gisersqdai.top/figure_1.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/figure_2.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/figure_1.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/figure_2.png" alt></p>
 <p>上文只是简单地对MODIS数据做些简单分析，如果拥有实测数据，则可以通过遥感数据和实测数据的拟合，实现遥感数据反演。而具体的应用就待各位进一步挖掘了。</p>
 <p>此外，MODIS系列下载区有小伙伴问过关于MODIS16蒸散发产品的下载。这一点，有位热心小伙伴找到了最新的下载方式，这里放出博客的链接，有需要的请自取。</p>
 <p><a href="http://blog.csdn.net/chejin4069/article/details/79028870" target="_blank" rel="noopener">MOD16 蒸散发数据下载</a></p>
@@ -684,7 +684,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1552,7 +1552,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

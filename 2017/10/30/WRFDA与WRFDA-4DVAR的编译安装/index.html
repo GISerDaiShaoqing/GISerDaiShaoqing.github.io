@@ -182,7 +182,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -205,7 +205,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -361,20 +361,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/10/30/WRFDA与WRFDA-4DVAR的编译安装/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -417,7 +417,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -508,26 +508,26 @@ WIDGET = {FID: '839cdWVP67'}
 <pre><code>gunzip WRFDA_V3.9.1.tar.gz
 tar -xf WRFDA_V3.9.1.tar.gz
 ./configure wrfda
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163321.jpg" alt></p>
 <p>确实显示了hdf5没有设置环境变量。所以编译出来应该是无法使用这个数据格式同化的。这里依旧选择34。<br>接下来可以开始编译。</p>
 <pre><code>./compile all_wrfvar &gt;&amp; compile.out
 </code></pre><p>接着等待编译完成。用如下的命令查看生成的exe。</p>
 <pre><code>ls -l var/build/*exe var/obsproc/src/obsproc.exe
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163446.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015163446.jpg" alt></p>
 <h1><span id="2-wrfda-4dvar编译安装">2 WRFDA-4DVAR编译安装</span></h1><p>WRFDA-4DVAR就是运行四维变分程序同化的模块。至于这个的要求也在之前写WRFDA安装的文章里有介绍。可以翻到前面的博客查看。要安装WRFDA-4DVAR，必须先安装<a href="http://www2.mmm.ucar.edu/wrf/src/WRFPLUS_V3.9.1.tar.gz" target="_blank" rel="noopener">WRFPLUS</a>。</p>
 <pre><code>gunzip WRFPLUSV3.9.1.tar.gz
 tar -xf WRFPLUSV3.9.1.tar
 cd WRFPLUSV3
 ./configure wrfplus
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015164202.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015164202.jpg" alt></p>
 <p>用下面的命令查询生成的exe。</p>
 <pre><code>ls -ls main/*.exe
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015165205.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015165205.jpg" alt></p>
 <p>接着设置环境变量。</p>
 <pre><code>export WRFPLUS_DIR=/home/Build_WRF/WRFPLUSV3
 </code></pre><p>生成编译的文件。</p>
 <pre><code>./configure 4dvar
-</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015171247.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171015171247.jpg" alt></p>
 <p>开始编译</p>
 <pre><code>./compile all_wrfvar &gt;&amp; compile.out
 ls -ls var/build/*.exe var/obsproc/*.exe
@@ -687,7 +687,7 @@ ls -ls var/build/*.exe var/obsproc/*.exe
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1571,7 +1571,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

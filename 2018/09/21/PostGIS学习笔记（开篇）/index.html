@@ -182,7 +182,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -205,7 +205,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -361,20 +361,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/09/21/PostGIS学习笔记（开篇）/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -417,7 +417,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Database/" itemprop="url" rel="index">
                     <span itemprop="name">Database</span>
                   </a>
@@ -512,15 +512,15 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="https://gisersqdai.top/2016/08/14/%E6%A1%8C%E9%9D%A2GIS%E8%BF%9E%E6%8E%A5Postgresql%E6%80%BB%E7%BB%93/">桌面GIS连接Postgresql总结</a></p>
 <p>安装可以在网上搜索教程，在连接ArcGIS、QGIS拓展内容可见上文。</p>
 <h1><span id="2-关键问题">2 关键问题</span></h1><p>最近需要的一个工作是基于土地覆被数据和其他数据做一个简单的适宜用地提取。其实总结起来就是各种基础的空间叠加分析，但是却遇上了一个关键问题。土地覆被数据分辨率为300 m，下图即为土地覆被数据（已提取了需要的土地覆被类型）。为了面积准确性，进行栅格转矢量的时候并没有选择简化面。结果导致数据量非常巨大。</p>
-<p><img src="http://blog.gisersqdai.top/1537517178527l77ukd7u.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1537517178527l77ukd7u.png?imageslim" alt></p>
 <p>打开属性表可以发现，研究区一共有3146163条数据。</p>
-<p><img src="http://blog.gisersqdai.top/1537517322326sohsxsvr.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1537517322326sohsxsvr.png?imageslim" alt></p>
 <p>然后需要和另外一个结果做空间叠加（Intersection，相交)，得到适宜用地的空间分布。结果由于数据量太大运行时间较长。在ArcGIS平台测试结果如图。花了21分钟27秒。</p>
-<p><img src="http://blog.gisersqdai.top/15375380873637b5jtx6j.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15375380873637b5jtx6j.png?imageslim" alt></p>
 <p>笔者同时尝试着使用了ArcGIS Pro来进行大数据量的矢量相交计算。计算时间为13分钟6秒。</p>
-<p><img src="http://blog.gisersqdai.top/153753791833277szeatu.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/153753791833277szeatu.png?imageslim" alt></p>
 <p>也有人给的建议是选用PostGIS进行计算。于是进行了测试。</p>
-<p><img src="http://blog.gisersqdai.top/1537757199479unxfqltz.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1537757199479unxfqltz.png?imageslim" alt></p>
 <p>需要设置SRID和geometry。接下来在PostGIS的SQL查询里运行如下的SQL查询。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ST_Intersection(suitablewgs84.geometry, ecooutwgs84.geometry) </span><br><span class="line"><span class="keyword">FROM</span> public.suitablewgs84 <span class="keyword">INNER</span> <span class="keyword">JOIN</span> public.ecooutwgs84 <span class="keyword">on</span> ST_Intersects(suitablewgs84.geometry, ecooutwgs84.geometry)</span><br></pre></td></tr></table></figure>
 <p>可能是目前学习不够深入，速度似乎不够快。而这也是本部分学习笔记的开篇。</p>
@@ -684,7 +684,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1568,7 +1568,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

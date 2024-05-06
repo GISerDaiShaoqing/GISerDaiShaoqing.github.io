@@ -194,7 +194,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -217,7 +217,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -373,20 +373,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/04/22/MODIS数据的简介和下载（四）——HTTPS服务下载说明/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -429,7 +429,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/RS/" itemprop="url" rel="index">
                     <span itemprop="name">RS</span>
                   </a>
@@ -519,23 +519,23 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="https://gisersqdai.top/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/">MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）</a></p>
 <p><a href="https://gisersqdai.top/2018/01/18/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%EF%BC%89%E2%80%94%E2%80%94MODIS%20Web%20Service%E7%9A%84Python%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BA%94%E7%94%A8/">MODIS数据的简介和下载（番外篇）——MODIS Web Service的Python客户端应用</a></p>
 <p>注册了NASA官网earthdata账户的小伙伴们应该在最近都收到了NASA官网关于关闭FTP服务器的邮件，之前也有评论区的小伙伴来询问相关。今天就来介绍新的下载方式。<br><a id="more"></a> </p>
-<h1><span id="1-nasa官方邮件通知">1 NASA官方邮件通知</span></h1><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422095026.png" alt=""></p>
+<h1><span id="1-nasa官方邮件通知">1 NASA官方邮件通知</span></h1><p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422095026.png" alt></p>
 <p>提供的原文链接如下 。</p>
 <p><a href="https://ladsweb.modaps.eosdis.nasa.gov/tools-and-services/data-download-scripts/" target="_blank" rel="noopener">LAADS Data Download Scripts</a></p>
 <p>这个链接的目录如下：</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422095818.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422095818.png" alt></p>
 <p>也就是说官方提供了下载的脚本，包括Linux Shell脚本、Perl脚本和Python脚本。此时的内心OS大概是这样吧。</p>
-<p><img src="http://blog.gisersqdai.top/MODISPython.gif" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/MODISPython.gif" alt></p>
 <p>当然其实我也蛮喜欢Linux Shell脚本的。</p>
 <p>言归正传，来介绍下这个说明的内容。</p>
 <h1><span id="2-https服务获取数据说明">2 HTTPS服务获取数据说明</span></h1><h2><span id="1-使用laads-daac应用密钥下载文件">1 使用LAADS DAAC应用密钥下载文件</span></h2><p>这个部分的内容主要是提了下背景原因，现在搞这个密钥的原因主要是，MODIS和VIIRS团队以及母公司都想追踪谁使用了相关数据。使用在Earthdata的账户里采用了Earthdata.Profile以及一些其他服务，这也就是说，在访问一些受限资源（Sentinel-3），必须先授权，并且登陆之后才能识别你的身份才能下载。</p>
 <p>其实这个部分我感觉有Earthdata账户的很简单。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102304.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102304.png" alt></p>
 <p>登陆账户后，点击Edit Profile。然后页面往下。这两个数据的简介我就不提了。勾选即可完成。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102406.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102412.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102406.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102412.png" alt></p>
 <p>然后点击Save Profile。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102728.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422102728.png" alt></p>
 <p>第一步就算完成了，当然还有提到刚刚那俩数据的授权，后面还会进一步介绍。</p>
 <h2><span id="2-弃用ftp">2  弃用FTP</span></h2><p>这部分没啥干货，回顾了FTP的辉煌一生，然后果断弃用（我想起那天夕阳下的奔跑，那是我逝去的青春）。</p>
 <h2><span id="3-通过http下载">3 通过HTTP下载</span></h2><p>这部分干货也没啥，介绍了HTTP和HTTPS，然后说明所有数据都支持HTTPS服务下载。</p>
@@ -560,26 +560,26 @@ WIDGET = {FID: '839cdWVP67'}
 </tbody>
 </table>
 <p>这里点开MERIS和Sentinel-3的链接出现如下页面，随机点击一个数据，又跳出后面的页面。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422105419.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422105438.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422105419.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422105438.png" alt></p>
 <p>接着点Aggree to。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422170239.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422170255.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422170239.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422170255.png" alt></p>
 <p>接着显示。即有新的链接可以下载。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422170613.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422170613.png" alt></p>
 <h2><span id="6-应用密钥">6 应用密钥</span></h2><p>这里说明了如果你只希望通过浏览器下载的用户只需登录即可，也就是说登陆完账户就可以下载了。如果你要用 脚本下载需要使用LAADS应用程序密钥才能正确授权。LAADS应用程序密钥是识别您身份呢的字符串标记。 应用程序获取HTTP GET请求。 查看下面的代码示例。</p>
 <p>这部分的话，我打算放到下一篇来讲，因为内容可能会有点多。所以关于不懂脚本的同学也不必灰心，并非是前面所说的不懂Python就不会下数据了。通过浏览器的话，只需要登录账户即可下载数据。</p>
 <h1><span id="3-新版网站下载方式选择">3 新版网站下载方式选择</span></h1><p>关于HTTPS服务下载，前面的步骤是一样的。具体的下载教程，请看”MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）“一文。链接在前面。唯一的差别是最后数据订单提交的时候。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422194422.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422194422.png" alt></p>
 <p>选择Pull。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422194500.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422194500.png" alt></p>
 <p>然后Submit Order。</p>
 <p>稍等一会，可以在Post Orders找到你的订单。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422194614.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422194614.png" alt></p>
 <p>点击你的订单就是这样子的。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422204138.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422204138.png" alt></p>
 <p>接下来只需点击我画红框的部分（打码部分是订单号）。链接会跳转到一个页面（如果你点击无法访问的话，请稍等一会再重新点击）。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422204241.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20180422204241.png" alt></p>
 <p>这就是你所提交的订单数据。接下来只需要鼠标点击数据即可下载。事实上，你不懂任何脚本也可以继续下载数据，只需要通过点击链接（像IDM这类下载工具可能也可以使用，我这里没有使用过）。当然如果你的数据非常多的话，一个一个点确实很头疼。而批量下载的话，就需要写点小代码了。关于官方脚本的下载以及如何批量下载，我会在后面继续发布。</p>
 
       
@@ -734,7 +734,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1618,7 +1618,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

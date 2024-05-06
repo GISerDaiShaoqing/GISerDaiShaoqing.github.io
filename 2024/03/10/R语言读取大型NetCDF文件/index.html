@@ -185,7 +185,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -208,7 +208,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -364,20 +364,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2024/03/10/R语言读取大型NetCDF文件/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -420,7 +420,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -511,27 +511,27 @@ WIDGET = {FID: '839cdWVP67'}
 <p>本质上NetCDF是一个多维矩阵的数据，常用于地球科学领域的数据存储。</p>
 <p><a href="https://en.wikipedia.org/wiki/NetCDF" target="_blank" rel="noopener">wiki百科定义</a></p>
 <p>给出一个典型的例子（CHAP的O3数据）。</p>
-<p><img src="http://blog.gisersqdai.top/17100597250197he09ikt.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/17100597250197he09ikt.png" alt></p>
 <h1><span id="2-r语言处理大型netcdf文件">2 R语言处理大型NetCDF文件</span></h1><p>我们可以看到NetCDF本质上这就是多个栅格叠在一起的文件，在R里面的处理方式基本依赖于几个栅格和NetCDF相关的包。包括ncdf4, raster/terra。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">install.packages(&apos;ncdf4&apos;)</span><br><span class="line">install.packages(&apos;raster&apos;)</span><br><span class="line">install.packages(&apos;terra&apos;)</span><br></pre></td></tr></table></figure>
 <p>接下来给出一个标准的读nc文件的代码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#读取文件</span><br><span class="line">nc_o3 &lt;- nc_open(&apos;CHAP_O3_Y10K_2013_V1.nc&apos;)</span><br><span class="line"></span><br><span class="line">#显示文件内容</span><br><span class="line">print(nc_o3)</span><br><span class="line"></span><br><span class="line">#获取经纬度，变量名与缺失值</span><br><span class="line">long &lt;- ncvar_get(nc_o3, &apos;lon&apos;)</span><br><span class="line">lat &lt;- ncvar_get(nc_o3, &apos;lat&apos;)</span><br><span class="line">o3 &lt;- ncvar_get(nc_o3, &apos;O3&apos;)</span><br><span class="line">fillvalue &lt;- ncatt_get(nc_o3, &quot;O3&quot;, &quot;fill_value&quot;)</span><br><span class="line">o3[o3==fillvalue$value] &lt;- NA</span><br><span class="line"></span><br><span class="line">#生成栅格</span><br><span class="line">r &lt;- raster(t(o3), xmn=min(long), xmx=max(long), ymn=min(lat), ymx=max(lat), </span><br><span class="line">            crs=CRS(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;))</span><br><span class="line"></span><br><span class="line">#绘图</span><br><span class="line">plot(r)</span><br></pre></td></tr></table></figure>
 <p>这部分代码的运行结果就是第一部分显示的那张图。这里要注意的是，print(nc_o3)那句代码是会决定下面获取经纬度，变量名与缺失名的关键。如图所示，这里的变量数量是一个，就是臭氧浓度O3，单位是$\mu g/m^3$，变量名叫o3，缺失值为-999，然后对应的经纬度名字是lat和lon。</p>
-<p><img src="http://blog.gisersqdai.top/1710060083670b3ld20jq.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1710060083670b3ld20jq.png" alt></p>
 <p>由于这个数据是10 km的处理起来比较快。当遇到全球或者全国比较精细化的NetCDF文件的时候，读取和另存为栅格可能会非常耗内存，因为R语言在处理数据的时候，默认是把数据全部读进去内存。笔者最近处理了一个全国km级的逐月气象数据。当我加载某一个三年的数据时，忽然内存飙升了，存进去的多维矩阵能占据5.7G内存。因此这就对处理速度和机子要求很高，也会有很多麻烦。那么当然我并不需要全国的数据，实际上我也是裁出研究区的数据。因此做了一下搜索和实践，总结了下如何根据需求，只读取部分区域的大型NetCDF文件。这样子就不需要机子内存的高要求了，这里以福建省为例（福建省的shp数据可以参照如下的链接下载）。使用的NetCDF数据为国家青藏高原科学数据中心1901到2022年逐月1km降水数据。</p>
 <p><a href="https://mp.weixin.qq.com/s/i-OJNCAMlQqyQI8i6losPQ" target="_blank" rel="noopener">福建省标准地图矢量数据首次公开发布</a></p>
 <p><a href="https://www.tpdc.ac.cn/zh-hans/data/faae7605-a0f2-4d18-b28f-5cee413766a2" target="_blank" rel="noopener">中国1km分辨率逐月降水量数据集（1901-2022）</a></p>
 <p><a href="https://www.tpdc.ac.cn/zh-hans/data/71ab4677-b66c-4fd1-a004-b2a541c4d5bf" target="_blank" rel="noopener">中国1km分辨率逐月平均气温数据集（1901-2022）</a></p>
 <p>主要的代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#install.packages(&apos;sf&apos;)</span><br><span class="line">#install.packages(&apos;raster&apos;)</span><br><span class="line">#install.packages(&apos;terra&apos;)</span><br><span class="line">#install.packages(&apos;ncdf4&apos;)</span><br><span class="line">#install.packages(&apos;rasterVis&apos;)</span><br><span class="line">#Load library</span><br><span class="line">library(sf)</span><br><span class="line">library(ncdf4)</span><br><span class="line">library(raster)</span><br><span class="line">library(terra)</span><br><span class="line">library(rasterVis)</span><br><span class="line"></span><br><span class="line">#Read shapefile</span><br><span class="line">fjcities &lt;- read_sf(&apos;city.shp&apos;)</span><br><span class="line">fjcitieswgs &lt;- st_transform(fjcities, crs = &apos;+proj=longlat +datum=WGS84 +no_defs&apos;)</span><br><span class="line"></span><br><span class="line">#Read netcdf file</span><br><span class="line">nc_pre &lt;- nc_open(&apos;pre_2021.nc&apos;)</span><br><span class="line"></span><br><span class="line">#Display the information of NetCDF</span><br><span class="line">print(nc_pre)</span><br><span class="line"></span><br><span class="line">fjcitieswgs</span><br><span class="line"></span><br><span class="line">#To obtain the longitude, latitude, time, and name of variable</span><br><span class="line">long &lt;- ncvar_get(nc_pre, &apos;lon&apos;)</span><br><span class="line">lat &lt;- ncvar_get(nc_pre, &apos;lat&apos;)</span><br><span class="line"></span><br><span class="line">#Calculate numbers of rows and columns of the specific study area</span><br><span class="line">LonIdx &lt;- which(long[] &gt; 115 &amp; long[] &lt; 121)</span><br><span class="line">LatIdx &lt;- which(lat[] &gt; 23 &amp; lat[] &lt; 29)</span><br><span class="line"></span><br><span class="line">pre &lt;- ncvar_get(nc_pre, &apos;pre&apos;, </span><br><span class="line">                 start = c(LonIdx[1], LatIdx[1],1),</span><br><span class="line">                 count = c(length(LonIdx), length(LatIdx),1))</span><br><span class="line">fillvalue &lt;- ncatt_get(nc_pre, &quot;pre&quot;, &quot;missing_value&quot;)</span><br><span class="line">pre[pre==fillvalue$value] &lt;- NA</span><br><span class="line"></span><br><span class="line">#To generate raster</span><br><span class="line">r &lt;- raster(t(pre), xmn=min(long[LonIdx]), xmx=max(long[LonIdx]), ymn=min(lat[LatIdx]), ymx=max(lat[LatIdx]), </span><br><span class="line">            crs=CRS(&quot;+proj=longlat +datum=WGS84 +no_defs&quot;))</span><br><span class="line"></span><br><span class="line">#Display the raster</span><br><span class="line">plot(r)</span><br><span class="line"></span><br><span class="line">#Clip the raster using the shapefile</span><br><span class="line">r &lt;- crop(r, fjcitieswgs)</span><br><span class="line">r &lt;- mask(r, fjcitieswgs)</span><br><span class="line"></span><br><span class="line">#Display the raster</span><br><span class="line">plot(r)</span><br><span class="line"></span><br><span class="line">#Using different r package to plot raster</span><br><span class="line">levelplot(r)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1710076563495ds4omlgg.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/17100768809726qf1r26h.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/1710077332798baid8azq.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/1710077357948888sa5y6.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/17100773801438bkzkmk8.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1710076563495ds4omlgg.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/17100768809726qf1r26h.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/1710077332798baid8azq.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/1710077357948888sa5y6.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/17100773801438bkzkmk8.png" alt></p>
 <p>关键在于ncvar_get函数里的start和count参数。这两个负责控制读取NC的行列数据以及多维数（如果没有时间轴，直接给一个2个元素的数组就行）。start是读取NetCDF的起始行列数，count是读取NetCDF的数量。后续转栅格的操作是raster函数的写法。由于raster快停止维护了。我们也会提供terra包的写法（实际上差别不大）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Use terra pacakge to generate raster</span><br><span class="line">rn &lt;- rast(t(pre), crs= &apos;+proj=longlat +datum=WGS84 +no_defs&apos;)</span><br><span class="line"></span><br><span class="line">#Display the raster</span><br><span class="line">plot(rn)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1710079461283jvx8lfmc.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1710079461283jvx8lfmc.png" alt></p>
 <p>由于后续的裁剪代码terra和raster毫无差别。这里就不赘述了。这部分代码我也会放在我的Github项目上(<a href="https://github.com/GISerDaiShaoqing/My-Studies-of-Urban-GIS" target="_blank" rel="noopener">My Studies of Urban GIS</a>)。</p>
 <p>最后感谢下Google搜到的几个资料。</p>
 <p>参考链接:</p>
@@ -698,7 +698,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1582,7 +1582,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

@@ -181,7 +181,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -204,7 +204,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -360,20 +360,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/04/09/WSL数据科学环境使用小记/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -416,7 +416,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -510,21 +510,21 @@ WIDGET = {FID: '839cdWVP67'}
 <p>下一步直接挂载硬盘，输入如下的命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t drvfs M: /mnt/m</span><br></pre></td></tr></table></figure>
 <p>这就大功搞成了，输入ls -l即可显示出硬盘文件夹内容。</p>
-<p><img src="http://blog.gisersqdai.top/1586444190701b1t447by.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1586444190701b1t447by.png" alt></p>
 <p>不过后面如果要退出硬盘还需要执行如下命令，否则硬盘会一直被占用。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/m</span><br></pre></td></tr></table></figure>
 <h1><span id="2-rstudio-server-plot字体显示">2 RStudio Server plot字体显示</span></h1><p>第二个问题是关于在RStudio Server上绘图是数字无法显示。</p>
-<p><img src="http://blog.gisersqdai.top/1586444770531y07emnjq.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1586444770531y07emnjq.png" alt></p>
 <p>查询谷歌结果，发现是字体以及账户权限的问题。按照如下命令操作问题解决。打开一个终端。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su -</span><br><span class="line">chmod -Rf <span class="number">777</span> /usr/share/fonts/*</span><br></pre></td></tr></table></figure>
 <p>运行完毕，完美解决。</p>
-<p><img src="http://blog.gisersqdai.top/158645093942185k58jip.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/158645093942185k58jip.png" alt></p>
 <p>注，最好重启RStudio Server。</p>
 <h1><span id="3-rstudio-server多人协作设置">3 RStudio Server多人协作设置</span></h1><p>最近刚好有一个云平台多人协作的需求，因此在阿里云的Rstudio Server上进行设置。只需要按照如下命令设置即可。groupname和username自行设计。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd groupname</span><br><span class="line">sudo useradd username -g groupname</span><br><span class="line">sudo passwd username</span><br><span class="line">sudo adduser username sudo</span><br><span class="line">sudo mkdir/home/username</span><br><span class="line">sudo chown -R username:groupname /home/username</span><br></pre></td></tr></table></figure>
 <p>如果后续想删除用户组和用户，按照如下命令设置即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupdel groupname</span><br><span class="line">sudo userdel username</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1586520678109q27z9qnd.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1586520678109q27z9qnd.png" alt></p>
 <p>参考链接：</p>
 <p><a href="https://www.bbsmax.com/A/rV57bgVEJP/" target="_blank" rel="noopener">Windows Subsystem for Linux （WSL）挂载移动硬盘U盘</a></p>
 <p><a href="http://foobaring.blogspot.com/2014/02/howto-fix-pango-warning-failed-to.html" target="_blank" rel="noopener">HowTo: Fix Pango-WARNING: failed to create cairo scaled font</a></p>
@@ -686,7 +686,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1570,7 +1570,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

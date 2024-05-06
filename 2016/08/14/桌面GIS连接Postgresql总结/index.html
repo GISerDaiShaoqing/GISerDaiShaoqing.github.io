@@ -191,7 +191,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -214,7 +214,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -370,20 +370,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2016/08/14/桌面GIS连接Postgresql总结/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -426,7 +426,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Database/" itemprop="url" rel="index">
                     <span itemprop="name">Database</span>
                   </a>
@@ -512,28 +512,28 @@ WIDGET = {FID: '839cdWVP67'}
       
         <script src="\assets\js\APlayer.min.js"> </script><p>对于非开发人员的GISer而言，数据库这东西更多停留在mdb，gdb的层面，相对而言这些数据的使用无论是在处理还是管理上，门槛相对较低。但是目前所处的信息爆炸的大数据时代，仅仅依靠桌面GIS本身的数据存储远远不够，在存储大量数据的时候，仍然需要专门的数据库管理。所以桌面GIS如何在关系型数据库中写入空间数据也是一个重要的过程。<a id="more"></a> 此文是在阅读了网上的部分博客及自己的亲身经验写成。主要介绍桌面GIS中两大代表——Esri的ArcGIS以及开源的QGIS。使用的关系型数据库是Postgresql，它的空间扩展是PostGIS。<br>桌面GIS：<br>Esri ArcGIS 10.2<br>Esri ArcSDE 10.2<br>QGIS 2.8.2<br>关系型数据库及空间扩展:<br>Postgresql 9.5.0_x64<br>PostGIS 2.2<br>以上软件的安装略过了，网上均有教程。</p>
 <p>（一）QGIS连接Postgresql<br>个人最喜爱QGIS的一点就是它与PostGIS以及其他各类数据库的无缝衔接，确实可以说是直连数据库。</p>
-<p><img src="http://blog.gisersqdai.top/20160814111153852.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814111153852.png" alt></p>
 <p>主要是通过这个数据库的操作</p>
-<p><img src="http://blog.gisersqdai.top/20160814111659416.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814111659416.png" alt></p>
 <p>先新建一个连接，输入名称、主机、数据库、调整SSL模式、用户名、密码，最后测试连接。</p>
-<p><img src="http://blog.gisersqdai.top/20160814111758457.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814111758457.png" alt></p>
 <p>如果跳出这个页面，就证明你成功啦。</p>
-<p><img src="http://blog.gisersqdai.top/20160814111923599.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814111923599.png" alt></p>
 <p>接下来按确定之后，只要在最开始的页面点击“连接”，就已经愉快地连上了。如果你打开Postgresql，会发现全局架构是对应的，所以确认是连接成功的。</p>
-<p><img src="http://blog.gisersqdai.top/20160814112444076.png" alt=""></p>
-<p>这边选择了一个2008年2月3日北京市的一辆出租车轨迹数据来做测试<br><img src="http://blog.gisersqdai.top/20160814114125035.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/20160814114329678.png" alt=""></p>
-<p>QGIS中，基于出租车轨迹生成的热图<br><img src="http://blog.gisersqdai.top/20160814115147010.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814112444076.png" alt></p>
+<p>这边选择了一个2008年2月3日北京市的一辆出租车轨迹数据来做测试<br><img src="http://blog.gisersqdai.top/20160814114125035.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/20160814114329678.png" alt></p>
+<p>QGIS中，基于出租车轨迹生成的热图<br><img src="http://blog.gisersqdai.top/20160814115147010.png" alt></p>
 <p>（二）ArcGIS Desktop 连接Postgresql<br>ArcGIS Desktop 10.2之后提供了Postgresql直连的功能，当然这里的直连，我认为可以叫伪直连，因为它仍然需要ArcSDE的支持，而不像QGIS可以直接连接。<br>当然直连的的方法还是相对简单的，不过我也遇到了一个问题，我的Postgresql是64位。但是ArcGIS Desktop目前只有32位。所以即使安装了ArcSDE，也无法直接连接。需要Postgresql32位里面的一些dll文件。</p>
-<p><img src="http://blog.gisersqdai.top/20160814125546757.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814125546757.png" alt></p>
 <p>将这些Postgresql对应版本32位的dll文件复制粘贴到ArcGIS安装目录下面的”/ArcGIS/Desktop 10.2/bin的文件夹里，接着可以打开ArcGIS进行连接了。</p>
-<p><img src="http://blog.gisersqdai.top/20160814125853967.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/20160814125936477.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/20160814130025431.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814125853967.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/20160814125936477.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/20160814130025431.png" alt></p>
 <p>选择同一个测试数据导入PostGIS</p>
-<p><img src="http://blog.gisersqdai.top/20160814131743095.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814131743095.png" alt></p>
 <p>基于ArcGIS连接Postgresql里面的数据制作的核密度图</p>
-<p><img src="http://blog.gisersqdai.top/20160814132014377.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/20160814132014377.png" alt></p>
 
       
     </div>
@@ -678,7 +678,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1546,7 +1546,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

@@ -188,7 +188,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -211,7 +211,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -367,20 +367,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/06/02/解决LeanCloud流控问题以及配置DaoVoice/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -423,7 +423,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -510,45 +510,45 @@ WIDGET = {FID: '839cdWVP67'}
         <script src="\assets\js\APlayer.min.js"> </script><p>最近hexo博客的评论系统valine遇上一点问题，本篇就来记录下我的解决方法。</p>
 <a id="more"></a> 
 <h1><span id="1-leancloud流控问题">1 LeanCloud流控问题</span></h1><p>如果用valine评论系统的同学最近打开valine部署的日志可能会发现诸如此类的信息。</p>
-<p><img src="http://blog.gisersqdai.top/159112905213142knwynk.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/159112905213142knwynk.png" alt></p>
 <p>事实上我在valine的用户群里有看到相关的官方消息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/blogimg/picbed@latest/2020/05/14/690052ad1e12bd97d8459f6533fcc64b.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/blogimg/picbed@latest/2020/05/14/690052ad1e12bd97d8459f6533fcc64b.png" alt></p>
 <p>其实就是大家都用这套系统，导致有点负载不了。因此官方做了控制。所以解决方式无非就是交钱（付费版不限制）或者用其他方式唤醒LeanCloud。这个的方案目前我看到的有几种，有一位大佬写了博客记录。下面是该大佬相关的博客解决方案记录。具体内容大家可以移步他的博客看相关解决方案。</p>
 <p><a href="https://www.antmoe.com/posts/ff6aef7b/index.html" target="_blank" rel="noopener">优雅解决LeanCloud流控问题</a></p>
 <p>因为我自己有阿里云的服务器，所以我的解决方法就是在服务器上设置定时任务唤醒即可。如果没有服务器的同学欢迎看上面的博客寻求其他解决方案。这个方法其实在最早的邮件通知里就有提到。</p>
 <p><a href="http://www.zhaojun.im/hexo-valine-modify/" target="_blank" rel="noopener">Hexo 优化 — 支持邮件通知的评论 Valine 增强版</a></p>
 <p>唤醒LeanCloud的软件是crontab，这个是Linux的定时执行工具，而且是内置服务。只需要做一下配置即可。我的系统是Ubuntu。首先改下cron的默认配置。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsyslog.d/50-default.conf</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1591129978720a3tird6x.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591129978720a3tird6x.png" alt></p>
 <p>用vim打开以后可以发现这个问题，这个时候只需要把前面的#去掉再保存。然后重启服务。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service cron restart</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1591130080550otnd20t8.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591130080550otnd20t8.png" alt></p>
 <p>接下来只需写定时任务即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 <p>由于我没有设置默认的编辑器。因此会跳出这个界面。</p>
-<p><img src="http://blog.gisersqdai.top/1591130546196l1re48u3.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591130546196l1re48u3.png" alt></p>
 <p>如果想设置默认的，可以用这个语句。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#以下两行任选其一</span></span><br><span class="line"><span class="built_in">export</span> EDITOR=vim</span><br><span class="line"><span class="built_in">export</span> EDITOR=/usr/bin/vim.basic</span><br></pre></td></tr></table></figure>
 <p>然后输入如下的定时器代码。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/20 7-23 * * * curl https://你配置的域名前缀.leanapp.cn</span><br></pre></td></tr></table></figure>
 <p>接下来只需保存退出，按Ctrl键和O键保存，然后回车确定。</p>
-<p><img src="http://blog.gisersqdai.top/1591130805058hocm1pwd.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591130805058hocm1pwd.png" alt></p>
 <p>出现这个意为成功。</p>
-<p><img src="http://blog.gisersqdai.top/1591131318059cju0e5r6.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591131318059cju0e5r6.png" alt></p>
 <p>这里还参考了几篇相关文章，链接会在最后一并给出。</p>
 <h1><span id="2-daovoice">2 DaoVoice</span></h1><p>由于前几天不小心关闭了163的SMTP服务，又有点小差错，没法立即修复valine评论。我考虑了下，增加了DaoVoice的在线聊天功能。这个功能在上一次的优化中有提到，但是没有设置。这次补上。</p>
 <p><a href="http://gisersqdai.top/2019/12/23/hexo-NexT%E5%8D%9A%E5%AE%A2%E6%9C%80%E6%96%B0%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/">hexo+NexT博客最新定制记录</a></p>
 <p>首先需要注册<a href="http://www.daovoice.io/" target="_blank" rel="noopener">这个网页</a>。然后在自己的登陆界面点击应用设置，然后点击安装到网站。这里打码的是你的id。接下来只需要把你的id放到主题里。</p>
-<p><img src="http://blog.gisersqdai.top/1591131631025nh85lct5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591131631025nh85lct5.png" alt></p>
 <p>首先是在Next主题的配置文件博客/themes/next/_config.yml末尾中添加用户ID。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">daovoice: true</span><br><span class="line">daovoice_app_id: 用户ID</span><br></pre></td></tr></table></figure>
 <p>接着打开/themes/next/layout/_partials/head.swig文件添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;)</span><br><span class="line">  daovoice(&apos;init&apos;, &#123;</span><br><span class="line">      app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(&apos;update&apos;);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <p>这样子就可以集成DaoVoice的在线聊天功能了。当然也可以在DaoVoice的官网调整聊天窗口。</p>
-<p><img src="http://blog.gisersqdai.top/1591131855731vd0dqd72.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1591131855731vd0dqd72.png" alt></p>
 <p>最终效果。</p>
-<p><img src="http://blog.gisersqdai.top/15911318903856ouqbvtx.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/1591131929635ey6rt0dy.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15911318903856ouqbvtx.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/1591131929635ey6rt0dy.png" alt></p>
 <p><strong>参考文章：</strong></p>
 <ul>
 <li><a href="https://www.antmoe.com/posts/ff6aef7b/index.html" target="_blank" rel="noopener">优雅解决LeanCloud流控问题</a></li>
@@ -713,7 +713,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1597,7 +1597,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

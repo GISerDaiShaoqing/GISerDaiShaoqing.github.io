@@ -187,7 +187,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -210,7 +210,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -366,20 +366,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/05/10/GISdenfenceconsiderate/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -422,7 +422,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/GIS/" itemprop="url" rel="index">
                     <span itemprop="name">GIS</span>
                   </a>
@@ -508,7 +508,7 @@ WIDGET = {FID: '839cdWVP67'}
       
         <script src="\assets\js\APlayer.min.js"> </script><p>本文想法和初步动笔起源于10号，但是最近事情比较多，一直到现在才完稿。其实起源是从5月初本科学弟学妹的毕业答辩开始的，主要谈一谈听完答辩的感悟以及对于GIS学科的一些引申思考。<a id="more"></a> </p>
 <h1><span id="1-defence">1 Defence:</span></h1><p>由于疫情的原因，今年本科学院的学弟学妹毕业论文答辩采用了腾讯会议网上形式。不过由于各种原因，听得比较完整的还是直系基地GIS方向的答辩，因此也就针对这几个内容稍微提点东西。先Po一下大家的题目。</p>
-<p><img src="http://blog.gisersqdai.top/1589840269108lrhfyws2.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1589840269108lrhfyws2.png" alt></p>
 <p>一共是9位参与答辩。</p>
 <p>第一位是基于新浪微博对洪水灾害时间主题挖掘与淹没信息做提取。从选题来说，是近些年GIS一个比较热门的方向，内容涉及的大致关键词应该包括位置语义，地理语义，文本挖掘，社交媒体地理学。而这个在灾害方面的响应也是一个比较火的方向。大概思路就是基于微博数据，利用比较流行的文本挖掘模型LDA做洪水灾害事件信息提取，这里是淹没深度信息，以及相关的主题分析。主题分析或者主题挖掘是属于NLP方面比较专业的一类模型，这里不细阐述,感兴趣的同学建议自行搜索关键词。当前的研究基本上就是从微博文本来进行文本处理，如果是不含位置信息的微博（即无法直接获取经纬度），通常必须先从微博内容获取相关的地名，这应该可以算是位置语义或者叫地理语义。然后做geocoding，而其余的微博内容可以扩充其他文本挖掘的信息，在这个研究里就是淹没深度。这类研究的意义就在于灾害的应急响应以及预警。在目前的大数据时代，微博能非常快速地传递相关信息。因此就像系里老师点评的，这类研究最好能做成实时的app，会更有意义。国内微博数据分析比较多的相关团队还是不少的，北京大学袁晓如老师团队，地理所王江浩老师也做了一些研究，此外最近GeoAI讲座里的胡英杰老师也是这块研究非常优秀的老师。感兴趣的可以多去了解，至于模型的话，类似word2vec，甚至于去年大火的BERT是否可以用到里面做结合也是很有意思的。最后的最后，其实我想说另一点，研究的技术性和新颖程度很高，但是我重新回顾的时候在考虑一个问题，题目里的洪水灾害事件，由于我没有听到这个汇报的全部内容，所以我不确定究竟是洪水灾害事件或者是城市内涝事件。作为一个GIS的研究，我认为本质上还是基于地理学去分析问题，因此基础的地学现象和定义要明确。这个研究也让我想起我本科期间做的一个工作，基于城市蓝绿景观的空间变化与内涝区域的联系研究，其中我为了检验内涝区模拟准确性，当时也是采用了一个微博数据，有人在微博上分享了他整理的福州某次内涝事件的60个积水点的地点信息，我根据那个数据做了一个简单的geocoding，形成空间文件。</p>
 <p>相关资源：</p>
@@ -536,9 +536,9 @@ WIDGET = {FID: '839cdWVP67'}
 <li><a href="https://github.com/duncanplee/Spatio-temporal-modelling-tutorials" target="_blank" rel="noopener">A set of tutorials for undertaking spatio-temporal areal unit modelling</a></li>
 </ul>
 <p>第四位是分析学校所在的大学城城中村的暴雨洪涝灾害脆弱性研究。可以说比较贴近校园。当时我本科毕业选题也是基于校园的三维模型相关研究。从选题来说，脆弱性（vulnerable）或者恢复力/韧性（resillence）也算是近些年灾害与气候变化领域很火的主题。尤其与联合国的SDGs结合，今天刚好看到了一篇华东师大相关的研究，也可以参考。这位的研究可以说是比较传统的GIS空间分析研究，建立评估指标体系，赋权重，收集数据与空间叠加，可以说是比较典型的小数据地理传统研究。整体来说，数据搜集工作很扎实，分析比较清晰。当时答辩老师提了几个问题，如指标体系需求，指标体系权重确立，尺度效应的作用，针对这几个点我也有些看法提了一下，指标体系，其实他定义的指标体系我感觉比较像个人确立的，当然对于小尺度区域性研究我觉得是可以的，但是我更推荐可以基于一个大的理论框架做指标体系的本地化和区域化，这类研究会让我想到比较流行的P-S-R（压力-状态-响应）框架。指标体系权重确立方法有很多，我本科创新项目答辩时也用到这个权重确立，当时我觉得避免主观打分，采用了熵值法，但是老师提的建议是，其实这类研究（我的项目也是基于校园的空间分析）熵值法可能不如AHP准确，因此权重方法确立也是根据具体情况而言。最后是尺度效应，老师们当时提的是经济指标在这类小尺度研究是否与脆弱性/恢复力相关，普遍认知里面社会经济因子对大尺度区域的恢复力有显著贡献，这一点会让我想到最近参与的一个小研究，关于新冠肺炎粗病死率的一张图。我当时把概括，能保持粗病死率为0的除了有物理屏障优势的几个省份以外，江苏就是社会经济屏障的典型（经济实力雄厚）。可以看到在应对这类公共卫生突发事件（突发灾害也是相同）的时候，社会经济示例雄厚的区域往往具有更强的恢复力/韧性。这个基本现象在大尺度研究下大概率是没问题的，但是当区域放到小尺度研究呢？我思考了下在类似城中村以及小区域研究的普适性。以灾害发生以后的资源调配和政府救助为例，假如存在两个受灾村子。一个村子的财政实力较为一般，另一个村子的财政实力稍微雄厚一些。财政实力略微雄厚的村子选择自行救助。财政实力一般的村子由于自身经济实力受限，上报上一级政府请求援助，但是上一级政府经济实力非常雄厚。由于这个原因，反而财政实力一般的村子可能在灾后恢复要比另一个村子快。当然这也是个比较极端的例子，但我个人认为小尺度区域受灾害影响的时候，很多情况都是上报上级政府求助（假定是救助是均质的，受灾程度相同，救助款也相同），那么本身村子的经济实力对于恢复力的影响是如何就比较难以判定了。</p>
-<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0033062020300840-gr1.jpg" alt=""></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0033062020300840-gr1.jpg" alt></p>
 <p>此外，我记忆比较深的是做了大量的实地考察和调研。对于小尺度研究，这样子的研究精神和收集数据方式，我是非常赞赏的。当时我也在QQ群里点评了一下，事实上GIS学科通常被认为没有野外，这是不对的。野外实地考察，调研对于GIS数据精度和准确度尤为重要，RS就更不必说了，无论是做定性遥感的土地利用分类或者是定量遥感的地表参量反演，都需要有地面实测数据的验证。GIS并不是完完全全坐在计算机面前就可以完成的工作。往往GIS出身的同学会产生这类认知差异，我认为有必要提出作为点评的点。这也让我想起前几天在微博上看到的一个很有意思的研究。由于疫情期间封城措施，盒马生鲜在这个特殊时期开始红火起来，但是GeoHey的官微推了一个有意思的问题（如下图）。几乎全国各地盒马都在这次疫情爆红，但是在福州失败了。首先我觉得原因有很多，但是当时我看到微博的第一反应是因为福州有永辉超市。永辉是发家于福州的连锁超市，是当地“农改超”的典型案例，在福州本地有较为深厚的消费群体根基，而且本身就是以生鲜蔬菜的售卖为特色，因此可能对盒马生鲜产生了一定的压制。当然这只是可能的原因之一，具体的原因肯定很复杂，感兴趣的同学完全可以就此研究，而这也说明了，对一个区域不实地考察了解的话，是很难对一些地学现象作出解释的。当然我的认知还得益于某位学长的创新项目。最后一点，这位同学可以和第一位同学合作，这就是实现大数据与小数据的结合了。</p>
-<p><img src="http://blog.gisersqdai.top/1589843451193qcw0mtnx.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1589843451193qcw0mtnx.png" alt></p>
 <p>相关资源：</p>
 <ul>
 <li><a href="https://mp.weixin.qq.com/s/NACYeA1TYbNmXoRvJ0QJnQ" target="_blank" rel="noopener">学术动态 | 华东师范大学城市自然地理团队在洪涝灾害应急管理研究领域取得重要进展</a></li>
@@ -546,8 +546,8 @@ WIDGET = {FID: '839cdWVP67'}
 <li><a href="https://www.sciencedirect.com/science/article/pii/S0033062020300840?via%3Dihub" target="_blank" rel="noopener">Towards precision management of cardiovascular patients with COVID-19 to reduce mortality</a></li>
 </ul>
 <p>第五位是基于当下流行的深度学习和图片识别技术对交通标志进行检测。首先从计算机技术角度出发，这位同学对计算机视觉算法方面的研究非常深入，并且在计算视觉处理的基础上，集成开发了一个Android App，可以说在GIS开发上有着非常不错的造诣。这类研究是当下非常火的无人驾驶热点之一，在当下的时代，GIS不仅在传统应用行业中发展，现在已经扩展到了各个相关领域，无人驾驶就是其中一块。当然这个部分对于算法和计算机技术要求颇高，感兴趣的同学可以继续深入了解。从研究来看，思路使用了计算机视觉里的图像处理增强和变换相关算法，对图片做了一定的处理，增强特征。然后结合深度学习来实现图像检测。这里要科普一个概念差异（如下图）。目前来说，就我的认知，这位同学的研究应该还是在image classification的那一步，检测图片里面有没有交通标志，有的话，自动采集收集数据。从本科毕业论文而言，做到这样子是非常不错的，我个人很佩服。另外这类app的目的也很好，就像看到蒋波涛老师说的话（如图），目前深度学习入门教程现在太多了，大家的工作都集中在深度学习各种各样的Hello World上，但是缺少具体应用的各类数据集。因此像这样子的一个用于采集相关数据的app可以说在制作用于深度学习的数据集上提供了基础和极大的方便。当然后续研究可以从目标检测，和语义分割相关的进行深入研究。最后，我认为这个研究有一个算不上问题的小问题，就是这个研究的“地理味”不够浓。这一点我后面也会简单聊一聊。</p>
-<p><img src="http://blog.gisersqdai.top/1589967966509d0ib0zvb.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/1589981651201cz842x15.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1589967966509d0ib0zvb.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/1589981651201cz842x15.png" alt></p>
 <p>相关资源：</p>
 <ul>
 <li><a href="https://waymo.com/open/" target="_blank" rel="noopener">Waymo Open Dataset</a></li>
@@ -589,13 +589,13 @@ WIDGET = {FID: '839cdWVP67'}
 <li><a href="https://ai-basketball-analysis.herokuapp.com/" target="_blank" rel="noopener">AI Basketball Analyze basketball shot with machine learning</a></li>
 <li><a href="https://blog.csdn.net/allenlu2008/article/details/70991154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159001731219724846451195%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=159001731219724846451195&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v25-1-70991154.nonecase&amp;utm_term=NBA" target="_blank" rel="noopener">利用Python对NBA SportUV数据进行可视化及分析</a></li>
 </ul>
-<p><img src="http://blog.gisersqdai.top/1590017035256qprfze5t.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1590017035256qprfze5t.png" alt></p>
 <p>B站弹幕分析，可以基于地形分析的思想进行研究。可以看到弹幕数量有这个波形的存在（如图）。也有大神基于这个用Python实现全自动制作视频。</p>
-<p><img src="http://blog.gisersqdai.top/1590018033333hdyeece2.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1590018033333hdyeece2.png" alt></p>
 <iframe src="//player.bilibili.com/player.html?aid=840603236&bvid=BV1Y54y1X74i&cid=188644698&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <p>这与下面Science论文里的这个高程截面图是类似的。</p>
-<p><img src="http://blog.gisersqdai.top/1590017819701v3per43d.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1590017819701v3per43d.png" alt></p>
 
 
 	<div class="row">
@@ -605,11 +605,11 @@ WIDGET = {FID: '839cdWVP67'}
 
 
 <p>还有一个与上面的类似研究。</p>
-<p><img src="http://blog.gisersqdai.top/1590018284836heaiubdg.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1590018284836heaiubdg.png" alt></p>
 <p><a href="https://yixuanq.shinyapps.io/conan-danmu/" target="_blank" rel="noopener">《名侦探柯南》B站弹幕浏览器</a></p>
 <p>不过GIS的基本理论还是要在本科期间就建立起来并重视的，就比如目前公认的地理学第一定律和第二定律，因为这是一切空间分析和空间统计的基础。</p>
 <p>另外关于研究题目的起草，这次答辩有不少老师提到，我前一段刚好看到一名知名的学术博主的评论。觉得甚有益处，也分享给大家（下图）。</p>
-<p><img src="http://blog.gisersqdai.top/1589064138981avyy1yhe.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1589064138981avyy1yhe.png" alt></p>
 <p>记录了一些自己的感悟和感受，可能比较随意，主要用于与大家交流。大部分观点为个人意见，仅供参考。</p>
 <p>最后还是祝大家毕业快乐呀！！！<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 确立研究地学问题
 op1=>operation: 收集数据
@@ -694,7 +694,7 @@ st->op1->op2->op3->op4->op5</textarea><textarea id="flowchart-0-options" style="
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/07/Tutorial-of-the-Website/" rel="next" title="Tutorial of the Website " awesome="" of="" covid-19""="">
+              <a href="/2020/05/07/Tutorial-of-the-Website/" rel="next" title="Tutorial of the Website " awesome of covid-19"">
                 <i class="fa fa-chevron-left"></i> Tutorial of the Website "Awesome of COVID-19"
               </a>
             
@@ -775,7 +775,7 @@ st->op1->op2->op3->op4->op5</textarea><textarea id="flowchart-0-options" style="
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1659,7 +1659,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

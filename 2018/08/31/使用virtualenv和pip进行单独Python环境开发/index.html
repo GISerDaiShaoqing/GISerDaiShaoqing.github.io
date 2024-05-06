@@ -180,7 +180,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -203,7 +203,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -359,20 +359,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/08/31/使用virtualenv和pip进行单独Python环境开发/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -415,7 +415,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -529,14 +529,14 @@ WIDGET = {FID: '839cdWVP67'}
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv venv #venv为你的文件名，也就是放置新的、纯净的、独立的Python环境的文件夹</span><br></pre></td></tr></table></figure>
 <p>情况2： 没有设置Scripts路径为电脑的环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.../Python/Scripts/virtualenv venv #...表示Python安装路径包，根据个人不同替换，venv同上</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1535702388110tp5vs33n.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1535702388110tp5vs33n.png?imageslim" alt></p>
 <p>接着就开始运行了，定位到我们建立的文件夹下可以看到。</p>
-<p><img src="http://blog.gisersqdai.top/1535702457941g1z5cbcj.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1535702457941g1z5cbcj.png?imageslim" alt></p>
 <p>一共有这么几个文件。</p>
 <p>接下来在cmd定位到项目路径，并运行如下命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Scripts</span><br><span class="line">activate</span><br></pre></td></tr></table></figure>
 <p>这就进入了virtualenv的Python环境。</p>
-<p><img src="http://blog.gisersqdai.top/1535702694029os0n8zyt.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1535702694029os0n8zyt.png?imageslim" alt></p>
 <p>关闭这个环境，只需要运行如下命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
 <h2><span id="23-使用pip安装包">2.3 使用pip安装包</span></h2><p>其实pip安装的部分我之前已经介绍过了，不过上一篇讲得比较简单，仅仅就讲了讲最简单的pip install。而pip 安装包的时候，由于使用的是国外的地址下载包，可能会有些慢或者经常掉线，因此使用国内镜像是比较快的，另外如前文的需求，有些时候需要安装指定版本的包。这也是这次的重点。</p>
@@ -701,7 +701,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1585,7 +1585,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

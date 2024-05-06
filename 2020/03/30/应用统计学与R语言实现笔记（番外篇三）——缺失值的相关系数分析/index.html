@@ -190,7 +190,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -213,7 +213,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -369,20 +369,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/03/30/应用统计学与R语言实现笔记（番外篇三）——缺失值的相关系数分析/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -425,7 +425,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -510,13 +510,13 @@ WIDGET = {FID: '839cdWVP67'}
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>昨天刚好有位同学来咨询R语言里计算相关系数的一些问题，所以来谈谈关于缺失值的相关系数分析问题，主要是在R语言中如何处理含缺失值数据的相关系数分析。</p>
-<p><img src="http://blog.gisersqdai.top/158559786970458yoylot.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/158559786970458yoylot.png" alt></p>
 <a id="more"></a>
 <h1><span id="1-问题描述">1 问题描述</span></h1><p>相关分析可以说是数据分析以及探索性分析的基础。一般拿到手的数据，起手先来一波相关分析。同学遇上的问题如下：类似如下的数据。这里的数据是我利用随机分布随机造出来的，跟我同学的数据的一些基础分布特征是相似的。其实关键就是第四列数据有缺失数据。</p>
-<p><img src="http://blog.gisersqdai.top/1585575462486wc606il7.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585575462486wc606il7.png" alt></p>
 <p>然后在计算具体的相关系数时发现了一些问题。</p>
-<p><img src="http://blog.gisersqdai.top/15855810278847r12ncb6.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/15855810097988chhrj6z.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15855810278847r12ncb6.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/15855810097988chhrj6z.png" alt></p>
 <p>可以清楚地看到在只计算b和c的相关系数的情况下，相关系数与p值分别为0.24和0.13，但当b，c和d都参与运算的情况下，相关系数和p值就变成了0.19和0.24。造成差别的原因是什么呢？</p>
 <h1><span id="2-r语言相关分析中的缺失值处理原理">2 R语言相关分析中的缺失值处理原理</span></h1><p>经过检查，关键在于use的参数的选择。use可以设置的参数主要包括pairwise，complete，complete.obs，pairwise.complete.obs，everything等。这里分别来看具体的含义。事实上这些都是针对相关系数公式里的协方差计算的设置。</p>
 <ul>
@@ -533,32 +533,32 @@ WIDGET = {FID: '839cdWVP67'}
 <h1><span id="3-pairwise-complete-correlation-considered-dangerous案例">3 “Pairwise-complete correlation considered dangerous”案例</span></h1><p>网页标题为“Pairwise-complete correlation considered dangerous”，翻译过来就是成对完全相关分析可能造成一些错误结果，作者为B. W. Lewis。</p>
 <p>这个案例首先构造了一个数据。3列 x 5行的矩阵,其中第三列的第一行和第二行矩阵元素是缺失值NA。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- matrix(c(-<span class="number">2</span>,-<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1.5</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="literal">NA</span>,<span class="literal">NA</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>),<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1585592927703h4zsdb64.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585592927703h4zsdb64.png" alt></p>
 <p>接下来我们分别用不同use的参数设置来查看结果。这里作者原文使用cor函数，但是我们前面的案例是使用pysch的corr.test函数，这里就还是采用这个函数进行对应计算。而由于corr.test()对矩阵的计算似乎不是很友好，我们做个类型转换，将矩阵转为数据框，也就是R语言的data.frame。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据转换</span></span><br><span class="line">xu &lt;- data.frame(x)</span><br><span class="line">colnames(xu) &lt;- c(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算对应的相关系数矩阵</span></span><br><span class="line">corr.test(xu, use = <span class="string">"everything"</span>, , adjust = <span class="string">'none'</span>)</span><br><span class="line">corr.test(xu, use = <span class="string">"pairwise"</span>, adjust = <span class="string">'none'</span>)</span><br><span class="line">corr.test(xu, use = <span class="string">"complete.obs"</span>, adjust = <span class="string">'none'</span>)</span><br><span class="line">corr.test(xu, use = <span class="string">"pairwise.complete.obs"</span>, adjust = <span class="string">'none'</span>)</span><br></pre></td></tr></table></figure>
 <p>use等于everything时候的输出结果。所谓的传播就是，含有NA的第三列与第一列和第二列的相关系数只能为NA，只要数据有NA就无法计算像相关系数。</p>
-<p><img src="http://blog.gisersqdai.top/1585593757171cm92esoz.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585593757171cm92esoz.png" alt></p>
 <p>use等于pairwise时候的输出结果，可以发现a和b的相关系数为0，a，b和c的相关系数为1。那么我们来解析下具体的计算。</p>
-<p><img src="http://blog.gisersqdai.top/1585593992737mgfdg840.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585593992737mgfdg840.png" alt></p>
 <p>相关系数的公式如下，然后可以计算下5个样本下的协方差和并且绘制散点图。</p>
 <p>$$r=\frac{Cov(x,y)}{\sqrt{Var(x)Var(y)}}$$</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot(xu[,<span class="number">1</span>], xu[,<span class="number">2</span>], xlab = <span class="string">"a"</span>, ylab = <span class="string">"b"</span>, col = <span class="string">'red'</span>, pch = <span class="number">16</span>)</span><br><span class="line">cov(xu[,<span class="number">1</span>], xu[,<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/15855955275276bvuhltu.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15855955275276bvuhltu.png" alt></p>
 <p>协方差为0，所以相关系数为0。这就得到结果了。</p>
-<p><img src="http://blog.gisersqdai.top/1585595551457eoluumy1.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585595551457eoluumy1.png" alt></p>
 <p>pairwise计算的方式如下：<strong>由于a和b是没有任何缺失值，5个值可以完全配对，所以在计算的时候a和b的相关系数是基于这5对数据计算，而对于a和c以及b和c的相关系数计算，由于c有缺失数据，可以完全配对的数据仅有三对，仅仅基于这三对配对样本计算相关系数。这样子对应计算出来的相关系数就是1了，因为这些数据完全一致。因此就像Lewis先生说的一样，由于在计算相关系数的时候，样本不统一（在本案例中a和b的相关系数计算是5对配对样本，a和c以及b和c的相关系数计算是3对配对样本），事实上这样计算的相关系数不具备可比性，也可能混淆原来数据的关系。</strong></p>
-<p><img src="http://blog.gisersqdai.top/1585595840573o0vs7lnz.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585595840573o0vs7lnz.png" alt></p>
 <p>现在我们再来看complete.obs，可以发现这是a，b，c的相关系数全为1。这是怎么计算出来的呢？根据对数据的观察可以发现，矩阵数据的第三到第五行的每一列数据都是相同的。</p>
-<p><img src="http://blog.gisersqdai.top/1585596164824sk9s9f21.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585596164824sk9s9f21.png" alt></p>
 <p>complete.obs的计算方式：<strong>由于c有缺失数据，在计算前必须去除掉所有NA的行，也就是去除掉第一行和第二行的所有数据再进行相关系数的计算。这样子所有a，b，c三个变量都仅有3个数据。而且是全部一致的变量。因此这就是完美的完全相关（r=1）。</strong></p>
 <p>至于pairwise.complete.obs结果与pairwise是一样的结果，我目前没有发现太大的差别。</p>
-<p><img src="http://blog.gisersqdai.top/1585596664841bmj982y6.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1585596664841bmj982y6.png" alt></p>
 <p>因此正如Lewis先生说的，有时候完全匹配样本的分析反而容易造成对数据的曲解。当然最好的方式是获取更多的观测样本。</p>
 <p>最后回到同学的数据，为什么只针对b和c做相关分析的结果与针对b，c，d做相关分析的时候，b和c的相关系数有差异呢？</p>
 <p><strong>我们可以看到存在差异的语句是由于使用了complete.obs，因为complete.obs会删除NA数据，当仅针对b和c做相关分析的时候，不存在NA数据，所有是针对所有41个数据计算得到的相关系数。而由于d存在NA数据，在对b，c和d做相关分析的时候，必须删除那一列，所以b，c和d都是仅剩下40个数据计算得到的相关系数。所有有差异是可以理解的。而当采用pairwise的时候，即使有NA数据存在，b和c的相关系数计算也不会因为有NA而去除掉b和c对应的那行数据，所有前后样本数据量一致，相关系数自然不会有变化。</strong></p>
 <p><strong>另一个角度反应出来，d那一行的数据对这三个变量的数学关系影响还是比较大的，因为有些情况随机模拟出来的数据，也不一定会有明显的相关系数差异。因此针对缺失值如何处理还是要根据数据具体情况而言。由于我之前通常在相关分析前就去除了NA值，所以我也没遇到过这个情况。这其实是非常有意思的统计分析诊断。</strong></p>
 <p>相同数据，不同use方法的相关系数矩阵可视化。</p>
-<p><img src="http://blog.gisersqdai.top/158559786970458yoylot.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/158559786970458yoylot.png" alt></p>
 <p>本文使用的代码，我会放到我应用统计学与R语言实现笔记的开源github仓库上，有兴趣的同学欢迎自行下载。</p>
 <p><a href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R" target="_blank" rel="noopener">Note-of-Applied-Statistics-with-R</a></p>
 <p>参考链接：</p>
@@ -718,7 +718,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1602,7 +1602,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

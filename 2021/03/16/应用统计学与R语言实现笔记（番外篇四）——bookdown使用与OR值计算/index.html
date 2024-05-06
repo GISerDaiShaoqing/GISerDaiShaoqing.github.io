@@ -184,7 +184,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -207,7 +207,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -363,20 +363,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2021/03/16/应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -419,7 +419,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -537,7 +537,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p><a href="http://gisersqdai.top/Note-of-Applied-Statistics-with-R-Book/">http://gisersqdai.top/Note-of-Applied-Statistics-with-R-Book/</a></p>
 </blockquote>
 <h1><span id="2-公式更正">2 公式更正</span></h1><p>在修改的过程里，我发现了来自<a href="https://github.com/BruceZhaoR" target="_blank" rel="noopener">BruceZhaoR同学</a>18年的一条pr，虽然不知道什么原因我一直没注意到这条pr。这里郑重向这位同学道歉，非常感谢他的指正。他指出在原本第三章描述性统计里的样本方差与标准差公式里有误。并给出了wiki上的参考公式。</p>
-<p><img src="http://blog.gisersqdai.top/1615596419734mmjky01o.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1615596419734mmjky01o.png" alt></p>
 <blockquote>
 <p>wiki:<a href="https://en.wikipedia.org/wiki/Standard_deviation#Corrected_sample_standard_deviation" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Standard_deviation#Corrected_sample_standard_deviation</a></p>
 </blockquote>
@@ -599,18 +599,18 @@ WIDGET = {FID: '839cdWVP67'}
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">'aplore3'</span>)</span><br></pre></td></tr></table></figure>
 <p>安装完成以后，载入数据做个初步探索。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(aplore3)</span><br><span class="line">data(icu)</span><br><span class="line">head(icu)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1615974257395qwbdby7i.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1615974257395qwbdby7i.png" alt></p>
 <p>为了简单化，我们这里定义健康结局变量为status，即数据中的sta（Lived或者Died），感兴趣的自变量为age。首先绘制一下图。由于status是个二分变量。所以图就变成了如下的样子。</p>
-<p><img src="http://blog.gisersqdai.top/1615974021907m5q0e9gt.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1615974021907m5q0e9gt.png" alt></p>
 <p>你是否觉得很熟悉？其实这就是logistic regression的典型数据。那么根据age的数据，我们做一个处理，统计不同年龄段的死亡率，以10岁为分界线。我们可以得到如下的图。</p>
-<p><img src="http://blog.gisersqdai.top/1615974520076k32i9ki5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1615974520076k32i9ki5.png" alt></p>
 <p>那么我们突然发现，这个散点是有线性趋势的。假设我们采用线性回归来做分析，即假定有：$pr(death)=\beta_0+\beta_1(age)$，不就可以拟合了吗？但是我们又会发现一个问题。那就是这里的y(pr(death))是有现实意义的实数，也就是它的值域必须在（0,1）中。然而等式右边实际上是可以取任何值的（根据$\beta_0 , \beta_1, age$），因此这个线性方程即使求解出来，预测值通常会超过实际的值域。所以为了解决这个问题，logistics regression就提出了。首先是定义了logit函数为：</p>
 <p>$$logit(p)=log(\frac{p}{1-p})$$</p>
 <p>$$p=pr(death)$$</p>
 <p>那么这个logit函数的现实意义是事件发生几率的对数。那么同时模型就变成了：</p>
 <p>$$log(\frac{p}{1-p})=\beta_0+\beta_1(age)$$</p>
 <p>这时我们就会发现p的值域是在（0,1），而logit(p)的值域则是$[ - \infty, + \infty  ]$</p>
-<p><img src="http://blog.gisersqdai.top/16159777122701p41nghc.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/16159777122701p41nghc.png" alt></p>
 <p>那这个时候我们就可以用线性回归方法求解系数了，因此logistic regression也被称为广义线性回归的一类。</p>
 <p>那么我们再来看一个更特殊的情况，就是前面说的2x2联表的情况。假定自变量是个分类变量。这里选用icu数据里的type来分析（健康结局变量不变）。也就是说方程如下：</p>
 <p>$$logit(p)=\beta_0+\beta_1 (I_{type})$$</p>
@@ -646,9 +646,9 @@ WIDGET = {FID: '839cdWVP67'}
 <p>也就是说，实际上OR值就是e的logistics regression中的回归系数次方。因此通常在公共卫生研究中求OR值，第一步就是先做logistics regression然后接着进行计算。对应其实也可以计算OR的95%置信区间以及p值(<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2938757/" target="_blank" rel="noopener">Explaining Odds Ratios</a>)。这块这里就不详述了。我这里还是采用icu数据做个样例分析，展示三种方式（第一种不借助其他包，第二个使用epiDisplay，第三个是用questionr）求OR。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 1 without any packages</span></span><br><span class="line">modellogit &lt;- glm(sta~type, data = icu, family = binomial)</span><br><span class="line">ORDF &lt;- data.frame(exp(cbind(OR = coef(modellogit), confint(modellogit))))</span><br><span class="line">ORDF</span><br><span class="line"></span><br><span class="line"><span class="comment">## 2 Using epiDisplay</span></span><br><span class="line">install.packages(<span class="string">'epiDisplay'</span>)</span><br><span class="line"><span class="keyword">library</span>(epiDisplay)</span><br><span class="line">modellogit &lt;- glm(sta~type, data = icu, family = binomial)</span><br><span class="line">ORDF &lt;- logistic.display(modellogit)</span><br><span class="line">ORDF</span><br><span class="line"></span><br><span class="line"><span class="comment">## 3 Using questionr</span></span><br><span class="line">install.packages(<span class="string">'questionr'</span>)</span><br><span class="line"><span class="keyword">library</span>(questionr)</span><br><span class="line">modellogit &lt;- glm(sta~type, data = icu, family = binomial)</span><br><span class="line">ORDF &lt;- odds.ratio(modellogit)</span><br><span class="line">ORDF</span><br></pre></td></tr></table></figure>
 <p>目前个人推荐第三种，能把p值一起算出来，这里要注意R里面默认factor的第一个因子作为参考组（baseline），如需要设置不同的参考组。可以用如下的函数。</p>
-<p><img src="http://blog.gisersqdai.top/1615978588167uvlw85jh.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1615978588167uvlw85jh.png" alt></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">icu$type &lt;- relevel(icu$type, ref = <span class="string">"emergency"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/161597902918550635d2t.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/161597902918550635d2t.png" alt></p>
 <p>最后本次的代码也都是在之前的github项目上。欢迎大家使用。最后再放一下两个项目地址：</p>
 <p><a href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R" target="_blank" rel="noopener">Note-of-Applied-Statistics-with-R</a></p>
 <p><a href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R-Book" target="_blank" rel="noopener">Note-of-Applied-Statistics-with-R-Book</a></p>
@@ -832,7 +832,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1716,7 +1716,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

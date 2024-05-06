@@ -190,7 +190,7 @@
 
 <script src="/assets/js/DPlayer.min.js"></script></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -213,7 +213,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -369,20 +369,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/12/23/hexo-NexT博客最新优化记录/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -425,7 +425,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -512,7 +512,7 @@ WIDGET = {FID: '839cdWVP67'}
         <script src="\assets\js\APlayer.min.js"> </script><p>最近对hexo和NexT博客又做了一次定制。</p>
 <a id="more"></a> 
 <h1><span id="1-增加clustrmaps">1 增加clustrmaps</span></h1><p>这回在博客里增加一个clustrmaps的地球点击效果，之前尝试了下，失败了，这回成功显示了。这个功能需要先在这个<a href="http://clustrmaps.com/" target="_blank" rel="noopener">网页</a>注册。效果如图：</p>
-<p><img src="http://blog.gisersqdai.top/15771085114478ihlavmm.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15771085114478ihlavmm.png" alt></p>
 <p>后面只需要把对应的代码添加到文件中。有人推荐放到这个路径下：themes\next\layout_partials\footer.swig。这个是放在底部的，最后我是放在了侧边栏下。侧边栏的路径为themes\next\layout_custom\sidebar.swig。也有人放在themes\next\layout_partials\header.swig。但这个路径不适合我目前这个NexT的样式。</p>
 <h1><span id="2-视频播放">2 视频播放</span></h1><p>增加了一个视频播放的功能，首先先安装dplayer。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-dplayer --save</span><br></pre></td></tr></table></figure>
@@ -538,9 +538,9 @@ WIDGET = {FID: '839cdWVP67'}
 
 
 <h1><span id="4-增加天气卡片">4 增加天气卡片</span></h1><p>增加了一个右上角的天气卡片。效果如图。</p>
-<p><img src="http://blog.gisersqdai.top/1577119522964syp56jxx.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577119522964syp56jxx.png" alt></p>
 <p>首先在这个<a href="https://cj.weather.com.cn/" target="_blank" rel="noopener">页面</a>注册。然后在这里输入名称生成代码。</p>
-<p><img src="http://blog.gisersqdai.top/15771196046479jra0pvp.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15771196046479jra0pvp.png" alt></p>
 <p>最后放到themes\next\layout_custom\header.swig中。</p>
 <h1><span id="5-主题自定义设计">5 主题自定义设计</span></h1><p>主要是做了背景图切换之类的设置，比较简单。参照以下的这个修改的。文件为themes\next\source\css_custom\custom.styl。</p>
 <p><a href="https://github.com/reuixiy/reuixiy.github.io/blob/master/custom.styl" target="_blank" rel="noopener">https://github.com/reuixiy/reuixiy.github.io/blob/master/custom.styl</a></p>
@@ -557,25 +557,25 @@ WIDGET = {FID: '839cdWVP67'}
 <p>在以上工作完成后，最后一步就是把日历云放在指定位置。这个倒是比较泛。根据需求放置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- CloudCalendar --&gt;</span><br><span class="line">&lt;div class=&quot;widget-wrap&quot; style=&quot;width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;widget&quot; id=&quot;CloudCalendar&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>我是放在侧边栏。也就是\themes\next\layout_macro\siderbar.swig的文件夹中，具体位置如下图。</p>
-<p><img src="http://blog.gisersqdai.top/1577189406430nmuv0rov.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577189406430nmuv0rov.png" alt></p>
 <p>并且根据这个我调整了词云的大小，使得侧边栏会舒服一些。效果如下：</p>
-<p><img src="http://blog.gisersqdai.top/15771895318000coqps0v.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15771895318000coqps0v.png" alt></p>
 <h1><span id="7-右上角fork-me改版">7 右上角Fork me改版</span></h1><p>在<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">这个网址</a>找到最新的版本，替换原来的代码。效果如图。</p>
-<p><img src="http://blog.gisersqdai.top/1577175959134frcv9tg5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577175959134frcv9tg5.png" alt></p>
 <h1><span id="8-valine扩展邮件通知">8 Valine扩展邮件通知</span></h1><p>这里在前文Valine的基础上扩展邮件通知。这里使用的是国内大神扩展的<a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener">Valine-admin</a>。</p>
 <p>首先进入到leancloud的应用页面里，点击云引擎→设置。填写这个仓库名：<a href="https://github.com/DesertsP/Valine-Admin.git" target="_blank" rel="noopener">https://github.com/DesertsP/Valine-Admin.git</a><br>。</p>
-<p><img src="http://blog.gisersqdai.top/1577202658371g0brjogo.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577202658371g0brjogo.png" alt></p>
 <p>接下来设置云引擎的环境变量，这个变量说明请参照<a href="https://deserts.io/valine-admin-document/" target="_blank" rel="noopener">文档</a>。</p>
 <p>QQ的授权码设置见<a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28" target="_blank" rel="noopener">官方说明</a>，<br>163邮箱的设置也是类似，提醒：请选用用于注册leancloud的邮箱。</p>
 <p>并且设置二级域名和注册管理员账户。</p>
-<p><img src="http://blog.gisersqdai.top/1577202712062hnqh3jjl.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577202712062hnqh3jjl.png" alt></p>
 <p>注册管理员账户即在二级域名后面加/sign-up，如果无法跳转，删除user里的所有账户即可。</p>
-<p><img src="http://blog.gisersqdai.top/1577202896978oseal7cm.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577202896978oseal7cm.png" alt></p>
 <p>切换到部署标签页，点击git源码部署，分支选master。接着经历过一段时间，出现如下页面。</p>
-<p><img src="http://blog.gisersqdai.top/1577195450172swtyalb0.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577195450172swtyalb0.png" alt></p>
 <p>后面设置个定时任务既可以。参照上面的文档即可。</p>
-<p><img src="http://blog.gisersqdai.top/1577203298545m06sff6u.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/15772033166518krkcep5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577203298545m06sff6u.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/15772033166518krkcep5.png" alt></p>
 <h1><span id="9-将博客同时部署到国内服务器">9 将博客同时部署到国内服务器</span></h1><p>首先先配置服务器上git环境。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install git</span><br></pre></td></tr></table></figure>
 <p>然后设置Linux上一个账号为git，进行配置。</p>
@@ -589,7 +589,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>利用这个语句测试，如果能拉下来空的文件夹，说明成功了。</p>
 <p>接下来先部署nginx，nginx的安装和基本配置见我之前的博客:<a href="http://gisersqdai.top/2019/12/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85nginx%E9%85%8D%E7%BD%AE%E7%BD%91%E7%AB%99/">阿里云安装nginx配置网站</a>。</p>
 <p>这里弄下nginx的配置文件。</p>
-<p><img src="http://blog.gisersqdai.top/1577203878049hp1ejtzd.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1577203878049hp1ejtzd.png" alt></p>
 <p>然后启动nginx。</p>
 <p>后续的操作参照这几篇博客：<a href="https://www.fayne.cn/2017/08/11/hexo-aliyun/" target="_blank" rel="noopener">优化hexo访问速度-将hexo部署到云主机VPS</a>,<a href="https://zhengyujie.github.io/2019/08/17/%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_blank" rel="noopener">Hexo博客部署到阿里云服务器</a>,<a href="http://cs3cx4g.cn/2018/12/08/%E5%BB%BA%E7%AB%99%E5%BF%83%E5%BE%97/" target="_blank" rel="noopener">Hexo + Github/Vps部署你的个人博客</a></p>
 <h1><span id="10-daovoice在线聊天功能">10 DaoVoice在线聊天功能</span></h1><p>这个需要现在<a href="http://www.daovoice.io/" target="_blank" rel="noopener">这个网站</a>注册，但是需要邀请码，邀请码请去参考链接后面查看。接着利用app id做些配置即可以实现在线聊天功能。但是我目前觉得评论就够了，所以这块我后面放弃了。如果有需要的同学可以参考后面的链接。</p>
@@ -769,7 +769,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1653,7 +1653,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

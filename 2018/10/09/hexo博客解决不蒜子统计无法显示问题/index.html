@@ -183,7 +183,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -206,7 +206,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -362,20 +362,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/10/09/hexo博客解决不蒜子统计无法显示问题/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -418,7 +418,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -503,22 +503,22 @@ WIDGET = {FID: '839cdWVP67'}
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>如题，刚巧最近在统计自己各个平台博客的总阅读量问题，结果写好的代码，突然运行不出结果。后面发现博客页面底部的访客统计也有问题。于是就来考虑如何解决。</p>
-<p><img src="http://blog.gisersqdai.top/1539047414830pnbp09uy.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1539047414830pnbp09uy.png?imageslim" alt></p>
 <a id="more"></a>
 <h1><span id="1-原因">1 原因</span></h1><p>笔者用hexo博客和NexT主题已经有一段时间，很喜欢这个主题的简约。不蒜子统计其实在NexT集成得非常好（所以我其实也不是很懂它的原理）。突然出问题很奇怪，于是笔者第一次在百度上尝试搜索了不蒜子统计。结果出来的官网显示了一条消息。</p>
 <p><a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子统计官网</a></p>
-<p><img src="http://blog.gisersqdai.top/1539047652326jxa1vbyz.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1539047652326jxa1vbyz.png?imageslim" alt></p>
 <p>Soga!其实就是因为不蒜子统计的域名过期了，而js的引用就会有问题，果断在浏览器按下ctrl+u查看博客网页源码!</p>
-<p><img src="http://blog.gisersqdai.top/1539047845526hcho9har.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1539047845526hcho9har.png?imageslim" alt></p>
 <p>确实是域名的问题。</p>
 <h1><span id="2-解决方法">2 解决方法</span></h1><p>找到问题之后解决方法就好说了。</p>
 <p>首先需要先找到NexT下引用不蒜子统计的方法。文件路径为/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件。</p>
 <p>打开后如图所示。</p>
-<p><img src="http://blog.gisersqdai.top/153904860385179mt5x5b.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/153904860385179mt5x5b.png?imageslim" alt></p>
 <p>替换红框部分即可。替换为”<a href="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;。" target="_blank" rel="noopener">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;。</a></p>
-<p><img src="http://blog.gisersqdai.top/1539048650109aibjw2uo.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1539048650109aibjw2uo.png?imageslim" alt></p>
 <p>本地预览效果如下。</p>
-<p><img src="http://blog.gisersqdai.top/15390489790648k7ei3ai.png?imageslim" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15390489790648k7ei3ai.png?imageslim" alt></p>
 <p>圆满解决，参考的博客是之前参考过的文章，链接如下。</p>
 <p><a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">hexo的next主题个性化教程：打造炫酷网站</a></p>
 
@@ -674,7 +674,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1558,7 +1558,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

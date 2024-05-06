@@ -196,7 +196,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -219,7 +219,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -375,20 +375,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/04/01/Windows的Linux子系统搭建数据科学环境/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -431,7 +431,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -521,30 +521,30 @@ WIDGET = {FID: '839cdWVP67'}
 <p>Windows Subsystem for Linux（简称WSL）是一个为在Windows 10上能够原生运行Linux二进制可执行文件（ELF格式）的兼容层。它是由微软与Canonical公司合作开发，目标是使纯正的Ubuntu 14.04 “Trusty Tahr”映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。WSL提供了一个微软开发的Linux兼容内核接口（不包含Linux代码），来自Ubuntu的用户模式二进制文件在其上运行。该子系统不能运行所有Linux软件，例如那些图形用户界面，以及那些需要未实现的Linux内核服务的软件。不过，这可以用在外部X服务器上运行的图形X Window系统缓解。此子系统起源于命运多舛的Astoria项目，其目的是允许Android应用运行在Windows 10 Mobile上。此功能组件从Windows 10 Insider Preview build 14316开始可用。——维基百科</p>
 </blockquote>
 <h1><span id="2-wsl安装">2 WSL安装</span></h1><p>在开始菜单里搜索”Microsoft Store”。</p>
-<p><img src="http://blog.gisersqdai.top/1554120869325s3o7yiys.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554120869325s3o7yiys.png" alt></p>
 <p>接着在”Microsoft Store”中搜索”Linux”。</p>
-<p><img src="http://blog.gisersqdai.top/1554121050625bwa9jgoh.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554121050625bwa9jgoh.png" alt></p>
 <p>从中选择一个Linux的发行版安装即可。我选的是Ubuntu 18.04 LTS，个人比较熟悉Ubuntu，同时也想试一下18.04版本。点击获取后，”Microsoft Store”就会自动下载安装。当然安装完后，你可以把它固定到开始屏幕比较方便。</p>
-<p><img src="http://blog.gisersqdai.top/1554121266118x5y2x4br.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554121266118x5y2x4br.png" alt></p>
 <p>当然现在启动WSL是失败的，因为还得在Windows中启用该功能。依旧是在开始菜单搜索Windows功能。</p>
-<p><img src="http://blog.gisersqdai.top/1554121379242e9qzxlmx.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554121379242e9qzxlmx.png" alt></p>
 <p>接着打钩”适用于Linux的Windows子系统”。</p>
-<p><img src="http://blog.gisersqdai.top/1554121497130sswa42te.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554121497130sswa42te.png" alt></p>
 <p>这个时候就能愉快地开启Ubuntu系统了（当然一般上面勾选完需要重启系统，这类就跳过了）。</p>
-<p><img src="http://blog.gisersqdai.top/155412160060487mq8xps.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/155412160060487mq8xps.png" alt></p>
 <p>如果第一次启动的话，会要求你创建一个Linux的账户和密码，熟悉Linux系统的同学应该很清楚了，这就不多说了，如果不熟悉的，建议去学习一下Linux的基础管理和操作。这样就愉快地可以开始在Windows上玩耍Linux系统了。另外这个系统其实是安装在如下的地址内，这样子后期管理时也可以快速上手使用。</p>
 <blockquote>
 <p>C:\Users\你的用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs</p>
 </blockquote>
 <p>同时WSL直接将你的其他磁盘挂载到了mnt文件夹下面，可以直接通过/mnt/d访问。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/f</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1554167507866tf077jml.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554167507866tf077jml.png" alt></p>
 <p>如果觉得下载速度略慢的话，完全可以更新apt源文件来提速。可以看到在/etc/apt下面的sources.list</p>
-<p><img src="http://blog.gisersqdai.top/1554169768504t9icyb2p.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554169768504t9icyb2p.png" alt></p>
 <p>我们这里在自己的F盘创建了一个WSL的工作空间，可以用来做各种相关的事情，譬如这里在更新apt源文件前，先备份到这个空间内。需要提醒下，我这里都先运行了sudo su，以root账户执行。所以不需要在命令前加sudo，如果不是root账户，请加sudo。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/f/WSLworkspace</span><br><span class="line">cp /etc/apt/sources.list /mnt/f/WSLworkspace/sourcesbackup.list</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1554169866747d50pdx9r.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/1554170124243fakgra9y.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554169866747d50pdx9r.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/1554170124243fakgra9y.png" alt></p>
 <p>而替换源通常使用vim或者gedit来操作，这个时候知道我们的系统安装路径的好处就来了。只需要在Windows上打开对应文件夹下的sources.list（建议用Notepad++），复制粘贴就可以。给出几个源。</p>
 <p>清华</p>
 <blockquote>
@@ -561,7 +561,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>接着就可以进行更新软件了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
 <h1><span id="3-wsl搭建数据科学环境">3 WSL搭建数据科学环境</span></h1><p>接下来就是搭建数据科学环境（Python和R）了。这里推荐安装Anaconda，当然如果想从头开始安装也是允许的。先去<a href="https://repo.continuum.io/archive/" target="_blank" rel="noopener">Anaconda 官网</a>找到最新的版本。我Windows上基本都是Python2，因此在这个版本上主要以Python3为主，就是图中红框的。下载链接如下。</p>
-<p><img src="http://blog.gisersqdai.top/155416964448594gobz1y.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/155416964448594gobz1y.png" alt></p>
 <blockquote>
 <p><a href="https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh" target="_blank" rel="noopener">https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh</a></p>
 </blockquote>
@@ -573,9 +573,9 @@ WIDGET = {FID: '839cdWVP67'}
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab --allow-root</span><br></pre></td></tr></table></figure>
 <p>关于这个的配置有一些参考的内容见后面的链接，这里不详细展开，如果以root账户运行的话必须加上–allow -root。</p>
 <p>接着在Windows浏览器里访问<a href="http://localhost:8888/lab?。" target="_blank" rel="noopener">http://localhost:8888/lab?。</a></p>
-<p><img src="http://blog.gisersqdai.top/1554198930014oc4603p4.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554198930014oc4603p4.png" alt></p>
 <p>除了Python3，我们还推荐装个R，用于混合编程。这个时候毕竟本机已经安装了原生R，我决定在Linux上搭建一个Microsoft R Open(MRO)。同样是打开<a href="https://mran.microsoft.com/download" target="_blank" rel="noopener">MRO官网</a></p>
-<p><img src="http://blog.gisersqdai.top/1554199402696yn9b8x2w.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554199402696yn9b8x2w.png" alt></p>
 <p>利用wget下载MRO。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P /mnt/f/WSLworkspace https://mran.blob.core.windows.net/install/mro/3.5.1/microsoft-r-open-3.5.1.tar.gz</span><br></pre></td></tr></table></figure>
 <p>由于我用的Ubuntu18.04，还需要安装libpng12库。</p>
@@ -583,7 +583,7 @@ WIDGET = {FID: '839cdWVP67'}
 <p>定位到MRO下载路径。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/f/WSLworkspace</span><br><span class="line">tar -xf microsoft-r-open-3.5.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> microsoft-r-open</span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
 <p>接着需要看MRO和MKL的许可，先按回车看许可，接着按q键退出，按y进行安装。</p>
-<p><img src="http://blog.gisersqdai.top/1554204813545pirhyw7p.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554204813545pirhyw7p.png" alt></p>
 <p>R安装好后，还需要配置到jupyter中。首先需要先安装devtools，Ubuntu 18.04还需要先安装libssl。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libssl-dev</span><br></pre></td></tr></table></figure>
 <p>接着进入到R中。</p>
@@ -591,17 +591,17 @@ WIDGET = {FID: '839cdWVP67'}
 <p>这边发现IRkernel装不上，还需要装libcurl。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libcurl4-openssl-dev</span><br></pre></td></tr></table></figure>
 <p>最后发现github连接老有问题。</p>
-<p><img src="http://blog.gisersqdai.top/15542067387996tdgykvu.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15542067387996tdgykvu.png" alt></p>
 <p>Github也有一个相同的<a href="https://github.com/IRkernel/IRkernel/issues/493" target="_blank" rel="noopener">issues</a>，可以安装离线包，在github上点击clone or download，下载到文件夹中。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devtools::install(<span class="string">'/mnt/f/WSLworkspacre/IRkernel-master'</span>)</span><br></pre></td></tr></table></figure>
 <p>终于安装成功。最后在R里，再敲入如下命令。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IRkernel::installspec(name = <span class="string">'ir35'</span>, displayname = <span class="string">'MRO'</span>)</span><br></pre></td></tr></table></figure>
 <p>大功告成。</p>
-<p><img src="http://blog.gisersqdai.top/1554209038994zvndxpkb.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554209038994zvndxpkb.png" alt></p>
 <p>运行一波代码。</p>
-<p><img src="http://blog.gisersqdai.top/1554209446181utu5p3nd.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/15542095253815ypy9waz.png" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/15542095419888z37tw03.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1554209446181utu5p3nd.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/15542095253815ypy9waz.png" alt></p>
+<p><img src="http://blog.gisersqdai.top/15542095419888z37tw03.png" alt></p>
 <p>虽然R语言中文社区给出了比较完整的教程，但是具体搭建过程中，还是无数的坑。希望大家也是动手实践为主。最近发现好多需要在Linux系统上安装的包和库，因此有这个环境非常地好。</p>
 <p>参考链接：</p>
 <p><a href="https://blog.csdn.net/x356982611/article/details/80077085" target="_blank" rel="noopener">windows10 Linux子系统文件目录</a></p>
@@ -773,7 +773,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1657,7 +1657,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

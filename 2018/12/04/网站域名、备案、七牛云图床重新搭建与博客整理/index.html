@@ -180,7 +180,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -203,7 +203,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -359,20 +359,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/12/04/网站域名、备案、七牛云图床重新搭建与博客整理/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -415,7 +415,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Coding/" itemprop="url" rel="index">
                     <span itemprop="name">Coding</span>
                   </a>
@@ -508,13 +508,13 @@ WIDGET = {FID: '839cdWVP67'}
 <p>当然如果其他平台购买域名也是可以的。国外域名其实都不需要备案的，不过七牛云图床搭建要求主站域名必须备案，反正是比较麻烦。</p>
 <h1><span id="2-hexo博客自定义域名绑定">2 hexo博客自定义域名绑定</span></h1><p>hexo博客本身就支持自定义域名的绑定。其实只需要将原来github仓库上的域名转接到新的域名上即可。首先是在hexo博客的source文件夹增加一个CNAME的文件，写入你的域名。接着在域名控制台设置解析DNS。</p>
 <p>设置如下三个，一个CNAME，两个指向IPV4地址的，其实给的是github的IP。</p>
-<p><img src="http://blog.gisersqdai.top/1543975406456aqhtax3i.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1543975406456aqhtax3i.png" alt></p>
 <p>这样设置完毕后，原来的网站即转接到新网址。</p>
 <h1><span id="3-icp备案与网安备案">3 ICP备案与网安备案</span></h1><p>ICP备案其实是阿里云那边已经帮忙提交了。阿里云一般一天时间帮你审核完毕，即自动提交工信部ICP备案，这个比较好解决。网安备案要求有服务器。花的时间比较长（尤其选交互式网站的话）。我这边是不小心选了交互式网站。但是建议可以选非交互式的，选www服务之类的。个人静态网站影响不大。网安备案交互式的需要填多个申请表。</p>
 <h1><span id="4-七牛云图床搭建">4 七牛云图床搭建</span></h1><p>这个其实就是在测试域名过期的七牛云对象存储服务上绑定新的自定义域名。填一个二级域名。即在你的域名（假定为xxxx.com）面前增加一个比如cdn.xxxx.com或者qn.xxxx.com都是可以的，这个随你的喜欢。创建完成后，就会有一个CNAME的域名。复制之后。到域名控制台解析DNS增加新的记录。</p>
-<p><img src="http://blog.gisersqdai.top/1543977032493dek0fcwi.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1543977032493dek0fcwi.png" alt></p>
 <p>马赛克部分是你的自定义二级域名。</p>
-<p><img src="http://blog.gisersqdai.top/1543977203240yhh3o0ir.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1543977203240yhh3o0ir.png" alt></p>
 <p>这样子图床就重新构建完成了，只需要在对应的地方做些配置修改即可。</p>
 <h1><span id="5-批量替换博客的图片外链地址">5 批量替换博客的图片外链地址</span></h1><p>事实上这样子博客图片外链地址全是旧的，很有可能后面图片都会失效，一个一个改实在费时费力。所以思考了下如何进行批量替换，最后想到了最简单的方式就是用Python写一个简单的代码。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment">#Hexo blog</span></span><br><span class="line">basepath = <span class="string">'你的markdown文件放置文件夹'</span></span><br><span class="line">blogfiles = os.listdir(basepath)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(blogfiles), <span class="number">1</span>):</span><br><span class="line">   blogfilesuse = blogfiles[i]</span><br><span class="line">   blogfilespath = basepath + <span class="string">'/'</span> + blogfilesuse</span><br><span class="line">   blogfile = open(blogfilespath)</span><br><span class="line">   blogf = blogfile.read()</span><br><span class="line">   blogf = blogf.replace(<span class="string">'测试域名1'</span>, <span class="string">'新子域名1'</span>)</span><br><span class="line">   blogf = blogf.replace(<span class="string">'测试域名2'</span>, <span class="string">'新子域名2'</span>)</span><br><span class="line">   blogf = blogf.replace(<span class="string">'测试域名3'</span>, <span class="string">'新子域名3'</span>)</span><br><span class="line">   blogf = blogf.replace(<span class="string">'原二级域名'</span>, <span class="string">'新域名'</span>)</span><br><span class="line">   outputpath = <span class="string">'输出路径'</span></span><br><span class="line">   outfile = outputpath + str(blogfiles[i])</span><br><span class="line">   outf = open(outfile, <span class="string">'w+'</span>)</span><br><span class="line">   outf.write(blogf)</span><br><span class="line">outf.close()</span><br><span class="line">blogfile.close()</span><br></pre></td></tr></table></figure>
@@ -686,7 +686,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1570,7 +1570,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

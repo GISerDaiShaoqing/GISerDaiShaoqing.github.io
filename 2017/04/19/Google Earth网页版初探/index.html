@@ -186,7 +186,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -209,7 +209,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -365,20 +365,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/04/19/Google Earth网页版初探/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -421,7 +421,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/GIS/" itemprop="url" rel="index">
                     <span itemprop="name">GIS</span>
                   </a>
@@ -506,26 +506,26 @@ WIDGET = {FID: '839cdWVP67'}
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>最近三维GIS界有个比较爆炸性的消息，嗯，没错，Google Earth Enterprise（谷歌地球企业版）宣告开源，47万行代码的大项目就此开放。（深深感觉谷歌就是要搞事情）。<a id="more"></a><br>概括下GEE开源可以提供些啥。官方github的Readme文档如是写道：</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419223243.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419223243.jpg" alt></p>
 <p>1.Fusion（融合）——影像、矢量与地形（或者可以说集成）的多源数据融合，导入三维地球（可以漫游飞行）或者集成的二维地图。<br>2.Server（服务器）——可以通过融合用户自定义的多源数据定制一个私人三维地球服务器（基于Apache或者Tornado）。<br>3.Client（客户端）——谷歌地球企业版客户端和谷歌地图Javascript API V3版用来浏览三维地球和二维地图。<br>可以说这个开源项目强大异常，感觉GEE开源对于GIS和Web三维开发者是个很大的福利。<br>GEE开源地址：</p>
 <blockquote>
 <p><a href="https://github.com/google/earthenterprise" target="_blank" rel="noopener">https://github.com/google/earthenterprise</a></p>
 </blockquote>
 <p>接着近日，早前预告过会在世界地球日（4 月 22 日）前发布新版 Google Earth的 Google，今天公布了新消息，各位期待已久的网页版 Google Earth终于来了。现在 Google Earth在电脑端不再是只以应用形式存在，Google 为桌面浏览器推出了专门版本，不过目前只支持 Chrome，未来会增加对其它主流浏览器的支持。移动端方面，则是 Android 版先行，而 iOS 版会在未来得到更新（该段文字引自《Google 地球网页版上线，点击探索者按钮开启环球旅程吧》，文末贴链接）。<br>嗯，终于进入了本篇的正题，虽然跑题的篇幅略长（其实我觉得也不算跑题）。<br>首先贴主页面，感觉整个页面很舒服。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419230159.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419230159.jpg" alt></p>
 <p>接下来介绍下功能。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419231659.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419231659.jpg" alt></p>
 <p>主菜单其实包括了下面的几个功能，也可以登录你的谷歌账户。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419231756.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419231756.jpg" alt></p>
 <p>定义地图样式。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419231917.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419231917.jpg" alt></p>
 <p>而网页版最主要的两个功能（探索者和知识卡片，貌似官方把知识卡片称之为运气不错）。<br>探索者是实现了在世界知名景点的虚拟旅游，包括嵌入了360°全景、VR以及谷歌街景。<br>ps，给我一个谷歌地球，我能在跑步机上走遍世界。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419232152.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419232152.jpg" alt></p>
 <p>这里尝试了下BBC的纪录片的这个虚拟旅游（在Youtube上，请自备梯子），这里只放了简单的gif图，后面有详细视频的链接。</p>
-<p><img src="http://blog.gisersqdai.top/gee2new.gif" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/gee2new.gif" alt></p>
 <p>知识卡片功能显示（随机到达2万个地点，都有知识卡片和简介）</p>
-<p><img src="http://blog.gisersqdai.top/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82GEE1~1.gif" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419233100.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82GEE1~1.gif" alt></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170419233100.jpg" alt></p>
 <p>Google Earth在2005年推出之后，引起了全球对GIS、空间科学的新一轮思考与认知。是Google Earth真真正正让GIS、VGI（Volunteer Geographical information，志愿者地理信息）和空间科学的理念普及到了千家万户。而这一次Google Earth网页版的推出，又将驱动VR（Vitrual Reality，虚拟现实技术）与三维GIS的进一步发展。对于地理教学方面，Gooogle Earth真正提供了一个0门槛，高质量的集成。可以期待的是，随着GEE开源，接下来GEE的发展将再次焕发生机。</p>
 <p>分享的链接：</p>
 <blockquote>
@@ -689,7 +689,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1557,7 +1557,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

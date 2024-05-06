@@ -178,7 +178,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -201,7 +201,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -357,20 +357,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/05/07/应用统计学与R语言实现学习笔记（五）——参数估计/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -413,7 +413,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -544,7 +544,7 @@ WIDGET = {FID: '839cdWVP67'}
 </ul>
 </blockquote>
 <p>二者的区别在于：点估计是一个数，区间估计给出一个区间，提供更多关于变异性的信息。通俗的解释，你女朋友买了件衣服，让你猜价格，你猜中准确价格很难，但是你猜一个范围还是准确度比较高的。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170507151334.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170507151334.jpg" alt></p>
 <p>所以区间估计(interval estimate)的概念是——根据样本统计量的抽样分布能够对样本统计量与总体参数的接近程度给出一个概率度量。<br>由概率度量则引出了置信区间（Confidence Intervals）的概念。</p>
 <p>$$ 设x_1,x_2,\cdots,x_n是来自f(x,\theta)的样本，对于给定的\alpha，0&lt;\alpha&lt;1, $$ $$ 如能找到两个统计量\theta_1(x_1,x_2,\cdots,x_n)和\theta_2(x_1,x_2,\cdots,x_n) $$ $$ 使得P[(\theta_1(x_1,x_2,\cdots,x_n)&lt;\theta&lt;\theta_2(x_1,x_2,\cdots,x_n)]\ge1-\alpha, $$ $$ 称(\theta_1(x_1,x_2,\cdots,x_n),\theta_2(x_1,x_2,\cdots,x_n))是\theta的置信度为1-\alpha的置信区间(Confidence interval);$$ $$ \theta_1,\theta_2为置信上限与置信下限,1-\alpha为置信度,\alpha为显著性水平(Significance level)。 $$</p>
 <p>置信区间实质上是由样本统计量所构造的总体参数的估计区间。在某种程度上确信这个区间包含真正的总体参数（用一个具体的样本所构造的区间是一个特定的区间，我们无法知道这个样本所产生的区间是否包含总<br>体参数的真值，我们只能是希望这个区间是大量包含总体参数真值的区间中的一个，但它也可能是少数几个不包含参数真值的区间中的一个）。置信区间表明了区间估计的精确性， 区间越小越精确，区间越大越不精确。<br>置信水平——将构造置信区间的步骤重复很多次，置信区间包含总体参数真值的次数所占的比例称为置信水平（置信度）。置信水平表明了区间估计的可靠性， 表示为 $ (1 - \alpha) $($\alpha$是总体参数未在区间内的比例， 区间估计不可靠的概率为$\alpha$， 如$\alpha$=0.05， 表明结论犯错误的概率为0.05),常用的置信水平值有99%, 95%, 90%。<br>那么什么样的置信区间是好的置信区间呢？也就是区间估计的评价标准是什么呢？一般包括如下两点：</p>
@@ -756,7 +756,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1640,7 +1640,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

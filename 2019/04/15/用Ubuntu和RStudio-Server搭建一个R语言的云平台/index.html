@@ -185,7 +185,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -208,7 +208,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -364,20 +364,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/04/15/用Ubuntu和RStudio-Server搭建一个R语言的云平台/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -420,7 +420,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -511,21 +511,21 @@ WIDGET = {FID: '839cdWVP67'}
 <p>事实上就是一个Web版的RStudio。</p>
 <h1><span id="2-r语言云平台搭建">2 R语言云平台搭建</span></h1><p>闲话少说，就来搭建平台吧。首先，这次我是在我自己的办公室的工作站上搭建，因此受到局域网限制，我主要是方便于使用办公室的工作站，某种意义上是个伪云平台。如果真的想搭建一个网络访问式的，必须购买服务器。阿里云等都是可以的。其次除了搭建平台外，由于平常主要在做一些空间分析类的处理，因此搭建完成后还会有一个小的样例代码就当是hello world。</p>
 <p>事实上平时使用工作站时，通常就是利用笔记本和XShell连接，然后就开始像六指琴魔一样疯狂敲击键盘，尤其是vim之类的编辑器。</p>
-<p><img src="http://blog.gisersqdai.top/1555310297995q2kjsygo.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1555310297995q2kjsygo.png" alt></p>
 <p>当然有些时候我们需要所见即所得的分析。因此搭建一个平台的需求就出来了。现在Xshell搭建平台。第一步是事实上是安装基础的R语言。这一步我们之前的博客已经介绍过了，不了解的同学可以看一下这篇博客。</p>
 <p><a href="http://gisersqdai.top/2017/04/09/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85R%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/">在Ubuntu中安装R的几种方式总结</a></p>
 <p>接着就安装gdebi-core。在Xshell里输入如下代码。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gdebi-core</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1555310555840vpnt65z2.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1555310555840vpnt65z2.png" alt></p>
 <p>接着下载RStudio Server的deb文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://download2.rstudio.org/rstudio-server-1.1.447-amd64.deb</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1555310575279k92rvazl.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1555310575279k92rvazl.png" alt></p>
 <p>下载完毕后，用gdebi安装并运行即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gdebi rstudio-server-1.1.447-amd64.deb</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1555310674600sdinxcrf.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1555310674600sdinxcrf.png" alt></p>
 <p>可以输入命令查看后台RStudio Server运行情况。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -fel | grep rstudio-server</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/15553107812103wp4imkv.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15553107812103wp4imkv.png" alt></p>
 <p>这里不建议用root账户来使用RStudio，类似之前搭建WSL里的数据科学环境，这里添加一个普通用户来使用。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser rstudio</span><br></pre></td></tr></table></figure>
 <p>接着就需要输入密码，根据自己需求输入密码，这就是等等页面里需要输入的用户和密码。这一步结束之后，可以直接打开对应的IP地址加上8787，RStudio默认在8787端口运行。</p>
@@ -535,12 +535,12 @@ WIDGET = {FID: '839cdWVP67'}
 <blockquote>
 <p><a href="http://192.81.132.143:8787/auth-sign-in" target="_blank" rel="noopener">http://192.81.132.143:8787/auth-sign-in</a></p>
 </blockquote>
-<p><img src="http://blog.gisersqdai.top/1555311140549un6c7m2x.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1555311140549un6c7m2x.png" alt></p>
 <p>登陆即可。</p>
-<p><img src="http://blog.gisersqdai.top/15553116996921wrshkr0.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15553116996921wrshkr0.png" alt></p>
 <h1><span id="3-hello-world">3 Hello World</span></h1><p>当然需求展示一下一个栅格数据。基于raster包，R语言里的神包。因此需要先安装raster，而此包又依赖于rgdal，而rgdal则要求必须安装GDAL。GDAL版本也有要求，因此这一块配置也是个需要花费一些功夫的地方。当然GDAL本身就是一个很棒的开源GIS库。这里就列一下资源。关于GDAL安装配置等以后找个时间专门讲。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(raster)</span><br><span class="line">filerall &lt;- raster(<span class="string">"/home/Workspace/python/Xiamenair/data/pm25halfyear.tif"</span>)</span><br><span class="line">spplot(filerall)</span><br></pre></td></tr></table></figure>
-<p><img src="http://blog.gisersqdai.top/1555311869189ppxg3eih.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1555311869189ppxg3eih.png" alt></p>
 <p>参考资料：</p>
 <p><a href="http://jianghao.wang/post/2018-01-23-rstudio-server/" target="_blank" rel="noopener">Configure Rstudio Server on Ubuntu 16.04</a></p>
 <p><a href="http://jianghao.wang/ucasgisapp/ex1.html" target="_blank" rel="noopener">Urban Data Science — Ex 1: Tools</a></p>
@@ -704,7 +704,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1588,7 +1588,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

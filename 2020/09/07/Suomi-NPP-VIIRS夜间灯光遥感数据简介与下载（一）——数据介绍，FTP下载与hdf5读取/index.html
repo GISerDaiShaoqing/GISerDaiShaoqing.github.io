@@ -195,7 +195,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -218,7 +218,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -374,20 +374,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/09/07/Suomi-NPP-VIIRS夜间灯光遥感数据简介与下载（一）——数据介绍，FTP下载与hdf5读取/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -430,7 +430,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/RS/" itemprop="url" rel="index">
                     <span itemprop="name">RS</span>
                   </a>
@@ -515,7 +515,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       
         <script src="\assets\js\APlayer.min.js"> </script><p>失踪人口回归+爷青回，本篇介绍下Suomi NPP VIIRS夜间灯光遥感数据下载。</p>
-<p><img src="http://blog.gisersqdai.top/1599598643361md1strze.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599598643361md1strze.png" alt></p>
 <a id="more"></a> 
 <h1><span id="1-夜间灯光遥感数据简介">1 夜间灯光遥感数据简介</span></h1><p>夜间灯光遥感数据就是指利用遥感技术捕捉夜晚地球上的灯光分布状况，可以有效反映人类活动的空间分布，因此常用于各类社会经济数据方面的遥感反演。这方面应用的知名案例包括武汉大学李德仁院士与李熙老师利用夜间灯光监测叙利亚战争状况，斯坦福大学利用夜间灯光与机器学习算法识别全球贫困人群等。</p>
 <p>当前常用的夜间灯光遥感数据主要是两个卫星，一个是DMSP(Defense Meteorological Sate-llite Program)是美国国防部的极轨卫星计划，传感器空间分辨率为3000 m，生产的夜光遥感产品空间分辨率通常为1000 m，同时DMPS夜光遥感数据是当前最长时间序列的夜光遥感数据（自1992-2013），可以提供长时间序列连续的夜光遥感监测。另一个则是2011年发射的新一代对地观测卫星Suomi NPP，该卫星搭载的可见光/红外辐射成像仪（Visible Infrared Imaging Radiometer Suit，VIIRS）能够获取新的夜间灯光遥感影像(Day/Night Band，DNB波段)，空间分辨率也提高到750 m（以下简称NPP-DNB），生产的夜间灯光遥感产品空间分辨率通常为500 m。这两个卫星以外，还有一些其他相关的夜间灯光卫星，但是数据较少，且不易获取。值得注意的是，2018年中国也发射了自己的首颗专业夜间灯光卫星（由武汉大学设计与发射）——珞珈一号。</p>
@@ -535,35 +535,35 @@ WIDGET = {FID: '839cdWVP67'}
 <p>“火石（Flint）”产品主页：<a href="http://satsee.radi.ac.cn/cfimage/nightlight/" target="_blank" rel="noopener">http://satsee.radi.ac.cn/cfimage/nightlight/</a></p>
 <p>科普中国文章“    5年夜光遥感监测合成，中科院版全球高清夜光数据集来了！”:<a href="http://www.kepuchina.cn/wiki/yzts/201805/t20180518_629897.shtml" target="_blank" rel="noopener">http://www.kepuchina.cn/wiki/yzts/201805/t20180518_629897.shtml</a></p>
 <h2><span id="2-日尺度产品下载">2 日尺度产品下载</span></h2><p>本篇博客主要介绍NPP夜间灯光遥感数据日尺度产品的下载。目前NOAA官网提供从当天起到60天前的日尺度夜间灯光产品，全球被分割为6块。</p>
-<p><img src="http://blog.gisersqdai.top/1599509938887qx8wqa5s.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599509938887qx8wqa5s.png" alt></p>
 <p>NOAA NPP夜间灯光遥感数据日尺度产品下载地址：<a href="https://ngdc.noaa.gov/eog/viirs/download_ut_mos.html" target="_blank" rel="noopener">https://ngdc.noaa.gov/eog/viirs/download_ut_mos.html</a></p>
 <p>初次外，NOAA也提供了过往的历史日尺度数据下载，被集成在NOAA的综合大型数组数据管理系统（The Comprehensive Large Array-data Stewardship System，CLASS）中。</p>
 <p>NOAA CLASS系统：<a href="https://www.bou.class.noaa.gov/saa/products/welcome" target="_blank" rel="noopener">https://www.bou.class.noaa.gov/saa/products/welcome</a></p>
 <p>如果想下载需要先注册该网站的账户，接着选择传感器，NPP夜间灯光遥感数据请选择VIIRS_SDR的数据。</p>
-<p><img src="http://blog.gisersqdai.top/15995104869663etkpm0k.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15995104869663etkpm0k.png" alt></p>
 <p>点击GO以后，跳转到如下的页面。</p>
-<p><img src="http://blog.gisersqdai.top/1599510594666dxmym0gk.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599510594666dxmym0gk.png" alt></p>
 <p>接着可以设置感兴趣研究区以及研究时间段。</p>
-<p><img src="http://blog.gisersqdai.top/1599516610519gr44ssiu.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599516610519gr44ssiu.png" alt></p>
 <p>选择所需的波段。</p>
-<p><img src="http://blog.gisersqdai.top/1599516656903w9vmqmuv.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599516656903w9vmqmuv.png" alt></p>
 <p>NPP夜间灯光遥感数据常用的波段文件为以下两个，一个是DNB数据。</p>
-<p><img src="http://blog.gisersqdai.top/1599516874222pr0u50o9.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599516874222pr0u50o9.png" alt></p>
 <p>另一个是对应的定位数据。</p>
-<p><img src="http://blog.gisersqdai.top/1599516714025kyebkhlz.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599516714025kyebkhlz.png" alt></p>
 <p>选择完毕以后，点击quick search % order。</p>
-<p><img src="http://blog.gisersqdai.top/15995171206856ipn3fc6.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15995171206856ipn3fc6.png" alt></p>
 <p>接下来就会等收到NOAA CLASS的下载邮件（如下图）。</p>
-<p><img src="http://blog.gisersqdai.top/1599517214228s7uk5q9k.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599517214228s7uk5q9k.png" alt></p>
 <p>这个数据同样是采用FTP进行下载，对于FTP不了解的同学可以翻一下前面这篇博客：<a href="http://gisersqdai.top/2020/03/25/%E8%91%B5%E8%8A%B18%E5%8F%B7%E5%8D%AB%E6%98%9F%E6%95%B0%E6%8D%AE%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D%E4%B8%8EFTP%E4%B8%8B%E8%BD%BD/">葵花8号卫星数据简介与下载（一）——数据介绍与FTP下载</a>。</p>
 <p>这里不赘述FileZilla软件的安装，只介绍如何配置FTP站点进行下载。</p>
-<p><img src="http://blog.gisersqdai.top/1599517390567aktie2hx.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599517390567aktie2hx.png" alt></p>
 <p>点击站点管理器。主机地址就是邮件最上面第一行FTP地址，用户为anonymous，密码为user@internet。设置完毕点击连接。</p>
-<p><img src="http://blog.gisersqdai.top/1599517419345w42x5oeq.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599517419345w42x5oeq.png" alt></p>
 <p>接下来会看到很多文件夹。根据你的订单号找到对应的文件夹下。</p>
-<p><img src="http://blog.gisersqdai.top/1599517534585yg906ht2.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599517534585yg906ht2.png" alt></p>
 <p>然后把选择的文件拖拽到左边的本地文件夹即可下载。</p>
-<p><img src="http://blog.gisersqdai.top/15995178511970trlxede.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/15995178511970trlxede.png" alt></p>
 <p>NPP夜间灯光遥感数据用户文档：<a href="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf" target="_blank" rel="noopener">https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf</a></p>
 <p>NPP夜间灯光遥感数据初学者slides。</p>
 
@@ -575,13 +575,13 @@ WIDGET = {FID: '839cdWVP67'}
 
 
 <p>数据命名规则。</p>
-<p><img src="http://blog.gisersqdai.top/1599518806811tghzzn76.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599518806811tghzzn76.png" alt></p>
 <p>除了以上数据，日尺度的产品数据还有NASA制作的一套校正产品——NASA Black Marble Product。</p>
 <p>下载链接：<a href="https://viirsland.gsfc.nasa.gov/Products/NASA/BlackMarble.html" target="_blank" rel="noopener">https://viirsland.gsfc.nasa.gov/Products/NASA/BlackMarble.html</a></p>
 <h1><span id="3-npp夜间灯光遥感数据读取与可视化">3 NPP夜间灯光遥感数据读取与可视化</span></h1><h2><span id="1-google-earth-engine">1 Google Earth Engine</span></h2><p>Google Earth Engine是Google推出的行星尺度的遥感云计算平台，提供了大量遥感数据的集成与运算工具。同时也包括DMSP和NPP夜间灯光遥感数据（月尺度和年尺度）。这里给出样例的可视化代码。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataset = ee.ImageCollection(<span class="string">'NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG'</span>)</span><br><span class="line">                  .filter(ee.Filter.date(<span class="string">'2020-01-01'</span>, <span class="string">'2020-02-28'</span>));</span><br><span class="line"><span class="keyword">var</span> nighttime = dataset.select(<span class="string">'avg_rad'</span>);</span><br><span class="line"><span class="keyword">var</span> nighttimeVis = &#123;<span class="attr">min</span>: <span class="number">0.0</span>, <span class="attr">max</span>: <span class="number">60.0</span>&#125;;</span><br><span class="line"><span class="built_in">Map</span>.setCenter(<span class="number">-77.1056</span>, <span class="number">38.8904</span>, <span class="number">8</span>);</span><br><span class="line"><span class="built_in">Map</span>.addLayer(nighttime, nighttimeVis, <span class="string">'Nighttime'</span>);</span><br></pre></td></tr></table></figure>
 <p>运行结果。</p>
-<p><img src="http://blog.gisersqdai.top/1599518460569yn7ranlk.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599518460569yn7ranlk.png" alt></p>
 <p>月尺度和年尺度产品提供的是tiff产品。可以在ArcGIS和ENVI里进行进一步处理。</p>
 <h2><span id="2-日尺度hdf5数据读取与可视化envi">2 日尺度hdf5数据读取与可视化（ENVI）</span></h2><p>关于用ENVI读取日尺度hdf5数据的方式，详情参见以下ENVI/IDL博客与L3HARRIS。</p>
 <p><a href="http://blog.sina.com.cn/s/blog_764b1e9d0102zzvk.html#cmt_5F0C3F16-B7EC438A-17C53590C-83A-8D3" target="_blank" rel="noopener">夜光遥感数据处理 </a></p>
@@ -591,13 +591,13 @@ WIDGET = {FID: '839cdWVP67'}
 <p>hdf5是一个在科学计算领域有广泛应用的数据格式，可以理解为多个文件夹压缩而成的格式。对于这类文件读取，首先需要先了解文件的结构才能读取。这里采用的命令就是h5ls。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h5ls(filename)</span><br></pre></td></tr></table></figure>
 <p>filename为hdf5文件名。如下图所示给出了NPP夜间灯光遥感数据hdf5文件的具体结构。</p>
-<p><img src="http://blog.gisersqdai.top/1599594677581fruhd7c1.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599594677581fruhd7c1.png" alt></p>
 <p>我们所需要用到的属性包括All_Data/VIIRS-DNB-GEO_All/下的Longitude和Latitude，以及All_Data/VIIRS-DNB-SDR_All/下的radiance，即夜间灯光DNB波段值。利用h5read函数读取这几个数据，命令行如下。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dnblat &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-GEO_All/Latitude'</span>)</span><br><span class="line">dnblon &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-GEO_All/Longitude'</span>)</span><br><span class="line">dnbrad &lt;- h5read(filename, <span class="string">'All_Data/VIIRS-DNB-SDR_All/Radiance'</span>)</span><br></pre></td></tr></table></figure>
 <p>这样即得到了夜间灯光遥感数据矩阵形式存储的经度，纬度以及波段值。接下来将三个矩阵组合成一个栅格即可。根据如下代码即可得到一个栅格数据。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">radpts &lt;- cbind(long = as.vector(dnblon), lat = as.vector(dnblat), rad = as.vector(dnbrad))</span><br><span class="line">radpts &lt;- data.frame(radpts)</span><br><span class="line">colnames(radpts) &lt;- c(<span class="string">"x"</span>, <span class="string">"y"</span>, <span class="string">"radiance"</span>)</span><br><span class="line">e &lt;- extent(randpts[, (<span class="number">1</span>:<span class="number">2</span>)])</span><br><span class="line">r &lt;- raster(e, ncol = ncol(dnbrad), nrow = nrow(dnbrad), crs = <span class="string">"+proj=longlat + datum=WGS84"</span>)</span><br><span class="line">radr &lt;- rasterize(radpts[, (<span class="number">1</span>:<span class="number">2</span>), r, radpts[,<span class="number">3</span>], fun = mean)</span><br></pre></td></tr></table></figure>
 <p>简单可视化结果如图。</p>
-<p><img src="http://blog.gisersqdai.top/1599598714348maibxtc5.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/1599598714348maibxtc5.png" alt></p>
 <p>另外可以看到这个DNB波段值数值较小，是经过缩放的，需要乘以10的9次方使得DNB波段值呈现正常范围。当然日尺度的数据由于云，月相等因素的影响，质量还有待提升。</p>
 <p>这里也提供一些转换NASA的hdf5夜间灯光遥感相关数据的代码。</p>
 <p><a href="https://git.earthdata.nasa.gov/projects/LPDUR/repos/nasa-viirs/browse/scripts/VIIRS_HDF5toGeoTIFF.R" target="_blank" rel="noopener">VIIRS_HDF5toGeoTIFF.R</a></p>
@@ -768,7 +768,7 @@ WIDGET = {FID: '839cdWVP67'}
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1652,7 +1652,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

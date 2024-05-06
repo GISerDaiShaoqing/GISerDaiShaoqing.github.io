@@ -186,7 +186,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -209,7 +209,7 @@
       octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
       @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -365,20 +365,20 @@ WIDGET = {FID: '839cdWVP67'}
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/05/06/应用统计学与R语言实现学习笔记（四）——抽样方法与抽样分布/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dai Shaoqing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GISerDaiShaoqing's Blog">
     </span>
 
@@ -421,7 +421,7 @@ WIDGET = {FID: '839cdWVP67'}
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Applied-Statistics/" itemprop="url" rel="index">
                     <span itemprop="name">Applied Statistics</span>
                   </a>
@@ -549,8 +549,8 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>下图给出了两个图（一个是用核密度生成的曲线，一个是正态分布概率密度函数）来说明以上的部分性质（具体实现的R语言代码会在笔记写完后给出）。</p>
-<p><img src="http://blog.gisersqdai.top/ndplot2.jpg" alt=""></p>
-<p><img src="http://blog.gisersqdai.top/ndplot.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/ndplot2.jpg" alt></p>
+<p><img src="http://blog.gisersqdai.top/ndplot.jpg" alt></p>
 <p>标准正态分布就是指均值为0，标准差为1的正态分布。通过标准正态分布可以很方便地求算各种概率，所以实际应用中，往往将正态分布数据通过标准化的方式转化为标准正态分布求解具体概率。<br>即令<br>$$ Z=\frac{x-\mu}{\sigma} $$<br>则Z服从标准正态分布。<br>那么如何检验数据的正态性呢？一般有以下几种方法：</p>
 <blockquote>
 <ul>
@@ -560,7 +560,7 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>一般可以通过画这个图来进行检验（代码同在笔记写完后给出）。</p>
-<p><img src="http://blog.gisersqdai.top/ndplot3.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/ndplot3.jpg" alt></p>
 <p>或者计算四分位差和标准差比值。<br>这里给出这个方法的R语言实现(用户自编函数）。</p>
 <pre><code>Normaltestindex&lt;-function(x) { 
     q=fivenum(x)
@@ -592,9 +592,9 @@ n&lt;-sample(N,n,replace = FALSE)
     Psd=sqrt(sum((x-m)^2)/n)
     cat(&quot;The Standard deviation of Population : &quot;,Psd)
     }
-</code></pre><p><img src="http://blog.gisersqdai.top/ndplot4.jpg" alt=""></p>
+</code></pre><p><img src="http://blog.gisersqdai.top/ndplot4.jpg" alt></p>
 <p>建立n=2的抽样分布，样本均值分布如下，均值为21，方差为1.58</p>
-<p><img src="http://blog.gisersqdai.top/ndplot5.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/ndplot5.jpg" alt></p>
 <p>可以发现总体分布是均匀分布，而样本均值的抽样分布却呈现了近似正态分布，均值是相同的，但是方差却有差异。<br>根据总体分布以及样本容量可以将抽样分布分为以下三类：</p>
 <blockquote>
 <ul>
@@ -611,7 +611,7 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>用一张图来说明这个定理（摘自参考书目1：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.）。</p>
-<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170506153952.jpg" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170506153952.jpg" alt></p>
 <p>当然也在这里诞生了一个统计学闻名于世的规定，样本容量n一般至少要求&gt;30。<br>因此样本均值的抽样分布中，样本均值的数学期望（也就是均值）和方差就有对应的公式了。<br>样本均值的数学期望和方差：<br>数学期望：<br>$$ E(\bar x) =\mu $$<br>方差：</p>
 <p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n} （重复抽样）,$$ </p>
 <p>$$ \sigma_{\bar x}^2=\frac{\sigma^2}{n}\frac{N-n}{N-1} （样本总体有限，且n\ge 5\%N不重复抽样）$$</p>
@@ -637,7 +637,7 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>卡方分布的性质可以根据这张图来看。</p>
-<p><img src="http://blog.gisersqdai.top/Rplot6.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/Rplot6.png" alt></p>
 <p>卡方分布一般用于样本方差的分布的计算。<br>样本方差的分布——在重复选取容量为n的样本时， 由样本方差的所有可能取值形成的相对频数分布。<br>对于来自正态总体的简单随机样本，则比值<br>$$ \frac{(n-1)s^2}{\sigma^2} $$<br>该比值的抽样分布服从<br>$$ 自由度为(n-1)的\chi^2分布，即 \frac{(n-1)s^2}{\sigma^2}\sim \chi^2(n-1) $$</p>
 <p>接着再介绍一个耳熟能详的t分布。t 分布是类似正态分布的一种对称分布， 它通常要比正态分布平坦和分散。<br>t分布的性质和特点如下：</p>
 <blockquote>
@@ -649,7 +649,7 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>t分布的性质可以根据这张图来看。</p>
-<p><img src="http://blog.gisersqdai.top/Rplot7.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/Rplot7.png" alt></p>
 <p>t分布的应用是在求样本均值与样本标准差之比上<br>样本均值与样本标准差之比的分布为：<br>$$ t=\frac{\bar x-\mu}{s/\sqrt{n}}\sim t(n-1) $$<br>自由度为(n-1)的t 分布</p>
 <h3><span id="5两个总体样本统计量的抽样分布">5.两个总体样本统计量的抽样分布</span></h3><p>其实从前面第4点内容可以看出，其实实际应用中，均值、比例、方差的估计是比较多的，因此这三个总体样本统计量的抽样分布特别提出来了。而第4点讨论的是一个总体的，两个总体的也可以类比，道理是一样的。<br>两个样本均值之差的抽样分布：</p>
 <blockquote>
@@ -669,7 +669,7 @@ n&lt;-sample(N,n,replace = FALSE)
 </ul>
 </blockquote>
 <p>最后的最后，我们来介绍本片的最后一个重要的分布——F分布。<br>F分布：<br>$$ 设若U为服从自由度为n_1的\chi^2分布，即U\sim \chi^2(n_1), $$ $$ V为服从自由度为n_2的\chi^2分布，即V\sim \chi^2(n_2),且U与V相互独立, $$ $$ F=\frac{U/n_1}{V/n_2},F服从自由度n_1和n_2的F分布, $$ $$记为 F\sim F(n_1,n_2) $$<br>不同自由度下的F分布</p>
-<p><img src="http://blog.gisersqdai.top/Rplot8.png" alt=""></p>
+<p><img src="http://blog.gisersqdai.top/Rplot8.png" alt></p>
 <p>两个样本方差比的抽样分布：</p>
 <blockquote>
 <ul>
@@ -845,7 +845,7 @@ n&lt;-sample(N,n,replace = FALSE)
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Dai Shaoqing">
             
@@ -1729,7 +1729,7 @@ show_date_time();
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
