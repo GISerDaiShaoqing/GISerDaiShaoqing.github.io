@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现学习笔记（一）——简介">
+<meta property="og:url" content="https://gisersqdai.top/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="Chapter 1 Introduction本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：贾俊平，《统计学》（第五版），中国人民大学出版社，2012.何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.本篇为第一章节，也就是Introduction（简介）部分。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170501221059.jpg">
+<meta property="article:published_time" content="2017-05-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-18T08:18:12.126Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Theory">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170501221059.jpg">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/","path":"2017/05/02/应用统计学与R语言实现学习笔记（一）——简介/","title":"应用统计学与R语言实现学习笔记（一）——简介"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>应用统计学与R语言实现学习笔记（一）——简介 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-1-Introduction"><span class="nav-text">Chapter 1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BB%8E%E9%97%AE%E9%A2%98%E8%AF%B4%E8%B5%B7"><span class="nav-text">1.从问题说起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8F%8A%E5%85%B6%E7%A0%94%E7%A9%B6%E8%BF%87%E7%A8%8B"><span class="nav-text">2.统计学及其研究过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="nav-text">3.统计方法及其应用领域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">4.统计数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">5.统计学中的几个基本概念</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="应用统计学与R语言实现学习笔记（一）——简介 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          应用统计学与R语言实现学习笔记（一）——简介
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-05-02 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-02T00:00:00+08:00">2017-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Applied-Statistics/" itemprop="url" rel="index"><span itemprop="name">Applied Statistics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 Introduction"></a>Chapter 1 Introduction</h1><p>本部分内容是我这学期公选课《应用统计学》的学习笔记，主要参考书目为如下两本：<br>贾俊平，《统计学》（第五版），中国人民大学出版社，2012.<br>何晓群，《多元统计分析》（第三版），中国人民大学出版社，2012.<br>本篇为第一章节，也就是Introduction（简介）部分。<span id="more"></span> </p>
+<h3 id="1-从问题说起"><a href="#1-从问题说起" class="headerlink" title="1.从问题说起"></a>1.从问题说起</h3><p>常常听到的一句话，好的科学论文解决一个科学问题，科学的诞生本身就和问题离不开。老生常谈的就是像牛顿被苹果砸了之后，就想到一个问题，为啥苹果不飞上天和太阳肩并肩呢？<br>我答：因为会被烤焦。<br>。。。<br>嗯，幽默一下。<br>总结下来说，科研中有很多问题跟统计学相关（笔者是地学和生态学背景，就提点接地气的问题）。<br>譬如：<br>（1)人口研究当中，我们希望了解65岁以上老年人所占的比例，以便于我们更好地研究老龄化的问题。<br>（2)从几个监测站点的汽车尾气监测推断今天北京市的汽车尾气排放是否达到大气污染物排放标准。<br>（3）影响植物光合作用的因素是什么，各个因素的影响有多大？<br>以及等等等。<br>总结来说，可以分为以下的几类：<br>（1）统计量问题；（2）参数（推断统计）问题；（3）归因问题；（4）预测问题。</p>
+<h3 id="2-统计学及其研究过程"><a href="#2-统计学及其研究过程" class="headerlink" title="2.统计学及其研究过程"></a>2.统计学及其研究过程</h3><p>那么统计学又是什么呢？</p>
+<blockquote>
+<p>statistics: the science of collecting,analyzing, presenting, and interpreting data.<br>Copyright 1994-2000 Encyclopaedia Britannica, In</p>
+</blockquote>
+<p>翻译过来就是</p>
+<blockquote>
+<p>统计学是收集、分析、表述和解释数据的科学（ 不列颠百科全书）</p>
+</blockquote>
+<p>所以统计学包括了：</p>
+<blockquote>
+<ul>
+<li>数据收集：取得数据</li>
+<li>数据处理：整理与图表展示</li>
+<li>数据分析：利用统计分析方法分析数据</li>
+<li>数据解释：结果的说明</li>
+<li>得到结论：从数据分析中得出客观结论。</li>
+</ul>
+</blockquote>
+<p>同时跟统计学密切相关的就是概率论。这二者都是研究随机现象数量规律的学科。而二者的区别可以用一张图来形象体现：</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170501221059.jpg"></p>
+<p>也就是说，概率论是——我知道箱子里面是什么样的，我想知道我拿在手里的球是什么样的可能性分别有多大。统计学则是——我不知道箱子里面是什么样的，但是我已经知道我拿在手里的球是什么样的，我想靠我手里的球的样子去推断箱子是什么样的。<br>有兴趣的也可以查看知乎上的回答。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20269390">https://www.zhihu.com/question/20269390</a></p>
+</blockquote>
+<p>总结起来，统计学的研究过程就像下面的流程图。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 实际问题</span><br><span class="line">op1=&gt;operation: 收集数据（取得数据）</span><br><span class="line">op2=&gt;operation: 整理数据（处理数据）</span><br><span class="line">op3=&gt;operation: 分析数据（研究数据）</span><br><span class="line">op4=&gt;operation: 解释数据（结果说明）</span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4</span><br></pre></td></tr></table></figure>
+
+<p>当然这里面很容易出问题的是解释数据——数学上有意义，并不代表现实中有意义，非常容易出现很多的悖论。<br>比如太阳升起的时间与每个人起床时间相关性很高，但是我不能说因为每个人都起床了，所以太阳升起了。</p>
+<h3 id="3-统计方法及其应用领域"><a href="#3-统计方法及其应用领域" class="headerlink" title="3.统计方法及其应用领域"></a>3.统计方法及其应用领域</h3><p>从前面提到的我们知道，统计方法是通过已知的观测数据去分析随机现象的数量规律。因此统计方法就包括了两大部分：描述统计与推断统计。<br>其实核心就在于我们所观测的样本是否等于总体。<br>样本&#x3D;总体，那么使用描述统计就能够用来描述我们所研究的现象。<br>样本≠总体，那么使用推断统计才能较为准确地描述我们所研究的现象。<br>事实上，近年来火热的大数据就是因为技术（传感器等）发展，我们足够获取可以近似等于全样本甚至全样本的数据而不是以往的样本数据所引起的一场变革，也就是说是由数据驱动的变革。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 统计方法</span><br><span class="line">e=&gt;end: 结论</span><br><span class="line">sub=&gt;subroutine: 描述统计</span><br><span class="line">cond1=&gt;condition: 样本=总体？</span><br><span class="line">cond2=&gt;condition: 分布已知？</span><br><span class="line">op1=&gt;operation: 推断统计</span><br><span class="line">op2=&gt;operation: 参数估计</span><br><span class="line">op3=&gt;operation: 假设检验</span><br><span class="line">st-&gt;cond1(no)-&gt;op1-&gt;cond2(no)-&gt;op2-&gt;e</span><br><span class="line">cond1(yes)-&gt;sub-&gt;e</span><br><span class="line">cond2(yes)-&gt;op3-&gt;e</span><br></pre></td></tr></table></figure>
+
+<p>统计学应用领域十分广泛，这里就不细谈了。</p>
+<h3 id="4-统计数据类型"><a href="#4-统计数据类型" class="headerlink" title="4.统计数据类型"></a>4.统计数据类型</h3><p>由于应用广泛，所以统计数据类型也是多样化的。不同的划分标准类型也不相同：<br>（1）按照计量层次划分</p>
+<blockquote>
+<ul>
+<li>分类数据</li>
+<li>顺序数据</li>
+<li>数值数据</li>
+</ul>
+</blockquote>
+<p>（2）按收集方法划分</p>
+<blockquote>
+<ul>
+<li>调查观察数据</li>
+<li>试验数据</li>
+</ul>
+</blockquote>
+<p>（3）按时间状况划分</p>
+<blockquote>
+<ul>
+<li>截面数据</li>
+<li>时序数据</li>
+</ul>
+</blockquote>
+<h3 id="5-统计学中的几个基本概念"><a href="#5-统计学中的几个基本概念" class="headerlink" title="5.统计学中的几个基本概念"></a>5.统计学中的几个基本概念</h3><p>统计学中的基本概念分别是：</p>
+<blockquote>
+<ul>
+<li>总体（population）</li>
+<li>样本（sample)</li>
+<li>参数（parameter)</li>
+<li>统计量（statistic)</li>
+<li>变量（variable)</li>
+</ul>
+</blockquote>
+<p>总体——研究对象的全体<br>样本——研究对象的部分个体，观测数据<br>参数——用来描述总体的数学度量<br>统计量——用来描述样本的数学度量<br>变量——描述现象的某种特征</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 总体（参数）</span><br><span class="line">op=&gt;operation: 样本（统计量）</span><br><span class="line">st(right)-&gt;op</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Theory/" rel="tag"># Theory</a>
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/01/%E5%85%B3%E4%BA%8EGit%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/" rel="prev" title="关于Git使用的一些心得">
+                  <i class="fa fa-angle-left"></i> 关于Git使用的一些心得
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/05/04/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86/" rel="next" title="应用统计学与R语言实现学习笔记（二）——数据收集">
+                  应用统计学与R语言实现学习笔记（二）——数据收集 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2017/05/02/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%AE%80%E4%BB%8B/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

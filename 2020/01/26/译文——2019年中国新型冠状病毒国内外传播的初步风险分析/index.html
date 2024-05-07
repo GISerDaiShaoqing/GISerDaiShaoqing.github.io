@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="中国春节伊始，没想到我们就面临着一场严峻的疫情考验，作为一名ISLE团队的研究者，献上一篇相关风险分析的译文。希望为抗击疫情贡献一份微薄之力。 本文原始链接 图片来自WorldPop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译文——2019年中国新型冠状病毒国内外传播的初步风险分析">
+<meta property="og:url" content="https://gisersqdai.top/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="中国春节伊始，没想到我们就面临着一场严峻的疫情考验，作为一名ISLE团队的研究者，献上一篇相关风险分析的译文。希望为抗击疫情贡献一份微薄之力。 本文原始链接 图片来自WorldPop">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1580050453671uacts24r.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1580044528386awl1pxt9.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1580049417429ljm0pxzv.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1580049545676xur8bhff.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/158004999512696la2dv1.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/158005031800323eoolri.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1580050453671uacts24r.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15800514762215gd2ffqg.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1580065561877mwomq9az.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15800721525202r642swy.png">
+<meta property="article:published_time" content="2020-01-26T05:12:00.000Z">
+<meta property="article:modified_time" content="2020-03-10T08:55:43.709Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Academic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1580050453671uacts24r.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/","path":"2020/01/26/译文——2019年中国新型冠状病毒国内外传播的初步风险分析/","title":"译文——2019年中国新型冠状病毒国内外传播的初步风险分析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>译文——2019年中国新型冠状病毒国内外传播的初步风险分析 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%96%87%E7%AB%A0%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="nav-text">1 文章相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%AD%A3%E6%96%87%E7%BF%BB%E8%AF%91"><span class="nav-text">2 正文翻译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%99%84%E5%9B%BE"><span class="nav-text">3 附图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%EF%BC%9A%E5%9B%BD%E5%86%85%E8%BF%81%E5%BE%99"><span class="nav-text">3.1 第一部分：国内迁徙</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-2-%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%EF%BC%9A%E5%A4%A7%E9%99%86%E5%A4%96%E5%87%BA%E8%A1%8C"><span class="nav-text">3.2 第二部分：大陆外出行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-text">4 参考文献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%90%8E%E8%AE%B0"><span class="nav-text">5 后记</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="译文——2019年中国新型冠状病毒国内外传播的初步风险分析 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          译文——2019年中国新型冠状病毒国内外传播的初步风险分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-26 13:12:00" itemprop="dateCreated datePublished" datetime="2020-01-26T13:12:00+08:00">2020-01-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Translation/" itemprop="url" rel="index"><span itemprop="name">Translation</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>21 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>中国春节伊始，没想到我们就面临着一场严峻的疫情考验，作为一名ISLE团队的研究者，献上一篇相关风险分析的译文。希望为抗击疫情贡献一份微薄之力。</p>
+<p><a target="_blank" rel="noopener" href="https://www.worldpop.org/events/china">本文原始链接</a></p>
+<p><img src="http://blog.gisersqdai.top/1580050453671uacts24r.png"><br>图片来自<a target="_blank" rel="noopener" href="https://www.worldpop.org/events/china">WorldPop</a></p>
+<span id="more"></span>
+
+<h1 id="1-文章相关信息"><a href="#1-文章相关信息" class="headerlink" title="1 文章相关信息"></a>1 文章相关信息</h1><p><a target="_blank" rel="noopener" href="https://www.worldpop.org/resources/docs/china/WorldPop-coronavirus-spread-risk-analysis-v1-25Jan.pdf">翻译原文pdf</a></p>
+<p>Title: Preliminary risk analysis of 2019 novel coronavirus spread within and beyond China</p>
+<p>题目: 2019年中国新型冠状病毒国内外传播的初步风险分析。</p>
+<p>Author: </p>
+<blockquote>
+<ul>
+<li>Shengjie Lai-1</li>
+<li>Isaac I. Bogoch-2, </li>
+<li>Alexander Watts-3,4</li>
+<li>Kamran Khan-2,3,4</li>
+<li>Zhongjie Li-5</li>
+<li>Andrew Tatem-1</li>
+</ul>
+</blockquote>
+<p><em>注: 作者姓名-后的数字代表对应的单位</em></p>
+<p>Affiliation: </p>
+<blockquote>
+<ul>
+<li>1 WorldPop, School of Geography and Environmental Science, University of<br>Southampton, UK，</li>
+<li>2 Department of Medicine, University of Toronto, Toronto, Canada</li>
+<li>3 Li Ka Shing Knowledge Institute, St. Michael’s Hospital, Toronto, Canada</li>
+<li>4 Bluedot, Toronto, Canada</li>
+<li>5 Division of Infectious Diseases, Chinese Centre for Disease Control and Prevention</li>
+</ul>
+</blockquote>
+<p>联系原作者方式: <a href="mailto:&#83;&#104;&#x65;&#x6e;&#x67;&#x6a;&#x69;&#x65;&#x2e;&#x4c;&#97;&#x69;&#x40;&#115;&#111;&#x74;&#x6f;&#x6e;&#x2e;&#x61;&#x63;&#x2e;&#x75;&#107;">&#83;&#104;&#x65;&#x6e;&#x67;&#x6a;&#x69;&#x65;&#x2e;&#x4c;&#97;&#x69;&#x40;&#115;&#111;&#x74;&#x6f;&#x6e;&#x2e;&#x61;&#x63;&#x2e;&#x75;&#107;</a>; <a href="mailto:&#65;&#46;&#x4a;&#x2e;&#x54;&#97;&#116;&#101;&#x6d;&#64;&#115;&#111;&#x74;&#x6f;&#110;&#46;&#97;&#x63;&#46;&#117;&#107;">&#65;&#46;&#x4a;&#x2e;&#x54;&#97;&#116;&#101;&#x6d;&#64;&#115;&#111;&#x74;&#x6f;&#110;&#46;&#97;&#x63;&#46;&#117;&#107;</a></p>
+<h1 id="2-正文翻译"><a href="#2-正文翻译" class="headerlink" title="2 正文翻译"></a>2 正文翻译</h1><p>截止至北京时间2020年1月25日，中国报告确诊2019新型冠状病毒（2019-nCoV）感染确诊病例1409人，疑似病例2032人，死亡病例42人，大部分病例来自湖北省武汉市。几乎所有省份都确诊了来自武汉的输入性病例，同时一些省份还报告了部分二次传播的病例。由于中国正处于长达40天的春节长假期间（从2020年1月10日到2月18日），国内迁徙旅游人数激增——这是世界上规模最大的年度人类迁徙，包括数亿人在整个国家范围内的迁徙，这可能加剧了病毒的传播。</p>
+<p>本文使用消除了个人隐私信息并聚合过的2013到2015年人口流动数据，该数据来自百度基于位置信息的服务（LBS服务）数据，以及从国际航空运输组织（IATA）获得的2018年国际航空出行数据来探究从武汉到中国其他城市的迁徙者的流动模式，并分析在春运迁徙期间的2019-nCoV病毒在整个中国以及中国之外传播的风险。</p>
+<p>本文使用2013到2015的LBS数据发现大规模的迁徙者在春节前倾向于从武汉前往相邻城市或者其他中国大城市（图1到图3以及表1到表3）。输入性病例的数量与在春节前两周内来自武汉的输入风险具有高度相关性（图4）。此外，大部分外地的输入性病例在疾病暴发初期都出现了病征。尽管从2020年1月23日起，湖北省武汉市和其他一些城市已经实施了封城，但是这已经是在从武汉返乡的春运高峰期后期（图1）。如果在接收了大量武汉迁徙者的省份和城市（如北京，上海和广州）发生二次暴发，这些二次暴发很可能会在7天的全国春节假期结束后通过人口流动进一步传播到中国其他与这些城市有高度联系的城市（图5到图7）。此外，基于航空出行的历史数据，中国高风险城市与其他国家的连接性被定义为春节假期前后的三个月（表4和表5）。本文一开始关注的是非洲的一些特定目的地城市，因为这些区域疫情监测和卫生系统都很薄弱（表6到表7以及图8到图9）。但是后续会将类似的风险评估扩展到世界的其他区域。</p>
+<p>鉴于当前流行病学以及对该疫情流行病学的有限理解，我们通过历史数据得到的出行模式的发现可能有助于调整公共卫生干预措施。然而，必须注意的是，我们的分析是基于以往非疫情暴发年份的基础上假设出行模式“与往年相同”进行的迁徙，而目前我们正处于前所未有的状况，整个中国的人群迁徙可能会发生重大变化。我们正在密切监测疫情，并会做进一步的分析，用来估计在春节与接下来的几个月期间，病毒在中国与国际间传播的风险。此外，我们也想尝试评估中国城市交通封锁对于疫情控制的有效性，以及度假归来的人群迁徙对于2019-nCoV病毒传播的影响。</p>
+<h1 id="3-附图"><a href="#3-附图" class="headerlink" title="3 附图"></a>3 附图</h1><h2 id="3-1-第一部分：国内迁徙"><a href="#3-1-第一部分：国内迁徙" class="headerlink" title="3.1 第一部分：国内迁徙"></a>3.1 第一部分：国内迁徙</h2><p><img src="http://blog.gisersqdai.top/1580044528386awl1pxt9.png"></p>
+<p>图1 湖北省和武汉市的县6个月内每天人群流动的模式。阴影颜色含义：绿色：春节前两周，红色：春节后两周，紫色：元宵节，粉色：清明节，红线：湖北省城市封城日；相对净流量&#x3D;（流入量-流出量）&#x2F;人口，基于2013-2014年百度人口流动数据。</p>
+<p>表1 中国大陆春节前两周内接待来自武汉人群最多的前30个城市。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th align="center">城市</th>
+<th align="center">人口 (百万人)</th>
+<th align="center">省份</th>
+<th align="right">流量 (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">荆州</td>
+<td align="center">5.7</td>
+<td align="center">湖北</td>
+<td align="right">7.26</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">襄樊</td>
+<td align="center">5.6</td>
+<td align="center">湖北</td>
+<td align="right">7.11</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">咸宁</td>
+<td align="center">2.5</td>
+<td align="center">湖北</td>
+<td align="right">6.17</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">北京</td>
+<td align="center">21.7</td>
+<td align="center">北京</td>
+<td align="right">6.10</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">黄冈</td>
+<td align="center">6.3</td>
+<td align="center">湖北</td>
+<td align="right">5.94</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">宜昌</td>
+<td align="center">4.1</td>
+<td align="center">湖北</td>
+<td align="right">5.86</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">黄石</td>
+<td align="center">2.5</td>
+<td align="center">湖北</td>
+<td align="right">5.18</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">孝感</td>
+<td align="center">4.9</td>
+<td align="center">湖北</td>
+<td align="right">4.73</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">省直辖</td>
+<td align="center">3.5</td>
+<td align="center">湖北</td>
+<td align="right">4.62</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">十堰</td>
+<td align="center">3.4</td>
+<td align="center">湖北</td>
+<td align="right">4.14</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">上海</td>
+<td align="center">24.2</td>
+<td align="center">上海</td>
+<td align="right">3.52</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">恩施</td>
+<td align="center">3.3</td>
+<td align="center">湖北</td>
+<td align="right">3.51</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">荆门</td>
+<td align="center">2.9</td>
+<td align="center">湖北</td>
+<td align="right">3.06</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">随州</td>
+<td align="center">2.2</td>
+<td align="center">湖北</td>
+<td align="right">2.49</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">广州</td>
+<td align="center">14</td>
+<td align="center">广东</td>
+<td align="right">2.45</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">郑州</td>
+<td align="center">9.6</td>
+<td align="center">河南</td>
+<td align="right">2.22</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">鄂州</td>
+<td align="center">1.1</td>
+<td align="center">湖北</td>
+<td align="right">1.93</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">天津</td>
+<td align="center">15.6</td>
+<td align="center">天津</td>
+<td align="right">1.56</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">嘉兴</td>
+<td align="center">4.6</td>
+<td align="center">浙江</td>
+<td align="right">1.25</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">杭州</td>
+<td align="center">9</td>
+<td align="center">浙江</td>
+<td align="right">1.23</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">长沙</td>
+<td align="center">7.6</td>
+<td align="center">湖南</td>
+<td align="right">1.13</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">西安</td>
+<td align="center">8.3</td>
+<td align="center">陕西</td>
+<td align="right">1.02</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">南京</td>
+<td align="center">8.3</td>
+<td align="center">江苏</td>
+<td align="right">0.97</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">深圳</td>
+<td align="center">10.2</td>
+<td align="center">广东</td>
+<td align="right">0.96</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">重庆</td>
+<td align="center">30.9</td>
+<td align="center">重庆</td>
+<td align="right">0.82</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">福州</td>
+<td align="center">7.6</td>
+<td align="center">福建</td>
+<td align="right">0.58</td>
+</tr>
+<tr>
+<td>27</td>
+<td align="center">南昌</td>
+<td align="center">5.4</td>
+<td align="center">江西</td>
+<td align="right">0.57</td>
+</tr>
+<tr>
+<td>28</td>
+<td align="center">成都</td>
+<td align="center">14.3</td>
+<td align="center">四川</td>
+<td align="right">0.56</td>
+</tr>
+<tr>
+<td>29</td>
+<td align="center">合肥</td>
+<td align="center">7.9</td>
+<td align="center">安徽</td>
+<td align="right">0.52</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">东莞</td>
+<td align="center">8.3</td>
+<td align="center">广东</td>
+<td align="right">0.45</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">其他城市</td>
+<td align="center">1115.8</td>
+<td align="center"></td>
+<td align="right">12.09</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">总共</td>
+<td align="center">1371.5</td>
+<td align="center"></td>
+<td align="right">100.00</td>
+</tr>
+<tr>
+<td>人口：2016年人口，国家统计局。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>流量：2014年和2015年春节前两周内离开武汉市的人群百分比。数据来自中国互联网公司百度，专注于互联网相关和基于位置的服务，每天百度能接收到近90亿个位置的请求。</p>
+<p>表2 中国大陆春节后两周内接待来自武汉人群最多的前30个城市。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th align="center">城市</th>
+<th align="center">人口 (百万人)</th>
+<th align="center">省份</th>
+<th align="right">流量 (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">宜昌</td>
+<td align="center">4.1</td>
+<td align="center">湖北</td>
+<td align="right">7.48</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">荆州</td>
+<td align="center">5.7</td>
+<td align="center">湖北</td>
+<td align="right">6.65</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">襄樊</td>
+<td align="center">5.6</td>
+<td align="center">湖北</td>
+<td align="right">6.48</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">黄冈</td>
+<td align="center">6.3</td>
+<td align="center">湖北</td>
+<td align="right">5.91</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">北京</td>
+<td align="center">21.7</td>
+<td align="center">北京</td>
+<td align="right">5.56</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">孝感</td>
+<td align="center">4.9</td>
+<td align="center">湖北</td>
+<td align="right">5.16</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">咸宁</td>
+<td align="center">2.5</td>
+<td align="center">湖北</td>
+<td align="right">4.25</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">省直辖</td>
+<td align="center">3.5</td>
+<td align="center">湖北</td>
+<td align="right">4.22</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">上海</td>
+<td align="center">24.2</td>
+<td align="center">上海</td>
+<td align="right">3.97</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">十堰</td>
+<td align="center">3.4</td>
+<td align="center">湖北</td>
+<td align="right">3.89</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">荆门</td>
+<td align="center">2.9</td>
+<td align="center">湖北</td>
+<td align="right">3.51</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">黄石</td>
+<td align="center">2.5</td>
+<td align="center">湖北</td>
+<td align="right">3.46</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">广州</td>
+<td align="center">14</td>
+<td align="center">广东湖北</td>
+<td align="right">3.07</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">恩施</td>
+<td align="center">3.3</td>
+<td align="center">湖北</td>
+<td align="right">3.01</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">随州</td>
+<td align="center">2.2</td>
+<td align="center">湖北</td>
+<td align="right">2.50</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">鄂州</td>
+<td align="center">1.1</td>
+<td align="center">湖北</td>
+<td align="right">2.26</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">郑州</td>
+<td align="center">9.6</td>
+<td align="center">河南</td>
+<td align="right">2.13</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">长沙</td>
+<td align="center">7.6</td>
+<td align="center">湖南</td>
+<td align="right">1.78</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">天津</td>
+<td align="center">15.6</td>
+<td align="center">天津</td>
+<td align="right">1.65</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">深圳</td>
+<td align="center">10.2</td>
+<td align="center">广东</td>
+<td align="right">1.24</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">西安</td>
+<td align="center">8.3</td>
+<td align="center">陕西</td>
+<td align="right">1.24</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">南京</td>
+<td align="center">8.3</td>
+<td align="center">江苏</td>
+<td align="right">1.13</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">杭州</td>
+<td align="center">9</td>
+<td align="center">浙江</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">嘉兴</td>
+<td align="center">4.6</td>
+<td align="center">浙江</td>
+<td align="right">1.04</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">南昌</td>
+<td align="center">5.4</td>
+<td align="center">江西</td>
+<td align="right">0.83</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">重庆</td>
+<td align="center">30.9</td>
+<td align="center">重庆</td>
+<td align="right">0.82</td>
+</tr>
+<tr>
+<td>27</td>
+<td align="center">福州</td>
+<td align="center">7.6</td>
+<td align="center">福建</td>
+<td align="right">0.82</td>
+</tr>
+<tr>
+<td>28</td>
+<td align="center">合肥</td>
+<td align="center">7.9</td>
+<td align="center">安徽</td>
+<td align="right">0.78</td>
+</tr>
+<tr>
+<td>29</td>
+<td align="center">苏州</td>
+<td align="center">10.6</td>
+<td align="center">江苏</td>
+<td align="right">0.51</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">东莞</td>
+<td align="center">8.3</td>
+<td align="center">广东</td>
+<td align="right">0.47</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">Others</td>
+<td align="center">1119.5</td>
+<td align="center"></td>
+<td align="right">13.04</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">Total</td>
+<td align="center">1371.5</td>
+<td align="center"></td>
+<td align="right">100.00</td>
+</tr>
+<tr>
+<td>人口：2016年人口，国家统计局。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>流量：2014年和2015年自正月初一后离开武汉市的人群百分比。数据来自中国互联网公司百度，专注于互联网相关和基于位置的服务，每天百度能接收到近90亿个位置的请求。</p>
+<p>表3 中国大陆春节前后接待来自武汉人群的省份排名。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">春节前两周内</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">春节后两周内</th>
+<th align="center"></th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>排名</td>
+<td align="center">省份</td>
+<td align="center">人口 (百万人)</td>
+<td align="center">流量 (%)</td>
+<td align="center">省份</td>
+<td align="center">人口 (百万人)</td>
+<td align="right">流量 (%)</td>
+</tr>
+<tr>
+<td>1</td>
+<td align="center">北京</td>
+<td align="center">21.5</td>
+<td align="center">16.07</td>
+<td align="center">北京</td>
+<td align="center">21.5</td>
+<td align="right">13.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">广东</td>
+<td align="center">113.5</td>
+<td align="center">12.19</td>
+<td align="center">广东</td>
+<td align="center">113.5</td>
+<td align="right">13.3</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">河南</td>
+<td align="center">96.1</td>
+<td align="center">9.48</td>
+<td align="center">上海</td>
+<td align="center">24.2</td>
+<td align="right">9.6</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">上海</td>
+<td align="center">24.2</td>
+<td align="center">9.25</td>
+<td align="center">河南</td>
+<td align="center">96.1</td>
+<td align="right">7.9</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">浙江</td>
+<td align="center">57.4</td>
+<td align="center">8.19</td>
+<td align="center">浙江</td>
+<td align="center">57.4</td>
+<td align="right">7.2</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">江苏</td>
+<td align="center">80.5</td>
+<td align="center">5.51</td>
+<td align="center">江苏</td>
+<td align="center">80.5</td>
+<td align="right">6.8</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">湖南</td>
+<td align="center">69</td>
+<td align="center">4.8</td>
+<td align="center">湖南</td>
+<td align="center">69</td>
+<td align="right">6.2</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">陕西</td>
+<td align="center">38.6</td>
+<td align="center">4.54</td>
+<td align="center">陕西</td>
+<td align="center">38.6</td>
+<td align="right">4.9</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">天津</td>
+<td align="center">15.6</td>
+<td align="center">4.11</td>
+<td align="center">天津</td>
+<td align="center">15.6</td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">山东</td>
+<td align="center">100.5</td>
+<td align="center">3.66</td>
+<td align="center">山东</td>
+<td align="center">100.5</td>
+<td align="right">3.8</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">四川</td>
+<td align="center">83.4</td>
+<td align="center">3.13</td>
+<td align="center">福建</td>
+<td align="center">39.4</td>
+<td align="right">3.7</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">江西</td>
+<td align="center">46.5</td>
+<td align="center">2.75</td>
+<td align="center">安徽</td>
+<td align="center">63.2</td>
+<td align="right">3.2</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">福建</td>
+<td align="center">39.4</td>
+<td align="center">2.72</td>
+<td align="center">江西</td>
+<td align="center">46.5</td>
+<td align="right">2.9</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">安徽</td>
+<td align="center">63.2</td>
+<td align="center">2.62</td>
+<td align="center">四川</td>
+<td align="center">83.4</td>
+<td align="right">2.1</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">重庆</td>
+<td align="center">31</td>
+<td align="center">2.15</td>
+<td align="center">重庆</td>
+<td align="center">31</td>
+<td align="right">2.0</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">河北</td>
+<td align="center">75.6</td>
+<td align="center">1.94</td>
+<td align="center">河北</td>
+<td align="center">75.6</td>
+<td align="right">1.7</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">云南</td>
+<td align="center">48.3</td>
+<td align="center">1.22</td>
+<td align="center">辽宁</td>
+<td align="center">43.6</td>
+<td align="right">1.2</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">广西</td>
+<td align="center">49.3</td>
+<td align="center">1.10</td>
+<td align="center">云南</td>
+<td align="center">48.3</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">辽宁</td>
+<td align="center">43.6</td>
+<td align="center">1.06</td>
+<td align="center">广西</td>
+<td align="center">49.3</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">海南</td>
+<td align="center">9.3</td>
+<td align="center">0.58</td>
+<td align="center">山西</td>
+<td align="center">37.2</td>
+<td align="right">0.6</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">陕西</td>
+<td align="center">37.2</td>
+<td align="center">0.54</td>
+<td align="center">海南</td>
+<td align="center">9.3</td>
+<td align="right">0.4</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">贵州</td>
+<td align="center">36</td>
+<td align="center">0.47</td>
+<td align="center">贵州</td>
+<td align="center">36</td>
+<td align="right">0.4</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">黑龙江</td>
+<td align="center">37.7</td>
+<td align="center">0.4</td>
+<td align="center">黑龙江</td>
+<td align="center">37.7</td>
+<td align="right">0.4</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">新疆</td>
+<td align="center">24.9</td>
+<td align="center">0.4</td>
+<td align="center">新疆</td>
+<td align="center">24.9</td>
+<td align="right">0.3</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">甘肃</td>
+<td align="center">26.4</td>
+<td align="center">0.32</td>
+<td align="center">吉林</td>
+<td align="center">27</td>
+<td align="right">0.3</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">吉林</td>
+<td align="center">27.0</td>
+<td align="center">0.31</td>
+<td align="center">甘肃</td>
+<td align="center">26.4</td>
+<td align="right">0.2</td>
+</tr>
+<tr>
+<td>27</td>
+<td align="center">内蒙古</td>
+<td align="center">25.3</td>
+<td align="center">0.29</td>
+<td align="center">内蒙古</td>
+<td align="center">25.3</td>
+<td align="right">0.2</td>
+</tr>
+<tr>
+<td>28</td>
+<td align="center">宁夏</td>
+<td align="center">6.9</td>
+<td align="center">0.11</td>
+<td align="center">宁夏</td>
+<td align="center">6.9</td>
+<td align="right">0.1</td>
+</tr>
+<tr>
+<td>29</td>
+<td align="center">青海</td>
+<td align="center">6</td>
+<td align="center">0.07</td>
+<td align="center">青海</td>
+<td align="center">6</td>
+<td align="right">0.1</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">西藏</td>
+<td align="center">3.4</td>
+<td align="center">0.03</td>
+<td align="center">西藏</td>
+<td align="center">3.4</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>除西藏和青海外，所有省份都报告了输入性或本地确诊病例。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>人口：2016年人口，国家统计局。</p>
+<p>流量：2014年和2015年春节前两周内以及自正月初一后离开武汉市的人群百分比。数据来自中国互联网公司百度，专注于互联网相关和基于位置的服务，每天百度能接收到近90亿个位置的请求。</p>
+<p><img src="http://blog.gisersqdai.top/1580049417429ljm0pxzv.png"></p>
+<p>图2 中国大陆城市在春节期间接待来自武汉的2019-nCoV感染人群的风险。<br>根据百度公司的人口流动数据，初步将城市级别的输入风险定义为每个城市在春节前后2周内接待来自武汉的人群在从武汉出发的人群总数中所占的百分比。</p>
+<p><img src="http://blog.gisersqdai.top/1580049545676xur8bhff.png"></p>
+<p>图3 中国内地省份在农历新年期间接待来自武汉的2019-nCoV感染人群的风险。<br>根据百度公司的人口流动数据，初步将省级输入风险定义为每个省在春节前后2周内接待来自武汉的人群在从武汉出发的人群总数中所占的百分比。</p>
+<p><img src="http://blog.gisersqdai.top/158004999512696la2dv1.png"></p>
+<p>图4。输入性病例的时间分布及输入性病例数目与来自武汉人群在春节前前两星期内输入的风险之间的关系。(A)-(C)来自武汉的输入病例的时间分布、发病情况、入院情况和各省诊断情况。(D)各省报告的输入病例数与通过迁徙者输入的风险之间的关系。根据百度公司的人口流动数据，初步将省级输入风险定义为每个省在春节前后2周内接待来自武汉的人群在从武汉出发的人群总数中所占的百分比。截至2020年1月24日，病例数据来自中国国家和地方卫生委员会网站。</p>
+<p><img src="http://blog.gisersqdai.top/158005031800323eoolri.png"></p>
+<p>图5 北京、上海和广东省的每个县6个月内每天人群流动的模式。阴影颜色含义：绿色：春节前两周，红色：春节后两周，紫色：元宵节，粉色：清明节；相对净流量&#x3D;（流入量-流出量）&#x2F;人口，基于2013-2014年百度人口流动数据。</p>
+<p><img src="http://blog.gisersqdai.top/1580050453671uacts24r.png"></p>
+<p>图6。中国大陆城市在春节后的未来四周内接待来自18个高风险城市(蓝色圆圈，有2019-nCoV感染或者输入性病例的城市)的旅客的输入风险。城市级别的输入风险初步定义为接待来自高风险城市的人群在从高风险城市出发的人群总数中所占的百分比。基于从百度获取的人口流动数据计算。18个高风险城市包括武汉和其他省份春节前接待大量的来自武汉人群的17个城市:北京、上海、广州、郑州、天津、杭州、嘉兴、长沙、西安、南京、深圳、重庆、南昌、成都、合肥、福州、东莞。</p>
+<p><img src="http://blog.gisersqdai.top/15800514762215gd2ffqg.png"></p>
+<p>图7 在春节后的四周内，中国大陆接待来自18个具有2019-ncov感染或输入性病例的高危城市(蓝色圆圈)人群的城市的估计连接性。箭头表示城市级别输入风险的联系与方向,初输入风险。城市级别的输入风险初步定义为接待来自高风险城市的人群在从高风险城市出发的人群总数中所占的百分比。基于从百度获取的人口流动数据计算。18个高风险城市包括武汉和其他省份春节前接待大量的来自武汉人群的17个城市:北京、上海、广州、郑州、天津、杭州、嘉兴、长沙、西安、南京、深圳、重庆、南昌、成都、合肥、福州、东莞。</p>
+<h1 id="3-2-第二部分：大陆外出行"><a href="#3-2-第二部分：大陆外出行" class="headerlink" title="3.2 第二部分：大陆外出行"></a>3.2 第二部分：大陆外出行</h1><p>表4 在三个月内接待了来自中国大陆18个高风险城市(图6)的航空旅客最多的全球前30位城市，时间为从春节前15天到春节后两个半月。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th align="center">城市</th>
+<th align="center">国家或地区</th>
+<th align="center">旅客流量（1000 人）</th>
+<th align="right">风险 (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">曼谷</td>
+<td align="center">泰国</td>
+<td align="center">1062.9</td>
+<td align="right">7.86</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">香港</td>
+<td align="center">中国香港特别行政区</td>
+<td align="center">1001.7</td>
+<td align="right">7.41</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">台北</td>
+<td align="center">中国台湾</td>
+<td align="center">857.5</td>
+<td align="right">6.34</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">首尔</td>
+<td align="center">韩国</td>
+<td align="center">757.9</td>
+<td align="right">5.61</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">东京</td>
+<td align="center">日本</td>
+<td align="center">714.3</td>
+<td align="right">5.28</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">新加坡</td>
+<td align="center">新加坡</td>
+<td align="center">568.1</td>
+<td align="right">4.2</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">普吉岛</td>
+<td align="center">泰国</td>
+<td align="center">492.8</td>
+<td align="right">3.65</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">大阪</td>
+<td align="center">日本</td>
+<td align="center">434.1</td>
+<td align="right">3.21</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">吉隆坡</td>
+<td align="center">马来西亚</td>
+<td align="center">382.7</td>
+<td align="right">2.83</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">澳门</td>
+<td align="center">中国澳门特别行政区</td>
+<td align="center">260.4</td>
+<td align="right">1.93</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">巴厘岛</td>
+<td align="center">印度尼西亚</td>
+<td align="center">222.2</td>
+<td align="right">1.64</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">悉尼</td>
+<td align="center">澳大利亚</td>
+<td align="center">207.4</td>
+<td align="right">1.53</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">清迈</td>
+<td align="center">泰国</td>
+<td align="center">156.9</td>
+<td align="right">1.16</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">墨尔本</td>
+<td align="center">澳大利亚</td>
+<td align="center">154.5</td>
+<td align="right">1.14</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">洛杉矶</td>
+<td align="center">美国</td>
+<td align="center">154.5</td>
+<td align="right">1.14</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">纽约</td>
+<td align="center">美国</td>
+<td align="center">145.9</td>
+<td align="right">1.08</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">迪拜</td>
+<td align="center">阿联酋</td>
+<td align="center">144.9</td>
+<td align="right">1.07</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">芽庄</td>
+<td align="center">越南</td>
+<td align="center">143</td>
+<td align="right">1.06</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">伦敦</td>
+<td align="center">英国</td>
+<td align="center">142.1</td>
+<td align="right">1.05</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">胡志明市</td>
+<td align="center">越南</td>
+<td align="center">142</td>
+<td align="right">1.05</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">名古屋</td>
+<td align="center">日本</td>
+<td align="center">140.1</td>
+<td align="right">1.04</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">亚庇</td>
+<td align="center">马来西亚</td>
+<td align="center">130.4</td>
+<td align="right">0.96</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">金边</td>
+<td align="center">柬埔寨</td>
+<td align="center">127.5</td>
+<td align="right">0.94</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">甲米府</td>
+<td align="center">泰国</td>
+<td align="center">125.2</td>
+<td align="right">0.93</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">马尼拉</td>
+<td align="center">菲律宾</td>
+<td align="center">121.9</td>
+<td align="right">0.9</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">暹粒</td>
+<td align="center">柬埔寨</td>
+<td align="center">121.4</td>
+<td align="right">0.9</td>
+</tr>
+<tr>
+<td>27</td>
+<td align="center">巴黎</td>
+<td align="center">法国</td>
+<td align="center">119.5</td>
+<td align="right">0.88</td>
+</tr>
+<tr>
+<td>28</td>
+<td align="center">雅加达</td>
+<td align="center">印度尼西亚</td>
+<td align="center">107.6</td>
+<td align="right">0.8</td>
+</tr>
+<tr>
+<td>29</td>
+<td align="center">高雄</td>
+<td align="center">中国台湾</td>
+<td align="center">107.6</td>
+<td align="right">0.8</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">法兰克福</td>
+<td align="center">德国</td>
+<td align="center">103.3</td>
+<td align="right">0.76</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">其他城市</td>
+<td align="center"></td>
+<td align="center">4158.2</td>
+<td align="right">30.77</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">总计</td>
+<td align="center"></td>
+<td align="center">13514.9</td>
+<td align="right">100</td>
+</tr>
+<tr>
+<td>相对风险的初步定义为各个城市接待来自高风险城市（18个城市）航空旅客占高风险城市总出行旅客的百分比，基于从国际航空交通协会（IATA）获得的2018年2月到4月航空出行数据。注，2018年的春节是从2月16日开始。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>表5 在三个月内接待了来自中国大陆18个高风险城市(图6)的航空旅客最多的全球前30位国家或地区，时间为从春节前15天到春节后两个半月。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th align="center">国家或地区</th>
+<th align="center">旅客流量（1000 人）</th>
+<th align="right">风险 (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">泰国</td>
+<td align="center">2031.9</td>
+<td align="right">15.03</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">日本</td>
+<td align="center">1563.3</td>
+<td align="right">11.57</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">中国香港特别行政区</td>
+<td align="center">1001.7</td>
+<td align="right">7.41</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">中国台湾</td>
+<td align="center">979.7</td>
+<td align="right">7.25</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">韩国</td>
+<td align="center">936.6</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">美国</td>
+<td align="center">773.3</td>
+<td align="right">5.72</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">马来西亚</td>
+<td align="center">634.3</td>
+<td align="right">4.69</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">新加坡</td>
+<td align="center">568.1</td>
+<td align="right">4.20</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">越南</td>
+<td align="center">468.4</td>
+<td align="right">3.47</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">澳大利亚</td>
+<td align="center">455.6</td>
+<td align="right">3.37</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">印度尼西亚</td>
+<td align="center">412.5</td>
+<td align="right">3.05</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">柬埔寨</td>
+<td align="center">262.9</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">中国澳门特别行政区</td>
+<td align="center">260.4</td>
+<td align="right">1.93</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">菲律宾</td>
+<td align="center">250.3</td>
+<td align="right">1.85</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">德国</td>
+<td align="center">234.9</td>
+<td align="right">1.74</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">加拿大</td>
+<td align="center">208.5</td>
+<td align="right">1.54</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">英国</td>
+<td align="center">190.7</td>
+<td align="right">1.41</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">阿联酋</td>
+<td align="center">162.3</td>
+<td align="right">1.20</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">意大利</td>
+<td align="center">152.9</td>
+<td align="right">1.13</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">俄罗斯</td>
+<td align="center">151.3</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">法国</td>
+<td align="center">137.9</td>
+<td align="right">1.02</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">新西兰</td>
+<td align="center">120.7</td>
+<td align="right">0.89</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">印度</td>
+<td align="center">106.7</td>
+<td align="right">0.79</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">西班牙</td>
+<td align="center">105.8</td>
+<td align="right">0.78</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">土耳其</td>
+<td align="center">66.5</td>
+<td align="right">0.49</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">埃及</td>
+<td align="center">57.5</td>
+<td align="right">0.43</td>
+</tr>
+<tr>
+<td>27</td>
+<td align="center">斯里兰卡</td>
+<td align="center">55.7</td>
+<td align="right">0.41</td>
+</tr>
+<tr>
+<td>28</td>
+<td align="center">马尔代夫</td>
+<td align="center">50.7</td>
+<td align="right">0.37</td>
+</tr>
+<tr>
+<td>29</td>
+<td align="center">荷兰</td>
+<td align="center">44.9</td>
+<td align="right">0.33</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">缅甸</td>
+<td align="center">43.3</td>
+<td align="right">0.32</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">其他国家或地区</td>
+<td align="center">1025.6</td>
+<td align="right">7.59</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">总计</td>
+<td align="center">13514.9</td>
+<td align="right">100</td>
+</tr>
+<tr>
+<td>相对风险的初步定义为各个国家或地区接待来自高风险城市（18个城市）航空旅客占高风险城市总出行旅客的百分比，基于从国际航空交通协会（IATA）获得的2018年2月到4月航空出行数据。注，2018年的春节是从2月16日开始。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p><img src="http://blog.gisersqdai.top/1580065561877mwomq9az.png"></p>
+<p>图8 在春节前15天到春节后两个半月，这三个月时间内全球接待中国大陆18个高风险城市（图6）航空出行游客的城市地理分布。航空出行游客流量最大的30个城市被标注在图上。基于国际航空交通协会（IATA）获得的2018年2月到4月的航空出行数据。2018年春节从2月16日开始。</p>
+<p>表6 在三个月内接待了来自中国大陆18个高风险城市(图6)的航空旅客最多的非洲前30位城市，时间为从春节前15天到春节后两个半月。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th align="center">城市</th>
+<th align="center">国家或地区</th>
+<th align="center">旅客流量</th>
+<th align="right">风险 (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">开罗</td>
+<td align="center">埃及</td>
+<td align="center">56735</td>
+<td align="right">20.49</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">约翰内斯堡</td>
+<td align="center">南非</td>
+<td align="center">20530</td>
+<td align="right">7.42</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">毛里求斯</td>
+<td align="center">毛里求斯</td>
+<td align="center">18297</td>
+<td align="right">6.61</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">亚的斯</td>
+<td align="center">埃塞俄比亚</td>
+<td align="center">17882</td>
+<td align="right">6.46</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">卡萨布兰卡</td>
+<td align="center">摩洛哥</td>
+<td align="center">15787</td>
+<td align="right">5.70</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">内罗毕</td>
+<td align="center">肯尼亚</td>
+<td align="center">12859</td>
+<td align="right">4.64</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">恩德培</td>
+<td align="center">乌干达</td>
+<td align="center">8246</td>
+<td align="right">2.98</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">阿克拉</td>
+<td align="center">加纳</td>
+<td align="center">8211</td>
+<td align="right">2.97</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">拉各斯</td>
+<td align="center">尼日利亚</td>
+<td align="center">8087</td>
+<td align="right">2.92</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">卢萨卡</td>
+<td align="center">赞比亚</td>
+<td align="center">7672</td>
+<td align="right">2.77</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">达累斯萨拉姆</td>
+<td align="center">坦桑尼亚</td>
+<td align="center">6769</td>
+<td align="right">2.44</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">阿尔及利亚</td>
+<td align="center">阿尔及利亚</td>
+<td align="center">6074</td>
+<td align="right">2.19</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">罗安达</td>
+<td align="center">安哥拉</td>
+<td align="center">5994</td>
+<td align="right">2.16</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">喀土穆</td>
+<td align="center">苏丹</td>
+<td align="center">5412</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">阿布贾</td>
+<td align="center">尼日利亚</td>
+<td align="center">4193</td>
+<td align="right">1.51</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">卢本巴沙</td>
+<td align="center">刚果(金沙萨)</td>
+<td align="center">3546</td>
+<td align="right">1.28</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">阿比让</td>
+<td align="center">科特迪瓦</td>
+<td align="center">3461</td>
+<td align="right">1.25</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">开普敦</td>
+<td align="center">南非</td>
+<td align="center">3455</td>
+<td align="right">1.25</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">科纳克里</td>
+<td align="center">几内亚</td>
+<td align="center">3455</td>
+<td align="right">1.25</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">突尼斯</td>
+<td align="center">突尼斯</td>
+<td align="center">2912</td>
+<td align="right">1.05</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">利伯维尔</td>
+<td align="center">加蓬</td>
+<td align="center">2786</td>
+<td align="right">1.01</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">哈拉雷</td>
+<td align="center">津巴布韦</td>
+<td align="center">2665</td>
+<td align="right">0.96</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">达喀尔</td>
+<td align="center">塞内加尔</td>
+<td align="center">2659</td>
+<td align="right">0.96</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">马普托</td>
+<td align="center">莫桑比克</td>
+<td align="center">2560</td>
+<td align="right">0.92</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">塔那那利佛</td>
+<td align="center">马达加斯加</td>
+<td align="center">2515</td>
+<td align="right">0.91</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">努瓦克肖特</td>
+<td align="center">毛里塔尼亚</td>
+<td align="center">1955</td>
+<td align="right">0.71</td>
+</tr>
+<tr>
+<td>27</td>
+<td align="center">马拉博赤道</td>
+<td align="center">几内亚</td>
+<td align="center">1864</td>
+<td align="right">0.67</td>
+</tr>
+<tr>
+<td>28</td>
+<td align="center">马赫岛</td>
+<td align="center">塞舌尔</td>
+<td align="center">1850</td>
+<td align="right">0.67</td>
+</tr>
+<tr>
+<td>29</td>
+<td align="center">德班</td>
+<td align="center">南非</td>
+<td align="center">1815</td>
+<td align="right">0.66</td>
+</tr>
+<tr>
+<td>30</td>
+<td align="center">恩多拉</td>
+<td align="center">赞比亚</td>
+<td align="center">1796</td>
+<td align="right">0.65</td>
+</tr>
+<tr>
+<td>相对风险的初步定义为每个非洲城市接待来自高风险城市（18个城市）航空旅客占高风险城市总出行旅客的百分比，基于从国际航空交通协会（IATA）获得的2018年2月到4月航空出行数据。注，2018年的春节是从2月16日开始。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>表7 在三个月内接待了来自中国大陆18个高风险城市(图6)的航空旅客的非洲国家或地区，时间为从春节前15天到春节后两个半月。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th align="center">国家或地区</th>
+<th align="center">旅客流量</th>
+<th align="center">%</th>
+<th align="center">排名</th>
+<th align="center">国家或地区</th>
+<th align="center">旅客流量</th>
+<th align="right">%</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">埃及</td>
+<td align="center">57516</td>
+<td align="center">20.77</td>
+<td align="center">27</td>
+<td align="center">塞舌尔</td>
+<td align="center">1863</td>
+<td align="right">0.67</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">南非</td>
+<td align="center">26405</td>
+<td align="center">9.54</td>
+<td align="center">28</td>
+<td align="center">博茨瓦纳</td>
+<td align="center">1627</td>
+<td align="right">0.59</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">埃塞俄比亚</td>
+<td align="center">18393</td>
+<td align="center">6.64</td>
+<td align="center">29</td>
+<td align="center">吉布提</td>
+<td align="center">1602</td>
+<td align="right">0.58</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">毛里求斯</td>
+<td align="center">18297</td>
+<td align="center">6.61</td>
+<td align="center">30</td>
+<td align="center">马里</td>
+<td align="center">1587</td>
+<td align="right">0.57</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">摩洛哥</td>
+<td align="center">16974</td>
+<td align="center">6.13</td>
+<td align="center">31</td>
+<td align="center">刚果（布拉柴维尔）</td>
+<td align="center">1500</td>
+<td align="right">0.54</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">尼日利亚</td>
+<td align="center">13734</td>
+<td align="center">4.96</td>
+<td align="center">32</td>
+<td align="center">乍得</td>
+<td align="center">1425</td>
+<td align="right">0.51</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">肯尼亚</td>
+<td align="center">13185</td>
+<td align="center">4.76</td>
+<td align="center">33</td>
+<td align="center">卢旺达</td>
+<td align="center">1386</td>
+<td align="right">0.5</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">赞比亚</td>
+<td align="center">9471</td>
+<td align="center">3.42</td>
+<td align="center">34</td>
+<td align="center">塞拉利昂</td>
+<td align="center">1330</td>
+<td align="right">0.48</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center">坦桑尼亚</td>
+<td align="center">8388</td>
+<td align="center">3.03</td>
+<td align="center">35</td>
+<td align="center">纳米比亚</td>
+<td align="center">1207</td>
+<td align="right">0.44</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">乌干达</td>
+<td align="center">8246</td>
+<td align="center">2.98</td>
+<td align="center">36</td>
+<td align="center">马拉维</td>
+<td align="center">1139</td>
+<td align="right">0.41</td>
+</tr>
+<tr>
+<td>11</td>
+<td align="center">加纳</td>
+<td align="center">8211</td>
+<td align="center">2.97</td>
+<td align="center">37</td>
+<td align="center">贝宁</td>
+<td align="center">890</td>
+<td align="right">0.32</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="center">阿尔及利亚</td>
+<td align="center">7887</td>
+<td align="center">2.85</td>
+<td align="center">38</td>
+<td align="center">多哥</td>
+<td align="center">858</td>
+<td align="right">0.31</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="center">安哥拉</td>
+<td align="center">5994</td>
+<td align="center">2.16</td>
+<td align="center">39</td>
+<td align="center">莱索托</td>
+<td align="center">853</td>
+<td align="right">0.31</td>
+</tr>
+<tr>
+<td>14</td>
+<td align="center">苏丹</td>
+<td align="center">5433</td>
+<td align="center">1.96</td>
+<td align="center">40</td>
+<td align="center">留尼汪</td>
+<td align="center">809</td>
+<td align="right">0.29</td>
+</tr>
+<tr>
+<td>15</td>
+<td align="center">刚果（金沙萨）</td>
+<td align="center">5248</td>
+<td align="center">1.90</td>
+<td align="center">41</td>
+<td align="center">尼日尔</td>
+<td align="center">790</td>
+<td align="right">0.29</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="center">莫桑比克</td>
+<td align="center">3928</td>
+<td align="center">1.42</td>
+<td align="center">42</td>
+<td align="center">利比里亚</td>
+<td align="center">711</td>
+<td align="right">0.26</td>
+</tr>
+<tr>
+<td>17</td>
+<td align="center">科特迪瓦</td>
+<td align="center">3511</td>
+<td align="center">1.27</td>
+<td align="center">43</td>
+<td align="center">南苏丹</td>
+<td align="center">711</td>
+<td align="right">0.26</td>
+</tr>
+<tr>
+<td>18</td>
+<td align="center">几内亚</td>
+<td align="center">3455</td>
+<td align="center">1.25</td>
+<td align="center">44</td>
+<td align="center">布基纳法索</td>
+<td align="center">406</td>
+<td align="right">0.15</td>
+</tr>
+<tr>
+<td>19</td>
+<td align="center">突尼斯</td>
+<td align="center">2912</td>
+<td align="center">1.05</td>
+<td align="center">45</td>
+<td align="center">冈比亚</td>
+<td align="center">365</td>
+<td align="right">0.13</td>
+</tr>
+<tr>
+<td>20</td>
+<td align="center">加蓬</td>
+<td align="center">2786</td>
+<td align="center">1.01</td>
+<td align="center">46</td>
+<td align="center">中非共和国</td>
+<td align="center">339</td>
+<td align="right">0.12</td>
+</tr>
+<tr>
+<td>21</td>
+<td align="center">喀麦隆</td>
+<td align="center">2734</td>
+<td align="center">0.99</td>
+<td align="center">47</td>
+<td align="center">佛得角</td>
+<td align="center">276</td>
+<td align="right">0.10</td>
+</tr>
+<tr>
+<td>22</td>
+<td align="center">津巴布韦</td>
+<td align="center">2716</td>
+<td align="center">0.98</td>
+<td align="center">48</td>
+<td align="center">厄立特里亚</td>
+<td align="center">246</td>
+<td align="right">0.09</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="center">塞内加尔</td>
+<td align="center">2659</td>
+<td align="center">0.96</td>
+<td align="center">49</td>
+<td align="center">布隆迪</td>
+<td align="center">232</td>
+<td align="right">0.08</td>
+</tr>
+<tr>
+<td>24</td>
+<td align="center">马达加斯加</td>
+<td align="center">2515</td>
+<td align="center">0.91</td>
+<td align="center">50</td>
+<td align="center">科摩罗</td>
+<td align="center">178</td>
+<td align="right">0.06</td>
+</tr>
+<tr>
+<td>25</td>
+<td align="center">毛里塔尼亚</td>
+<td align="center">1955</td>
+<td align="center">0.71</td>
+<td align="center">51</td>
+<td align="center">索马里</td>
+<td align="center">68</td>
+<td align="right">0.02</td>
+</tr>
+<tr>
+<td>26</td>
+<td align="center">赤道几内亚</td>
+<td align="center">1864</td>
+<td align="center">0.67</td>
+<td align="center">52</td>
+<td align="center">几内亚比绍</td>
+<td align="center">52</td>
+<td align="right">0.02</td>
+</tr>
+<tr>
+<td>相对风险的初步定义为每个非洲国家或地区接待来自高风险城市（18个城市）航空旅客占高风险城市总出行旅客的百分比，基于从国际航空交通协会（IATA）获得的2018年2月到4月航空出行数据。注，2018年的春节是从2月16日开始。</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p><img src="http://blog.gisersqdai.top/15800721525202r642swy.png"></p>
+<p>图9 在春节前15天到春节后两个半月，这三个月时间内非洲接待中国大陆18个高风险城市（图6）航空出行游客的城市地理分布。基于国际航空交通协会（IATA）获得的2018年2月到4月的航空出行数据。2018年春节从2月16日开始。</p>
+<h1 id="4-参考文献"><a href="#4-参考文献" class="headerlink" title="4 参考文献"></a>4 参考文献</h1><blockquote>
+<ol>
+<li>Zhu N, et al. (2020) A Novel Coronavirus from Patients with Pneumonia in China, 2019. N Engl J Med. DOI: 10.1056&#x2F;NEJMoa2001017</li>
+<li>Chan J, et al. (2020) A familial cluster of pneumonia associated with the 2019 novel coronavirus indicating person-to-person transmission: a study of a family cluster. Lancet. DOI: 10.1016&#x2F;S0140-6736(20)30154-9</li>
+<li>Huang C, et al. (2020) Clinical features of patients infected with 2019 novel coronavirus in Wuhan, China. Lancet. DOI: 10.1016&#x2F;S0140-6736(20)30183-5</li>
+<li>Baidu Migration. <a target="_blank" rel="noopener" href="http://qianxi.baidu.com/">http://qianxi.baidu.com/</a></li>
+<li>Bogoch I, et al. (2020) Pneumonia of Unknown Etiology in Wuhan, China: Potential for International Spread Via Commercial Air Travel. Journal of Travel Medicine, taaa008, <a target="_blank" rel="noopener" href="https://doi.org/10.1093/jtm/taaa008">https://doi.org/10.1093/jtm/taaa008</a></li>
+</ol>
+</blockquote>
+<h1 id="5-后记"><a href="#5-后记" class="headerlink" title="5 后记"></a>5 后记</h1><p>本译文已授权一览众山小·可持续城市与交通发布，详情链接见<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7Ti2T3-09jCXTPonS2dtBg">抗击疫情特刊⑥ ︱2019年中国新型冠状病毒国内外传播的初步风险分析</a>，此外可以参加下面相关抗击疫情特刊。前两篇笔者均有参与翻译。另外还有一篇我们ISLE团队发布的社区倡议书。</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/JkBxnJhqhihGWxHzwP9Igg">抗击疫情特刊① ︱武汉新型冠状病毒肺炎通过航空国际传播的风险评估</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/HP2JdYwKyIK_0-zKpYJEnQ">抗击疫情特刊② ︱Science：传染病是这么传染的！传染病者的“有效”距离</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/srDSJtKWF-x8CYoaR2rNvQ">抗击疫情特刊③︱bioRxiv：导致近期人病毒性肺炎暴发的新型冠状病毒及其源于蝙蝠的相关研究</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/sZhvqoVHT-YN9jOXFp43iA">抗击疫情特刊④ ︱面对新型肺炎来袭你应该怎么做？听听美国疾控中心的建议</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cd8Y0GKEyVO9-uyD4c5i8g">抗击疫情特刊⑤ ︱从2003年SARS到2009年甲型H1N1流感：台湾预防流行病的经验</a></p>
+<p>ISLE团队的社区倡议书。</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/N4VONfC8rtRBwgG2vNg-FQ">倡议书 | 面对新型冠状病毒肺炎：社区卫生服务中心（家庭医生&#x2F;基层党群）行动起来！</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Academic/" rel="tag"># Academic</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/01/20/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B8%89%EF%BC%89/" rel="prev" title="Coding and Paper Letter（七十三）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（七十三）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/05/Ubuntu%E5%AE%89%E8%A3%85GDAL-2-1/" rel="next" title="Ubuntu安装GDAL 2.1">
+                  Ubuntu安装GDAL 2.1 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2020/01/26/%E8%AF%91%E6%96%87%E2%80%94%E2%80%942019%E5%B9%B4%E4%B8%AD%E5%9B%BD%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E5%9B%BD%E5%86%85%E5%A4%96%E4%BC%A0%E6%92%AD%E7%9A%84%E5%88%9D%E6%AD%A5%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这是MODIS数据的简介和下载的最后一篇，下载方式的进阶版——基于MODIS Web Service的下载方式。这篇是笔者课程上机实习内容之一，做些简要总结和整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）">
+<meta property="og:url" content="https://gisersqdai.top/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="这是MODIS数据的简介和下载的最后一篇，下载方式的进阶版——基于MODIS Web Service的下载方式。这篇是笔者课程上机实习内容之一，做些简要总结和整理。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414224858.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225226.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225404.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225515.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225634.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225912.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414230241.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414230500.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414231110.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414231500.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414234710.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414235034.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414235401.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/test.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/plot.jpg">
+<meta property="article:published_time" content="2017-04-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-18T08:17:20.897Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="MODIS">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414224858.jpg">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/","path":"2017/04/15/MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）/","title":"MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service） | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service） | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MODIS数据的简介和下载（三）——MODIS数据下载方式（基于MODIS Web Service）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-04-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-15T00:00:00+08:00">2017-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RS/" itemprop="url" rel="index"><span itemprop="name">RS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这是MODIS数据的简介和下载的最后一篇，下载方式的进阶版——基于MODIS Web Service的下载方式。<br>这篇是笔者课程上机实习内容之一，做些简要总结和整理。<span id="more"></span><br>事实上MODIS产品系列就如前面提到的，由于搭载在Terra星和Aqua星上，所以产品就包括了Terra星、Aqua星以及二者集成的产品。分别以MOD（Terra星）、MYD（Aqua星）、MCD（二者集成）作区分。具体的产品查询网站除了前面文章简单提到的之外，还可以查看官网。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/">https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/</a> </p>
+</blockquote>
+<p>当然这一次进阶版的下载方式是基于Web Service的。那么Web Service是什么呢？这边引用了课程ppt的一段话。</p>
+<p>Web service是一个平台独立的，低耦合的，自包含的、基于可编程的web的应用程序，可使用开放的XML（标准通用标记语言下的一个子集）标准来描述、发布、发现、协调和配置这些应用程序，用于开发分布式的互操作的应用程序。</p>
+<p>Web Service技术， 能使得运行在不同机器上的不同应用无须借助附加的、专门的第三方软件或硬件， 就可相互交换数据或集成。依据Web Service规范实施的应用之间， 无论它们所使用的语言、 平台或内部协议是什么， 都可以相互交换数据。Web Service是自描述、 自包含的可用网络模块， 可以执行具体的业务功能。Web Service也很容易部署， 因为它们基于一些常规的产业标准以及已有的一些技术，诸如标准通用标记语言下的子集XML、HTTP。Web Service减少了应用接口的花费。Web Service为整个企业甚至多个组织之间的业务流程的集成提供了一个通用机制。</p>
+<p>简单说，这是个方便你下载的插件。具体的下载地址就在下面了。官方提供了多种语言的客户端，包括Java，Perl，Python，Kepler，Matlab和R。本篇主要介绍Matlab和R的客户端如何下载MODIS数据。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://modis.ornl.gov/data/modis_webservice.html">https://modis.ornl.gov/data/modis_webservice.html</a></p>
+</blockquote>
+<p>先介绍Matlab的客户端，首先在官网下载Matlab的客户端。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414224858.jpg"></p>
+<p>客户端压缩包文件：</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225226.jpg"></p>
+<p>客户端在Matlab的部署非常简单。只需要拷贝到Matlab的工作目录即可。当然使用的时候要求位于如图的路径中。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225404.jpg"></p>
+<p>接下来就可以愉快地使用了。当然，由于官方的镜像搬迁的问题，需要更新对应的镜像地址。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225515.jpg"></p>
+<p>对应在Matlab客户端的modisClient.m文件中找到替换的镜像地址，保存后即可开始使用。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225634.jpg"></p>
+<p>在Matlab中调用不含任何参数的modisClient，可以看到可供下载的MODIS产品列表。</p>
+<pre><code>modisClient()
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414225912.jpg"></p>
+<p>用产品名称作为参数，则可以看到该产品下所有数据集。</p>
+<pre><code>modisClient(&#39;MOD15A2&#39;)
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414230241.jpg"></p>
+<pre><code>modisClient(&#39;MOD15A2&#39;,&#39;Lai_1km&#39;,36.833,116.567)
+</code></pre>
+<p>加上数据集名称（以1 km的叶面积指数数据为例）以及经纬度坐标。结果为对应的数据集（该数据8天为间隔）所在的时间范围。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414230500.jpg"></p>
+<p>在前面的基础上加上时间范围即可用客户端下载对应的MODIS数据。数据的下载格式是一个多元结构体。包括了数据、转换因子、对应时间序列和单位等等。这样我们就用Matlab下载到了对应的MODIS数据。</p>
+<pre><code>YC_LAI2009=modisClient(&#39;MOD15A2&#39;,&#39;Lai_1km&#39;,36.833,116.567,2009000,2009365)
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414231110.jpg"></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414231500.jpg"></p>
+<p>接下来我们讲的是R语言的客户端及其下载方式。R语言的客户端有两种配置方法，一个是基础设置（基于SSOAP来进行），一个是高级设置（MODISTools包）。<br>笔者个人使用的是高级设置，基础设置没有配置过。只是对官方给出的例子做了下翻译，具体的demo如下：</p>
+<pre><code><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##确定你安装了SSOAP包，否则先安装SSOAP，用install.packages(&quot;SSOAP&quot;）</span></span><br><span class="line"><span class="comment">##接着你就可以尝试用命令行的方式来下载裁切你想要的MODIS影像数据了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 载入包</span></span><br><span class="line">library<span class="punctuation">(</span>SSOAP<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 获取SOAP服务</span></span><br><span class="line">ornlMODIS <span class="operator">=</span> processWSDL<span class="punctuation">(</span><span class="string">&quot;http://daac.ornl.gov/cgibin/MODIS/GLBVIZ_1_Glb_subset/MODIS_webservice.wsdl&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义函数设置</span></span><br><span class="line">ornlMODISFuncs <span class="operator">=</span> genSOAPClientInterface<span class="punctuation">(</span>operations<span class="operator">=</span>ornlMODIS<span class="operator">@</span>operations<span class="punctuation">[[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">,</span> def<span class="operator">=</span>ornlMODIS<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用获取裁切影像的函数设定</span></span><br><span class="line">result <span class="operator">=</span> ornlMODISFuncs<span class="operator">@</span>functions<span class="operator">$</span>getsubset<span class="punctuation">(</span><span class="number">40.115</span><span class="punctuation">,</span><span class="operator">-</span><span class="number">110.025</span><span class="punctuation">,</span></span><br><span class="line"><span class="string">&quot;MOD11A2&quot;</span><span class="punctuation">,</span><span class="string">&quot;LST_Day_1km&quot;</span><span class="punctuation">,</span><span class="string">&quot;A2001001&quot;</span><span class="punctuation">,</span><span class="string">&quot;A2001025&quot;</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##打印结果</span></span><br><span class="line">print<span class="punctuation">(</span>result<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>基础设置R语言demo地址：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://modis.ornl.gov/files/modiswebservice/R_getsubset.r">https://modis.ornl.gov/files/modiswebservice/R_getsubset.r</a></p>
+</blockquote>
+<p>接下来用MODISTools包来做测试，GetProducts函数类似于Matlab的moidsClient（）：</p>
+<pre><code>GetProducts()
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414234710.jpg"></p>
+<p>而对应的查看数据集的函数并不是在GetProdcuts函数中填入参数，而是使用GetBands函数。</p>
+<pre><code>GetBands(&quot;MOD15A2&quot;)
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414235034.jpg"></p>
+<p>对应查看数据时间范围的函数为GetDates。</p>
+<pre><code>GetDates(36.833,116.567,&quot;MOD15A2&quot;)
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170414235401.jpg"></p>
+<p>而类似于Matlab客户端下载数据的函数则为GetSubset和MODISSubsets。</p>
+<pre><code>YC_LAI2009&lt;-GetSubset(36.833,116.567,&quot;MOD15A2&quot;,&quot;Lai_1km&quot;,&quot;A2009001&quot;,&quot;A2009081&quot;,KmAboveBelow = 0,KmLeftRight = 0)
+</code></pre>
+<p>GetSubset函数较为简单。但笔者测试时，发现终止时间仅能到达第81天（LAI数据为8天合成产品）。目前尚不清楚具体原因，故最后使用MODISSubsets获取对应的数据。MODISSubsets必须先建立一个数据框作为经纬度（lat,long为字段名)，时间限制范围（start.date，end.date为字段名）的数据。而函数中比较重要的参数还包括了Size和TimeSeriesLength，Size可以用默认值（经纬度位置所处瓦片数量，c(0,0)表示像元中心值），TimeSeriesLength表示时间序列长度，等于1代表从一年的开头到结尾。运行程序，会发现在工作目录下生成了一个.asc文件（即对应MODIS下载下来的数据）。</p>
+<pre><code>yclai2009&lt;-data.frame(lat=36.833,long=116.567,start.date=2009,end.date=2009)
+MODISSubsets(LoadDat = yclai2009,Products = &quot;MOD15A2&quot;,Bands = &quot;Lai_1km&quot;,Size = c(0,0),StartDate = T,TimeSeriesLength = 1)
+</code></pre>
+<p>最后对获取的LAI数据进行绘图可视化。</p>
+<pre><code><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Matlab中</span><br><span class="line">Puredata=[YC_LAI2009.data(:,:)]</span><br><span class="line"><span class="built_in">plot</span>([<span class="number">0</span>:(<span class="built_in">length</span>(Puredata)<span class="number">-1</span>)]*<span class="number">8</span>+<span class="number">1</span>,Puredata*YC_LAI2009.scale,<span class="string">&#x27;b-&#x27;</span>)</span><br><span class="line">ylabel=(YC_LAI2009.units)</span><br><span class="line">xlabel=(<span class="string">&#x27;day of year&#x27;</span>)</span><br><span class="line">title=(<span class="string">&#x27;禹城站2009年LAI&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#R中</span></span><br><span class="line">a<span class="operator">&lt;-</span>read.table<span class="punctuation">(</span><span class="string">&quot;Lat36.83300Lon116.56700Start2009-01-01End2009-12-31___MOD15A2.asc&quot;</span><span class="punctuation">,</span>sep <span class="operator">=</span> <span class="string">&quot;,&quot;</span><span class="punctuation">)</span></span><br><span class="line">lai<span class="operator">&lt;-</span>data.frame<span class="punctuation">(</span>day<span class="operator">=</span>seq<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">365</span><span class="punctuation">,</span><span class="number">8</span><span class="punctuation">)</span><span class="punctuation">,</span>lai<span class="operator">=</span>a<span class="operator">$</span>V11<span class="operator">*</span><span class="number">0.1</span><span class="punctuation">)</span></span><br><span class="line">plot<span class="punctuation">(</span>lai<span class="punctuation">,</span>type<span class="operator">=</span><span class="string">&quot;l&quot;</span><span class="punctuation">,</span>pch<span class="operator">=</span><span class="number">16</span><span class="punctuation">,</span>col<span class="operator">=</span><span class="string">&quot;blue&quot;</span><span class="punctuation">,</span>xlab<span class="operator">=</span><span class="string">&quot;day of year&quot;</span><span class="punctuation">,</span>ylab<span class="operator">=</span><span class="string">&quot;LAI&quot;</span><span class="punctuation">,</span>main<span class="operator">=</span><span class="string">&quot;禹城站2009年LAI&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>Matlab绘图结果</p>
+<p><img src="http://blog.gisersqdai.top/test.jpg"></p>
+<p>R绘图结果</p>
+<p><img src="http://blog.gisersqdai.top/plot.jpg"></p>
+<p>总的来说，Matlab和R的客户端下载各有优缺点，而基于MODIS Web Service的下载方式最大好处就是在于它的Subset功能，而不是需要先下载整景影像再处理。在做单点模型的时候是非常快捷的。当然客户端的其它函数还有很多，包括像质量控制。本文没有对数据进行质量控制。实际研究中这个是必须进行的步骤（也可以基于客户端的函数来进行，譬如R里面的QualityCheck函数，Matlab的modisClientGetQC等）。<br>此外地理所也开发了在线平台，研究人员只需填写所需参数即可下载。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://159.226.110.142/carboncloud/datetool/toolmethod?url=onlinedo&pId=3">http://159.226.110.142/carboncloud/datetool/toolmethod?url=onlinedo&amp;pId=3</a> </p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/MODIS/" rel="tag"># MODIS</a>
+              <a href="/tags/R/" rel="tag"># R</a>
+              <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/04/14/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88FTP%EF%BC%89/" rel="prev" title="MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）">
+                  <i class="fa fa-angle-left"></i> MODIS数据的简介和下载（二）——MODIS数据下载方式（FTP）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/19/Google%20Earth%E7%BD%91%E9%A1%B5%E7%89%88%E5%88%9D%E6%8E%A2/" rel="next" title="Google Earth网页初探">
+                  Google Earth网页初探 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2017/04/15/MODIS%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AE%80%E4%BB%8B%E5%92%8C%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94MODIS%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F%EF%BC%88%E5%9F%BA%E4%BA%8EMODIS%20Web%20Service%EF%BC%89/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

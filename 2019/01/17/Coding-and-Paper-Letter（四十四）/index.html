@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="资源整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding and Paper Letter（四十四）">
+<meta property="og:url" content="https://gisersqdai.top/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="资源整理。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1547690142726g45mijmh.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15476905689060ibwrb20.png">
+<meta property="article:published_time" content="2019-01-17T01:24:00.000Z">
+<meta property="article:modified_time" content="2019-12-18T08:39:44.230Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Summary">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1547690142726g45mijmh.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/","path":"2019/01/17/Coding-and-Paper-Letter（四十四）/","title":"Coding and Paper Letter（四十四）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Coding and Paper Letter（四十四） | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Coding"><span class="nav-text">1 Coding:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Paper"><span class="nav-text">2 Paper:</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Coding and Paper Letter（四十四） | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Coding and Paper Letter（四十四）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-17 09:24:00" itemprop="dateCreated datePublished" datetime="2019-01-17T09:24:00+08:00">2019-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CPL/" itemprop="url" rel="index"><span itemprop="name">CPL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>16 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>资源整理。<span id="more"></span></p>
+<h1 id="1-Coding"><a href="#1-Coding" class="headerlink" title="1 Coding:"></a>1 Coding:</h1><p>1.Rstudio2019年会“机器学习应用”的幻灯片，代码和数据</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topepo/rstudio-conf-2019">rstudio conf 2019</a></p>
+<p>2.R语言包sparkxgb，Spark上XGBoost的R接口。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rstudio/sparkxgb">sparkxgb</a></p>
+<p>3.自动SQL注入和数据库接管工具。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sqlmapproject/sqlmap">sqlmap</a></p>
+<p>4.最新的深度学习技术应用于自然语言处理的概览。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/omarsar/nlp_overview">nlp overview</a></p>
+<p>5.来自美国GIS第一高校加州大学圣塔芭芭拉分校的地理学课程178&#x2F;258（地理科学的概念建模与编程）的网页。在Github推出可以教学的class模式后有很多诸如此类的课程可以关注。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mikejohnson51/geog178">geog178</a></p>
+<p>6.Python库geetools，Google Earth Engine的工具。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gee-community/gee_tools">gee tools</a></p>
+<p>7.哥伦比亚大学2019年春季机器学习应用课程材料。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/amueller/COMS4995-s19">COMS4995 s19</a></p>
+<p>8.R语言包gt，更方便地用R生成信息丰富具有出版质量的表格。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rstudio/gt">gt</a></p>
+<p>9.2019年冬季R语言空间研讨会。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/spatialanalysis/workshop-scripts">workshop scripts</a></p>
+<p>10.如何制作Shiny的书。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kellobri/shiny-prod-book">shiny prod book</a></p>
+<p>11.fasai深度学习库、课程以及教程。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fastai/fastai">fastai</a></p>
+<p>12.阿里天池大赛O2O优惠券使用预测比赛第一名代码。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wepe/O2O-Coupon-Usage-Forecast">O2O Coupon Usage Forecast</a></p>
+<p>13.深度学习研究论文笔记与综述。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dennybritz/deeplearning-papernotes">deeplearning papernotes</a></p>
+<p>14.高光谱论文（代码）。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pat-s/paper_hyperspectral">paper hyperspectral</a></p>
+<p>15.SNIPER是一种有效的多尺度目标探测算法。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mahyarnajibi/SNIPER">SNIPER</a></p>
+<p><img src="http://blog.gisersqdai.top/1547690142726g45mijmh.png"></p>
+<p>16.基于U-Net架构的端到端一类实例分割，用于Kaggle的Data Science Bowl 2018。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ildoonet/data-science-bowl-2018">data science bowl 2018</a></p>
+<p>17.从要素属性添加功能级别tippecanoe GeoJSON扩展。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/andrewharvey/geojson-tippecanoe-extensions-from-attributes">geojson tippecanoe extensions from attributes</a></p>
+<p>18.Python库responder，熟悉的http服务Python框架。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kennethreitz/responder">responder</a></p>
+<p>19.Rstudio2019年会关于统计教育的谈话材料。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mrshrbrmstr/RStudioConf2019">RstudioConf2019</a></p>
+<p>20.Rstudio的addin用于查看空间对象。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jsta/mapview.addin">mapview.addin</a></p>
+<p>21.Rstudio的addin用于编辑地图。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mrjoh3/mapedit.addin">mapedit.addin</a></p>
+<p><img src="http://blog.gisersqdai.top/15476905689060ibwrb20.png"></p>
+<p>22.UCL地理学院的geog0133课程“陆地碳：建模与监测”实践。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jgomezdans/geog0133-practicals">geog0133 practicals</a></p>
+<h1 id="2-Paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ldr.3258">Effects of minimum soil disturbance practices on controlling water erosion in ChinaꞋs slope farmland: A meta-analysis&#x2F;中国坡耕地最小土壤扰动措施对控水蚀的影响：meta分析</a></p>
+<p>中国普遍存在坡耕地，坡耕地土壤流失是河流沉积的主要来源。在控制水蚀方面，有效地考虑了最小的土壤干扰实践，特别是在坡地农田。虽然它们的有益效果已得到普遍认可，但仍需要进一步研究，以量化减少径流和沉积物产量的最小土壤扰动实践的程度。我们提出了一项基于全国性meta分析的定量评估，包括536次径流和615次沉积物配对观测，以评估最小土壤干扰实践在控制中国水蚀方面的有效性。中国最小土壤扰动实践分别使径流和泥沙产量减少36.09％和51.69％。收集土壤形成免耕垄，用树篱和微盆地耕作轮廓耕作显示出比其他三种做法（免耕，免耕覆盖和轮廓耕作）显着更大（P &lt;0.05）径流和沉积物产量减少。通过微地形学管理改变土壤性质的做法优于（P &lt;0.05）改变土壤性质而不进行耕作以减少径流和沉积物产量的做法。除了直接减少径流外，由于其附加效应，最小土壤扰动实践在减少泥沙产量方面比径流更有效。没有观察到径流或沉积物减产与坡度之间的相关性，而最小土壤扰动实践的水蚀控制效率随着坡长的增加而增加。作为一种水土保持措施，中国坡耕地可以采用最小的土壤扰动措施。傅伯杰院士团队的成果，使用meta分析分析土壤扰动和水蚀的影响，发表于农林科学top期刊LDD。</p>
+<p>2.<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8519036">Deep Learning for Ground-Level PM2.5 Prediction from Satellite Remote Sensing Data&#x2F;基于卫星遥感数据的地面PM2.5预测深度学习</a></p>
+<p>卫星遥感是一种很有潜力的地面PM2.5估算方法。在本文中，提出了一个基于卫星的PM2.5估计的深度学习框架。利用多层学习和逐层预训练，深度学习具有挖掘PM2.5与卫星观测之间非线性关系的巨大潜力。首先，所提出的深度学习框架可用于利用卫星导出的气溶胶光学厚度（AOD）估算地面PM2.5。其次，AOD产品是从卫星顶部大气（TOA）反射率中检索出来的。可以进一步采用深度学习框架，直接从卫星TOA反射率估算地面PM2.5。所提出的框架分别在中国进行了基于AOD的PM2.5估算和武汉都市区的基于反射率的PM2.5估算。结果表明，深度学习框架在基于AOD和基于反射的PM2.5估计中都表现出色。该研究为基于卫星的PM2.5估计提供了有效的方法。深度学习在PM2.5估算中的应用，张良培老师团队成果，发表于IGARSS会议。比较有意思的是不仅仅基于AOD估算，也有基于TOA的估算，这样子应用价值会更高。</p>
+<p>3.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0048969718322861">Patterns of land change and their potential impacts on land surface temperature change in Yangon, Myanmar&#x2F;缅甸仰光土地变化模式及其对地表温度变化的潜在影响</a></p>
+<p>本研究使用遥感影像来描述土地利用&#x2F;覆盖模式，并推导出缅甸最大的城市群Greater Yangon的地表温度（LST），以提供土地利用&#x2F;覆盖与季节，白天和夜间LST变化。对1987年至2015年Landsat影像的分析显示，城市扩张从市中心和沿着突出的河流辐射，建成用地（6.4％）和草地（10.1％）大幅增加，随之而来的农地减少（17％）。对MODIS LST的检查表明，在炎热季节白天，农业用地比城市核心温暖，而在寒冷季节，城市核心在白天和夜间都比农村环境温暖。相关分析显示，从2000年到2015年，建成地与夜间LST之间存在更强的联系，表明城市热岛效应增加。此外，本研究强调了与土地利用&#x2F;覆盖对LST影响的先前工作的两个主要差异。首先，对LST具有重大整体影响的主要土地利用&#x2F;覆盖类型是农业用地，其标志是所有分析时期的统计显着相关系数。这一发现强调了农业及相关做法对大气和气候系统的影响。其次，LST的时间分析突出了水的更强和更复杂的作用，因为它与白天LST呈负相关，与夜间LST呈正相关。本研究的结果强调了土地利用&#x2F;覆盖对仰光LST空间和时间变化的更复杂影响，与之前在城市地区普遍报告高LST的工作相比。这些见解提高了对土地变化后果对LST时间动态的理解，并可以支持可持续土地利用规划，以改善大仰光居民的福祉。长时间序列遥感分析，耦合两种卫星（MODIS和Landsat），当然对这个结果和方法没有觉得特别突出的点。两种不同分辨率卫星如何进行分析，目前从摘要也没有发现。查看了下原文，应该是统计了Landsat土地覆被上不同类型的MODIS LST做的分析。做了比较多工作。</p>
+<p>4.<a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/01431161.2016.1268732?journalCode=tres20">Landscape changes of the Ejin Delta in the Heihe River Basin in Northwest China from 1930 to 2010&#x2F;1930-2010年西北黑河流域额济纳三角洲景观变化</a></p>
+<p>黑河流域位于中国西北干旱半干旱地区;在过去的80年里，该流域分别经历了灌溉农业与中下游生态需求之间的水资源竞争。利用Sven Hedin博士在20世纪30年代创建的地图，1961年拍摄的日冕卫星影像和Landsat专题制图（TM），对黑河流域下游的额济纳三角洲的土地覆盖进行了四个不同时期的解释和分析。总体而言，结果表明：（1）20世纪30年代地图的粗分辨率增加了研究区域的分析不确定性;（2）额济纳三角洲的河流面积从20世纪30年代下降了91.0％此外，两个主要的终端湖泊Gaxun Nuur Lake和Sogo Nuur Lake分别于1961年和1992年枯竭，胡杨面积从20世纪30年代到2000年减少了76.1％。大多数芦苇被灌木覆盖。 20世纪30年代至1961年间，芦苇面积从3481平方公里减少到1332平方公里，灌木面积从805平方公里增加到2795平方公里。从20世纪30年代到2000年，沙漠和碱性土地面积分别增加了42.2％和52.4％。 （3）2000年实施调水工程后，2010年苏哥努尔湖面积恢复到40.58平方公里。胡杨，灌木丛和芦苇等地区呈现恢复趋势，增幅分别为4.5％，6.5％，到2010年，沙漠和碱性土地面积分别下降了4.2％和15.2％。耕地面积从1961年的25平方公里增加到2000年的85平方公里，迅速接近160平方公里。随着时间的推移，这些变化表明，额齐纳三角洲的生态栖息地在20世纪30年代和2000年之间恶化。但是，水转移项目有效地改变了退化趋势。跨度长达80年的土地覆被变化研究。</p>
+<p>5.<a target="_blank" rel="noopener" href="https://www.atmos-meas-tech.net/12/169/2019/">Advancements in the Aerosol Robotic Network (AERONET) Version 3 database – automated near-real-time quality control algorithm with improved cloud screening for Sun photometer aerosol optical depth (AOD) measurements&#x2F;气溶胶自动监测网络（AERONET）第3版数据库的进步 - 自动近实时质量控制算法，改进了太阳光度计气溶胶光学厚度（AOD）测量的云屏蔽</a></p>
+<p>气溶胶自动监测网络（AERONET）使用Cimel Electronique Sun-sky辐射计提供了超过25年的气溶胶光学厚度（AOD）的高精度，地面实况测量。在AERONET数据库的第2版（V2）中，近实时AOD主要使用云屏蔽方法进行半自动质量控制，而被云污染或受仪器异常影响的额外AOD数据在获得质量保证状态之前被手动删除（等级2.0）。在过去25年中，AERONET站点数量的大幅增长导致以一致的方式对数百万次测量的手动质量控制造成重大负担。 AERONET版本3（V3）算法提供全自动云筛选和仪器异常质量控制。所有这些新算法更新都适用于近实时数据以及现场部署后处理数据，AERONET在2018年对数据库进行了重新处理。完整的算法重新开发提供了改进数据输入和校正的机会，例如独特的过滤器 - 所有可见光和近红外波长的特定温度特征，更新的气体和水蒸气吸收系数以及辅助数据集。 2.0级AOD质量保证数据集现已在现场校准后一个月内提供，将滞后时间从几个月减少到几个月。使用符合V3 Level 2.0 AOD的数据并考虑使用前场校准计算的AOD与使用前场和场后校准计算的AOD之间的差异来确定近实时估计的不确定性。该评估提供近实时不确定性估计，其中AOD的平均差异表明+0.02偏差和一个sigma不确定性为0.02，但是对于特定仪器部署，偏差和不确定性可能显着更大。分析整个V3和V2数据库的长期月平均值产生+0.002的平均差异（V3-V2）和±0.02SD（标准差），但是使用两个数据库中的时间匹配观察计算的月平均值进行计算平均差异为-0.002，±0.004SD。多年平均AOD的高统计协议验证了先进的自动数据质量控制算法，并建议将研究迁移到V3数据库将证实大多数V2研究结论，并可能在某些情况下导致更准确的结果。AERONET数据质量改善的文章，推进AOD反演的关键要素。</p>
+<p>6.<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8334203">Improved Hourly Estimates of Aerosol Optical Thickness Using Spatiotemporal Variability Derived From Himawari-8 Geostationary Satellite&#x2F;利用Himawari-8地球同步卫星的时空变化改进气溶胶光学厚度的每小时估算</a></p>
+<p>我们开发了一项方案，通过日本气象厅最新的地球同步卫星Himawari-8上的Advanced Himawari Imager（AHI）改进气溶胶光学厚度（AOT）的每小时估算。利用AHI的采样特征（10分钟时间和亚测量空间分辨率），我们从观测（AOToriginal）量化AOT的时间和空间变化，并利用这些信息开发一个小时算法，产生两组派生的AOT ：AOTpure，通过对AOToriginal进行严格的云掩膜和AOTmerged，从AOTpure的空间和时间插值得到。如此从每小时算法获得的AOT根据来自气溶胶机器人网络的测量值进行验证。 AOTpure和AOTmerged产品的均方根误差（RMSEs）分别为0.14和0.11，比AOT原剂的RMSE提高了0.20。目前向日葵8号卫星AOT产品的算法论文，每小时估算的AOT。笔者最近对这个卫星有所研究，后面也会稍微介绍下。总的来说AOT还是比较稀疏的（受到很多不可控因素）。</p>
+<p>7.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1352231018307957">A simplified aerosol retrieval algorithm for Himawari-8 Advanced Himawari Imager over Beijing&#x2F;一种简化的Himawari-8高级Himawari成像仪在北京的气溶胶反演算法</a></p>
+<p>高时间气溶胶光学厚度（AOD）可用于反演排放模型和全面了解气溶胶的气候学。地球同步卫星已被用于在陆地和海洋上获得AOD。在这项研究中，开发了一种用于高级Himawari-8成像仪（SARAHI）的新型简化气溶胶反演算法，用于从新一代地球静止气象卫星-Himawari-8中反演北京每小时AOD，该卫星携带先进的Himawari成像仪（AHI）。该算法基于简化的辐射传输模型和表面反射率，该表面反射率来自一个月的AHI表观数据。来自AErosol RObotic NETwork（AERONET）站点和JAXA Himawari Monitor Version 2.0气溶胶反演产品（L2ARP2.0）的测量用于评估来自SARAHI算法的AOD反演的性能。 AOD反演的73.5％，78.2％，74.7％分别落在Beijing_CAMS，Beijing_RADI和香河站点的预期误差线上。相关系数大于0.92，小均方根误差（RMSE）为0.134-0.164。检索也可以非常好地反映AOD的时间变化。结果表明，SARAHI AOD算法能够准确地推导出区域AOD，并且优于L2ARP2.0 AOD。简化的向日葵8号AOD反演算法。</p>
+<p>8.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1352231018307969">Validation of Himawari-8 Aerosol Optical Depth Retrievals over China&#x2F;Himawari-8气溶胶光学厚度反演在中国的验证</a></p>
+<p>卫星传感器很少提供高时间分辨率（每10分钟）气溶胶观测。 Himawari-8上的高级Himawari成像仪（AHI）可以在此频率下提供中国的气溶胶光学厚度（AOD）。该传感器提供了很好的机会来检索地面附近的颗粒物质，并使用气溶胶产品改善空气质量建模。但是，关于AHI AOD仍然缺乏质量验证。基于在中国的AErosol RObotic NETwork（AERONET）和Sun-Sky辐射计观测网络（SONET）中的16个太阳光度计站，进行了综合研究以评估AHI气溶胶产品的性能。 AHI AOD和地面AOD的总体比较显示出高相关性（R2 &#x3D; 0.67）。然而，只有55％的AHI AOD落入预期的误差包络（±0.05±0.2 * AOD地面）。 AHI AOD和地面AOD之间的AOD偏差随着AOD幅度的增加而增加。 AHI AOD的准确性也高度依赖于季节和地表覆盖类型。夏季和城市地区展示了AHI气溶胶回收的最佳性能。昼夜变异性验证表明，AHI AOD可以很好地捕捉昼夜AOD变化，尤其是夏季。显示了AHI AOD和MODerate-resolution成像光谱仪（MODIS）气溶胶产品之间的巨大差异，特别是在中国西北地区。分析表明，AHI气溶胶回收的不确定性是由气溶胶模型的大误差和算法中的表面反射率估计引起的。向日葵8号卫星AOD产品反演的验证，该卫星因为高时间分辨率最近受到了很多关注。</p>
+<p>9.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1352231019300354?via=ihub">Evaluation of MAIAC aerosol retrievals over China&#x2F;中国MAIAC气溶胶反演评价</a></p>
+<p>大气校正的多角度实现（MAIAC）是一种新的气溶胶算法，用于检测陆地上的气溶胶光学厚度（AOD），使用时间序列数据动态分离气溶胶和土地的贡献。但是，目前仍未对MAIAC AOD在中国的质量进行全面研究。在本文中，对中国1公里的MAIAC AOD进行了地面测量，以评估数据的性能。一般来说，Aqua和Terra MAIAC反演具有较高的相关系数（Aqua为0.924，Terra为0.933），基于地面观察，超过72％的反演属于预期误差（EE &#x3D;±（0.05 + 0.2 ） AOD））。我们发现MAIAC AOD的准确性与AOD大小，气溶胶大小，季节和表面类型有关。在春季和夏季，AOD偏差受到气溶胶模型和表面反射率估计的影响。我们还发现气溶胶模型是沙漠地区AOD偏差的主要来源。这些结果表明，MAIAC AOD可以作为中国空气质量和气候研究的新气溶胶数据来源。MAIAC的这套数据是比较新的，算法也是新的，近期有不少基于该产品的文章，可以关注。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Summary/" rel="tag"># Summary</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/01/14/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E4%B8%89%EF%BC%89/" rel="prev" title="Coding and Paper Letter（四十三）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（四十三）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/01/19/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E4%BA%94%EF%BC%89/" rel="next" title="Coding and Paper Letter（四十五）">
+                  Coding and Paper Letter（四十五） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2019/01/17/Coding-and-Paper-Letter%EF%BC%88%E5%9B%9B%E5%8D%81%E5%9B%9B%EF%BC%89/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

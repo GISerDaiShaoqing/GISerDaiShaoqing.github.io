@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="资源整理。接上篇，这篇博客主要关注论文。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding and Paper Letter（十九）">
+<meta property="og:url" content="https://gisersqdai.top/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="资源整理。接上篇，这篇博客主要关注论文。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-11T12:19:00.000Z">
+<meta property="article:modified_time" content="2019-12-18T08:32:59.037Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Summary">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/","path":"2018/09/11/Coding-and-Paper-Letter（十九）/","title":"Coding and Paper Letter（十九）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Coding and Paper Letter（十九） | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Paper"><span class="nav-text">Paper:</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Coding and Paper Letter（十九） | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Coding and Paper Letter（十九）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-11 20:19:00" itemprop="dateCreated datePublished" datetime="2018-09-11T20:19:00+08:00">2018-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CPL/" itemprop="url" rel="index"><span itemprop="name">CPL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>23 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>资源整理。接上篇，这篇博客主要关注论文。<span id="more"></span></p>
+<h1 id="Paper"><a href="#Paper" class="headerlink" title="Paper:"></a>Paper:</h1><p>1.<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/327434459_Spatial-Spectral_Fusion_by_Combining_Deep_Learning_and_Variation_Model">Spatial-Spectral Fusion by Combining Deep Learning and Variation Model&#x2F;结合深度学习和变异模型的空间光谱融合</a></p>
+<p>在空间光谱融合领域，基于模型的方法和基于深度学习（DL）的方法是最先进的。本文提出了一种融合方法，将深度神经网络结合到基于模型的方法中，用于空间光谱融合中最常见的情况：PAN &#x2F;多光谱（MS）融合。具体来说，我们首先通过深度残差将高空间分辨率全色图像（HR-PAN）和低空间分辨率多光谱图像（LR-MS）的梯度映射到高空间分辨率多光谱图像（HR-MS）的梯度卷积神经网络（CNN）。然后我们通过LR-MS图像，从梯度网络学习的梯度和理想的融合图像构建融合框架。最后，使用迭代优化算法来求解融合模型。对来自各种来源的高质量图像的定量和视觉评估表明，所提出的融合方法在整体融合精度方面优于比较中包括的所有主流算法。武汉大学张良培老师团队的成果，利用深度学习进行空间和光谱融合，光谱级的融合目前还只是初探，是个很不错的尝试。之前见过NASA官方在利用MODIS的一些历史数据进行类似的工作，这方面的尝试值得探究。</p>
+<p>2.<a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/13658816.2018.1514608?journalCode=tgis20">A proportional odds model of human mobility and migration patterns&#x2F;人类流动和迁移模式的proportional odds模型</a></p>
+<p>由于其重要性，人类流动和迁移模式的建模受到了很多关注。尽管进行了长期努力，我们仍然缺乏一个能够捕捉流动模式的建模框架，并进一步获得有关各种影响因素的运动趋势的前瞻性观点。在这里，我们提出了人类迁移和迁移的比例概率模型（POM-HM），它采用概率方法来模拟人类运动。我们的模型基于迁移概率，在比率概率假设下具有对数 - 逻辑分布。通过重新参数化概率分布函数将解释变量引入到模型中。两个由此产生的函数，即迁移强度和累积危险，用于估计旅行流量及其趋势之间的区域差异。研究了POM-HM在有效性和准确性方面的性能，并与重力模型和辐射模型进行了比较。基于概率的建模框架使我们能够研究移民流量的区域变化，从而进一步预测潜在的未来模式。简而言之，我们的建模方法捕捉了人类流动和迁移的概率性质，并进一步加深了我们对人口迁移的时空模式和各种驱动力的影响的理解。地理所马廷老师的成果，发表于GIS界Top期刊IJGIS，基于概率统计建模来反映人类的mobility和migration，马廷老师自在给我们上课的时候就是专攻统计方面的知识，很好的数理基础建立的模型。值得细细研究。</p>
+<p>3.<a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007%2Fs11284-018-1633-x">8 million phenological and sky images from 29 ecosystems from the Arctic to the tropics: the Phenological Eyes Network&#x2F;从北极到热带的29个生态系统中的800万个物候和天空图像：物候眼网络</a></p>
+<p>我们报告了从北极到热带的各种生态系统中通过物候眼网络（<a target="_blank" rel="noopener" href="http://www.pheno-eye.org,2018年5月29日访问)的延时摄像机拍摄的长期连续物候和天空图像.物候图像可用于记录开花时间,叶片冲洗,叶子着色和落叶的年度变化,并检测物种和生态系统中物候模式和时间敏感性的特征.它们还可以帮助解释陆地生态系统中碳,水和热循环的变化,并用于获取卫星观测产品验证的地面实况数据.天空图像可用于连续记录大气条件并获得地面实况数据,以验证卫星遥感数据中存在的云污染和大气噪声.我们采用天空,森林树冠,森林地面,拍摄一系列树种和景观的图像,使用安装在森林地面,塔楼和屋顶上的延时摄像机.自1999年以来,共有29个站点的84个延时摄像机拍摄了800万张图像.我们的图像提供了(1)植物物候的长期,连续详细记录,这些记录比指数树的原位视觉物候观测更加定量/">http://www.pheno-eye.org，2018年5月29日访问）的延时摄像机拍摄的长期连续物候和天空图像。物候图像可用于记录开花时间，叶片冲洗，叶子着色和落叶的年度变化，并检测物种和生态系统中物候模式和时间敏感性的特征。它们还可以帮助解释陆地生态系统中碳，水和热循环的变化，并用于获取卫星观测产品验证的地面实况数据。天空图像可用于连续记录大气条件并获得地面实况数据，以验证卫星遥感数据中存在的云污染和大气噪声。我们采用天空，森林树冠，森林地面，拍摄一系列树种和景观的图像，使用安装在森林地面，塔楼和屋顶上的延时摄像机。自1999年以来，共有29个站点的84个延时摄像机拍摄了800万张图像。我们的图像提供了（1）植物物候的长期，连续详细记录，这些记录比指数树的原位视觉物候观测更加定量</a>; （2）解释生态系统檐篷及其功能和服务对气候变化的响应能力，脆弱性和回复力的基本信息; （3）用于验证卫星遥感观测的地面实况。利用延时摄影数据，研究不同生态系统，尤其是植物物候，除了文章本身之外，文章介绍的数据是关键。非常不错的长期观测数据，正如文章提到的，可以为当前很多生态研究提供数据包括验证卫星遥感观测。关于利用照片来进行研究的一些案例在植被物候方面尤其多，当今图像识别和人工智能如此火爆的时代，相信这个数据会迸发出更大的潜力。另外比较有意思的应该是在去年R语言会议分会场上，狗熊会朱雪宁博士分享的一个他们利用手机拍摄天空，获取可见度和PM2.5校准匹配的研究。</p>
+<p>4.<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8454887/">Hyperspectral Image Denoising Employing a Spatial-Spectral Deep Residual Convolutional Neural Network&#x2F;利用空间光谱深度残差卷积神经网络进行高光谱图像去噪</a></p>
+<p>高光谱图像（HSI）去噪是一种关键的预处理程序，用于改善后续HSI解释和应用的性能。在本文中，通过组合空间谱深度卷积神经网络（HSID-CNN）学习噪声和干净HSI之间的非线性端到端映射，提出了一种基于深度学习的新方法。空间和频谱信息都同时分配给建议的网络。此外，多尺度特征提取和多级特征表示分别用于捕获多尺度空间光谱特征和融合最终恢复的不同特征表示。仿真和实际数据实验表明，所提出的HSID-CNN在定量评价指标，视觉效果和HSI分类准确性方面均优于许多主流方法。依旧是武大张良培老师团队的成果，张良培老师团队最近在利用深度学习处理遥感数据有不少成果，这里是对高光谱去噪的应用，使用的是深度残差卷积神经网络。发表于遥感界Top期刊IEEE TGRS上。</p>
+<p>5.<a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/23249935.2018.1505972?journalCode=ttra21">Unveiling Cabdrivers’ Dining Behavior Patterns for Site Selection of “Taxi Canteen” Using Taxi Trajectory Data&#x2F;利用出租车轨迹数据揭示Cabdrivers的“出租车食堂”选址行为模式</a></p>
+<p>近年来，中国的一些大城市建立了一些“出租车食堂”，这是一个特殊的自助餐厅，仅供驾驶员用餐和休息。在适当的时间用餐和休息是长时间连续驾驶的驾驶员最关心的问题之一，因为长时间的用餐延误可能会影响他们的健康和驾驶安全，长途搜索餐馆会增加出租车交通和空气污染和任意停车用餐将被罚款，甚至可能导致危险的交通事故。 “出租车食堂”的建立有望缓解这些问题。然而，使用基于GPS的出租车轨迹数据检查和优化出租车食堂的选址几乎没有做什么。本文介绍了一种在整个城市中分配“出租车食堂”的数据驱动方法，其主要目标是最小化从出租车轨迹和相应的最近“出租车食堂”位置识别的所有就餐需求位置之间的总距离。我们提出了一种用餐事件检测方法，该方法使用支持向量机（SVM）考虑四个特征，并进一步识别出驾驶员用餐行为的时空模式，即时间规律性和周期性以及用餐区域的空间分布。提出了一种约束优化模型来选择“出租车食堂”的位置。在中国武汉进行了一个案例研究，以评估驾驶员用餐行为模式的识别如何支持“出租车食堂”的选址。结果表明该方法具有优越的性能。该方法将为交通管理和规划部门提供有用的决策支持，以帮助解决驾驶员的用餐问题。大数据用在传统GIS问题的一个典型案例。传统GIS问题：资源分配或者调配。但是用了出租车轨迹的大数据以及机器学习算法。同时又是基于时间地理学的研究。我觉得大数据时代的研究，就应该把这些数据用到合适的地方。这篇文章提供了一个非常不错的案例。</p>
+<p>6.<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41370-018-0058-5">Population dynamics based on mobile phone data to improve air pollution exposure assessments&#x2F;基于手机数据的人口动态改善空气污染暴露评估</a></p>
+<p>空气污染是当今城市面临的最大挑战之一，改善空气质量是减少负面健康影响的迫切需要。为了有效地评估哪些是减少城市污染源（如道路交通）影响的最合适的政策，必须进行严格的人口暴露评估。与这些研究相关的主要限制之一是缺乏有关当天城市人口分布的信息（人口动态）。移动设备在我们日常生活中的普遍使用为收集大量匿名和被动收集的地理定位数据提供了新的机会，可以分析人口活动和移动模式。本研究提出了一种基于以用户为中心的移动模型方法估算手机数据的人口动态的新方法。该方法在马德里市（西班牙）进行了测试，以评估人口暴露于NO2。与传统的基于人口普查的方法进行比较，显示出按分类水平存在的相关差异，并强调了将流动模式纳入人口暴露评估的必要性。这个研究与之前众山小翻译的一篇很像，我差点以为是同一篇，不过后面发现似乎略有差异。首先来说关于手机数据和人口暴露评估，是近年来大数据兴起健康地理一个很热的研究方向。也值得我们关注。总的来说，考虑细时间粒度，高精细空间分辨率的人口分布模式，是未来也是智慧城市的关键点。</p>
+<p><a href="https://gisersqdai.top/2018/08/09/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%EF%BC%89/">Coding and Paper Letter（十）</a>的第11篇论文可以对比。</p>
+<p>7.<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/40146499_Mapping_and_modelling_the_habitat_of_giant_pandas_in_Foping_Nature_Reserve_China">Mapping and modelling the habitat of giant pandas in Foping Nature Reserve, China&#x2F;中国佛坪自然保护区大熊猫栖息地的制图与建模</a></p>
+<p>中国西部只剩下大约1000只大熊猫和29500平方公里的大熊猫栖息地，这是拯救这种濒临灭绝的动物物种并保护其栖息地的迫切问题。为了有效保护大熊猫及其栖息地，必须对每只大熊猫自然保护区的大熊猫栖息地和熊猫栖息地关系进行全面评估。制图一直是野生动物栖息地评估和监测的有效方法。因此，制图也是评估大熊猫栖息地的一个重要步骤，并进一步用于分析熊猫栖息地关系。只有佛坪自然保护区专注于这项研究。本研究的目标是：（1）开发一种高精度的制图方法，可以利用GIS中的多类型数据（遥感数据，数字地形数据，无线电跟踪数据和实地调查的地块数据）绘制大熊猫栖息地; （2）研究熊猫运动模式; （3）分析大熊猫栖息地的使用和选择。清华大学刘雪华老师的成果，看着似乎像是学位论文或报告。刘雪华老师一直专注于分析大熊猫栖息地，目前在这方面取得了很多成果，目前利用GIS在这方面，结合景观生态有很多研究。InVEST之类的提供了生境风险的一些模型。</p>
+<p>8.<a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1435-5597.1983.tb00801.x">Linear urban models&#x2F;线性城市模型</a></p>
+<p>开发了一类线性模型，其中活动源自彼此的变换和外源活动。 使用人口和就业的空间分布来说明模型。 推导出简化形式，并通过外生和内生变量的平衡以及通过对特征结构的分析来探索不同变换对空间模型解的影响。 包括传统Lowry模型和Coleman社会交换模型在内的十种模型类型应用于墨尔本的八区表示，分析用于显示模型解决方案如何在空间上独立于其输入。Michael Batty院士83年的成果，Batty院士是GIS空间分析和城市规划科学方面的大牛，一手创立了UCL的CASA。而这个模型让我想起了前一段看到的一个模型变式，我想科学进步应该是化繁为简，而不是逐步复杂。</p>
+<p>9.<a target="_blank" rel="noopener" href="http://www.mdpi.com/2072-4292/10/9/1388">An Improved Spatial and Temporal Reflectance Unmixing Model to Synthesize Time Series of Landsat-Like Images&#x2F;一种改进的时空反射解混模型合成Landsat-Like图像的时间序列</a></p>
+<p>空间和时间分辨率之间的权衡限制了Landsat图像密集时间序列的采集，并限制了及时正确监测地表动态的能力。时空图像融合方法为需要高空间和时间分辨率图像的应用生成密集时间序列的类似Landsat的图像提供了成本有效的替代方案。时空反射解混模型（STRUM）是一种基于空间解混的时空图像融合方法。由STRUM导出的时间变化图像缺乏光谱可变性和空间细节。本研究提出了一种改进的STRUM（ISTRUM）结构，通过考虑地表空间异质性并综合Landsat图像的光谱混合分析来解决该问题。在ISTRUM中也考虑了具有多个Landsat和粗分辨率图像对（L-C对）的传感器差异和适用性。实验结果表明，与STRUM得到的图像相比，ISTRUM得到的图像包含更多的光谱变异性和空间细节，提高了融合Landsat样图像的准确性。端元可变性和滑动窗口尺寸是影响ISTRUM精度的因素。通过将它们设置为不同的值来评估因子。结果表明，ISTRUM对于端部变异是稳健的，并且可以应用Landsat图像的公开发布的终端成员（全球SVD）。只有滑动窗口大小对ISTRUM的准确性有很大影响。此外，将ISTRUM与空间时间数据融合方法（STDFA），增强型空间和时间自适应反射融合模型（ESTARFM），混合色彩映射（HCM）和灵活时空数据融合（FSDAF）方法进行了比较。 ISTRUM优于STDFA，在时间变化显着，与ESTARFM相当且略逊于FSDAF的情况下略优于HCM。然而，ISTRUM的计算效率远高于ESTARFM和FSDAF。 ISTRUM可以在全球范围内合成类似Landsat的图像。一种新的时空影像融合模型。</p>
+<p>10.<a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/13658816.2018.1432862">Toward space-time buffering for spatiotemporal proximity analysis of movement data&#x2F;通过时空缓冲区进行移动数据的时空邻近分析</a></p>
+<p>用于确定时空邻近路径的时空邻近分析是许多移动分析方法的关键步骤。然而，在文献中已经开发了几种用于移动数据的时空邻近度分析的有效方法。因此，本研究提出了一种时空综合方法，用于同时考虑空间和时间维度的时空邻近度分析。所提出的方法基于时空缓冲区，这是传统空间缓冲操作对空间和时间维度的自然延伸。给定时空路径和空间容差，空时缓冲通过为沿时空路径的任何位置连续生成空间缓冲区来构建时空区域。构造的时空区域可以界定到目标轨迹的空间距离小于给定公差的所有时空位置。根据时空路径的不同时空邻近度量，例如Fréchet距离和最长公共子序列，提出了基于此时空缓冲的五个时空重叠操作来检索所有时空近端轨迹到目标时空路径。该方法扩展到分析道路网络中受限的时空路径。采用压缩线性参考技术实现所提出的大运动数据集中的时空邻近分析方法。使用真实世界运动数据的案例研究验证了所提出的方法可以有效地从大型运动数据库中检索在道路网络中受约束的时空邻近路径，并且与传统的时空分离方法相比具有显着的计算优势。将二维空间分析拓展到时空间分析的一个尝试和方法，缓冲区的思想结合上时间维创造出的时空缓冲区，是一个很有意思的点。</p>
+<p>11.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1877343512001145?via=ihub">Urban sustainability and human health in China, East Asia and Southeast Asia&#x2F;中国，东亚和东南亚的城市可持续发展与人类健康</a></p>
+<p>导致人口变化的城市化将对人类健康产生深远影响，并为城市可持续发展带来挑战。我们回顾了目前在中国，东南亚和东亚地区对此问题的研究。东亚国家的城市化为改善人口健康提供了许多机会。然而，它也与健康风险有关，包括空气污染，职业危害和交通伤害，以及饮食和社会变化引起的风险。东南亚是新发传染病的热点，中国也因其人口规模而成为全球传染病负担的主要来源。农村 - 城市移民与城际或国际旅行相结合，可能导致农村和城市地区之间，甚至全世界城市之间更广泛的传染病蔓延。从城市环境规划的角度来看，塑造城市走向健康的未来可以帮助实现可持续发展目标。日本提供了许多关于公民如何保持健康的例子，例如全民医疗保险覆盖面，不同社会经济群体之间的差距减少以及强大的社区关系。由于地理和历史的不同，健康状况和卫生系统往往在东南亚国家内部和内部发生分歧。比较早的城市可持续发展与人类健康的综述性文章。</p>
+<p>12.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0168192317302496?via=ihub">Validating canopy clumping retrieval methods using hemispherical photography in a simulated Eucalypt forest&#x2F;在模拟的桉树林中使用半球摄影验证冠层丛生反演方法</a></p>
+<p>所谓的聚集因子（Ω）量化了植被冠层中材料的随机3D分布的偏差，因此表征了冠层内空隙的空间分布。 Ω对于将有效的植物或叶面积指数转换为实际的LAI或PAI是必不可少的，之前已经证明这对于在森林，林地和稀树草原中使用光学遥感技术的生物物理参数反演具有显着影响。在这里，应用仿真框架来评估现有的原位聚集反演方法在具有高度建筑现实性的3D虚拟森林冠层中的性能。使用来自澳大利亚东部Box Ironbark桉树林的经验数据重建虚拟冠层。半球形摄影（HP）由于其无处不在的间接LAI和结构反演而被评估。使用基于不同茎分布和LAI的一系列结构配置来评估角结束反演方法性能。具有15°的区段尺寸的CLX聚集反演方法（Leblanc等，2005）是表现最佳的聚集方法，将参考值与平均近顶点的0.05Ω相匹配。对于所有结构配置，在75°时，结块误差与天顶角线性增加至&gt;0.3Ω（相当于30％PAI误差）。在较大的天顶角处，当从55-60°天顶角导出时，PAI误差平均为约25-30％。因此，建议仔细考虑HP使用的天顶角范围。我们建议制图或场地聚集因子应该伴随用于从空隙尺寸和空隙尺寸分布方法推导出它们的天顶角。此外，在1米的非代表性大树茎中捕获的HP中发现了更大的误差和偏差，因此在实践中应尽可能避免这些情况。这个事实上是在定量遥感和遥感物理中目前仍然很难从光学遥感攻克的难点，事实上涉及到光学几何模型，属于定量遥感的光学几何模型学派，而非辐射传输模型学派。但是光学几何模型通常在进行假设时对实际地物的几何模型做了大量简化，导致很多时候与地表的实际情况差异巨大，这里就是一个很典型的例子了，这篇文章做了非常不错的工作，因此也发在了农林领域Top期刊Agricultural and Forest Meteorology上。</p>
+<p>13.<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7265032/">Improved Salient Feature-Based Approach for Automatically Separating Photosynthetic and Nonphotosynthetic Components Within Terrestrial Lidar Point Cloud Data of Forest Canopies&#x2F;改进的基于突变特征的森林冠层陆地激光雷达点云数据自动分离光合和非光合成分的方法</a></p>
+<p>从三维地面激光扫描（TLS）数据中准确分离森林冠层中的光合作用和非光合作用成分是一项挑战，但对于了解森林的辐射状况，光合作用过程以及碳和水交换的空间分布至关重要。篷。本文的目的是通过仅根据其几何信息添加两个额外的过滤器来改进目前在森林冠层TLS数据中分离光合和非光合成分的方法。通过比较所提出的方法与特征值加上基于颜色信息的方法，我们发现所提出的方法可以有效地将整体生产者的准确度从62.12％提高到95.45％，并且整体分类生产者的准确性将从84.28％增加到97.80％。森林叶面积指数（LAI）从4.15降至3.13。此外，树种的变异对最终分类准确性的影响可以忽略不计，如针叶树（93.09％）和阔叶树（94.96％）的整体生产者准确性所示。为了定量地去除森林冠层中木质材料对改进基于TLS的LAI估计的影响，我们还基于来自单个树的分类线性类点计算“木质与总面积比”。森林点云数据集的自动分类将有助于TLS在反演三维森林冠层结构参数（包括LAI和叶片和木质面积比）方面的应用。比较少见的在激光雷达当中结合了森林生态特征做了分析的一篇文章。目前比较公认的是激光雷达更多是获取森林的几何结构特征，个人觉得SAR也偏向于几何结构特征，而高光谱则是获取森林的生物物理参数（光谱敏感性）。所以目前基于激光雷达数据的文章，大部分都是从如何提高提取几何结构特征的精度进行的，尤其在各类算法上，当然也已经有不少论文结合了多类数据进行融合，从而提升精度。而这篇文章很有意思的点就是利用LiDAR数据以及对森林生理结构的了解，人工设置了一种方法来提升提取精度。我觉得这是一个非常关键的学科交叉的成果。发表于遥感界Top期刊IEEE TGRS。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Summary/" rel="tag"># Summary</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/" rel="prev" title="Coding and Paper Letter（十八）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（十八）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/09/13/Coding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89/" rel="next" title="Coding and Paper Letter（二十）">
+                  Coding and Paper Letter（二十） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2018/09/11/Coding-and-Paper-Letter%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

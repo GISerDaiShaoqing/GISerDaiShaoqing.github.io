@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文想法和初步动笔起源于10号，但是最近事情比较多，一直到现在才完稿。其实起源是从5月初本科学弟学妹的毕业答辩开始的，主要谈一谈听完答辩的感悟以及对于GIS学科的一些引申思考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于GIS的一些感悟·思考">
+<meta property="og:url" content="https://gisersqdai.top/2020/05/10/GISdenfenceconsiderate/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="本文想法和初步动笔起源于10号，但是最近事情比较多，一直到现在才完稿。其实起源是从5月初本科学弟学妹的毕业答辩开始的，主要谈一谈听完答辩的感悟以及对于GIS学科的一些引申思考。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1589840269108lrhfyws2.png">
+<meta property="og:image" content="https://ars.els-cdn.com/content/image/1-s2.0-S0033062020300840-gr1.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/1589843451193qcw0mtnx.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1589967966509d0ib0zvb.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1589981651201cz842x15.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1590017035256qprfze5t.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1590018033333hdyeece2.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1590017819701v3per43d.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1590018284836heaiubdg.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1589064138981avyy1yhe.png">
+<meta property="article:published_time" content="2020-05-09T16:39:00.000Z">
+<meta property="article:modified_time" content="2020-05-20T23:49:29.111Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Summary">
+<meta property="article:tag" content="Consideration of Ecology and Geography">
+<meta property="article:tag" content="Theory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1589840269108lrhfyws2.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2020/05/10/GISdenfenceconsiderate/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2020/05/10/GISdenfenceconsiderate/","path":"2020/05/10/GISdenfenceconsiderate/","title":"关于GIS的一些感悟·思考"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>关于GIS的一些感悟·思考 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Defence"><span class="nav-text">1 Defence:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Topics"><span class="nav-text">2 Topics</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/05/10/GISdenfenceconsiderate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于GIS的一些感悟·思考 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于GIS的一些感悟·思考
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-10 00:39:00" itemprop="dateCreated datePublished" datetime="2020-05-10T00:39:00+08:00">2020-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/GIS/" itemprop="url" rel="index"><span itemprop="name">GIS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2020/05/10/GISdenfenceconsiderate/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/10/GISdenfenceconsiderate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>8.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>29 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本文想法和初步动笔起源于10号，但是最近事情比较多，一直到现在才完稿。其实起源是从5月初本科学弟学妹的毕业答辩开始的，主要谈一谈听完答辩的感悟以及对于GIS学科的一些引申思考。<span id="more"></span> </p>
+<h1 id="1-Defence"><a href="#1-Defence" class="headerlink" title="1 Defence:"></a>1 Defence:</h1><p>由于疫情的原因，今年本科学院的学弟学妹毕业论文答辩采用了腾讯会议网上形式。不过由于各种原因，听得比较完整的还是直系基地GIS方向的答辩，因此也就针对这几个内容稍微提点东西。先Po一下大家的题目。</p>
+<p><img src="http://blog.gisersqdai.top/1589840269108lrhfyws2.png"></p>
+<p>一共是9位参与答辩。</p>
+<p>第一位是基于新浪微博对洪水灾害时间主题挖掘与淹没信息做提取。从选题来说，是近些年GIS一个比较热门的方向，内容涉及的大致关键词应该包括位置语义，地理语义，文本挖掘，社交媒体地理学。而这个在灾害方面的响应也是一个比较火的方向。大概思路就是基于微博数据，利用比较流行的文本挖掘模型LDA做洪水灾害事件信息提取，这里是淹没深度信息，以及相关的主题分析。主题分析或者主题挖掘是属于NLP方面比较专业的一类模型，这里不细阐述,感兴趣的同学建议自行搜索关键词。当前的研究基本上就是从微博文本来进行文本处理，如果是不含位置信息的微博（即无法直接获取经纬度），通常必须先从微博内容获取相关的地名，这应该可以算是位置语义或者叫地理语义。然后做geocoding，而其余的微博内容可以扩充其他文本挖掘的信息，在这个研究里就是淹没深度。这类研究的意义就在于灾害的应急响应以及预警。在目前的大数据时代，微博能非常快速地传递相关信息。因此就像系里老师点评的，这类研究最好能做成实时的app，会更有意义。国内微博数据分析比较多的相关团队还是不少的，北京大学袁晓如老师团队，地理所王江浩老师也做了一些研究，此外最近GeoAI讲座里的胡英杰老师也是这块研究非常优秀的老师。感兴趣的可以多去了解，至于模型的话，类似word2vec，甚至于去年大火的BERT是否可以用到里面做结合也是很有意思的。最后的最后，其实我想说另一点，研究的技术性和新颖程度很高，但是我重新回顾的时候在考虑一个问题，题目里的洪水灾害事件，由于我没有听到这个汇报的全部内容，所以我不确定究竟是洪水灾害事件或者是城市内涝事件。作为一个GIS的研究，我认为本质上还是基于地理学去分析问题，因此基础的地学现象和定义要明确。这个研究也让我想起我本科期间做的一个工作，基于城市蓝绿景观的空间变化与内涝区域的联系研究，其中我为了检验内涝区模拟准确性，当时也是采用了一个微博数据，有人在微博上分享了他整理的福州某次内涝事件的60个积水点的地点信息，我根据那个数据做了一个简单的geocoding，形成空间文件。</p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://k.cnki.net/CInfo/Index/4444">地理人工智能进展及在地理文本处理和灾害救援中的应用</a></li>
+<li><a target="_blank" rel="noopener" href="http://vis.pku.edu.cn/blog/">北京大学可视化与可视分析博客</a></li>
+<li><a target="_blank" rel="noopener" href="http://vis.pku.edu.cn/weibova/">北京大学微博可视分析系列</a></li>
+<li><a target="_blank" rel="noopener" href="https://journals.sagepub.com/doi/10.1177/0308518X15594912">The geography of Weibo</a></li>
+<li><a href="http://gisersqdai.top/mycv/publication/landscape-blue-green-space/">Landscape-Scale Simulation Analysis of Waterlogging and Sponge City Planning for a Central Urban Area in Fuzhou City, China</a></li>
+</ul>
+<p>第二位是用地理加权回归模型用高光谱遥感数据估算土壤有机质。由于我对高光谱这块不是很了解，所以意见更多集中在地理加权回归和土壤有机质方面的。地理加权回归（Geographically Weighted Regression, GWR）是Forthingham教授提出空间统计回归模型。本质上这个模型是基于地理学第二定律——空间异质性提出的，目前GWR有大量的模型发展和应用研究，最近Forthingham教授团队正在拓展GWR相关的模型，最新成果是MGWR（Multi-scale Geographically Weighted Regression）。之前在某个会议见过他的弟子Ziqi Li,他也是MGWR模型的作者之一。当时他在会议上做了一个很有意思的研究，就是比较了R里面不同R包（R语言中至少有3个GWR相关的包），ArcGIS，GWR4（Forthingham教授团队开发软件）以及Python的pysal包的GWR结果，即用同一套数据，不同语言，软件执行GWR，结果表明，除了ArcGIS以外，其他结果是一样的，可以复现。事实上由于ArcGIS是一个商业软件，有些时候是会一定程度上忽略模型理论假设的限制以及针对参数做优化计算的，由此造成了结果差异。因此使用GWR要慎重。GWR这个模型，从模型求解角度，一定程度会有过拟合现象。这也让我想到前一段，我与我的大导师讨论研究计划，我提到会用一个用GWR做校正的数据，我的大导师很明确跟我说GWR有过拟合现象，让我不要用这个模型。因此这个模型在各种使用上仍需要慎重。当然我个人角度还算蛮推崇这个方法，我也在我的几篇论文里都有用到这个方法。GWR用于估算土壤有机质，从应用角度，可能稍微比重金属更新一点。但是这个角度创新点我觉得不是特别高，另外做这类回归和估算，我们要考虑的不仅仅是精度，还要考虑到研究模型的普适性和可推广性。土壤有机质是比较难测量的变量（有做过土壤地理实验的都知道测起来很麻烦），所以我们用GWR和高光谱就是想快速获取大范围的土壤有机质，因此我们选用的一些参数就要尽可能泛用以及便于测量。此外尺度效应也是一个很重要的点。另外GWR的变式还包括类似GAWR（地理海拔加权回归），GTWR（地理时间加权回归），这些都是后续可以拓展的模型。土壤有机质其实是生态学方面尤其是植被碳循环的重要变量之一，如果做好了，可以为后续的研究提供很多帮助。另外关于题目，我重新读的时候觉得有些别扭，事实上应该是用高光谱遥感数据作为输入，然后用GWR来估算土壤有机质。其实我觉得可以把输入数据和方法都放在基于的后面，似乎更舒服一些，如基于高光谱与地理加权回归的土壤有机质估算。不过也仅是个人意见。</p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Ziqi-Li">Github of Ziqi Li</a></li>
+<li><a target="_blank" rel="noopener" href="https://sgsup.asu.edu/sparc/mgwr">MGWR 2.0 Software</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Ziqi-Li/FastGWR">Fast Geographically Weighted Regression (FastGWR) </a></li>
+</ul>
+<p>第三位也是研究土壤相关的，基于INLA-SPDE做平潭土壤铅含量预测的不确定性研究。INLA-SPDE是一个空间贝叶斯模型。空间贝叶斯的关键就是可以推断后验概率，因此不仅可以得到模型估计值，也能得到模型估计的不确定性。事实上空间精度和空间不确定性分析也算是GIS近些年逐渐兴起的一个重要分支领域。我在18年参加了Spatial Accuracy的国际会议，对此有颇多感悟，我也做了一些相关的研究。简单来说就像量子力学里有一个知名的测不准定律，空间数据也是如此，各类误差和不确定性是广泛存在矢量与栅格数据的，而这些误差和不确定性随着数据处理会传播到最后的结果中，但是很多时候我们无法判断，这些误差和不确定性是增大或者减小，同时对一个数据而言，如果不评价它的精度，在应用上就会充满很多疑虑。个人的看法在于过去本身空间数据获取手段相对匮乏，难度高（如测绘级数据），需要花大量时间收集数据，当然这样子收集数据一般而言质量也较高，精度也高，但是数据不够丰富，不够多的前提下，想再去关注精度问题还是比较难的。而近些年井喷式的多源地理大数据以及对地观测数据，算是比较完美解决了这个问题，但是随之而来的就是大量的数据质量问题，这也是空间精度和空间不确定性分析近些年兴起的一大原因。回到贝叶斯模型这块，空间贝叶斯模型很重要的点就是推断不确定性，某些研究里可以视为风险值，为决策提供辅助。时空贝叶斯统计与模型也是我未来可能涉及的研究重点，这一块，我个人推荐英国格拉斯哥大学的Duncan Lee教授，今年早些时候听过他的报告。他是时空贝叶斯统计的专家，也开发了相关的R包。另外再来讲讲土壤重金属元素的预测，这一块其实有各类空间插值方法等研究，因此从领域而言不算太新，如何挖掘新因子以及找到相关的泛用预测自变量，应该是比较有意思的延伸研究。另外答辩过程里，老师提到了选空间插值的问题，这个让我想到一个对于空间统计分析的思维培养。我个人认为的空间统计研究流程应该如下。事实上空间插值方法都有一个前提假设，就是插值的这个对象应该是符合地理学第一定律——具备空间自相关性的。此外这个研究还涉及到做模型的交叉验证问题，模型的验证也是具有一定的技巧的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 确立研究地学问题</span><br><span class="line">op1=&gt;operation: 收集数据</span><br><span class="line">op2=&gt;operation: 整理、清洗数据</span><br><span class="line">op3=&gt;operation: 数据探索性分析（数据分布特征，是否具有空间自相关性，空间异质性）</span><br><span class="line">op4=&gt;operation: 根据探索性分析结果选用合适的空间模型分析</span><br><span class="line">op5=&gt;operation: 解释模型输出结果</span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;op5</span><br></pre></td></tr></table></figure>
+
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/duncanplee">Github of Duncan Lee</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/duncanplee/CARBayesST">CARBayesST: Spatio-Temporal Generalised Linear Mixed Models For Areal Unit Data</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/duncanplee/Spatio-temporal-modelling-tutorials">A set of tutorials for undertaking spatio-temporal areal unit modelling</a></li>
+</ul>
+<p>第四位是分析学校所在的大学城城中村的暴雨洪涝灾害脆弱性研究。可以说比较贴近校园。当时我本科毕业选题也是基于校园的三维模型相关研究。从选题来说，脆弱性（vulnerable）或者恢复力&#x2F;韧性（resillence）也算是近些年灾害与气候变化领域很火的主题。尤其与联合国的SDGs结合，今天刚好看到了一篇华东师大相关的研究，也可以参考。这位的研究可以说是比较传统的GIS空间分析研究，建立评估指标体系，赋权重，收集数据与空间叠加，可以说是比较典型的小数据地理传统研究。整体来说，数据搜集工作很扎实，分析比较清晰。当时答辩老师提了几个问题，如指标体系需求，指标体系权重确立，尺度效应的作用，针对这几个点我也有些看法提了一下，指标体系，其实他定义的指标体系我感觉比较像个人确立的，当然对于小尺度区域性研究我觉得是可以的，但是我更推荐可以基于一个大的理论框架做指标体系的本地化和区域化，这类研究会让我想到比较流行的P-S-R（压力-状态-响应）框架。指标体系权重确立方法有很多，我本科创新项目答辩时也用到这个权重确立，当时我觉得避免主观打分，采用了熵值法，但是老师提的建议是，其实这类研究（我的项目也是基于校园的空间分析）熵值法可能不如AHP准确，因此权重方法确立也是根据具体情况而言。最后是尺度效应，老师们当时提的是经济指标在这类小尺度研究是否与脆弱性&#x2F;恢复力相关，普遍认知里面社会经济因子对大尺度区域的恢复力有显著贡献，这一点会让我想到最近参与的一个小研究，关于新冠肺炎粗病死率的一张图。我当时把概括，能保持粗病死率为0的除了有物理屏障优势的几个省份以外，江苏就是社会经济屏障的典型（经济实力雄厚）。可以看到在应对这类公共卫生突发事件（突发灾害也是相同）的时候，社会经济示例雄厚的区域往往具有更强的恢复力&#x2F;韧性。这个基本现象在大尺度研究下大概率是没问题的，但是当区域放到小尺度研究呢？我思考了下在类似城中村以及小区域研究的普适性。以灾害发生以后的资源调配和政府救助为例，假如存在两个受灾村子。一个村子的财政实力较为一般，另一个村子的财政实力稍微雄厚一些。财政实力略微雄厚的村子选择自行救助。财政实力一般的村子由于自身经济实力受限，上报上一级政府请求援助，但是上一级政府经济实力非常雄厚。由于这个原因，反而财政实力一般的村子可能在灾后恢复要比另一个村子快。当然这也是个比较极端的例子，但我个人认为小尺度区域受灾害影响的时候，很多情况都是上报上级政府求助（假定是救助是均质的，受灾程度相同，救助款也相同），那么本身村子的经济实力对于恢复力的影响是如何就比较难以判定了。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0033062020300840-gr1.jpg"></p>
+<p>此外，我记忆比较深的是做了大量的实地考察和调研。对于小尺度研究，这样子的研究精神和收集数据方式，我是非常赞赏的。当时我也在QQ群里点评了一下，事实上GIS学科通常被认为没有野外，这是不对的。野外实地考察，调研对于GIS数据精度和准确度尤为重要，RS就更不必说了，无论是做定性遥感的土地利用分类或者是定量遥感的地表参量反演，都需要有地面实测数据的验证。GIS并不是完完全全坐在计算机面前就可以完成的工作。往往GIS出身的同学会产生这类认知差异，我认为有必要提出作为点评的点。这也让我想起前几天在微博上看到的一个很有意思的研究。由于疫情期间封城措施，盒马生鲜在这个特殊时期开始红火起来，但是GeoHey的官微推了一个有意思的问题（如下图）。几乎全国各地盒马都在这次疫情爆红，但是在福州失败了。首先我觉得原因有很多，但是当时我看到微博的第一反应是因为福州有永辉超市。永辉是发家于福州的连锁超市，是当地“农改超”的典型案例，在福州本地有较为深厚的消费群体根基，而且本身就是以生鲜蔬菜的售卖为特色，因此可能对盒马生鲜产生了一定的压制。当然这只是可能的原因之一，具体的原因肯定很复杂，感兴趣的同学完全可以就此研究，而这也说明了，对一个区域不实地考察了解的话，是很难对一些地学现象作出解释的。当然我的认知还得益于某位学长的创新项目。最后一点，这位同学可以和第一位同学合作，这就是实现大数据与小数据的结合了。</p>
+<p><img src="http://blog.gisersqdai.top/1589843451193qcw0mtnx.png"></p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NACYeA1TYbNmXoRvJ0QJnQ">学术动态 | 华东师范大学城市自然地理团队在洪涝灾害应急管理研究领域取得重要进展</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41893-020-0516-7">Disruption of emergency response to vulnerable populations during floods</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0033062020300840?via=ihub">Towards precision management of cardiovascular patients with COVID-19 to reduce mortality</a></li>
+</ul>
+<p>第五位是基于当下流行的深度学习和图片识别技术对交通标志进行检测。首先从计算机技术角度出发，这位同学对计算机视觉算法方面的研究非常深入，并且在计算视觉处理的基础上，集成开发了一个Android App，可以说在GIS开发上有着非常不错的造诣。这类研究是当下非常火的无人驾驶热点之一，在当下的时代，GIS不仅在传统应用行业中发展，现在已经扩展到了各个相关领域，无人驾驶就是其中一块。当然这个部分对于算法和计算机技术要求颇高，感兴趣的同学可以继续深入了解。从研究来看，思路使用了计算机视觉里的图像处理增强和变换相关算法，对图片做了一定的处理，增强特征。然后结合深度学习来实现图像检测。这里要科普一个概念差异（如下图）。目前来说，就我的认知，这位同学的研究应该还是在image classification的那一步，检测图片里面有没有交通标志，有的话，自动采集收集数据。从本科毕业论文而言，做到这样子是非常不错的，我个人很佩服。另外这类app的目的也很好，就像看到蒋波涛老师说的话（如图），目前深度学习入门教程现在太多了，大家的工作都集中在深度学习各种各样的Hello World上，但是缺少具体应用的各类数据集。因此像这样子的一个用于采集相关数据的app可以说在制作用于深度学习的数据集上提供了基础和极大的方便。当然后续研究可以从目标检测，和语义分割相关的进行深入研究。最后，我认为这个研究有一个算不上问题的小问题，就是这个研究的“地理味”不够浓。这一点我后面也会简单聊一聊。</p>
+<p><img src="http://blog.gisersqdai.top/1589967966509d0ib0zvb.png"></p>
+<p><img src="http://blog.gisersqdai.top/1589981651201cz842x15.png"></p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://waymo.com/open/">Waymo Open Dataset</a></li>
+<li><a target="_blank" rel="noopener" href="http://on-demand.gputechconf.com/gtcdc/2017/presentation/dc7217-abel-brown-deep-learning-object-detection-and-segmentation.pdf">Introduction to Object Detection &amp; Image Segmentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/amusi/awesome-lane-detection">awesome-lane-detection</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mrgloom/awesome-semantic-segmentation">awesome-semantic-segmentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/amusi/awesome-object-detection">Awesome Object Detection based on handong1587 github</a></li>
+</ul>
+<p>第六位是偏向遥感的研究。利用了Landsat卫星影像监测龙岩市上杭县矿区的生态环境状况。基于多个遥感指数提取包括地表温度，湿度，NDVI等比较全面的生态环境遥感监测常用产品。生态环境遥感监测算是近些年来比较火的一个概念。这个研究虽然题目上说的是针对矿区的研究，不过在听报告后发现，是做整个上杭县的研究。上杭县的矿区是上杭重点的生态修复区。我硕士所在的研究组刚好也有参与过相关的生态修复项目，不过我并没有参与这个项目，只是简单听过这个项目。接下来谈几个点，就像答辩老师提的，这个研究的另一个问题是这个研究里使用的遥感监测产品很多都是基于NDVI或者是相关的其他指数衍生出的各类数据，印象中湿度是基于NDVI和一个简单的线性公式简单计算得到，因此从这个角度而言，其实这些产品的同质性极强。给我的感觉就是这个研究或者说这类研究，尤其是遥感领域的同学在做这方面研究时，通常更多的都是堆砌大量遥感数据产品。但是缺乏足够的生态学含义和框架将这些数据更好地整合在一起，这样子感觉有点像记流水账，就是把能算的遥感数据全部列上去。这个部分，最近比较火的国土空间规划可能可以提供一个参考，就是基于这些数据来计算生态环境承载力之类的综合指标，这样是兼顾生态学意义与遥感数据的方法，相比于比较单个产品更有意义。最后也提一句另外一个相关的内容。去年听到学弟学妹参加Esri竞赛时用的一个遥感指数，基于遥感的生态指数，Remote Sensing Based Ecological Index，RSEI。这个指数是福州大学徐涵秋老师团队提出的，简单说就是基于NDVI，MNDWI，LST和遥感计算的湿度指标做主成分分析然后叠加生成的一个指数。按照论文里的说法，指标越接近1，生态环境质量越好。但是这样子一个指标是否就具备普适性，同时这个指标完全能表征生态环境质量吗？我个人还是有些保留意见的。不过后续扩展研究如果可以基于这个指标做些研究，也还是不错的。</p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1470160X18303960">Prediction of ecological effects of potential population and impervious surface increases using a remote sensing based ecological index (RSEI)</a></li>
+</ul>
+<p>第七位是基于WRF数据改进数值模式输出结果的不确定性。WRF是美国NCEP和NCAR开发的天气数值模拟模式。这里不详细赘述了。我博客里有介绍过安装相关内容，感兴趣的可以去查找一下。简单说，这是一个可以模拟真实气象状况的数值模拟模型，从输出来说，可以为地学研究提供多维度的气象变量。但是要注意的点在于，气象学与地理学的尺度概念有差异，气象学，尤其是数值模式的高分辨率与地理学的高分辨率差异较大。在气象学里，全球1°就可以算是高分辨率，而地理学，尤其遥感领域的高分辨率通常是亚米级数据。因此WRF通常输出最细也是在3KM左右，这是地学应用上一定的限制。这个研究其实无关WRF，就是讨论WRF输出与实测数据如何结合改进预测，降低不确定性。从概念上讲，是类似data assimilation（数据同化）的研究，不过我觉得从实际操作角度更接近data fusion（数据融合）。同样是采用了当前流行的深度学习神经网络模型。当然老师们提了个问题，单点数据与网格如何实现结合。这也是一个比较普遍的地学问题。但是事实上WRF，包括WRFDA模块，在进行数据同化的过程中，他们对于稀疏观测站点的真实数据与模型输出的同化流程操作与地理学的处理思路是有差异的。地理学往往需要遥感作为尺度扩展的中介。而WRF是需要对观测站点做一个所谓的局地化方案（印象中是有点类似空间插值的思路），感兴趣的同学可以自己去深入了解。但是目前WRF模型输出的降尺度，数据融合，数据同化已应用到更细尺度的数据产品。这也是地理学重要的数据来源与补充。尤其深度学习的出现，为AI和地球系统科学提供了另一个契机。说到这，计算机的国际会议，ICLR 2020会议开始组织一个AI与Earth Science的workshop，包括近年来数据科学竞赛有大量的相关题目。无一不显示了深度学习技术与地球系统科学结合的潜力。这方面的研究还有很多值得深入的地方，地理学如何为这类研究提供更好的支撑也是值得考虑的。</p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/fYMIfmc2YmKw28t-3ub3mw">AI for Earth Sciences</a></li>
+<li><a target="_blank" rel="noopener" href="http://bbs.06climate.com/forum.php?mod=viewthread&tid=56288&extra=page=1">WRF-geog中国区域30s-Urban landuse 更新</a></li>
+</ul>
+<p>第八位是以平潭岛为案例，结合土地利用数据分析海岛的生态安全格局。生态安全也算是这几年兴起的生态学领域热点研究。我硕士导师是国家重点研发专项“长三角城市群生态安全保障关键技术研究与集成示范”子课题负责人，其实同期的国家重点研发专项一共有四个关于城市群生态安全相关的，分别为京津冀，长三角，珠三角以及闽三角。事实上学院的多位老师也参与了闽三角的子课题。当前生态安全的几个关键问题主要包括水生态安全，粮食生态安全，大气污染，生物多样性等等。这个研究其实是基于土地利用数据集合景观生态指数评价生态安全格局，研究里采用了水文分析中的“源-汇”理论进行分析，事实上可以理解为对生态胁迫效应的研究，从而分析生态用地扩张的格局。这里推荐一篇认识的一个师姐最新发表的文章（链接在后面）。说到这个也提一下研究题目的问题，在题目里出现了两个格局，因此确实读起来比较拗口，这一点老师们也提到了。如果以“源-汇”理论作为关键创新点，题目可以改为基于“源-汇”理论的生态安全评估格局研究，当然这仅仅是个人意见。从主题而言应该是城市化扩张的生态安全影响。另外海岛生态安全分析也是一个当前比较特殊的研究领域，也是值得注意的一个点。另外还可以考虑结合土地利用模拟模型，对未来的生态安全情景进行模拟分析。</p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.iue.cas.cn/xwzx/kydt/202005/t20200515_5580914.html">城市环境研究所在城市群生态胁迫效应快速评估方面取得新进展</a></li>
+<li><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/12132171/">On the Basic Concepts and Contents of Ecological Security</a></li>
+</ul>
+<p>最后一位是分析师大区域的溪源江流域的洪涝灾害风险地图设计，不过我因为当时在饭点，听得断断续续，不是很完整。具体内容，我就不具体点评了。整体内容是偏向地图设计的研究，个人看法是可以和前面第一位和第四位同学交流。地图设计的研究，应该不仅限于制图。在制图的基础上，可以联系陈述彭院士提出的地学信息图谱概念，将多年灾害的洪涝灾害地图集成到一起，形成地学信息图谱，从而推断相关规律。这应该也是个蛮有意思的研究。</p>
+<p>相关资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.dlyj.ac.cn/CN/Y2000/V19/I4/337">地学信息图谱研究及其应用</a></li>
+</ul>
+<h1 id="2-Topics"><a href="#2-Topics" class="headerlink" title="2 Topics"></a>2 Topics</h1><p>总的来说，这九个研究里面（包括我也围观了其他GIS系的部分答辩）有很多选题比我们当年要新颖有趣得多，学弟学妹们比我们当年做毕设的时候敢尝试的多，当年我们年级GIS系的选题大量集中在面向对象的遥感分类。有很多题目都是不仅局限于GIS的传统领域了，如计算机视觉，深度学习，WRF，文本挖掘。</p>
+<p>地理学本身是一门很综合的学科，因此涉及到的地学现象十分复杂。而GIS作为分析地理学的关键定量工具，势必要求在建模的过程里必须对地理学，地学现象有深入了解。但是GIS学科当前的教育似乎比较多集中在GIS软件使用，分析，开发，遥感，偏向计算机科学方面的课程，在地理学基础理论知识方面的课程相对少一些（可能我的了解比较片面，也不完全对）。当然这也是因为时间缘故，同等时间想兼顾多个内容确实很难。</p>
+<p>当然本科期间强调学习的广度，而硕士生以及博士生的学习会更强调学习研究的深度。因此先把计算机基础打好也并不是坏事。如果感兴趣继续做这方面深入研究的同学，本科期间应该先把计算机基础打好。在硕博期间挑选一个适合自己的主题，深入研究挖掘。</p>
+<p>这样的研究就要求我们要走出GIS的限制（指去关注感兴趣主题的核心），把研究放在自己关注的感兴趣区域，深化这部分的专业知识了解，而随着对关键领域的深入研究挖掘，往往会出现一些情况，就如上面有几位同学做的研究，我提到的地理味不够浓。当这情况出现时，应该回归本心——重新回顾GIS学科，去思考如何再和地理学，GIS结合？</p>
+<p>举几个我个人认为比较有意思的，GIS分析可以运用的特定研究。</p>
+<p>篮球场的投篮分析（见如下虾神的博客，此外Esri也有个汇报是基于ArcGIS Model Builder分析的）。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/chonyy/AI-basketball-analysis">AI web app and API to analyze basketball shots. </a></li>
+<li><a target="_blank" rel="noopener" href="https://ai-basketball-analysis.herokuapp.com/">AI Basketball Analyze basketball shot with machine learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/allenlu2008/article/details/70991154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159001731219724846451195%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=159001731219724846451195&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v25-1-70991154.nonecase&utm_term=NBA">利用Python对NBA SportUV数据进行可视化及分析</a></li>
+</ul>
+<p><img src="http://blog.gisersqdai.top/1590017035256qprfze5t.png"></p>
+<p>B站弹幕分析，可以基于地形分析的思想进行研究。可以看到弹幕数量有这个波形的存在（如图）。也有大神基于这个用Python实现全自动制作视频。</p>
+<p><img src="http://blog.gisersqdai.top/1590018033333hdyeece2.png"></p>
+<iframe src="//player.bilibili.com/player.html?aid=840603236&bvid=BV1Y54y1X74i&cid=188644698&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>这与下面Science论文里的这个高程截面图是类似的。</p>
+<p><img src="http://blog.gisersqdai.top/1590017819701v3per43d.png"></p>
+<div class="pdf-container" data-target="https://science.sciencemag.org/content/sci/early/2020/04/29/science.aaz5845.full.pdf" data-height="500px"></div>
+
+<p>还有一个与上面的类似研究。</p>
+<p><img src="http://blog.gisersqdai.top/1590018284836heaiubdg.png"></p>
+<p><a target="_blank" rel="noopener" href="https://yixuanq.shinyapps.io/conan-danmu/">《名侦探柯南》B站弹幕浏览器</a></p>
+<p>不过GIS的基本理论还是要在本科期间就建立起来并重视的，就比如目前公认的地理学第一定律和第二定律，因为这是一切空间分析和空间统计的基础。</p>
+<p>另外关于研究题目的起草，这次答辩有不少老师提到，我前一段刚好看到一名知名的学术博主的评论。觉得甚有益处，也分享给大家（下图）。</p>
+<p><img src="http://blog.gisersqdai.top/1589064138981avyy1yhe.png"></p>
+<p>记录了一些自己的感悟和感受，可能比较随意，主要用于与大家交流。大部分观点为个人意见，仅供参考。</p>
+<p>最后还是祝大家毕业快乐呀！！！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Summary/" rel="tag"># Summary</a>
+              <a href="/tags/Consideration-of-Ecology-and-Geography/" rel="tag"># Consideration of Ecology and Geography</a>
+              <a href="/tags/Theory/" rel="tag"># Theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/07/Tutorial-of-the-Website/" rel="prev" title="Tutorial of the Website "Awesome of COVID-19"">
+                  <i class="fa fa-angle-left"></i> Tutorial of the Website "Awesome of COVID-19"
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/28/Coding-and-Paper-Letter%EF%BC%88%E5%85%AB%E5%8D%81%E4%BA%8C%EF%BC%89/" rel="next" title="Coding and Paper Letter（八十二）">
+                  Coding and Paper Letter（八十二） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2020/05/10/GISdenfenceconsiderate/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

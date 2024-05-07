@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。 WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。 二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装">
+<meta property="og:url" content="https://gisersqdai.top/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。 WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。 二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004105.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004133.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004140.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004942.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401005306.jpg">
+<meta property="article:published_time" content="2017-04-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-18T08:15:47.346Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="WRF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/","path":"2017/04/02/WRF-DA代码编译与安装(一）——依赖库的编译与安装/","title":"WRF-DA代码编译与安装（一）——依赖库的编译与安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>WRF-DA代码编译与安装（一）——依赖库的编译与安装 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="WRF-DA代码编译与安装（一）——依赖库的编译与安装 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WRF-DA代码编译与安装（一）——依赖库的编译与安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-04-02 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-02T00:00:00+08:00">2017-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>由于笔者的研究需要用到数据同化技术，所以开始学习WRF相关内容（主要是WRF-DA模块）。这里先解释下WRF是什么东西。</p>
+<p>WRF全称Weather Research and Forecasting Model, 是一个天气研究与预报模型.可以用来进行精细尺度的天气模拟与预报。</p>
+<p>二战后，由于计算机技术的迅猛发展，气象预报技术也随之突飞猛进。短短的几十年里，世界各地的气象研究机关开发出了各自的相对独立的气象模式。这些模式之间缺少互换性，对科研及业务上的交流极其不便。从上世纪90年代后半开始，美国对这种乱立的模式状况进行反省。最后由美国环境预测中心（NCEP），美国国家大气研究中心（NCAR）等美国的科研机构为中心开始着手开发一种统一的气象模式。终于于2000 年开发出了WRF模式。同时，为使研究成果能够迅速地应用到现实的天气预报当中去，WRF模式分为ARW(the Advanced Research WRF)和NMM(the Nonhydrostatic Mesoscale Model)两种，即研究用和业务用两种形式，分别由NCEP和NCAR管理维持着。<span id="more"></span><br>具体的可以见官网：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www2.mmm.ucar.edu/wrf/users/">http://www2.mmm.ucar.edu/wrf/users/</a></p>
+</blockquote>
+<p>WRF模拟系统主要包含WPS和WRF两部分模块： WPS模块全称为WRF Pre-processing System，即WRF预处理系统，用来为WRF模型准备输入数据；如果只是做理想实验(idealized modeling)，就不需要用WPS处理真实数据。但是理想实验不在本文介绍范围内，本文介绍的是进行真实数据模拟的操作。 WRF模块就是数值求解的模块，它有两个版本：ARW(Advanced Research WRF) 和 NMM(Nonhydrostatic Mesoscale Model)。大多数研究者主要用的都是ARW版本，本文所有的介绍也都基于ARW版本。 除了WPS与WRF两大核心模块外，WRF系统还有很多附加模块：比如用于数据同化的WRF-DA，用于化学传输的WRF-chem，用于林火模拟的WRF-fire（该段文字引自xg1990的博客，具体地址文末贴出，感谢该位大神的分享）。<br>安装运行WRF模拟系统必须在Linux系统。而笔者又无法放弃windows系统，同时目前工作还处于前期测试阶段，故决定选择用VMware虚拟机搭建一个Linux系统来测试。<br>选用的VMware版本：12.5.2。<br>Linux系统：Ubuntu 16.04<br>具体安装过程不是本文重点。详情可见</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html">https://jingyan.baidu.com/article/c275f6ba07e269e33d756714.html</a></p>
+</blockquote>
+<p>此外附上Ubuntu官网链接</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.ubuntu.com/download/desktop">https://www.ubuntu.com/download/desktop</a></p>
+</blockquote>
+<p>WRF-DA编译与安装主要参照官方提供的ppt和文档（地址文末会贴出）。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401003904.jpg"></p>
+<p>首先看下WRF-DA编译与安装的需求。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004105.jpg"></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004133.jpg"></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004140.jpg"></p>
+<p>上面提到了需求如下：<br>1.Linux&#x2F;Mac系统，基于Unix或Linux的系统<br>2.（3DVAR）三维变分的案例内存占用不大，大的（4DVAR）四维变分内存消耗较大。<br>3.支持C和Fortran的编译器（ifort&#x2F;icc, gfortran&#x2F;gcc,pgf90&#x2F;pgcc）<br>4..需要的一些库，类似于WRF。包括：Zlib，netCDF C&#x2F;Fortran，MPI（MPICH），BUFR，CRTM，RTTOV，HDF5。<br>系统已经安装完毕，而内存部分目前暂时不考虑。接下来看C和Fortran的编译器。<br>Ubuntu内置了gcc的编译器。可以通过命令来查看。</p>
+<pre><code>~$ gcc -v
+</code></pre>
+<p>结果如下：</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401004942.jpg"></p>
+<p>接下来安装gfortran，也是通过命令进行安装。</p>
+<pre><code>~$ sudo apt-get install gfortran
+</code></pre>
+<p>通过命令查看是否安装成功。</p>
+<pre><code>~$ gfortran -v
+</code></pre>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20170401005306.jpg"></p>
+<p>接下来是几个库的下载与安装。<br>zlib：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.zlib.net/">http://www.zlib.net/</a></p>
+</blockquote>
+<p>netCDF C&#x2F;Fortran：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.unidata.ucar.edu/downloads/netcdf/index.jsp">http://www.unidata.ucar.edu/downloads/netcdf/index.jsp</a></p>
+</blockquote>
+<p>MPI（MPICH）：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">http://www.mpich.org/downloads/</a></p>
+</blockquote>
+<p>BUFR：包含在WRF源代码中</p>
+<p>CRTM：包含在WRF源代码中</p>
+<p>RTTOV：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://nwpsaf.eu/site/software/rttov/">https://nwpsaf.eu/site/software/rttov/</a></p>
+</blockquote>
+<p>需注册，最好自备梯子。</p>
+<p>HDF5：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://support.hdfgroup.org/HDF5/">https://support.hdfgroup.org/HDF5/</a></p>
+</blockquote>
+<p>将如上的几个库的安装包通过共享文件夹放入虚拟机中（mnt&#x2F;hgfs&#x2F;Share)。</p>
+<p>zlib和hdf5和netCDF 4相关。具体安装步骤和教程借鉴了官方文档</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source">http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_nc4_dap_from_source</a></p>
+</blockquote>
+<p>1.zlib的安装：解压到&#x2F;usr&#x2F;下</p>
+<pre><code>$ cp -r zlib-1.2.11.tar.gz /usr/
+$ tar zvf zlib-1.2.11.tar.gz
+</code></pre>
+<p>然后进入解压文件夹，并安装</p>
+<pre><code>$ ./configure --prefix=/usr/local/zlib
+$ make check
+$ make install
+</code></pre>
+<p>修改环境变量。</p>
+<pre><code>gedit ~/.bashrc
+# for zlib  
+export ZLIB_HOME=/usr/local/zlib  export
+LD_LIBRARY_PATH=$ZLIB_HOME/lib:$LD_LIBRARY_PATH
+</code></pre>
+<p>2.HDF5的安装：解压到&#x2F;usr&#x2F;下</p>
+<pre><code>$ tar -xvf hdf5-1.8.18.tar
+</code></pre>
+<p>然后进入解压文件夹，并安装</p>
+<pre><code>$ ./configure --with-zlib=/usr/local --prefix=/usr/local/hdf5
+$ make 
+$ make check
+$ make install
+</code></pre>
+<p>HDF5的安装和检验参照：</p>
+<pre><code>./configure --prefix=/usr/local/hdf5 --with-zlib=/usr/local/zlib 
+</code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/luoying_1993/article/details/53228473">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
+</blockquote>
+<p>HDF5还需配置一个环境变量，避免下面的netCDF C安装报错。</p>
+<pre><code>$ gedit ~/.bashrc
+#for hd5
+export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
+export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
+export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
+$ source ~/.bashrc
+</code></pre>
+<p>3.netCDF C&#x2F;Fortran安装<br>先装netCDF C：</p>
+<pre><code>$ export CPPFLAGS=-I$PRO_PATH/usr/local/hdf5/include 
+$ export LDFLAGS=-L$PRO_PATH/usr/local/hdf5/lib 
+$ export LD_LIBRARY_PATH=$PRO_PATH/usr/local/hdf5/lib
+$ ./configure --prefix=/usr/local/NETCDF --enable-netcdf-4
+$ make 
+$ make check
+$ make install
+</code></pre>
+<p>接着装netCDF Fortran：<br>先声明环境变量：</p>
+<pre><code>$ export CPPFLAGS=-I/usr/local/NETCDF/include
+$ export LDFLAGS=-L/usr/local/NETCDF/lib
+</code></pre>
+<p>然后进行下一步编译。</p>
+<pre><code>$ ./configure --prefix=/usr/local/NETCDF FC=gfortran
+</code></pre>
+<p>4.mpich的安装：<br>解压之类的步骤同上，同样放到usr下面。<br>解压到指定路径。</p>
+<pre><code>$ tar zxf mpich-3.2.tar.gz 
+$ ./configure -prefix=/usr/local/mpi/
+</code></pre>
+<p>5.rttov的安装：<br>rttov解压出来东西较多，同样新建个path来存放。</p>
+<pre><code>$ tar zxf rttov121.tar.gz 
+$ cd src
+$ ../build/rttov_compile.sh
+</code></pre>
+<p>打完收工。目前应该就完成了WRF-DA编译安装前所有需要的依赖库的编译及安装。下一篇更新WRF-DA具体的编译与安装。由于对Linux系统不熟悉，加上坑爹的rttov，博客写了两三天。从内心坚持要提醒大家的一点，Linux编译环境一定要注意环境变量！！！</p>
+<p>最后重点鸣谢几位主要参考大神的博客以及相关文档：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/58851bc269eae009591bec0a.html">https://wenku.baidu.com/view/58851bc269eae009591bec0a.html</a><br><a target="_blank" rel="noopener" href="https://nwpsaf.eu/site/software/rttov/rttov-v12/">https://nwpsaf.eu/site/software/rttov/rttov-v12/</a><br><a target="_blank" rel="noopener" href="http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html">http://www2.mmm.ucar.edu/wrf/users/wrfda/updates-3.8.1.html</a><br><a target="_blank" rel="noopener" href="https://xg1990.com/blog/archives/190">https://xg1990.com/blog/archives/190</a><br> <a target="_blank" rel="noopener" href="http://blog.csdn.net/luoying_1993/article/details/53228473">http://blog.csdn.net/luoying_1993/article/details/53228473</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/WRF/" rel="tag"># WRF</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/23/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%96%B0R%E8%AF%AD%E8%A8%80/" rel="prev" title="一行代码更新R语言">
+                  <i class="fa fa-angle-left"></i> 一行代码更新R语言
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/04/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94WRF-DA%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/" rel="next" title="WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装">
+                  WRF-DA代码编译与安装（二）——WRF-DA模块的编译与安装 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2017/04/02/WRF-DA%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85(%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%BE%9D%E8%B5%96%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AE%89%E8%A3%85/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

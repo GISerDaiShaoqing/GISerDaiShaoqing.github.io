@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天带来一篇承诺虾神的可视化博客。内容是使用R语言进行带南海九段线分位数地图可视化。虾神的原博文地址如下（Python版）。 Python实现带南海九段线分位数地图完整可视化版本（附代码及数据） 1999-2017年中国各省旅游外汇收入分析及可视化（附代码及数据） 数据及代码github地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="带南海九段线分位数地图可视化（R语言版）">
+<meta property="og:url" content="https://gisersqdai.top/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="今天带来一篇承诺虾神的可视化博客。内容是使用R语言进行带南海九段线分位数地图可视化。虾神的原博文地址如下（Python版）。 Python实现带南海九段线分位数地图完整可视化版本（附代码及数据） 1999-2017年中国各省旅游外汇收入分析及可视化（附代码及数据） 数据及代码github地址">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/15736114026638ki0bnu5.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1572747798533ez7u03ip.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1572748031407kpp503rm.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1572748235199712mvpe0.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573575983954lb17xwwr.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573576019369jc6xwsfz.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/157357645093749azagil.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15735772330686snexyo2.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573577270392w2ar11k0.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573577304330beim62jt.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573577348719h9h870zo.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573577644167cz6kdxu8.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573577724315jjp2cjhz.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573578026456z9mao9rl.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573578370428mal4y8y3.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573578459331inff0rs0.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1573579441909ikprsyth.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15736114026638ki0bnu5.png">
+<meta property="article:published_time" content="2019-11-03T02:12:00.000Z">
+<meta property="article:modified_time" content="2019-12-23T15:39:43.497Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/15736114026638ki0bnu5.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/","path":"2019/11/03/带南海九段线分位数地图可视化（R语言版）/","title":"带南海九段线分位数地图可视化（R语言版）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>带南海九段线分位数地图可视化（R语言版） | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD"><span class="nav-text">1 数据下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-git-clone"><span class="nav-text">1 git clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%EF%BC%88Download-ZIP%EF%BC%89"><span class="nav-text">2 直接下载（Download ZIP）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-R%E8%AF%AD%E8%A8%80%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-text">2 R语言可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%80%E9%9C%80%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-text">1 所需包的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BB%98%E5%9B%BE"><span class="nav-text">2 绘图</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="带南海九段线分位数地图可视化（R语言版） | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          带南海九段线分位数地图可视化（R语言版）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-03 10:12:00" itemprop="dateCreated datePublished" datetime="2019-11-03T10:12:00+08:00">2019-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>12 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今天带来一篇承诺虾神的可视化博客。内容是使用R语言进行带南海九段线分位数地图可视化。虾神的原博文地址如下（Python版）。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/allenlu2008/article/details/102693850">Python实现带南海九段线分位数地图完整可视化版本（附代码及数据）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/allenlu2008/article/details/102693859">1999-2017年中国各省旅游外汇收入分析及可视化（附代码及数据）</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/allenlu2008/PythonDemo">数据及代码github地址</a></p>
+<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png"></p>
+<span id="more"></span> 
+
+<h1 id="1-数据下载"><a href="#1-数据下载" class="headerlink" title="1 数据下载"></a>1 数据下载</h1><p>虾神把代码和数据放在了github上，没接触过github的人可能对如何下载不太熟悉，这里也简单介绍下两种方式。如果想进一步了解git这种神器的可以安装git，然后按第一种方式下载（以下介绍默认已安装git bash）。而第二种方式则完全不用了解git方面的内容。</p>
+<h2 id="1-git-clone"><a href="#1-git-clone" class="headerlink" title="1 git clone"></a>1 git clone</h2><p>首先新建一个你放数据和分析的文件夹。然后先点击浏览虾神提供的github地址，在页面中点击clone or download，即跳出如下的页面，复制https的地址。</p>
+<p><img src="http://blog.gisersqdai.top/1572747798533ez7u03ip.png"></p>
+<p>然后右击打开git bash。敲入命令行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/allenlu2008/PythonDemo.git</span><br></pre></td></tr></table></figure>
+<p>然后敲击回车，即可发现开始下载。当然由于虾神这个仓库内容比较多，是一个比较漫长的下载过程。</p>
+<p><img src="http://blog.gisersqdai.top/1572748031407kpp503rm.png"></p>
+<h2 id="2-直接下载（Download-ZIP）"><a href="#2-直接下载（Download-ZIP）" class="headerlink" title="2 直接下载（Download ZIP）"></a>2 直接下载（Download ZIP）</h2><p>第二种方式依旧是点击clone or download。这回是点击Download ZIP。</p>
+<p><img src="http://blog.gisersqdai.top/1572748235199712mvpe0.png"></p>
+<p>接下来就进入传统的浏览器点击下载存储文件的范畴了。后续就不阐述了。</p>
+<h1 id="2-R语言可视化"><a href="#2-R语言可视化" class="headerlink" title="2 R语言可视化"></a>2 R语言可视化</h1><h2 id="1-所需包的安装"><a href="#1-所需包的安装" class="headerlink" title="1 所需包的安装"></a>1 所需包的安装</h2><p>由于R语言需要一些包的支持才能实现读取空间数据和可视化。具体这块前面有博客介绍过。这里不详述。</p>
+<p><a href="http://gisersqdai.top/2017/04/24/R%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%8F%96%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BB%A5%E5%8F%8AArcGIS%E4%B8%ADOLS%E5%B7%A5%E5%85%B7%E5%9B%9E%E5%BD%92%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96R%E8%AF%AD%E8%A8%80%E7%89%88/">R语言读取空间数据以及ArcGIS中OLS工具回归结果可视化R语言版</a></p>
+<p>这里主要提一下需要本次可视化需要安装的几个包：rgdal，ClassInt以及sp包。</p>
+<h2 id="2-绘图"><a href="#2-绘图" class="headerlink" title="2 绘图"></a>2 绘图</h2><p>说到绘图的话，其实R语言中有多套绘图系统（我称之为系统是指他们的语法各有特色，使用起来有所差异），比如最基础的plot系统，lattice系统，闻名遐迩的ggplot2系统。本篇博客最早是打算使用基于lattice的spplot绘图来进行。后面发现利用spplot绘制这个图并不简单，但我也会先介绍使用spplot的画法。最后我采用的是plot系统来绘制。本次绘图函数样例选择2008年外汇收入数据来进行。此外后续出现的whsr表示外汇收入表格，chinau表示使用的中国省份地图数据（关联有外汇收入数据），jdx表示九段线地图。</p>
+<p>由于本次是绘制分位数地图，因此在读取数据的基础上需要先计算分位数。从虾神Python代码里也发现有计算分位数进行分类的代码。这里也在R里面写了一下。这里有两种方式，一种是采用R包ClassInt来做分类。就如代码的前两行，一行代码解决。此外也可以使用这个包做熟悉的自然间断点法分类。不过似乎这个分类与虾神的分位数地图结果有点不一致，所以我也写了一个自己手动计算的代码。quantinle是R的分位数函数，输入参数是给定一组向量（数据）以及需要的分位（例如25分位数就是0.25），返回值对应分位数的值。具体的计算步骤见代码。不详述。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##use ClassInt</span></span><br><span class="line">q5 <span class="operator">&lt;-</span> classIntervals<span class="punctuation">(</span>chinau<span class="operator">$</span>y2008<span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> style <span class="operator">=</span> <span class="string">&#x27;quantile&#x27;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##self calculation</span></span><br><span class="line">q25 <span class="operator">&lt;-</span> quantile<span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">,</span> probs <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.25</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">q50 <span class="operator">&lt;-</span> quantile<span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">,</span> probs <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.5</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">q75 <span class="operator">&lt;-</span> quantile<span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">,</span> probs <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.75</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">iqr <span class="operator">&lt;-</span> q75 <span class="operator">-</span> q25</span><br><span class="line">u <span class="operator">&lt;-</span> q75 <span class="operator">+</span> <span class="number">1.5</span> <span class="operator">*</span> iqr</span><br><span class="line">d <span class="operator">&lt;-</span> q25 <span class="operator">-</span> <span class="number">1.5</span> <span class="operator">*</span> iqr</span><br><span class="line">u <span class="operator">&lt;-</span> ifelse<span class="punctuation">(</span>u <span class="operator">&gt;</span> <span class="built_in">max</span><span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">max</span><span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">)</span><span class="punctuation">,</span> u<span class="punctuation">)</span></span><br><span class="line">d <span class="operator">&lt;-</span> ifelse<span class="punctuation">(</span>d <span class="operator">&lt;</span> <span class="built_in">min</span><span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">min</span><span class="punctuation">(</span>whsr<span class="operator">$</span>y2008<span class="punctuation">)</span><span class="punctuation">,</span> d<span class="punctuation">)</span></span><br><span class="line">box <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>d<span class="punctuation">,</span> q25<span class="punctuation">,</span> q50<span class="punctuation">,</span> q75<span class="punctuation">,</span> u<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>获取到box分位数分界线后，在R里可以通过ifelse给不同省份赋值（或者叫分类，就是按照分位数范围将外汇收入划分为不同类别），这里将分类设置为plot字段（值为1到6）。代码如下。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chinau<span class="operator">$</span>plot <span class="operator">&lt;-</span> ifelse<span class="punctuation">(</span>chinau<span class="operator">$</span>y2008 <span class="operator">&lt;</span> box<span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">,</span> </span><br><span class="line">                      ifelse<span class="punctuation">(</span>chinau<span class="operator">$</span>y2008 <span class="operator">&lt;</span> box<span class="punctuation">[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> </span><br><span class="line">                             ifelse<span class="punctuation">(</span>chinau<span class="operator">$</span>y2008 <span class="operator">&lt;</span> box<span class="punctuation">[</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> </span><br><span class="line">                                    ifelse<span class="punctuation">(</span>chinau<span class="operator">$</span>y2008 <span class="operator">&lt;</span> box<span class="punctuation">[</span><span class="number">4</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> </span><br><span class="line">                                           ifelse<span class="punctuation">(</span>chinau<span class="operator">$</span>y2008 <span class="operator">&lt;</span> box<span class="punctuation">[</span><span class="number">5</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>接着可以设置色带。这个颜色设置看个人喜好，我是随机挑了一种配色方案，使用colorRamPalette。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colspic <span class="operator">&lt;-</span> colorRampPalette<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;#f38181&quot;</span><span class="punctuation">,</span> <span class="string">&quot;#fce38a&quot;</span><span class="punctuation">,</span> <span class="string">&quot;#eaffd0&quot;</span><span class="punctuation">,</span> <span class="string">&quot;#95e1d3&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>box<span class="punctuation">)</span><span class="operator">+</span><span class="number">1</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>以上就是主要的准备工作，接下来就进行可视化语句就行了。不过这是基于spplot系统的绘制地图准备工作，如果是基于plot还会多一步，后面会说。这里先关注如何用spplot来绘制地图。先放代码和结果再来解释。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spplot<span class="punctuation">(</span>chinau<span class="punctuation">,</span> zcol <span class="operator">=</span> <span class="string">&quot;plot&quot;</span><span class="punctuation">,</span> scales <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>draw <span class="operator">=</span> <span class="built_in">T</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">       main <span class="operator">=</span> <span class="string">&quot;2008年中国各省国际旅游外汇收入分位数专题图\n数据来源:国家统计局&quot;</span><span class="punctuation">,</span> col.regions <span class="operator">=</span> colspic<span class="punctuation">,</span></span><br><span class="line">       at <span class="operator">=</span> seq<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/1573575983954lb17xwwr.png"></p>
+<p>等一等，为什么有X。</p>
+<p><img src="http://blog.gisersqdai.top/1573576019369jc6xwsfz.png"></p>
+<p>其实我后面画的时候发现这个系统画这个图感觉乱七八糟很麻烦，连画九段线也有很多毛病，所以就只是先展示下spplot怎么绘图，后面有空再来水一篇博——啊呸，说错了，再来写一篇博客。前面那个结果图是有问题的，仅仅是教学示意，一定要加上九段线，因为我们中国一点都不能少！！！</p>
+<p>先来讲spplot的语法，首先第一个参数是绘图的矢量或栅格数据（这里是chinau），zcol表示要用来映射颜色的字段（选用了之前的plot字段，即参照分位数的分类），scales &#x3D; list(draw &#x3D; T)意思是要把经纬度标出来，如果是F就不标。main是填标题，at是映射字段的绘制数值。其他参数详情参见文档或者等以后我来水——呸，我来介绍。</p>
+<p>这里也展示下ClassInt分类的结果。当然也是教学用，没有画九段线。</p>
+<p><img src="http://blog.gisersqdai.top/157357645093749azagil.png"></p>
+<p>接下来进入plot系统的正经实现效果。首先就如虾神博客效果，我们知道本次实现的可视化本身就是一个拼图操作，所以先需要用par函数来分割绘图位置。par函数的参数十分丰富。这次主要用两个，一个是fig，一个是new。代码如下。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">par<span class="punctuation">(</span>fig <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span> <span class="number">0.3</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span> new <span class="operator">=</span> <span class="built_in">T</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>fig的参数是一个向量，形式是(x1,x2,y1,y2)，这个向量是以画布左下角为原点，其实表示的就是接下来绘制的图片占据图片位置和大小。按照这里的代码，接下来绘制的图是占画布横轴的前面30%，纵轴的全部。new是表示允许叠加新的图，这样才能把两个图画在一个画布上。解释得有点绕口，但是如果你自己尝试画个图就能理解，所以我就不继续展开了。</p>
+<p>接下来先将plot绘制地图的关键做一些简要介绍，这里需要先在plot函数可视化前，做一个准备工作。即新建一个字段col，把颜色映射到这个字段上（字段值是颜色的十六进制），也是用ifelse的方法。做完之后就可以开始做可视化。</p>
+<p>由于虾神给的九段线数据是只有九段线那块区域，数据经纬度范围与省份数据不相同，所以可视化的第一步首先要计算一个能包含这两个数据的数据经纬度范围。这里就需要bbox了。</p>
+<p>你说的是这个bbox？</p>
+<p><img src="http://blog.gisersqdai.top/15735772330686snexyo2.png"></p>
+<p>还是这个bbox？</p>
+<p><img src="http://blog.gisersqdai.top/1573577270392w2ar11k0.png"></p>
+<p>或者是这个？</p>
+<p><img src="http://blog.gisersqdai.top/1573577304330beim62jt.png"></p>
+<p>哦，对不起，串戏了。是这个。</p>
+<p><img src="http://blog.gisersqdai.top/1573577348719h9h870zo.png"></p>
+<p>这个函数可以把空间数据的坐标范围返回给我们。这样子就可以通过简单的计算得到包含两个数据的经纬度范围。当然我把所有的代码都连在了一行，所以看起来比较复杂。这个函数首先先绘制九段线，同时，绘制的数据范围是包含两个数据的。xlim和ylim是表示绘制的数据范围，需要的是一个二元向量（如c(20,30），即表示绘制经（纬）度的范围是20到30）。main跟spplot一样是标题。axes表示不需要画任何坐标轴。这样子结果如图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plot<span class="punctuation">(</span>jdx<span class="punctuation">,</span> </span><br><span class="line">     xlim <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">max</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">     ylim <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">max</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">     main <span class="operator">=</span> <span class="string">&#x27;2008年中国各省国际旅游外汇收入分位数专题图\n数据来源:国家统计局&#x27;</span><span class="punctuation">,</span></span><br><span class="line">     axes <span class="operator">=</span> <span class="built_in">F</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/1573577644167cz6kdxu8.png"></p>
+<p>现在先把省份的数据绘制上去就能得到基本的地图。col是颜色映射的字段，add表示可以把新的图绘制到原来的图上，相当于PS的叠加一个新图层。这样我们就看到了基本的图形。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot<span class="punctuation">(</span>chinau<span class="punctuation">,</span> col <span class="operator">=</span> chinau<span class="operator">$</span>col<span class="punctuation">,</span> add <span class="operator">=</span> <span class="built_in">T</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/1573577724315jjp2cjhz.png"></p>
+<p>上面的图很单调，需要格网做点缀。这个时候就需要另外一个函数axis了。axis的第一个参数是side，取值为1（下）,2（左）,3（上）,4（右），意思就是画上下左右的四条坐标轴。at表示要绘制的刻度值范围，tck是表示刻度值的长度，0的话是不标刻度，1的话是网格线，默认为-0.01，col是颜色。这里再次用到了bbox，这是为了划分网格，这里采用的是10经度为划分标准。当然我还加上了四条轴，具体的代码后面会分享。这里就不详述了，主要阐述函数用法。结果如图，越来越接近虾神效果图了。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">axis<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span> at <span class="operator">=</span> seq<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                 <span class="built_in">round</span><span class="punctuation">(</span><span class="built_in">max</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">10</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                 <span class="number">10</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">     tck <span class="operator">=</span> <span class="number">1</span><span class="punctuation">,</span> col <span class="operator">=</span> <span class="string">&#x27;grey&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/1573578026456z9mao9rl.png"></p>
+<p>地图目前相较于虾神的图（标注不考虑），最关键的差距就是图例了。这里使用polygon和text来绘制图例。polygon是绘制多边形，首先需要给出组成x和y的多边形坐标，border是线的颜色，col是多边形填充颜色。text是根据坐标标注文字。x,y是点坐标，字符串是标注内容。当然生成多边形坐标以及标注文字坐标依旧使用了bbox，这里可以根据具体地图替换主要改变前面的系数:1.1还有后面的加数灵活绘制。效果如图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">polygon<span class="punctuation">(</span>x <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">              seq<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">6</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              <span class="built_in">rep</span><span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">6</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              seq<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">5</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="operator">-</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">        y <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span>seq<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">3</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="number">0.5</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">              <span class="built_in">rep</span><span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              seq<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">2.5</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                  <span class="operator">-</span><span class="number">0.5</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">              <span class="built_in">rep</span><span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">        border <span class="operator">=</span> <span class="string">&#x27;black&#x27;</span><span class="punctuation">,</span></span><br><span class="line">        col <span class="operator">=</span> <span class="string">&#x27;white&#x27;</span><span class="punctuation">)</span></span><br><span class="line">text<span class="punctuation">(</span>x <span class="operator">=</span> <span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">10</span><span class="punctuation">,</span> </span><br><span class="line">     y <span class="operator">=</span> <span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">                  <span class="built_in">round</span><span class="punctuation">(</span><span class="number">1.1</span><span class="operator">*</span><span class="built_in">min</span><span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span>bbox<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> bbox<span class="punctuation">(</span>jdx<span class="punctuation">)</span><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> <span class="number">3</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;无数据&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/1573578370428mal4y8y3.png"></p>
+<p>后续就一步步添加图例，再加上箱线图就可以得到虾神的效果图了。箱线图绘制是R语言中比较简单的，使用boxplot即可。</p>
+<p><img src="http://blog.gisersqdai.top/1573578459331inff0rs0.png"></p>
+<p>当然我们也可以做一版有小窗的，原理同上面一样，也是设置par，把九段线部分重绘制一遍。结果如图。</p>
+<p><img src="http://blog.gisersqdai.top/1573579441909ikprsyth.png"></p>
+<p>最后虾神要求的，箱线图+点绘图。这里也描述下。由于只针对单年数据所有省份箱线图，先设置一个类别字段让所有省份数据都相同，设置为1，然后以这个字段来绘制boxplot箱线图。加上点的思路就是以设置的类别字段作为x，外汇收入为y，颜色与地图相同。代码如下。详细意义就不阐述了。详情可参见boxplot的文档。效果最后如图。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chinau<span class="operator">$</span>boxu <span class="operator">&lt;-</span> 1</span><br><span class="line"></span><br><span class="line">boxplot<span class="punctuation">(</span>y2008 <span class="operator">~</span> boxu<span class="punctuation">,</span> data <span class="operator">=</span> as.data.frame<span class="punctuation">(</span>chinau<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">points<span class="punctuation">(</span>factor<span class="punctuation">(</span>chinau<span class="operator">$</span>boxu<span class="punctuation">)</span><span class="punctuation">,</span> chinau<span class="operator">$</span>y2008<span class="punctuation">,</span> col <span class="operator">=</span> chinau<span class="operator">$</span>col<span class="punctuation">,</span> pch <span class="operator">=</span> <span class="number">16</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/15736114026638ki0bnu5.png"></p>
+<p>打完收工，至于动图，由于R语言做动图会牵扯到另外一个软件，我们就等下一篇博客再水——呸，再介绍。所有的代码后面会公开给大家。请稍安勿躁。本文所有使用数据来自于虾神Github，解释权由他说了算。最后一句——bbox牛逼。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/08/30/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%EF%BC%89/" rel="prev" title="Coding and Paper Letter（七十）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（七十）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/12/01/%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85nginx%E9%85%8D%E7%BD%AE%E7%BD%91%E7%AB%99/" rel="next" title="阿里云安装nginx配置网站">
+                  阿里云安装nginx配置网站 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2019/11/03/%E5%B8%A6%E5%8D%97%E6%B5%B7%E4%B9%9D%E6%AE%B5%E7%BA%BF%E5%88%86%E4%BD%8D%E6%95%B0%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%88R%E8%AF%AD%E8%A8%80%E7%89%88%EF%BC%89/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

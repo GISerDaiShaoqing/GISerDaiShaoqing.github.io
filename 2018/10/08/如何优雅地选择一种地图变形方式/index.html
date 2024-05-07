@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天来填一下之前说了很久的坑，关于变形地图制作方法教程。本篇主要介绍五种方式制作Cartogram，至于你觉得哪一种最优雅就follow your heart了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅地选择一种地图变形方式">
+<meta property="og:url" content="https://gisersqdai.top/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="今天来填一下之前说了很久的坑，关于变形地图制作方法教程。本篇主要介绍五种方式制作Cartogram，至于你觉得哪一种最优雅就follow your heart了。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/cartogram.gif">
+<meta property="og:image" content="http://blog.gisersqdai.top/cartogram.gif">
+<meta property="og:image" content="http://blog.gisersqdai.top/1538990165727ekbc8b42.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539007470970vcwmva2c.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539007659081701w350k.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539007851233ykctk5wb.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539007825667okhy2pqv.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539007743500ygqrltx4.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539008180121hwssai1q.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539008215081z9ekmxrb.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539008249534wmk40thq.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539008269504y4o46uu3.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/15390083898417pw7xqy3.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539008446120g56yzat4.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539008520958lo6ow5k9.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539009245982bkjoicbj.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539009269605e9tb3f8p.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539009307957qbkjjq4h.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/15390096437384wmjmbak.png?imageslim">
+<meta property="og:image" content="http://blog.gisersqdai.top/1539009679686kbixdhzs.png?imageslim">
+<meta property="article:published_time" content="2018-10-08T02:27:00.000Z">
+<meta property="article:modified_time" content="2020-04-17T09:25:05.124Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="ArcGIS">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="QGIS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/cartogram.gif">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/","path":"2018/10/08/如何优雅地选择一种地图变形方式/","title":"如何优雅地选择一种地图变形方式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何优雅地选择一种地图变形方式 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Cartogram%E7%AE%80%E4%BB%8B"><span class="nav-text">1 Cartogram简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-ArcGIS-Cartogram-Toolbox"><span class="nav-text">2 ArcGIS Cartogram Toolbox</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-QGIS-Cartogram%E6%8F%92%E4%BB%B6"><span class="nav-text">3 QGIS Cartogram插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Cartogram-in-R"><span class="nav-text">4 Cartogram in R</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-GeoDa%E5%92%8Cgeofacet"><span class="nav-text">5 GeoDa和geofacet</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何优雅地选择一种地图变形方式 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何优雅地选择一种地图变形方式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-08 10:27:00" itemprop="dateCreated datePublished" datetime="2018-10-08T10:27:00+08:00">2018-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/GIS/" itemprop="url" rel="index"><span itemprop="name">GIS</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今天来填一下之前说了很久的坑，关于变形地图制作方法教程。本篇主要介绍五种方式制作Cartogram，至于你觉得哪一种最优雅就follow your heart了。</p>
+<p><img src="http://blog.gisersqdai.top/cartogram.gif"></p>
+<span id="more"></span>
+
+<h1 id="1-Cartogram简介"><a href="#1-Cartogram简介" class="headerlink" title="1 Cartogram简介"></a>1 Cartogram简介</h1><blockquote>
+<p>按照各区域单元属性值的区际比例，调整每个区域单元的几何面积，同时保持各个区域单元的空间邻接关系。 以这种方式制作的地图被称之为 Cartogram（变形地图），统计地图，扭曲地图，夸张地图等等。</p>
+</blockquote>
+<blockquote>
+<p>摘自百度百科。</p>
+</blockquote>
+<p>接下来给出一个样例。</p>
+<p><a target="_blank" rel="noopener" href="http://c.dituhui.com/apps/cartogram#population">地图慧样例</a></p>
+<p><img src="http://blog.gisersqdai.top/cartogram.gif"></p>
+<p>当然如果地图慧后面支持这个服务的话，应该就是第六种制作的方式。我相信非常优雅了。</p>
+<h1 id="2-ArcGIS-Cartogram-Toolbox"><a href="#2-ArcGIS-Cartogram-Toolbox" class="headerlink" title="2 ArcGIS Cartogram Toolbox"></a>2 ArcGIS Cartogram Toolbox</h1><p>最早看到变形地图其实还是在Esri中国的CSDN博客和ArcGIS中国培训中心的网站上。不过后者改版后，就找不到博客链接了。而且据现在的博客，插件下载地址看着也有点问题。我之前已经下载过了。如果有人需要的话可以在下面的评论区留言提供邮箱或者从下面的百度网盘链接下载。</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1OGf5_nIM-LXy35Mj4EhPtA">百度网盘链接</a></p>
+<p>接下来讲一下安装和使用。</p>
+<p><img src="http://blog.gisersqdai.top/1538990165727ekbc8b42.png?imageslim"></p>
+<p>首先是运行这个exe。其实大部分都是直接Next，除了安装路径可以修改之外，这里就不详细描述了。当然exe上的93是暗示着这个插件其实原本是根据ArcGIS 9.3开发的，想用在10.0以上的版本的话，必须注册dll文件。</p>
+<p>即打开CMD命令行，输入如下的命令。其实就是regsvr32 + dll存放的路径。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regsvr32“F:\ArcGIS Tools\Cartograms\BnchMrkCartogram.dll”</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是将工具箱添加到ArcMap中即可使用。我们用一个样例数据来测试，样例数据来源于《全球变化科学研究数据出版系统》。</p>
+<p><a target="_blank" rel="noopener" href="http://geodoi.ac.cn/WebCn/doi.aspx?Id=535">内蒙古自治区乡村人口迁出对植被影响数据集（2000-2010）</a></p>
+<p><img src="http://blog.gisersqdai.top/1539007470970vcwmva2c.png?imageslim"></p>
+<p>原始数据如上，但是主要的乡村人口迁出的数据有0值，ArcGIS工具箱输入参数需要注意三点。</p>
+<blockquote>
+<ul>
+<li>1.用于Cartogram字段的必须是整型（任何工具实现应该都需要为正值）。</li>
+<li>2.输出必须为geodatabase。</li>
+<li>3.修改工作空间，存储临时文件。</li>
+</ul>
+</blockquote>
+<p>由于第一点，所以我们去除了0值的几个县市。选择2000年劳动变化为结果。颜色从黄到红，值是越来越大的。</p>
+<p><img src="http://blog.gisersqdai.top/1539007659081701w350k.png?imageslim"></p>
+<p>接下来看工具截图和变形结果。</p>
+<p><img src="http://blog.gisersqdai.top/1539007851233ykctk5wb.png?imageslim"></p>
+<p><img src="http://blog.gisersqdai.top/1539007825667okhy2pqv.png?imageslim"></p>
+<p><img src="http://blog.gisersqdai.top/1539007743500ygqrltx4.png?imageslim"></p>
+<p>感谢下两篇相关内容的博客。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gisangela/p/3486897.html">ArcGIS之Cartogram地图变形记</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014136513/article/details/50580447">ArcGIS夸张地图之Cartogram</a></p>
+<h1 id="3-QGIS-Cartogram插件"><a href="#3-QGIS-Cartogram插件" class="headerlink" title="3 QGIS Cartogram插件"></a>3 QGIS Cartogram插件</h1><p>事实上在QGIS也可以做变形地图，QGIS是开源桌面GIS软件中的代表。关于QGIS的这个插件，我事实上已经在前面的Coding and Paper Letter的第一篇就提到了。</p>
+<p><a href="https://gisersqdai.top/2018/07/07/Coding%20and%20Paper%20Letter%EF%BC%881%EF%BC%89/">Coding and Paper Letter（一）</a></p>
+<p>当然我这里用的是QGIS 3.0.2，好像做了版本迁移。</p>
+<p><img src="http://blog.gisersqdai.top/1539008180121hwssai1q.png?imageslim"></p>
+<p>接着点击桌面界面上的图标（下图红框）。</p>
+<p><img src="http://blog.gisersqdai.top/1539008215081z9ekmxrb.png?imageslim"></p>
+<p>接下来会跳出Cartogram3的界面。</p>
+<p><img src="http://blog.gisersqdai.top/1539008249534wmk40thq.png?imageslim"></p>
+<p>然后进行运算。</p>
+<p><img src="http://blog.gisersqdai.top/1539008269504y4o46uu3.png?imageslim"></p>
+<p>这是QGIS简单可视化。</p>
+<p><img src="http://blog.gisersqdai.top/15390083898417pw7xqy3.png?imageslim"></p>
+<p>变形地图结果会自动生成在列表里，如果需要保存，只需要右击保存文件即可。</p>
+<p><img src="http://blog.gisersqdai.top/1539008446120g56yzat4.png?imageslim"></p>
+<p><img src="http://blog.gisersqdai.top/1539008520958lo6ow5k9.png?imageslim"></p>
+<h1 id="4-Cartogram-in-R"><a href="#4-Cartogram-in-R" class="headerlink" title="4 Cartogram in R"></a>4 Cartogram in R</h1><p>除了以上的两大桌面软件，R语言中也有Cartogram的包。最早是RCartogram（表示并不知道这个包）。还是今天随手在谷歌上搜索时，看到谢益辉大大曾经也关注过这个方面的，并介绍了这个包。</p>
+<p><a target="_blank" rel="noopener" href="https://yihui.name/cn/2009/03/cartogram-as-special-maps/">Cartogram：变形的地图</a></p>
+<p>我自己依旧在之前的Coding and Paper Letter介绍过相关的R包。</p>
+<p><a href="https://gisersqdai.top/2018/07/08/Coding%20and%20Paper%20Letter%EF%BC%882%EF%BC%89/">Coding and Paper Letter（二）</a></p>
+<p>首先是安装R包。这里就不具体写地址了，如果想了解请点击上面的博客链接。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;cartogram&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来就是开始撸一波代码了。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#载入所需要的包</span></span><br><span class="line">library<span class="punctuation">(</span>cartogram<span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>rgeos<span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>maptools<span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>sp<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取数据同时可视化</span></span><br><span class="line">nmgau <span class="operator">&lt;-</span> readShapePoly<span class="punctuation">(</span><span class="string">&quot;F:/R/demo/cartogram/mongoliaurbanmigration.shp&quot;</span><span class="punctuation">)</span></span><br><span class="line">spplot<span class="punctuation">(</span>nmgau<span class="punctuation">,</span> zcol <span class="operator">=</span> <span class="string">&quot;ALabor2000&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#制作变形地图并可视化</span></span><br><span class="line">nmgauca <span class="operator">&lt;-</span> cartogram_cont<span class="punctuation">(</span>nmgau<span class="punctuation">,</span> weight <span class="operator">=</span> <span class="string">&quot;ALabor2000&quot;</span><span class="punctuation">,</span> <span class="number">10</span><span class="punctuation">)</span></span><br><span class="line">spplot<span class="punctuation">(</span>nmgauca<span class="punctuation">,</span> zcol <span class="operator">=</span> <span class="string">&quot;ALabor2000&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>cartogram_cont函数是核心，其实关键的参数与QGIS的插件工具很类似。具体的可以再查询帮助文档，结果如图。</p>
+<p><img src="http://blog.gisersqdai.top/1539009245982bkjoicbj.png?imageslim"></p>
+<p>代码运行后的信息。</p>
+<p><img src="http://blog.gisersqdai.top/1539009269605e9tb3f8p.png?imageslim"></p>
+<p><img src="http://blog.gisersqdai.top/1539009307957qbkjjq4h.png?imageslim"></p>
+<p>至于结果保存成文件的话，需要用到其他空间数据的包。</p>
+<h1 id="5-GeoDa和geofacet"><a href="#5-GeoDa和geofacet" class="headerlink" title="5 GeoDa和geofacet"></a>5 GeoDa和geofacet</h1><p>接下来的两种可视化方式，虽然也能被称为Cartogram，但是并非真正意义的Cartogram。</p>
+<p>GeoDa是一个专门用于空间统计的软件，后面可能还会做些介绍。这里就单刀直入。在GeoDa打开数据后。</p>
+<p><img src="http://blog.gisersqdai.top/15390096437384wmjmbak.png?imageslim"></p>
+<p>点击红框部分即可实现Cartogram。</p>
+<p><img src="http://blog.gisersqdai.top/1539009679686kbixdhzs.png?imageslim"></p>
+<p>对比上面的内容，就可以发现有所差距了。这里其实只是利用地理位置和大小重新渲染的气泡图。因此这也让我想到了类似的geofacet。geofacet是ggplot2的拓展包，专门用于地理分面，依旧在Coding and Paper Letter介绍过，详情见下面的博客。</p>
+<p><a href="https://gisersqdai.top/2018/09/16/Coding-and-Paper-Letter%EF%BC%88%E4%BA%8C%E5%8D%81%E4%B8%80%EF%BC%89/">Coding and Paper Letter（二十一）</a></p>
+<p>不过目前为止geofacet只支持美国的州进行可视化，这里就没有选用geofacet进行可视化了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ArcGIS/" rel="tag"># ArcGIS</a>
+              <a href="/tags/R/" rel="tag"># R</a>
+              <a href="/tags/QGIS/" rel="tag"># QGIS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/10/05/Coding-and-Paper-Letter%EF%BC%88%E4%B8%89%E5%8D%81%E4%B8%80%EF%BC%89/" rel="prev" title="Coding and Paper Letter（三十一）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（三十一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/10/09/hexo%E5%8D%9A%E5%AE%A2%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" rel="next" title="hexo博客解决不蒜子统计无法显示问题">
+                  hexo博客解决不蒜子统计无法显示问题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2018/10/08/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%80%89%E6%8B%A9%E4%B8%80%E7%A7%8D%E5%9C%B0%E5%9B%BE%E5%8F%98%E5%BD%A2%E6%96%B9%E5%BC%8F/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天带来跟新冠肺炎疫情相关的另一篇论文——关于约翰霍普金斯大学开发的疫情追踪可视化系统。该文章已发表于The Lancet Infectious Disease，由两位中国博士生领衔开发。 [本文原始链接][url][url]:https:&#x2F;&#x2F;www.thelancet.com&#x2F;journals&#x2F;laninf&#x2F;article&#x2F;PIIS1473-3099(20)30120-1&#x2F;fulltext  系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统">
+<meta property="og:url" content="https://gisersqdai.top/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="今天带来跟新冠肺炎疫情相关的另一篇论文——关于约翰霍普金斯大学开发的疫情追踪可视化系统。该文章已发表于The Lancet Infectious Disease，由两位中国博士生领衔开发。 [本文原始链接][url][url]:https:&#x2F;&#x2F;www.thelancet.com&#x2F;journals&#x2F;laninf&#x2F;article&#x2F;PIIS1473-3099(20)30120-1&#x2F;fulltext  系">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1583831953237niuuahyq.png">
+<meta property="og:image" content="https://marlin-prod.literatumonline.com/cms/attachment/b9736dbb-2746-4a1b-8780-3c8377173bd7/gr1.jpg">
+<meta property="article:published_time" content="2020-03-10T01:58:00.000Z">
+<meta property="article:modified_time" content="2020-03-10T15:22:52.461Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Academic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1583831953237niuuahyq.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/","path":"2020/03/10/译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统/","title":"译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%96%87%E7%AB%A0%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="nav-text">1 文章相关信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%AD%A3%E6%96%87%E7%BF%BB%E8%AF%91"><span class="nav-text">2 正文翻译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99%E4%B8%8E%E5%8D%9A%E5%AE%A2"><span class="nav-text">3 相关资源网站与博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%B8%AA%E4%BA%BA%E8%AE%A4%E8%AF%86"><span class="nav-text">4 个人认识</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          译文——一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-10 09:58:00" itemprop="dateCreated datePublished" datetime="2020-03-10T09:58:00+08:00">2020-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Translation/" itemprop="url" rel="index"><span itemprop="name">Translation</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今天带来跟新冠肺炎疫情相关的另一篇论文——关于约翰霍普金斯大学开发的疫情追踪可视化系统。该文章已发表于The Lancet Infectious Disease，由两位中国博士生领衔开发。</p>
+<p>[本文原始链接][url]<br>[url]:<a target="_blank" rel="noopener" href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30120-1/fulltext">https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30120-1/fulltext</a></p>
+<p><img src="http://blog.gisersqdai.top/1583831953237niuuahyq.png"></p>
+<p>系统开发由<a target="_blank" rel="noopener" href="https://systems.jhu.edu/">Center for Systems Science and Engineering (CSSE) at Johns Hopkins University (JHU)</a>完成。</p>
+<span id="more"></span>
+
+<h1 id="1-文章相关信息"><a href="#1-文章相关信息" class="headerlink" title="1 文章相关信息"></a>1 文章相关信息</h1><p><a target="_blank" rel="noopener" href="https://www.thelancet.com/action/showPdf?pii=S1473-3099(20)30120-1">The Lancet Infectious Disease OA pdf</a></p>
+<p>Title: An interactive web-based dashboard to track COVID-19 in real time</p>
+<p>题目: 一个基于Web的交互式COVID-19实时追踪仪表盘可视化系统</p>
+<p>Author: </p>
+<blockquote>
+<ul>
+<li>Ensheng Dong-1</li>
+<li>Hongru Du-1, </li>
+<li>Lauren Gardner-1</li>
+</ul>
+</blockquote>
+<p><em>注: 作者姓名-后的数字代表对应的单位</em></p>
+<p>Affiliation: </p>
+<blockquote>
+<ul>
+<li>1 Department of Civil and Systems Engineering, Johns Hopkins University, Baltimore, MD 21218, USA</li>
+</ul>
+</blockquote>
+<p>联系原作者方式: <a href="mailto:&#x6c;&#x2e;&#x67;&#97;&#x72;&#100;&#x6e;&#101;&#x72;&#x40;&#106;&#x68;&#x75;&#46;&#x65;&#100;&#117;">&#x6c;&#x2e;&#x67;&#97;&#x72;&#100;&#x6e;&#101;&#x72;&#x40;&#106;&#x68;&#x75;&#46;&#x65;&#100;&#117;</a></p>
+<p>引用：</p>
+<blockquote>
+<p>Dong E, Du H, Gardner L. An interactive web-based dashboard to track COVID-19 in real time. Lancet Infect Dis; published online Feb 19. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/S1473-3099(20)30120-1">https://doi.org/10.1016/S1473-3099(20)30120-1</a>.</p>
+</blockquote>
+<h1 id="2-正文翻译"><a href="#2-正文翻译" class="headerlink" title="2 正文翻译"></a>2 正文翻译</h1><p>在2019年12月，一个不明原因肺炎的局部暴发在中国湖北武汉发生，并且该肺炎的病原体快速地被认定为一种新型的冠状病毒，目前被命名为严重急性呼吸综合征冠状病毒2（SARS-CoV-2）。该疫情的暴发目前已经蔓延到中国大陆的每个省份以及27个其他国家和区域，截止至2020年2月17日已经有超过70 000人被确诊。为了应对这个仍在持续的公共卫生突发事件，作者开发了一个在线的交互式仪表盘用于实时可视化和追踪2019新型冠状病毒疫情（COVID-19）的确诊病例，该系统托管在美国马里兰州巴尔的摩市约翰霍普金斯大学的系统科学与工程中心上。这个仪表盘在1月22日第一次公开分享，描述了所有疫情影响国家COVID-19确诊病例，死亡病例与康复病例的地理位置与数量。开发这个仪表盘是为了提供给研究者，公共卫生当局以及公众用户一个用户友好型的工具用以追踪疫情。所有收集和展示的数据都是可以免费获取的，原始数据最初是通过Google表格存储，现在是通过GitHub仓库以及仪表板的功能层（现在包含在Esri Living Atlas中）存储。</p>
+<p>这个仪表盘报告了中国省级级别的病例，美国，澳大利亚和加拿大城市级别的病例，其他国家是国家级的病例。在1月22到31号，所有数据收集和处理都是手动完成的，而更新通常是每天（美国东部时间）早，晚进行两次。随着疫情的发展，手动处理流程变得不可持续。 因此在2月1日后，作者采用了半自动化的实时数据流策略。他们的原始数据源包括DXY（丁香园），由中国医学界成员运营的在线平台，该平台汇总了本地媒体和政府报告，以近实时地在中国省级和其他国家&#x2F;地区提供了累计的COVID-19病例总数。每隔15分钟，DXY将更新中国所有省份以及其他受影响国家和地区的累计病例数。对于中国大陆以外的国家和地区（包括香港，澳门和台湾），我们发现DXY累积病例数经常落后于其他来源；因此，我们会在发现新病例的全天手动更新这些病例号。为了确定新的案例，我们监视各种Twitter摘要，在线新闻服务以及通过仪表盘发送的直接信息。在手动更新仪表板之前，我们先与区域和地方卫生部门确认病例编号，这些部门包括中国，台湾和欧洲的各个疾病预防控制中心（CDC），香港卫生署，澳门政府和世卫组织以及城市和州级卫生当局。对于我们在2月1日开始报告的美国，澳大利亚和加拿大的城市级病例报告，我们依靠美国疾病预防控制中心，加拿大政府，澳大利亚政府卫生部以及各州或领地的卫生部门。所有数据更新（针对中国大陆以外的国家和地区）均由约翰霍普金斯大学的团队进行协调。</p>
+<p>仪表盘上报告的病例数据分别与中国大陆内部和外部的中国每日CDC3和WHO状况报告2一致（图）。 此外，仪表盘在获取新国家或地区中首次报告的COVID-19病例的时效性较强。 除澳大利亚，香港和意大利外，约翰霍普金斯大学CSSE报告了世卫组织之前的新感染国家，而香港和意大利则在相应的世卫组织情况报告的几小时内报告了这一情况。</p>
+<p><img src="https://marlin-prod.literatumonline.com/cms/attachment/b9736dbb-2746-4a1b-8780-3c8377173bd7/gr1.jpg"></p>
+<p>图. 不同数据源的COVID-19确诊案例比较。</p>
+<p>考虑到迄今为止该仪表盘的受欢迎程度和影响，作者计划在整个COVID-19疫情暴发的过程中继续托管和管理该工具，并增强其功能以建立一个常规工具来监测和预测未来爆发。 作者认为他们的努力对于在爆发的早期阶段帮助建模工作和控制措施是至关重要的。</p>
+<h1 id="3-相关资源网站与博客"><a href="#3-相关资源网站与博客" class="headerlink" title="3 相关资源网站与博客"></a>3 相关资源网站与博客</h1><p>除了上述论文以外，约翰霍普金斯大学还有一些相关资源。包括论文通讯作者发表的一篇博客——关于COVID-19的输入风险与预测的文章。</p>
+<p><a target="_blank" rel="noopener" href="https://systems.jhu.edu/research/public-health/ncov-model-2/">Update January 31: Modeling the Spreading Risk of 2019-nCoV</a></p>
+<p>关于这个仪表盘可视化系统介绍的博文。</p>
+<p><a target="_blank" rel="noopener" href="https://systems.jhu.edu/research/public-health/ncov/">Mapping 2019-nCoV</a></p>
+<p>约翰霍普金斯大学冠状病毒资源中心，涵盖冠状病毒相关的各类资源：报道，预防，问答形式等。</p>
+<p><a target="_blank" rel="noopener" href="https://coronavirus.jhu.edu/">Johns Hopkins University &amp; Medicine CORONAVIRUS RESOURCE CENTER</a></p>
+<p>上周这两位作者做了一个线上讲座“【霍普金斯沙龙·2020·II】大数据AI技术应对新型冠状病毒的危机”。不过比较可惜，因为时差原因，我就没有听到具体的讲座内容。另外esri中国的B站账户也更新了一期公开课。介绍了几个相关的基于ArcGIS dashboard搭建的系统。</p>
+<h1 id="4-个人认识"><a href="#4-个人认识" class="headerlink" title="4 个人认识"></a>4 个人认识</h1><p>最近见到的疫情平台比较多，事实上约翰霍普金斯大学的这个系统整体而言还是做得不错的，从响应，界面UI设计，数据可靠性等来说都是比较不错的一个平台，有很浓厚的ArcGIS风格。</p>
+<p>当然目前GIS在空间流行病学和这个领域的应用大部分也都是地图可视化，比较进一步发展的是个人时空轨迹追踪。对防控起到了一定作用，但仍有很多可以做也还没做的部分。希望未来可以在这一步有所发展。毕竟空间统计最早起源于流行病学——伦敦霍乱地图。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Academic/" rel="tag"># Academic</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/07/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B8%83%EF%BC%89/" rel="prev" title="Coding and Paper Letter（七十七）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（七十七）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/17/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E5%85%AB%EF%BC%89/" rel="next" title="Coding and Paper Letter（七十八）">
+                  Coding and Paper Letter（七十八） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2020/03/10/%E8%AF%91%E6%96%87%E2%80%94%E2%80%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E4%BA%A4%E4%BA%92%E5%BC%8FCOVID-19%E5%AE%9E%E6%97%B6%E8%BF%BD%E8%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

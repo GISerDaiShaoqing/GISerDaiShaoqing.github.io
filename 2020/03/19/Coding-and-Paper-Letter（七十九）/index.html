@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="新一期资源整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding and Paper Letter（七十九）">
+<meta property="og:url" content="https://gisersqdai.top/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="新一期资源整理。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584646450666y6h6ryda.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584646476605zopycq6t.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584647694637odql55lf.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584648899613qw65e1et.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584649087920pxnma8t4.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584651105739ayngxk90.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584651603337k8l237ar.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584651934729rtjmzrpv.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1584652124277iw59cjq2.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/15846521728235d28hezq.png">
+<meta property="article:published_time" content="2020-03-19T12:21:00.000Z">
+<meta property="article:modified_time" content="2020-03-20T00:00:25.641Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Summary">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1584646450666y6h6ryda.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/","path":"2020/03/19/Coding-and-Paper-Letter（七十九）/","title":"Coding and Paper Letter（七十九）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Coding and Paper Letter（七十九） | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Coding"><span class="nav-text">1 Coding:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Paper"><span class="nav-text">2 Paper:</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Coding and Paper Letter（七十九） | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Coding and Paper Letter（七十九）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-19 20:21:00" itemprop="dateCreated datePublished" datetime="2020-03-19T20:21:00+08:00">2020-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CPL/" itemprop="url" rel="index"><span itemprop="name">CPL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>新一期资源整理。<span id="more"></span> </p>
+<h1 id="1-Coding"><a href="#1-Coding" class="headerlink" title="1 Coding:"></a>1 Coding:</h1><p>1.图灵方式的主机存储库:如何引导一个可重复的数据科学项目。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alan-turing-institute/the-turing-way">the turing way</a></p>
+<p>2.COVID-19新型冠状病毒的样本数据处理（R语言）。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mgimond/Coronavirus_sample_processing">Coronavirus sample processing</a></p>
+<p><img src="http://blog.gisersqdai.top/1584646450666y6h6ryda.png"></p>
+<p><img src="http://blog.gisersqdai.top/1584646476605zopycq6t.png"></p>
+<p>3.野火极端事件的时空模拟。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mbjoseph/wildfire-extremes">wildfire extremes</a></p>
+<p>4.sqlite3的egg插件。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zjl1985/egg-sqlite3">egg sqlite3</a></p>
+<p>5.我们为自然语言理解(NLU)和生成(NLG)任务开发预先训练的模型。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/unilm">unilm</a></p>
+<p>6.LaTeX 编译环境配置：Visual Studio Code 配置简介。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EthanDeng/vscode-latex">vscode latex</a></p>
+<p>7.谷歌大脑自动机器学习。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google/automl">automl</a></p>
+<p>8.下一代无服务器计算。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cloudstateio/cloudstate">cloudstate</a></p>
+<p>9.Manim是一个解释数学视频的动画引擎。它被用来以编程方式创建精确的动画，就像在3Blue1Brown的视频中看到的那样。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/3b1b/manim">manim</a></p>
+<p>10.正式提交的“Joint 3D Tracking and Forecasting with Graph Neural Network and Diversity Sampling”PyTorch实现。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xinshuoweng/GNNTrkForecast">GNNTrkForecast</a></p>
+<p>11.CVPR会议2020论文”Rotate-and-Render: Unsupervised Photorealistic Face Rotation from Single-View Images”的代码。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Hangz-nju-cuhk/Rotate-and-Render">Rotate and Render</a></p>
+<p>12.瑞士COVID19案例数据。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/daenuprobst/covid19-cases-switzerland">covid19 cases switzerland</a></p>
+<p>13.R语言包phyloregion，生物地理区划和空间保护的R包。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/darunabas/phyloregion">phyloregion</a></p>
+<p>14.哔哩哔哩用户爬虫。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/airingursb/bilibili-user">bilibili user</a></p>
+<p>15.在任天堂Switch的iOS应用程序中使用的反向工程的REST API。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZekeSnider/NintendoSwitchRESTAPI">NintendoSwitchRESTAPI</a></p>
+<p>16.“reviewdog”通过与任何linter工具轻松集成，提供了一种自动向代码托管服务(如GitHub)发布评论的方法。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/reviewdog/reviewdog">reviewdog</a></p>
+<p>17.R语言包spotifyr，Spotify网络API的封装。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/charlie86/spotifyr">spotifyr</a></p>
+<p>18.这是使用WASM在浏览器中执行复杂空间操作(多边形聚合中的点)的概念证明。在我的笔记本电脑上，我可以在21秒内将1300万个点聚合成大约38，000个多边形(结果可能会有所不同，或者快或者慢，取决于您使用的硬件)。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stuartlynn/wasm_geo_agg">wasm geo agg</a></p>
+<p><img src="http://blog.gisersqdai.top/1584647694637odql55lf.png"></p>
+<p>19.:仿生生物的生物多样性管理系统。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FelipeSBarros/SysIMiBio">SysIMiBio</a></p>
+<p>20.Google Earth Engine的开放清单库。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/samapriya/open-manifest">open manifest</a></p>
+<p>21.约翰霍普金斯大学时间序列数据的分析。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MarkCruse/covid-19">covid 19</a></p>
+<p><img src="http://blog.gisersqdai.top/1584648899613qw65e1et.png"></p>
+<p>22.韩国首尔分析COVID-19的其他代码。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sigmafelix/covid19seoul">covid19seoul</a></p>
+<p>23.使用blender进行地理设计。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ptabriz/geodesign_with_blender">geodesign with blender</a></p>
+<p><img src="http://blog.gisersqdai.top/1584649087920pxnma8t4.png"></p>
+<p>24.2020-02-26 Git协作培训。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chendaniely/2020-02-26-git_collaboration">2020 02 26 git collaboration</a></p>
+<p>25.用于环境监测的操作辐射校正框架。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/davidfrantz/force">force</a></p>
+<p>26.BrowserFS是一个浏览器内文件系统，它模拟节点JS文件系统应用编程接口，并支持从各种后端存储和检索文件。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jvilk/BrowserFS">BrowserFS</a></p>
+<p>27.R语言包rmdtemplates，将附加模板安装到RStudio。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/statisticsforsocialscience/rmd_templates">rmd templates</a></p>
+<p>28.git命令的简单终端用户界面。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jesseduffield/lazygit">lazygit</a></p>
+<p>29.学习数据驱动的偏微分方程离散化。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google/data-driven-discretization-1d">data driven discretization 1d</a></p>
+<p>30.Claus Wilke’s数据可视化书的附录材料。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/clauswilke/dviz.supp">dviz.supp</a></p>
+<p>31.gRPC是可以在任何地方运行的现代，开源，高性能的远程过程调用（RPC）框架。 </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/grpc/grpc">grpc</a></p>
+<p>32.“即时分享:如何通过R Markdown在线获取您的教学材料”网络会议材料。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rstudio-education/sharing-short-notice">sharing short notice</a></p>
+<p>33.迈阿密InSAR时间序列软件。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/insarlab/MintPy">MintPy</a></p>
+<p><img src="http://blog.gisersqdai.top/1584651105739ayngxk90.png"></p>
+<p>34.Lovefield是一个网络应用的关系数据库。用JavaScript编写，跨浏览器工作。提供快速、安全且易于使用的类似于SQL的API。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google/lovefield">lovefield</a></p>
+<p>35.R语言包waffle，方形饼图(又名华夫饼干图)可用于传达分类数量的整体部分。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hrbrmstr/waffle">waffle</a></p>
+<p><img src="http://blog.gisersqdai.top/1584651603337k8l237ar.png"></p>
+<p>36.哔哩哔哩-API收集整理。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SocialSisterYi/bilibili-API-collect">bilibili API collect</a></p>
+<p>37.培训材料:如何以及为什么要制作研究概要。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mbjoseph/intro-research-compendia">intro research compendia</a></p>
+<p><img src="http://blog.gisersqdai.top/1584651934729rtjmzrpv.png"></p>
+<p>38.R语言包rGEDI，NASA的全球生态系统动力学研究(GEDI)数据可视化和处理。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/carlos-alberto-silva/rGEDI">rGEDI</a></p>
+<p><img src="http://blog.gisersqdai.top/1584652124277iw59cjq2.png"></p>
+<p>39.Godot，多平台2D和3D游戏引擎。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/godotengine/godot">godot</a></p>
+<p><img src="http://blog.gisersqdai.top/15846521728235d28hezq.png"></p>
+<p>40.易于使用的博客平台，增强了对Jupyter笔记本的支持。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fastai/fastpages">fastpages</a></p>
+<p>41.孟加拉国研讨会CTCN 2020培训材料。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DHI-GRAS/ctcn-2020-ee">ctcn 2020 ee</a></p>
+<p>42.深度学习模型中预测不确定性估计基线方法的文献调查、论文综述、实验和实现。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ahmedmalaa/deep-learning-uncertainty">deep learning uncertainty</a></p>
+<p>43.R语言包gtfs2gps，将GTFS数据转换成类似GPS的记录。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ipeaGIT/gtfs2gps">gtfs2gps</a></p>
+<p>44.用于’Deforestation spillovers from oil palm sustainability certification’论文分析的项目。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jasonjb82/rspo_leakage">rspo leakage</a></p>
+<h1 id="2-Paper"><a href="#2-Paper" class="headerlink" title="2 Paper:"></a>2 Paper:</h1><p>1.<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0098300419306089">atakrig: An R package for multivariate area-to-area and area-to-point kriging predictions&#x2F;atakrig：用于多区域到区域和区域到点克里格预测的R包</a></p>
+<p>地统计插值方法已在各种学科中使用，例如环境科学，生态学和水文学。 随着区域空间数据可用性的提高，区域间和区域间插值具有巨大的应用潜力。 在这项研究中，基于Goovaerts（2008）提出的变异函数去卷积算法，在R环境中开发了一个开源的区域到区域克里金软件包atakrig。 在atakrig中，可以自动从空间区域样本中对点标度变异函数和交叉变异函数进行反卷积。 它为区域到区域和区域到点的普通克里金法和共同克里金法提供了一个通用框架。 两个应用表明，该软件包在河流径流预测和遥感气溶胶光学深度缺失数据插值中效果很好。 该软件包可以部署在不同的操作系统和计算机硬件平台上。面到点克里金插值算法是地统计与空间统计上非常重要的一个研究分支，这里提供了一个R包实现，非常不错的方法研究。</p>
+<p>2.<a target="_blank" rel="noopener" href="https://www.earth-syst-sci-data.net/12/387/2020/">A 439-year simulated daily discharge dataset (1861–2299) for the upper Yangtze River, China&#x2F;长江上游439年的模拟日流量数据集（1861-2299）</a></p>
+<p>经过统计缩减和偏差校正的四个全球气候模型（GFDL-ESM2M，HadGEM2-ES，IPSL-CM5A-LR和MIROC5）的输出用于驱动四个水文模型（HydrologiskaByråns，HBV，土壤和水评估）工具，SWAT；土壤和水综合模型，SWIM；可变渗透能力，VIC）来模拟1861年至2299年长江上游寸潭水文站的日排放量。因为水文模型在各种气候条件下的性能不同的是，首先在1979年至1990年期间对模型进行了校准。然后，在1967年至1978年相对潮湿的时期以及1991年至2002年相对干旱的时期对模型进行了验证。应用了单变量搜索技术的多目标自动校准程序，以找到四个水文模型中每个模型的最佳参数集。参数化过程的目标函数包括日排放量的纳什-苏特克利夫效率（NSE）和极端排放事件的加权最小二乘函数（WLS），以高流量（Q10）和低流量（Q90）表示。此外，将模拟的蒸散量结果与长江上游流域的GLEAM蒸散量数据进行了比较。为了评估水文模型的性能，使用了NSE，改进的Kling-Gupta效率（KGE），均方根误差与测量数据的标准偏差之比（RSR）和Pearson相关系数（r） 。四种水文模型在校准和验证期间均达到令人满意的模拟结果。在这项研究中，模拟了长江上游地区在工业化前控制（piControl）情景下的日排放量，该情景在1861年至2299年之间没有人为气候变化，并且在RCP2.6，RCP4下的历史时期1861-2005年以及2006年至2299年之间.5，RCP6.0和RCP8.5方案。长期日排放数据集可在国际环境和水资源管理中使用，例如，在跨部门影响模型比对项目（ISIMIP）的框架内，通过提供线索，说明人为引起的气候变化可能在多大程度上影响水流和水流趋势将来。长时间尺度的气象水文模拟数据，非常不错的一个数据集。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Summary/" rel="tag"># Summary</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/17/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E5%85%AB%EF%BC%89/" rel="prev" title="Coding and Paper Letter（七十八）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（七十八）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/24/Coding-and-Paper-Letter%EF%BC%88%E5%85%AB%E5%8D%81%EF%BC%89/" rel="next" title="Coding and Paper Letter（八十）">
+                  Coding and Paper Letter（八十） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2020/03/19/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%B9%9D%EF%BC%89/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

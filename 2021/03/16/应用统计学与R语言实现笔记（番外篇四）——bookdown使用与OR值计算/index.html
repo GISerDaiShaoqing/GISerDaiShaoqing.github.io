@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本期是之前做的应用统计学与R语言实现笔记的番外篇四，本期主要关注两个问题，一个是重新利用R的bookdown包创建新的电子书，另一个是计算公共卫生当中一个比较常见的指标OR值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算">
+<meta property="og:url" content="https://gisersqdai.top/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="本期是之前做的应用统计学与R语言实现笔记的番外篇四，本期主要关注两个问题，一个是重新利用R的bookdown包创建新的电子书，另一个是计算公共卫生当中一个比较常见的指标OR值。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1615596419734mmjky01o.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1615974257395qwbdby7i.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1615974021907m5q0e9gt.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1615974520076k32i9ki5.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/16159777122701p41nghc.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1615978588167uvlw85jh.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/161597902918550635d2t.png">
+<meta property="article:published_time" content="2021-03-16T02:17:00.000Z">
+<meta property="article:modified_time" content="2023-11-14T07:23:11.721Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Theory">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Public health">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1615596419734mmjky01o.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/","path":"2021/03/16/应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算/","title":"应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-bookdown%E4%BD%BF%E7%94%A8"><span class="nav-text">1 bookdown使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%85%AC%E5%BC%8F%E6%9B%B4%E6%AD%A3"><span class="nav-text">2 公式更正</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-OR%E5%80%BC%E8%AE%A1%E7%AE%97"><span class="nav-text">3 OR值计算</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          应用统计学与R语言实现笔记（番外篇四）——bookdown使用与OR值计算
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-16 10:17:00" itemprop="dateCreated datePublished" datetime="2021-03-16T10:17:00+08:00">2021-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Applied-Statistics/" itemprop="url" rel="index"><span itemprop="name">Applied Statistics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>10 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本期是之前做的应用统计学与R语言实现笔记的番外篇四，本期主要关注两个问题，一个是重新利用R的bookdown包创建新的电子书，另一个是计算公共卫生当中一个比较常见的指标OR值。</p>
+<span id="more"></span>
+
+<h1 id="1-bookdown使用"><a href="#1-bookdown使用" class="headerlink" title="1 bookdown使用"></a>1 bookdown使用</h1><p>bookdown是谢益辉之前开发的R语言包，可以基于rmarkdown快速生成在线电子书，并且可以输出pdf和epub。具体的使用方法可以参见官方文档。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://bookdown.org/yihui/bookdown/">https://bookdown.org/yihui/bookdown/</a></p>
+</blockquote>
+<p>这里由于中文在输出pdf中容易有bug，因此中文图书推荐使用<a target="_blank" rel="noopener" href="https://github.com/yihui/bookdown-chinese">谢益辉提供的模板</a>进行修改。同时可以参考李东风的这本中文使用指南辅助进行。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/">https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/</a></p>
+</blockquote>
+<p>这里提供一些使用过程中的tips经验。</p>
+<ul>
+<li>Latex公式在在$与公式间不要空格。</li>
+<li>插入图片建议使用r的function。例子如下：</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knitr<span class="operator">::</span>include_graphics<span class="punctuation">(</span><span class="string">&quot;fig/fig1.jpg&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>其中include_graphics括号后面为图片路径。同时在R code的设置里，在设置图片大小时推荐使用out.width和out.height参数，设置为’100%’，这样图片可以根据排版情况进行自适应。</p>
+<ul>
+<li>如果想加入r代码块而不想运行仅作为展示的话，需要在R code的设置里设置为r eval&#x3D;FALSE, echo &#x3D; T。</li>
+<li>目前这个版本的封面图片设置参数cover-image只能生成epub里的封面，pdf无法添加。</li>
+<li>默认模板会生成图和表目录，不需要的可以在index.rmd的输出设置里把lot和lof设置为false。</li>
+<li>默认模板pdf里有一句话“献给……呃，爱谁谁吧”，需要在模板的latex文件夹下的before_body.tex里去掉。</li>
+<li>默认模板设置是B5的纸张大小，边距设置也是左右不对称。这个是在index.rmd的输出设置里。实际上也是latex的设置。可根据自己喜好做调整。</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geometry: [b5paper, tmargin=2.5cm, bmargin=2.5cm, lmargin=3.5cm, rmargin=2.5cm]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用github托管的话，可以在bookdown.yml文件里设置输出文件夹参数，在最后一行添加参数（output_dir: “docs”）。然后在github的Pages设置对应的根目录。同时需要在R里输入如下命令。让网页不使用默认jekyll主题。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file.create<span class="punctuation">(</span><span class="string">&#x27;docs/.nojekyll&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>最后奉上最新的bookdown在线电子书地址：</p>
+<blockquote>
+<p><a href="http://gisersqdai.top/Note-of-Applied-Statistics-with-R-Book/">http://gisersqdai.top/Note-of-Applied-Statistics-with-R-Book/</a></p>
+</blockquote>
+<h1 id="2-公式更正"><a href="#2-公式更正" class="headerlink" title="2 公式更正"></a>2 公式更正</h1><p>在修改的过程里，我发现了来自<a target="_blank" rel="noopener" href="https://github.com/BruceZhaoR">BruceZhaoR同学</a>18年的一条pr，虽然不知道什么原因我一直没注意到这条pr。这里郑重向这位同学道歉，非常感谢他的指正。他指出在原本第三章描述性统计里的样本方差与标准差公式里有误。并给出了wiki上的参考公式。</p>
+<p><img src="http://blog.gisersqdai.top/1615596419734mmjky01o.png"></p>
+<blockquote>
+<p>wiki:<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Standard_deviation#Corrected_sample_standard_deviation">https://en.wikipedia.org/wiki/Standard_deviation#Corrected_sample_standard_deviation</a></p>
+</blockquote>
+<p>具体错误这里也说明下。原公式如下：</p>
+<p>样本方差：</p>
+<p>$$s^2&#x3D;\frac{\sum_{i&#x3D;1}^N (x_i-\mu)^2}{n-1}$$ </p>
+<p>或 </p>
+<p>$$s^2&#x3D;\frac{\sum_{i&#x3D;1}^k (M_i-\mu)^2f_i}{n-1}$$</p>
+<p>样本标准差：</p>
+<p>$$s&#x3D;\sqrt {\frac{\sum_{i&#x3D;1}^N (x_i-\mu)^2}{n-1}}$$ </p>
+<p>或 </p>
+<p>$$s&#x3D;\sqrt{\frac{\sum_{i&#x3D;1}^k (M_i-\mu)^2f_i}{n-1}}$$</p>
+<p>这里用$\mu$是不对的，$\mu$虽然可以指代统计学中的均值，但是$\mu$是代表总体均值。而严格来说，样本均值通常只是近似总体均值，因此必须作区分，故常用$\bar x$来做为样本均值。故修改后公式为</p>
+<p>样本方差： </p>
+<p>$$s^2&#x3D;\frac{\sum_{i&#x3D;1}^N (x_i-\bar x)^2}{n-1}$$ </p>
+<p>或 </p>
+<p>$$s^2&#x3D;\frac{\sum_{i&#x3D;1}^k (M_i-\bar x)^2f_i}{n-1}$$</p>
+<p>样本标准差：  </p>
+<p>$$s&#x3D;\sqrt {\frac{\sum_{i&#x3D;1}^N (x_i-\bar x)^2}{n-1}}$$ </p>
+<p>或 </p>
+<p>$$s&#x3D;\sqrt{\frac{\sum_{i&#x3D;1}^k (M_i-\bar x)^2f_i}{n-1}}$$</p>
+<h1 id="3-OR值计算"><a href="#3-OR值计算" class="headerlink" title="3 OR值计算"></a>3 OR值计算</h1><p>由于我目前主要从事健康地理学方面的研究，最近碰上了一个基础的OR值计算问题。首先OR值的全称是odds ratio值，这是公共卫生领域的一个专业名词。这里给出Encyclopedia of Public Health的定义。</p>
+<blockquote>
+<p>The odds ratio (OR) provides a measure of the strength of relationship between two variables, most commonly an exposure and a dichotomous outcome. It is most commonly used in a case control study where it is defined as “the ratio of the odds of being exposed in the group with the outcome to the odds of being exposed in the group without the outcome.” </p>
+</blockquote>
+<blockquote>
+<p>This concept can be extended to a situation with multiple levels of exposure (e.g., low, moderate, or high exposure to an environmental containment). One exposure level is assigned as the “reference” level. For each of the remaining exposure levels, one divides the odds of that exposure level in the outcome positive group (compared with the reference level) by the odds of that exposure level in the outcome negative group.</p>
+</blockquote>
+<blockquote>
+<p>The OR ranges in value from 0 to infinity. Values close to 1.0 indicate no relationship between the exposure and the outcome. Values less than 1.0 suggest a protective effect, while values greater than 1.0 suggest a causative or adverse effect of exposure.</p>
+</blockquote>
+<p>这里简单翻译一下，OR值是用来度量两个变量之间关系强度的指标，常见于暴露水平与二分的健康结局变量。最常用在案例对照研究。OR被定义为“组中暴露患病几率与暴露未患病几率的比值”。这个概念通常可以拓展到多水平暴露指标，通常定义某一类别的暴露水平为参考水平，对于剩余的暴露水平，则除以该参考水平的暴露几率用来进行比较。这里要先给出odds的定义。odds，称为几率、比值、比数，是指某事件发生的可能性(概率)与不发生的可能性（概率）之比。用p表示事件发生的概率，则：odds &#x3D; p&#x2F;(1-p)。OR值的公共卫生意义如下：范围从0到无穷大。接近1.0的值表示暴露与结果之间没有关系。小于1.0的值表示保护作用，而大于1.0的值表示暴露的致病性或不利影响。</p>
+<p>针对一个标准的2x2流病表格（如下）。实际上OR值计算如下：</p>
+<p>$$暴露时患病几率&#x3D;\frac{暴露时患病病例数}{未暴露时患病病例数}&#x3D;\frac{a}{c}$$</p>
+<p>$$暴露时未患病几率&#x3D;\frac{暴露时未患病病例数}{未暴露时未患病病例数}&#x3D;\frac{b}{d}$$</p>
+<p>$$OR &#x3D; \frac{a&#x2F;c}{b&#x2F;d}&#x3D;\frac{ad}{bc}$$</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Outcome +ve</th>
+<th align="left">Outcome -ve</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Exposed</td>
+<td align="left">a</td>
+<td align="left">b</td>
+</tr>
+<tr>
+<td align="left">No exposed</td>
+<td align="left">c</td>
+<td align="left">d</td>
+</tr>
+</tbody></table>
+<p>这里选用一个ICU的数据来进行说明，这个数据来源于David W. Hosmer等人出版的applied logistic regression一书中的数据。获取途径可以通过安装这个书的r包，命令如下。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;aplore3&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>安装完成以后，载入数据做个初步探索。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>aplore3<span class="punctuation">)</span></span><br><span class="line">data<span class="punctuation">(</span>icu<span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>icu<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://blog.gisersqdai.top/1615974257395qwbdby7i.png"></p>
+<p>为了简单化，我们这里定义健康结局变量为status，即数据中的sta（Lived或者Died），感兴趣的自变量为age。首先绘制一下图。由于status是个二分变量。所以图就变成了如下的样子。</p>
+<p><img src="http://blog.gisersqdai.top/1615974021907m5q0e9gt.png"></p>
+<p>你是否觉得很熟悉？其实这就是logistic regression的典型数据。那么根据age的数据，我们做一个处理，统计不同年龄段的死亡率，以10岁为分界线。我们可以得到如下的图。</p>
+<p><img src="http://blog.gisersqdai.top/1615974520076k32i9ki5.png"></p>
+<p>那么我们突然发现，这个散点是有线性趋势的。假设我们采用线性回归来做分析，即假定有：$pr(death)&#x3D;\beta_0+\beta_1(age)$，不就可以拟合了吗？但是我们又会发现一个问题。那就是这里的y(pr(death))是有现实意义的实数，也就是它的值域必须在（0,1）中。然而等式右边实际上是可以取任何值的（根据$\beta_0 , \beta_1, age$），因此这个线性方程即使求解出来，预测值通常会超过实际的值域。所以为了解决这个问题，logistics regression就提出了。首先是定义了logit函数为：</p>
+<p>$$logit(p)&#x3D;log(\frac{p}{1-p})$$</p>
+<p>$$p&#x3D;pr(death)$$</p>
+<p>那么这个logit函数的现实意义是事件发生几率的对数。那么同时模型就变成了：</p>
+<p>$$log(\frac{p}{1-p})&#x3D;\beta_0+\beta_1(age)$$</p>
+<p>这时我们就会发现p的值域是在（0,1），而logit(p)的值域则是$[ - \infty, + \infty  ]$</p>
+<p><img src="http://blog.gisersqdai.top/16159777122701p41nghc.png"></p>
+<p>那这个时候我们就可以用线性回归方法求解系数了，因此logistic regression也被称为广义线性回归的一类。</p>
+<p>那么我们再来看一个更特殊的情况，就是前面说的2x2联表的情况。假定自变量是个分类变量。这里选用icu数据里的type来分析（健康结局变量不变）。也就是说方程如下：</p>
+<p>$$logit(p)&#x3D;\beta_0+\beta_1 (I_{type})$$</p>
+<p>2x2联表则为：</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Lived</th>
+<th align="left">Died</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">elective admission</td>
+<td align="left">a</td>
+<td align="left">b</td>
+</tr>
+<tr>
+<td align="left">emeregency admission</td>
+<td align="left">c</td>
+<td align="left">d</td>
+</tr>
+</tbody></table>
+<p>那么这时候$I_{type}&#x3D;0$时是elective admission，$I_{type}&#x3D;1$时是emeregency admission。因此我们可以得到对应的y值。也就是elective adminssion的logit(p)为$\beta_0$。而emergency admission的logit(p)为$\beta_0+\beta_1$。那么根据logit函数的定义，我们就有如下的式子：</p>
+<p>对elective adminssion的odds：</p>
+<p>$$odds_{ele}&#x3D;\frac{p}{1-p}&#x3D;\frac{a}{b}&#x3D;e^{\beta_0}$$</p>
+<p>对emergency adminssion的odds：</p>
+<p>$$odds_{eme}&#x3D;\frac{p}{1-p}&#x3D;\frac{c}{d}&#x3D;e^{\beta_0+\beta_1}$$</p>
+<p>那么所以这个OR值就可以计算：</p>
+<p>$$OR &#x3D;\frac{ad}{bc} &#x3D;odds_{ele}&#x2F;odds_{eme}&#x3D;\frac{a}{b}&#x2F;\frac{c}{d}&#x3D;e^{\beta_0+\beta_1}&#x2F;e^{\beta_0}&#x3D;e^{\beta_0+\beta_1-\beta_0}&#x3D;e^{\beta_1}$$</p>
+<p>也就是说，实际上OR值就是e的logistics regression中的回归系数次方。因此通常在公共卫生研究中求OR值，第一步就是先做logistics regression然后接着进行计算。对应其实也可以计算OR的95%置信区间以及p值(<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2938757/">Explaining Odds Ratios</a>)。这块这里就不详述了。我这里还是采用icu数据做个样例分析，展示三种方式（第一种不借助其他包，第二个使用epiDisplay，第三个是用questionr）求OR。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 1 without any packages</span></span><br><span class="line">modellogit <span class="operator">&lt;-</span> glm<span class="punctuation">(</span>sta<span class="operator">~</span>type<span class="punctuation">,</span> data <span class="operator">=</span> icu<span class="punctuation">,</span> family <span class="operator">=</span> binomial<span class="punctuation">)</span></span><br><span class="line">ORDF <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span><span class="built_in">exp</span><span class="punctuation">(</span>cbind<span class="punctuation">(</span>OR <span class="operator">=</span> coef<span class="punctuation">(</span>modellogit<span class="punctuation">)</span><span class="punctuation">,</span> confint<span class="punctuation">(</span>modellogit<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">ORDF</span><br><span class="line"></span><br><span class="line"><span class="comment">## 2 Using epiDisplay</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;epiDisplay&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>epiDisplay<span class="punctuation">)</span></span><br><span class="line">modellogit <span class="operator">&lt;-</span> glm<span class="punctuation">(</span>sta<span class="operator">~</span>type<span class="punctuation">,</span> data <span class="operator">=</span> icu<span class="punctuation">,</span> family <span class="operator">=</span> binomial<span class="punctuation">)</span></span><br><span class="line">ORDF <span class="operator">&lt;-</span> logistic.display<span class="punctuation">(</span>modellogit<span class="punctuation">)</span></span><br><span class="line">ORDF</span><br><span class="line"></span><br><span class="line"><span class="comment">## 3 Using questionr</span></span><br><span class="line">install.packages<span class="punctuation">(</span><span class="string">&#x27;questionr&#x27;</span><span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>questionr<span class="punctuation">)</span></span><br><span class="line">modellogit <span class="operator">&lt;-</span> glm<span class="punctuation">(</span>sta<span class="operator">~</span>type<span class="punctuation">,</span> data <span class="operator">=</span> icu<span class="punctuation">,</span> family <span class="operator">=</span> binomial<span class="punctuation">)</span></span><br><span class="line">ORDF <span class="operator">&lt;-</span> odds.ratio<span class="punctuation">(</span>modellogit<span class="punctuation">)</span></span><br><span class="line">ORDF</span><br></pre></td></tr></table></figure>
+<p>目前个人推荐第三种，能把p值一起算出来，这里要注意R里面默认factor的第一个因子作为参考组（baseline），如需要设置不同的参考组。可以用如下的函数。</p>
+<p><img src="http://blog.gisersqdai.top/1615978588167uvlw85jh.png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">icu<span class="operator">$</span>type <span class="operator">&lt;-</span> relevel<span class="punctuation">(</span>icu<span class="operator">$</span>type<span class="punctuation">,</span> ref <span class="operator">=</span> <span class="string">&quot;emergency&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://blog.gisersqdai.top/161597902918550635d2t.png"></p>
+<p>最后本次的代码也都是在之前的github项目上。欢迎大家使用。最后再放一下两个项目地址：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R">Note-of-Applied-Statistics-with-R</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R-Book">Note-of-Applied-Statistics-with-R-Book</a></p>
+<p>参考链接:</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/R/R-Manual/R-Manual20.html">Logistic regression for a Yes&#x2F;No outcome</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/207427/confused-with-the-reference-level-in-logistic-regression-in-r">Confused with the reference level in logistic regression in R</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/23282048/logistic-regression-defining-reference-level-in-r">Logistic regression - defining reference level in R</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://it.unt.edu/interpreting-glm-coefficients">Reference category and interpreting regression coefficients in R</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module8-CategoricalData/PH717-Module8-CategoricalData6.html">Confidence Intervals for RRs, ORs in R</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/156861/how-to-calculate-the-p-value-of-an-odds-ratio-in-r/156862">How to calculate the p.value of an odds ratio in R?</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jarrettmeyer.com/2019/07/23/odds-ratio-in-r">Calculating Odds Ratio in R</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://journals.sagepub.com/doi/pdf/10.1177/1536867X0300300301">Odds ratios and logistic regression: further examples of their use and interpretation</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.biostat.wisc.edu/~lindstro/22.logistic.12.1.pdf">BMI 541&#x2F;699 Lecture 22</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/lbraglia/aplore3">aplore3</a></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Theory/" rel="tag"># Theory</a>
+              <a href="/tags/R/" rel="tag"># R</a>
+              <a href="/tags/Public-health/" rel="tag"># Public health</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/08/Coding-and-Paper-Letter%EF%BC%88%E5%85%AB%E5%8D%81%E4%B8%83%EF%BC%89/" rel="prev" title="Coding and Paper Letter（八十七）">
+                  <i class="fa fa-angle-left"></i> Coding and Paper Letter（八十七）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/07/13/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D/" rel="next" title="Hexo博客修复">
+                  Hexo博客修复 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2021/03/16/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94bookdown%E4%BD%BF%E7%94%A8%E4%B8%8EOR%E5%80%BC%E8%AE%A1%E7%AE%97/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>

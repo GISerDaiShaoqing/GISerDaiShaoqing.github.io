@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天的文章想从统计学的角度——假设检验，来回顾最近的疫情。同时也是刚好有之前应用统计学与R语言实现笔记假设检验一章中的的错误更正。关于假设检验的内容，详情见下面的博客。 应用统计学与R语言实现学习笔记（六）——假设检验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用统计学与R语言实现笔记（番外篇二）——假设检验更正">
+<meta property="og:url" content="https://gisersqdai.top/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="今天的文章想从统计学的角度——假设检验，来回顾最近的疫情。同时也是刚好有之前应用统计学与R语言实现笔记假设检验一章中的的错误更正。关于假设检验的内容，详情见下面的博客。 应用统计学与R语言实现学习笔记（六）——假设检验">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1582124851825w6f24j6v.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1582125582869xdehq994.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171008212528.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171008212538.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171008212558.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/1582129485251so8ccb5k.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1582217233995a5mrsd2l.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/6241.jpg">
+<meta property="og:image" content="http://blog.gisersqdai.top/7182.jpg">
+<meta property="article:published_time" content="2020-02-19T06:41:00.000Z">
+<meta property="article:modified_time" content="2020-02-20T17:55:41.067Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Theory">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1582124851825w6f24j6v.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/","path":"2020/02/19/应用统计学与R语言实现笔记（番外篇二）——假设检验更正/","title":"应用统计学与R语言实现笔记（番外篇二）——假设检验更正"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>应用统计学与R语言实现笔记（番外篇二）——假设检验更正 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BB%86%E5%BF%83%E7%9A%84%E8%AF%BB%E8%80%85%E4%B8%8E%E6%9B%B4%E6%AD%A3"><span class="nav-text">1 细心的读者与更正</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-p%E5%80%BC%E5%90%AB%E4%B9%89%E8%A7%A3%E8%AF%BB%E3%80%81%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%93%E8%AE%BA%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%86%B3%E7%AD%96"><span class="nav-text">2 p值含义解读、假设检验结论与统计学决策</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%94%BE%E5%BC%83p%E5%80%BC%EF%BC%8Cyes-or-no%EF%BC%9F"><span class="nav-text">3 放弃p值，yes or no？</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">177</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="应用统计学与R语言实现笔记（番外篇二）——假设检验更正 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          应用统计学与R语言实现笔记（番外篇二）——假设检验更正
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-19 14:41:00" itemprop="dateCreated datePublished" datetime="2020-02-19T14:41:00+08:00">2020-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Applied-Statistics/" itemprop="url" rel="index"><span itemprop="name">Applied Statistics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今天的文章想从统计学的角度——假设检验，来回顾最近的疫情。同时也是刚好有之前应用统计学与R语言实现笔记假设检验一章中的的错误更正。关于假设检验的内容，详情见下面的博客。</p>
+<p><a href="http://gisersqdai.top/2017/05/08/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/">应用统计学与R语言实现学习笔记（六）——假设检验</a></p>
+<span id="more"></span>
+
+<h1 id="1-细心的读者与更正"><a href="#1-细心的读者与更正" class="headerlink" title="1 细心的读者与更正"></a>1 细心的读者与更正</h1><p>首先感谢简书平台上这位叫“十七颗青彩”的读者，她提出了我之前笔记里的一个错误。具体如图所示。</p>
+<p><img src="http://blog.gisersqdai.top/1582124851825w6f24j6v.png"></p>
+<p>定位到博客里就是第二部分将原假设和备择假设的最后部分。</p>
+<p><img src="http://blog.gisersqdai.top/1582125582869xdehq994.png"></p>
+<p>确实是自相矛盾了，下面的表达是错误的。左侧检验和右侧检验是反过来的。目前我在hexo搭建的博客以及CSDN博客均更正（这两个平台支持公式编辑），其余博客平台由于不支持博客平台，这部分内容我推荐看hexo博客或者直接看我的开源项目和电子书。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R">应用统计学与R语言实现笔记github项目</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GISerDaiShaoqing/Note-of-Applied-Statistics-with-R-Book">应用统计学与R语言实现笔记电子书github项目</a></p>
+<p><a target="_blank" rel="noopener" href="https://giserdaishaoqing.gitbooks.io/note-of-applied-statistics-with-r-book/content/">应用统计学与R语言实现笔记电子书地址</a></p>
+<h1 id="2-p值含义解读、假设检验结论与统计学决策"><a href="#2-p值含义解读、假设检验结论与统计学决策" class="headerlink" title="2 p值含义解读、假设检验结论与统计学决策"></a>2 p值含义解读、假设检验结论与统计学决策</h1><p>无论是做线性回归模型，或是做假设检验，还是做方差分析，结果里都会出现的就是p值。比如过去博客里的几张图。</p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171008212528.jpg"></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171008212538.jpg"></p>
+<p><img src="http://blog.gisersqdai.top/QQ%E6%88%AA%E5%9B%BE20171008212558.jpg"></p>
+<p>可以说p值是连接概率论与统计学的关键桥梁。p值的学术定义叫做：在一个假设检验问题中，拒绝原假设的最小显著性水平。</p>
+<p>这个定义很绕口，我们用之前假设检验的比喻来说一下。原假设是一个暖男A，正在追求的女神叫结论，但是同时还有一个高富帅叫备择假设，也在追求女神结论。那么女神此时在他们俩之间摇摆不定，最后用p值这样一个指标来判定他们俩谁好谁坏，p值达到要求呢，拒绝原假设，接受备择假设。p值没达到要求呢，不拒绝原假设，但也不一定接受原假设（果然舔狗不得好死）。</p>
+<p>也就是说通常来说比较常见的结论是如下。</p>
+<p><img src="http://blog.gisersqdai.top/1582129485251so8ccb5k.png"></p>
+<p>当然以上的比喻比较少儿不宜。我们还是正经解释下。</p>
+<p>正如前面提到的p值是连接概率论与统计学的关键桥梁。其实p值就是probability value（概率值），因此p值的前提是建立在概率事件的定义上的。区分四个事件，小概率事件就是指很少概率会发生的事，比如我中了600万的彩票，这就是小概率事件。大概率事件就是指很大概率会发生的事件，比如我买的彩票中奖金小于600万，这就是大概率事件，毕竟能中600万的是欧皇中的欧皇呀。此外，还有百分百事件和不可能事件，即一定会发生的事件和一定不会发生的事情，比如太阳每天都会升起，这就是百分百事件；太阳从西边升起，这就是不可能事件。而判定一个事件是小概率事件、大概率事件、百分百事件或者不可能事件的方式就是靠p值。</p>
+<p>而在通用的统计学模型里面，小概率事件p值的阈值比较通用的就是0.1，0.05和0.01，也就是说该事件发生概率为0.1，0.05和0.01。而对应的大概率事件就是相反的，发生概率分别为0.9，0.95和0.99。而百分百事件和不可能事件的p值很好理解，一个是1，一个是0。</p>
+<p>那么重点问题来了，小概率事件发生概率为0.1或者0.05或者0.01说明什么呢？说明这个事发生的概率是0.1，0.05或者0.01。也就是说明，<strong>第一，这个事件发生概率小，但依旧有可能发生；第二，并不是说你做100次实验，就发生10次，5次或者1次这个事件</strong>。所以对于假设检验的结论（这里假定p值拒绝原假设），我们通常说的就是我们在p值对应的显著性水平上拒绝原假设，认为备择假设普遍是成立的。也就是说<strong>备择假设是个大概率事件，但这边并不意味着原假设完全不会发生</strong>。<strong>在假设检验通过的前提下，我们只能证实大多数情况下备择假设是普遍成立的，但它仍然不是百分百事件，依旧有可能发生原假设事件</strong>。反过来说一件事，<strong>当假设检验没通过的前提下，我们无法推翻原假设，但是我们不能说原假设是正确的，也不能说是不正确的，也无法确定具体结论，能下的结论是以当前样本量，我们不足以推翻原假设</strong>。</p>
+<p>因此针对假设检验而言，p值通不过的情况下，我们往往得不到什么明确结论。而提到这个，联系最近的疫情，突然想起了一个事情。</p>
+<p><img src="http://blog.gisersqdai.top/1582217233995a5mrsd2l.png"></p>
+<p>其实对于武汉卫健委这个结论，我只能说相当统计学，但是表达不够清晰。我们可以明显推断出这个结论必定是在当时现有的COVID-19的流行病学样本统计中人传人的假设检验没有通过，因此我们无法确定明确的结论。卫健委的中文表达就变得很拗口，意思模棱两可。在某群中，某位大佬也给出了一个很统计的结论。</p>
+<p><img src="http://blog.gisersqdai.top/6241.jpg"></p>
+<p><img src="http://blog.gisersqdai.top/7182.jpg"></p>
+<p>但是我在想的是，即使当时给出这个结论，能不能引起民众的足够重视呢？另外以上言论虽隶属某位大佬，但也是个人意见。我们只是针对一个结论在统计学上用一个术语做表达。因为传染病的传播本身受到生态环境、社会经济各种因素影响，是一个很复杂的过程。我们国家的应对很快，虽然还存在或这或那的不足，但要对打赢这场疫情战争充满信心。这里也想引一下B站一位up主的视频，感兴趣的同学可以看一看。</p>
+<iframe src="//player.bilibili.com/player.html?aid=87676920&cid=150725245&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h1 id="3-放弃p值，yes-or-no？"><a href="#3-放弃p值，yes-or-no？" class="headerlink" title="3 放弃p值，yes or no？"></a>3 放弃p值，yes or no？</h1><p>回到p值本身，当我们无法拒绝原假设时，我们可以发现p值的决策意义就变得较弱了。同时p值在近些年来的研究中也有过被质疑，比如下面的一篇Nature报道。</p>
+<p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/d41586-019-00874-8">It’s time to talk about ditching statistical significance</a></p>
+<p>题目翻译过来应该叫做“现在是时候来谈谈是否要放弃统计显著性了”。</p>
+<p>谈的是关于一群统计学家对p值的探讨。我想文中一句话很经典：<strong>真相不能用一个数字来表示</strong>。在报道中提到三位统计学家呼吁科学家放弃统计学意义。作者并不要求放弃P值本身作为统计工具，而是希望终止使用它们作为显着性的任意阈值。</p>
+<p><strong>用p值的显著性这样一个数字去代表真相，往往让我们在现实中迷失。我们太容易产生弃真和取伪的错误（这两个概念不清楚的请回看我开头的博客链接）</strong>。而对于人的生命而言，统计显著性的意义又如何呢？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Theory/" rel="tag"># Theory</a>
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/18/%E9%98%BF%E9%87%8C%E4%BA%91%E6%89%93%E9%80%A0Jupyterlab%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E7%8E%AF%E5%A2%83/" rel="prev" title="阿里云打造Jupyterlab数据科学环境">
+                  <i class="fa fa-angle-left"></i> 阿里云打造Jupyterlab数据科学环境
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/26/Coding-and-Paper-Letter%EF%BC%88%E4%B8%83%E5%8D%81%E4%BA%94%EF%BC%89/" rel="next" title="Coding and Paper Letter（七十五）">
+                  Coding and Paper Letter（七十五） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">624k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">37:49</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<!-- calendar widget -->
+{% if theme.CloudCalendar.enable %}
+    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
+    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
+            $.extend(
+                '', {
+                    single:{{ theme.CloudCalendar.single }},
+                    root:'{{ theme.CloudCalendar.root }}'
+                }
+            )
+        );
+    });
+    </script>
+{% endif %}
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"valine.gisersqdai.top# When the custom domain name is enabled, fill it in here","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2020/02/19/%E5%BA%94%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B8%8ER%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E7%AC%94%E8%AE%B0%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%87%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%9B%B4%E6%AD%A3/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>
