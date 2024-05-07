@@ -1425,7 +1425,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #daffff;
+    background: #11b534;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3261,6 +3261,32 @@ header.header {
   background-color: #68dc6e;
   color: #fff;
   cursor: pointer;
+}
+#days {
+  display: block;
+  color: #07b39b;
+  font-size: 13px;
+  margin-top: 15px;
+}
+body {
+  background: url("http://media.gisersqdai.top/snzs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+.footer {
+  line-height: 1.5;
+  background-color: rgba(255,255,255,0.75);
+  color: #333;
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: #a166ab;
+  box-shadow: 0px -10px 10px 0px rgba(0,0,0,0.15);
+}
+::selection {
+  background-color: #fff159;
+  color: #555;
 }
 .links-of-recent-posts {
   font-size: 0.8125em;
