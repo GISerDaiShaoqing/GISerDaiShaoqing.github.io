@@ -227,7 +227,34 @@
 <!-- CloudCalendar -->
 <div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
 	<div class="widget" id="CloudCalendar"></div>
-</div>
+</div><div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("08/14/2016 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=7naufgeQBTlXfZFr80nKqskPfIaDLjMPLR6MRVljrwI"></script>
         </div>
       </div>
     </div>
@@ -371,7 +398,7 @@
 <p><img src="http://blog.gisersqdai.top/1585167515761c3jqejme.png"></p>
 <p>简单概括就是这个页面是JMA提供向日葵标准数据以及多卫星产品的的网站。可以使用的数据可以见如下网址。</p>
 <p><a target="_blank" rel="noopener" href="https://www.eorc.jaxa.jp/ptree/userguide.html">Summary of avalibale data</a></p>
-<p>有什么问题可以联系官方邮箱<a href="mailto:&#x5a;&#x2d;&#80;&#x54;&#82;&#x45;&#69;&#64;&#109;&#x6c;&#46;&#x6a;&#97;&#x78;&#x61;&#46;&#x6a;&#x70;">&#x5a;&#x2d;&#80;&#x54;&#82;&#x45;&#69;&#64;&#109;&#x6c;&#46;&#x6a;&#97;&#x78;&#x61;&#46;&#x6a;&#x70;</a>。</p>
+<p>有什么问题可以联系官方邮箱<a href="mailto:&#x5a;&#x2d;&#x50;&#84;&#82;&#69;&#69;&#64;&#109;&#x6c;&#x2e;&#106;&#97;&#120;&#97;&#x2e;&#x6a;&#x70;">&#x5a;&#x2d;&#x50;&#84;&#82;&#69;&#69;&#64;&#109;&#x6c;&#x2e;&#106;&#97;&#120;&#97;&#x2e;&#x6a;&#x70;</a>。</p>
 <p>第二部分是数据使用要求。</p>
 <p><img src="http://blog.gisersqdai.top/1585167707633e8jojsul.png"></p>
 <p>第一，本网站提供数据必须是非盈利目的，比如研究和教育，如果有商业级运用请联系<a target="_blank" rel="noopener" href="http://www.jmbsc.or.jp/en/index-e.html">Japan Meteorological Business Support Center</a>。第二，你不能把数据分发给第三方，如果研究成果要公开，请先联系P-Tree Secretariat(就是上面的官方邮箱)。第三，自2015年3月20日起提供存储的卫星观测数据，并且在观测后5至20分钟即可获取Himawari标准数据的实时数据。 但是JMA无法保证2015年7月7日02UTC之前Himawari-8数据的质量。第四，您可以近实时下载Himawari标准数据和JAXA的Himawari地球物理参数数据，并由同一用户帐户存储。第五，在使用数据之前，请阅读并同意“使用条款”，包括对个人信息的保护和对个人信息的处理。</p>
