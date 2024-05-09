@@ -270,6 +270,7 @@ show_date_time();
         </li>
     </ul>
   </div>
+
         </div>
       </div>
     </div>
@@ -549,14 +550,14 @@ show_date_time();
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">624k</span>
+    <span title="Word count total">625k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">37:50</span>
+    <span title="Reading time total">37:52</span>
   </span>
 </div>
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
@@ -568,7 +569,7 @@ show_date_time();
         <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
+      本站访客数: <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
     <span class="post-meta-item" id="busuanzi_container_site_pv">
@@ -576,13 +577,12 @@ show_date_time();
         <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
+       本站总访问量: <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
-
     </div>
   </footer>
 
@@ -631,23 +631,6 @@ show_date_time();
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<!-- calendar widget -->
-{% if theme.CloudCalendar.enable %}
-    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
-    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
-    <script>
-    $(function() {
-        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
-            $.extend(
-                '', {
-                    single:{{ theme.CloudCalendar.single }},
-                    root:'{{ theme.CloudCalendar.root }}'
-                }
-            )
-        );
-    });
-    </script>
-{% endif %}
 
 
 <script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"https://otblboq0.lc-cn-n1-shared.com","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":true,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/archives/page/2/"}</script>

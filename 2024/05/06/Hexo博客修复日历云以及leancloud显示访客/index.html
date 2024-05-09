@@ -31,12 +31,12 @@
   daovoice('update');
   </script>
 
-    <meta name="description" content="由于电脑重装了一次，发现之前Hexo与NexT主题版本过于落后，重新部署了下。 ]">
+    <meta name="description" content="由于电脑重装了一次，发现之前Hexo与NexT主题版本过于落后，重新部署了下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客重新部署与Git配置">
 <meta property="og:url" content="https://gisersqdai.top/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D%E6%97%A5%E5%8E%86%E4%BA%91%E4%BB%A5%E5%8F%8Aleancloud%E6%98%BE%E7%A4%BA%E8%AE%BF%E5%AE%A2/index.html">
 <meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
-<meta property="og:description" content="由于电脑重装了一次，发现之前Hexo与NexT主题版本过于落后，重新部署了下。 ]">
+<meta property="og:description" content="由于电脑重装了一次，发现之前Hexo与NexT主题版本过于落后，重新部署了下。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://blog.gisersqdai.top/1715176885367lxgnp0wa.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1715050145692zjjxtv5x.png">
@@ -48,8 +48,17 @@
 <meta property="og:image" content="http://blog.gisersqdai.top/1715051167106xoe5poo0.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/17150513598568l36f147.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1715071052013icvm6yts.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715241161314e5q3vxhe.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715240993748diszjy7i.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/17152418440723ucc193o.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715241493085zm1cdvkt.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715241559116yjl7o9ur.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715241965225344b2zfd.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715241998259c90ewqxx.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/17152422679450pgkl15s.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1715242198801ipy3hb6v.png">
 <meta property="article:published_time" content="2024-05-06T12:19:00.000Z">
-<meta property="article:modified_time" content="2024-05-08T14:04:44.019Z">
+<meta property="article:modified_time" content="2024-05-09T08:22:31.094Z">
 <meta property="article:author" content="Dai Shaoqing">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="Git">
@@ -164,7 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Node-js%E4%B8%8Egit%E5%AE%89%E8%A3%85"><span class="nav-text">1 Node.js与git安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Hexo%E4%B8%8ENexT%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85"><span class="nav-text">2 Hexo与NexT主题安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6"><span class="nav-text">3 自定义的一些插件</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Node-js%E4%B8%8Egit%E5%AE%89%E8%A3%85"><span class="nav-text">1 Node.js与git安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Hexo%E4%B8%8ENexT%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85"><span class="nav-text">2 Hexo与NexT主题安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6"><span class="nav-text">3 自定义的一些插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E9%A1%B5%E8%84%9A%E4%BF%AE%E6%94%B9"><span class="nav-text">3.1 页脚修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8F%92%E5%85%A5%E8%AE%BF%E5%AE%A2%E5%8F%AF%E8%A7%86%E5%8C%96%E3%80%81%E8%AF%8D%E4%BA%91%E3%80%81%E5%BB%BA%E7%AB%99%E6%97%B6%E9%97%B4%E4%BB%A5%E5%8F%8A%E6%9C%80%E8%BF%91%E6%8E%A8%E9%80%81%E6%96%87%E7%AB%A0"><span class="nav-text">3.2 侧边栏插入访客可视化、词云、建站时间以及最近推送文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%9A%84%E6%9B%BF%E6%8D%A2%E4%BB%A5%E5%8F%8A%E4%B8%8B%E6%96%B9%E8%83%8C%E6%99%AF%E8%89%B2%E5%9D%97%E8%AE%BE%E7%BD%AE"><span class="nav-text">3.3 背景图的替换以及下方背景色块设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Daovoice"><span class="nav-text">3.4 Daovoice</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -288,6 +297,7 @@ show_date_time();
         </li>
     </ul>
   </div>
+
         </div>
       </div>
     </div>
@@ -399,14 +409,14 @@ show_date_time();
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>838</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span>6 mins.</span>
     </span>
 </div>
 
@@ -417,7 +427,7 @@ show_date_time();
     
     
     <div class="post-body" itemprop="articleBody"><p>由于电脑重装了一次，发现之前Hexo与NexT主题版本过于落后，重新部署了下。</p>
-<p><img src="http://blog.gisersqdai.top/1715176885367lxgnp0wa.png">]</p>
+<p><img src="http://blog.gisersqdai.top/1715176885367lxgnp0wa.png"></p>
 <span id="more"></span> 
 
 <h1 id="1-Node-js与git安装"><a href="#1-Node-js与git安装" class="headerlink" title="1 Node.js与git安装"></a>1 Node.js与git安装</h1><p>这一块安装就不赘述了。去两个官网找安装文件安装即可。</p>
@@ -455,7 +465,7 @@ show_date_time();
 <p>显示NexT版本。</p>
 <p><img src="http://blog.gisersqdai.top/17150513598568l36f147.png"></p>
 <p>然后安装部分插件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-cloud@^2.0.* --save</span><br><span class="line">npm install --save hexo-tag-aplayer</span><br><span class="line">npm install hexo-tag-dplayer --save</span><br><span class="line">npm install --save hexo-pdf</span><br><span class="line">npm install --save hexo-admin-qiniu</span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line">npm install hexo-filter-mathjax</span><br><span class="line">npm install theme-next/theme-next-calendar</span><br><span class="line">npm install hexo-word-counter</span><br><span class="line">npm install hexo-related-posts</span><br><span class="line">npm install next-theme/hexo-next-valine</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-cloud@^2.0.* --save</span><br><span class="line">npm install --save hexo-tag-aplayer</span><br><span class="line">npm install hexo-tag-dplayer --save</span><br><span class="line">npm install --save hexo-pdf</span><br><span class="line">npm install --save hexo-admin-qiniu</span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line">npm install hexo-filter-mathjax</span><br><span class="line">npm install hexo-word-counter</span><br><span class="line">npm install hexo-related-posts</span><br><span class="line">npm install next-theme/hexo-next-valine</span><br></pre></td></tr></table></figure>
 
 <p>从git上clone下next主题，修改配置文件。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
@@ -474,7 +484,6 @@ show_date_time();
 <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/next-theme/awesome-next">awesome next</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/theme-next/theme-next-calendar">theme next calendar</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-word-counter">hexo word counter</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-next-valine">hexo next valine</a></li>
 </ul>
@@ -482,7 +491,32 @@ show_date_time();
 <p>配置过程中的几个注意事项。valine出现了一个报错是“Cannot read property ‘enable_sync’ of undefined”，后面发现需要在根目录的配置文件添加如下的命令即可正常运行。</p>
 <p><img src="http://blog.gisersqdai.top/1715071052013icvm6yts.png"></p>
 <p>关于配置valine评论系统时报了401的错误。且以前的评论不显示。需要配置serverURLs。具体配置可以见参考资料的内容，这里不赘述了。</p>
-<h1 id="3-自定义的一些插件"><a href="#3-自定义的一些插件" class="headerlink" title="3 自定义的一些插件"></a>3 自定义的一些插件</h1><p>参考资料:</p>
+<h1 id="3-自定义的一些插件"><a href="#3-自定义的一些插件" class="headerlink" title="3 自定义的一些插件"></a>3 自定义的一些插件</h1><h2 id="3-1-页脚修改"><a href="#3-1-页脚修改" class="headerlink" title="3.1 页脚修改"></a>3.1 页脚修改</h2><p>这个地方主要是修改了下访客数量和访问总量那两部分中文。打开theme&#x2F;next&#x2F;layout&#x2F;_partials&#x2F;footer.njk文件。在画圈部分加上中文即可。</p>
+<p><img src="http://blog.gisersqdai.top/1715241161314e5q3vxhe.png"></p>
+<p>效果图。</p>
+<p><img src="http://blog.gisersqdai.top/1715240993748diszjy7i.png"></p>
+<h2 id="3-2-侧边栏插入访客可视化、词云、建站时间以及最近推送文章"><a href="#3-2-侧边栏插入访客可视化、词云、建站时间以及最近推送文章" class="headerlink" title="3.2 侧边栏插入访客可视化、词云、建站时间以及最近推送文章"></a>3.2 侧边栏插入访客可视化、词云、建站时间以及最近推送文章</h2><p>这些插件主要实现方式是，在根目录&#x2F;source下建立一个新的文件夹_data，然后新建一个sidebar.njk的新文件并输入如下的代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;days&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script language=&quot;javascript&quot;&gt;</span><br><span class="line">function show_date_time()&#123;</span><br><span class="line">window.setTimeout(&quot;show_date_time()&quot;, 1000);</span><br><span class="line">BirthDay=new Date(&quot;你的建站时间&quot;);</span><br><span class="line">today=new Date();</span><br><span class="line">timeold=(today.getTime()-BirthDay.getTime());</span><br><span class="line">sectimeold=timeold/1000</span><br><span class="line">secondsold=Math.floor(sectimeold);</span><br><span class="line">msPerDay=24*60*60*1000</span><br><span class="line">e_daysold=timeold/msPerDay</span><br><span class="line">daysold=Math.floor(e_daysold);</span><br><span class="line">e_hrsold=(e_daysold-daysold)*24;</span><br><span class="line">hrsold=setzero(Math.floor(e_hrsold));</span><br><span class="line">e_minsold=(e_hrsold-hrsold)*60;</span><br><span class="line">minsold=setzero(Math.floor((e_hrsold-hrsold)*60));</span><br><span class="line">seconds=setzero(Math.floor((e_minsold-minsold)*60));</span><br><span class="line">document.getElementById(&#x27;days&#x27;).innerHTML=&quot;已运行&quot;+daysold+&quot;天&quot;+hrsold+&quot;小时&quot;+minsold+&quot;分&quot;+seconds+&quot;秒&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function setzero(i)&#123;</span><br><span class="line">if (i&lt;10)</span><br><span class="line">&#123;i=&quot;0&quot; + i&#125;;</span><br><span class="line">return i;</span><br><span class="line">&#125;</span><br><span class="line">show_date_time();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; id=&quot;clstr_globe&quot; src=&quot;//cdn.clustrmaps.com/globe.js?d=你自己的数字&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&#123;% if site.tags.length &gt; 1 %&#125;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;&#123;&#123; url_for(&#x27;/js/tagcloud.js&#x27;) &#125;&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;&#123;&#123; url_for(&#x27;/js/tagcanvas.js&#x27;) &#125;&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;div class=&quot;widget-wrap&quot;&gt;</span><br><span class="line">    &lt;h3 class=&quot;widget-title&quot;&gt;Tag Cloud&lt;/h3&gt;</span><br><span class="line">    &lt;div id=&quot;myCanvasContainer&quot; class=&quot;widget tagcloud&quot;&gt;</span><br><span class="line">      &lt;canvas width=&quot;250&quot; height=&quot;250&quot; id=&quot;resCanvas&quot; style=&quot;width:100%&quot;&gt;</span><br><span class="line">        &#123;&#123; list_tags() &#125;&#125;</span><br><span class="line">      &lt;/canvas&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.recent_posts %&#125;</span><br><span class="line">  &lt;div class=&quot;links-of-recent-posts motion-element&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;links-of-recent-posts-title&quot;&gt;</span><br><span class="line">      &#123;%- if theme.recent_posts.icon %&#125;</span><br><span class="line">      &lt;i class=&quot;&#123;&#123; theme.recent_posts.icon &#125;&#125; fa-fw&quot;&gt;&lt;/i&gt;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">      &#123;&#123; theme.recent_posts.title &#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;ul class=&quot;links-of-recent-posts-list&quot;&gt;</span><br><span class="line">      &#123;%- set posts = site.posts.sort(&#x27;date&#x27;, &#x27;desc&#x27;).toArray() %&#125;</span><br><span class="line">      &#123;%- for post in posts.slice(&#x27;0&#x27;, theme.recent_posts.max_count) %&#125;</span><br><span class="line">        &lt;li class=&quot;links-of-recent-posts-item&quot;&gt;</span><br><span class="line">          &#123;&#123; next_url(post.path, post.title, &#123;title: post.path&#125;) &#125;&#125;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">      &#123;%- endfor %&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>另外在NexT主题的配置文件中也要修改下。</p>
+<p><img src="http://blog.gisersqdai.top/17152418440723ucc193o.png"></p>
+<p>访客可视化以及建站时间效果。</p>
+<p><img src="http://blog.gisersqdai.top/1715241493085zm1cdvkt.png"></p>
+<p>文章标签词云以及最近推送文章效果。</p>
+<p><img src="http://blog.gisersqdai.top/1715241559116yjl7o9ur.png"></p>
+<h2 id="3-3-背景图的替换以及下方背景色块设置"><a href="#3-3-背景图的替换以及下方背景色块设置" class="headerlink" title="3.3 背景图的替换以及下方背景色块设置"></a>3.3 背景图的替换以及下方背景色块设置</h2><p>同样需要在根目录&#x2F;source&#x2F;_data下新建一个style.styl的新文件并输入如下的代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#days &#123;</span><br><span class="line">    display: block;</span><br><span class="line">    color: rgb(7, 179, 155);</span><br><span class="line">    font-size: 13px;</span><br><span class="line">    margin-top: 15px;</span><br><span class="line">&#125;</span><br><span class="line">body &#123;</span><br><span class="line">      background: url(http://media.gisersqdai.top/snzs.jpg);</span><br><span class="line">      background-size: cover;</span><br><span class="line">      background-repeat: no-repeat;</span><br><span class="line">      background-attachment: fixed;</span><br><span class="line">      background-position: 50% 50%;</span><br><span class="line">&#125;</span><br><span class="line">// 页面底部页脚</span><br><span class="line">.footer &#123;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">    background-color: rgba(255, 255, 255, 0.75);</span><br><span class="line">    color: #333;</span><br><span class="line">    border-top-width: 3px;</span><br><span class="line">    border-top-style: solid;</span><br><span class="line">    border-top-color: rgb(161, 102, 171);</span><br><span class="line">    box-shadow: 0px -10px 10px 0px rgba(0, 0, 0, 0.15);</span><br><span class="line">&#125;</span><br><span class="line">// 选中文字部分的样式</span><br><span class="line">::selection &#123;</span><br><span class="line">    background-color: rgb(255, 241, 89);</span><br><span class="line">    color: #555;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.links-of-recent-posts</span><br><span class="line">  font-size: 0.8125em</span><br><span class="line">  margin-top: 10px</span><br><span class="line"></span><br><span class="line">.links-of-recent-posts-title</span><br><span class="line">  font-size: 1.03em</span><br><span class="line">  font-weight: 600</span><br><span class="line">  margin-top: 0</span><br><span class="line"></span><br><span class="line">.links-of-recent-posts-list</span><br><span class="line">  list-style: none</span><br><span class="line">  margin: 0</span><br><span class="line">  padding: 0</span><br></pre></td></tr></table></figure>
+<p>也需要在NexT配置文件中修改。</p>
+<p><img src="http://blog.gisersqdai.top/1715241965225344b2zfd.png"></p>
+<p>背景色块效果。</p>
+<p><img src="http://blog.gisersqdai.top/1715241998259c90ewqxx.png"></p>
+<h2 id="3-4-Daovoice"><a href="#3-4-Daovoice" class="headerlink" title="3.4 Daovoice"></a>3.4 Daovoice</h2><p>增加一个Daovoice支持的聊天界面。<a target="_blank" rel="noopener" href="http://dashboard.daovoice.io/">daovoice控制台</a>。在next&#x2F;layout&#x2F;_partials&#x2F;head&#x2F;head.njk文件中加入如下代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&#x27;https:&#x27; == document.location.protocol ? &#x27;https:&#x27; : &#x27;http:&#x27;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;)</span><br><span class="line">  daovoice(&#x27;init&#x27;, &#123;</span><br><span class="line">      app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(&#x27;update&#x27;);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>NexT配置文件中增加。</p>
+<p><img src="http://blog.gisersqdai.top/17152422679450pgkl15s.png"></p>
+<p>效果图。</p>
+<p><img src="http://blog.gisersqdai.top/1715242198801ipy3hb6v.png"></p>
+<p>参考资料:</p>
 <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Yaoyao2024/article/details/132123525">【Git】保姆级详解：Git配置SSH Key（密钥和公钥）到github</a></li>
@@ -502,6 +536,11 @@ show_date_time();
 <li><a target="_blank" rel="noopener" href="https://howiefh.github.io/2016/04/29/hexo-s-calendar-plugin/">Hexo日历插件</a></li>
 <li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10283488?sc=rss.iron">Hexo x NexT - 顯示最新文章、導入Google Analytics 的坑</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cscshi/p/15196107.html">Hexo-NexT 设置近期文章</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.idefun.com/article/2797960d.html">hexo next主题添加日历云</a></li>
+<li><a target="_blank" rel="noopener" href="https://howiefh.github.io/2016/04/29/hexo-s-calendar-plugin/">Hexo日历插件</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iots.vip/post/new-hexo-workflow.html">迎来船新版本的Hexo+NexT</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/682300955">个人blog搭建指南github pages和hexo-theme-next</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1964392">【目录】Hexo+NexT+Gemini 搭建博客拥抱舒爽</a></li>
 </ul>
 </blockquote>
 
@@ -673,14 +712,14 @@ show_date_time();
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">624k</span>
+    <span title="Word count total">625k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">37:50</span>
+    <span title="Reading time total">37:52</span>
   </span>
 </div>
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
@@ -692,7 +731,7 @@ show_date_time();
         <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
+      本站访客数: <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
     <span class="post-meta-item" id="busuanzi_container_site_pv">
@@ -700,13 +739,12 @@ show_date_time();
         <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
+       本站总访问量: <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
-
     </div>
   </footer>
 
@@ -755,23 +793,6 @@ show_date_time();
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<!-- calendar widget -->
-{% if theme.CloudCalendar.enable %}
-    <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
-    <script src="{{ theme.CloudCalendar.langCdn }}"></script>
-    <script>
-    $(function() {
-        $('#CloudCalendar').aCalendar('{{ theme.CloudCalendar.language }}',
-            $.extend(
-                '', {
-                    single:{{ theme.CloudCalendar.single }},
-                    root:'{{ theme.CloudCalendar.root }}'
-                }
-            )
-        );
-    });
-    </script>
-{% endif %}
 
 
 <script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"https://otblboq0.lc-cn-n1-shared.com","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":true,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2024/05/06/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E5%A4%8D%E6%97%A5%E5%8E%86%E4%BA%91%E4%BB%A5%E5%8F%8Aleancloud%E6%98%BE%E7%A4%BA%E8%AE%BF%E5%AE%A2/"}</script>
