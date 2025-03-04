@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="manifest" href="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gisersqdai.top","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":280,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96744ec9"
+    });
+  daovoice('update');
+  </script>
+
+    <meta name="description" content="记录一下Windows下CUDA+pytorch安装的一些参考链接。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下CUDA+pytorch安装">
+<meta property="og:url" content="https://gisersqdai.top/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
+<meta property="og:description" content="记录一下Windows下CUDA+pytorch安装的一些参考链接。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/17410678492493j35pky1.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/1741068056279hshkxsg4.png">
+<meta property="og:image" content="http://blog.gisersqdai.top/17410687399140etocjjx.png">
+<meta property="article:published_time" content="2025-03-04T05:21:00.000Z">
+<meta property="article:modified_time" content="2025-03-04T06:21:46.468Z">
+<meta property="article:author" content="Dai Shaoqing">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="CUDA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/17410678492493j35pky1.png">
+
+
+<link rel="canonical" href="https://gisersqdai.top/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://gisersqdai.top/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/","path":"2025/03/04/Windows下CUDA+pytorch安装/","title":"Windows下CUDA+pytorch安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Windows下CUDA+pytorch安装 | GISerDaiShaoqing's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">GISerDaiShaoqing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Health·Urban·Ecology·GIS</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-board"><a href="/board" rel="section"><i class="fa fa-book fa-fw"></i>Board</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-CUDA%E4%B8%8Epytorch%E7%AE%80%E4%BB%8B%EF%BC%88kimi%E7%94%9F%E6%88%90%EF%BC%89"><span class="nav-text">1 CUDA与pytorch简介（kimi生成）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-CUDA%E7%AE%80%E4%BB%8B"><span class="nav-text">1.1 CUDA简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-PyTorch%E7%AE%80%E4%BB%8B"><span class="nav-text">1.2 PyTorch简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-CUDA%E4%B8%8EPyTorch%E7%9A%84%E7%BB%93%E5%90%88"><span class="nav-text">1.3 CUDA与PyTorch的结合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-CUDA-PyTorch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"><span class="nav-text">2 CUDA+PyTorch安装教程</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dai Shaoqing"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Dai Shaoqing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">182</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GISerDaiShaoqing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;GISerDaiShaoqing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AQXoB80AAAAJ&hl=en" title="Scholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AQXoB80AAAAJ&amp;hl&#x3D;en" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Scholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://orcid.org/0000-0003-0858-4728" title="ORCID → https:&#x2F;&#x2F;orcid.org&#x2F;0000-0003-0858-4728" rel="noopener me" target="_blank"><i class="fa fa-id-card fa-fw"></i>ORCID</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dsq1993qingge@163.com" title="E-Mail → mailto:dsq1993qingge@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/shaoqing-dai-2ab7b6182/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;shaoqing-dai-2ab7b6182&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Daishaoqing_EGIS93" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;Daishaoqing_EGIS93" rel="noopener me" target="_blank"><i class="fab fa-codiepie fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.researchgate.net/profile/Shaoqing_Dai" title="RG → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Shaoqing_Dai" rel="noopener me" target="_blank"><i class="fab fa-researchgate fa-fw"></i>RG</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gisersqdai.top/mycv/" title="CV → https:&#x2F;&#x2F;gisersqdai.top&#x2F;mycv&#x2F;" rel="noopener me"><i class="fa fa-user-circle fa-fw"></i>CV</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("08/14/2016 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=7naufgeQBTlXfZFr80nKqskPfIaDLjMPLR6MRVljrwI"></script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div id="myCanvasContainer" class="widget tagcloud">
+      <canvas width="250" height="250" id="resCanvas" style="width:100%">
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D-GIS/" rel="tag">3D-GIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Academic/" rel="tag">Academic</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aliyun/" rel="tag">Aliyun</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS/" rel="tag">ArcGIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Online/" rel="tag">ArcGIS Online</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArcGIS-Pro/" rel="tag">ArcGIS Pro</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CGA/" rel="tag">CGA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/" rel="tag">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consideration-of-Ecology-and-Geography/" rel="tag">Consideration of Ecology and Geography</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endnote/" rel="tag">Endnote</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fortran/" rel="tag">Fortran</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Cloud-Platform/" rel="tag">Google Cloud Platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth/" rel="tag">Google Earth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Earth-Engine/" rel="tag">Google Earth Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Himawari/" rel="tag">Himawari</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/" rel="tag">LaTeX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MODIS/" rel="tag">MODIS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPP-VIIRS/" rel="tag">NPP VIIRS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostGIS/" rel="tag">PostGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Public-health/" rel="tag">Public health</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QGIS/" rel="tag">QGIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a><span class="tag-list-count">40</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shiny/" rel="tag">Shiny</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/" rel="tag">Summary</a><span class="tag-list-count">92</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theory/" rel="tag">Theory</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vmware-Workstation/" rel="tag">Vmware Workstation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WRF/" rel="tag">WRF</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-App-Builder/" rel="tag">Web App Builder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-10/" rel="tag">Windows 10</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hugo/" rel="tag">hugo</a><span class="tag-list-count">1</span></li></ul>
+      </canvas>
+    </div>
+  </div>
+
+  <div class="links-of-recent-posts motion-element">
+    <div class="links-of-recent-posts-title">
+      <i class="fa fa-history fa-fw"></i>
+      最近文章
+    </div>
+    <ul class="links-of-recent-posts-list">
+        <li class="links-of-recent-posts-item">
+          <a href="/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/" title="2025&#x2F;03&#x2F;04&#x2F;Windows下CUDA+pytorch安装&#x2F;">Windows下CUDA+pytorch安装</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/2025/02/27/%E6%9C%AC%E5%9C%B0Latex%E7%BC%96%E5%86%99%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="2025&#x2F;02&#x2F;27&#x2F;本地Latex编写环境配置&#x2F;">本地LaTeX编写环境配置</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/2024/10/17/%E4%BD%BF%E7%94%A8Certimate%E8%87%AA%E5%8A%A8%E7%94%B3%E8%AF%B7%E4%B8%8E%E9%83%A8%E7%BD%B2SSL%E8%AF%81%E4%B9%A6/" title="2024&#x2F;10&#x2F;17&#x2F;使用Certimate自动申请与部署SSL证书&#x2F;">使用Certimate自动申请与部署SSL证书</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/2024/10/15/Quarto-ppt%E6%A8%A1%E6%9D%BF%E5%88%B6%E4%BD%9C%E4%B8%8ERstudio-git%E8%BF%9E%E6%8E%A5/" title="2024&#x2F;10&#x2F;15&#x2F;Quarto-ppt模板制作与Rstudio-git连接&#x2F;">Quarto ppt模板制作与Rstudio git连接</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/2024/09/27/GISer%E7%94%A8%E4%BA%8E%E5%9D%90%E6%A0%87%E7%B3%BB%E9%80%89%E6%8B%A9%E7%9A%84%E6%87%92%E7%99%8C%E7%A5%9E%E5%99%A8-utm/" title="2024&#x2F;09&#x2F;27&#x2F;GISer用于坐标系选择的懒癌神器-utm&#x2F;">GISer用于坐标系选择的懒癌神器:utm</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://gisersqdai.top/D3LTool/" title="http:&#x2F;&#x2F;gisersqdai.top&#x2F;D3LTool&#x2F;">D3L Tool of NASA Satellite</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://covid19.gisersqdai.top/en-us/" title="http:&#x2F;&#x2F;covid19.gisersqdai.top&#x2F;en-us&#x2F;" rel="noopener" target="_blank">Awesome COVID-19</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gisersqdai.shinyapps.io/mets_severiity_calculator/" title="https:&#x2F;&#x2F;gisersqdai.shinyapps.io&#x2F;mets_severiity_calculator&#x2F;" rel="noopener" target="_blank">MetS score calculator shiny app</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://gisersqdai.top/Note-of-Applied-Statistics-with-R-Book/" title="https:&#x2F;&#x2F;gisersqdai.top&#x2F;Note-of-Applied-Statistics-with-R-Book&#x2F;">Note of Applied Statistics with R</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://gisersqdai.top/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Dai Shaoqing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Windows下CUDA+pytorch安装 | GISerDaiShaoqing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Windows下CUDA+pytorch安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-03-04 13:21:00" itemprop="dateCreated datePublished" datetime="2025-03-04T13:21:00+08:00">2025-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Valine: </span>
+  
+    <a title="valine" href="/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>10 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>记录一下Windows下CUDA+pytorch安装的一些参考链接。</p>
+<span id="more"></span> 
+
+<h1 id="1-CUDA与pytorch简介（kimi生成）"><a href="#1-CUDA与pytorch简介（kimi生成）" class="headerlink" title="1 CUDA与pytorch简介（kimi生成）"></a>1 CUDA与pytorch简介（kimi生成）</h1><h3 id="1-1-CUDA简介"><a href="#1-1-CUDA简介" class="headerlink" title="1.1 CUDA简介"></a>1.1 CUDA简介</h3><ul>
+<li>背景与起源：CUDA（Compute Unified Device Architecture）是NVIDIA推出的并行计算架构。它起源于NVIDIA在GPU通用计算领域的探索，旨在打破传统计算中CPU作为唯一计算核心的限制，充分挖掘图形处理器（GPU）在处理大规模并行计算任务方面的潜力。</li>
+<li>架构与组成：<blockquote>
+<p>1.GPU硬件架构：现代GPU采用流式多处理器（SM）架构，每个SM包含多个CUDA核心，这些核心可以同时执行大量线程。GPU还具有较大的显存（VRAM），用于存储数据和中间结果，以满足大规模数据处理的需求。<br>2.CUDA软件架构：CUDA软件架构分为三层。底层是硬件抽象层，包含寄存器、缓存和内存等。中间层是运行时库，提供API供开发者调用，实现对GPU资源的管理。顶层是工具和语言接口，方便开发者编写、调试和优化CUDA程序。</p>
+</blockquote>
+</li>
+<li>主要特点：<blockquote>
+<p>1.并行计算能力：CUDA程序可以在GPU上同时执行数千个线程，实现大规模并行计算，显著提升计算效率，非常适合处理复杂的科学计算、机器学习和深度学习任务。<br>2.灵活性：CUDA支持C、C++和Fortran等多种编程语言，开发者可以通过简单的扩展语法调用GPU加速功能，同时也允许更细粒度的控制，满足不同应用场景的需求。<br>3.强大的生态系统：NVIDIA为CUDA提供了丰富的库和工具，如cuBLAS（用于线性代数计算）、cuDNN（用于深度神经网络计算）等，这些库在各自领域都经过了高度优化，开发者可以直接使用，大幅提高了开发效率。</p>
+</blockquote>
+</li>
+<li>应用领域：<blockquote>
+<p>1.图形与视觉计算：CUDA在计算机图形学领域应用广泛，可用于实时渲染、物理模拟、图像处理等任务，为游戏、影视特效等行业提供了强大的技术支持。<br>2.科学计算：在气象预测、分子动力学模拟、天体物理模拟等科学研究中，CUDA强大的并行计算能力能够快速处理海量数据，加速科学发现进程。<br>3.深度学习与AI：当前，深度学习是CUDA最热门的应用领域之一。以PyTorch和TensorFlow为代表的深度学习框架利用CUDA实现了高效的并行计算，推动了人工智能技术的飞速发展。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-2-PyTorch简介"><a href="#1-2-PyTorch简介" class="headerlink" title="1.2 PyTorch简介"></a>1.2 PyTorch简介</h3><ul>
+<li>背景与起源：PyTorch是由Facebook人工智能研究院基于之前的Torch框架开发的一个开源机器学习框架。它诞生于深度学习蓬勃发展的时期，旨在为研究人员和开发者提供一个灵活、高效的工具，以加速深度学习模型的开发、训练和部署。</li>
+<li>核心组件与架构：<blockquote>
+<p>1.张量（Tensor）：PyTorch的核心数据结构是张量。张量类似于NumPy中的多维数组，但可以在GPU上运行，从而实现高效的并行计算。与NumPy相比，PyTorch张量支持自动求导，能够自动计算梯度，这是深度学习自动反向传播算法的基础。<br>2.自动微分（Autograd）：Autograd是PyTorch最强大且独特的功能之一。它能够自动记录张量之间的操作，并在反向传播时自动计算梯度，无需用户手动推导复杂的微分公式。这一功能极大地简化了神经网络的训练过程，使开发者能够专注于模型的构建和优化。<br>3.神经网络模块（nn.Module）：PyTorch提供了一个灵活且可扩展的神经网络模块系统。开发者可以像搭积木一样，通过组合各种预定义的层（如卷积层、池化层、全连接层等）来构建复杂的神经网络架构。同时，PyTorch还支持自定义层和模块，满足特殊需求。<br>4.优化器（torch.optim）：PyTorch内置了多种优化算法，如随机梯度下降（SGD）、Adam、RMSprop等。这些优化器可以与自动微分模块无缝配合，自动调整模型参数以最小化损失函数。</p>
+</blockquote>
+</li>
+<li>主要特点：<blockquote>
+<p>1.动态计算图：与TensorFlow等基于静态计算图的框架不同，PyTorch采用动态计算图。这意味着计算图可以在运行时构建和修改，更加灵活和直观。开发者可以像编写普通的Python代码一样构建模型，无需预先定义计算图结构，这使得调试和实验更加便捷。<br>2.易用性和灵活性：PyTorch具有简洁、直观的API，易于上手。其设计风格与Python语言高度契合，许多Python开发者可以很快掌握。同时，PyTorch允许对模型进行细粒度的控制，方便研究人员实现创新的算法和模型结构。<br>3.强大的社区支持：PyTorch拥有庞大的开发者社区，不断涌现出各种教程、论文实现和开源项目。社区成员相互交流和分享经验，共同推动了PyTorch的快速发展。</p>
+</blockquote>
+</li>
+<li>应用领域：<blockquote>
+<p>1.深度学习研究：PyTorch是当前最流行的深度学习研究框架之一。它在自然语言处理、计算机视觉、语音识别、强化学习等领域得到了广泛应用，许多前沿的研究成果都是基于PyTorch实现的。<br>2.工业应用：随着模型训练效率的提高和部署工具的完善，PyTorch在工业界的应用也越来越广泛。例如，Facebook使用PyTorch进行自然语言处理和推荐系统，Pinterest用它来分析图像数据，许多初创公司也纷纷将其用于开发各种AI驱动的产品和服务。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-3-CUDA与PyTorch的结合"><a href="#1-3-CUDA与PyTorch的结合" class="headerlink" title="1.3 CUDA与PyTorch的结合"></a>1.3 CUDA与PyTorch的结合</h3><ul>
+<li>CUDA为PyTorch提供硬件支持：PyTorch充分支持CUDA，能够利用GPU的强大计算能力。当使用PyTorch时，只需简单地将张量或模型迁移到GPU上，即可显著加速计算过程。PyTorch的底层设计与CUDA紧密结合，能够高效地调用CUDA库（如cuBLAS和cuDNN）进行线性代数运算和神经网络计算。</li>
+<li>PyTorch简化了CUDA编程：对于深度学习开发者来说，PyTorch提供了一套高级接口，隐藏了CUDA编程的复杂细节。开发者无需深入了解CUDA的底层架构，即可充分利用GPU的计算资源。PyTorch的自动微分和动态计算图功能，使得构建和训练深度学习模型变得更加简单和高效。</li>
+<li>在深度学习中的应用：在深度学习中，CUDA与PyTorch的结合使得模型训练和推理的速度大幅提升。无论是小型的实验模型还是大型的工业级模型，都可以在GPU上高效运行。此外，结合分布式训练技术，PyTorch可以轻松地实现多GPU并行计算，进一步加速模型训练过程。</li>
+</ul>
+<p>综上所述，CUDA和PyTorch分别是GPU计算和深度学习领域的关键技术。它们的紧密合作推动了人工智能的发展，使得各种复杂的计算任务能够高效地完成。</p>
+<h1 id="2-CUDA-PyTorch安装教程"><a href="#2-CUDA-PyTorch安装教程" class="headerlink" title="2 CUDA+PyTorch安装教程"></a>2 CUDA+PyTorch安装教程</h1><p>基本逻辑是“NVIDIA显卡驱动安装→CUDA安装→Python安装→Pytorch安装”。</p>
+<p>NVIDIA显卡驱动根据自己机子的型号到官方网站下载对应的驱动。如果不确定自家显卡的型号，可以打开任务管理器点击到GPU界面查看即可。</p>
+<p><a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/drivers/">显卡驱动下载链接</a></p>
+<p>下载完以后就只需要图形界面一路安装即可。</p>
+<p>接下来是安装CUDA，也是比较麻烦的一步。首先需要确认自己的显卡能接受什么版本的CUDA。这里需要打开命令行，输入如下的命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<p>这里Driver Vesrion的版本就是你目前显卡驱动的版本。CUDA Version则是能接受的CUDA最高版本。下面则是正在运行的程序占用GPU的情况。</p>
+<p><img src="http://blog.gisersqdai.top/17410678492493j35pky1.png"></p>
+<p>接下来就是去CUDA官网下载CUDA的安装包。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA release</a></p>
+<p>根据你的机子支持的CUDA先选版本，后续根据机子的系统架构版本选择。这里建议选择local的exe。</p>
+<p><img src="http://blog.gisersqdai.top/1741068056279hshkxsg4.png"></p>
+<p>接下来双击exe理论就可以安装了。但是遭遇了几次安装失败以后，通过网络搜索发现了关键的问题。每次都是安装Nsight Compute失败，然后全暂停了。而我们下载的exe其实是一个压缩包。因此，只需要先解压（用7-zip或者bandzip之类的软件），单独安装Nsight Compute，然后再安装剩下的CUDA组件即可。因此后续再CUDA安装exe的图形界面里，要把Nisght Compute勾掉，这样就安装成功了。安装成功后在命令行输入如下命令测试。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+<p>出现如下版本信息即安装成功(下面是在另一台电脑安装成功的输出信息，具体版本根据你安装版本不同决定)。</p>
+<blockquote>
+<p>nvcc: NVIDIA (R) Cuda compiler driver<br>Copyright (c) 2005-2024 NVIDIA Corporation<br>Built on Fri_Jun_14_16:44:19_Pacific_Daylight_Time_2024<br>Cuda compilation tools, release 12.6, V12.6.20<br>Build cuda_12.6.r12.6&#x2F;compiler.34431801_0</p>
+</blockquote>
+<p>Python安装这里就不赘述了，本站有多篇关于Python，Anaconda，Jupyter以及数据科学开发集成环境的安装配置。</p>
+<p>至于Pytorch的安装也是参照官网。</p>
+<p><a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">pytorch pip安装命令行生成</a></p>
+<p><img src="http://blog.gisersqdai.top/17410687399140etocjjx.png"></p>
+<p>另外用pip直接安装的话需要梯子，建议下载whl文件离线安装。另外换镜像也是一个选择。</p>
+<p>安装完成以后可以测试下是否可以用GPU运算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">torch.cuda.is_available()</span><br></pre></td></tr></table></figure>
+<p>输出true就大功告成。</p>
+<p>后面在jupyter测试code时还碰到一个问题（报错信息）。</p>
+<blockquote>
+<p>Disposing session as kernel process died ExitCode: 3, Reason: OMP: Error #~5: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized</p>
+</blockquote>
+<p>解决方案是找到你python环境里的dll文件删除即可。</p>
+<p>参考链接：</p>
+<blockquote>
+<p>1.<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_65482549/article/details/141195825">2024年Pytorch + CUDA配置教程（Windows版）手把手教学，详细讲解</a></p>
+</blockquote>
+<blockquote>
+<p>2.<a target="_blank" rel="noopener" href="https://www.bilibili.com/opus/944721775279734792?jump_opus=1">解决CUDA安装失败，Nsight Compute安装失败的一个方法</a></p>
+</blockquote>
+<blockquote>
+<p>3.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/371649016">关于OMP: Error #15: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized.错误解决方法</a></p>
+</blockquote>
+<blockquote>
+<p>4.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23071389812">超详细 CUDA 安装与卸载教程（图文教程）</a></p>
+</blockquote>
+<blockquote>
+<p>5.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/305854081">Window下Python+CUDA+PyTorch安装</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="Dai Shaoqing WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay-reward-image.jpg" alt="Dai Shaoqing Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/DaiShaoqing">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://weibo.com/2884386252/profile?rightmod=1&wvr=6&mod=personinfo">
+            <span class="icon">
+              <i class="fab fa-weibo"></i>
+            </span>
+
+            <span class="label">Weibo</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/dai-shao-qing-84">
+            <span class="icon">
+              <i class="fa fa-reply-all"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.sciencenet.cn/u/GISdsq">
+            <span class="icon">
+              <i class="fa fa-globe"></i>
+            </span>
+
+            <span class="label">ScienceNet</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://blog.csdn.net/esa_dsq">
+            <span class="icon">
+              <i class="fa fa-crosshairs"></i>
+            </span>
+
+            <span class="label">CSDN</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="http://www.jianshu.com/u/8bfccfb12c0d">
+            <span class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </span>
+
+            <span class="label">Jianshu</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://my.oschina.net/u/2424163">
+            <span class="icon">
+              <i class="fab fa-codepen"></i>
+            </span>
+
+            <span class="label">OSchina</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://yq.aliyun.com/u/sqdaigiser">
+            <span class="icon">
+              <i class="fa fa-cloud"></i>
+            </span>
+
+            <span class="label">Aliyunqi</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/CUDA/" rel="tag"># CUDA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/02/27/%E6%9C%AC%E5%9C%B0Latex%E7%BC%96%E5%86%99%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="prev" title="本地LaTeX编写环境配置">
+                  <i class="fa fa-angle-left"></i> 本地LaTeX编写环境配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Dai Shaoqing</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">630k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">38:11</span>
+  </span>
+</div>
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">闽ICP备 18026025号 </a>
+      <img src="/images/beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=35021302000273" rel="noopener" target="_blank">闽公网安备 35021302000273号 </a>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+      本站访客数: <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+       本站总访问量: <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GISerDaiShaoqing" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+<script class="next-config" data-name="valine" type="application/json">{"enable":true,"appId":"oTblBOq0hbTxjxkvF4aCAjQ6-gzGzoHsz","appKey":"5R3loDlmeKFd1bdvCNnq065n","serverURLs":"https://otblboq0.lc-cn-n1-shared.com","placeholder":"~\\(≧▽≦)/~来呀！快活呀！登陆时留邮箱有邮件提醒哦！","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":true,"enableQQ":false,"requiredFields":[],"el":"#valine-comments","path":"/2025/03/04/Windows%E4%B8%8BCUDA+pytorch%E5%AE%89%E8%A3%85/"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.valine.el)
+    .then(() => NexT.utils.getScript(
+      'https://fastly.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+      { condition: window.Valine }
+    ))
+    .then(() => {
+      new Valine(CONFIG.valine);
+    });
+});
+</script>
+
+</body>
+</html>
