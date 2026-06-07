@@ -38,18 +38,19 @@
 <meta property="og:site_name" content="GISerDaiShaoqing&#39;s Blog">
 <meta property="og:description" content="记录一下折腾自己服务器部署网易云API，用于Melotopia的过程。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.gisersqdai.top/1780838712636sgjfav2j.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/17805584419734j9qnluu.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1780838219836kuag19hp.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/178083824848749t40jvz.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1780838308227e5xpk6qd.png">
 <meta property="og:image" content="http://blog.gisersqdai.top/1780838712636sgjfav2j.png">
 <meta property="article:published_time" content="2026-06-04T07:23:00.000Z">
-<meta property="article:modified_time" content="2026-06-07T13:25:20.065Z">
+<meta property="article:modified_time" content="2026-06-07T13:31:29.415Z">
 <meta property="article:author" content="Dai Shaoqing">
 <meta property="article:tag" content="Harmony">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.gisersqdai.top/17805584419734j9qnluu.png">
+<meta name="twitter:image" content="http://blog.gisersqdai.top/1780838712636sgjfav2j.png">
 
 
 <link rel="canonical" href="https://gisersqdai.top/2026/06/04/LLM%E5%A2%9E%E5%BC%BA%E7%9A%84%E7%BD%91%E6%98%93%E4%BA%91API%E9%83%A8%E7%BD%B2%E7%94%A8%E4%BA%8E%E9%B8%BF%E8%92%99%E5%8E%9F%E7%94%9F%E9%9F%B3%E4%B9%90app-Melotopia/">
@@ -395,7 +396,7 @@ show_date_time();
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>419</span>
+      <span>421</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -413,6 +414,7 @@ show_date_time();
     
     
     <div class="post-body" itemprop="articleBody"><p>记录一下折腾自己服务器部署网易云API，用于Melotopia的过程。</p>
+<p><img src="http://blog.gisersqdai.top/1780838712636sgjfav2j.png"></p>
 <span id="more"></span> 
 
 <h1 id="1-Melotopia"><a href="#1-Melotopia" class="headerlink" title="1 Melotopia"></a>1 Melotopia</h1><p>这是一个鸿蒙原生的音乐app，可以通过接入网易云API来接收你网易云的账户信息。</p>
@@ -443,7 +445,7 @@ show_date_time();
 <p>然后要更新Nginx 配置（添加 API 代理）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/nginx/sites-available/yousite &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name 你的域名;</span><br><span class="line">    return 301 https://$server_name$request_uri;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    http2 on;</span><br><span class="line">    server_name 你的域名;</span><br><span class="line"></span><br><span class="line">    root 你网站的根目录;</span><br><span class="line">    index index.html index.htm;</span><br><span class="line"></span><br><span class="line">    ssl_certificate /etc/letsencrypt/live/yousite/fullchain.pem;</span><br><span class="line">    ssl_certificate_key /etc/letsencrypt/live/yousite/privkey.pem;</span><br><span class="line">    include /etc/letsencrypt/options-ssl-nginx.conf;</span><br><span class="line">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;</span><br><span class="line"></span><br><span class="line">    # 网易云 API 反向代理</span><br><span class="line">    location /api/ &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:3000/;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    access_log /var/log/nginx/yousite.access.log;</span><br><span class="line">    error_log /var/log/nginx/yousite.error.log;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">sudo nginx -t &amp;&amp; sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
 <p>最后就测试API就好了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地测试</span></span><br><span class="line">curl http://localhost:3000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 HTTPS 域名测试</span></span><br><span class="line">curl https://covid19.gisersqdai.top/api/playlist/detail?<span class="built_in">id</span>=19723756</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地测试</span></span><br><span class="line">curl http://localhost:3000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 HTTPS 域名测试</span></span><br><span class="line">curl https://你的域名/api/playlist/detail?<span class="built_in">id</span>=19723756</span><br></pre></td></tr></table></figure>
 
 <p>放几张运行的关键截图。</p>
 <p><img src="http://blog.gisersqdai.top/1780838219836kuag19hp.png"></p>
